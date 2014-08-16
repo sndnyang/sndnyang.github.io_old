@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>/</link><description></description><atom:link href="/feeds/yang-xiu-long.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 13 Aug 2014 11:51:02 +0800</lastBuildDate><item><title>ksh手册</title><link>/ksh_manual.html</link><description>
+&lt;h1 id="1"&gt;1.语法&lt;/h1&gt;
+&lt;h2 id="_1"&gt;特殊的文件&lt;/h2&gt;
+&lt;p&gt;/etc/profile  在登录时首先自动执行。 &lt;br/&gt;
+$HOME/.profile  在登录时第二个自动执行。 &lt;br/&gt;
+$ENV  在创建一个新的KShell时指定要读的一个文件。   &lt;/p&gt;
+&lt;h2 id="_2"&gt;文件名元字符&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;匹配有零或零个以上字符的字符串   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;?  匹配任何单个字符   &lt;/li&gt;
+&lt;li&gt;[abc…]  匹配括号内任何一个字符，也可用连字符指定一个范围（例如，a-z,A-Z,0-9）   &lt;/li&gt;
+&lt;li&gt;[!abc…]  匹配任何不包括在括号内的字符   &lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;?(pattern)  匹配模式的零个或一个实例   &lt;/li&gt;
+&lt;li&gt;*(pattern)  匹配指定模式的零个或多个实例   &lt;/li&gt;
+&lt;li&gt;＋(pattern)  匹配指定模式的一个或多个实例   &lt;/li&gt;
+&lt;li&gt;＠(pattern)  只匹配指定模式的一个实例   &lt;/li&gt;
+&lt;li&gt;！(pattern)  匹配任何不匹配模式的字符串   &lt;/li&gt;
+&lt;li&gt;\n  匹配与(…)中的第n个子模式匹配的文本。   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个模式pattern可能是由分隔符“|”或“＆”分隔的模式的序列， &lt;br/&gt;
+例：pr !(*.o|core) | lp   &lt;/p&gt;
+&lt;h2 id="_3"&gt;引用&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;;  命令分隔符   &lt;/li&gt;
+&lt;li&gt;＆  后台执行   &lt;/li&gt;
+&lt;li&gt;( )  命令分组   &lt;/li&gt;
+&lt;li&gt;|  管道   &lt;/li&gt;
+&lt;li&gt;&amp;lt; &amp;gt; &amp;amp;  重定向符号   &lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;? [ ] ~ + - @ !  文件名元字符   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;““  中间的字符会逐字引用，除了`` 替换命令和$ 替换变量.   &lt;/li&gt;
+&lt;li&gt;‘’  中间的所有字符都会逐字引用   &lt;/li&gt;
+&lt;li&gt;\  在其后的字符会按其原来的意义逐字采用.如在””中使用 \”,`,\$   &lt;/li&gt;
+&lt;li&gt;\a 警告，\b退格,\f 换页,\n 换行,\r 回车,\ 制表符,\v 垂直制表符,   &lt;/li&gt;
+&lt;li&gt;\nnn 八进制值,\xnn 十六进制值,\’ 单引号,\” 双引号,\ 反斜线,   &lt;/li&gt;
+&lt;li&gt;``  命令的替换   &lt;/li&gt;
+&lt;li&gt;$  变量的替换   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_4"&gt;命令形式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Cmd &amp;amp;  在后台执行   &lt;/li&gt;
+&lt;li&gt;Cmd1;cmd2  命令序列，依次执行   &lt;/li&gt;
+&lt;li&gt;{cmd1;cmd2;}  将命令做为一组来执行   &lt;/li&gt;
+&lt;li&gt;(cmd1;cmd2)  在子shell中，将命令做为一组执行   &lt;/li&gt;
+&lt;li&gt;Cmd1|cmd2  管道;将cmd1的输出作为cmd2的输入   &lt;/li&gt;
+&lt;li&gt;Cmd1 &lt;code&gt;cmd2&lt;/code&gt;  命令替换;用cmd2的输出作为cmd1的参数   &lt;/li&gt;
+&lt;li&gt;Cmd1$(cmd2)  命令替换，可以嵌套   &lt;/li&gt;
+&lt;li&gt;Cmd$((expression))  运算替换。用表达式结果作为参数   &lt;/li&gt;
+&lt;li&gt;Cmd1&amp;amp;&amp;amp;cmd2  逻辑与。如果cmd1成功才执行cmd2   &lt;/li&gt;
+&lt;li&gt;Cmd1||cmd2  逻辑或。如果cmd1成功则不会执行cmd2   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_5"&gt;重定向形式&lt;/h2&gt;
+&lt;h3 id="_6"&gt;文件描述符：&lt;/h3&gt;
+&lt;p&gt;0         标准输入  stdin  默认为键盘 &lt;br/&gt;
+1         标准输出  stdout &lt;br/&gt;
+2         标准错误  stderr   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;Cmd &amp;gt; file  将cmd的结果输出到file(覆盖) &lt;br/&gt;
+Cmd &amp;gt;&amp;gt; file  将cmd的结果输出到file(追加) &lt;br/&gt;
+Cmd &amp;lt; file  从file中获取cmd 的输入 &lt;br/&gt;
+Cmd &amp;lt;&amp;lt; text  将shell脚本的内容（直到遇见一个和text一样的标记为止）作为cmd的输入 &lt;br/&gt;
+Cmd &amp;lt;&amp;gt; file  在标准输入上打开文件以便读写   &lt;/p&gt;
+&lt;p&gt;Cmd &amp;gt;&amp;amp;n  将输出发送到文件描述符n。ll &amp;gt;&amp;amp;1 &lt;br/&gt;
+Cmd m&amp;gt;&amp;amp;n　将本来输出的m中的内容转发到n中。Ll 3&amp;gt;&amp;amp;2 &lt;br/&gt;
+Cmd &amp;gt;&amp;amp;-  关闭标准输出 &lt;br/&gt;
+Cmd &amp;lt;&amp;amp;n　获取输入 &lt;br/&gt;
+Cmd m&amp;lt;&amp;amp;n &lt;br/&gt;
+Cmd &amp;lt;&amp;amp;-　关闭标准输入 &lt;br/&gt;
+在文件描述符和一个重定向符号间不允许有空格。   &lt;/p&gt;
+&lt;p&gt;Cmd 2&amp;gt;file  将标准错误发到file中 &lt;br/&gt;
+Cmd &amp;gt; file 2&amp;gt;&amp;amp;1  将标准错误和标准输出都发到file &lt;br/&gt;
+Cmd &amp;gt; f1 2&amp;gt;f2  将标准输出发到f1,标准错误发到f2 &lt;br/&gt;
+Cmd | tee files  将输出发送到标准输出和files中 &lt;br/&gt;
+Cmd 2&amp;gt;&amp;amp;1 | tee files  将输出和错误同时发到标准输出和files中   &lt;/p&gt;
+&lt;h1 id="2"&gt;2. 变量&lt;/h1&gt;
+&lt;h2 id="_7"&gt;变量替换&lt;/h2&gt;
+&lt;p&gt;下列表达式中不允许使用空格。冒号是可选的，如果用冒号那么变量必须是非空的并设置了初始值。   &lt;/p&gt;
+&lt;p&gt;Var=value…  将变量var 设为value &lt;br/&gt;
+${var}  使用变量var的值;如果变量和其后面的文本是分开的则可以不加大括号。 &lt;br/&gt;
+${var:-value}  如果变量var已设置则使用它，否则使用值value &lt;br/&gt;
+${var:=value}  如果变量var已设置则使用它，否则使用值value并将value赋给变量var &lt;br/&gt;
+${var:+value}  如果变量var已设置则使用value，否则什么也不使用   &lt;/p&gt;
+&lt;p&gt;例:echo ${u-$d};echo ${tmp-&lt;code&gt;date&lt;/code&gt;}如果没设tmp,则执行date;   &lt;/p&gt;
+&lt;h2 id="_8"&gt;内置变量&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;$#  命令行参数的个数   &lt;/li&gt;
+&lt;li&gt;$?　上一条命令执行后返回的值   &lt;/li&gt;
+&lt;li&gt;$$　当前进程的进程号(PID), 通常用于在shell脚本中创建临时文件的名称   &lt;/li&gt;
+&lt;li&gt;$0　第一个参数即命令名   &lt;/li&gt;
+&lt;li&gt;$n　命令行上的第n个参数   &lt;/li&gt;
+&lt;li&gt;$ * 将命令行上所有参数作为一个字符串   &lt;/li&gt;
+&lt;li&gt;$@　命令行上所有参数，但每个参数都被引号引起来   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr/&gt;
+&lt;h2 id="_9"&gt;特殊内置变量&lt;/h2&gt;
+&lt;p&gt;LINENO  脚本或函数内正在执行的命令的行号 &lt;br/&gt;
+OLDPWD　前一个工作目录（由CD设置） &lt;br/&gt;
+PPID　　当前SHELL的父进程的进程号 &lt;br/&gt;
+PWD　　　当前工作目录（由CD设置） &lt;br/&gt;
+RANDOM[=n]　每次引用时产生一个随机数，如果给定n则以整数n开始 &lt;br/&gt;
+SECONDS 这个整型变量的值是指从这个shell会话启动算起所过去的秒数。但它更有用的是用脚本中的计时。 &lt;br/&gt;
+    例：start=$SECONDS &lt;br/&gt;
+        read answer &lt;br/&gt;
+        finish=$SECONDS   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="_10"&gt;特殊内置变量续&lt;/h2&gt;
+&lt;p&gt;TMOUT   如果设置了该变量，则在没有输入的情况下经过TMOUT变量所指定的秒数后，shell退出。值为0时无效。 &lt;br/&gt;
+CDPATH &lt;br/&gt;
+允许用户使用简单文件名作为CD的参数，从而快速改变目录。设置方法与PATH类似，通常在启动文件中设置。如果CD的参数是一个绝对路径，则不会查询CDPATH. &lt;br/&gt;
+例：CDPATH=:/u1/nr:/u1/progs: &lt;br/&gt;
+    export CDPATH &lt;br/&gt;
+    cd nr &lt;br/&gt;
+    就会进到nr中去。 &lt;br/&gt;
+    注意：变量必须大写，定义后必须导出.   &lt;/p&gt;
+&lt;h2 id="_11"&gt;数组&lt;/h2&gt;
+&lt;p&gt;Kshell支持一维数组，最多支持1024个元素。第一个元素为０。 &lt;br/&gt;
+Set –A name value0 value1 … &lt;br/&gt;
+声明数组，指定的值就成为name的元素。   &lt;/p&gt;
+&lt;p&gt;${name[i]}　i为0至1023的值，可以是表达式。返回数组元素i &lt;br/&gt;
+${name}　返回数组元素０ &lt;br/&gt;
+${name[&lt;em&gt;]},${name[@]}　返回所有元素 &lt;br/&gt;
+下标[&lt;/em&gt;]和[@]都可以提取整个数组的内容。但当它们在引号中使用时其行为是不同的。使用@可生成一个数组，这个数组是原始数组的副本，而使用&lt;em&gt;，则生成的仅仅是具有单一元素的数组(或者是一个普通变量)。 &lt;br/&gt;
+    例：set -A a "${names[&lt;/em&gt;]}" &lt;br/&gt;
+        set -A b "${names[@]}"  &lt;br/&gt;
+        set|head -5 &lt;br/&gt;
+        a[0]='alex helen jenny scott' &lt;br/&gt;
+        b[0]=alex &lt;br/&gt;
+        b[1]=helen &lt;br/&gt;
+        b[2]=jenny &lt;br/&gt;
+        b[3]=scott &lt;br/&gt;
+    ${#name[*]}　返回数组元素个数   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id="_12"&gt;运算符&lt;/h2&gt;
+&lt;p&gt;Kshell使用C语言中的运算符。 &lt;br/&gt;
+% 求余;&amp;lt;&amp;lt; 左移;&amp;gt;&amp;gt; 右移;&amp;lt;= 小于等于;&amp;gt;=　大于等于;&amp;lt; 小于;   &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大于;== 相等;!= 不等;&amp;amp;&amp;amp; 逻辑与;||　逻辑或;   &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="3"&gt;3.内置命令&lt;/h1&gt;
+&lt;h2 id="_13"&gt;条件执行语句。&lt;/h2&gt;
+&lt;p&gt;If condition1 &lt;br/&gt;
+Then 
+    commands1 &lt;br/&gt;
+[elif condition2 &lt;br/&gt;
+Then 
+    commands2] &lt;br/&gt;
+… &lt;br/&gt;
+[else commands3] &lt;br/&gt;
+Fi   &lt;/p&gt;
+&lt;h2 id="_14"&gt;循环控制&lt;/h2&gt;
+&lt;h3 id="for"&gt;for&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;   
+&lt;span class="n"&gt;Do&lt;/span&gt;   
+   &lt;span class="n"&gt;Commands&lt;/span&gt;   
+&lt;span class="n"&gt;Done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;使变量x(在可选的值列表中)执行commands，省略时假定为”$@”位置参数 &lt;br/&gt;
+例: &lt;br/&gt;
+    For item in &lt;code&gt;cat program_list&lt;/code&gt; &lt;br/&gt;
+    Do &lt;br/&gt;
+       Grep –c “$item.[co]” chap* &lt;br/&gt;
+    Done   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3 id="repeat"&gt;repeat&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;repeat&lt;/span&gt; &lt;span class="n"&gt;word&lt;/span&gt;   
+&lt;span class="k"&gt;do&lt;/span&gt;   
+    &lt;span class="n"&gt;commands&lt;/span&gt;   
+&lt;span class="n"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;指定一个命令序列执行的次数。 &lt;br/&gt;
+例： &lt;br/&gt;
+    repeat 3 &lt;br/&gt;
+    do &lt;br/&gt;
+        echo "bye" &lt;br/&gt;
+    done   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3 id="select"&gt;select&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;   
+&lt;span class="n"&gt;Do&lt;/span&gt;   
+   &lt;span class="n"&gt;Commands&lt;/span&gt;   
+&lt;span class="n"&gt;Done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="listreturn"&gt;显示一列按list中顺序编号的菜单项。让用户键入行号选择或按return重新显示。&lt;/h2&gt;
+&lt;p&gt;例: &lt;br/&gt;
+    Ps3=”select thd item number:” &lt;br/&gt;
+    Select event in format page view exit &lt;br/&gt;
+    Do &lt;br/&gt;
+       Case “event” in &lt;br/&gt;
+          Format) nroff $file | lp;; &lt;br/&gt;
+          Page) pr $file | lp;; &lt;br/&gt;
+          View) more $file;; &lt;br/&gt;
+          Exit) exit 0;; &lt;br/&gt;
+          *)    echo “invalid selection”;; &lt;br/&gt;
+       Esac &lt;br/&gt;
+    Done   &lt;/p&gt;
+&lt;h2 id="case"&gt;控制语句case&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Case&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;   
+     &lt;span class="n"&gt;Pattern1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;cmds1&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   
+     &lt;span class="n"&gt;Pattern2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;cmds2&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   
+     &lt;span class="err"&gt;…&lt;/span&gt;   
+     &lt;span class="err"&gt;…&lt;/span&gt;   
+&lt;span class="n"&gt;Esac&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;类似于select case.例:   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Case&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;   
+   &lt;span class="n"&gt;No&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;yea&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;   
+        &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   
+   &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;tT&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   
+   &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;unknown&lt;/span&gt; &lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   
+&lt;span class="n"&gt;Esac&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_15"&gt;函数&lt;/h2&gt;
+&lt;p&gt;Function name{commands;}  定义一个函数 &lt;br/&gt;
+or &lt;br/&gt;
+functionName {commands;}&lt;/p&gt;
+&lt;p&gt;必须有commands&lt;/p&gt;
+&lt;h2 id="_16"&gt;&lt;/h2&gt;
+&lt;p&gt;Eval args  args是一行包含shell变量的代码.eval首先进行变量扩展，并且运行由此产生的命令。在shell变量包括了重定向符号，别名或其他变量时是有用的。 &lt;br/&gt;
+例: &lt;br/&gt;
+    Eval sort $file $out   &lt;/p&gt;
+&lt;p&gt;Export [name=[value]…] &lt;br/&gt;
+定义全局变量，让其它shell脚本也可以使用。无参数时输出当前定义的全局变量。   &lt;/p&gt;
+&lt;p&gt;Let expressions  执行一个或多个表达式。表达式中的变量前不必有$.如果表达式中包含了空格或其他特殊字符，则必须引起来。 &lt;br/&gt;
+例：let “I = I + 1” 或 let i=i+1   &lt;/p&gt;
+&lt;p&gt;Read [var1[?string]] [var2 …]  从标准输入读入一行给相应的变量，并把剩余的单词给最后一个变量。String为相应的提示信息.无参时只等待一次输入。   &lt;/p&gt;
+&lt;p&gt;Readonly [var1[=value] var2[=value] …]  设置只读变量,无参时显示所有只读变量 &lt;br/&gt;
+select the item number:   &lt;/p&gt;
+&lt;p&gt;set [options arg1 arg2 …]  无参时输出所有已知变量的值。   &lt;/p&gt;
+&lt;p&gt;Shift [n]  交换位置参数（如将$2变为$1）.如果给出n,则向左移动n个位置。通常用于在while循环中迭代命令行参数。N可以是一个整数表达式。   &lt;/p&gt;
+&lt;p&gt;Sleep [n]  睡眠n秒钟   &lt;/p&gt;
+&lt;h2 id="_17"&gt;条件判断&lt;/h2&gt;
+&lt;p&gt;Test condition 或[ condition ]  判断条件，为真返回0,否则返回非0.   &lt;/p&gt;
+&lt;h3 id="_18"&gt;文件：&lt;/h3&gt;
+&lt;p&gt;-a filename         如果该文件存在而为真 &lt;br/&gt;
+-d filename         如果该文件存在且为一个目录，则为真 &lt;br/&gt;
+-f filename         如果该文件存在且为一个常规文件，则为真 &lt;br/&gt;
+-L filename         如果该文件存在且为一个符号链接，为真 &lt;br/&gt;
+-r filename         如果该文件存在且用户对其有读取权限，真 &lt;br/&gt;
+-s filename         如果该文件存在且包含信息(大于0字节)，真 &lt;br/&gt;
+-w filename         如果该文件存在且对其有写入权，真 &lt;br/&gt;
+-x filename         如果该文件存在且对其有执行权，真 &lt;br/&gt;
+File1 -nt file2     如果file1存在且在file2后修改则值为真(指修改时间)&lt;br/&gt;
+File1 -ot file2     如果file1存在且在file2前修改则值为真(指修改时间)   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3 id="_19"&gt;字符串：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;string          如果string不为空字符串则值为真   &lt;/li&gt;
+&lt;li&gt;-n string       如果string字符长度大于0则值为真   &lt;/li&gt;
+&lt;li&gt;-z string       如果string字符长度等于0则值为真   &lt;/li&gt;
+&lt;li&gt;string1=sting2      如果string1等于string2则值为真   &lt;/li&gt;
+&lt;li&gt;string1!=string2        如果string1不等于string2则值为真 &lt;br/&gt;
+string2可以是通配符模式。   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_20"&gt;整数比较：&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt; &lt;span class="err"&gt;大于；&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ge&lt;/span&gt; &lt;span class="err"&gt;大于或等于；&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;eq&lt;/span&gt; &lt;span class="err"&gt;等于；&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ne&lt;/span&gt; &lt;span class="err"&gt;不等于&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;le&lt;/span&gt; &lt;span class="err"&gt;小于或等于&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt; &lt;span class="err"&gt;小于&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="_21"&gt;组合：&lt;/h3&gt;
+&lt;p&gt;! condition                         如果condition为假则为真 &lt;br/&gt;
+condition1 –a condition2           如果两个条件都为真则为真            &lt;br/&gt;
+condition1 –o condition2           如果两个条件有一个为真则为真   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;trap [[commands] signals]  如果接收到任何的信号signals则执行命令commands.如果完全忽略commands则会重新设置由默认行为处理指定的信号。 &lt;br/&gt;
+例： &lt;br/&gt;
+Trap “” 2 ;忽略信号2（中断，通常是ctrl+c） &lt;br/&gt;
+Trap 2 ;恢复中断2 &lt;br/&gt;
+Trap “rm –f $tmp;exit” 0 1 2 15 ;当shell程序退出，用户退出，按ctrl+c或执行kill时删除$tmp.   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;Typeset [options] [var [var]…]设置变量属性 &lt;br/&gt;
+- -u 将变量值中所有字母全部转换成大写 &lt;br/&gt;
+- -l 将变量值中所有字母全部转换成小写 &lt;br/&gt;
+- -i 将变量值设为整数类型.-ix x为相应的进制，表示时为x#变量值，可用于进制转换。 &lt;br/&gt;
+     例：typeset -i2 vv  vv=2    echo $vv    2#10 &lt;br/&gt;
+     typeset -i 相当于integer &lt;br/&gt;
+- -L width 在width宽度之内左对齐 &lt;br/&gt;
+- -R width 在width宽度之内右对齐，前面空位用空格填充 &lt;br/&gt;
+- -Z width 在width宽度之内右对齐，变量如果是数字，则前面空位用零填充 &lt;br/&gt;
+     如果忽略width,将使用赋给这个变量的第一个值的宽度。 &lt;br/&gt;
+- -x 设置一个变量全局。typeset -x 相当于 export &lt;br/&gt;
+- -r 设置一个变量具有只读属性，在设置的同时或之前，要先给这些变量赋值。 &lt;br/&gt;
+    例：typeset -r  PATH FPATH=/usr/local/funcs &lt;br/&gt;
+    typeset -r 相当于 readonly   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;不带参数的typeset可以列出变量和变量的属性。查看指定的变量属性可用type|grep day &lt;br/&gt;
+使用带有某一选项的typeset来看看哪一个变量具有特定的属性：typeset -z   &lt;/p&gt;
+&lt;p&gt;Unset var  删除一个变量，将它置为空   &lt;/p&gt;
+&lt;hr/&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Until&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;   
+&lt;span class="n"&gt;Do&lt;/span&gt;   
+   &lt;span class="n"&gt;Commands&lt;/span&gt;   
+&lt;span class="n"&gt;Done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;执行命令command直到满足条件condition.   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;While&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;   
+&lt;span class="n"&gt;Do&lt;/span&gt;   
+   &lt;span class="n"&gt;Commands&lt;/span&gt;   
+&lt;span class="n"&gt;Done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果满足条件condition则执行commands   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 13 Aug 2014 11:51:02 +0800</pubDate><guid>tag:,2014-08-13:ksh_manual.html</guid><category>shell</category></item><item><title>impress js教程</title><link>/impress-jsjiao-cheng.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;impress js 介绍&lt;/h1&gt;
+&lt;h1&gt;pandoc 模板&lt;/h1&gt;
+&lt;h1&gt;参数列表&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;都需要指定坐标，因为是绝对位置&lt;/strong&gt;
+所以如果pandoc 能自动地对impress.js 进行相对处理，会好很多&lt;/p&gt;
+&lt;h2&gt;位置&lt;/h2&gt;
+&lt;p&gt;位置坐标，物体中心所在
+data-x=-1500
+data-y=1500
+data-z=1500&lt;/p&gt;
+&lt;h2&gt;外观&lt;/h2&gt;
+&lt;p&gt;data-perspective="500"
+data-scale=4&lt;/p&gt;
+&lt;h2&gt;动作&lt;/h2&gt;
+&lt;p&gt;data-transition-duration="2000"&lt;/p&gt;
+&lt;p&gt;顺时针旋转
+data-rotate=180&lt;br /&gt;
+data-rotate-x=60
+data-rotate-y=60&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate><guid>tag:,2014-07-29:impress-jsjiao-cheng.html</guid><category>tool</category><category>note</category></item><item><title>pelican_config</title><link>/pelican_config.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;markdown 模板格式要求&lt;/h1&gt;
+&lt;p&gt;文章模板如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;   
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;   
+&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;   
+&lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;publishing&lt;/span&gt;   
+&lt;span class="n"&gt;Slug&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;   
+&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Alexis&lt;/span&gt; &lt;span class="n"&gt;Metaireau&lt;/span&gt;   
+&lt;span class="n"&gt;Summary&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;feeds&lt;/span&gt;
+
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;TOC&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;这个是生成目录用的&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;说明&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;slug 是生成的html 文件名， 不然中文转换成拼音，英文则是原文件名。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;语法要求&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;图片等资源 建议放到顶层目录的 res 或 imags 下。&lt;/li&gt;
+&lt;li&gt;链接到其他 mkd 转化成的html时， 路径不是实际路径，都在 / 下， 名字对应为 title 或 slug 应该是这样。&lt;/li&gt;
+&lt;li&gt;暂时没想到其他的了。&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Thu, 26 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-26:pelican_config.html</guid><category>pelican</category><category>template</category></item><item><title>awk与sed</title><link>/awkyu-sed.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2&gt;插入&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;替换&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dsfds&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gdkok&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-25:awkyu-sed.html</guid></item><item><title>shell 替换与插入</title><link>/shell-ti-huan-yu-cha-ru.html</link><description>&lt;h1&gt;sed 使用技巧&lt;/h1&gt;
+&lt;h2&gt;替换&lt;/h2&gt;
+&lt;h2&gt;插入&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-25:shell-ti-huan-yu-cha-ru.html</guid></item><item><title>Git hooks</title><link>/git-hooks.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;Git hooks&lt;/h1&gt;
+&lt;p&gt;Remote Machine
+We create a bare git repo, then point the working tree at the docroot of our website. This means all the git stuff is kept in the somesite.git folder, but the files themselves are checked out to the website's folder. Then we setup a post-receive hook to update the worktree folder after new changes have been pushed to the repo.&lt;/p&gt;
+&lt;p&gt;$ cd git
+$ mkdir somesite.git
+$ cd somesite.git/
+$ git init --bare
+Initialized empty Git repository in /home/caius/git/somesite.git/
+$ git --bare update-server-info
+$ git config core.worktree /home/caius/vhosts/somesite.com/htdocs
+$ git config core.bare false
+$ git config receive.denycurrentbranch ignore
+$ cat &amp;gt; hooks/post-receive&lt;/p&gt;
+&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+&lt;p&gt;git checkout -f
+^D
+$ chmod +x hooks/post-receive
+Local Machine
+And now on the client machine we add the remote repo as a git remote, and then push to it.&lt;/p&gt;
+&lt;p&gt;$ git remote add web ssh://myserver/home/caius/git/somesite.git
+$ git push web +master:refs/heads/master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 229 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To ssh://myserver/home/caius/git/somesite.git
+ * [new branch]      master -&amp;gt; master
+All Done
+And now if you go to somesite.com you'll see the contents of your git repo there. (somesite.com is just an example url though, I don't actually own it!)&lt;/p&gt;
+&lt;h2&gt;文件夹 hook 下&lt;/h2&gt;
+&lt;p&gt;post-receive 这些都是脚本&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 04 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-04:git-hooks.html</guid></item></channel></rss>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/vbox.atom.xml" rel="self"></link><id>/</id><updated>2014-05-06T09:01:28+08:00</updated><entry><title>share_folder</title><link href="/share_folder.html" rel="alternate"></link><updated>2014-05-06T09:01:28+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-06:share_folder.html</id><summary type="html">&lt;p&gt;% 共享文件夹加载&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进入系统，安装增强功能，安装完关闭系统。 &lt;/li&gt;
+&lt;li&gt;在E盘下创建一个共享文件夹 gongxiang。 &lt;/li&gt;
+&lt;li&gt;设置-&amp;gt;数据空间-&amp;gt;固定分配，选择共享文件夹路径，注意此时不要勾选自动挂载，如下图所示。 &lt;/li&gt;
+&lt;li&gt;重新启动系统 &lt;/li&gt;
+&lt;li&gt;执行如下命令，就可以看到共享文件夹下面的文件。 
+        huang@huang-VirtualBox:~$ sudo mount -t vboxsf gongxiang /mnt/shared/&lt;/li&gt;
+&lt;/ol&gt;</summary></entry></feed>

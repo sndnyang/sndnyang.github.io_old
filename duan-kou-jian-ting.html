@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", shell, " />
+        <title>端口监听  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/duan-kou-jian-ting.html"> 端口监听  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <h1>windows、linux、aix 查询端口号占用情况</h1>
+<p>一、windows</p>
+<p>方法一</p>
+<blockquote>
+<p>提升权限后</p>
+<div class="highlight"><pre>  <span class="n">netstat</span> <span class="o">-</span><span class="n">b</span>
+</pre></div>
+
+
+</blockquote>
+<p>方法二</p>
+<ol>
+<li>
+<p>查询端口占用的进程ID</p>
+<blockquote>
+<div class="highlight"><pre>  <span class="n">netstat</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">n</span>  <span class="err">各个端口占用</span>
+  <span class="n">netstat</span> <span class="o">-</span><span class="n">ano</span>   <span class="err">各个端口占用和进程</span><span class="n">PID</span>
+</pre></div>
+
+
+<p>示例： 
+      netstat -aon | findstr "80"</p>
+<div class="highlight"><pre>  <span class="n">TCP</span>    <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">9080</span>         <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>              <span class="n">LISTENING</span>       <span class="mi">4632</span>
+</pre></div>
+
+
+</blockquote>
+</li>
+<li>
+<p>查看端口号所对应的应用程序</p>
+<p>tasklist | findstr "  4632" </p>
+</li>
+<li>
+<p>终止进程 </p>
+<div class="highlight"><pre><span class="mf">1.</span> <span class="n">taskkill</span> <span class="o">/</span><span class="n">pid</span> <span class="mi">4632</span> <span class="o">/</span><span class="n">F</span> 
+<span class="mf">2.</span> <span class="n">taskkill</span> <span class="o">/</span><span class="n">f</span> <span class="o">/</span><span class="n">t</span> <span class="o">/</span><span class="n">im</span> <span class="n">GROOVE</span><span class="p">.</span><span class="n">exe</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>再次查询是否成功终止</p>
+<div class="highlight"><pre><span class="n">tasklist</span> <span class="o">|</span> <span class="n">findstr</span> <span class="s">&quot;4632&quot;</span>
+</pre></div>
+
+
+</li>
+</ol>
+<p>&emsp; 如果成功终止此次执行命令后应返回空.，则表示成功，终止 PID 为 4632 的进程。 </p>
+<p>二、Linux</p>
+<p>方法一:  </p>
+<blockquote>
+<p>1.查询端口号占用，根据端口查看进程信息 </p>
+</blockquote>
+<div class="highlight"><pre><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">server2</span> <span class="o">~</span><span class="p">]</span><span class="err">#</span> <span class="n">lsof</span> <span class="o">-</span><span class="n">i</span><span class="o">:</span><span class="mi">80</span>
+</pre></div>
+
+
+<blockquote>
+<p>2.根据进程号查看进程对应的可执行程序  </p>
+</blockquote>
+<div class="highlight"><pre><span class="n">ps</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">p</span> <span class="err">进程号</span>
+</pre></div>
+
+
+<p>方法二:  </p>
+<blockquote>
+<ol>
+<li>
+<p>根据端口号得到其占用的进程的详细信息</p>
+<div class="highlight"><pre>  <span class="n">netstat</span> <span class="o">-</span><span class="n">tlnp</span><span class="o">|</span><span class="n">grep</span> <span class="mi">80</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>根据端口号查询，查询其占用进程ID</p>
+<p>netstat -tlnp|grep 80|awk '{print $7}'|awk -F '/' '{print $1}'</p>
+</li>
+</ol>
+<p>或是用下面的命令</p>
+<div class="highlight"><pre>   <span class="n">netstat</span> <span class="o">-</span><span class="n">pan</span><span class="o">|</span><span class="n">grep</span> <span class="mi">80</span>
+</pre></div>
+
+
+</blockquote>
+<p>三、AIX</p>
+<p>命令:</p>
+<div class="highlight"><pre><span class="n">netstat</span> <span class="o">-</span><span class="n">Aan</span><span class="o">|</span><span class="n">grep</span> <span class="mi">80</span>
+</pre></div>
+
+
+<p>例如:</p>
+<p>获得25号端口的PCB(protocol control block),<br />
+且查看协议为tcp. (输出信息中第一列即是PCB)</p>
+<blockquote>
+<p>netstat -Aan |grep 25<br />
+ f100070000d373b0 tcp4 0 0 <em>.25 </em>.<em> LISTEN <br />
+ f100070000d25600 udp 0 0 </em>.<em> </em>.<em><br />
+ f100070000d25400 udp 0 0 </em>.<em> </em>.<em><br />
+ f100070000d25000 udp 0 0 </em>.<em> </em>.<em><br />
+ f100070000d25c00 udp 0 0 127.255.255.255.12 </em>.<em><br />
+ f100070000d2d200 udp 0 0 10.10.10.255.123 </em>.<em><br />
+ f100070000d25a00 udp4 0 0 </em>.514 <em>.</em><br />
+ f100070000d25200 udp4 0 0 <em>.517 </em>.*   </p>
+</blockquote>
+<p>如果是tcp连接,那么# rmsock <PCB> tcpcb<br />
+ 如果是udp连接,那么# rmsock <PCB> inpcb </p>
+<div class="highlight"><pre>     <span class="n">rmsock</span> <span class="n">f100070000d373b0</span> <span class="n">tcpcb</span>
+</pre></div>
+
+
+<blockquote>
+<p>The socket 0xd37008 is being held by proccess 213096 (sendmail).    </p>
+<p>结果显示25号端口正在被sendmail进程使用，PID为213096. </p>
+</blockquote>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/kshzi-dong-bu-quan.html" title="Previous: KSH自动补全">KSH自动补全</a></li>
+ 
+                <li class="next_article"><a href="/db2pei-zhi-yuan-cheng-shu-ju-ku.html" title="Next: db2配置远程数据库">db2配置远程数据库</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-04T09:24:04">May 4, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#shell-ref">shell</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

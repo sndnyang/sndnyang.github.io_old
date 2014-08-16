@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/python.atom.xml" rel="self"></link><id>/</id><updated>2013-12-25T20:12:20+08:00</updated><entry><title>sys.path</title><link href="/syspath.html" rel="alternate"></link><updated>2013-12-25T20:12:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:syspath.html</id><summary type="html">&lt;h1&gt;sys.path 永久路径&lt;/h1&gt;
+&lt;p&gt;具体是在site-packages文件夹中添加一个.pth文件，将你需要python搜索的文件路径添加进去&lt;/p&gt;</summary></entry><entry><title>package</title><link href="/package.html" rel="alternate"></link><updated>2013-12-25T13:30:10+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:package.html</id><summary type="html">&lt;h1&gt;python package使用总结&lt;/h1&gt;
+&lt;p&gt;1、 文件夹下使用__init__.py文件。
+2、 各文件需要import的包，仍要import,__init__只是节省依赖包的导入。&lt;/p&gt;</summary></entry><entry><title>pac_init</title><link href="/pac_init.html" rel="alternate"></link><updated>2013-12-25T13:30:06+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:pac_init.html</id><summary type="html">&lt;h1&gt;python package中__init__.py 的使用总结&lt;/h1&gt;
+&lt;p&gt;1、 需要将目录中的文件都import一遍， 不然在dir()时不会显示出来。
+2、 各文件需要import的包，仍要import,__init__只是节省依赖包的导入。&lt;/p&gt;</summary></entry></feed>

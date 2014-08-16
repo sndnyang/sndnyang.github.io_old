@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", shell, " />
+        <title>tar_压缩  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/tar_ya-suo.html"> tar_压缩  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>﻿% tar 命令说明<br />
+% 杨秀隆<br />
+% 2014年5月13日 修订</p>
+<h1>tar 命令</h1>
+<h2>基本参数</h2>
+<ul>
+<li>-c: 建立压缩档案</li>
+<li>-x：解压</li>
+<li>-t：查看内容</li>
+<li>-r：向压缩归档文件末尾追加文件</li>
+<li>-u：更新原压缩包中的文件</li>
+</ul>
+<p>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
+<p>-z：有gzip属性的
+-j：有bz2属性的
+-Z：有compress属性的
+-v：显示所有过程
+-O：将文件解开到标准输出</p>
+<p>下面的参数-f是必须的</p>
+<p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
+<h1>tar -cf all.tar *.jpg</h1>
+<p>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。 </p>
+<h1>tar -rf all.tar *.gif</h1>
+<p>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。 </p>
+<h1>tar -uf all.tar logo.gif</h1>
+<p>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。 </p>
+<h1>tar -tf all.tar</h1>
+<p>这条命令是列出all.tar包中所有文件，-t是列出文件的意思 </p>
+<h1>tar -xf all.tar</h1>
+<p>这条命令是解出all.tar包中所有文件，-x是解开的意思 </p>
+<p>压缩</p>
+<p>tar –cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg</p>
+<p>tar –czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</p>
+<p>tar –cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</p>
+<p>tar –cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</p>
+<p>rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux</p>
+<p>zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux</p>
+<p>解压</p>
+<p>tar –xvf file.tar //解压 tar包</p>
+<p>tar -xzvf file.tar.gz //解压tar.gz</p>
+<p>tar -xjvf file.tar.bz2   //解压 tar.bz2</p>
+<p>tar –xZvf file.tar.Z   //解压tar.Z</p>
+<p>unrar e file.rar //解压rar</p>
+<p>unzip file.zip //解压zip</p>
+<h2>总结</h2>
+<p>1、*.tar 用 tar –xvf 解压</p>
+<p>2、*.gz 用 gzip -d或者gunzip 解压</p>
+<p>3、<em>.tar.gz和</em>.tgz 用 tar –xzf 解压</p>
+<p>4、*.bz2 用 bzip2 -d或者用bunzip2 解压</p>
+<p>5、*.tar.bz2用tar –xjf 解压</p>
+<p>6、*.Z 用 uncompress 解压</p>
+<p>7、*.tar.Z 用tar –xZf 解压</p>
+<p>8、*.rar 用 unrar e解压</p>
+<p>9、*.zip 用 unzip 解压</p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/ksh_judge.html" title="Previous: ksh_judge">ksh_judge</a></li>
+ 
+                <li class="next_article"><a href="/db2_sqlcode.html" title="Next: DB2_sqlcode">DB2_sqlcode</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-13T15:40:08">May 13, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#shell-ref">shell</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", vim, " />
+        <title>tag_tips  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/tag_tips.html"> tag_tips  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>﻿ 配合 tag 文件可以实现定义跳转。<br />
+   :tags" 命令显示你经过的标签列表：
+   下面的命令跳转到标签列表中最上面的标签：
+         :tag
+你可以在前面加上要向前跳转的标签个数。比如：":3tag"。 CTRL-T 同样可以加上一个
+计数参数。
+   :stag tagname
+使用下面的命令可以分割当前窗口并跳转到光标下的标签:
+         CTRL-W ]
+你现在可以跳转到同一个标签的其它匹配处：
+         :tnext
+重复执行这个命令可以找到更多的匹配。如果存在很多匹配，你可以选择要跳转到哪一
+个：
+   :tselect tagname
+你现在可以输入要跳转到的匹配代号（在第一列）。其它列的信息可以让你知道匹配在何
+处被定义。
+可以用这些命令在各匹配的标签间移动：
+         :tfirst                  到第一个匹配
+         :[count]tprevious        向前 [count] 个匹配
+         :[count]tnext            向后 [count] 个匹配
+         :tlast                   到最后一个匹配
+如果没有指定，[count] 省缺为一。
+猜 测 标 签 名
+命令行补全是避免输入长标签名的好办法。只需输入开始的一部分然后按 ：
+         :tag write_
+你会得到第一个匹配。如果这不是你想要的，重复输入  直到你找到正确的匹配。
+    有时你只知道一个函数名的一部分，或是你有很多以相同字符串开头而结尾不同的标
+记。这时你可以告诉 Vim 使用一个模式来查找标签。
+    假设你要跳转到一个包含 "block" 的标签。首先输入：
+         :tag /block
+现在再利用命令行补全功能：输入 。Vim 会找到所有包含 "block" 的标签并使用
+第一个匹配。
+    标签名前面的 "/" 告诉 Vim 这不是一个确定的标签名而是一个模式。你可以利用有
+关查找模式的所有特性。举个列子，假设你要选择所有以 "write_" 开头的标签：
+         :tselect /^write_
+"^" 指定标签以 "write_" 开头，否则在中间含有 "write_" 的标签名也会被找到。类似
+地，"<strong><em>FCKpd</em></strong>0quot; 指定标签名结尾处的匹配。
+标 签 浏 览 器
+CTRL-] 可以让你跳转到光标所在标识符的定义处，因此你可以利用标识符的列表来形成
+一个目录。这里给出一个例子。
+    首先生成一个标识符列表（需要 Exuberant ctags)：
+         ctags --c-types=f -f functions <em>.c
+现在打开 Vim 并在一个垂直分割窗口中编辑这个文件：
+         vim
+         :vsplit functions
+窗口中包含一个所有函数的列表。其它的东西可以被忽略。用 ":setlocal ts=99" 命令
+使其显示得更清晰些。
+    在这个窗口中，定义一个 mapping：
+         :nnoremap   0yew:tag "
+移动光标至要跳转到函数的所在行，输入 。Vim 会在另一个窗口中跳转到所选择
+的函数定义处。
+相 关 杂 项
+你可以设定 'ignorecase' 选项来忽略标签名里的大小写。
+'tagbsearch' 选项标明标签文件是否经过排序。省缺是假定为标签文件已排序，这样会
+使查找更快，但如果文件没有被排序是无法工作的。
+'taglength' 选项可用来告诉 Vim 一个标签的有效字符个数。
+当你使用 SNiFF+ 程序时，你可以利用 Vim 的有关接口 |sniff| 。SNiFF+ 是一个商业
+软件。
+Cscope 是一个自由软件。它不仅可以找到一个标识符被声明的地方，还可以找到标识符
+被使用的地方。 请参考 |cscope|。
+</em>29.2<em>  预览窗口
+当编辑含有函数调用的代码时，你需要使用正确的调用参数。要获知所要传递的值，你可以
+查看这个函数是如何定义的。标签机制对此十分适用。如果定义可在另一个窗口内显示那
+就更好了。对此我们可以利用预览窗口。
+    打开一个预览窗口来显示函数 "write_char"：
+         :ptag write_char
+Vim 会打开一个窗口，跳转到 "write_char" 标签。然后它会回到原来的位置。这样你可
+以继续输入而不必使用 CTRL-W 命令。
+    如果函数名出现在文本中，你可以用下面的命令在预览窗口中得到其定义：
+         CTRL-W }
+有一个脚本可以自动显示光标处的标签定义。请参考 |CursorHold-example| 。
+用下面的命令关闭预览窗口：
+         :pclose
+要在预览窗口中编辑一个指定的文件，用 ":pedit" 。这在编辑头文件时很有用，比如：
+         :pedit defs.h
+最后， "psearch" 可用来查找当前文件和任何包含文件中的单词并在预览窗口中显示匹
+配。这在使用没有标签文件的库函数时十分有用。例如：
+         :psearch popen
+这会在预览窗口中显示含有 popen() 原型的 "stdio.h" 文件：
+         FILE     </em>popen __P((const char <em>, const char </em>)); 
+你可以用 'previewheight' 选项指定预览窗口打开时的高度。
+<em>29.3</em>  在代码间移动
+因为程序代码是结构化的，Vim 可以识别其中的有关项目。一些特定的命令可用来完成相
+关的移动。
+    C 程序中经常包含类似下面的代码：
+         #ifdef USE_POPEN 
+             fd = popen("ls", "r") 
+         #else 
+             fd = fopen("tmp", "w") 
+         #endif 
+有时会更长，也许还有套嵌。将光标置于 "#ifdef" 处按 %。Vim 会跳转到"#else"。继
+续按 % 会跳转到 "#endif"。再次按下 % 又回到原来的 "#ifdef"。
+    当代码套嵌时，Vim 会找到相匹配的项目。这是检查你是否忘记了一个 "#endif" 的
+好办法。
+    当你在一个 "#ifdef" - "#endif" 块内的某个位置，你可以用下面的命令回到开始
+处：
+         [#
+如果你的位置不是在 "#if" 或 "#ifdef" 之后, Vim 会鸣音。用下面命令可以跳转到下
+一个 "#else" 或 "#endif"：
+         ]#
+这两个命令会跳过它所经过的 "#if" - "#endif" 块。
+例如：
+         #if defined(HAS_INC_H) 
+             a = a + inc(); 
+         # ifdef USE_THEME 
+             a += 3; 
+         # endif 
+             set_width(a); 
+如果光标在最后一行，"[#" 会移动到第一行。中间的 "#ifdef" - "#endif" 块被跳过。
+在 代 码 块 内 移 动
+C 代码块包含在 {} 中，有时一个代码会很长。要跳转到外部代码块的开始处，用 "[["
+命令。用 "][" 找到结尾处。（前提是 "{" 和 "}" 都在第一列。）
+    "[{" 命令跳转到当前代码块的开始处。它会跳过同一级别的 {} 对。"]}" 跳转到结尾。
+    一点概述：
+                         function(int a)
+            +-&gt;           {
+            |                 if (a)
+            |        +-&gt;       {
+         [[ |        |             for (;;)                --+
+            |        |       +-&gt;    {                         |
+            |     [{ |       |          foo(32);              |      --+
+            |        |    [{ |          if (bar(a))  --+      | ]}     |
+            +--      |       +--            break;      | ]}  |        |
+                    |             }                   }
+                   |
+               []  |              int func2(void)
+                   |         +-&gt;  {
+                   |     [[  |             if (flag)
+         start      +--       +--                   return flag;
+                   |     ][  |             return 2;
+                   |         +-&gt;  }
+               ]]  |
+                   |              int func3(void)
+                   +----------&gt;  {
+                                         return 3;
+                                 }
+不要忘了你还可以用 "%" 在匹配的 (), {} 和 [] 间移动。这在它们相距很多行时仍然
+适用。
+在 括 号 内 移 动
+"[(" 和 "])" 命令"[}" 和 "]}" 类似，只不过它们适用于 () 对而不是 {} 对。
+                                   [(
+                     f)) &amp;&amp; x &gt; y) 
+                                   --------------&gt;
+                           --------------------------------&gt;
+                                        ])
+在 注 释 间 移 动
+移动到一个注释的开始用 "[/"；向前移动到注释的结尾用 "]/"。这只对 /<em> - </em>/ 注释
+有效。
+           +-&gt;      +-&gt; /<em>
+           |     [/ |     * A comment about       --+
+        [/ |        +--  * wonderful life.         | ]/
+           |             </em>/                     <br />
+         vim.h --&gt; </p>
+<p>文件 "io.h" 被当前文件包含但无法找到。"vim.h" 可以找到，这样 ":checkpath" 跟进
+这个文件并检查其中的包含文件。结果显示无法找到 "vim.h" 包含的 "functions.h" 和
+"clib/exec_protos.h" 文件。
+         Note:
+         Vim 不是一个编译器。它无法识别 "#ifdef" 语句。这就是说所有的
+         "#include" 语句都会被使用，即使它在 "#if NEVER" 之后。
+给 'path' 选项增加一个目录可以修正无法找到文件的错误。一个好得参考是 Makefile。
+注意那些包括 "-I" 的条目，比如 "-I/usr/local/X11"。要增加这个目录，用：
+         :set path+=/usr/local/X11
+如果有很多的子目录，你可以用 "<em>" 通配符。例如：
+         :set path+=/usr/</em>/include
+这会找到 "/usr/local/include" 以及 "/usr/X11/include" 目录下的文件。
+如果你的工程项目的包含文件都在一个套嵌的目录树下，"<strong>" 就非常有用。它会搜索所
+有的子目录。例如：
+         :set path+=/projects/invent/</strong>/include
+这会找到这些目录下的文件：
+         /projects/invent/include 
+         /projects/invent/main/include 
+         /projects/invent/main/os/include 
+         etc.
+还有其它的可能性。更多信息，请查看 'path' 选项。
+    如果你想查看找到的包含文件，用这个命令：
+         :checkpath!
+你会得到一个（很长）的包含文件列表。为使它更短些，Vim 会对已经找到的文件显示
+"(Already listed)" 而不再重新显示一遍</p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/pandoc.html" title="Previous: pandoc">pandoc</a></li>
+ 
+                <li class="next_article"><a href="/ksh_judge.html" title="Next: ksh_judge">ksh_judge</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-12T16:49:08">May 12, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#vim-ref">vim</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

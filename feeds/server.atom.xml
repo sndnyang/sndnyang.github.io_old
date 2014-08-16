@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/server.atom.xml" rel="self"></link><id>/</id><updated>2014-06-24T00:00:00+08:00</updated><entry><title>nginx 配置</title><link href="/nginx-pei-zhi.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-24:nginx-pei-zhi.html</id><summary type="html">&lt;h1&gt;Nginx 服务器配置&lt;/h1&gt;
+&lt;h2&gt;路径&lt;/h2&gt;
+&lt;p&gt;/etc/nginx&lt;/p&gt;</summary></entry></feed>

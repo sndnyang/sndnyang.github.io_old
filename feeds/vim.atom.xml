@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/vim.atom.xml" rel="self"></link><id>/</id><updated>2014-06-19T09:50:12+08:00</updated><entry><title>cscope_tips</title><link href="/cscope_tips.html" rel="alternate"></link><updated>2014-06-19T09:50:12+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-19:cscope_tips.html</id><summary type="html">&lt;p&gt;% cscope&lt;br /&gt;
+% 杨秀隆&lt;br /&gt;
+% 20140619&lt;/p&gt;
+&lt;h1&gt;cscope&lt;/h1&gt;
+&lt;p&gt;相当于 source insight 里的 look up reference&lt;/p&gt;
+&lt;h2&gt;帮助文档&lt;/h2&gt;
+&lt;p&gt;:help if_cscop.txt&lt;/p&gt;
+&lt;p&gt;它被设计用来回答以下的问题:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;什么地方用到了这个符号？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这是在什么地方定义的？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个变量在哪里被赋值？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个全局符号的定义在哪里？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个函数在源文件中的哪个地方？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;哪些函数调用了这个函数？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个函数调用了哪些函数？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;信息 "out of space" 从哪来？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这个源文件在整个目录结构中处于什么位置？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;哪些文件包含这个头文件？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;安装Cscope&lt;/h2&gt;
+&lt;p&gt;如果你的系统中有cscope命令, 则可以跳过这一小段, 如果没有, 就先跟着我一起安装一个吧.&lt;/p&gt;
+&lt;p&gt;在Cscope的主页: http://cscope.sourceforge.net 下载一个源码包, 解压后编译安装:&lt;/p&gt;
+&lt;h1&gt;./configure&lt;/h1&gt;
+&lt;h1&gt;make&lt;/h1&gt;
+&lt;h1&gt;make install       //需要root权限&lt;/h1&gt;
+&lt;h2&gt;配置&lt;/h2&gt;
+&lt;p&gt;在~/vimrc中增加一句:&lt;/p&gt;
+&lt;p&gt;:setcscopequickfix=s-,c-,d-,i-,t-,e-
+这个是设定是否使用 quickfix 窗口来显示 cscope 结果, 用法在后面会说到。&lt;/p&gt;
+&lt;p&gt;跟Ctags一样, 要使用其功能必须先为你的代码生成一个cscope的数据库, 在项目的根目录运行下面的命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cscope&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Rbq&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;会生成三个文件 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ll&lt;/span&gt; &lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="mf"&gt;1.1&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2007&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;56&lt;/span&gt; &lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="mf"&gt;6.7&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2007&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;56&lt;/span&gt; &lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="n"&gt;wooin&lt;/span&gt; &lt;span class="mf"&gt;5.1&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="mi"&gt;2007&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;56&lt;/span&gt; &lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;po&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;使用cscope&lt;/h2&gt;
+&lt;p&gt;进入vim后第一件事是要把刚才生成的cscope文件导入到vim中来, 用下面的命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;cs&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wooin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vim71&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;不能只写前半句&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;cs&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cscope&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;因为源码是多级目录的, 如果这样写, cscope是无法在子目录中的源码中工作的, 当然, 如果你的源码都在同一级目录中就无所谓了.如果你要经常用cscope的话, 可以把上面那句加到~/.vimrc中去.&lt;/p&gt;
+&lt;p&gt;下面我们来操练一下, 查找函数vim_strsave()的定义, 用命令:&lt;/p&gt;
+&lt;p&gt;:csfind g vim_strsave 如下图:&lt;/p&gt;
+&lt;p&gt;按下回车后vim会自动跳转到第一个符合要求的地方, 并且在命令栏显示有多少符合要求的结果, 如图:&lt;/p&gt;
+&lt;p&gt;如果自动跳转的位置你不满意, 想看其他的结果, 可以用下面的命令打开QuickFix窗口:&lt;/p&gt;
+&lt;p&gt;:cw&lt;/p&gt;
+&lt;p&gt;这时你就可以慢慢挑选了^_^&lt;/p&gt;
+&lt;p&gt;cscope的主要功能是通过同的子命令"find"来实现的&lt;/p&gt;
+&lt;p&gt;"cscope find"的用法:&lt;/p&gt;
+&lt;p&gt;cs find c|d|e|f|g|i|s|t name&lt;/p&gt;
+&lt;p&gt;0 或 s   查找本 C 符号(可以跳过注释)
+1 或 g   查找本定义
+2 或 d   查找本函数调用的函数
+3 或 c   查找调用本函数的函数
+4 或 t   查找本字符串
+6 或 e   查找本 egrep 模式
+7 或 f   查找本文件
+8 或 i   查找包含本文件的文件&lt;/p&gt;
+&lt;p&gt;如果每次查找都要输入一长串命令的话还真是件讨人厌的事情, Cscope的帮助手册中推荐了一些快捷键的用法, 下面是其中一组,也是我用的, 将下面的内容添加到~/.vimrc中, 并重启vim:&lt;/p&gt;
+&lt;p&gt;nmap&lt;C-_&gt;s :cs find s&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;g :cs find g&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;c :cs find c&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;t :cs find t&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;e :cs find e&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;f :cs find f&lt;C-R&gt;=expand("&lt;cfile&gt;")&lt;CR&gt;&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;i :cs find i^&lt;C-R&gt;=expand("&lt;cfile&gt;")&lt;CR&gt;$&lt;CR&gt;&lt;/p&gt;
+&lt;p&gt;nmap &lt;C-_&gt;d :cs find d&lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt; 当光标停在某个你要查找的词上时, 按下&lt;C-_&gt;g, 就是查找该对象的定义, 其他的同理.&lt;/p&gt;
+&lt;p&gt;按这种组合键有一点技巧,按了&lt;C-_&gt;后要马上按下一个键,否则屏幕一闪就回到nomal状态了&lt;/p&gt;
+&lt;p&gt;&lt;C-_&gt;g的按法是先按"Ctrl+Shift+-", 然后很快再按"g"&lt;/p&gt;
+&lt;p&gt;reset :重新初始化所有连接。 &lt;/p&gt;
+&lt;p&gt;用法  : csreset &lt;/p&gt;</summary></entry><entry><title>vim_tips</title><link href="/vim_tips.html" rel="alternate"></link><updated>2014-05-28T09:25:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-28:vim_tips.html</id><summary type="html">&lt;p&gt;% vim技巧总结&lt;br /&gt;
+% 杨秀隆&lt;br /&gt;
+% 20140528&lt;/p&gt;
+&lt;h1&gt;vim 技巧&lt;/h1&gt;
+&lt;h2&gt;模式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ctrl-v 或 ctrl-q 进入可视块状态， 即 列编辑模式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;页面跳转&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;gg 文件首行 G 文件末尾 &lt;/li&gt;
+&lt;li&gt;H M L 光标跳转页顶，页中，页底&lt;/li&gt;
+&lt;li&gt;zt zz zb 光标所在行置顶、置中、置底&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;排版缩进&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;按v进入visual状态，选择多行，用&amp;gt;或&amp;lt;缩进或缩出  等效于 x &amp;gt;&amp;gt;/&amp;lt;&amp;lt; x行缩进&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通常根据语言特征使用自动缩进排版：在命令状态下对当前行用== （连按=两次）, 或对多行用n==（n是自然数）表示自动缩进从当前行起的下面n行。你可以试试把代码缩进任意打乱再用n==排版，相当于一般IDE里的code format。使用gg=G可对整篇代码进行排版&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至于如何针对自定义语言制订缩进规则，还有点问题，成功率不高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;代码跳转&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;%    跳转到配对的括号去&lt;/li&gt;
+&lt;li&gt;[[    跳转到代码块的开头去(但要求代码块中'{'必须单独占一行)&lt;/li&gt;
+&lt;li&gt;gD    跳转到局部变量的定义处&lt;/li&gt;
+&lt;li&gt;''    跳转到光标上次停靠的地方, 是两个', 而不是一个"&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;书签&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;mx   设置书签,x只能是a-z的26个字母&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x    跳转到书签处("&lt;/code&gt;"是1左边的键)&lt;/li&gt;
+&lt;/ol&gt;</summary></entry><entry><title>tag_tips</title><link href="/tag_tips.html" rel="alternate"></link><updated>2014-05-12T16:49:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-12:tag_tips.html</id><summary type="html">&lt;p&gt;﻿ 配合 tag 文件可以实现定义跳转。&lt;br /&gt;
+   :tags" 命令显示你经过的标签列表：
+   下面的命令跳转到标签列表中最上面的标签：
+         :tag
+你可以在前面加上要向前跳转的标签个数。比如：":3tag"。 CTRL-T 同样可以加上一个
+计数参数。
+   :stag tagname
+使用下面的命令可以分割当前窗口并跳转到光标下的标签:
+         CTRL-W ]
+你现在可以跳转到同一个标签的其它匹配处：
+         :tnext
+重复执行这个命令可以找到更多的匹配。如果存在很多匹配，你可以选择要跳转到哪一
+个：
+   :tselect tagname
+你现在可以输入要跳转到的匹配代号（在第一列）。其它列的信息可以让你知道匹配在何
+处被定义。
+可以用这些命令在各匹配的标签间移动：
+         :tfirst                  到第一个匹配
+         :[count]tprevious        向前 [count] 个匹配
+         :[count]tnext            向后 [count] 个匹配
+         :tlast                   到最后一个匹配
+如果没有指定，[count] 省缺为一。
+猜 测 标 签 名
+命令行补全是避免输入长标签名的好办法。只需输入开始的一部分然后按 ：
+         :tag write_
+你会得到第一个匹配。如果这不是你想要的，重复输入  直到你找到正确的匹配。
+    有时你只知道一个函数名的一部分，或是你有很多以相同字符串开头而结尾不同的标
+记。这时你可以告诉 Vim 使用一个模式来查找标签。
+    假设你要跳转到一个包含 "block" 的标签。首先输入：
+         :tag /block
+现在再利用命令行补全功能：输入 。Vim 会找到所有包含 "block" 的标签并使用
+第一个匹配。
+    标签名前面的 "/" 告诉 Vim 这不是一个确定的标签名而是一个模式。你可以利用有
+关查找模式的所有特性。举个列子，假设你要选择所有以 "write_" 开头的标签：
+         :tselect /^write_
+"^" 指定标签以 "write_" 开头，否则在中间含有 "write_" 的标签名也会被找到。类似
+地，"&lt;strong&gt;&lt;em&gt;FCKpd&lt;/em&gt;&lt;/strong&gt;0quot; 指定标签名结尾处的匹配。
+标 签 浏 览 器
+CTRL-] 可以让你跳转到光标所在标识符的定义处，因此你可以利用标识符的列表来形成
+一个目录。这里给出一个例子。
+    首先生成一个标识符列表（需要 Exuberant ctags)：
+         ctags --c-types=f -f functions &lt;em&gt;.c
+现在打开 Vim 并在一个垂直分割窗口中编辑这个文件：
+         vim
+         :vsplit functions
+窗口中包含一个所有函数的列表。其它的东西可以被忽略。用 ":setlocal ts=99" 命令
+使其显示得更清晰些。
+    在这个窗口中，定义一个 mapping：
+         :nnoremap   0yew:tag "
+移动光标至要跳转到函数的所在行，输入 。Vim 会在另一个窗口中跳转到所选择
+的函数定义处。
+相 关 杂 项
+你可以设定 'ignorecase' 选项来忽略标签名里的大小写。
+'tagbsearch' 选项标明标签文件是否经过排序。省缺是假定为标签文件已排序，这样会
+使查找更快，但如果文件没有被排序是无法工作的。
+'taglength' 选项可用来告诉 Vim 一个标签的有效字符个数。
+当你使用 SNiFF+ 程序时，你可以利用 Vim 的有关接口 |sniff| 。SNiFF+ 是一个商业
+软件。
+Cscope 是一个自由软件。它不仅可以找到一个标识符被声明的地方，还可以找到标识符
+被使用的地方。 请参考 |cscope|。
+&lt;/em&gt;29.2&lt;em&gt;  预览窗口
+当编辑含有函数调用的代码时，你需要使用正确的调用参数。要获知所要传递的值，你可以
+查看这个函数是如何定义的。标签机制对此十分适用。如果定义可在另一个窗口内显示那
+就更好了。对此我们可以利用预览窗口。
+    打开一个预览窗口来显示函数 "write_char"：
+         :ptag write_char
+Vim 会打开一个窗口，跳转到 "write_char" 标签。然后它会回到原来的位置。这样你可
+以继续输入而不必使用 CTRL-W 命令。
+    如果函数名出现在文本中，你可以用下面的命令在预览窗口中得到其定义：
+         CTRL-W }
+有一个脚本可以自动显示光标处的标签定义。请参考 |CursorHold-example| 。
+用下面的命令关闭预览窗口：
+         :pclose
+要在预览窗口中编辑一个指定的文件，用 ":pedit" 。这在编辑头文件时很有用，比如：
+         :pedit defs.h
+最后， "psearch" 可用来查找当前文件和任何包含文件中的单词并在预览窗口中显示匹
+配。这在使用没有标签文件的库函数时十分有用。例如：
+         :psearch popen
+这会在预览窗口中显示含有 popen() 原型的 "stdio.h" 文件：
+         FILE     &lt;/em&gt;popen __P((const char &lt;em&gt;, const char &lt;/em&gt;)); 
+你可以用 'previewheight' 选项指定预览窗口打开时的高度。
+&lt;em&gt;29.3&lt;/em&gt;  在代码间移动
+因为程序代码是结构化的，Vim 可以识别其中的有关项目。一些特定的命令可用来完成相
+关的移动。
+    C 程序中经常包含类似下面的代码：
+         #ifdef USE_POPEN 
+             fd = popen("ls", "r") 
+         #else 
+             fd = fopen("tmp", "w") 
+         #endif 
+有时会更长，也许还有套嵌。将光标置于 "#ifdef" 处按 %。Vim 会跳转到"#else"。继
+续按 % 会跳转到 "#endif"。再次按下 % 又回到原来的 "#ifdef"。
+    当代码套嵌时，Vim 会找到相匹配的项目。这是检查你是否忘记了一个 "#endif" 的
+好办法。
+    当你在一个 "#ifdef" - "#endif" 块内的某个位置，你可以用下面的命令回到开始
+处：
+         [#
+如果你的位置不是在 "#if" 或 "#ifdef" 之后, Vim 会鸣音。用下面命令可以跳转到下
+一个 "#else" 或 "#endif"：
+         ]#
+这两个命令会跳过它所经过的 "#if" - "#endif" 块。
+例如：
+         #if defined(HAS_INC_H) 
+             a = a + inc(); 
+         # ifdef USE_THEME 
+             a += 3; 
+         # endif 
+             set_width(a); 
+如果光标在最后一行，"[#" 会移动到第一行。中间的 "#ifdef" - "#endif" 块被跳过。
+在 代 码 块 内 移 动
+C 代码块包含在 {} 中，有时一个代码会很长。要跳转到外部代码块的开始处，用 "[["
+命令。用 "][" 找到结尾处。（前提是 "{" 和 "}" 都在第一列。）
+    "[{" 命令跳转到当前代码块的开始处。它会跳过同一级别的 {} 对。"]}" 跳转到结尾。
+    一点概述：
+                         function(int a)
+            +-&amp;gt;           {
+            |                 if (a)
+            |        +-&amp;gt;       {
+         [[ |        |             for (;;)                --+
+            |        |       +-&amp;gt;    {                         |
+            |     [{ |       |          foo(32);              |      --+
+            |        |    [{ |          if (bar(a))  --+      | ]}     |
+            +--      |       +--            break;      | ]}  |        |
+                    |             }                   }
+                   |
+               []  |              int func2(void)
+                   |         +-&amp;gt;  {
+                   |     [[  |             if (flag)
+         start      +--       +--                   return flag;
+                   |     ][  |             return 2;
+                   |         +-&amp;gt;  }
+               ]]  |
+                   |              int func3(void)
+                   +----------&amp;gt;  {
+                                         return 3;
+                                 }
+不要忘了你还可以用 "%" 在匹配的 (), {} 和 [] 间移动。这在它们相距很多行时仍然
+适用。
+在 括 号 内 移 动
+"[(" 和 "])" 命令"[}" 和 "]}" 类似，只不过它们适用于 () 对而不是 {} 对。
+                                   [(
+                     f)) &amp;amp;&amp;amp; x &amp;gt; y) 
+                                   --------------&amp;gt;
+                           --------------------------------&amp;gt;
+                                        ])
+在 注 释 间 移 动
+移动到一个注释的开始用 "[/"；向前移动到注释的结尾用 "]/"。这只对 /&lt;em&gt; - &lt;/em&gt;/ 注释
+有效。
+           +-&amp;gt;      +-&amp;gt; /&lt;em&gt;
+           |     [/ |     * A comment about       --+
+        [/ |        +--  * wonderful life.         | ]/
+           |             &lt;/em&gt;/                     &lt;br /&gt;
+         vim.h --&amp;gt; &lt;/p&gt;
+&lt;p&gt;文件 "io.h" 被当前文件包含但无法找到。"vim.h" 可以找到，这样 ":checkpath" 跟进
+这个文件并检查其中的包含文件。结果显示无法找到 "vim.h" 包含的 "functions.h" 和
+"clib/exec_protos.h" 文件。
+         Note:
+         Vim 不是一个编译器。它无法识别 "#ifdef" 语句。这就是说所有的
+         "#include" 语句都会被使用，即使它在 "#if NEVER" 之后。
+给 'path' 选项增加一个目录可以修正无法找到文件的错误。一个好得参考是 Makefile。
+注意那些包括 "-I" 的条目，比如 "-I/usr/local/X11"。要增加这个目录，用：
+         :set path+=/usr/local/X11
+如果有很多的子目录，你可以用 "&lt;em&gt;" 通配符。例如：
+         :set path+=/usr/&lt;/em&gt;/include
+这会找到 "/usr/local/include" 以及 "/usr/X11/include" 目录下的文件。
+如果你的工程项目的包含文件都在一个套嵌的目录树下，"&lt;strong&gt;" 就非常有用。它会搜索所
+有的子目录。例如：
+         :set path+=/projects/invent/&lt;/strong&gt;/include
+这会找到这些目录下的文件：
+         /projects/invent/include 
+         /projects/invent/main/include 
+         /projects/invent/main/os/include 
+         etc.
+还有其它的可能性。更多信息，请查看 'path' 选项。
+    如果你想查看找到的包含文件，用这个命令：
+         :checkpath!
+你会得到一个（很长）的包含文件列表。为使它更短些，Vim 会对已经找到的文件显示
+"(Already listed)" 而不再重新显示一遍&lt;/p&gt;</summary></entry><entry><title>vi_tips</title><link href="/vi_tips.html" rel="alternate"></link><updated>2014-05-06T16:27:22+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-06:vi_tips.html</id><summary type="html">&lt;p&gt;﻿# vi 小技巧&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;vi +xx 文件名，可以直接跳到位置的， 和vim一样。xx代表行数 &lt;/li&gt;
+&lt;li&gt;查找时， \&amp;lt;xxx&gt; 代表全词匹配——vim也一样，而且更先进的是，当光标在该单词上时，vim快捷键shift+8就是向下查找，shift+3就是向上查找。&lt;/li&gt;
+&lt;/ol&gt;</summary></entry></feed>

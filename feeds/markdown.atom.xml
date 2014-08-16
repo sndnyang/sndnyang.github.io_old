@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/markdown.atom.xml" rel="self"></link><id>/</id><updated>2014-05-07T16:35:38+08:00</updated><entry><title>pandoc</title><link href="/pandoc.html" rel="alternate"></link><updated>2014-05-07T16:35:38+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-07:pandoc.html</id><summary type="html">&lt;p&gt;% pandoc 使用&lt;/p&gt;
+&lt;p&gt;pandoc --latex-engine=pdflatex|lualatex|xelatex命令。&lt;/p&gt;</summary></entry><entry><title>markdown_syntax</title><link href="/markdown_syntax.html" rel="alternate"></link><updated>2014-03-03T09:59:54+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-03-03:markdown_syntax.html</id><summary type="html">&lt;h1&gt;MarkDown 笔记&lt;/h1&gt;
+&lt;h2&gt;小细节记录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;非MarkDown的部分，可直接写HTML&lt;/li&gt;
+&lt;li&gt;&amp;lt;  div &amp;gt;,  &amp;lt; table&amp;gt;,  &amp;lt; pre&amp;gt;,  &amp;lt; p&amp;gt; 前后要加空行，不能使用空格等来缩进&lt;/li&gt;
+&lt;li&gt;HTML区块（block)标签内的MarkDown不做语法处理。&lt;/li&gt;
+&lt;li&gt;区段（inline)标签则随意，比如 &amp;lt; span&amp;gt;, &amp;lt; cite&amp;gt;, &amp;lt; del&amp;gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;一、 区块元素&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;1. 段落和换行&lt;/h3&gt;
+&lt;p&gt;段落前后有一个以上空行（一般自然就是前后各空一行），不能用空格或制表符来缩进。&lt;/p&gt;
+&lt;h3&gt;2. 标题&lt;/h3&gt;
+&lt;p&gt;类Setext 底线形式，只有＝（最高阶标题）和－（第二阶标题）
+类Atx 形式，使用＃，1至6个，对应1阶到6阶&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;可以使用闭合式标题，即前后配对，出于美观考虑&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;3. 区块引用&lt;/h3&gt;
+&lt;p&gt;类似EMAIL中的 &amp;gt; 形式，即使用 &amp;gt; 作为缩进的符号，根据层次使用不同的个数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小窍门&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在段落的第一行上加 &amp;gt; 号&lt;/li&gt;
+&lt;li&gt;可以嵌套，根据层次加上不同数量的 &amp;gt;&lt;/li&gt;
+&lt;li&gt;引用的区块内也可以使用其他的 Markdown 语法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;4. 列表&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;无序列表，使用﹡，＋，－。&lt;/li&gt;
+&lt;li&gt;有序列表即数字加英文句点。与数字顺序是否正确无关。&lt;/li&gt;
+&lt;li&gt;列表项目可以包含多个段落，缩进要一致
+    比如这样就不好看了，
+   比如这样就还不错，字体显得行间距不太好看。&lt;/li&gt;
+&lt;li&gt;列表项目里可以使用 &amp;gt;  缩进。&lt;/li&gt;
+&lt;li&gt;要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;5. 代码区块&lt;/h3&gt;
+&lt;p&gt;缩进4个空格或1个制表符即可。&lt;/p&gt;
+&lt;h3&gt;6. 分隔线&lt;/h3&gt;
+&lt;p&gt;一行中三个以上的星号、减号和底线，还可以在中间插入空格。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;二、 区段元素&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;1. 链接&lt;/h3&gt;
+&lt;p&gt;行内式和参考式两种形式&lt;/p&gt;
+&lt;p&gt;链接文字都是用 [方括号] 来标记&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;要建立一个行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;   &lt;span class="err"&gt;如：&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//example.com/ &amp;quot;Title&amp;quot;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;相对路径则是 ？？？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考式的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记
+    接着，在文件的任意处，你可以把这个标记的链接内容定义出来：
+    如：[ an example ][ id]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//example.com/ &amp;quot;Optional Title Here&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;链接内容定义的形式为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字&lt;/li&gt;
+&lt;li&gt;接着一个冒号&lt;/li&gt;
+&lt;li&gt;接着一个以上的空格或制表符&lt;/li&gt;
+&lt;li&gt;接着链接的网址&lt;/li&gt;
+&lt;li&gt;选择性地接着 title 内容，可以用单引号、双引号或是括弧包着&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写&lt;/p&gt;
+&lt;p&gt;隐式链接标记功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加
+上一个空的方括号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;强调&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Markdown 使用星号（ ﹡）和底线（ _）作为标记强调字词的符号，被 * 或 _ 包围的字词会被转成用 &amp;lt; em&amp;gt; 标签包围，用两个 * 或 _
+包起来的话，则会被转成 &amp;lt; strong&amp;gt;&lt;/p&gt;
+&lt;p&gt;唯一的限制是，你用什么符号开启标签，就要用什么符号结束&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;代码&lt;/h2&gt;
+&lt;p&gt;如果要标记一小段行内代码，你可以用反引号把它包起来（ `）&lt;/p&gt;
+&lt;h2&gt;图片&lt;/h2&gt;
+&lt;p&gt;&amp;emsp; Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： 行内式和参考式。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;详细叙述如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个惊叹号 !&lt;/p&gt;
+&lt;p&gt;接着一个方括号，里面放上图片的替代文字&lt;/p&gt;
+&lt;p&gt;接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 'title' 文字。&lt;/p&gt;
+&lt;p&gt;例 : ![替代文字](路径文件)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;emsp; 效果图：&lt;/p&gt;
+&lt;p&gt;&amp;emsp; &lt;img alt="not found" src="G:\1.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;自动链接&lt;/h2&gt;
+&lt;p&gt;Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接&lt;/p&gt;</summary></entry></feed>

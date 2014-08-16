@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", db2, " />
+        <title>db2查询本机数据库  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/db2cha-xun-ben-ji-shu-ju-ku.html"> db2查询本机数据库  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>﻿</p>
+<h1>db2 查询本机数据库（本地及远程）</h1>
+<ol>
+<li>db2 "list db directory"  显示本机数据库列表</li>
+<li>db2 list node directory show detail   查询该节点的详细信息</li>
+</ol>
+<p>引用内容:</p>
+<div class="highlight"><pre><span class="nx">db2</span> <span class="nx">Catalog</span>  <span class="mi">2012</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">19</span> <span class="mi">13</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">49</span><span class="o">|</span>  <span class="err">分类：</span> <span class="nx">DB2</span> <span class="o">|</span>  <span class="err">标签：</span> <span class="o">|</span><span class="err">字号大中小</span> <span class="err">订阅</span> <span class="nx">.</span>
+
+
+<span class="err">在</span><span class="nx">DB2</span><span class="err">中从客户端访问服务器端的数据库时，不能直接用</span><span class="nb">connect</span><span class="err">命令，而必须先建立通信</span><span class="nx">node</span><span class="err">，再在</span><span class="nx">node</span><span class="err">的基础上建立数据库连接。在命令行的具体操作如下：</span>
+
+
+<span class="o">-&gt;</span><span class="nx">db2</span> <span class="nx">catalog</span> <span class="nx">tcpip</span> <span class="nx">node</span> <span class="err">$</span><span class="p">{</span><span class="nb">nodeName</span><span class="p">}</span> <span class="nx">remote</span> <span class="err">$</span><span class="p">{</span><span class="nb">serverName</span><span class="p">}</span> <span class="nx">server</span> <span class="err">$</span><span class="p">{</span><span class="nx">portNumber</span><span class="p">}</span> 
+<span class="o">-&gt;</span><span class="nx">db2</span> <span class="nx">catalog</span> <span class="nb">db</span> <span class="err">$</span><span class="p">{</span><span class="nx">dbName</span><span class="p">}</span> <span class="nx">as</span> <span class="err">$</span><span class="p">{</span><span class="nx">dbAlias</span><span class="p">}</span> <span class="nx">at</span> <span class="nx">node</span> <span class="err">$</span><span class="p">{</span><span class="nb">nodeName</span><span class="p">}</span> 
+<span class="o">-&gt;</span><span class="nx">db2</span> <span class="nb">connect</span> <span class="k">to</span> <span class="err">$</span><span class="p">{</span><span class="nx">dbAlias</span><span class="p">}</span> <span class="nb">user</span> <span class="err">$</span><span class="p">{</span><span class="nx">userName</span><span class="p">}</span> <span class="nx">using</span> <span class="err">$</span><span class="p">{</span><span class="nx">passWord</span><span class="p">}</span>
+<span class="o">-&gt;</span><span class="nx">db2</span> <span class="nx">terminate</span>
+
+
+<span class="err">说明</span><span class="p">:</span>
+
+
+<span class="err">$</span><span class="p">{</span><span class="nb">nodeName</span><span class="p">}</span><span class="err">：任意起的一个结点名</span><span class="p">,</span><span class="err">注意长度限制</span>
+<span class="err">$</span><span class="p">{</span><span class="nb">serverName</span><span class="p">}</span><span class="err">：远程数据库所在服务器名称或</span><span class="nx">IP</span><span class="err">地址</span>
+<span class="err">$</span><span class="p">{</span><span class="nx">portNumber</span><span class="p">}</span> <span class="err">：远程数据库端口号</span>
+<span class="err">$</span><span class="p">{</span><span class="nx">dbName</span><span class="p">}</span><span class="err">：远程数据库的名字</span>
+<span class="err">$</span><span class="p">{</span><span class="nx">dbAlias</span><span class="p">}</span><span class="err">：编目到本地后的数据库别名</span>
+<span class="err">$</span><span class="p">{</span><span class="nx">userName</span><span class="p">}</span><span class="err">：连接数据库用户名</span>
+<span class="err">$</span><span class="p">{</span><span class="nx">passWord</span><span class="p">}</span><span class="err">：连接数据库密码</span>
+
+
+<span class="err">其他相关一些重要的</span><span class="nx">DB2</span><span class="err">命令</span>
+
+
+<span class="err">　　</span><span class="mi">1</span><span class="nx">.</span> <span class="err">查看本地节点目录</span>
+<span class="err">　　命令窗口中输入：</span><span class="nx">db2</span> <span class="nb">list</span> <span class="nx">node</span> <span class="nx">directory</span>
+
+
+<span class="err">　　</span><span class="mi">2</span><span class="nx">.</span> <span class="err">编目一个</span><span class="nx">TCP</span><span class="p">/</span><span class="nx">IP</span><span class="err">节点</span>
+<span class="err">　　命令窗口：</span><span class="nx">db2</span> <span class="nx">catalog</span> <span class="nx">tcpip</span> <span class="nx">node</span> <span class="o">&lt;</span><span class="nx">node_name</span><span class="o">&gt;</span> <span class="nx">remote</span> <span class="o">&lt;</span><span class="nb">hostname</span><span class="o">|</span><span class="nx">ip_address</span><span class="o">&gt;</span> <span class="nx">server</span> <span class="o">&lt;</span><span class="nx">svcname</span><span class="o">|</span><span class="nx">port_number</span><span class="o">&gt;</span> <span class="nx">ostype</span> <span class="o">&lt;</span><span class="nx">OS2</span><span class="o">|</span><span class="nx">AIX</span><span class="o">|</span><span class="nx">WIN95</span><span class="o">|</span><span class="nx">NT</span><span class="o">|</span><span class="nx">HPUX</span><span class="o">|</span><span class="nx">SUN</span><span class="o">|</span><span class="nx">MVS</span><span class="o">|</span><span class="nx">OS400</span><span class="o">|</span><span class="nx">VM</span><span class="o">|</span><span class="nx">VSE</span><span class="o">|</span><span class="nx">SCO</span><span class="o">|</span><span class="nx">SGI</span><span class="o">|</span><span class="nx">LINUX</span><span class="o">|</span><span class="nx">DYNIX</span><span class="o">&gt;</span>
+
+
+<span class="err">　　</span><span class="mi">3</span><span class="nx">.</span> <span class="err">取消节点编目</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nx">uncatalog</span> <span class="nx">node</span> <span class="o">&lt;</span><span class="nx">node_name</span><span class="o">&gt;</span>
+
+
+<span class="err">　　</span><span class="mi">4</span><span class="nx">.</span> <span class="err">查看系统数据库目录</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nb">list</span> <span class="nx">database</span> <span class="nx">directory</span>
+
+
+<span class="err">　　</span><span class="mi">5</span><span class="nx">.</span> <span class="err">查看本地数据库目录</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nb">list</span> <span class="nx">database</span> <span class="nx">directory</span> <span class="k">on</span> <span class="o">&lt;</span><span class="err">盘符</span><span class="o">&gt;</span>
+<span class="err">　　在本地数据库目录中有而系统数据库目录中没有的数据库不能访问，可以在控制中心中选中</span><span class="o">&lt;</span><span class="err">数据库</span><span class="o">&gt;</span><span class="err">右键单击选择添加，然后输入需要添加的数据库名称或者点击刷新按钮选择数据库，加入数据库后即可以访问。</span>
+
+
+<span class="err">　　</span><span class="mi">6</span><span class="nx">.</span> <span class="err">编目数据库</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nx">catalog</span> <span class="nx">database</span> <span class="o">&lt;</span><span class="nx">db_name</span><span class="o">&gt;</span> <span class="nx">as</span> <span class="o">&lt;</span><span class="nx">db_alias</span><span class="o">&gt;</span> <span class="nx">at</span> <span class="nx">node</span> <span class="o">&lt;</span><span class="nx">node_name</span><span class="o">&gt;</span>
+
+
+<span class="err">　　</span><span class="mi">7</span><span class="nx">.</span> <span class="err">取消数据库编目</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nx">uncatalog</span> <span class="nx">database</span> <span class="o">&lt;</span><span class="nx">db_name</span><span class="o">&gt;</span>
+
+
+<span class="err">　　</span><span class="mi">8</span><span class="nx">.</span> <span class="err">测试远程数据库的连接</span>
+<span class="err">　　</span><span class="nx">db2</span> <span class="nb">connect</span> <span class="k">to</span> <span class="o">&lt;</span><span class="nx">db_alias</span><span class="o">&gt;</span> <span class="nb">user</span> <span class="o">&lt;</span><span class="nx">user_id</span><span class="o">&gt;</span> <span class="nx">using</span> <span class="o">&lt;</span><span class="nx">password</span><span class="o">&gt;</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/db2_export.html" title="Previous: db2_export">db2_export</a></li>
+ 
+                <li class="next_article"><a href="/tong-ji-xing-hao.html" title="Next: 统计行号">统计行号</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-04T09:20:18">May 4, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#db2-ref">db2</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

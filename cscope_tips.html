@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", vim, " />
+        <title>cscope_tips  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/cscope_tips.html"> cscope_tips  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>% cscope<br />
+% 杨秀隆<br />
+% 20140619</p>
+<h1>cscope</h1>
+<p>相当于 source insight 里的 look up reference</p>
+<h2>帮助文档</h2>
+<p>:help if_cscop.txt</p>
+<p>它被设计用来回答以下的问题:</p>
+<ul>
+<li>
+<p>什么地方用到了这个符号？</p>
+</li>
+<li>
+<p>这是在什么地方定义的？</p>
+</li>
+<li>
+<p>这个变量在哪里被赋值？</p>
+</li>
+<li>
+<p>这个全局符号的定义在哪里？</p>
+</li>
+<li>
+<p>这个函数在源文件中的哪个地方？</p>
+</li>
+<li>
+<p>哪些函数调用了这个函数？</p>
+</li>
+<li>
+<p>这个函数调用了哪些函数？</p>
+</li>
+<li>
+<p>信息 "out of space" 从哪来？</p>
+</li>
+<li>
+<p>这个源文件在整个目录结构中处于什么位置？</p>
+</li>
+<li>
+<p>哪些文件包含这个头文件？</p>
+</li>
+</ul>
+<h2>安装Cscope</h2>
+<p>如果你的系统中有cscope命令, 则可以跳过这一小段, 如果没有, 就先跟着我一起安装一个吧.</p>
+<p>在Cscope的主页: http://cscope.sourceforge.net 下载一个源码包, 解压后编译安装:</p>
+<h1>./configure</h1>
+<h1>make</h1>
+<h1>make install       //需要root权限</h1>
+<h2>配置</h2>
+<p>在~/vimrc中增加一句:</p>
+<p>:setcscopequickfix=s-,c-,d-,i-,t-,e-
+这个是设定是否使用 quickfix 窗口来显示 cscope 结果, 用法在后面会说到。</p>
+<p>跟Ctags一样, 要使用其功能必须先为你的代码生成一个cscope的数据库, 在项目的根目录运行下面的命令:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cscope</span> <span class="o">-</span><span class="n">Rbq</span>
+</pre></div>
+
+
+<p>会生成三个文件 </p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">ll</span> <span class="n">cscope</span><span class="p">.</span><span class="o">*</span>
+
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">wooin</span> <span class="n">wooin</span> <span class="mf">1.1</span><span class="n">M</span> <span class="mi">2007</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">10</span><span class="o">:</span><span class="mi">56</span> <span class="n">cscope</span><span class="p">.</span><span class="n">in</span><span class="p">.</span><span class="n">out</span>
+
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">wooin</span> <span class="n">wooin</span> <span class="mf">6.7</span><span class="n">M</span> <span class="mi">2007</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">10</span><span class="o">:</span><span class="mi">56</span> <span class="n">cscope</span><span class="p">.</span><span class="n">out</span>
+
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">wooin</span> <span class="n">wooin</span> <span class="mf">5.1</span><span class="n">M</span> <span class="mi">2007</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="mi">10</span><span class="o">:</span><span class="mi">56</span> <span class="n">cscope</span><span class="p">.</span><span class="n">po</span><span class="p">.</span><span class="n">out</span>
+</pre></div>
+
+
+<h2>使用cscope</h2>
+<p>进入vim后第一件事是要把刚才生成的cscope文件导入到vim中来, 用下面的命令:</p>
+<div class="highlight"><pre><span class="o">:</span><span class="n">cs</span> <span class="n">add</span> <span class="p">..</span><span class="o">/</span><span class="n">cscope</span><span class="p">.</span><span class="n">out</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">wooin</span><span class="o">/</span><span class="n">vim71</span>
+</pre></div>
+
+
+<p>不能只写前半句</p>
+<div class="highlight"><pre><span class="o">:</span><span class="n">cs</span> <span class="n">add</span> <span class="p">..</span><span class="o">/</span><span class="n">cscope</span><span class="p">.</span><span class="n">out</span>
+</pre></div>
+
+
+<p>因为源码是多级目录的, 如果这样写, cscope是无法在子目录中的源码中工作的, 当然, 如果你的源码都在同一级目录中就无所谓了.如果你要经常用cscope的话, 可以把上面那句加到~/.vimrc中去.</p>
+<p>下面我们来操练一下, 查找函数vim_strsave()的定义, 用命令:</p>
+<p>:csfind g vim_strsave 如下图:</p>
+<p>按下回车后vim会自动跳转到第一个符合要求的地方, 并且在命令栏显示有多少符合要求的结果, 如图:</p>
+<p>如果自动跳转的位置你不满意, 想看其他的结果, 可以用下面的命令打开QuickFix窗口:</p>
+<p>:cw</p>
+<p>这时你就可以慢慢挑选了^_^</p>
+<p>cscope的主要功能是通过同的子命令"find"来实现的</p>
+<p>"cscope find"的用法:</p>
+<p>cs find c|d|e|f|g|i|s|t name</p>
+<p>0 或 s   查找本 C 符号(可以跳过注释)
+1 或 g   查找本定义
+2 或 d   查找本函数调用的函数
+3 或 c   查找调用本函数的函数
+4 或 t   查找本字符串
+6 或 e   查找本 egrep 模式
+7 或 f   查找本文件
+8 或 i   查找包含本文件的文件</p>
+<p>如果每次查找都要输入一长串命令的话还真是件讨人厌的事情, Cscope的帮助手册中推荐了一些快捷键的用法, 下面是其中一组,也是我用的, 将下面的内容添加到~/.vimrc中, 并重启vim:</p>
+<p>nmap<C-_>s :cs find s<C-R>=expand("<cword>")<CR><CR></p>
+<p>nmap <C-_>g :cs find g<C-R>=expand("<cword>")<CR><CR></p>
+<p>nmap <C-_>c :cs find c<C-R>=expand("<cword>")<CR><CR></p>
+<p>nmap <C-_>t :cs find t<C-R>=expand("<cword>")<CR><CR></p>
+<p>nmap <C-_>e :cs find e<C-R>=expand("<cword>")<CR><CR></p>
+<p>nmap <C-_>f :cs find f<C-R>=expand("<cfile>")<CR><CR></p>
+<p>nmap <C-_>i :cs find i^<C-R>=expand("<cfile>")<CR>$<CR></p>
+<p>nmap <C-_>d :cs find d<C-R>=expand("<cword>")<CR><CR> 当光标停在某个你要查找的词上时, 按下<C-_>g, 就是查找该对象的定义, 其他的同理.</p>
+<p>按这种组合键有一点技巧,按了<C-_>后要马上按下一个键,否则屏幕一闪就回到nomal状态了</p>
+<p><C-_>g的按法是先按"Ctrl+Shift+-", 然后很快再按"g"</p>
+<p>reset :重新初始化所有连接。 </p>
+<p>用法  : csreset </p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/label_shellgong-ju.html" title="Previous: label_shell工具">label_shell工具</a></li>
+ 
+                <li class="next_article"><a href="/bian-cheng-gui-fan.html" title="Next: 编程规范">编程规范</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-06-19T09:50:12">Jun 19, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#vim-ref">vim</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

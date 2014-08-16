@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+<meta name="keywords" content=", db2, " />
+        <title>db2jdbc  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/db2jdbc.html"> db2jdbc  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>﻿% JDBC连接DB2数据库</p>
+<h1>1. db2数据库驱动的安装</h1>
+<h2>方法:</h2>
+<ol>
+<li>安装db2客户端 </li>
+<li>db2的jdbc驱动放到jdk，jre或者tomcat的common/lib目录下 </li>
+</ol>
+<h2>db2的数据库驱动</h2>
+<ol>
+<li>COM.ibm.db2.jdbc.app.DB2Driver</li>
+<li>COM.ibm.db2.jdbc.net.DB2Driver</li>
+<li>通用驱动程序</li>
+</ol>
+<p>前两种在db2java.zip文件中，可以把他改名成db2java.jar文件使用。 第三种放在文件db2jcc.jar文件中</p>
+<h2>驱动的程序加载和连接建立方法：</h2>
+<ol>
+<li>Class.forName("COM.ibm.db2.jdbc.app.DB2Driver"); </li>
+<li>Class.forName("COM.ibm.db2.jdbc.net.DB2Driver"); </li>
+<li>Class.forName("com.ibm.db2.jcc.DB2Driver"); </li>
+</ol>
+<p>连接例子可以相同，都是指定主机，端口和数据库名称</p>
+<div class="highlight"><pre><span class="n">String</span> <span class="n">dbUrl</span> <span class="o">=</span><span class="s">&quot;jdbc:db2://localhost:6789/sample&quot;</span><span class="p">;</span> 
+<span class="n">con</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="p">.</span><span class="n">getConnection</span><span class="p">(</span><span class="n">dbUrl</span><span class="p">,</span><span class="s">&quot;www&quot;</span><span class="p">,</span><span class="s">&quot;123456&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2>示例</h2>
+<div class="highlight"><pre><span class="nx">Class.forName</span><span class="p">(</span><span class="s2">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span><span class="p">);</span>
+
+<span class="c1">//注册驱动程序 </span>
+<span class="c1">//DriverManager.registerDriver(new COM.ibm.db2.jdbc.app.DB2Driver());</span>
+
+<span class="c1">//用适当的驱动程序连接到数据库 </span>
+<span class="c1">//指定db2的url，注意格式，6789是端口，mytest是数据库名 </span>
+<span class="kt">String</span> <span class="n">dbUrl</span> <span class="o">=</span><span class="s2">&quot;jdbc:db2://localhost:6789/sample&quot;</span><span class="p">;</span> 
+<span class="n">con</span> <span class="o">=</span> <span class="nx">DriverManager.getConnection</span><span class="p">(</span><span class="nx">dbUrl</span><span class="p">,</span><span class="s2">&quot;www&quot;</span><span class="p">,</span><span class="s2">&quot;123456&quot;</span><span class="p">);</span>
+
+<span class="c1">//创建一个JDBC声明 </span>
+<span class="n">stmt</span> <span class="o">=</span> <span class="nx">con.createStatement</span><span class="p">();</span>
+
+<span class="c1">//增加新记录 </span>
+<span class="c1">//stmt.executeUpdate(&quot;INSERT INTO books (id,name,title,price) VALUES (&#39;999&#39;,&#39;Tom&#39;,&#39;Tomcat Bible&#39;,44.5)&quot;);</span>
+
+<span class="c1">//查询记录 </span>
+<span class="n">rs</span> <span class="o">=</span> <span class="nx">stmt.executeQuery</span><span class="p">(</span><span class="s2">&quot;select * from test&quot;</span><span class="p">);</span>
+
+<span class="c1">//输出查询结果 </span>
+<span class="nx">out.println</span><span class="p">(</span><span class="s2">&quot;&lt;table border=1 width=400&gt;&quot;</span><span class="p">);</span> 
+<span class="k">while</span> <span class="p">(</span><span class="nx">rs.next</span><span class="p">())</span> 
+<span class="p">{</span> 
+<span class="kt">String</span> <span class="n">col1</span> <span class="o">=</span> <span class="nx">rs.getString</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> 
+<span class="kt">String</span> <span class="n">col2</span> <span class="o">=</span> <span class="nx">rs.getString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> 
+<span class="kt">String</span> <span class="n">col3</span> <span class="o">=</span> <span class="nx">rs.getString</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> 
+<span class="kt">String</span> <span class="n">col4</span> <span class="o">=</span> <span class="nx">rs.getString</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> 
+<span class="c1">//打印所显示的数据 </span>
+<span class="nx">out.println</span><span class="p">(</span><span class="s2">&quot;&lt;tr&gt;&lt;td&gt;&quot;</span><span class="o">+</span><span class="nx">col1</span><span class="o">+</span><span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&quot;</span><span class="o">+</span><span class="nx">col2</span><span class="o">+</span><span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&quot;</span><span class="o">+</span><span class="nx">col3</span><span class="o">+</span><span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&quot;</span><span class="o">+</span><span class="nx">col4</span><span class="o">+</span><span class="s2">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span><span class="p">);</span> 
+<span class="p">}</span> 
+<span class="nx">out.println</span><span class="p">(</span><span class="s2">&quot;&lt;/table&gt;&quot;</span><span class="p">);</span>
+
+<span class="c1">//关闭数据库连结 </span>
+<span class="nx">rs.close</span><span class="p">();</span> 
+<span class="nx">stmt.close</span><span class="p">();</span> 
+<span class="nx">con.close</span><span class="p">();</span>
+</pre></div>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/vi_tips.html" title="Previous: vi_tips">vi_tips</a></li>
+ 
+                <li class="next_article"><a href="/pandoc.html" title="Next: pandoc">pandoc</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-05-07T10:10:44">May 7, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#db2-ref">db2</a> 
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

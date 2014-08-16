@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/cs.atom.xml" rel="self"></link><id>/</id><updated>2014-08-16T05:10:08+08:00</updated><entry><title>并查集优化</title><link href="/union_find_opt.html" rel="alternate"></link><updated>2014-08-16T05:10:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:union_find_opt.html</id><summary type="html">
+&lt;h1 id="union-find"&gt;union find 并查集优化&lt;/h1&gt;
+&lt;h2 id="1"&gt;方法 1 带权重快速合并&lt;/h2&gt;
+&lt;p&gt;好处:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;优化 快速合并 ，避免树的层次过多&lt;/li&gt;
+&lt;li&gt;随时记录每棵树（子树）的大小&lt;/li&gt;
+&lt;li&gt;通过将较小子树的根挂在较大树的根下，来获得平衡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="_1"&gt;数据结构&lt;/h3&gt;
+&lt;p&gt;比快速合并算法，增加一个大小为N的整型数组sz。
+sz[i]代表以i为根的对象个数。&lt;/p&gt;
+&lt;h3 id="_2"&gt;查找&lt;/h3&gt;
+&lt;p&gt;与快速合并相同， return root(p) == root(q)&lt;/p&gt;
+&lt;h3 id="_3"&gt;合并&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;将较小子树的根结点连接到较大子树的根结点&lt;/li&gt;
+&lt;li&gt;更新sz数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;public void union(int p, int q)
+{
+    int i = root(p);
+    int j = root(q);&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;  &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];}&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;                &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;sz&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;h3 id="_4"&gt;算法分析&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;运行时间:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查找: 与p和q的深度成正比 即  lg N&lt;/li&gt;
+&lt;li&gt;合并: 对给定的根，只花费常数时间 lg N&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;命题: 结点x的尝试最多为 lg N.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_5"&gt;路径压缩&lt;/h2&gt;
+&lt;p&gt;方法: 计算出p的根结点后， 将每个被检测到的结点都指向这个根结点&lt;/p&gt;
+&lt;h3 id="_6"&gt;实现:&lt;/h3&gt;
+&lt;p&gt;两次遍历: 循环中再增加一次处理，
+    将每个被检测到的结点的id&lt;a href="即根"&gt;&lt;/a&gt;指向上一层的根结点。&lt;/p&gt;
+&lt;p&gt;private int root(int i)
+{
+    while (i != id[i])
+    {
+        id[i] = id[id[i]];
+        i = id[i];
+    }
+    return i;
+}&lt;/p&gt;
+&lt;h3 id="_7"&gt;命题:&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从空集开始，N个对象的任意M次操作，对数组的访问次数萍踪:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;  &lt;span class="n"&gt;lg&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;lg&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="err"&gt;其实就是&lt;/span&gt; &lt;span class="n"&gt;lg&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="err"&gt;的再次求对数的样子。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In computer science, the iterated logarithm of n, written log* n (usually read "log star"), is the number of times the logarithm function must be iteratively applied before the result is less than or equal to 1.&lt;/p&gt;
+&lt;p&gt;本算法理论上非线性复杂度， 实际上可以看作线性。&lt;/p&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>percolation作业</title><link href="/percolation_assignment.html" rel="alternate"></link><updated>2014-08-16T05:06:19+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:percolation_assignment.html</id><summary type="html">
+&lt;h1 id="percolation"&gt;percolation 作业&lt;/h1&gt;
+&lt;h2 id="_1"&gt;描述&lt;/h2&gt;
+&lt;p&gt;N * N的方格（site）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果方格与顶层中的某一方格是连通的，则称其 is full&lt;/li&gt;
+&lt;li&gt;如果方格与底层中的某一方格是连通的，则称其 是开放的。is open&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当顶层中的某一方格与底层中的某一方格连通时，则称这整个N ﹡
+N个方格的系统为percolation的。&lt;/p&gt;
+&lt;h2 id="_2"&gt;状态&lt;/h2&gt;
+&lt;h2 id="_3"&gt;蒙特卡罗算法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化N﹡N个关闭的格子&lt;/li&gt;
+&lt;li&gt;任意开放某个格子，直到这个系统percolation&lt;/li&gt;
+&lt;li&gt;计算 概率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="tip"&gt;tip 提示&lt;/h2&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>连通性问题</title><link href="/algo_connectivity.html" rel="alternate"></link><updated>2014-08-16T05:03:30+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:algo_connectivity.html</id><summary type="html">
+&lt;h1 id="_1"&gt;连通性问题&lt;/h1&gt;
+&lt;h2 id="_2"&gt;问题定义：&lt;/h2&gt;
+&lt;p&gt;给定 N个物体（点）&lt;/p&gt;
+&lt;p&gt;存在两种操作：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="err"&gt;连接：&lt;/span&gt; &lt;span class="err"&gt;连接两点&lt;/span&gt;
+&lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="err"&gt;查询连通性：&lt;/span&gt; &lt;span class="err"&gt;两点间是否存在路径&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_3"&gt;问题建模：&lt;/h2&gt;
+&lt;h3 id="_4"&gt;对象建模：&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简单就是个点， 然后用个数组下标0 —— N-1来表示&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="_5"&gt;连通性建模：&lt;/h3&gt;
+&lt;p&gt;'连接到' 等价于以下数学表示：&lt;br/&gt;
+1. 反射： 自身是连通的。
+2. 对称： 如果p连接到q，则q也连接到p
+3. 传递： 如果p连接到q，q又连通r， 则p 也连通r.&lt;/p&gt;
+&lt;p&gt;连通分量(connected component)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;相互连通的物体的最大集合&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="_6"&gt;操作的实现:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Find查询: 查询两点是否在同一分量&lt;/li&gt;
+&lt;li&gt;Union连接： &lt;/li&gt;
+&lt;/ol&gt;</summary><category term="cs"></category><category term="algorithms"></category><category term="mooc"></category></entry><entry><title>什么是机器学习</title><link href="/ML_define.html" rel="alternate"></link><updated>2014-08-16T05:00:23+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:ML_define.html</id><summary type="html">
+&lt;h1 id="_1"&gt;什么是机器学习&lt;/h1&gt;
+&lt;p&gt;定义：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为什么使用机器学习  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;规则难定义或未知&lt;/li&gt;
+&lt;li&gt;程序编写复杂&lt;/li&gt;
+&lt;li&gt;从数据中学习中相对容易&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用情形示例：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;无法人工编写出全部规则    (规则未可尽知)&lt;/li&gt;
+&lt;li&gt;无法准确定义             (规则难以言表)&lt;/li&gt;
+&lt;li&gt;快速决策&lt;/li&gt;
+&lt;li&gt;面向大量用户&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;机器学习是编写复杂规则系统的一种替代方法&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="ml"></category><category term="ai"></category></entry><entry><title>算法课笔记之科学方法</title><link href="/suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-24:suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html</id><summary type="html">&lt;h1 id="_1"&gt;科学方法&lt;/h1&gt;
+&lt;p&gt;设计有效算法的步骤&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对问题建模&lt;/li&gt;
+&lt;li&gt;寻找算法来解决&lt;/li&gt;
+&lt;li&gt;判定是否高效、内存足够&lt;/li&gt;
+&lt;li&gt;如果不够好，找出原因&lt;/li&gt;
+&lt;li&gt;优化算法来解决问题&lt;/li&gt;
+&lt;li&gt;迭代直到满意&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="科学方法"></category><category term="mooc"></category><category term="cs"></category><category term="algorithms"></category></entry></feed>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/c_c.atom.xml" rel="self"></link><id>/</id><updated>2014-06-20T14:14:30+08:00</updated><entry><title>编程规范</title><link href="/bian-cheng-gui-fan.html" rel="alternate"></link><updated>2014-06-20T14:14:30+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-20:bian-cheng-gui-fan.html</id><summary type="html">&lt;p&gt;﻿% C/C++ 编程规范&lt;br /&gt;
+% 杨秀隆&lt;br /&gt;
+% 20140616&lt;/p&gt;
+&lt;h1&gt;源代码组织&lt;/h1&gt;
+&lt;h2&gt;源文件&lt;/h2&gt;
+&lt;p&gt;.h .c .cpp .hpp&lt;/p&gt;
+&lt;h2&gt;库文件&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;动态库 &lt;br /&gt;
+    .a(UNIX) / .dll(Windows)  &lt;br /&gt;
+    优点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行过程中装载&lt;/li&gt;
+&lt;li&gt;程序较小&lt;/li&gt;
+&lt;li&gt;共享动态库
+注意点:
+动态库需要一同发布&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;静态库&lt;br /&gt;
+    .so(UNIX) / .lib(Windows)
+    优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行时不需要静态库
+注意点：&lt;/li&gt;
+&lt;li&gt;链接时，库中数据加入&lt;/li&gt;
+&lt;li&gt;占用空间、资源多&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;静态变量 static&lt;/h2&gt;
+&lt;p&gt;特点:
+1. 分配在全局数据区
+2. 在声明时初始化一次
+3. 不显式初始化，则为0&lt;/p&gt;
+&lt;h2&gt;外部变量 extern&lt;/h2&gt;
+&lt;h1&gt;排版命名&lt;/h1&gt;
+&lt;h2&gt;匈牙利命名法&lt;/h2&gt;
+&lt;p&gt;组成： &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;作用域前缀&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="err"&gt;类型简称&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="err"&gt;基本名称&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="err"&gt;限定词&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;m  : 类的成员变量
+sm : 类的静态成员变量
+g  : 全局变量
+s  : 静态变量&lt;/p&gt;
+&lt;h1&gt;函数事项&lt;/h1&gt;
+&lt;h2&gt;命名&lt;/h2&gt;
+&lt;h2&gt;参数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;某个参数（指针或引用）功能上不会在函数中修改时， 必须定义为const&lt;/li&gt;
+&lt;li&gt;尽量用引用传参&lt;/li&gt;
+&lt;li&gt;函数对参数进行合法性检查&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;局部变量&lt;/h2&gt;
+&lt;p&gt;返回时会被释放或析构——别返回错了。&lt;/p&gt;
+&lt;h1&gt;对象设计原则&lt;/h1&gt;
+&lt;p&gt;抽象、封装、继承、多态&lt;/p&gt;</summary></entry></feed>

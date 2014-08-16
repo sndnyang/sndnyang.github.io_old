@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/graphviz.atom.xml" rel="self"></link><id>/</id><updated>2014-05-04T15:42:20+08:00</updated><entry><title>dot</title><link href="/dot.html" rel="alternate"></link><updated>2014-05-04T15:42:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:dot.html</id><summary type="html">&lt;p&gt;﻿# dot 入门&lt;/p&gt;
+&lt;h2&gt;基本样式&lt;/h2&gt;
+&lt;p&gt;digraph Name{
+    nodes_list;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;edge_list&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;h2&gt;属性设置&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;label
+节点的label属性支持类似于HTML语言中的TABLE形式的定义，通过行列的数目来定义节点的形状，从而使得节点的组成更加灵活。&lt;/p&gt;
+&lt;p&gt;bgcolor&lt;br /&gt;
+fontname&lt;br /&gt;
+fontsize&lt;br /&gt;
+rankdir   // 这个是什么&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;定义顶点和边的样式&lt;/h2&gt;
+&lt;p&gt;在digraph的花括号内，添加顶点和边的新定义：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;node [shape="record", style="filled", color="black", fillcolor="chartreuse"];&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;edge [style="dashed", color=""];&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以针对特定结点和页进行设置。 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;子图绘制&lt;/h2&gt;
+&lt;p&gt;subgraph cluster_name {
+}&lt;/p&gt;
+&lt;h2&gt;复杂标签&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;st&lt;/span&gt;&lt;span class="o"&gt;\&lt;/span&gt;&lt;span class="nx"&gt;_table&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{st\_table|&amp;lt;type&amp;gt;type|num\_bins|num\_entries|&amp;lt;bins&amp;gt;bins}&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;;
+
+st\_table:bins -&amp;gt; st\_table\_entry:head;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;label 使用{}, 将多个标签用|分隔开&lt;/p&gt;
+&lt;p&gt;&amp;lt;&amp;gt; 锚点，用于后期某个位置 指向某个位置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;结点位置关系&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用rank &lt;/p&gt;
+&lt;p&gt;{rank = same; node1; node2; nodes_list}  并排  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用隐藏线&lt;/p&gt;
+&lt;p&gt;node1 -&amp;gt; node2 [style = invis] 不可见的结点先后顺序&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary></entry></feed>

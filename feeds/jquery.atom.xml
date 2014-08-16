@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/jquery.atom.xml" rel="self"></link><id>/</id><updated>2013-12-27T20:19:14+08:00</updated><entry><title>parent</title><link href="/parent.html" rel="alternate"></link><updated>2013-12-27T20:19:14+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:parent.html</id><summary type="html">&lt;h1&gt;jquery travel&lt;/h1&gt;
+&lt;p&gt;•parent()
+ •parents()
+ •parentsUntil()&lt;/p&gt;
+&lt;p&gt;•children()
+ •find()&lt;/p&gt;
+&lt;p&gt;•siblings()
+ •next()
+ •nextAll()
+ •nextUntil()
+ •prev()
+ •prevAll()
+ •prevUntil()&lt;/p&gt;
+&lt;p&gt;jQuery first() 方法&lt;/p&gt;
+&lt;p&gt;first() 方法返回被选元素的首个元素。&lt;/p&gt;
+&lt;p&gt;jQuery last() 方法&lt;/p&gt;
+&lt;p&gt;last() 方法返回被选元素的最后一个元素。&lt;/p&gt;
+&lt;p&gt;jQuery eq() 方法&lt;/p&gt;
+&lt;p&gt;eq() 方法返回被选元素中带有指定索引号的元素&lt;/p&gt;
+&lt;p&gt;jQuery filter() 方法&lt;/p&gt;
+&lt;p&gt;filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。&lt;/p&gt;
+&lt;p&gt;jQuery not() 方法&lt;/p&gt;
+&lt;p&gt;not() 方法返回不匹配标准的所有元素。&lt;/p&gt;
+&lt;p&gt;提示：not() 方法与 filter() 相反。&lt;/p&gt;</summary></entry><entry><title>size</title><link href="/size.html" rel="alternate"></link><updated>2013-12-27T20:03:44+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:size.html</id><summary type="html">&lt;h1&gt;jquery 尺寸&lt;/h1&gt;
+&lt;p&gt;jQuery width() 和 height() 方法&lt;/p&gt;
+&lt;p&gt;width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。&lt;/p&gt;
+&lt;p&gt;height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。&lt;/p&gt;
+&lt;p&gt;jQuery innerWidth() 和 innerHeight() 方法&lt;/p&gt;
+&lt;p&gt;innerWidth() 方法返回元素的宽度（包括内边距）。&lt;/p&gt;
+&lt;p&gt;innerHeight() 方法返回元素的高度（包括内边距）。&lt;/p&gt;
+&lt;p&gt;jQuery outerWidth() 和 outerHeight() 方法&lt;/p&gt;
+&lt;p&gt;outerWidth() 方法返回元素的宽度（包括内边距和边框）。&lt;/p&gt;
+&lt;p&gt;outerHeight() 方法返回元素的高度（包括内边距和边框）。&lt;/p&gt;
+&lt;p&gt;文档（HTML 文档）和窗口（浏览器视口）的宽度和高度
+$(document) $(window)&lt;/p&gt;
+&lt;p&gt;css() 中带参数即为设置&lt;/p&gt;</summary></entry><entry><title>opr_css</title><link href="/opr_css.html" rel="alternate"></link><updated>2013-12-27T19:59:28+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:opr_css.html</id><summary type="html">&lt;h1&gt;操作css&lt;/h1&gt;
+&lt;p&gt;•addClass() - 向被选元素添加一个或多个类
+•removeClass() - 从被选元素删除一个或多个类
+•toggleClass() - 对被选元素进行添加/删除类的切换操作
+•css() - 设置或返回样式属性&lt;/p&gt;
+&lt;p&gt;向不同的元素添加 class 属性&lt;/p&gt;
+&lt;h2&gt;CSS函数&lt;/h2&gt;
+&lt;h2&gt;返回 CSS 属性&lt;/h2&gt;
+&lt;p&gt;如需返回指定的 CSS 属性的值，请使用如下语法：
+css("propertyname");
+下面的例子将返回首个匹配元素的 background-color 值：&lt;/p&gt;
+&lt;h2&gt;设置 CSS 属性&lt;/h2&gt;
+&lt;p&gt;如需设置指定的 CSS 属性，请使用如下语法：
+css("propertyname","value");
+下面的例子将为所有匹配元素设置 background-color 值：&lt;/p&gt;
+&lt;h2&gt;设置多个 CSS 属性&lt;/h2&gt;
+&lt;p&gt;如需设置多个 CSS 属性，请使用如下语法：
+css({"propertyname":"value","propertyname":"value",...});&lt;/p&gt;</summary></entry><entry><title>del_element</title><link href="/del_element.html" rel="alternate"></link><updated>2013-12-27T19:39:02+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:del_element.html</id><summary type="html">&lt;h1&gt;删除元素&lt;/h1&gt;
+&lt;p&gt;•remove() - 删除被选元素（及其子元素）
+•empty() - 从被选元素中删除子元素&lt;/p&gt;
+&lt;p&gt;过滤被删除的元素&lt;/p&gt;
+&lt;p&gt;jQuery remove() 方法也可接受一个参数，允许您对被删元素进行过滤。&lt;/p&gt;
+&lt;p&gt;该参数可以是任何 jQuery 选择器的语法。&lt;/p&gt;
+&lt;p&gt;下面的例子删除 class="italic" 的所有 &lt;p&gt; 元素：&lt;/p&gt;
+&lt;p&gt;实例
+$("p").remove(".italic");&lt;/p&gt;</summary></entry><entry><title>add_new_element</title><link href="/add_new_element.html" rel="alternate"></link><updated>2013-12-27T19:38:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:add_new_element.html</id><summary type="html">&lt;h1&gt;添加新元素&lt;/h1&gt;
+&lt;p&gt;•append() - 在被选元素的结尾插入内容
+•prepend() - 在被选元素的开头插入内容
+•after() - 在被选元素之后插入内容
+•before() - 在被选元素之前插入内容&lt;/p&gt;</summary></entry><entry><title>content_attr</title><link href="/content_attr.html" rel="alternate"></link><updated>2013-12-27T19:36:44+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:content_attr.html</id><summary type="html">&lt;h1&gt;获取，设置内容及属性&lt;/h1&gt;
+&lt;p&gt;获得内容 - text()、html() 以及 val()&lt;/p&gt;
+&lt;p&gt;三个简单实用的用于 DOM 操作的 jQuery 方法：
+ •text() - 设置或返回所选元素的文本内容
+ •html() - 设置或返回所选元素的内容（包括 HTML 标记）
+ •val() - 设置或返回表单字段的值&lt;/p&gt;
+&lt;p&gt;获取属性 - attr();&lt;/p&gt;
+&lt;p&gt;说明，不带参数为获取，带参数为设置。&lt;/p&gt;
+&lt;p&gt;上述四个回调函数写法：
+拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。&lt;/p&gt;
+&lt;p&gt;$("#btn1").click(function(){
+  $("#test1").text(function(i,origText){
+    return "Old text: " + origText + " New text: Hello world!
+    (index: " + i + ")";
+  });
+});&lt;/p&gt;</summary></entry><entry><title>jquery_function</title><link href="/jquery_function.html" rel="alternate"></link><updated>2013-12-26T20:39:56+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_function.html</id><summary type="html">&lt;h1&gt;jquery 常用函数&lt;/h1&gt;
+&lt;h2&gt;隐藏&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;show&lt;/li&gt;
+&lt;li&gt;hide&lt;/li&gt;
+&lt;li&gt;toggle&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;图形渐消失&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;fadein&lt;/li&gt;
+&lt;li&gt;fadeout&lt;/li&gt;
+&lt;li&gt;fadetoggle&lt;/li&gt;
+&lt;li&gt;fadeto  指定透明度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;滑动&lt;/h2&gt;
+&lt;p&gt;slideDown
+slideUp
+slideToggle&lt;/p&gt;
+&lt;h2&gt;动画&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;animate 使用animate来操作CSS属性，
+animate （{})
+当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;stop&lt;/h2&gt;
+&lt;h2&gt;callback&lt;/h2&gt;
+&lt;p&gt;在动画函数中， 增加最后一个参数 function
+如
+    x.hide("slow", function() {xxxx})&lt;/p&gt;
+&lt;h2&gt;方法链接&lt;/h2&gt;
+&lt;p&gt;css().hide().slideDown()&lt;/p&gt;</summary></entry><entry><title>jquery_grammar</title><link href="/jquery_grammar.html" rel="alternate"></link><updated>2013-12-26T20:24:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_grammar.html</id><summary type="html">&lt;h1&gt;jquery 语法&lt;/h1&gt;
+&lt;p&gt;jQuery 语法是为 HTML 元素的选取编制的，可以对元素执行某些操作。
+基础语法是：$(selector).action()
+美元符号定义 jQuery
+选择符（selector）“查询”和“查找” HTML 元素
+jQuery 的 action() 执行对元素的操作&lt;/p&gt;
+&lt;p&gt;示例
+    $(this).hide() - 隐藏当前元素&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;隐藏所有段落&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;隐藏所有&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的所有元素&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;隐藏所有&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的元素&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;jquery 选择器&lt;/h2&gt;
+&lt;h3&gt;jQuery 元素选择器&lt;/h3&gt;
+&lt;p&gt;jQuery 使用 CSS 选择器来选取 HTML 元素。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;元素。&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;p.intro&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;intro&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;元素。&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;p#demo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;demo&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;元素。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;jQuery 属性选择器&lt;/h3&gt;
+&lt;p&gt;jQuery 使用 XPath 表达式来选择带有给定属性的元素。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[href]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有带有&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt; &lt;span class="err"&gt;属性的元素。&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[href=&amp;#39;#&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有带有&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt; &lt;span class="err"&gt;值等于&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;#&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的元素。&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[href!=&amp;#39;#&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有带有&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt; &lt;span class="err"&gt;值不等于&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;#&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;的元素。&lt;/span&gt;
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[href$=&amp;#39;.jpg&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;选取所有&lt;/span&gt; &lt;span class="n"&gt;href&lt;/span&gt; &lt;span class="err"&gt;值以&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;.jpg&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;结尾的元素。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;jQuery CSS 选择器&lt;/h3&gt;
+&lt;p&gt;jQuery CSS 选择器可用于改变 HTML 元素的 CSS 属性。
+下面的例子把所有 p 元素的背景颜色更改为红色：&lt;/p&gt;
+&lt;p&gt;实例
+    $("p").css("background-color","red");&lt;/p&gt;
+&lt;p&gt;语法  描述
+    $(this) 当前 HTML 元素
+    $("p")  所有 &lt;p&gt; 元素
+    $("p.intro")    所有 class="intro" 的 &lt;p&gt; 元素
+    $(".intro") 所有 class="intro" 的元素
+    $("#intro") id="intro" 的元素
+    $("ul li:first")    每个 &lt;ul&gt; 的第一个 &lt;li&gt; 元素
+    $("[href$='.jpg']") 所有带有以 ".jpg" 结尾的属性值的 href 属性
+    $("div#intro .head")    id="intro" 的 &lt;div&gt; 元素中的所有 class="head" 的元素&lt;/p&gt;</summary></entry><entry><title>jquery_ready_func</title><link href="/jquery_ready_func.html" rel="alternate"></link><updated>2013-12-26T19:56:06+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_ready_func.html</id><summary type="html">&lt;h1&gt;jquery 文档就绪函数&lt;/h1&gt;
+&lt;p&gt;所有 jQuery 函数位于一个 document ready 函数中：
+    $(document).ready(function(){&lt;/p&gt;
+&lt;p&gt;--- jQuery functions go here ----&lt;/p&gt;
+&lt;p&gt;});
+这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。&lt;/p&gt;</summary></entry><entry><title>import_jQuery</title><link href="/import_jquery.html" rel="alternate"></link><updated>2013-12-26T19:43:58+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:import_jquery.html</id><summary type="html">&lt;h1&gt;添加 jQuery 库&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+ &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt; 标签应该位于页面的 &lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt; 部分
+&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>

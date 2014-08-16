@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="杨秀隆" />
+        <meta name="copyright" content="杨秀隆" />
+
+<meta name="keywords" content="shell, shell, " />
+        <title>ksh手册  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - Full Atom Feed" />
+        <link href="/feeds/c_c++.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - c_c++ Category Atom Feed" />
+        <link href="/feeds/cs.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - cs Category Atom Feed" />
+        <link href="/feeds/db2.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - db2 Category Atom Feed" />
+        <link href="/feeds/firefly.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - firefly Category Atom Feed" />
+        <link href="/feeds/git.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - git Category Atom Feed" />
+        <link href="/feeds/graphviz.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - graphviz Category Atom Feed" />
+        <link href="/feeds/java.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - java Category Atom Feed" />
+        <link href="/feeds/jquery.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - jquery Category Atom Feed" />
+        <link href="/feeds/makefile.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - makefile Category Atom Feed" />
+        <link href="/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - markdown Category Atom Feed" />
+        <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - python Category Atom Feed" />
+        <link href="/feeds/server.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - server Category Atom Feed" />
+        <link href="/feeds/shell.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - shell Category Atom Feed" />
+        <link href="/feeds/tool.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - tool Category Atom Feed" />
+        <link href="/feeds/totalleader.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - totalleader Category Atom Feed" />
+        <link href="/feeds/vbox.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vbox Category Atom Feed" />
+        <link href="/feeds/vim.atom.xml" type="application/atom+xml" rel="alternate" title="懒龙微薄 - vim Category Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="/ksh_manual.html"> ksh手册  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#1">1.语法</a><ul>
+<li><a href="#_1">特殊的文件</a></li>
+<li><a href="#_2">文件名元字符</a></li>
+<li><a href="#_3">引用</a></li>
+<li><a href="#_4">命令形式</a></li>
+<li><a href="#_5">重定向形式</a><ul>
+<li><a href="#_6">文件描述符：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2">2. 变量</a><ul>
+<li><a href="#_7">变量替换</a></li>
+<li><a href="#_8">内置变量</a></li>
+<li><a href="#_9">特殊内置变量</a></li>
+<li><a href="#_10">特殊内置变量续</a></li>
+<li><a href="#_11">数组</a></li>
+<li><a href="#_12">运算符</a></li>
+</ul>
+</li>
+<li><a href="#3">3.内置命令</a><ul>
+<li><a href="#_13">条件执行语句。</a></li>
+<li><a href="#_14">循环控制</a><ul>
+<li><a href="#for">for</a></li>
+<li><a href="#repeat">repeat</a></li>
+<li><a href="#select">select</a></li>
+</ul>
+</li>
+<li><a href="#listreturn">显示一列按list中顺序编号的菜单项。让用户键入行号选择或按return重新显示。</a></li>
+<li><a href="#case">控制语句case</a></li>
+<li><a href="#_15">函数</a></li>
+<li><a href="#_17">条件判断</a><ul>
+<li><a href="#_18">文件：</a></li>
+<li><a href="#_19">字符串：</a></li>
+<li><a href="#_20">整数比较：</a></li>
+<li><a href="#_21">组合：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+<h1 id="1">1.语法</h1>
+<h2 id="_1">特殊的文件</h2>
+<p>/etc/profile  在登录时首先自动执行。 <br/>
+$HOME/.profile  在登录时第二个自动执行。 <br/>
+$ENV  在创建一个新的KShell时指定要读的一个文件。   </p>
+<h2 id="_2">文件名元字符</h2>
+<ul>
+<li>
+<ul>
+<li>匹配有零或零个以上字符的字符串   </li>
+</ul>
+</li>
+<li>?  匹配任何单个字符   </li>
+<li>[abc…]  匹配括号内任何一个字符，也可用连字符指定一个范围（例如，a-z,A-Z,0-9）   </li>
+<li>[!abc…]  匹配任何不包括在括号内的字符   </li>
+<li></li>
+<li>?(pattern)  匹配模式的零个或一个实例   </li>
+<li>*(pattern)  匹配指定模式的零个或多个实例   </li>
+<li>＋(pattern)  匹配指定模式的一个或多个实例   </li>
+<li>＠(pattern)  只匹配指定模式的一个实例   </li>
+<li>！(pattern)  匹配任何不匹配模式的字符串   </li>
+<li>\n  匹配与(…)中的第n个子模式匹配的文本。   </li>
+</ul>
+<p>这个模式pattern可能是由分隔符“|”或“＆”分隔的模式的序列， <br/>
+例：pr !(*.o|core) | lp   </p>
+<h2 id="_3">引用</h2>
+<ul>
+<li>;  命令分隔符   </li>
+<li>＆  后台执行   </li>
+<li>( )  命令分组   </li>
+<li>|  管道   </li>
+<li>&lt; &gt; &amp;  重定向符号   </li>
+<li>
+<ul>
+<li>? [ ] ~ + - @ !  文件名元字符   </li>
+</ul>
+</li>
+<li>““  中间的字符会逐字引用，除了`` 替换命令和$ 替换变量.   </li>
+<li>‘’  中间的所有字符都会逐字引用   </li>
+<li>\  在其后的字符会按其原来的意义逐字采用.如在””中使用 \”,`,\$   </li>
+<li>\a 警告，\b退格,\f 换页,\n 换行,\r 回车,\ 制表符,\v 垂直制表符,   </li>
+<li>\nnn 八进制值,\xnn 十六进制值,\’ 单引号,\” 双引号,\ 反斜线,   </li>
+<li>``  命令的替换   </li>
+<li>$  变量的替换   </li>
+</ul>
+<h2 id="_4">命令形式</h2>
+<ul>
+<li>Cmd &amp;  在后台执行   </li>
+<li>Cmd1;cmd2  命令序列，依次执行   </li>
+<li>{cmd1;cmd2;}  将命令做为一组来执行   </li>
+<li>(cmd1;cmd2)  在子shell中，将命令做为一组执行   </li>
+<li>Cmd1|cmd2  管道;将cmd1的输出作为cmd2的输入   </li>
+<li>Cmd1 <code>cmd2</code>  命令替换;用cmd2的输出作为cmd1的参数   </li>
+<li>Cmd1$(cmd2)  命令替换，可以嵌套   </li>
+<li>Cmd$((expression))  运算替换。用表达式结果作为参数   </li>
+<li>Cmd1&amp;&amp;cmd2  逻辑与。如果cmd1成功才执行cmd2   </li>
+<li>Cmd1||cmd2  逻辑或。如果cmd1成功则不会执行cmd2   </li>
+</ul>
+<h2 id="_5">重定向形式</h2>
+<h3 id="_6">文件描述符：</h3>
+<p>0         标准输入  stdin  默认为键盘 <br/>
+1         标准输出  stdout <br/>
+2         标准错误  stderr   </p>
+<hr/>
+<p>Cmd &gt; file  将cmd的结果输出到file(覆盖) <br/>
+Cmd &gt;&gt; file  将cmd的结果输出到file(追加) <br/>
+Cmd &lt; file  从file中获取cmd 的输入 <br/>
+Cmd &lt;&lt; text  将shell脚本的内容（直到遇见一个和text一样的标记为止）作为cmd的输入 <br/>
+Cmd &lt;&gt; file  在标准输入上打开文件以便读写   </p>
+<p>Cmd &gt;&amp;n  将输出发送到文件描述符n。ll &gt;&amp;1 <br/>
+Cmd m&gt;&amp;n　将本来输出的m中的内容转发到n中。Ll 3&gt;&amp;2 <br/>
+Cmd &gt;&amp;-  关闭标准输出 <br/>
+Cmd &lt;&amp;n　获取输入 <br/>
+Cmd m&lt;&amp;n <br/>
+Cmd &lt;&amp;-　关闭标准输入 <br/>
+在文件描述符和一个重定向符号间不允许有空格。   </p>
+<p>Cmd 2&gt;file  将标准错误发到file中 <br/>
+Cmd &gt; file 2&gt;&amp;1  将标准错误和标准输出都发到file <br/>
+Cmd &gt; f1 2&gt;f2  将标准输出发到f1,标准错误发到f2 <br/>
+Cmd | tee files  将输出发送到标准输出和files中 <br/>
+Cmd 2&gt;&amp;1 | tee files  将输出和错误同时发到标准输出和files中   </p>
+<h1 id="2">2. 变量</h1>
+<h2 id="_7">变量替换</h2>
+<p>下列表达式中不允许使用空格。冒号是可选的，如果用冒号那么变量必须是非空的并设置了初始值。   </p>
+<p>Var=value…  将变量var 设为value <br/>
+${var}  使用变量var的值;如果变量和其后面的文本是分开的则可以不加大括号。 <br/>
+${var:-value}  如果变量var已设置则使用它，否则使用值value <br/>
+${var:=value}  如果变量var已设置则使用它，否则使用值value并将value赋给变量var <br/>
+${var:+value}  如果变量var已设置则使用value，否则什么也不使用   </p>
+<p>例:echo ${u-$d};echo ${tmp-<code>date</code>}如果没设tmp,则执行date;   </p>
+<h2 id="_8">内置变量</h2>
+<ul>
+<li>$#  命令行参数的个数   </li>
+<li>$?　上一条命令执行后返回的值   </li>
+<li>$$　当前进程的进程号(PID), 通常用于在shell脚本中创建临时文件的名称   </li>
+<li>$0　第一个参数即命令名   </li>
+<li>$n　命令行上的第n个参数   </li>
+<li>$ * 将命令行上所有参数作为一个字符串   </li>
+<li>$@　命令行上所有参数，但每个参数都被引号引起来   </li>
+</ul>
+<hr/>
+<h2 id="_9">特殊内置变量</h2>
+<p>LINENO  脚本或函数内正在执行的命令的行号 <br/>
+OLDPWD　前一个工作目录（由CD设置） <br/>
+PPID　　当前SHELL的父进程的进程号 <br/>
+PWD　　　当前工作目录（由CD设置） <br/>
+RANDOM[=n]　每次引用时产生一个随机数，如果给定n则以整数n开始 <br/>
+SECONDS 这个整型变量的值是指从这个shell会话启动算起所过去的秒数。但它更有用的是用脚本中的计时。 <br/>
+    例：start=$SECONDS <br/>
+        read answer <br/>
+        finish=$SECONDS   </p>
+<hr/>
+<h2 id="_10">特殊内置变量续</h2>
+<p>TMOUT   如果设置了该变量，则在没有输入的情况下经过TMOUT变量所指定的秒数后，shell退出。值为0时无效。 <br/>
+CDPATH <br/>
+允许用户使用简单文件名作为CD的参数，从而快速改变目录。设置方法与PATH类似，通常在启动文件中设置。如果CD的参数是一个绝对路径，则不会查询CDPATH. <br/>
+例：CDPATH=:/u1/nr:/u1/progs: <br/>
+    export CDPATH <br/>
+    cd nr <br/>
+    就会进到nr中去。 <br/>
+    注意：变量必须大写，定义后必须导出.   </p>
+<h2 id="_11">数组</h2>
+<p>Kshell支持一维数组，最多支持1024个元素。第一个元素为０。 <br/>
+Set –A name value0 value1 … <br/>
+声明数组，指定的值就成为name的元素。   </p>
+<p>${name[i]}　i为0至1023的值，可以是表达式。返回数组元素i <br/>
+${name}　返回数组元素０ <br/>
+${name[<em>]},${name[@]}　返回所有元素 <br/>
+下标[</em>]和[@]都可以提取整个数组的内容。但当它们在引号中使用时其行为是不同的。使用@可生成一个数组，这个数组是原始数组的副本，而使用<em>，则生成的仅仅是具有单一元素的数组(或者是一个普通变量)。 <br/>
+    例：set -A a "${names[</em>]}" <br/>
+        set -A b "${names[@]}"  <br/>
+        set|head -5 <br/>
+        a[0]='alex helen jenny scott' <br/>
+        b[0]=alex <br/>
+        b[1]=helen <br/>
+        b[2]=jenny <br/>
+        b[3]=scott <br/>
+    ${#name[*]}　返回数组元素个数   </p>
+<hr/>
+<h2 id="_12">运算符</h2>
+<p>Kshell使用C语言中的运算符。 <br/>
+% 求余;&lt;&lt; 左移;&gt;&gt; 右移;&lt;= 小于等于;&gt;=　大于等于;&lt; 小于;   </p>
+<blockquote>
+<p>大于;== 相等;!= 不等;&amp;&amp; 逻辑与;||　逻辑或;   </p>
+</blockquote>
+<h1 id="3">3.内置命令</h1>
+<h2 id="_13">条件执行语句。</h2>
+<p>If condition1 <br/>
+Then 
+    commands1 <br/>
+[elif condition2 <br/>
+Then 
+    commands2] <br/>
+… <br/>
+[else commands3] <br/>
+Fi   </p>
+<h2 id="_14">循环控制</h2>
+<h3 id="for">for</h3>
+<div class="highlight"><pre><span class="n">For</span> <span class="n">x</span> <span class="p">[</span><span class="k">in</span> <span class="n">list</span><span class="p">]</span>   
+<span class="n">Do</span>   
+   <span class="n">Commands</span>   
+<span class="n">Done</span>
+</pre></div>
+<p>使变量x(在可选的值列表中)执行commands，省略时假定为”$@”位置参数 <br/>
+例: <br/>
+    For item in <code>cat program_list</code> <br/>
+    Do <br/>
+       Grep –c “$item.[co]” chap* <br/>
+    Done   </p>
+<hr/>
+<h3 id="repeat">repeat</h3>
+<div class="highlight"><pre><span class="n">repeat</span> <span class="n">word</span>   
+<span class="k">do</span>   
+    <span class="n">commands</span>   
+<span class="n">done</span>
+</pre></div>
+<p>指定一个命令序列执行的次数。 <br/>
+例： <br/>
+    repeat 3 <br/>
+    do <br/>
+        echo "bye" <br/>
+    done   </p>
+<hr/>
+<h3 id="select">select</h3>
+<div class="highlight"><pre><span class="n">Select</span> <span class="n">x</span> <span class="p">[</span><span class="k">in</span> <span class="n">list</span><span class="p">]</span>   
+<span class="n">Do</span>   
+   <span class="n">Commands</span>   
+<span class="n">Done</span>
+</pre></div>
+<h2 id="listreturn">显示一列按list中顺序编号的菜单项。让用户键入行号选择或按return重新显示。</h2>
+<p>例: <br/>
+    Ps3=”select thd item number:” <br/>
+    Select event in format page view exit <br/>
+    Do <br/>
+       Case “event” in <br/>
+          Format) nroff $file | lp;; <br/>
+          Page) pr $file | lp;; <br/>
+          View) more $file;; <br/>
+          Exit) exit 0;; <br/>
+          *)    echo “invalid selection”;; <br/>
+       Esac <br/>
+    Done   </p>
+<h2 id="case">控制语句case</h2>
+<div class="highlight"><pre><span class="n">Case</span> <span class="n">value</span> <span class="n">in</span>   
+     <span class="n">Pattern1</span><span class="p">)</span> <span class="n">cmds1</span><span class="p">;;</span>   
+     <span class="n">Pattern2</span><span class="p">)</span> <span class="n">cmds2</span><span class="p">;;</span>   
+     <span class="err">…</span>   
+     <span class="err">…</span>   
+<span class="n">Esac</span>
+</pre></div>
+<p>类似于select case.例:   </p>
+<div class="highlight"><pre><span class="n">Case</span> <span class="err">$</span><span class="mi">1</span> <span class="n">in</span>   
+   <span class="n">No</span><span class="o">|</span><span class="n">yea</span><span class="p">)</span> <span class="n">response</span><span class="o">=</span><span class="mi">1</span>   
+        <span class="k">break</span><span class="p">;;</span>   
+   <span class="o">-</span><span class="p">[</span><span class="n">tT</span><span class="p">])</span> <span class="n">table</span><span class="o">=</span><span class="n">TRUE</span><span class="p">;;</span>   
+   <span class="o">*</span><span class="p">)</span>  <span class="n">echo</span> <span class="err">“</span><span class="n">unknown</span> <span class="n">option</span><span class="err">”</span><span class="p">;</span><span class="n">exit</span> <span class="mi">1</span><span class="p">;;</span>   
+<span class="n">Esac</span>
+</pre></div>
+<h2 id="_15">函数</h2>
+<p>Function name{commands;}  定义一个函数 <br/>
+or <br/>
+functionName {commands;}</p>
+<p>必须有commands</p>
+<h2 id="_16"></h2>
+<p>Eval args  args是一行包含shell变量的代码.eval首先进行变量扩展，并且运行由此产生的命令。在shell变量包括了重定向符号，别名或其他变量时是有用的。 <br/>
+例: <br/>
+    Eval sort $file $out   </p>
+<p>Export [name=[value]…] <br/>
+定义全局变量，让其它shell脚本也可以使用。无参数时输出当前定义的全局变量。   </p>
+<p>Let expressions  执行一个或多个表达式。表达式中的变量前不必有$.如果表达式中包含了空格或其他特殊字符，则必须引起来。 <br/>
+例：let “I = I + 1” 或 let i=i+1   </p>
+<p>Read [var1[?string]] [var2 …]  从标准输入读入一行给相应的变量，并把剩余的单词给最后一个变量。String为相应的提示信息.无参时只等待一次输入。   </p>
+<p>Readonly [var1[=value] var2[=value] …]  设置只读变量,无参时显示所有只读变量 <br/>
+select the item number:   </p>
+<p>set [options arg1 arg2 …]  无参时输出所有已知变量的值。   </p>
+<p>Shift [n]  交换位置参数（如将$2变为$1）.如果给出n,则向左移动n个位置。通常用于在while循环中迭代命令行参数。N可以是一个整数表达式。   </p>
+<p>Sleep [n]  睡眠n秒钟   </p>
+<h2 id="_17">条件判断</h2>
+<p>Test condition 或[ condition ]  判断条件，为真返回0,否则返回非0.   </p>
+<h3 id="_18">文件：</h3>
+<p>-a filename         如果该文件存在而为真 <br/>
+-d filename         如果该文件存在且为一个目录，则为真 <br/>
+-f filename         如果该文件存在且为一个常规文件，则为真 <br/>
+-L filename         如果该文件存在且为一个符号链接，为真 <br/>
+-r filename         如果该文件存在且用户对其有读取权限，真 <br/>
+-s filename         如果该文件存在且包含信息(大于0字节)，真 <br/>
+-w filename         如果该文件存在且对其有写入权，真 <br/>
+-x filename         如果该文件存在且对其有执行权，真 <br/>
+File1 -nt file2     如果file1存在且在file2后修改则值为真(指修改时间)<br/>
+File1 -ot file2     如果file1存在且在file2前修改则值为真(指修改时间)   </p>
+<hr/>
+<h3 id="_19">字符串：</h3>
+<ul>
+<li>string          如果string不为空字符串则值为真   </li>
+<li>-n string       如果string字符长度大于0则值为真   </li>
+<li>-z string       如果string字符长度等于0则值为真   </li>
+<li>string1=sting2      如果string1等于string2则值为真   </li>
+<li>string1!=string2        如果string1不等于string2则值为真 <br/>
+string2可以是通配符模式。   </li>
+</ul>
+<h3 id="_20">整数比较：</h3>
+<div class="highlight"><pre><span class="o">-</span><span class="n">gt</span> <span class="err">大于；</span>
+<span class="o">-</span><span class="n">ge</span> <span class="err">大于或等于；</span>
+<span class="o">-</span><span class="n">eq</span> <span class="err">等于；</span>
+<span class="o">-</span><span class="n">ne</span> <span class="err">不等于</span><span class="p">;</span>
+<span class="o">-</span><span class="n">le</span> <span class="err">小于或等于</span><span class="p">;</span> 
+<span class="o">-</span><span class="n">lt</span> <span class="err">小于</span>
+</pre></div>
+<h3 id="_21">组合：</h3>
+<p>! condition                         如果condition为假则为真 <br/>
+condition1 –a condition2           如果两个条件都为真则为真            <br/>
+condition1 –o condition2           如果两个条件有一个为真则为真   </p>
+<hr/>
+<p>trap [[commands] signals]  如果接收到任何的信号signals则执行命令commands.如果完全忽略commands则会重新设置由默认行为处理指定的信号。 <br/>
+例： <br/>
+Trap “” 2 ;忽略信号2（中断，通常是ctrl+c） <br/>
+Trap 2 ;恢复中断2 <br/>
+Trap “rm –f $tmp;exit” 0 1 2 15 ;当shell程序退出，用户退出，按ctrl+c或执行kill时删除$tmp.   </p>
+<hr/>
+<p>Typeset [options] [var [var]…]设置变量属性 <br/>
+- -u 将变量值中所有字母全部转换成大写 <br/>
+- -l 将变量值中所有字母全部转换成小写 <br/>
+- -i 将变量值设为整数类型.-ix x为相应的进制，表示时为x#变量值，可用于进制转换。 <br/>
+     例：typeset -i2 vv  vv=2    echo $vv    2#10 <br/>
+     typeset -i 相当于integer <br/>
+- -L width 在width宽度之内左对齐 <br/>
+- -R width 在width宽度之内右对齐，前面空位用空格填充 <br/>
+- -Z width 在width宽度之内右对齐，变量如果是数字，则前面空位用零填充 <br/>
+     如果忽略width,将使用赋给这个变量的第一个值的宽度。 <br/>
+- -x 设置一个变量全局。typeset -x 相当于 export <br/>
+- -r 设置一个变量具有只读属性，在设置的同时或之前，要先给这些变量赋值。 <br/>
+    例：typeset -r  PATH FPATH=/usr/local/funcs <br/>
+    typeset -r 相当于 readonly   </p>
+<hr/>
+<p>不带参数的typeset可以列出变量和变量的属性。查看指定的变量属性可用type|grep day <br/>
+使用带有某一选项的typeset来看看哪一个变量具有特定的属性：typeset -z   </p>
+<p>Unset var  删除一个变量，将它置为空   </p>
+<hr/>
+<div class="highlight"><pre><span class="n">Until</span> <span class="n">condition</span>   
+<span class="n">Do</span>   
+   <span class="n">Commands</span>   
+<span class="n">Done</span>
+</pre></div>
+<p>执行命令command直到满足条件condition.   </p>
+<div class="highlight"><pre><span class="n">While</span> <span class="n">condition</span>   
+<span class="n">Do</span>   
+   <span class="n">Commands</span>   
+<span class="n">Done</span>
+</pre></div>
+<p>如果满足条件condition则执行commands   </p>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="/impress-jsjiao-cheng.html" title="Previous: impress js教程">impress js教程</a></li>
+ 
+                <li class="next_article"><a href="/ML_define.html" title="Next: 什么是机器学习">什么是机器学习</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-08-13T11:51:02">Aug 13, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#shell-ref">shell</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#shell-ref">shell
+                    <span>1</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    </body>
+</html>

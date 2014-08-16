@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/git.atom.xml" rel="self"></link><id>/</id><updated>2014-06-12T16:21:58+08:00</updated><entry><title>git_安装使用手册</title><link href="/git_an-zhuang-shi-yong-shou-ce.html" rel="alternate"></link><updated>2014-06-12T16:21:58+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-12:git_an-zhuang-shi-yong-shou-ce.html</id><summary type="html">&lt;p&gt;% Git安装使用手册&lt;br /&gt;
+% 杨秀隆&lt;br /&gt;
+% 20140604  &lt;/p&gt;
+&lt;h1&gt;Git安装手册&lt;/h1&gt;
+&lt;h2&gt;下载（非最新版）&lt;/h2&gt;
+&lt;p&gt;链接地址&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://99.6.145.70:8090/res/"&gt;Res&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载 git 和 github&lt;/p&gt;
+&lt;p&gt;安装 git， 解压 github&lt;/p&gt;
+&lt;p&gt;chrome 和 markdown reader 可以实时预览mkd文件，宽屏幕或多屏幕肯定特好用&lt;/p&gt;
+&lt;h2&gt;安装步骤&lt;/h2&gt;
+&lt;p&gt;偏傻瓜，要么上网搜搜&lt;/p&gt;
+&lt;h2&gt;汉字等配置&lt;/h2&gt;
+&lt;p&gt;见另一文档&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://99.6.145.70:8090/html/technology/git/git_bash.html"&gt;中文配置&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果chrome 装有 markdown reader， 可以访问下面这个:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://99.6.145.70:8000/technology/git/git_bash.mkd"&gt;中文配置&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;版本库手册（纯GitHub版）&lt;/h1&gt;
+&lt;p&gt;打开解压后的github(GitHub.exe)&lt;/p&gt;
+&lt;p&gt;样式图——略&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建新的本地版本库， create（空文件夹拖进来也行) &lt;/p&gt;
+&lt;p&gt;&lt;img alt="本地新建" src="/res/github_create.jpg" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置信息&lt;/p&gt;
+&lt;p&gt;&lt;img alt="配置说明" src="/res/git_new_repo.jpg" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开， 点击 tools-&amp;gt; settings&lt;/p&gt;
+&lt;p&gt;&lt;img alt="配置说明" src="/res/github_repo_tools.jpg" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置远程版本库信息&lt;br /&gt;
+   填写 用户名@IP:相对路径&lt;br /&gt;
+   用户名 -- 我的版本库都是rbcmb&lt;br /&gt;
+   IP    -- 我的电脑IP  99.6.145.70&lt;br /&gt;
+   路径   -- tools   从tools可以拿到其他几个  &lt;br /&gt;
+&lt;img alt="配置说明" src="/res/github_remote.jpg" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;完成后，同步 sync&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;版本库手册（git命令行 + GitHub版）&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在git bash或cmd里&lt;br /&gt;
+    克隆到当前目录  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;rbcmb&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mf"&gt;99.6.145.70&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;rbcmb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;克隆到指定目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;rbcmb&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mf"&gt;99.6.145.70&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;rbcmb&lt;/span&gt;  &lt;span class="n"&gt;path&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将文件夹拖进github&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;基础使用手册&lt;/h1&gt;
+&lt;h2&gt;注意&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;同步之前，本地变更集需要先提交完毕，再同步，否则文件容易混乱。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;可以使用命令行、Git Gui、GitHub等多种方式查看log。推荐比较全面的gui工具 Tortoise Git，  虽然用到的时候不多。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;本地配置&lt;/h2&gt;
+&lt;p&gt;进行操作前的配置，也是安装后的配置：&lt;/p&gt;
+&lt;p&gt;git config --global user.name 你的名字 省略 --global 也行&lt;/p&gt;
+&lt;p&gt;git config --global user.email "你的邮件地址"&lt;/p&gt;
+&lt;p&gt;等同于 tortoise git 右键 Settings-Git-Edit local(global) .git/config &lt;/p&gt;
+&lt;p&gt;等同于GitHub里 create键旁边的 tools-&amp;gt;options-&amp;gt;configure git&lt;/p&gt;</summary></entry><entry><title>Git hooks</title><link href="/git-hooks.html" rel="alternate"></link><updated>2014-06-04T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:,2014-06-04:git-hooks.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1&gt;Git hooks&lt;/h1&gt;
+&lt;p&gt;Remote Machine
+We create a bare git repo, then point the working tree at the docroot of our website. This means all the git stuff is kept in the somesite.git folder, but the files themselves are checked out to the website's folder. Then we setup a post-receive hook to update the worktree folder after new changes have been pushed to the repo.&lt;/p&gt;
+&lt;p&gt;$ cd git
+$ mkdir somesite.git
+$ cd somesite.git/
+$ git init --bare
+Initialized empty Git repository in /home/caius/git/somesite.git/
+$ git --bare update-server-info
+$ git config core.worktree /home/caius/vhosts/somesite.com/htdocs
+$ git config core.bare false
+$ git config receive.denycurrentbranch ignore
+$ cat &amp;gt; hooks/post-receive&lt;/p&gt;
+&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+&lt;p&gt;git checkout -f
+^D
+$ chmod +x hooks/post-receive
+Local Machine
+And now on the client machine we add the remote repo as a git remote, and then push to it.&lt;/p&gt;
+&lt;p&gt;$ git remote add web ssh://myserver/home/caius/git/somesite.git
+$ git push web +master:refs/heads/master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 229 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To ssh://myserver/home/caius/git/somesite.git
+ * [new branch]      master -&amp;gt; master
+All Done
+And now if you go to somesite.com you'll see the contents of your git repo there. (somesite.com is just an example url though, I don't actually own it!)&lt;/p&gt;
+&lt;h2&gt;文件夹 hook 下&lt;/h2&gt;
+&lt;p&gt;post-receive 这些都是脚本&lt;/p&gt;</summary></entry><entry><title>git_bash</title><link href="/git_bash.html" rel="alternate"></link><updated>2014-05-04T11:51:42+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:git_bash.html</id><summary type="html">&lt;p&gt;% windows下配置git bash 显示中文&lt;/p&gt;
+&lt;h2&gt;显示中文文件名&lt;/h2&gt;
+&lt;p&gt;1、C:\Program Files\Git\etc\git-completion.bash：&lt;/p&gt;
+&lt;p&gt;alias ls='ls --show-control-chars --color=auto'&lt;/p&gt;
+&lt;p&gt;说明：使得在 Git Bash 中输入 ls 命令，可以正常显示中文文件名。&lt;/p&gt;
+&lt;h2&gt;输入中文&lt;/h2&gt;
+&lt;p&gt;2、C:\Program Files\Git\etc\inputrc：&lt;/p&gt;
+&lt;p&gt;set output-meta on&lt;/p&gt;
+&lt;p&gt;set convert-meta off&lt;/p&gt;
+&lt;p&gt;说明：使得在 Git Bash 中可以正常输入中文，比如中文的 commit log。&lt;/p&gt;
+&lt;p&gt;3、C:\Program Files\Git\etc\profile：&lt;/p&gt;
+&lt;p&gt;export LESSCHARSET=utf-8&lt;/p&gt;
+&lt;p&gt;说明：$ git log 命令不像其它 vcs 一样，n 条 log 从头滚到底，它会恰当地停在第一页，按 space 键再往后翻页。这是通过将 log 送给 less 处理实现的。以上即是设置 less 的字符编码，使得 $ git log 可以正常显示中文。其实，它的值不一定要设置为 utf-8，比如 latin1 也可以……。还有个办法是 $ git –no-pager log，在选项里禁止分页，则无需设置上面的选项。&lt;/p&gt;
+&lt;p&gt;4、C:\Program Files\Git\etc\gitconfig：&lt;/p&gt;
+&lt;p&gt;[gui]&lt;/p&gt;
+&lt;p&gt;encoding = utf-8&lt;/p&gt;
+&lt;p&gt;说明：我们的代码库是统一用的 utf-8，这样设置可以在 git gui 中正常显示代码中的中文。&lt;/p&gt;
+&lt;p&gt;[i18n]&lt;/p&gt;
+&lt;p&gt;commitencoding = GB2312&lt;/p&gt;
+&lt;p&gt;说明：如果没有这一条，虽然我们在本地用 $ git log 看自己的中文修订没问题，但，一、我们的 log 推到服务器后会变成乱码；二、别人在 Linux 下推的中文 log 我们 pull 过来之后看起来也是乱码。这是因为，我们的 commit log 会被先存放在项目的 .git/COMMIT_EDITMSG 文件中；在中文 Windows 里，新建文件用的是 GB2312 的编码；但是 Git 不知道，当成默认的 utf-8 的送出去了，所以就乱码了。有了这条之后，Git 会先将其转换成 utf-8，再发出去，于是就没问题了。&lt;/p&gt;</summary></entry></feed>

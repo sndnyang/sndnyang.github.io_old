@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/sndnyang.atom.xml" rel="self"></link><id>/</id><updated>2014-08-16T05:10:08+08:00</updated><entry><title>并查集优化</title><link href="/union_find_opt.html" rel="alternate"></link><updated>2014-08-16T05:10:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:union_find_opt.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/sndnyang.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-08-16T05:10:08+08:00</updated><entry><title>并查集优化</title><link href="http://sndnyang.github.io/union_find_opt.html" rel="alternate"></link><updated>2014-08-16T05:10:08+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-08-16:union_find_opt.html</id><summary type="html">
 &lt;h1 id="union-find"&gt;union find 并查集优化&lt;/h1&gt;
 &lt;h2 id="1"&gt;方法 1 带权重快速合并&lt;/h2&gt;
 &lt;p&gt;好处:&lt;/p&gt;
@@ -62,7 +62,45 @@ sz[i]代表以i为根的对象个数。&lt;/p&gt;
 &lt;span class="n"&gt;lg&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="err"&gt;其实就是&lt;/span&gt; &lt;span class="n"&gt;lg&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="err"&gt;的再次求对数的样子。&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In computer science, the iterated logarithm of n, written log* n (usually read "log star"), is the number of times the logarithm function must be iteratively applied before the result is less than or equal to 1.&lt;/p&gt;
-&lt;p&gt;本算法理论上非线性复杂度， 实际上可以看作线性。&lt;/p&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>percolation作业</title><link href="/percolation_assignment.html" rel="alternate"></link><updated>2014-08-16T05:06:19+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:percolation_assignment.html</id><summary type="html">
+&lt;p&gt;本算法理论上非线性复杂度， 实际上可以看作线性。&lt;/p&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>快速合并算法</title><link href="http://sndnyang.github.io/quick_union_algo.html" rel="alternate"></link><updated>2014-08-16T05:07:37+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-08-16:quick_union_algo.html</id><summary type="html">
+&lt;h1 id="quick-union"&gt;quick union 快速合并&lt;/h1&gt;
+&lt;h2 id="_1"&gt;数据结构&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;大小为N 的整型数组&lt;/li&gt;
+&lt;li&gt;解释: id[i] 是 i 的父结点。&lt;/li&gt;
+&lt;li&gt;i 的根结点就是 id[id[id[...id[i]...]]]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="java"&gt;java 实现重点&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;root&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;union&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="_2"&gt;算法分析&lt;/h2&gt;
+&lt;p&gt;成本分析:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化:  N&lt;/li&gt;
+&lt;li&gt;合并:    N&lt;/li&gt;
+&lt;li&gt;查找:    N&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缺陷:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生成树太高、太深&lt;/li&gt;
+&lt;li&gt;查找的成本也高。&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>percolation作业</title><link href="http://sndnyang.github.io/percolation_assignment.html" rel="alternate"></link><updated>2014-08-16T05:06:19+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-08-16:percolation_assignment.html</id><summary type="html">
 &lt;h1 id="percolation"&gt;percolation 作业&lt;/h1&gt;
 &lt;h2 id="_1"&gt;描述&lt;/h2&gt;
 &lt;p&gt;N * N的方格（site）&lt;/p&gt;
@@ -79,7 +117,7 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;li&gt;任意开放某个格子，直到这个系统percolation&lt;/li&gt;
 &lt;li&gt;计算 概率&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="tip"&gt;tip 提示&lt;/h2&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>连通性问题</title><link href="/algo_connectivity.html" rel="alternate"></link><updated>2014-08-16T05:03:30+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:algo_connectivity.html</id><summary type="html">
+&lt;h2 id="tip"&gt;tip 提示&lt;/h2&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="algorithms"></category></entry><entry><title>连通性问题</title><link href="http://sndnyang.github.io/algo_connectivity.html" rel="alternate"></link><updated>2014-08-16T05:03:30+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-08-16:algo_connectivity.html</id><summary type="html">
 &lt;h1 id="_1"&gt;连通性问题&lt;/h1&gt;
 &lt;h2 id="_2"&gt;问题定义：&lt;/h2&gt;
 &lt;p&gt;给定 N个物体（点）&lt;/p&gt;
@@ -104,7 +142,7 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Find查询: 查询两点是否在同一分量&lt;/li&gt;
 &lt;li&gt;Union连接： &lt;/li&gt;
-&lt;/ol&gt;</summary><category term="cs"></category><category term="algorithms"></category><category term="mooc"></category></entry><entry><title>什么是机器学习</title><link href="/ML_define.html" rel="alternate"></link><updated>2014-08-16T05:00:23+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-08-16:ML_define.html</id><summary type="html">
+&lt;/ol&gt;</summary><category term="cs"></category><category term="algorithms"></category><category term="mooc"></category></entry><entry><title>什么是机器学习</title><link href="http://sndnyang.github.io/ML_define.html" rel="alternate"></link><updated>2014-08-16T05:00:23+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-08-16:ML_define.html</id><summary type="html">
 &lt;h1 id="_1"&gt;什么是机器学习&lt;/h1&gt;
 &lt;p&gt;定义：  &lt;/p&gt;
 &lt;blockquote&gt;
@@ -129,24 +167,9 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;所以  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;机器学习是编写复杂规则系统的一种替代方法&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="ml"></category><category term="ai"></category></entry><entry><title>Ksh自动补全</title><link href="/ksh_auto_complete.html" rel="alternate"></link><updated>2014-06-25T17:04:31+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-25:ksh_auto_complete.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1&gt;KSH的自动补全&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;方法一：
-    set -o vi
-历史命令功能（esc -，esc +）自动补全文件名（esc \）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;方法二：
-    set -o emacs&lt;br /&gt;
-历史命令功能（ctrl-n，ctrl-p），自动补全文件名(按两次esc)。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;找不到自动补全命令的功能，还是bash比较人性化。&lt;/p&gt;</summary></entry><entry><title>nginx 配置</title><link href="/nginx-pei-zhi.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-24:nginx-pei-zhi.html</id><summary type="html">&lt;h1&gt;Nginx 服务器配置&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="cs"></category><category term="mooc"></category><category term="ml"></category><category term="ai"></category></entry><entry><title>nginx 配置</title><link href="http://sndnyang.github.io/nginx-pei-zhi.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-24:nginx-pei-zhi.html</id><summary type="html">&lt;h1&gt;Nginx 服务器配置&lt;/h1&gt;
 &lt;h2&gt;路径&lt;/h2&gt;
-&lt;p&gt;/etc/nginx&lt;/p&gt;</summary></entry><entry><title>算法课笔记之科学方法</title><link href="/suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-24:suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html</id><summary type="html">&lt;h1 id="_1"&gt;科学方法&lt;/h1&gt;
+&lt;p&gt;/etc/nginx&lt;/p&gt;</summary></entry><entry><title>算法课笔记之科学方法</title><link href="http://sndnyang.github.io/suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html" rel="alternate"></link><updated>2014-06-24T00:00:00+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-24:suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html</id><summary type="html">&lt;h1 id="_1"&gt;科学方法&lt;/h1&gt;
 &lt;p&gt;设计有效算法的步骤&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;对问题建模&lt;/li&gt;
@@ -155,7 +178,7 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;li&gt;如果不够好，找出原因&lt;/li&gt;
 &lt;li&gt;优化算法来解决问题&lt;/li&gt;
 &lt;li&gt;迭代直到满意&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="科学方法"></category><category term="mooc"></category><category term="cs"></category><category term="algorithms"></category></entry><entry><title>shell_功能</title><link href="/shell_gong-neng.html" rel="alternate"></link><updated>2014-06-23T11:25:48+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-23:shell_gong-neng.html</id><summary type="html">&lt;p&gt;% shell 特殊功能
+&lt;/ol&gt;</summary><category term="科学方法"></category><category term="mooc"></category><category term="cs"></category><category term="algorithms"></category></entry><entry><title>shell_功能</title><link href="http://sndnyang.github.io/shell_gong-neng.html" rel="alternate"></link><updated>2014-06-23T11:25:48+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-23:shell_gong-neng.html</id><summary type="html">&lt;p&gt;% shell 特殊功能
 % 杨秀隆&lt;br /&gt;
 % 20140605&lt;/p&gt;
 &lt;h1&gt;有用功能&lt;/h1&gt;
@@ -210,7 +233,7 @@ enca -L none -x utf-8  index.html&lt;/p&gt;
 当optstring以”:“开头时,getopts会区分invalid option错误和miss option argument。 invalid option错误时,varname会被设成?,$OPTARG是出问题的option；miss option argument时,varname会被设成:(在我的fedora系统里测试OPTARG为?),$OPTARG是出问题的option.&lt;/p&gt;
 &lt;p&gt;当optstring不以”:“开头,invalid option错误和miss option argument错误都会使varname被设成?, $OPTARG是出问题的option(在我的fedora系统里测试OPTARG为空).&lt;/p&gt;
 &lt;p&gt;细则2：&lt;br /&gt;
-当optstring中的字母跟”:“时,表明该option可接参数,参数(argument)放在$OPTARG中,如果缺参数,且optstring是以”:“开头,则varname的值会是:(在我的fedora系统里测试OPTARG为?),$OPTARG是该option, 否则varname的值是?,$OPTARG是该option.(参照细则1)(在我的fedora系统里测试OPTARG为空)&lt;/p&gt;</summary></entry><entry><title>week1</title><link href="/week1.html" rel="alternate"></link><updated>2014-06-23T00:36:19+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-23:week1.html</id><summary type="html">&lt;p&gt;% 第一周 &lt;br /&gt;
+当optstring中的字母跟”:“时,表明该option可接参数,参数(argument)放在$OPTARG中,如果缺参数,且optstring是以”:“开头,则varname的值会是:(在我的fedora系统里测试OPTARG为?),$OPTARG是该option, 否则varname的值是?,$OPTARG是该option.(参照细则1)(在我的fedora系统里测试OPTARG为空)&lt;/p&gt;</summary></entry><entry><title>week1</title><link href="http://sndnyang.github.io/week1.html" rel="alternate"></link><updated>2014-06-23T00:36:19+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-23:week1.html</id><summary type="html">&lt;p&gt;% 第一周 &lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 2014-06-22&lt;/p&gt;
 &lt;h1&gt;课程介绍&lt;/h1&gt;
@@ -244,7 +267,7 @@ enca -L none -x utf-8  index.html&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1&gt;评价技能，定制目标&lt;/h1&gt;</summary></entry><entry><title>ksh_语法</title><link href="/ksh_yu-fa.html" rel="alternate"></link><updated>2014-06-20T14:18:56+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-20:ksh_yu-fa.html</id><summary type="html">&lt;p&gt;% shell 语法&lt;br /&gt;
+&lt;h1&gt;评价技能，定制目标&lt;/h1&gt;</summary></entry><entry><title>ksh_语法</title><link href="http://sndnyang.github.io/ksh_yu-fa.html" rel="alternate"></link><updated>2014-06-20T14:18:56+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-20:ksh_yu-fa.html</id><summary type="html">&lt;p&gt;% shell 语法&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 2014-06-11&lt;/p&gt;
 &lt;h1&gt;数学运算&lt;/h1&gt;
@@ -281,7 +304,7 @@ enca -L none -x utf-8  index.html&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;&lt;/h1&gt;</summary></entry><entry><title>编程规范</title><link href="/bian-cheng-gui-fan.html" rel="alternate"></link><updated>2014-06-20T14:14:30+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-20:bian-cheng-gui-fan.html</id><summary type="html">&lt;p&gt;﻿% C/C++ 编程规范&lt;br /&gt;
+&lt;h1&gt;&lt;/h1&gt;</summary></entry><entry><title>编程规范</title><link href="http://sndnyang.github.io/bian-cheng-gui-fan.html" rel="alternate"></link><updated>2014-06-20T14:14:30+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-20:bian-cheng-gui-fan.html</id><summary type="html">&lt;p&gt;﻿% C/C++ 编程规范&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140616&lt;/p&gt;
 &lt;h1&gt;源代码组织&lt;/h1&gt;
@@ -341,7 +364,7 @@ s  : 静态变量&lt;/p&gt;
 &lt;h2&gt;局部变量&lt;/h2&gt;
 &lt;p&gt;返回时会被释放或析构——别返回错了。&lt;/p&gt;
 &lt;h1&gt;对象设计原则&lt;/h1&gt;
-&lt;p&gt;抽象、封装、继承、多态&lt;/p&gt;</summary></entry><entry><title>cscope_tips</title><link href="/cscope_tips.html" rel="alternate"></link><updated>2014-06-19T09:50:12+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-19:cscope_tips.html</id><summary type="html">&lt;p&gt;% cscope&lt;br /&gt;
+&lt;p&gt;抽象、封装、继承、多态&lt;/p&gt;</summary></entry><entry><title>cscope_tips</title><link href="http://sndnyang.github.io/cscope_tips.html" rel="alternate"></link><updated>2014-06-19T09:50:12+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-19:cscope_tips.html</id><summary type="html">&lt;p&gt;% cscope&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140619&lt;/p&gt;
 &lt;h1&gt;cscope&lt;/h1&gt;
@@ -448,7 +471,7 @@ s  : 静态变量&lt;/p&gt;
 &lt;p&gt;按这种组合键有一点技巧,按了&lt;C-_&gt;后要马上按下一个键,否则屏幕一闪就回到nomal状态了&lt;/p&gt;
 &lt;p&gt;&lt;C-_&gt;g的按法是先按"Ctrl+Shift+-", 然后很快再按"g"&lt;/p&gt;
 &lt;p&gt;reset :重新初始化所有连接。 &lt;/p&gt;
-&lt;p&gt;用法  : csreset &lt;/p&gt;</summary></entry><entry><title>label_shell工具</title><link href="/label_shellgong-ju.html" rel="alternate"></link><updated>2014-06-16T14:15:30+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-16:label_shellgong-ju.html</id><summary type="html">&lt;p&gt;% 使用shell 来完成建label&lt;br /&gt;
+&lt;p&gt;用法  : csreset &lt;/p&gt;</summary></entry><entry><title>label_shell工具</title><link href="http://sndnyang.github.io/label_shellgong-ju.html" rel="alternate"></link><updated>2014-06-16T14:15:30+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-16:label_shellgong-ju.html</id><summary type="html">&lt;p&gt;% 使用shell 来完成建label&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140508  &lt;/p&gt;
 &lt;h1&gt;建label&lt;/h1&gt;
@@ -497,7 +520,7 @@ s  : 静态变量&lt;/p&gt;
 &lt;h2&gt;使用说明&lt;/h2&gt;
 &lt;p&gt;以上步骤，使用hff_label.sh 完整运行。
 也可以使用单个脚本文件执行部分功能。
-既能拆分，也能组合。&lt;/p&gt;</summary></entry><entry><title>git_安装使用手册</title><link href="/git_an-zhuang-shi-yong-shou-ce.html" rel="alternate"></link><updated>2014-06-12T16:21:58+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-12:git_an-zhuang-shi-yong-shou-ce.html</id><summary type="html">&lt;p&gt;% Git安装使用手册&lt;br /&gt;
+既能拆分，也能组合。&lt;/p&gt;</summary></entry><entry><title>git_安装使用手册</title><link href="http://sndnyang.github.io/git_an-zhuang-shi-yong-shou-ce.html" rel="alternate"></link><updated>2014-06-12T16:21:58+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-12:git_an-zhuang-shi-yong-shou-ce.html</id><summary type="html">&lt;p&gt;% Git安装使用手册&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140604  &lt;/p&gt;
 &lt;h1&gt;Git安装手册&lt;/h1&gt;
@@ -572,7 +595,7 @@ s  : 静态变量&lt;/p&gt;
 &lt;p&gt;git config --global user.name 你的名字 省略 --global 也行&lt;/p&gt;
 &lt;p&gt;git config --global user.email "你的邮件地址"&lt;/p&gt;
 &lt;p&gt;等同于 tortoise git 右键 Settings-Git-Edit local(global) .git/config &lt;/p&gt;
-&lt;p&gt;等同于GitHub里 create键旁边的 tools-&amp;gt;options-&amp;gt;configure git&lt;/p&gt;</summary></entry><entry><title>db2_alter</title><link href="/db2_alter.html" rel="alternate"></link><updated>2014-06-11T16:50:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-11:db2_alter.html</id><summary type="html">&lt;h1&gt;db2 特殊查询&lt;/h1&gt;
+&lt;p&gt;等同于GitHub里 create键旁边的 tools-&amp;gt;options-&amp;gt;configure git&lt;/p&gt;</summary></entry><entry><title>db2_alter</title><link href="http://sndnyang.github.io/db2_alter.html" rel="alternate"></link><updated>2014-06-11T16:50:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-11:db2_alter.html</id><summary type="html">&lt;h1&gt;db2 特殊查询&lt;/h1&gt;
 &lt;h2&gt;增加列&lt;/h2&gt;
 &lt;p&gt;alter table emp add sex char(1);   ---增加sex这一列&lt;/p&gt;
 &lt;h2&gt;更改字段类型&lt;/h2&gt;
@@ -617,7 +640,7 @@ s  : 静态变量&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;否则可能会造成其他操作时报错。&lt;/p&gt;</summary></entry><entry><title>shell_技巧</title><link href="/shell_ji-qiao.html" rel="alternate"></link><updated>2014-06-09T10:18:02+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-09:shell_ji-qiao.html</id><summary type="html">&lt;p&gt;% 编写健壮的 shell 脚本&lt;br /&gt;
+&lt;p&gt;否则可能会造成其他操作时报错。&lt;/p&gt;</summary></entry><entry><title>shell_技巧</title><link href="http://sndnyang.github.io/shell_ji-qiao.html" rel="alternate"></link><updated>2014-06-09T10:18:02+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-09:shell_ji-qiao.html</id><summary type="html">&lt;p&gt;% 编写健壮的 shell 脚本&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140605&lt;/p&gt;
 &lt;h1&gt;有效技巧&lt;/h1&gt;
@@ -719,7 +742,7 @@ echo &amp;quot;BRANCH =&amp;quot; &lt;span class="nv"&gt;$BRANCH&lt;/span&gt;
 
 
 &lt;p&gt;写个循环也行，但是肯定没有上面一句就搞定简单。&lt;/p&gt;
-&lt;h2&gt;判断操作系统 uname&lt;/h2&gt;</summary></entry><entry><title>find_grep</title><link href="/find_grep.html" rel="alternate"></link><updated>2014-06-06T14:53:22+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-06:find_grep.html</id><summary type="html">&lt;p&gt;% find与grep&lt;br /&gt;
+&lt;h2&gt;判断操作系统 uname&lt;/h2&gt;</summary></entry><entry><title>find_grep</title><link href="http://sndnyang.github.io/find_grep.html" rel="alternate"></link><updated>2014-06-06T14:53:22+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-06:find_grep.html</id><summary type="html">&lt;p&gt;% find与grep&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140606&lt;/p&gt;
 &lt;h1&gt;find 手册&lt;/h1&gt;
@@ -761,7 +784,7 @@ grep 主要使用格式如下：  &lt;/p&gt;
 find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</summary></entry><entry><title>ksh_数组</title><link href="/ksh_shu-zu.html" rel="alternate"></link><updated>2014-06-06T14:26:36+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-06:ksh_shu-zu.html</id><summary type="html">&lt;p&gt;% ksh数组的使用方法&lt;/p&gt;
+&lt;/blockquote&gt;</summary></entry><entry><title>ksh_数组</title><link href="http://sndnyang.github.io/ksh_shu-zu.html" rel="alternate"></link><updated>2014-06-06T14:26:36+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-06:ksh_shu-zu.html</id><summary type="html">&lt;p&gt;% ksh数组的使用方法&lt;/p&gt;
 &lt;h1&gt;一、 定义&lt;/h1&gt;
 &lt;h2&gt;定义与初始化数组变量：&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;value1&lt;/span&gt; &lt;span class="n"&gt;value2&lt;/span&gt; &lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="n"&gt;valuen&lt;/span&gt;
@@ -790,7 +813,7 @@ find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 
 &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>shell_时间</title><link href="/shell_shi-jian.html" rel="alternate"></link><updated>2014-06-06T09:44:02+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-06-06:shell_shi-jian.html</id><summary type="html">&lt;p&gt;% shell中时间相关说明&lt;br /&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>shell_时间</title><link href="http://sndnyang.github.io/shell_shi-jian.html" rel="alternate"></link><updated>2014-06-06T09:44:02+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-06-06:shell_shi-jian.html</id><summary type="html">&lt;p&gt;% shell中时间相关说明&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140606 &lt;/p&gt;
 &lt;h2&gt;date命令的使用&lt;/h2&gt;
@@ -823,7 +846,7 @@ find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 
 &lt;p&gt;需要毫秒级的sleep时，需要使用外部工具，如perl，C&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;perl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt; &lt;span class="err"&gt;毫秒&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Firefly命令</title><link href="/fireflyming-ling.html" rel="alternate"></link><updated>2014-05-28T16:56:52+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-28:fireflyming-ling.html</id><summary type="html">&lt;p&gt;% FireFly 总结&lt;br /&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Firefly命令</title><link href="http://sndnyang.github.io/fireflyming-ling.html" rel="alternate"></link><updated>2014-05-28T16:56:52+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-28:fireflyming-ling.html</id><summary type="html">&lt;p&gt;% FireFly 总结&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 2014-05-28&lt;/p&gt;
 &lt;h1&gt;FireFly 总结&lt;/h1&gt;
@@ -842,7 +865,7 @@ find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;firefly 提交或签出 No changeset found 错误&lt;br /&gt;
    在Firefly Command Line 中，进入工作区目录，输入：hff check -repair ,   即可修复变更集&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>vim_tips</title><link href="/vim_tips.html" rel="alternate"></link><updated>2014-05-28T09:25:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-28:vim_tips.html</id><summary type="html">&lt;p&gt;% vim技巧总结&lt;br /&gt;
+&lt;/ul&gt;</summary></entry><entry><title>vim_tips</title><link href="http://sndnyang.github.io/vim_tips.html" rel="alternate"></link><updated>2014-05-28T09:25:08+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-28:vim_tips.html</id><summary type="html">&lt;p&gt;% vim技巧总结&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 20140528&lt;/p&gt;
 &lt;h1&gt;vim 技巧&lt;/h1&gt;
@@ -879,13 +902,13 @@ find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;mx   设置书签,x只能是a-z的26个字母&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;x    跳转到书签处("&lt;/code&gt;"是1左边的键)&lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>grep技巧</title><link href="/grepji-qiao.html" rel="alternate"></link><updated>2014-05-23T09:59:36+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-23:grepji-qiao.html</id><summary type="html">&lt;p&gt;% 编写健壮的 shell 脚本
+&lt;/ol&gt;</summary></entry><entry><title>grep技巧</title><link href="http://sndnyang.github.io/grepji-qiao.html" rel="alternate"></link><updated>2014-05-23T09:59:36+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-23:grepji-qiao.html</id><summary type="html">&lt;p&gt;% 编写健壮的 shell 脚本
 % 杨秀隆&lt;br /&gt;
 % &lt;/p&gt;
 &lt;h2&gt;grep使用shell环境变量&lt;/h2&gt;
 &lt;p&gt;grep -p "$var" 即可
 只要在var里把形式定义好&lt;/p&gt;
-&lt;h2&gt;整词匹配 -w&lt;/h2&gt;</summary></entry><entry><title>label流程</title><link href="/labelliu-cheng.html" rel="alternate"></link><updated>2014-05-22T11:55:06+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-22:labelliu-cheng.html</id><summary type="html">
+&lt;h2&gt;整词匹配 -w&lt;/h2&gt;</summary></entry><entry><title>label流程</title><link href="http://sndnyang.github.io/labelliu-cheng.html" rel="alternate"></link><updated>2014-05-22T11:55:06+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-22:labelliu-cheng.html</id><summary type="html">
 &lt;h1 id="_1"&gt;完整流程&lt;/h1&gt;
 &lt;h2 id="_2"&gt;流程步骤&lt;/h2&gt;
 &lt;ol&gt;
@@ -1022,7 +1045,7 @@ find 后 | xargs 表示 将find到的文件内容作为参数。&lt;/p&gt;
 &lt;li&gt;ftp_foler.bat&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;st发布ftp  ftp://99.8.43.86 devuser/devuser&lt;/p&gt;
-&lt;p&gt;uat 发布 编译环境label 赋权 微机编译组&lt;/p&gt;</summary></entry><entry><title>参数处理</title><link href="/can-shu-chu-li.html" rel="alternate"></link><updated>2014-05-15T15:04:56+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-15:can-shu-chu-li.html</id><summary type="html">&lt;h1&gt;参数处理-Shell传入参数的处理&lt;/h1&gt;
+&lt;p&gt;uat 发布 编译环境label 赋权 微机编译组&lt;/p&gt;</summary></entry><entry><title>参数处理</title><link href="http://sndnyang.github.io/can-shu-chu-li.html" rel="alternate"></link><updated>2014-05-15T15:04:56+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-15:can-shu-chu-li.html</id><summary type="html">&lt;h1&gt;参数处理-Shell传入参数的处理&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;$# 传递到脚本的参数个数  &lt;/li&gt;
 &lt;li&gt;$﹡ 以一个单字符串显示所有向脚本传递的参数。与位置变量不同，此选项参数可超过9个  &lt;/li&gt;
@@ -1048,7 +1071,7 @@ $- 传递到脚本中的标志(使用set) &lt;br /&gt;
 $_ 之前命令的最后一个参数 &lt;br /&gt;
 $! 运行在后台的最后一个作业的进程ID(PID)   &lt;/p&gt;
 &lt;h2&gt;特殊处理语句或命令&lt;/h2&gt;
-&lt;p&gt;shift 语句， 命令行参数左移排除。&lt;/p&gt;</summary></entry><entry><title>db2_特殊查询</title><link href="/db2_te-shu-cha-xun.html" rel="alternate"></link><updated>2014-05-15T09:42:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-15:db2_te-shu-cha-xun.html</id><summary type="html">&lt;h1&gt;db2 特殊查询&lt;/h1&gt;
+&lt;p&gt;shift 语句， 命令行参数左移排除。&lt;/p&gt;</summary></entry><entry><title>db2_特殊查询</title><link href="http://sndnyang.github.io/db2_te-shu-cha-xun.html" rel="alternate"></link><updated>2014-05-15T09:42:20+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-15:db2_te-shu-cha-xun.html</id><summary type="html">&lt;h1&gt;db2 特殊查询&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;查询库中所有表  &lt;/p&gt;
@@ -1079,7 +1102,7 @@ $! 运行在后台的最后一个作业的进程ID(PID)   &lt;/p&gt;
 
 
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>DB2_sqlcode</title><link href="/db2_sqlcode.html" rel="alternate"></link><updated>2014-05-13T17:25:22+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-13:db2_sqlcode.html</id><summary type="html">&lt;p&gt;% DB2 错误码 &lt;br /&gt;
+&lt;/ol&gt;</summary></entry><entry><title>DB2_sqlcode</title><link href="http://sndnyang.github.io/db2_sqlcode.html" rel="alternate"></link><updated>2014-05-13T17:25:22+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-13:db2_sqlcode.html</id><summary type="html">&lt;p&gt;% DB2 错误码 &lt;br /&gt;
 % 杨秀隆
 % 20140513&lt;/p&gt;
 &lt;p&gt;DB2常见错误及解决办法  &lt;/p&gt;
@@ -2100,7 +2123,7 @@ DB2 SQL Error: SQLCODE=-302, SQLSTATE=22001, SQLERRMC=null原因：表中某字�
 &lt;br /&gt;
 　　-614 54008 已经超过了索引的内部健长度的最大长度（255）限制  &lt;br /&gt;
 &lt;br /&gt;
-　　-615 55006 不能删除这个程序包，因为该程序包目前正在执行    &lt;/p&gt;</summary></entry><entry><title>tar_压缩</title><link href="/tar_ya-suo.html" rel="alternate"></link><updated>2014-05-13T15:40:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-13:tar_ya-suo.html</id><summary type="html">&lt;p&gt;﻿% tar 命令说明&lt;br /&gt;
+　　-615 55006 不能删除这个程序包，因为该程序包目前正在执行    &lt;/p&gt;</summary></entry><entry><title>tar_压缩</title><link href="http://sndnyang.github.io/tar_ya-suo.html" rel="alternate"></link><updated>2014-05-13T15:40:08+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-13:tar_ya-suo.html</id><summary type="html">&lt;p&gt;﻿% tar 命令说明&lt;br /&gt;
 % 杨秀隆&lt;br /&gt;
 % 2014年5月13日 修订&lt;/p&gt;
 &lt;h1&gt;tar 命令&lt;/h1&gt;
@@ -2153,7 +2176,7 @@ DB2 SQL Error: SQLCODE=-302, SQLSTATE=22001, SQLERRMC=null原因：表中某字�
 &lt;p&gt;6、*.Z 用 uncompress 解压&lt;/p&gt;
 &lt;p&gt;7、*.tar.Z 用tar –xZf 解压&lt;/p&gt;
 &lt;p&gt;8、*.rar 用 unrar e解压&lt;/p&gt;
-&lt;p&gt;9、*.zip 用 unzip 解压&lt;/p&gt;</summary></entry><entry><title>ksh_judge</title><link href="/ksh_judge.html" rel="alternate"></link><updated>2014-05-13T13:16:46+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-13:ksh_judge.html</id><summary type="html">&lt;h1&gt;ksh 判断&lt;/h1&gt;
+&lt;p&gt;9、*.zip 用 unzip 解压&lt;/p&gt;</summary></entry><entry><title>ksh_judge</title><link href="http://sndnyang.github.io/ksh_judge.html" rel="alternate"></link><updated>2014-05-13T13:16:46+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-13:ksh_judge.html</id><summary type="html">&lt;h1&gt;ksh 判断&lt;/h1&gt;
 &lt;h2&gt;一. 基础比较&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;运算符号代表意义&lt;/li&gt;
@@ -2201,7 +2224,7 @@ DB2 SQL Error: SQLCODE=-302, SQLSTATE=22001, SQLERRMC=null原因：表中某字�
 &lt;li&gt;-nt 第一个档案比第二个档案新  &lt;/li&gt;
 &lt;li&gt;-ot 第一个档案比第二个档案旧  &lt;/li&gt;
 &lt;li&gt;-ef 第一个档案与第二个档案为同一个档案（ link 之类的档案）  &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>tag_tips</title><link href="/tag_tips.html" rel="alternate"></link><updated>2014-05-12T16:49:08+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-12:tag_tips.html</id><summary type="html">&lt;p&gt;﻿ 配合 tag 文件可以实现定义跳转。&lt;br /&gt;
+&lt;/ol&gt;</summary></entry><entry><title>tag_tips</title><link href="http://sndnyang.github.io/tag_tips.html" rel="alternate"></link><updated>2014-05-12T16:49:08+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-12:tag_tips.html</id><summary type="html">&lt;p&gt;﻿ 配合 tag 文件可以实现定义跳转。&lt;br /&gt;
    :tags" 命令显示你经过的标签列表：
    下面的命令跳转到标签列表中最上面的标签：
          :tag
@@ -2378,8 +2401,8 @@ C 代码块包含在 {} 中，有时一个代码会很长。要跳转到外部�
     如果你想查看找到的包含文件，用这个命令：
          :checkpath!
 你会得到一个（很长）的包含文件列表。为使它更短些，Vim 会对已经找到的文件显示
-"(Already listed)" 而不再重新显示一遍&lt;/p&gt;</summary></entry><entry><title>pandoc</title><link href="/pandoc.html" rel="alternate"></link><updated>2014-05-07T16:35:38+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-07:pandoc.html</id><summary type="html">&lt;p&gt;% pandoc 使用&lt;/p&gt;
-&lt;p&gt;pandoc --latex-engine=pdflatex|lualatex|xelatex命令。&lt;/p&gt;</summary></entry><entry><title>db2jdbc</title><link href="/db2jdbc.html" rel="alternate"></link><updated>2014-05-07T10:10:44+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-07:db2jdbc.html</id><summary type="html">&lt;p&gt;﻿% JDBC连接DB2数据库&lt;/p&gt;
+"(Already listed)" 而不再重新显示一遍&lt;/p&gt;</summary></entry><entry><title>pandoc</title><link href="http://sndnyang.github.io/pandoc.html" rel="alternate"></link><updated>2014-05-07T16:35:38+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-07:pandoc.html</id><summary type="html">&lt;p&gt;% pandoc 使用&lt;/p&gt;
+&lt;p&gt;pandoc --latex-engine=pdflatex|lualatex|xelatex命令。&lt;/p&gt;</summary></entry><entry><title>db2jdbc</title><link href="http://sndnyang.github.io/db2jdbc.html" rel="alternate"></link><updated>2014-05-07T10:10:44+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-07:db2jdbc.html</id><summary type="html">&lt;p&gt;﻿% JDBC连接DB2数据库&lt;/p&gt;
 &lt;h1&gt;1. db2数据库驱动的安装&lt;/h1&gt;
 &lt;h2&gt;方法:&lt;/h2&gt;
 &lt;ol&gt;
@@ -2442,11 +2465,11 @@ C 代码块包含在 {} 中，有时一个代码会很长。要跳转到外部�
 &lt;span class="nx"&gt;rs.close&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
 &lt;span class="nx"&gt;stmt.close&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; 
 &lt;span class="nx"&gt;con.close&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>vi_tips</title><link href="/vi_tips.html" rel="alternate"></link><updated>2014-05-06T16:27:22+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-06:vi_tips.html</id><summary type="html">&lt;p&gt;﻿# vi 小技巧&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>vi_tips</title><link href="http://sndnyang.github.io/vi_tips.html" rel="alternate"></link><updated>2014-05-06T16:27:22+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-06:vi_tips.html</id><summary type="html">&lt;p&gt;﻿# vi 小技巧&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;vi +xx 文件名，可以直接跳到位置的， 和vim一样。xx代表行数 &lt;/li&gt;
 &lt;li&gt;查找时， \&amp;lt;xxx&gt; 代表全词匹配——vim也一样，而且更先进的是，当光标在该单词上时，vim快捷键shift+8就是向下查找，shift+3就是向上查找。&lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>share_folder</title><link href="/share_folder.html" rel="alternate"></link><updated>2014-05-06T09:01:28+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-06:share_folder.html</id><summary type="html">&lt;p&gt;% 共享文件夹加载&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>share_folder</title><link href="http://sndnyang.github.io/share_folder.html" rel="alternate"></link><updated>2014-05-06T09:01:28+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-06:share_folder.html</id><summary type="html">&lt;p&gt;% 共享文件夹加载&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;进入系统，安装增强功能，安装完关闭系统。 &lt;/li&gt;
 &lt;li&gt;在E盘下创建一个共享文件夹 gongxiang。 &lt;/li&gt;
@@ -2454,7 +2477,7 @@ C 代码块包含在 {} 中，有时一个代码会很长。要跳转到外部�
 &lt;li&gt;重新启动系统 &lt;/li&gt;
 &lt;li&gt;执行如下命令，就可以看到共享文件夹下面的文件。 
         huang@huang-VirtualBox:~$ sudo mount -t vboxsf gongxiang /mnt/shared/&lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>dot</title><link href="/dot.html" rel="alternate"></link><updated>2014-05-04T15:42:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:dot.html</id><summary type="html">&lt;p&gt;﻿# dot 入门&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>dot</title><link href="http://sndnyang.github.io/dot.html" rel="alternate"></link><updated>2014-05-04T15:42:20+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:dot.html</id><summary type="html">&lt;p&gt;﻿# dot 入门&lt;/p&gt;
 &lt;h2&gt;基本样式&lt;/h2&gt;
 &lt;p&gt;digraph Name{
     nodes_list;&lt;/p&gt;
@@ -2509,7 +2532,7 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;p&gt;使用隐藏线&lt;/p&gt;
 &lt;p&gt;node1 -&amp;gt; node2 [style = invis] 不可见的结点先后顺序&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>git_bash</title><link href="/git_bash.html" rel="alternate"></link><updated>2014-05-04T11:51:42+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:git_bash.html</id><summary type="html">&lt;p&gt;% windows下配置git bash 显示中文&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>git_bash</title><link href="http://sndnyang.github.io/git_bash.html" rel="alternate"></link><updated>2014-05-04T11:51:42+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:git_bash.html</id><summary type="html">&lt;p&gt;% windows下配置git bash 显示中文&lt;/p&gt;
 &lt;h2&gt;显示中文文件名&lt;/h2&gt;
 &lt;p&gt;1、C:\Program Files\Git\etc\git-completion.bash：&lt;/p&gt;
 &lt;p&gt;alias ls='ls --show-control-chars --color=auto'&lt;/p&gt;
@@ -2528,7 +2551,7 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;p&gt;说明：我们的代码库是统一用的 utf-8，这样设置可以在 git gui 中正常显示代码中的中文。&lt;/p&gt;
 &lt;p&gt;[i18n]&lt;/p&gt;
 &lt;p&gt;commitencoding = GB2312&lt;/p&gt;
-&lt;p&gt;说明：如果没有这一条，虽然我们在本地用 $ git log 看自己的中文修订没问题，但，一、我们的 log 推到服务器后会变成乱码；二、别人在 Linux 下推的中文 log 我们 pull 过来之后看起来也是乱码。这是因为，我们的 commit log 会被先存放在项目的 .git/COMMIT_EDITMSG 文件中；在中文 Windows 里，新建文件用的是 GB2312 的编码；但是 Git 不知道，当成默认的 utf-8 的送出去了，所以就乱码了。有了这条之后，Git 会先将其转换成 utf-8，再发出去，于是就没问题了。&lt;/p&gt;</summary></entry><entry><title>db2配置远程数据库</title><link href="/db2pei-zhi-yuan-cheng-shu-ju-ku.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:db2pei-zhi-yuan-cheng-shu-ju-ku.html</id><summary type="html">&lt;h1&gt;配置远程数据库&lt;/h1&gt;
+&lt;p&gt;说明：如果没有这一条，虽然我们在本地用 $ git log 看自己的中文修订没问题，但，一、我们的 log 推到服务器后会变成乱码；二、别人在 Linux 下推的中文 log 我们 pull 过来之后看起来也是乱码。这是因为，我们的 commit log 会被先存放在项目的 .git/COMMIT_EDITMSG 文件中；在中文 Windows 里，新建文件用的是 GB2312 的编码；但是 Git 不知道，当成默认的 utf-8 的送出去了，所以就乱码了。有了这条之后，Git 会先将其转换成 utf-8，再发出去，于是就没问题了。&lt;/p&gt;</summary></entry><entry><title>db2配置远程数据库</title><link href="http://sndnyang.github.io/db2pei-zhi-yuan-cheng-shu-ju-ku.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:db2pei-zhi-yuan-cheng-shu-ju-ku.html</id><summary type="html">&lt;h1&gt;配置远程数据库&lt;/h1&gt;
 &lt;p&gt;1. 执行db2 catalog tcpip node 节点名 remote xx.xx.xx.xx server 50000&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2546,7 +2569,7 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;li&gt;
 &lt;p&gt;进到sqldb2.bnd文件所在的目录(一般在~/bnd/ORCHID下,执行 db2 bind sqldb2.bnd&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>端口监听</title><link href="/duan-kou-jian-ting.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:duan-kou-jian-ting.html</id><summary type="html">&lt;h1&gt;windows、linux、aix 查询端口号占用情况&lt;/h1&gt;
+&lt;/ol&gt;</summary></entry><entry><title>端口监听</title><link href="http://sndnyang.github.io/duan-kou-jian-ting.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:duan-kou-jian-ting.html</id><summary type="html">&lt;h1&gt;windows、linux、aix 查询端口号占用情况&lt;/h1&gt;
 &lt;p&gt;一、windows&lt;/p&gt;
 &lt;p&gt;方法一&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2661,21 +2684,21 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;blockquote&gt;
 &lt;p&gt;The socket 0xd37008 is being held by proccess 213096 (sendmail).    &lt;/p&gt;
 &lt;p&gt;结果显示25号端口正在被sendmail进程使用，PID为213096. &lt;/p&gt;
-&lt;/blockquote&gt;</summary></entry><entry><title>KSH自动补全</title><link href="/kshzi-dong-bu-quan.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:kshzi-dong-bu-quan.html</id><summary type="html">&lt;h1&gt;设置KSH的自动补全和历史命令功能&lt;/h1&gt;
-&lt;h2&gt;- 方法一：&lt;/h2&gt;
+&lt;/blockquote&gt;</summary></entry><entry><title>KSH自动补全</title><link href="http://sndnyang.github.io/kshzi-dong-bu-quan.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:kshzi-dong-bu-quan.html</id><summary type="html">&lt;h1 id="ksh"&gt;设置KSH的自动补全和历史命令功能&lt;/h1&gt;
+&lt;h2 id="-"&gt;- 方法一：&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;vi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;历史命令功能（esc -，esc +）自动补全文件名（esc \）。&lt;/p&gt;
-&lt;h2&gt;- 方法二：&lt;/h2&gt;
+&lt;h2 id="-_1"&gt;- 方法二：&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;emacs&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;历史命令功能（ctrl-n，ctrl-p），自动补全文件名(按两次esc)。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;找不到自动补全命令的功能，还是bash比较人性化。&lt;/p&gt;</summary></entry><entry><title>profile设置</title><link href="/profileshe-zhi.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:profileshe-zhi.html</id><summary type="html">&lt;h1&gt;ksh profile常用配置&lt;/h1&gt;
+&lt;p&gt;找不到自动补全命令的功能，还是bash比较人性化。&lt;/p&gt;</summary></entry><entry><title>profile设置</title><link href="http://sndnyang.github.io/profileshe-zhi.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:profileshe-zhi.html</id><summary type="html">&lt;h1&gt;ksh profile常用配置&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;stty erase ^H &lt;br /&gt;
@@ -2726,10 +2749,10 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;li&gt;
 &lt;p&gt;alias r='fc -e -' 重复执行最后一条命令,  &lt;strong&gt;慎用&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>shell_file</title><link href="/shell_file.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:shell_file.html</id><summary type="html">&lt;h1&gt;shell文件&lt;/h1&gt;
+&lt;/ol&gt;</summary></entry><entry><title>shell_file</title><link href="http://sndnyang.github.io/shell_file.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:shell_file.html</id><summary type="html">&lt;h1&gt;shell文件&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;文件存在 if [[ -e $filename ]]&lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>shell变量空格</title><link href="/shellbian-liang-kong-ge.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:shellbian-liang-kong-ge.html</id><summary type="html">&lt;h1&gt;shell 字符串变量中的空格&lt;/h1&gt;
+&lt;/ol&gt;</summary></entry><entry><title>shell变量空格</title><link href="http://sndnyang.github.io/shellbian-liang-kong-ge.html" rel="alternate"></link><updated>2014-05-04T09:24:04+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:shellbian-liang-kong-ge.html</id><summary type="html">&lt;h1&gt;shell 字符串变量中的空格&lt;/h1&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; dokjd    &amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -2750,7 +2773,7 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 
 
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>if_else_elif</title><link href="/if_else_elif.html" rel="alternate"></link><updated>2014-05-04T09:20:24+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:if_else_elif.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>if_else_elif</title><link href="http://sndnyang.github.io/if_else_elif.html" rel="alternate"></link><updated>2014-05-04T09:20:24+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:if_else_elif.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
 &lt;h1&gt;if else elif&lt;/h1&gt;
 &lt;p&gt;shell 或者说 ksh 的else if 使用 elif 写法， 简洁易用的写法&lt;/p&gt;
 &lt;p&gt;示例:&lt;/p&gt;
@@ -2763,13 +2786,13 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;span class="k"&gt;else&lt;/span&gt;
     &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;none&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>统计行号</title><link href="/tong-ji-xing-hao.html" rel="alternate"></link><updated>2014-05-04T09:20:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:tong-ji-xing-hao.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>统计行号</title><link href="http://sndnyang.github.io/tong-ji-xing-hao.html" rel="alternate"></link><updated>2014-05-04T09:20:20+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:tong-ji-xing-hao.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
 &lt;h1&gt;DB2 统计行号, 行数&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ROWNUMBER&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;OVER&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;ROW&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;不能用之作为group 的条件。&lt;/p&gt;</summary></entry><entry><title>db2查询本机数据库</title><link href="/db2cha-xun-ben-ji-shu-ju-ku.html" rel="alternate"></link><updated>2014-05-04T09:20:18+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:db2cha-xun-ben-ji-shu-ju-ku.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
+&lt;p&gt;不能用之作为group 的条件。&lt;/p&gt;</summary></entry><entry><title>db2查询本机数据库</title><link href="http://sndnyang.github.io/db2cha-xun-ben-ji-shu-ju-ku.html" rel="alternate"></link><updated>2014-05-04T09:20:18+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:db2cha-xun-ben-ji-shu-ju-ku.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
 &lt;h1&gt;db2 查询本机数据库（本地及远程）&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;db2 "list db directory"  显示本机数据库列表&lt;/li&gt;
@@ -2834,7 +2857,7 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 
 &lt;span class="err"&gt;　　&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;测试远程数据库的连接&lt;/span&gt;
 &lt;span class="err"&gt;　　&lt;/span&gt;&lt;span class="nx"&gt;db2&lt;/span&gt; &lt;span class="nb"&gt;connect&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;db_alias&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;user&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;user_id&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;password&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>db2_export</title><link href="/db2_export.html" rel="alternate"></link><updated>2014-05-04T09:20:16+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-05-04:db2_export.html</id><summary type="html">&lt;h1&gt;db2 导出数据&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>db2_export</title><link href="http://sndnyang.github.io/db2_export.html" rel="alternate"></link><updated>2014-05-04T09:20:16+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-05-04:db2_export.html</id><summary type="html">&lt;h1&gt;db2 导出数据&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;基本形式:&lt;/p&gt;
@@ -2853,8 +2876,8 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;li&gt;codepa A delimiter is not valid or is used more than once.
 ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used more than once时使用&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</summary></entry><entry><title>java_乱码</title><link href="/java_luan-ma.html" rel="alternate"></link><updated>2014-04-16T19:36:58+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-04-16:java_luan-ma.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
-&lt;h1&gt;java 乱码简要总结&lt;/h1&gt;</summary></entry><entry><title>markdown_syntax</title><link href="/markdown_syntax.html" rel="alternate"></link><updated>2014-03-03T09:59:54+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-03-03:markdown_syntax.html</id><summary type="html">&lt;h1&gt;MarkDown 笔记&lt;/h1&gt;
+&lt;/blockquote&gt;</summary></entry><entry><title>java_乱码</title><link href="http://sndnyang.github.io/java_luan-ma.html" rel="alternate"></link><updated>2014-04-16T19:36:58+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-04-16:java_luan-ma.html</id><summary type="html">&lt;p&gt;﻿&lt;/p&gt;
+&lt;h1&gt;java 乱码简要总结&lt;/h1&gt;</summary></entry><entry><title>markdown_syntax</title><link href="http://sndnyang.github.io/markdown_syntax.html" rel="alternate"></link><updated>2014-03-03T09:59:54+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-03-03:markdown_syntax.html</id><summary type="html">&lt;h1&gt;MarkDown 笔记&lt;/h1&gt;
 &lt;h2&gt;小细节记录&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;非MarkDown的部分，可直接写HTML&lt;/li&gt;
@@ -2957,7 +2980,7 @@ ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used mor
 &lt;p&gt;&amp;emsp; 效果图：&lt;/p&gt;
 &lt;p&gt;&amp;emsp; &lt;img alt="not found" src="G:\1.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;自动链接&lt;/h2&gt;
-&lt;p&gt;Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接&lt;/p&gt;</summary></entry><entry><title>shell_string</title><link href="/shell_string.html" rel="alternate"></link><updated>2014-01-22T16:41:32+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-01-22:shell_string.html</id><summary type="html">&lt;h1&gt;shell string总结&lt;/h1&gt;
+&lt;p&gt;Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接&lt;/p&gt;</summary></entry><entry><title>shell_string</title><link href="http://sndnyang.github.io/shell_string.html" rel="alternate"></link><updated>2014-01-22T16:41:32+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-01-22:shell_string.html</id><summary type="html">&lt;h1&gt;shell string总结&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;空串判断  if [ -z "$line" ]&lt;/p&gt;
@@ -2973,12 +2996,12 @@ ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used mor
 &lt;p&gt;上一条的替代方法 while read line do done &amp;lt; filename
     缺点：过程中需要 命令行交互时， 无法输入命令。&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>ksh_数学运算</title><link href="/ksh_shu-xue-yun-suan.html" rel="alternate"></link><updated>2014-01-07T10:56:26+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-01-07:ksh_shu-xue-yun-suan.html</id><summary type="html">&lt;h1&gt;ksh 里的数学运算&lt;/h1&gt;
+&lt;/ol&gt;</summary></entry><entry><title>ksh_数学运算</title><link href="http://sndnyang.github.io/ksh_shu-xue-yun-suan.html" rel="alternate"></link><updated>2014-01-07T10:56:26+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-01-07:ksh_shu-xue-yun-suan.html</id><summary type="html">&lt;h1&gt;ksh 里的数学运算&lt;/h1&gt;
 &lt;p&gt;ksh 里的数学运算不同于 bash，且资料不多，难以查询&lt;/p&gt;
 &lt;p&gt;实际使用的是 (( 运算式 )) 
 示例 :
     (( bch_id += 1 )) 不支持 ++ 
-    (( next = pre + 1 )) 不能用 next=((pre+1))&lt;/p&gt;</summary></entry><entry><title>date</title><link href="/date.html" rel="alternate"></link><updated>2014-01-07T09:34:36+08:00</updated><author><name>sndnyang</name></author><id>tag:,2014-01-07:date.html</id><summary type="html">&lt;h1&gt;date命令的使用&lt;/h1&gt;
+    (( next = pre + 1 )) 不能用 next=((pre+1))&lt;/p&gt;</summary></entry><entry><title>date</title><link href="http://sndnyang.github.io/date.html" rel="alternate"></link><updated>2014-01-07T09:34:36+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-01-07:date.html</id><summary type="html">&lt;h1&gt;date命令的使用&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;不带任何参数的使用，结果:
@@ -2999,7 +3022,7 @@ ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used mor
     %S   秒
     %s   January 1, 1970至今多少秒，UNIGW系统的标准方式&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>parent</title><link href="/parent.html" rel="alternate"></link><updated>2013-12-27T20:19:14+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:parent.html</id><summary type="html">&lt;h1&gt;jquery travel&lt;/h1&gt;
+&lt;/ol&gt;</summary></entry><entry><title>parent</title><link href="http://sndnyang.github.io/parent.html" rel="alternate"></link><updated>2013-12-27T20:19:14+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:parent.html</id><summary type="html">&lt;h1&gt;jquery travel&lt;/h1&gt;
 &lt;p&gt;•parent()
  •parents()
  •parentsUntil()&lt;/p&gt;
@@ -3022,7 +3045,7 @@ ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used mor
 &lt;p&gt;filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。&lt;/p&gt;
 &lt;p&gt;jQuery not() 方法&lt;/p&gt;
 &lt;p&gt;not() 方法返回不匹配标准的所有元素。&lt;/p&gt;
-&lt;p&gt;提示：not() 方法与 filter() 相反。&lt;/p&gt;</summary></entry><entry><title>size</title><link href="/size.html" rel="alternate"></link><updated>2013-12-27T20:03:44+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:size.html</id><summary type="html">&lt;h1&gt;jquery 尺寸&lt;/h1&gt;
+&lt;p&gt;提示：not() 方法与 filter() 相反。&lt;/p&gt;</summary></entry><entry><title>size</title><link href="http://sndnyang.github.io/size.html" rel="alternate"></link><updated>2013-12-27T20:03:44+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:size.html</id><summary type="html">&lt;h1&gt;jquery 尺寸&lt;/h1&gt;
 &lt;p&gt;jQuery width() 和 height() 方法&lt;/p&gt;
 &lt;p&gt;width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。&lt;/p&gt;
 &lt;p&gt;height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。&lt;/p&gt;
@@ -3034,7 +3057,7 @@ ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used mor
 &lt;p&gt;outerHeight() 方法返回元素的高度（包括内边距和边框）。&lt;/p&gt;
 &lt;p&gt;文档（HTML 文档）和窗口（浏览器视口）的宽度和高度
 $(document) $(window)&lt;/p&gt;
-&lt;p&gt;css() 中带参数即为设置&lt;/p&gt;</summary></entry><entry><title>opr_css</title><link href="/opr_css.html" rel="alternate"></link><updated>2013-12-27T19:59:28+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:opr_css.html</id><summary type="html">&lt;h1&gt;操作css&lt;/h1&gt;
+&lt;p&gt;css() 中带参数即为设置&lt;/p&gt;</summary></entry><entry><title>opr_css</title><link href="http://sndnyang.github.io/opr_css.html" rel="alternate"></link><updated>2013-12-27T19:59:28+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:opr_css.html</id><summary type="html">&lt;h1&gt;操作css&lt;/h1&gt;
 &lt;p&gt;•addClass() - 向被选元素添加一个或多个类
 •removeClass() - 从被选元素删除一个或多个类
 •toggleClass() - 对被选元素进行添加/删除类的切换操作
@@ -3051,7 +3074,7 @@ css("propertyname","value");
 下面的例子将为所有匹配元素设置 background-color 值：&lt;/p&gt;
 &lt;h2&gt;设置多个 CSS 属性&lt;/h2&gt;
 &lt;p&gt;如需设置多个 CSS 属性，请使用如下语法：
-css({"propertyname":"value","propertyname":"value",...});&lt;/p&gt;</summary></entry><entry><title>del_element</title><link href="/del_element.html" rel="alternate"></link><updated>2013-12-27T19:39:02+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:del_element.html</id><summary type="html">&lt;h1&gt;删除元素&lt;/h1&gt;
+css({"propertyname":"value","propertyname":"value",...});&lt;/p&gt;</summary></entry><entry><title>del_element</title><link href="http://sndnyang.github.io/del_element.html" rel="alternate"></link><updated>2013-12-27T19:39:02+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:del_element.html</id><summary type="html">&lt;h1&gt;删除元素&lt;/h1&gt;
 &lt;p&gt;•remove() - 删除被选元素（及其子元素）
 •empty() - 从被选元素中删除子元素&lt;/p&gt;
 &lt;p&gt;过滤被删除的元素&lt;/p&gt;
@@ -3059,11 +3082,11 @@ css({"propertyname":"value","propertyname":"value",...});&lt;/p&gt;</summary></e
 &lt;p&gt;该参数可以是任何 jQuery 选择器的语法。&lt;/p&gt;
 &lt;p&gt;下面的例子删除 class="italic" 的所有 &lt;p&gt; 元素：&lt;/p&gt;
 &lt;p&gt;实例
-$("p").remove(".italic");&lt;/p&gt;</summary></entry><entry><title>add_new_element</title><link href="/add_new_element.html" rel="alternate"></link><updated>2013-12-27T19:38:00+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:add_new_element.html</id><summary type="html">&lt;h1&gt;添加新元素&lt;/h1&gt;
+$("p").remove(".italic");&lt;/p&gt;</summary></entry><entry><title>add_new_element</title><link href="http://sndnyang.github.io/add_new_element.html" rel="alternate"></link><updated>2013-12-27T19:38:00+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:add_new_element.html</id><summary type="html">&lt;h1&gt;添加新元素&lt;/h1&gt;
 &lt;p&gt;•append() - 在被选元素的结尾插入内容
 •prepend() - 在被选元素的开头插入内容
 •after() - 在被选元素之后插入内容
-•before() - 在被选元素之前插入内容&lt;/p&gt;</summary></entry><entry><title>content_attr</title><link href="/content_attr.html" rel="alternate"></link><updated>2013-12-27T19:36:44+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-27:content_attr.html</id><summary type="html">&lt;h1&gt;获取，设置内容及属性&lt;/h1&gt;
+•before() - 在被选元素之前插入内容&lt;/p&gt;</summary></entry><entry><title>content_attr</title><link href="http://sndnyang.github.io/content_attr.html" rel="alternate"></link><updated>2013-12-27T19:36:44+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-27:content_attr.html</id><summary type="html">&lt;h1&gt;获取，设置内容及属性&lt;/h1&gt;
 &lt;p&gt;获得内容 - text()、html() 以及 val()&lt;/p&gt;
 &lt;p&gt;三个简单实用的用于 DOM 操作的 jQuery 方法：
  •text() - 设置或返回所选元素的文本内容
@@ -3078,7 +3101,7 @@ $("p").remove(".italic");&lt;/p&gt;</summary></entry><entry><title>add_new_eleme
     return "Old text: " + origText + " New text: Hello world!
     (index: " + i + ")";
   });
-});&lt;/p&gt;</summary></entry><entry><title>jquery_function</title><link href="/jquery_function.html" rel="alternate"></link><updated>2013-12-26T20:39:56+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_function.html</id><summary type="html">&lt;h1&gt;jquery 常用函数&lt;/h1&gt;
+});&lt;/p&gt;</summary></entry><entry><title>jquery_function</title><link href="http://sndnyang.github.io/jquery_function.html" rel="alternate"></link><updated>2013-12-26T20:39:56+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-26:jquery_function.html</id><summary type="html">&lt;h1&gt;jquery 常用函数&lt;/h1&gt;
 &lt;h2&gt;隐藏&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;show&lt;/li&gt;
@@ -3108,7 +3131,7 @@ animate （{})
 如
     x.hide("slow", function() {xxxx})&lt;/p&gt;
 &lt;h2&gt;方法链接&lt;/h2&gt;
-&lt;p&gt;css().hide().slideDown()&lt;/p&gt;</summary></entry><entry><title>jquery_grammar</title><link href="/jquery_grammar.html" rel="alternate"></link><updated>2013-12-26T20:24:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_grammar.html</id><summary type="html">&lt;h1&gt;jquery 语法&lt;/h1&gt;
+&lt;p&gt;css().hide().slideDown()&lt;/p&gt;</summary></entry><entry><title>jquery_grammar</title><link href="http://sndnyang.github.io/jquery_grammar.html" rel="alternate"></link><updated>2013-12-26T20:24:20+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-26:jquery_grammar.html</id><summary type="html">&lt;h1&gt;jquery 语法&lt;/h1&gt;
 &lt;p&gt;jQuery 语法是为 HTML 元素的选取编制的，可以对元素执行某些操作。
 基础语法是：$(selector).action()
 美元符号定义 jQuery
@@ -3160,20 +3183,23 @@ jQuery 的 action() 执行对元素的操作&lt;/p&gt;
     $("#intro") id="intro" 的元素
     $("ul li:first")    每个 &lt;ul&gt; 的第一个 &lt;li&gt; 元素
     $("[href$='.jpg']") 所有带有以 ".jpg" 结尾的属性值的 href 属性
-    $("div#intro .head")    id="intro" 的 &lt;div&gt; 元素中的所有 class="head" 的元素&lt;/p&gt;</summary></entry><entry><title>jquery_ready_func</title><link href="/jquery_ready_func.html" rel="alternate"></link><updated>2013-12-26T19:56:06+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:jquery_ready_func.html</id><summary type="html">&lt;h1&gt;jquery 文档就绪函数&lt;/h1&gt;
+    $("div#intro .head")    id="intro" 的 &lt;div&gt; 元素中的所有 class="head" 的元素&lt;/p&gt;</summary></entry><entry><title>jquery_ready_func</title><link href="http://sndnyang.github.io/jquery_ready_func.html" rel="alternate"></link><updated>2013-12-26T19:56:06+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-26:jquery_ready_func.html</id><summary type="html">&lt;h1&gt;jquery 文档就绪函数&lt;/h1&gt;
 &lt;p&gt;所有 jQuery 函数位于一个 document ready 函数中：
     $(document).ready(function(){&lt;/p&gt;
 &lt;p&gt;--- jQuery functions go here ----&lt;/p&gt;
 &lt;p&gt;});
-这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。&lt;/p&gt;</summary></entry><entry><title>import_jQuery</title><link href="/import_jquery.html" rel="alternate"></link><updated>2013-12-26T19:43:58+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-26:import_jquery.html</id><summary type="html">&lt;h1&gt;添加 jQuery 库&lt;/h1&gt;
+这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。&lt;/p&gt;</summary></entry><entry><title>import_jQuery</title><link href="http://sndnyang.github.io/import_jquery.html" rel="alternate"></link><updated>2013-12-26T19:43:58+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-26:import_jquery.html</id><summary type="html">&lt;h1&gt;添加 jQuery 库&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 
  &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt; 标签应该位于页面的 &lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt; 部分
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>sys.path</title><link href="/syspath.html" rel="alternate"></link><updated>2013-12-25T20:12:20+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:syspath.html</id><summary type="html">&lt;h1&gt;sys.path 永久路径&lt;/h1&gt;
-&lt;p&gt;具体是在site-packages文件夹中添加一个.pth文件，将你需要python搜索的文件路径添加进去&lt;/p&gt;</summary></entry><entry><title>package</title><link href="/package.html" rel="alternate"></link><updated>2013-12-25T13:30:10+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:package.html</id><summary type="html">&lt;h1&gt;python package使用总结&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>个人笔记</title><link href="http://sndnyang.github.io/ge-ren-bi-ji.html" rel="alternate"></link><updated>2013-12-26T04:56:26+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-26:ge-ren-bi-ji.html</id><summary type="html">&lt;h1 id="_1"&gt;个人笔记&lt;/h1&gt;
+&lt;p&gt;这里记录了我不同技术、项目的总结&lt;/p&gt;
+&lt;p&gt;杨秀隆
+2013-12-26&lt;/p&gt;</summary></entry><entry><title>sys.path</title><link href="http://sndnyang.github.io/syspath.html" rel="alternate"></link><updated>2013-12-25T20:12:20+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-25:syspath.html</id><summary type="html">&lt;h1&gt;sys.path 永久路径&lt;/h1&gt;
+&lt;p&gt;具体是在site-packages文件夹中添加一个.pth文件，将你需要python搜索的文件路径添加进去&lt;/p&gt;</summary></entry><entry><title>package</title><link href="http://sndnyang.github.io/package.html" rel="alternate"></link><updated>2013-12-25T13:30:10+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-25:package.html</id><summary type="html">&lt;h1&gt;python package使用总结&lt;/h1&gt;
 &lt;p&gt;1、 文件夹下使用__init__.py文件。
-2、 各文件需要import的包，仍要import,__init__只是节省依赖包的导入。&lt;/p&gt;</summary></entry><entry><title>pac_init</title><link href="/pac_init.html" rel="alternate"></link><updated>2013-12-25T13:30:06+08:00</updated><author><name>sndnyang</name></author><id>tag:,2013-12-25:pac_init.html</id><summary type="html">&lt;h1&gt;python package中__init__.py 的使用总结&lt;/h1&gt;
+2、 各文件需要import的包，仍要import,__init__只是节省依赖包的导入。&lt;/p&gt;</summary></entry><entry><title>pac_init</title><link href="http://sndnyang.github.io/pac_init.html" rel="alternate"></link><updated>2013-12-25T13:30:06+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2013-12-25:pac_init.html</id><summary type="html">&lt;h1&gt;python package中__init__.py 的使用总结&lt;/h1&gt;
 &lt;p&gt;1、 需要将目录中的文件都import一遍， 不然在dir()时不会显示出来。
 2、 各文件需要import的包，仍要import,__init__只是节省依赖包的导入。&lt;/p&gt;</summary></entry></feed>

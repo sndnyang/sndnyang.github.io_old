@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-08-30T19:56:58+08:00</updated><entry><title>Linux常用命令</title><link href="http://sndnyang.github.io/LinuxCommand.html" rel="alternate"></link><updated>2014-08-30T19:56:58+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-08-30:LinuxCommand.html</id><summary type="html">
+&lt;h1 id="_1"&gt;常用命令列表&lt;/h1&gt;
+&lt;p&gt;常用命令大概20个左右， 非要分类的话，大致可以分成以下几类：
+1. 文件系统相关
+2. 系统管理相关
+3. 文本操作相关&lt;/p&gt;
+&lt;p&gt;按常用来排序，同时考虑分类的话，个人这样分类：&lt;/p&gt;
+&lt;h2 id="_2"&gt;基础的基础&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;cd 路径切换&lt;/li&gt;
+&lt;li&gt;ls 查看目录下文件列表&lt;/li&gt;
+&lt;li&gt;more/less 文本文件内容游览&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在命令行模式下，这三个命令是最容易使用，也最容易掌握的。&lt;/p&gt;
+&lt;h2 id="_3"&gt;文本编辑&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;vi/vim/emacs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_4"&gt;系统管理&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ps 进程列表&lt;/li&gt;
+&lt;li&gt;kill 结束进程&lt;/li&gt;
+&lt;li&gt;top(as) CPU、内存状态&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_5"&gt;文件操作&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;cat&lt;/li&gt;
+&lt;li&gt;head/tail&lt;/li&gt;
+&lt;li&gt;wc&lt;/li&gt;
+&lt;li&gt;touch &amp;gt;&lt;/li&gt;
+&lt;li&gt;mkdir&lt;/li&gt;
+&lt;li&gt;rm&lt;/li&gt;
+&lt;li&gt;find&lt;/li&gt;
+&lt;li&gt;grep&lt;/li&gt;
+&lt;li&gt;cut&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_6"&gt;较高级命令&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;sed&lt;/li&gt;
+&lt;li&gt;awk&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_7"&gt;命令使用总结&lt;/h1&gt;
+&lt;h2 id="cd"&gt;cd&lt;/h2&gt;
+&lt;p&gt;基本使用方法 cd 相对或绝对的路径
+Linux的根路径是 / 
+用户主目录是 ~ 或者干脆不带路径
+上一层路径是 ..
+上一个路径是 -&lt;/p&gt;
+&lt;h2 id="ls"&gt;ls&lt;/h2&gt;
+&lt;p&gt;以下参数随意组合，如 -lrt, -alF&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;-l 文件详细信息列表&lt;/li&gt;
+&lt;li&gt;-t 按修改时间排序&lt;/li&gt;
+&lt;li&gt;-r 逆序&lt;/li&gt;
+&lt;li&gt;-A 全部，包括隐藏文件 -a 还多出 . 和 ..&lt;/li&gt;
+&lt;li&gt;-F 带颜色，并区别文件和文件夹&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="moreless"&gt;more/less&lt;/h2&gt;
+&lt;p&gt;对于大文件也可使用， Vim等可能内存不足
+f 向下翻页
+b 向上翻页
+g 文件首行
+G 文件末行
+/内容 在文件中搜索内容&lt;/p&gt;
+&lt;h2 id="vivimemacs"&gt;vi/vim/emacs&lt;/h2&gt;
+&lt;p&gt;内容太丰富， 是编辑器们， 不只是个命令&lt;/p&gt;
+&lt;h2 id="ps"&gt;ps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ps 当前用户运行的进程&lt;/li&gt;
+&lt;li&gt;ps -A 所有进程， 等效于 -e&lt;/li&gt;
+&lt;li&gt;ps -f 详细信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="catheadtail"&gt;cat/head/tail&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;cat filename 输出文件内容 &lt;/li&gt;
+&lt;li&gt;head filename 输出文件头10行&lt;/li&gt;
+&lt;li&gt;tail filename 输出文件尾10行&lt;/li&gt;
+&lt;li&gt;head/tail -n  filename 输出文件头/尾 x行&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="wc"&gt;wc&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;wc filename 统计文件的行数，单词数及字符数&lt;/li&gt;
+&lt;li&gt;wc -l filename 统计文件行数（带个文件名）&lt;/li&gt;
+&lt;li&gt;cat filename | wc -l 输出行数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="touchmkdir"&gt;touch/mkdir&lt;/h2&gt;
+&lt;p&gt;touch filename 新建文件， 有些支持 &amp;gt; filename
+mkdir dirname 新建文件夹&lt;/p&gt;
+&lt;h2 id="rm"&gt;rm&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;rm filename 删除指定文件&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rm -fr dirname 强制删除文件夹全部内容
+或是&lt;/p&gt;
+&lt;p&gt;rm &lt;em&gt;part&lt;/em&gt;  删除文件名带part 的文件， 支持?(单个字符), *(多个字符)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="cut"&gt;cut 文本分割&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;cut -d "x" -f n filename 对文件用x字符进行分割，并输出第n列&lt;/li&gt;
+&lt;li&gt;cat filename | cut -d "x" -f n 脚本里好使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;说明 x 只能是单个字符， n可以是单个数字， 也可以是" "里写多个数字&lt;/p&gt;
+&lt;h2 id="_8"&gt;其他&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;find/grep&lt;/li&gt;
+&lt;li&gt;sed&lt;/li&gt;
+&lt;li&gt;awk&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;见其他文章， 谢谢&lt;/p&gt;</summary><category term="os"></category><category term="linux"></category><category term="shell"></category></entry></feed>

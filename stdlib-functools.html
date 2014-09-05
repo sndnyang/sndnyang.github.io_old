@@ -6,8 +6,8 @@
         <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
         <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
 
-<meta name="keywords" content="os, linux, shell, shell, " />
-        <title>Linux常用命令  · 懒龙微薄
+<meta name="keywords" content="python, stdlib, python, " />
+        <title>标准库functools  · 懒龙微薄
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://sndnyang.github.io/LinuxCommand.html"> Linux常用命令  </a></h1>
+    <h1><a href="http://sndnyang.github.io/stdlib-functools.html"> 标准库functools  </a></h1>
     </header>
 </div>
 
@@ -61,28 +61,7 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#_1">常用命令列表</a><ul>
-<li><a href="#_2">基础的基础</a></li>
-<li><a href="#_3">文本编辑</a></li>
-<li><a href="#_4">系统管理</a></li>
-<li><a href="#_5">文件操作</a></li>
-<li><a href="#_6">较高级命令</a></li>
-</ul>
-</li>
-<li><a href="#_7">命令使用总结</a><ul>
-<li><a href="#cd">cd</a></li>
-<li><a href="#ls">ls</a></li>
-<li><a href="#moreless">more/less</a></li>
-<li><a href="#vivimemacs">vi/vim/emacs</a></li>
-<li><a href="#ps">ps</a></li>
-<li><a href="#catheadtail">cat/head/tail</a></li>
-<li><a href="#wc">wc</a></li>
-<li><a href="#touchmkdir">touch/mkdir</a></li>
-<li><a href="#rm">rm</a></li>
-<li><a href="#cut">cut 文本分割</a></li>
-<li><a href="#_8">其他</a></li>
-</ul>
-</li>
+<li><a href="#_1">列表</a></li>
 </ul>
 </div>
         </nav>
@@ -90,122 +69,27 @@
     <div class="span8 article-content">
 
             
-<h1 id="_1">常用命令列表</h1>
-<p>常用命令大概20个左右， 非要分类的话，大致可以分成以下几类：
-1. 文件系统相关
-2. 系统管理相关
-3. 文本操作相关</p>
-<p>按常用来排序，同时考虑分类的话，个人这样分类：</p>
-<h2 id="_2">基础的基础</h2>
+<h1 id="_1">列表</h1>
 <ol>
-<li>cd 路径切换</li>
-<li>ls 查看目录下文件列表</li>
-<li>more/less 文本文件内容游览</li>
+<li>'cmp_to_key',</li>
+<li>'get_cache_token',</li>
+<li>'lru_cache',</li>
+<li>'namedtuple',</li>
+<li>'partial',</li>
+<li>'partialmethod',</li>
+<li>'reduce',</li>
+<li>'singledispatch',</li>
+<li>'total_ordering',</li>
+<li>'update_wrapper',</li>
+<li>'wraps'</li>
 </ol>
-<p>在命令行模式下，这三个命令是最容易使用，也最容易掌握的。</p>
-<h2 id="_3">文本编辑</h2>
-<ol>
-<li>vi/vim/emacs</li>
-</ol>
-<h2 id="_4">系统管理</h2>
-<ol>
-<li>ps 进程列表</li>
-<li>kill 结束进程</li>
-<li>top(as) CPU、内存状态</li>
-</ol>
-<h2 id="_5">文件操作</h2>
-<ol>
-<li>cat</li>
-<li>head/tail</li>
-<li>wc</li>
-<li>touch &gt;</li>
-<li>mkdir</li>
-<li>rm</li>
-<li>find</li>
-<li>grep</li>
-<li>cut</li>
-</ol>
-<h2 id="_6">较高级命令</h2>
-<ol>
-<li>sed</li>
-<li>awk</li>
-</ol>
-<h1 id="_7">命令使用总结</h1>
-<h2 id="cd">cd</h2>
-<p>基本使用方法 cd 相对或绝对的路径
-Linux的根路径是 / 
-用户主目录是 ~ 或者干脆不带路径
-上一层路径是 ..
-上一个路径是 -</p>
-<h2 id="ls">ls</h2>
-<p>以下参数随意组合，如 -lrt, -alF</p>
-<ol>
-<li>-l 文件详细信息列表</li>
-<li>-t 按修改时间排序</li>
-<li>-r 逆序</li>
-<li>-A 全部，包括隐藏文件 -a 还多出 . 和 ..</li>
-<li>-F 带颜色，并区别文件和文件夹</li>
-</ol>
-<h2 id="moreless">more/less</h2>
-<p>对于大文件也可使用， Vim等可能内存不足
-f 向下翻页
-b 向上翻页
-g 文件首行
-G 文件末行
-/内容 在文件中搜索内容</p>
-<h2 id="vivimemacs">vi/vim/emacs</h2>
-<p>内容太丰富， 是编辑器们， 不只是个命令</p>
-<h2 id="ps">ps</h2>
-<ol>
-<li>ps 当前用户运行的进程</li>
-<li>ps -A 所有进程， 等效于 -e</li>
-<li>ps -f 详细信息</li>
-</ol>
-<h2 id="catheadtail">cat/head/tail</h2>
-<ol>
-<li>cat filename 输出文件内容 </li>
-<li>head filename 输出文件头10行</li>
-<li>tail filename 输出文件尾10行</li>
-<li>head/tail -n  filename 输出文件头/尾 x行</li>
-</ol>
-<h2 id="wc">wc</h2>
-<ol>
-<li>wc filename 统计文件的行数，单词数及字符数</li>
-<li>wc -l filename 统计文件行数（带个文件名）</li>
-<li>cat filename | wc -l 输出行数</li>
-</ol>
-<h2 id="touchmkdir">touch/mkdir</h2>
-<p>touch filename 新建文件， 有些支持 &gt; filename
-mkdir dirname 新建文件夹</p>
-<h2 id="rm">rm</h2>
-<ol>
-<li>rm filename 删除指定文件</li>
-<li>
-<p>rm -fr dirname 强制删除文件夹全部内容
-或是</p>
-<p>rm <em>part</em>  删除文件名带part 的文件， 支持?(单个字符), *(多个字符)</p>
-</li>
-</ol>
-<h2 id="cut">cut 文本分割</h2>
-<ol>
-<li>cut -d "x" -f n filename 对文件用x字符进行分割，并输出第n列</li>
-<li>cat filename | cut -d "x" -f n 脚本里好使用</li>
-</ol>
-<p>说明 x 只能是单个字符， n可以是单个数字， 也可以是" "里写多个数字</p>
-<h2 id="_8">其他</h2>
-<ol>
-<li>find/grep</li>
-<li>sed</li>
-<li>awk</li>
-</ol>
-<p>见其他文章， 谢谢</p>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/LinuxCommand.html#disqus_thread">
+                href="http://sndnyang.github.io/stdlib-functools.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -215,8 +99,8 @@ mkdir dirname 新建文件夹</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'http://sndnyang.github.io/LinuxCommand.html';
-    var disqus_url = 'http://sndnyang.github.io/LinuxCommand.html';
+        var disqus_identifier = 'http://sndnyang.github.io/stdlib-functools.html';
+    var disqus_url = 'http://sndnyang.github.io/stdlib-functools.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -236,9 +120,9 @@ mkdir dirname 新建文件夹</p>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://sndnyang.github.io/union_find_opt.html" title="Previous: 并查集优化">并查集优化</a></li>
+                <li class="previous_article">« <a href="http://sndnyang.github.io/springController.html" title="Previous: controller.mkd">controller.mkd</a></li>
  
-                <li class="next_article"><a href="http://sndnyang.github.io/pythonTipsCheckIO.html" title="Next: checkio.mkd">checkio.mkd</a> »</li>
+                <li class="next_article"><a href="http://sndnyang.github.io/pythonBuiltinLib.html" title="Next: builtin.mkd">builtin.mkd</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -247,18 +131,18 @@ mkdir dirname 新建文件夹</p>
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-08-30T19:56:58">Aug 30, 2014</time>
+            <time pubdate="pubdate" datetime="2014-09-05T20:43:40">Sep 5, 2014</time>
+ 
+            <h4>Last Updated</h4>
+            <div class="last_updated">2014-09-05 00:00:00</div>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#shell-ref">shell</a> 
+            <a class="category-link" href="/categories.html#python-ref">python</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#linux-ref">linux
-                    <span>1</span>
+                <li><a href="/tags.html#python-ref">python
+                    <span>3</span>
 </a></li>
-                <li><a href="/tags.html#os-ref">os
-                    <span>1</span>
-</a></li>
-                <li><a href="/tags.html#shell-ref">shell
+                <li><a href="/tags.html#stdlib-ref">stdlib
                     <span>2</span>
 </a></li>
             </ul>

@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 30 Aug 2014 19:56:58 +0800</lastBuildDate><item><title>Linux常用命令</title><link>http://sndnyang.github.io/LinuxCommand.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 21:09:40 +0800</lastBuildDate><item><title>builtin.mkd</title><link>http://sndnyang.github.io/pythonBuiltinLib.html</link><description>
+&lt;h1 id="_1"&gt;列表&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;reduce&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Fri, 05 Sep 2014 21:09:40 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:pythonBuiltinLib.html</guid><category>python</category><category>stdlib</category></item><item><title>标准库functools</title><link>http://sndnyang.github.io/stdlib-functools.html</link><description>
+&lt;h1 id="_1"&gt;列表&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;'cmp_to_key',&lt;/li&gt;
+&lt;li&gt;'get_cache_token',&lt;/li&gt;
+&lt;li&gt;'lru_cache',&lt;/li&gt;
+&lt;li&gt;'namedtuple',&lt;/li&gt;
+&lt;li&gt;'partial',&lt;/li&gt;
+&lt;li&gt;'partialmethod',&lt;/li&gt;
+&lt;li&gt;'reduce',&lt;/li&gt;
+&lt;li&gt;'singledispatch',&lt;/li&gt;
+&lt;li&gt;'total_ordering',&lt;/li&gt;
+&lt;li&gt;'update_wrapper',&lt;/li&gt;
+&lt;li&gt;'wraps'&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Fri, 05 Sep 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</guid><category>python</category><category>stdlib</category></item><item><title>controller.mkd</title><link>http://sndnyang.github.io/springController.html</link><description>
+&lt;h1 id="annotation"&gt;记号 Annotation&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;类上 @Controller&lt;/li&gt;
+&lt;li&gt;方法上 @RequestMapping("/path/{str}")&lt;/li&gt;
+&lt;li&gt;方法的参数 @RequestParam("name") type name &lt;/li&gt;
+&lt;li&gt;参数 路径变量匹配 @PathVar("str")  &lt;/li&gt;
+&lt;li&gt;参数报文体 @RequestBody type var  type是自定义类&lt;/li&gt;
+&lt;li&gt;返回 public @ResponseBody type function()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_1"&gt;其他参数&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;参数@RequestParam("var") MultipartFile var,  InputStream in = var.getInputStream()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_2"&gt;转换&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;json 到 ResponseBody 和 RequestBody 之间的转换&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Thu, 04 Sep 2014 22:55:15 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-04:springController.html</guid><category>web</category><category>spring</category></item><item><title>checkio.mkd</title><link>http://sndnyang.github.io/pythonTipsCheckIO.html</link><description>
+&lt;ol&gt;
+&lt;li&gt;boolean 可以用作整数， True 1 ， False 0&lt;/li&gt;
+&lt;li&gt;for while 可以有 else&lt;/li&gt;
+&lt;li&gt;一种不是很明白的写法 sum(y in t.lower() for y in w)  字符串代表真， 不用bool&lt;/li&gt;
+&lt;li&gt;对元组或列表使用 * , 就可以将 之转成不定长参数&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Thu, 04 Sep 2014 22:27:11 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-04:pythonTipsCheckIO.html</guid><category>python</category></item><item><title>Linux常用命令</title><link>http://sndnyang.github.io/LinuxCommand.html</link><description>
 &lt;h1 id="_1"&gt;常用命令列表&lt;/h1&gt;
 &lt;p&gt;常用命令大概20个左右， 非要分类的话，大致可以分成以下几类：
 1. 文件系统相关

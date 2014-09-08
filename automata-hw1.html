@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
+
+<meta name="keywords" content="cs, mooc, mooc, " />
+        <title>正则表达式作业  · 懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://sndnyang.github.io">Home</a></li>
+                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="http://sndnyang.github.io/automata-hw1.html"> 正则表达式作业  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#_1">编程容易，笔算不易，且写且珍惜</a><ul>
+<li><a href="#_2">开篇语</a></li>
+<li><a href="#_3">无耻的分界线</a></li>
+<li><a href="#_4">转折</a></li>
+<li><a href="#_5">万万没想到（其实不至于）</a></li>
+<li><a href="#_6">结论</a></li>
+</ul>
+</li>
+<li><a href="#_7">总</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+<h1 id="_1">编程容易，笔算不易，且写且珍惜</h1>
+<p>有点像个傻子一样在发广告
+csdn 博客在 <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a>
+github 博客在 <a href="http://sndnyang.github.io/">sndnyang</a>
+github 在 <a href="https://github.com/sndnyang">sndnyang</a></p>
+<h2 id="_2">开篇语</h2>
+<p>第二周的编程练习非常简单——前两轮开课时不知道是不是会难很多， 总之这次把代码框架都搭好了， 顺利的话， 10分钟就OK了。</p>
+<p>不顺利的地方在哪儿——我使用的是神算on版本， 里面有个小bug，看不懂输出 载。社文件里找了半天代码结构没明白， 最后打算从main开始吧， 一看， 代码里面是这样写的</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">main</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">:</span>
+     <span class="k">return</span> <span class="n">Start</span><span class="p">(</span><span class="err">'</span><span class="n">testRE</span><span class="p">.</span><span class="n">in</span><span class="err">'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="err">'</span><span class="n">__main__</span><span class="err">'</span><span class="o">:</span>
+     <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+<p>好吧，难怪我的文件名参数没用——剩下的在看懂他输出是什么内容后很快就解决了。</p>
+<hr/>
+<h2 id="_3">无耻的分界线</h2>
+<p>你以为我就想说这个？ NO！ 最起码笔算不易还没说呢！！！</p>
+<p>本周第一个视频讲的是正则表达式基础，从定义到正则表达式转换成NFA</p>
+<p>CUT！！！</p>
+<p>概念没兴趣， RE转NFA 学过的内容，看到那张图就OK了， 主要是确实so easy.</p>
+<p>CONTINUE！！！</p>
+<p>然后就到DFA转RE了， 说实话吧， 过程不是很复杂，对于我这种人来说，就一个公式（虽然后面不停地修正自己对过程理解上的缺陷）， 套公式，谁不会呢？！</p>
+<h2 id="_4">转折</h2>
+<p>我还真不会了， 小测第一题就是DFA转RE, 4个状态之间的转换， </p>
+<p>套用公式简单</p>
+<p>$$R^k_{ij} =R^{k-1}<em ik="ik">{ij} + R^{k-1}</em>(R^{k-1}<em kj="kj">{kk})* R^{k-1}</em> $$</p>
+<p>问题有几个：
+1. 状态的序号， 给状态按什么顺序分配序号最好呢，在这里可能没影响，不过我换了好几次。
+2. 手算真是很绕， 整个下午，多半时间都花在推导上了，连午觉都想想后起来先推导了几次，实在绕晕了才午休。</p>
+<p>在纸上推导被绕的过程中， 顺手写代码，模拟一下这个公式， 就是个递归的公式，用n<em>n</em>n 的数组来记录状态嘛。</p>
+<p>初始版的数组下标就不对，不经过额外状态的路径（直接连结或无连结）被我忽略了， 另外也没有组织好正则表达式的表达形式，括号没用好。 输出的结果自然是无效的。</p>
+<p>最后第二周的第一个小测是我经过7次连蒙带猜后，总算拿到5分。 第一题纸算太难，第二题花费很长时间来理解题意，后3题时不时拖后腿，几次前两题答对（后几次已经不是猜了），后三题不小心出错。</p>
+<h2 id="_5">万万没想到（其实不至于）</h2>
+<p>到晚上， 做其他事耐心缺失之下， 又打开了代码， 决定调整好数组下标， 再组织好括号的输出。很快修改完毕， 随意运行之后，输出结果居然就这么达到预期
+<strong>因 honor code， 只摘取与题目要求无关的输出部分</strong></p>
+<div class="highlight"><pre><span class="n">k</span> <span class="n">i</span> <span class="n">j</span> <span class="n">regular</span> <span class="n">expression</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mo">00</span><span class="p">)</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">1</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mo">01</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">4</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mo">00</span><span class="p">)</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">0</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mo">01</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">0</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">4</span> <span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span>
+<span class="mi">4</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">0</span><span class="o">+</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">)(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mo">00</span><span class="p">)</span>
+<span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">)(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mo">01</span>
+<span class="mi">4</span> <span class="mi">3</span> <span class="mi">3</span> <span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">)(</span><span class="mi">11</span><span class="o">+</span><span class="mi">0</span><span class="p">(</span><span class="mo">01</span><span class="o">+</span><span class="mi">10</span><span class="p">))</span><span class="o">*</span><span class="mi">0</span>
+</pre></div>
+<p>虽然没有经过完全化简——也不确认全部正确，但形式上是没问题了。 测验第一题对应的结果也是正确的。</p>
+<p>根据输出的结果， 回顾题目， 我去， 选项怎么这么明显啊， 我之前的推导都在为了什么？</p>
+<h2 id="_6">结论</h2>
+<p>个人经验， 手工推导DFA到RE 非常容易错乱，而老师题目中的几个选项稍认真分析下，可以直接判断正误， 我之前是有多不认真呢。</p>
+<h1 id="_7">总</h1>
+<p>中秋节学习是好事， 可这样不认真导致时间浪费，真是不应该。</p>
+<section>
+<p id="comment-message">this guy is lazy, nothing leave </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://sndnyang.github.io/automata-hw1.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sndnyang';
+        var disqus_identifier = 'http://sndnyang.github.io/automata-hw1.html';
+    var disqus_url = 'http://sndnyang.github.io/automata-hw1.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+ 
+                <li class="previous_article">« <a href="http://sndnyang.github.io/bioinform-intro.html" title="Previous: 生物信息学算法课程概述">生物信息学算法课程概述</a></li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+ 
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-09-08T22:50:38">Sep 8, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#mooc-ref">mooc</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#cs-ref">cs
+                    <span>11</span>
+</a></li>
+                <li><a href="/tags.html#mooc-ref">mooc
+                    <span>7</span>
+</a></li>
+            </ul>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'sndnyang';
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+        <script  language="javascript" type="text/javascript">
+            function uncollapse() {
+                var hash_str = window.location.hash;
+                if (window.location.hash.match(/^#comment-\d+$/))
+                {
+                    var hash_str = '#disqus_thread';
+                }
+                $(hash_str).collapse({
+                    toggle: true
+                    })
+            }
+        </script>
+
+        <script type="text/javascript" language="JavaScript">
+            uncollapse(); 
+        </script>
+    </body>
+</html>

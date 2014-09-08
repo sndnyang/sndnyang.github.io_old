@@ -1,5 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 21:09:40 +0800</lastBuildDate><item><title>builtin.mkd</title><link>http://sndnyang.github.io/pythonBuiltinLib.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 08 Sep 2014 10:08:55 +0800</lastBuildDate><item><title>生物信息学算法课程概述</title><link>http://sndnyang.github.io/bioinform-intro.html</link><description>
+&lt;h1 id="_1"&gt;简述&lt;/h1&gt;
+&lt;p&gt;本课是生物信息学算法的第一部分， 内容主要是一些生物信息学里的算法。主要对应以下主题：基因组合，DNA和蛋白质序列比对，regulatory motifs（调控特征序列？），基因重组分析，蛋白质识别等&lt;/p&gt;
+&lt;h1 id="_2"&gt;概述&lt;/h1&gt;
+&lt;p&gt;人类基因序列点燃了生物学里的计算革命。于是，现代生物学和其他科学领域一样，产生了很多新的算法。计算机科学与生物学之间的新关联，影响了我们向计算机科学家教授应用算法的方式。&lt;/p&gt;
+&lt;p&gt;基因序列只是无数生物学问题中的一个，但与计算方法有着解不开的关系，需要计算方法来解决。
+在本课程中，我们将覆盖一些现代生物学中的基本算法思想。 计算概念，如动态规划和图论，能帮助我们探索各种算法，以便应用于大量生物学课题中，课题可以从寻找regulatory motifs（调控特征序列？）到确定人类基因的“脆弱”区域。课程进行过程中，各种生物学算法将被应用于实际的基因数据上。&lt;/p&gt;
+&lt;p&gt;本课的每一章节会涵盖单个生物学问题，并细致地构建相应算法知识来解决这个挑战性问题。通过这种方式， 编码挑战及练习（很多会要求你将新学到的技能应用到实际的基因数据上）就能无缝整合到教学情景中。&lt;/p&gt;
+&lt;h2 id="_3"&gt;授课大纲&lt;/h2&gt;
+&lt;p&gt;本课将分成6章，包含以下核心问题，及括号中相应的用于解决问题的算法思想。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNA序列重复的起始位置？（算法热身）&lt;/li&gt;
+&lt;li&gt;如何制定抗生素使用顺序？（暴力算法，穷举）&lt;/li&gt;
+&lt;li&gt;哪种DNA模式作为细胞锁？（贪心和随机算法）&lt;/li&gt;
+&lt;li&gt;如何进行基因序列的组合？（图算法）&lt;/li&gt;
+&lt;li&gt;如何比较生物学里的序列？（动态规划算法）&lt;/li&gt;
+&lt;li&gt;基因中是否存在脆弱区域？（组合算法）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本课的分数来自每周的若干编程挑战和每个章节末尾的测试。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://coursera.org/course/bioinformatics2"&gt;生物信息学算法（部分2）&lt;/a&gt; 将包含以下问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪个动物给人类带来了非典？ （进化树）&lt;/li&gt;
+&lt;li&gt;如何定位致病突变基因位置？ （组合模式匹配）&lt;/li&gt;
+&lt;li&gt;酵母怎么成为了啤酒制造商？ （聚类算法）&lt;/li&gt;
+&lt;li&gt;为什么还没有艾滋病的疫苗？ （隐马尔可夫模型）&lt;/li&gt;
+&lt;li&gt;霸王龙其实就是大号的小鸡？ （可计算蛋白质）&lt;/li&gt;
+&lt;li&gt;人口体现了何种的基因特征？ （主成分分析）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_4"&gt;先修知识&lt;/h2&gt;
+&lt;p&gt;一点编程基础，语言不限。以下是我们推荐的编程学习资源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://codecademy.com/"&gt;Codecademy&lt;/a&gt;, 特别是Python&lt;/li&gt;
+&lt;li&gt;Coursera课程 &lt;a href="https://www.coursera.org/course/interactivepython"&gt;An Introduction to Interactive Programming with Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rosalind.info/"&gt;Rosalind&lt;/a&gt;上的引导问题， 这是本课教师创建的生物信息学学习网址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_5"&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;略&lt;/p&gt;
+&lt;h2 id="_6"&gt;授课形式&lt;/h2&gt;
+&lt;p&gt;除了教学视频， 没说什么，略。&lt;/p&gt;
+&lt;h2 id="_7"&gt;常见问题解答&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;课程有证书吗？&lt;/strong&gt;
+是的， 完成本课的学生将有我们签名的完成声明。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;课程有认证证书吗？&lt;/strong&gt;
+是的， 想要认证证书，请选本课的  Signature Track 方式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Mon, 08 Sep 2014 10:08:55 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-08:bioinform-intro.html</guid><category>cs</category><category>algorithms</category><category>bio</category></item><item><title>杜克大学数据分析与统计推断 互评项目翻译</title><link>http://sndnyang.github.io/dasi-project-translate.html</link><description>
+&lt;h1 id="_1"&gt;项目介绍&lt;/h1&gt;
+&lt;p&gt;Your independent data analysis project will be done in two phases, each assessed by other students using peer assessment. You can also share your projects via the forums for additional feedback. The project counts as 15% of your grade for a certificate with distinction. 
+独立的数据分析项目需分两步完成。每一个阶段结束后都有学生互评。你可以在讨论区里分享你的项目，以便获得一些额外的反馈信息。在评“优秀证书”时，本项目会占到15%的分值。&lt;/p&gt;
+&lt;p&gt;Before the deadline, use the discussion forum to ask specific questions about the assignment. Please don’t post your proposal. 
+在截止日期前，允许在讨论区里讨论一些特定的问题，但请不要把你的方案直接发出来。&lt;/p&gt;
+&lt;p&gt;After the deadline, we encourage you to post your project submission to the forum to show other students interesting data sets and questions, and to get additional feedback on project (in addition to the three peer assessments you will receive formally that will be used to calculate your score for the project). 
+截止日期之后，我们鼓励大家把自己的项目方案发到讨论区中，同学间互享数据集及问题，还能获得额外的反馈，这是三份互评之外最好的补充。&lt;/p&gt;
+&lt;p&gt;Both phases of the project are open so that you can see what is expected. As we learn how you work, we may make small modifications to the project requirements as the course progresses, so please check again before the due dates. You can resubmit your work up until the due date.
+项目的两个阶段都已开放， 你现在可以看到阶段要求。 随着课程进行，我们可能会对项目要求进行微调， 所以请在提交日期前再确认一下。在提交日期前，你可以重复提交你的方案。&lt;/p&gt;
+&lt;p&gt;Follow these steps when working on your project:&lt;/p&gt;
+&lt;h1 id="_2"&gt;请完成以下项目步骤：&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;安装最新版本的 R 和 RStudio&lt;/li&gt;
+&lt;li&gt;点击本页底部的”Go To Assignment“的两个作业链接，检查下项目的评分标准。这些信息可以帮助你弄清项目各阶段的准确需求。&lt;/li&gt;
+&lt;li&gt;选择一个数据集（下方列表中选一 或 自备）&lt;/li&gt;
+&lt;li&gt;提交 阶段1：项目提案， 时间在 9月22号之前&lt;/li&gt;
+&lt;li&gt;在10月6号之前，完成至少3份项目提案的评分&lt;/li&gt;
+&lt;li&gt;查看自己项目提案的评分情况&lt;/li&gt;
+&lt;li&gt;开始 阶段2：数据分析项目 前，下载RMarkdown 模板，请使用如下代码：
+        download.file(url = "http://bit.ly/dasi_project_template", destfile = "dasi_project_template.Rmd")
+   如果上面的链接失败了，请使用这个URL：&lt;a href="http://d396qusza40orc.cloudfront.net/statistics/project/dasi_project_template.Rmd"&gt;模板URL&lt;/a&gt;
+   更多RMarkdown语法请看 http://rmarkdown.rstudio.com/.&lt;/li&gt;
+&lt;li&gt;提交 阶段2：数据分析项目，在10月20号之前。请注意，这最终产品只能是一个HTML文件，HTML里使用"cerulean"主题（上面模板会帮你弄好主题）。这个HTML文件必须是自完备的（包括了全部代码，文字描述，图形）。另外，请限制在 &lt;strong&gt;7页&lt;/strong&gt; 以内。&lt;/li&gt;
+&lt;li&gt;在11月3号前，完成至少3份互评，&lt;/li&gt;
+&lt;li&gt;11月3号就可以收获你最后的成果反馈了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you haven't yet done so, download the latest version of R (http://cran.r-project.org/) and the latest version of RStudio (http://www.rstudio.com/products/rstudio/download/).
+Click the "Go To Assignment" links at the bottom for both the project proposal and the project to review the rubric to see how you will be graded. This information is going to be immensely useful in figuring out the exact expectations of both phases of the project.
+Choose a dataset (either from the ones listed below or another dataset of your choice)
+Submit Phase 1: Project Proposal before Monday September 22 (see below for details)
+Evaluate at least 3 proposals before Monday October 6
+Review your evaluations 
+Before starting Phase 2: Data Analysis Project download the RMarkdown template using the following code:
+download.file(url = "http://bit.ly/dasi_project_template", destfile = "dasi_project_template.Rmd")
+If the above shortened link doesn't work for you, try the following URL instead: http://d396qusza40orc.cloudfront.net/statistics/project/dasi_project_template.Rmd.&lt;/p&gt;
+&lt;p&gt;More information on the RMarkdown syntax: http://rmarkdown.rstudio.com/. 
+Watch a video on using RMarkdown to complete your project: https://class.coursera.org/statistics-002/lecture/179
+Submit Phase 2: Data Analysis Project before Monday, October 20 (see below for details). Note that the final product must be an HTML file that uses the "cerulean" theme (this is indicated in the template you download above). This HTML file is fully self contained (includes all code, write-up, and figures). Also note that there is a seven page limit to your write up. You can check whether or not you meet this page limit by using a print preview.
+Evaluate at least 3 projects before Monday, November 3 by opening the HTML file that they submitted in a browser of your choice (Chrome or Firefox recommended)
+Receive your project evaluations on Monday, November 3
+Phase 1: Project Proposal&lt;/p&gt;
+&lt;h1 id="1"&gt;阶段1： 项目提案&lt;/h1&gt;
+&lt;p&gt;Identify a research question similar to questions we’ve talked about in this course. Choose a dataset, and one or two variables from that dataset, with which to answer this question using a hypothesis test or confidence intervals (the dataset used is entirely up to you, it can be one of the datasets listed below under "Datasets for the Project", or another one of your own choosing). You should pick two variables of interest, and you will be exploring the relationship between them. These variables should be either numerical and categorical, or both categorical (but they cannot be both numerical, see below for examples). All analysis must be completed in R.&lt;/p&gt;
+&lt;p&gt;As part of the proposal stage you are also asked to complete a brief exploratory data analysis to determine if your data is appropriate for the project. You should submit a proposal with enough detail so that your peers can give you feedback before you start the full data analysis.&lt;/p&gt;
+&lt;p&gt;You can begin working on the proposal immediately, following the link at the bottom of this page. Please save your work as you go along. When you're ready to submit your work for evaluation, remember to click the "Submit" button. If the deadline passes and you haven't clicked "Submit" yet, then your saved work will not be evaluated. Note: You can re-submit your work for evaluation as many times as you want before the submission deadline September 22. Only your last submission will be seen and evaluated by your classmates. &lt;/p&gt;
+&lt;p&gt;After the submission deadline, you will have two weeks to provide feedback to others on their project proposals. Please assess at least 3 proposals before October 6th. This peer assessment will help you prepare for your project and provide you with experience with a variety of data sets and research questions.&lt;/p&gt;
+&lt;p&gt;Phase 2: Data Analysis Project&lt;/p&gt;
+&lt;h1 id="2"&gt;阶段2： 数据分析项目&lt;/h1&gt;
+&lt;p&gt;Once you receive feedback on your proposal, you will then continue onto the data analysis project. This peer assessment will count towards your grade for a certificate with distinction. You will answer the research question you developed in the proposal phase using methods you’ve learned in this class, and summarize your findings into a report. More details on what should be included are in the assessment itself, linked below. All analysis must be completed in R.&lt;/p&gt;
+&lt;p&gt;This project is due on October 20th, and then you will have two weeks to provide feedback to other students on their projects. You will only receive full credit for your project if you evaluate 3 other projects before the November 3rd deadline.&lt;/p&gt;
+&lt;p&gt;Datasets for the project&lt;/p&gt;
+&lt;h1 id="_3"&gt;项目数据集&lt;/h1&gt;
+&lt;p&gt;We are providing two datasets that you can use for your project. Both of them come from large-scale US surveys, and they have been modified slightly to make them easier to use as part of this course. Even though there are only two datasets, each contains many variables and hopefully you should be able to find some combination of variables that are of interest to you.
+&lt;strong&gt;（1）General Social Survey (GSS):&lt;/strong&gt; 一份社会调查，收集了&lt;/p&gt;
+&lt;p&gt;(1) General Social Survey (GSS): A sociological survey used to collect data on demographic characteristics and attitudes of residents of the United States. The codebook below lists all variables, the values they take, and the survey questions associated with them. There are a total of 57,061 cases and 114 variables in this dataset. Note that this is a cumulative data file for surveys conducted between 1972 - 2012 and that not all respondents answered all questions in all years.
+Codebook: Review the codebook to view a list of all variables, the values they take, and the original survey questions associated with the variables.
+Use the following code to load the GSS dataset into R:
+load(url("http://bit.ly/dasi_gss_data"))
+For access from China try using the following URL in the code above: http://d396qusza40orc.cloudfront.net/statistics/project/gss.Rdata &lt;/p&gt;
+&lt;p&gt;The name of the dataset that you load is gss. For example, you can see a list of the variable names using the following command:
+names(gss)
+Note that this dataset includes data from many years. In your analysis it might make sense to first subset the data for a particular year (or years) and analyze only data pertaining to those years. This might be especially useful if you're using a variable from a survey question that was only asked in certain years.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(2) American National Elections Study (ANES):&lt;/strong&gt; 
+(2) American National Elections Study (ANES): A survey of voters in the United States, conducted before and after every presidential election. The codebook below lists all variables, the values they take, and the survey questions associated with them.There are a total of 5,914 cases and 205 variables in this dataset. Note that not all respondents answered all questions.
+Codebook: Review the codebook to view a list of all variables, the values they take, and the original survey questions associated with the variables.
+Use the following code to load the ANES dataset into R:
+load(url("http://bit.ly/dasi_anes_data"))
+For access from China try using the following URL in the code above: http://d396qusza40orc.cloudfront.net/statistics/project/anes.RData 
+The name of the dataset that you load is anes. For example, you can see a list of the variable names using the following command:
+names(anes)
+Examples of variables and research questions appropriate for the project
+Provided below are some examples of types of research questions and data that are appropriate for the project:&lt;/p&gt;
+&lt;p&gt;One numerical and one categorical: Is there a relationship between whether the mother worked during the first 5 years of the child's life and the highest level of education the child attains? [Data: Number of years of education of child; Mom’s working status - yes, no]
+Two categorical: Do racial minority groups in North Carolina have less access to health care coverage? [Data: Ethnicity - various levels; Health coverage - yes, no]
+Note that you can work with one numerical and one categorical variable, or two categorical variables (but not two numerical variables, as we'll learn methods associated with those later in the course).&lt;/p&gt;
+&lt;p&gt;While it may not be clear to you yet which techniques you would use to do statistical inference to answer these questions, you will have learned all the tools you need for the proposal by the end of Week 1 and all the tools you need for the actual project by the end of Week 6.
+Questions and answers about the project
+What type of variables should I use for my project?
+You need to pick two variables and evaluate the relationship between them. These can be a numerical and a categorical variable or two categorical variables. Do not use two numerical variables.&lt;/p&gt;
+&lt;p&gt;How will I find a dataset for my project? 
+You can either find your own dataset on the web, collect your own data, or use one of the datasets we provide specifically to be used in the project (listed above). While finding or collecting your own dataset is an eye-opening experience that we think is immensely valuable, it can be very time consuming. There are a variety of data resources online, some of which we'll point you to throughout the course and some of which you might discover yourself. However, the internet is a bottomless well of information, and finding a dataset that interests you, that is appropriate for this project, and that can be analyzed using tools from this course can be challenging. Therefore, choosing to work with one of the datasets we provide to get a head start on the project quickly can also be a good idea. You are the best judge of how much time you can devote to the project, so it is your choice and responsibility to decide which route you want to take.&lt;/p&gt;
+&lt;p&gt;Can I use a dataset from the labs? 
+No, you can to work with just about any dataset you like (as long as it meets the conditions required to apply the inferential methods we learn in this class), but you cannot re-use a dataset from the labs. One of the main objectives of this project is to work with a novel (to you) dataset. You can, however, choose to work with one of the datasets we provide specifically for the project (listed above).&lt;/p&gt;
+&lt;p&gt;Do I have to use R for my project?
+Yes. While there are other statistical packages and/or programming languages that may be perfectly appropriate for your project, since one of the goals of this course is to learn R, all analysis must be completed in R. Projects completed using other statistical packages and/or programming languages will receive a penalty.&lt;/p&gt;
+&lt;p&gt;Do I have to use RMarkdown for writing my project?
+Yes. While there are other options for word processors (Word, LibreOffice, etc.), the goal of this project is to create a fully reproducible data analysis document. RMarkdown is the perfect, easy-to-use environment for this. Projects completed in other formats will receive a penalty.&lt;/p&gt;
+&lt;p&gt;What format should my project be submitted in?&lt;/p&gt;
+&lt;p&gt;You should submit your project as an HTML file. This is the file that RStudio writes out when you hit "Knit HTML" in your markdown document. Simply upload the HTML file and your peer reviewer will be able to view your project in their browser.&lt;/p&gt;
+&lt;p&gt;Where can I find a list of R commands that might be useful for the project?
+See this document for a list of R commands you encountered in labs as well as a few others that you might find useful for the project. Note that this is not an exhaustive list.&lt;/p&gt;
+&lt;p&gt;Can I use DataCamp for my project?
+No, for the project you will need to use R/RStudio.&lt;/p&gt;
+&lt;p&gt;Who am I writing for? 
+Write as if you are explaining your results to whomever would be interested in your research question, whether this is another scholar in your field or peers sharing your interest in the topic. This audience may not have taken a statistics course. You must be statistically accurate and use correct statistical terminology, but must also explain your conclusions in a way that anyone can understand.&lt;/p&gt;
+&lt;p&gt;Who will see my work? 
+Other students who have submitted similar work will be given your work to evaluate. In addition, you will be able to share your work via the forum with the rest of the students to benefit everyone in class. You will benefit by receiving additional ideas about your project.&lt;/p&gt;
+&lt;p&gt;How will this project be graded? 
+The projects will be evaluated via peer assessment. Three other students will carefully read your project proposal and will provide feedback on your project proposal. This part will not count towards your final grade, but it will prepare you for the data analysis project, show you other data sets and other ways of approaching questions, and give you practice with peer assessment. For the data analysis project, you will receive a score that is the median of your peer reviewers. You will receive the full score if you perform all 3 of your peer assessments; if you do not complete 3 peer assessments, your final score will be decremented by 20%. The project score counts as 15% towards your final grade for a certificate with distinction.&lt;/p&gt;
+&lt;p&gt;What do I have to do when? &lt;/p&gt;
+&lt;h4 id="_4"&gt;我何时做何事？&lt;/h4&gt;
+&lt;p&gt;本项目有两阶段，项目提案和数据分析。
+There are two phases of the project: a project proposal phase and a data analysis project phase. Each phase contains a submission period and an evaluation period where you will provide feedback on others projects. Although you can access the data analysis project right away, you are more likely to be successful if you wait until you get feedback on your project proposal before submitting a completed data analysis project. See the Due Dates page.&lt;/p&gt;
+&lt;h4 id="_5"&gt;互评项目涉嫌抄袭，怎么办？&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;遵照互评/反馈指导，完成项目互评。&lt;/li&gt;
+&lt;li&gt;向Coursera报告抄袭&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="_6"&gt;我自己该如何避免抄袭？&lt;/h4&gt;
+&lt;p&gt;抄袭是指未加引用地使用了他人的工作成果。关于来源引用，请访问&lt;a href="https://owl.english.purdue.edu/"&gt;OWL&lt;/a&gt;。在你个人项目中，需要对所有来源给出可信引用，甚至你就是原作者但发表在其他地方。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Mon, 08 Sep 2014 09:25:01 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-08:dasi-project-translate.html</guid><category>cs</category><category>data</category><category>ml</category></item><item><title>正则表达式转自动机</title><link>http://sndnyang.github.io/re-2-fa.html</link><description>
+&lt;h1 id="_1"&gt;转换方法&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;正则表达式 -&amp;gt; epsilon-NFA&lt;/li&gt;
+&lt;li&gt;DFA  -&amp;gt; re&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="2"&gt;正则2自动机&lt;/h1&gt;
+&lt;h1 id="2_1"&gt;自动机2正则&lt;/h1&gt;
+&lt;h2 id="k-paths"&gt;k-Paths&lt;/h2&gt;
+&lt;p&gt;路径中， 不存在序号大于k的状态结点 &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;末端点不限状态&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_2"&gt;转换步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;k=0; 仅有直接相连的边或结点本身&lt;/li&gt;
+&lt;li&gt;归纳： 从 k-1 Paths 归纳出 k Paths, 即：&lt;br/&gt;
+    结点从序号不大于k-1 到 不大于 k&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;公式:  &lt;/p&gt;
+&lt;p&gt;$R^k_{ij} =R^{k-1}&lt;em ik="ik"&gt;{ij} + R^{k-1}&lt;/em&gt;(R^{k-1}&lt;em kj="kj"&gt;{kk})* R^{k-1}&lt;/em&gt; $&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sun, 07 Sep 2014 17:25:07 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-07:re-2-fa.html</guid><category>cs</category><category>re</category></item><item><title>正则表达式概念</title><link>http://sndnyang.github.io/RE-Basic.html</link><description>
+&lt;h1 id="definition"&gt;definition&lt;/h1&gt;
+&lt;p&gt;algebraic notation that describes the regular languages.
+E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
+&lt;h2 id="_1"&gt;基本定义&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 a 是个符号， &lt;strong&gt;a&lt;/strong&gt; 是个正则表达式， L(&lt;strong&gt;a&lt;/strong&gt;) = {a}&lt;/li&gt;
+&lt;li&gt;如果 $\epsilon$ 是正则表达式，  L(&lt;strong&gt;eps&lt;/strong&gt;) = {eps}&lt;/li&gt;
+&lt;li&gt;如果 空集 是正则表达式， L() = 空集&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="_2"&gt;归纳&lt;/h2&gt;
+&lt;p&gt;以下三种操作&lt;/p&gt;
+&lt;p&gt;$L(E_1+E_2) = L(E_1) \cup L(E_2)$&lt;/p&gt;
+&lt;p&gt;$ L(E_1E_2) = L(E_1)L(E_2) $&lt;/p&gt;
+&lt;h1 id="_3"&gt;操作&lt;/h1&gt;
+&lt;p&gt;交集，连结， Kleene star&lt;/p&gt;
+&lt;h2 id="union"&gt;Union 对语言的集合求交集&lt;/h2&gt;
+&lt;h2 id="_4"&gt;连结&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;wx&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="star"&gt;star&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;infinity&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sun, 07 Sep 2014 16:41:21 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-07:RE-Basic.html</guid><category>cs</category><category>re</category></item><item><title>python 内建函数</title><link>http://sndnyang.github.io/pythonBuiltinLib.html</link><description>
 &lt;h1 id="_1"&gt;列表&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;reduce&lt;/li&gt;

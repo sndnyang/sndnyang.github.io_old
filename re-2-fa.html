@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
 
-<meta name="keywords" content="cs, algorithms, mooc, cs, " />
-        <title>连通性问题  · 懒龙微薄
+<meta name="keywords" content="cs, re, cs, " />
+        <title>正则表达式转自动机  · 懒龙微薄
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://sndnyang.github.io/algo_connectivity.html"> 连通性问题  </a></h1>
+    <h1><a href="http://sndnyang.github.io/re-2-fa.html"> 正则表达式转自动机  </a></h1>
     </header>
 </div>
 
@@ -61,14 +61,11 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#_1">连通性问题</a><ul>
-<li><a href="#_2">问题定义：</a></li>
-<li><a href="#_3">问题建模：</a><ul>
-<li><a href="#_4">对象建模：</a></li>
-<li><a href="#_5">连通性建模：</a></li>
-<li><a href="#_6">操作的实现:</a></li>
-</ul>
-</li>
+<li><a href="#_1">转换方法</a></li>
+<li><a href="#2">正则2自动机</a></li>
+<li><a href="#2_1">自动机2正则</a><ul>
+<li><a href="#k-paths">k-Paths</a></li>
+<li><a href="#_2">转换步骤</a></li>
 </ul>
 </li>
 </ul>
@@ -78,38 +75,33 @@
     <div class="span8 article-content">
 
             
-<h1 id="_1">连通性问题</h1>
-<h2 id="_2">问题定义：</h2>
-<p>给定 N个物体（点）</p>
-<p>存在两种操作：</p>
-<div class="highlight"><pre><span class="mf">1.</span> <span class="err">连接：</span> <span class="err">连接两点</span>
-<span class="mf">2.</span> <span class="err">查询连通性：</span> <span class="err">两点间是否存在路径</span>
-</pre></div>
-<h2 id="_3">问题建模：</h2>
-<h3 id="_4">对象建模：</h3>
-<blockquote>
-<p>简单就是个点， 然后用个数组下标0 —— N-1来表示</p>
-</blockquote>
-<h3 id="_5">连通性建模：</h3>
-<p>'连接到' 等价于以下数学表示：<br/>
-1. 反射： 自身是连通的。
-2. 对称： 如果p连接到q，则q也连接到p
-3. 传递： 如果p连接到q，q又连通r， 则p 也连通r.</p>
-<p>连通分量(connected component)</p>
-<div class="highlight"><pre><span class="err">相互连通的物体的最大集合</span>
-</pre></div>
-<h3 id="_6">操作的实现:</h3>
+<h1 id="_1">转换方法</h1>
 <ol>
-<li>Find查询: 查询两点是否在同一分量</li>
-<li>Union连接： </li>
+<li>正则表达式 -&gt; epsilon-NFA</li>
+<li>DFA  -&gt; re</li>
 </ol>
+<h1 id="2">正则2自动机</h1>
+<h1 id="2_1">自动机2正则</h1>
+<h2 id="k-paths">k-Paths</h2>
+<p>路径中， 不存在序号大于k的状态结点 </p>
+<ol>
+<li>末端点不限状态</li>
+</ol>
+<h2 id="_2">转换步骤</h2>
+<ol>
+<li>k=0; 仅有直接相连的边或结点本身</li>
+<li>归纳： 从 k-1 Paths 归纳出 k Paths, 即：<br/>
+    结点从序号不大于k-1 到 不大于 k</li>
+</ol>
+<p>公式:  </p>
+<p>$R^k_{ij} =R^{k-1}<em ik="ik">{ij} + R^{k-1}</em>(R^{k-1}<em kj="kj">{kk})* R^{k-1}</em> $</p>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/algo_connectivity.html#disqus_thread">
+                href="http://sndnyang.github.io/re-2-fa.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -119,8 +111,8 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'http://sndnyang.github.io/algo_connectivity.html';
-    var disqus_url = 'http://sndnyang.github.io/algo_connectivity.html';
+        var disqus_identifier = 'http://sndnyang.github.io/re-2-fa.html';
+    var disqus_url = 'http://sndnyang.github.io/re-2-fa.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -140,9 +132,9 @@
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://sndnyang.github.io/ML_define.html" title="Previous: 什么是机器学习">什么是机器学习</a></li>
+                <li class="previous_article">« <a href="http://sndnyang.github.io/RE-Basic.html" title="Previous: 正则表达式概念">正则表达式概念</a></li>
  
-                <li class="next_article"><a href="http://sndnyang.github.io/percolation_assignment.html" title="Next: percolation作业">percolation作业</a> »</li>
+                <li class="next_article"><a href="http://sndnyang.github.io/dasi-project-translate.html" title="Next: 杜克大学数据分析与统计推断 互评项目翻译">杜克大学数据分析与统计推断 互评项目翻译</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -151,19 +143,16 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-08-16T05:03:30">Aug 16, 2014</time>
+            <time pubdate="pubdate" datetime="2014-09-07T17:25:07">Sep 7, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#cs-ref">cs</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#algorithms-ref">algorithms
-                    <span>6</span>
-</a></li>
                 <li><a href="/tags.html#cs-ref">cs
                     <span>10</span>
 </a></li>
-                <li><a href="/tags.html#mooc-ref">mooc
-                    <span>6</span>
+                <li><a href="/tags.html#re-ref">re
+                    <span>2</span>
 </a></li>
             </ul>
 

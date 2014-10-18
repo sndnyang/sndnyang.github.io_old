@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-08-13T11:51:02+08:00</updated><entry><title>ksh手册</title><link href="http://sndnyang.github.io/ksh_manual.html" rel="alternate"></link><updated>2014-08-13T11:51:02+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-08-13:ksh_manual.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-09-05T08:19:15+08:00</updated><entry><title>python web框架html模板</title><link href="http://sndnyang.github.io/HtmlTemplatesInPython.html" rel="alternate"></link><updated>2014-09-05T08:19:15+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-09-05:HtmlTemplatesInPython.html</id><summary type="html">
+&lt;h1 id="_1"&gt;语法&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;变量 {{var}} , render _ template("index.html", title = 'Home', user = user)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;控制&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;title&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;title&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt; - microblog&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Welcome to microblog&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nb"&gt;for&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;posts&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;post.author.nickname&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt; &lt;span class="nx"&gt;says&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;post.body&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nx"&gt;endfor&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;模板继承&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;super(base.html):&lt;br/&gt;
+    其他内容 ＋ {% block content %}{% endblock %}
+    如base 里面定义导航栏， 其他页面用 block content 扩展其他内容&lt;/li&gt;
+&lt;li _="%" endblock="endblock"&gt;sub(index.html):  &lt;br/&gt;
+    {% extends "base.html" %}
+    {% block content %}
+    &lt;h1&gt;Hi, {{user.nickname}}!&lt;/h1&gt;
+    {% for post in posts %}
+    &lt;div&gt;&lt;p&gt;{{post.author.nickname}} says: &lt;b&gt;{{post.body}}&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;
+    {% endfor %}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="web"></category><category term="python"></category><category term="flask"></category></entry><entry><title>ksh手册</title><link href="http://sndnyang.github.io/ksh_manual.html" rel="alternate"></link><updated>2014-08-13T11:51:02+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-08-13:ksh_manual.html</id><summary type="html">
 &lt;h1 id="1"&gt;1.语法&lt;/h1&gt;
 &lt;h2 id="_1"&gt;特殊的文件&lt;/h2&gt;
 &lt;p&gt;/etc/profile  在登录时首先自动执行。 &lt;br/&gt;

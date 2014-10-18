@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 13 Aug 2014 11:51:02 +0800</lastBuildDate><item><title>ksh手册</title><link>http://sndnyang.github.io/ksh_manual.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 08:19:15 +0800</lastBuildDate><item><title>python web框架html模板</title><link>http://sndnyang.github.io/HtmlTemplatesInPython.html</link><description>
+&lt;h1 id="_1"&gt;语法&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;变量 {{var}} , render _ template("index.html", title = 'Home', user = user)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;控制&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;title&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;title&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt; - microblog&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Welcome to microblog&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nb"&gt;for&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;posts&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;post.author.nickname&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt; &lt;span class="nx"&gt;says&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;post.body&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="nx"&gt;endfor&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;模板继承&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;super(base.html):&lt;br/&gt;
+    其他内容 ＋ {% block content %}{% endblock %}
+    如base 里面定义导航栏， 其他页面用 block content 扩展其他内容&lt;/li&gt;
+&lt;li _="%" endblock="endblock"&gt;sub(index.html):  &lt;br/&gt;
+    {% extends "base.html" %}
+    {% block content %}
+    &lt;h1&gt;Hi, {{user.nickname}}!&lt;/h1&gt;
+    {% for post in posts %}
+    &lt;div&gt;&lt;p&gt;{{post.author.nickname}} says: &lt;b&gt;{{post.body}}&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;
+    {% endfor %}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Fri, 05 Sep 2014 08:19:15 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:HtmlTemplatesInPython.html</guid><category>web</category><category>python</category><category>flask</category></item><item><title>ksh手册</title><link>http://sndnyang.github.io/ksh_manual.html</link><description>
 &lt;h1 id="1"&gt;1.语法&lt;/h1&gt;
 &lt;h2 id="_1"&gt;特殊的文件&lt;/h2&gt;
 &lt;p&gt;/etc/profile  在登录时首先自动执行。 &lt;br/&gt;

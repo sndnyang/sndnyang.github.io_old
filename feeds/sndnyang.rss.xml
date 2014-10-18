@@ -1,5 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 16 Aug 2014 05:10:08 +0800</lastBuildDate><item><title>并查集优化</title><link>http://sndnyang.github.io/union_find_opt.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Oct 2014 08:08:23 +0800</lastBuildDate><item><title>Java比较器Comparator</title><link>http://sndnyang.github.io/Java-Comparator.html</link><description>
+&lt;h1 id="java-comparator"&gt;Java 比较器 Comparator&lt;/h1&gt;
+&lt;h2 id="comparable"&gt;接口 Comparable&lt;/h2&gt;
+&lt;p&gt;内置方法 int compareTo(Item other);&lt;/p&gt;
+&lt;h2 id="comparator"&gt;接口 Comparator&lt;/h2&gt;
+&lt;p&gt;内置方法 int compare(Item x, Item y);&lt;/p&gt;
+&lt;h2 id="_1"&gt;使用&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;util&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Comparator&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;方法有二：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;实现Comparable&lt;br/&gt;
+    按类型的自然次序进行排序——或者就是支持一种排序（自定义）  &lt;br/&gt;
+        public class Point&amp;lt; Key &amp;gt; implements Iterable&amp;lt; Key &amp;gt; {
+            public int compareTo(Point that) {}
+        }&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;变量使用 Comparator&lt;br/&gt;
+    使用不同的 Comparator 变量， 实现不同的排序方式。
+        public class MinPQ&lt;key&gt; implements Iterable&lt;key&gt; {
+            private Comparator&lt;key&gt; comparator;  // optional comparator;
+                public MinPQ(int initCapacity, Comparator&lt;key&gt; comparator) {
+                this.comparator = comparator;
+                pq = (Key[]) new Object[initCapacity + 1];
+                N = 0;
+            }
+        }&lt;/key&gt;&lt;/key&gt;&lt;/key&gt;&lt;/key&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Comparator 实现&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;为数据类 定义一个（多半是内嵌）类型来实现Comparator接口, 使用 static。&lt;/li&gt;
+&lt;li&gt;实现 compare() 方法
+        public class Student {
+            public static final Comparator&lt;student&gt; ORDER = new OrderName();
+            private static class OrderName implements Comparator&lt;student&gt; {
+                public int compare(Student a, Student b) {}
+            }
+        }&lt;/student&gt;&lt;/student&gt;&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:08:23 +0800</pubDate><guid>tag:sndnyang.github.io,2014-10-18:Java-Comparator.html</guid></item><item><title>Java 泛型机制及迭代器</title><link>http://sndnyang.github.io/Java-Generic-Iterator.html</link><description>
+&lt;h1 id="java"&gt;Java 泛型机制及迭代器&lt;/h1&gt;
+&lt;h2 id="generic"&gt;泛型 Generic&lt;/h2&gt;
+&lt;h3 id="_1"&gt;基本框架&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Item&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;void&lt;/span&gt; &lt;span class="nb"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt; &lt;span class="nb"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;Node&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;oldfirst&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Node&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;first.item&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;item&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;first.next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;oldfirst&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nb"&gt;N&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;上面代码中的Item 可以是任意内置、自定义类型, 所以达到了极佳的代码复用效果。&lt;/p&gt;
+&lt;h3 id="_2"&gt;使用&lt;/h3&gt;
+&lt;p&gt;例：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;YourClass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;YourClass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="_3"&gt;注意事项&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Java 不支持 泛型的创建， 如上例，则有：&lt;br/&gt;
+    不支持：&lt;br/&gt;
+        public ArrayStack(int capacity) {
+            Item[] s = new Item[capacity];
+        }
+    支持:&lt;br/&gt;
+        public ArrayStack(int capacity) {
+            Item[] s = (Item[]) new Object[capacity];
+        }&lt;/li&gt;
+&lt;li&gt;基本类型的Item&lt;br/&gt;
+    int\float等基本的数据类型不能直接用作 Item, 必须使用如下转换：&lt;br/&gt;
+        byte -&amp;gt; Byte&lt;br/&gt;
+        short -&amp;gt; Short 
+        int -&amp;gt; Integer 
+        long -&amp;gt; Long
+        float -&amp;gt; Float
+        double -&amp;gt; Double
+        char -&amp;gt; Character&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="iterator"&gt;迭代器 Iterator&lt;/h2&gt;
+&lt;h3 id="_4"&gt;迭代器接口&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Iterable&lt;/p&gt;
+&lt;p&gt;内置方法iterator()， 返回一个新建的 Iterator。&lt;br/&gt;
+如：
+    public interface Iterable&lt;item&gt; {
+        Iterator&lt;item&gt; Iterator();
+    }&lt;/item&gt;&lt;/item&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iterator
+    有 hasNext() 和 next() 两个方法要实现。
+        public interface Iterator&lt;item&gt; {
+            boolean hasNext();
+            Item next();
+            void remove();  //可选实现
+        }&lt;/item&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="_5"&gt;实现&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;导入 import java.util.Iterator;&lt;/li&gt;
+&lt;li&gt;泛型的类， 实现Iterable接口 implements Iterable&amp;lt; Item &amp;gt;&lt;/li&gt;
+&lt;li&gt;实现Iterable的iterator()方法， 返回任意定义迭代器类型。&lt;/li&gt;
+&lt;li&gt;定义迭代器类型 implements Iterator&amp;lt; Item &amp;gt;&lt;/li&gt;
+&lt;li&gt;实现 hasNext()、 next()、 remove()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;示例:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Iterable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Iterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ListIterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ListIterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;implements&lt;/span&gt; &lt;span class="nb"&gt;Iterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Node&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ListIterator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="na"&gt;Node&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;boolean&lt;/span&gt; &lt;span class="nx"&gt;hasNext&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;                     &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;void&lt;/span&gt; &lt;span class="nb"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;      &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nb"&gt;throw&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;UnsupportedOperationException&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Item&lt;/span&gt; &lt;span class="nb"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;hasNext&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="nb"&gt;throw&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;NoSuchElementException&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="nb"&gt;Item&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;current.item&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;current.next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;item&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="_6"&gt;调用方法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;foreach 迭代&lt;br/&gt;
+        for (String s : stack)
+            System.out.println(s);
+   如果是 int\double 等基本类型， 请使用之前的转换关系&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环遍历 &lt;br/&gt;
+        Iterator&lt;string&gt; i = stack.iterator();
+        while (i.hasNext()) {
+            String s = i.next();
+        }&lt;/string&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-10-18:Java-Generic-Iterator.html</guid></item><item><title>并查集优化</title><link>http://sndnyang.github.io/union_find_opt.html</link><description>
 &lt;h1 id="union-find"&gt;union find 并查集优化&lt;/h1&gt;
 &lt;h2 id="1"&gt;方法 1 带权重快速合并&lt;/h2&gt;
 &lt;p&gt;好处:&lt;/p&gt;

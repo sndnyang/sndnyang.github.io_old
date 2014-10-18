@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
-        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
 
-<meta name="keywords" content="python, stdlib, python, " />
-        <title>标准库functools  · 懒龙微薄
+<meta name="keywords" content=", Java, " />
+        <title>Java比较器Comparator  · 懒龙微薄
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://sndnyang.github.io/stdlib-functools.html"> 标准库functools  </a></h1>
+    <h1><a href="http://sndnyang.github.io/Java-Comparator.html"> Java比较器Comparator  </a></h1>
     </header>
 </div>
 
@@ -61,7 +61,12 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#_1">列表</a></li>
+<li><a href="#java-comparator">Java 比较器 Comparator</a><ul>
+<li><a href="#comparable">接口 Comparable</a></li>
+<li><a href="#comparator">接口 Comparator</a></li>
+<li><a href="#_1">使用</a></li>
+</ul>
+</li>
 </ul>
 </div>
         </nav>
@@ -69,19 +74,46 @@
     <div class="span8 article-content">
 
             
-<h1 id="_1">列表</h1>
+<h1 id="java-comparator">Java 比较器 Comparator</h1>
+<h2 id="comparable">接口 Comparable</h2>
+<p>内置方法 int compareTo(Item other);</p>
+<h2 id="comparator">接口 Comparator</h2>
+<p>内置方法 int compare(Item x, Item y);</p>
+<h2 id="_1">使用</h2>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">Comparator</span><span class="p">;</span>
+</pre></div>
+<p>方法有二：</p>
 <ol>
-<li>'cmp_to_key',</li>
-<li>'get_cache_token',</li>
-<li>'lru_cache',</li>
-<li>'namedtuple',</li>
-<li>'partial',</li>
-<li>'partialmethod',</li>
-<li>'reduce',</li>
-<li>'singledispatch',</li>
-<li>'total_ordering',</li>
-<li>'update_wrapper',</li>
-<li>'wraps'</li>
+<li>
+<p>实现Comparable<br/>
+    按类型的自然次序进行排序——或者就是支持一种排序（自定义）  <br/>
+        public class Point&lt; Key &gt; implements Iterable&lt; Key &gt; {
+            public int compareTo(Point that) {}
+        }</p>
+</li>
+<li>
+<p>变量使用 Comparator<br/>
+    使用不同的 Comparator 变量， 实现不同的排序方式。
+        public class MinPQ<key> implements Iterable<key> {
+            private Comparator<key> comparator;  // optional comparator;
+                public MinPQ(int initCapacity, Comparator<key> comparator) {
+                this.comparator = comparator;
+                pq = (Key[]) new Object[initCapacity + 1];
+                N = 0;
+            }
+        }</key></key></key></key></p>
+</li>
+<li>
+<p>Comparator 实现</p>
+</li>
+<li>为数据类 定义一个（多半是内嵌）类型来实现Comparator接口, 使用 static。</li>
+<li>实现 compare() 方法
+        public class Student {
+            public static final Comparator<student> ORDER = new OrderName();
+            private static class OrderName implements Comparator<student> {
+                public int compare(Student a, Student b) {}
+            }
+        }</student></student></li>
 </ol>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
@@ -89,7 +121,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/stdlib-functools.html#disqus_thread">
+                href="http://sndnyang.github.io/Java-Comparator.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -99,8 +131,8 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'http://sndnyang.github.io/stdlib-functools.html';
-    var disqus_url = 'http://sndnyang.github.io/stdlib-functools.html';
+        var disqus_identifier = 'http://sndnyang.github.io/Java-Comparator.html';
+    var disqus_url = 'http://sndnyang.github.io/Java-Comparator.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -120,9 +152,7 @@
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://sndnyang.github.io/HtmlTemplatesInPython.html" title="Previous: python web框架html模板">python web框架html模板</a></li>
- 
-                <li class="next_article"><a href="http://sndnyang.github.io/pythonBuiltinLib.html" title="Next: python 内建函数">python 内建函数</a> »</li>
+                <li class="previous_article">« <a href="http://sndnyang.github.io/Java-Generic-Iterator.html" title="Previous: Java 泛型机制及迭代器">Java 泛型机制及迭代器</a></li>
             </ul>
             </nav>
             </aside>
@@ -131,21 +161,9 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-09-05T20:43:40">Sep 5, 2014</time>
- 
-            <h4>Last Updated</h4>
-            <div class="last_updated">2014-09-05 00:00:00</div>
+            <time pubdate="pubdate" datetime="2014-10-18T08:08:23">Oct 18, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#python-ref">python</a> 
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#python-ref">python
-                    <span>4</span>
-</a></li>
-                <li><a href="/tags.html#stdlib-ref">stdlib
-                    <span>2</span>
-</a></li>
-            </ul>
+            <a class="category-link" href="/categories.html#Java-ref">Java</a> 
 
         </div>
         </section>

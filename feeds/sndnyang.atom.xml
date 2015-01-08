@@ -13,21 +13,21 @@
 &lt;li&gt;
 &lt;p&gt;实现Comparable&lt;br/&gt;
     按类型的自然次序进行排序——或者就是支持一种排序（自定义）  &lt;br/&gt;
-        public class Point&amp;lt; Key &amp;gt; implements Iterable&amp;lt; Key &amp;gt; {
+        public class Point&amp;lt; Key &amp;gt; implements Comparable&amp;lt; Key &amp;gt; {
             public int compareTo(Point that) {}
         }&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;变量使用 Comparator&lt;br/&gt;
     使用不同的 Comparator 变量， 实现不同的排序方式。
-        public class MinPQ&lt;key&gt; implements Iterable&lt;key&gt; {
+        public class MinPQ&lt;key&gt; {
             private Comparator&lt;key&gt; comparator;  // optional comparator;
                 public MinPQ(int initCapacity, Comparator&lt;key&gt; comparator) {
                 this.comparator = comparator;
                 pq = (Key[]) new Object[initCapacity + 1];
                 N = 0;
             }
-        }&lt;/key&gt;&lt;/key&gt;&lt;/key&gt;&lt;/key&gt;&lt;/p&gt;
+        }&lt;/key&gt;&lt;/key&gt;&lt;/key&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Comparator 实现&lt;/p&gt;
@@ -115,7 +115,7 @@
 &lt;p&gt;示例:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nb"&gt;Stack&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Iterable&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Iterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ListIterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ListIterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;first&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 
     &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ListIterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;implements&lt;/span&gt; &lt;span class="nb"&gt;Iterator&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;

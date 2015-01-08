@@ -87,21 +87,21 @@
 <li>
 <p>实现Comparable<br/>
     按类型的自然次序进行排序——或者就是支持一种排序（自定义）  <br/>
-        public class Point&lt; Key &gt; implements Iterable&lt; Key &gt; {
+        public class Point&lt; Key &gt; implements Comparable&lt; Key &gt; {
             public int compareTo(Point that) {}
         }</p>
 </li>
 <li>
 <p>变量使用 Comparator<br/>
     使用不同的 Comparator 变量， 实现不同的排序方式。
-        public class MinPQ<key> implements Iterable<key> {
+        public class MinPQ<key> {
             private Comparator<key> comparator;  // optional comparator;
                 public MinPQ(int initCapacity, Comparator<key> comparator) {
                 this.comparator = comparator;
                 pq = (Key[]) new Object[initCapacity + 1];
                 N = 0;
             }
-        }</key></key></key></key></p>
+        }</key></key></key></p>
 </li>
 <li>
 <p>Comparator 实现</p>

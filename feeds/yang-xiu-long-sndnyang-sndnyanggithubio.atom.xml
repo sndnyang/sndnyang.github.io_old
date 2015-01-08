@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-09-08T22:50:38+08:00</updated><entry><title>正则表达式作业</title><link href="http://sndnyang.github.io/automata-hw1.html" rel="alternate"></link><updated>2014-09-08T22:50:38+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-08:automata-hw1.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2015-01-08T00:00:00+08:00</updated><entry><title>正则表达式作业</title><link href="http://sndnyang.github.io/automata-hw1.html" rel="alternate"></link><updated>2014-09-08T22:50:38+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-08:automata-hw1.html</id><summary type="html">
 &lt;h1 id="_1"&gt;编程容易，笔算不易，且写且珍惜&lt;/h1&gt;
 &lt;p&gt;有点像个傻子一样在发广告
 csdn 博客在 &lt;a href="http://blog.csdn.net/sndnyangd"&gt;sndnyangd&lt;/a&gt;
@@ -258,21 +258,20 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
 &lt;h1 id="_1"&gt;列表&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;reduce&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>标准库functools</title><link href="http://sndnyang.github.io/stdlib-functools.html" rel="alternate"></link><updated>2014-09-05T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</id><summary type="html">
+&lt;/ol&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>标准库functools</title><link href="http://sndnyang.github.io/stdlib-functools.html" rel="alternate"></link><updated>2015-01-08T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</id><summary type="html">
 &lt;h1 id="_1"&gt;列表&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;'cmp_to_key',&lt;/li&gt;
-&lt;li&gt;'get_cache_token',&lt;/li&gt;
-&lt;li&gt;'lru_cache',&lt;/li&gt;
-&lt;li&gt;'namedtuple',&lt;/li&gt;
-&lt;li&gt;'partial',&lt;/li&gt;
-&lt;li&gt;'partialmethod',&lt;/li&gt;
-&lt;li&gt;'reduce',&lt;/li&gt;
-&lt;li&gt;'singledispatch',&lt;/li&gt;
-&lt;li&gt;'total_ordering',&lt;/li&gt;
-&lt;li&gt;'update_wrapper',&lt;/li&gt;
-&lt;li&gt;'wraps'&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>controller.mkd</title><link href="http://sndnyang.github.io/springController.html" rel="alternate"></link><updated>2014-09-04T22:55:15+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-04:springController.html</id><summary type="html">
+&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;cmp_to_key&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;get_cache_token&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;lru_cache&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;partial&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;partialmethod&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;reduce&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;singledispatch&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;total_ordering&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;update_wrapper&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;wraps&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>controller.mkd</title><link href="http://sndnyang.github.io/springController.html" rel="alternate"></link><updated>2014-09-04T22:55:15+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-04:springController.html</id><summary type="html">
 &lt;h1 id="annotation"&gt;记号 Annotation&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;类上 @Controller&lt;/li&gt;
@@ -293,7 +292,7 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;boolean 可以用作整数， True 1 ， False 0&lt;/li&gt;
 &lt;li&gt;for while 可以有 else&lt;/li&gt;
-&lt;li&gt;一种不是很明白的写法 sum(y in t.lower() for y in w)  字符串代表真， 不用bool&lt;/li&gt;
+&lt;li&gt;sum(y in t.lower() for y in w)  字符串代表真， 不用bool, sum\all\any使用的是迭代器， 所以不用建[]&lt;/li&gt;
 &lt;li&gt;对元组或列表使用 * , 就可以将 之转成不定长参数&lt;/li&gt;
 &lt;/ol&gt;</summary><category term="python"></category></entry><entry><title>Linux常用命令</title><link href="http://sndnyang.github.io/LinuxCommand.html" rel="alternate"></link><updated>2014-08-30T19:56:58+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-08-30:LinuxCommand.html</id><summary type="html">
 &lt;h1 id="_1"&gt;常用命令列表&lt;/h1&gt;

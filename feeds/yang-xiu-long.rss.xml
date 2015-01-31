@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 08:19:15 +0800</lastBuildDate><item><title>python web框架html模板</title><link>http://sndnyang.github.io/HtmlTemplatesInPython.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>/</link><description></description><atom:link href="/feeds/yang-xiu-long.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 05 Sep 2014 08:19:15 +0800</lastBuildDate><item><title>python web框架html模板</title><link>/HtmlTemplatesInPython.html</link><description>
 &lt;h1 id="_1"&gt;语法&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;变量 {{var}} , render _ template("index.html", title = 'Home', user = user)&lt;/li&gt;
@@ -34,7 +34,7 @@
     {% endfor %}&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Fri, 05 Sep 2014 08:19:15 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:HtmlTemplatesInPython.html</guid><category>web</category><category>python</category><category>flask</category></item><item><title>ksh手册</title><link>http://sndnyang.github.io/ksh_manual.html</link><description>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Fri, 05 Sep 2014 08:19:15 +0800</pubDate><guid>tag:,2014-09-05:HtmlTemplatesInPython.html</guid><category>web</category><category>python</category><category>flask</category></item><item><title>ksh手册</title><link>/ksh_manual.html</link><description>
 &lt;h1 id="1"&gt;1.语法&lt;/h1&gt;
 &lt;h2 id="_1"&gt;特殊的文件&lt;/h2&gt;
 &lt;p&gt;/etc/profile  在登录时首先自动执行。 &lt;br/&gt;
@@ -344,7 +344,7 @@ Trap “rm –f $tmp;exit” 0 1 2 15 ;当shell程序退出，用户退出，按
    &lt;span class="n"&gt;Commands&lt;/span&gt;   
 &lt;span class="n"&gt;Done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如果满足条件condition则执行commands   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 13 Aug 2014 11:51:02 +0800</pubDate><guid>tag:sndnyang.github.io,2014-08-13:ksh_manual.html</guid><category>shell</category></item><item><title>impress js教程</title><link>http://sndnyang.github.io/impress-jsjiao-cheng.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;如果满足条件condition则执行commands   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 13 Aug 2014 11:51:02 +0800</pubDate><guid>tag:,2014-08-13:ksh_manual.html</guid><category>shell</category></item><item><title>impress js教程</title><link>/impress-jsjiao-cheng.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1&gt;impress js 介绍&lt;/h1&gt;
 &lt;h1&gt;pandoc 模板&lt;/h1&gt;
 &lt;h1&gt;参数列表&lt;/h1&gt;
@@ -363,7 +363,7 @@ data-scale=4&lt;/p&gt;
 &lt;p&gt;顺时针旋转
 data-rotate=180&lt;br /&gt;
 data-rotate-x=60
-data-rotate-y=60&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-07-29:impress-jsjiao-cheng.html</guid><category>tool</category><category>note</category></item><item><title>pelican_config</title><link>http://sndnyang.github.io/pelican_config.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+data-rotate-y=60&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Tue, 29 Jul 2014 00:00:00 +0800</pubDate><guid>tag:,2014-07-29:impress-jsjiao-cheng.html</guid><category>tool</category><category>note</category></item><item><title>pelican_config</title><link>/pelican_config.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1&gt;markdown 模板格式要求&lt;/h1&gt;
 &lt;p&gt;文章模板如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;   
@@ -389,7 +389,7 @@ data-rotate-y=60&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc
 &lt;li&gt;图片等资源 建议放到顶层目录的 res 或 imags 下。&lt;/li&gt;
 &lt;li&gt;链接到其他 mkd 转化成的html时， 路径不是实际路径，都在 / 下， 名字对应为 title 或 slug 应该是这样。&lt;/li&gt;
 &lt;li&gt;暂时没想到其他的了。&lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Thu, 26 Jun 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-06-26:pelican_config.html</guid><category>pelican</category><category>template</category></item><item><title>awk与sed</title><link>http://sndnyang.github.io/awkyu-sed.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Thu, 26 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-26:pelican_config.html</guid><category>pelican</category><category>template</category></item><item><title>awk与sed</title><link>/awkyu-sed.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2&gt;插入&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
 &lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
@@ -398,12 +398,12 @@ data-rotate-y=60&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc
 
 &lt;h2&gt;替换&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dsfds&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gdkok&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-06-25:awkyu-sed.html</guid></item><item><title>shell 替换与插入</title><link>http://sndnyang.github.io/shell-ti-huan-yu-cha-ru.html</link><description>&lt;h1&gt;sed 使用技巧&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-25:awkyu-sed.html</guid></item><item><title>shell 替换与插入</title><link>/shell-ti-huan-yu-cha-ru.html</link><description>&lt;h1&gt;sed 使用技巧&lt;/h1&gt;
 &lt;h2&gt;替换&lt;/h2&gt;
 &lt;h2&gt;插入&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
 &lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-06-25:shell-ti-huan-yu-cha-ru.html</guid></item><item><title>Git hooks</title><link>http://sndnyang.github.io/git-hooks.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 25 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-25:shell-ti-huan-yu-cha-ru.html</guid></item><item><title>Git hooks</title><link>/git-hooks.html</link><description>&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1&gt;Git hooks&lt;/h1&gt;
 &lt;p&gt;Remote Machine
 We create a bare git repo, then point the working tree at the docroot of our website. This means all the git stuff is kept in the somesite.git folder, but the files themselves are checked out to the website's folder. Then we setup a post-receive hook to update the worktree folder after new changes have been pushed to the repo.&lt;/p&gt;
@@ -433,4 +433,4 @@ To ssh://myserver/home/caius/git/somesite.git
 All Done
 And now if you go to somesite.com you'll see the contents of your git repo there. (somesite.com is just an example url though, I don't actually own it!)&lt;/p&gt;
 &lt;h2&gt;文件夹 hook 下&lt;/h2&gt;
-&lt;p&gt;post-receive 这些都是脚本&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 04 Jun 2014 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-06-04:git-hooks.html</guid></item></channel></rss>
+&lt;p&gt;post-receive 这些都是脚本&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆</dc:creator><pubDate>Wed, 04 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-04:git-hooks.html</guid></item></channel></rss>

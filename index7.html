@@ -1,160 +1,476 @@
 <!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>懒龙微薄</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>懒龙微薄
-</title>
-        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
-        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
-        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
-    </head>
-    <body>
-        <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙微薄</span></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right top-menu">
-                            <li  class="active"><a href="http://sndnyang.github.io">Home</a></li>
-                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
-                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
-                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                        </ul>
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="懒龙微薄"/>
+            <meta property="og:url" content=""/>
+            <meta property="og:description" content="懒龙微薄"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.lovers.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/style.lovers.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <!--link href="/theme/css/pygments.css" rel="stylesheet"-->
+    <link href="/theme/css/prism.css" rel="stylesheet" />
+  
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="/theme/js/jquery-1.7.1.min.js"></script>
+    <script src="/theme/js/rotate.js"></script>
+    <link rel="stylesheet" type="text/css" href="/theme/css/jquery.pageslide.css">
+
+
+</head>
+<body>
+
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-9 col-xs-12">
+                <div>
+                <img src="/images/header.jpg" class="img-responsive" alt="Responsive image">
+                </div>
+                <hr class="hidden-xs"/>
+
+    <!--h4 class="section">Blog</h4-->
+    <div class="row">
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/kshzi-dong-bu-quan.html">KSH自动补全</a></h3>
+                        <p><h1 id="ksh">设置KSH的自动补全和历史命令功能</h1>
+<h2 id="-">- 方法一：</h2>
+<div class="highlight"><pre><span class="n">set</span> <span class="o">-</span><span class="n">o</span> <span class="n">vi</span>
+</pre></div>
+
+
+<p>历史命令功能（esc -，esc +）自动补全文件名（esc \）。</p>
+<h2 id="-_1">- 方法二：</h2>
+<div class="highlight"><pre><span class="n">set</span> <span class="o">-</span><span class="n">o</span> <span class="n">emacs</span>
+</pre></div>
+
+
+<p>历史命令功能（ctrl-n，ctrl-p），自动补全文件名(按两次esc)。</p>
+<hr />
+<p>找不到自动补全命令的功能，还是bash比较人性化。</p></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/kshzi-dong-bu-quan.html">Read more</a></p>
                     </div>
-                </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span10">
-<div class="row-fluid">
-    <header class="page_header span12">
-    <h1><a href="http://sndnyang.github.io">I'm trying to change myself!!!</a></h1>
-    </header>
-
-    <div class="row-fluid">
-        <div class="span8">
-            <header>
-            <h1 id="about-me">About me</h1>
-            </header>
-            <div class="article-content">
-                 I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
-                      Learning on the mooc, working at a IT company for CMB bank.<br> 
-                      上面扯一堆英文，没看明白。总之最近在看 mooc 啦！
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/profileshe-zhi.html">profile设置</a></h3>
+                        <p><h1>ksh profile常用配置</h1>
+<ol>
+<li>
+<p>stty erase ^H <br />
+按Backspace键可以向后删除字符，<br />
+输入stty erase ctrl+v ctrl+h  </p>
+</li>
+<li>
+<p>set -o vi <br />
+ 让输入行工作于vi模式,则可以使用vi专用指令了<br />
+ 可以使用 set -o emacs， 则是使用emacs指令</p>
+</li>
+<li>
+<p>TERM=vt100 <br />
+ 这样在异地登录的用户方可使用vi<br />
+ 各人各用， 这条不要用，除非我不用的环境……  </p>
+</li>
+<li>
+<p>PS1=<code>/usr/ucb/whoami</code>"@"<code>hostname</code>:${ORACLE_SID}"$";export PS1 <br />
+ 包含登陆用户、主机名、数据库SID的提示符  </p>
+</li>
+<li>
+<p>EDITOR=vi;export EDITOR <br />
+ 不设置则无法crontab -e  crontab</p>
+</li>
+<li>
+<p>HISTSIZE=200;export HISTSIZE ...</p></li></ol></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/profileshe-zhi.html">Read more</a></p>
+                    </div>
             </div>
         </div>
-
-        <div class="span4">
-            <header>
-            <h1 id="my-projects">My Projects</h1>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/gpa_calculator.html" title="gpa calculator">gpa calculator</a> <span class="proj_desc">a simple gpa calculator for file upload and first project</span>
-                </li>
-            </ul>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/shell_file.html">shell_file</a></h3>
+                        <p><h1>shell文件</h1>
+<ol>
+<li>文件存在 if [[ -e $filename ]]</li>
+</ol></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/shell_file.html">Read more</a></p>
+                    </div>
+            </div>
         </div>
-    </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/shellbian-liang-kong-ge.html">shell变量空格</a></h3>
+                        <p><h1>shell 字符串变量中的空格</h1>
+<p>示例：</p>
+<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="s">&quot; dokjd    &quot;</span>
+</pre></div>
 
-    <div class="row-fluid">
-        <div class="span12">
-            <header>
-            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://sndnyang.github.io/archives.html">all posts</a></h1>
-            </header>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/Java-Comparator.html">Java比较器Comparator  </a> 
-                <time pubdate="pubdate" datetime="2014-10-18T08:08:23">六 18 十月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/Java-Generic-Iterator.html">Java 泛型机制及迭代器  </a> 
-                <time pubdate="pubdate" datetime="2014-10-18T08:00:00">六 18 十月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/automata-hw1.html">正则表达式作业  </a> 
-                <time pubdate="pubdate" datetime="2014-09-08T22:50:38">一 08 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/bioinform-intro.html">生物信息学算法课程概述  </a> 
-                <time pubdate="pubdate" datetime="2014-09-08T10:08:55">一 08 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/dasi-project-translate.html">杜克大学数据分析与统计推断 互评项目翻译  </a> 
-                <time pubdate="pubdate" datetime="2014-09-08T09:25:01">一 08 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/re-2-fa.html">正则表达式转自动机  </a> 
-                <time pubdate="pubdate" datetime="2014-09-07T17:25:07">日 07 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/RE-Basic.html">正则表达式概念  </a> 
-                <time pubdate="pubdate" datetime="2014-09-07T16:41:21">日 07 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/pythonBuiltinLib.html">python 内建函数  </a> 
-                <time pubdate="pubdate" datetime="2014-09-05T21:09:40">五 05 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/stdlib-functools.html">标准库functools  </a> 
-                <time pubdate="pubdate" datetime="2014-09-05T20:43:40">五 05 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/HtmlTemplatesInPython.html">python web框架html模板  </a> 
-                <time pubdate="pubdate" datetime="2014-09-05T08:19:15">五 05 九月 2014</time>
-                </li>
-            </ul>
+
+<ol>
+<li>
+<p>保留全部空格： </p>
+<div class="highlight"><pre><span class="n">echo</span> <span class="s">&quot;$x&quot;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>去除头尾空格:      </p>
+<div class="highlight"><pre><span class="n">echo</span> <span class="err">$</span><span class="n">x</span>
+</pre></div>
+
+
+</li>
+</ol></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/shellbian-liang-kong-ge.html">Read more</a></p>
+                    </div>
+            </div>
         </div>
-    </div>
-</div>
-                </div>
-                <div class="span1"></div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/if_else_elif.html">if_else_elif</a></h3>
+                        <p><p>﻿</p>
+<h1>if else elif</h1>
+<p>shell 或者说 ksh 的else if 使用 elif 写法， 简洁易用的写法</p>
+<p>示例:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">[[</span> <span class="n">x</span> <span class="o">-</span><span class="n">eq</span> <span class="s">&quot;3456&quot;</span> <span class="p">]]</span> <span class="n">then</span>
+    <span class="n">echo</span> <span class="s">&quot;3456&quot;</span>
+<span class="n">elif</span> <span class="p">[[</span> <span class="n">x</span> <span class="o">-</span><span class="n">eq</span> <span class="s">&quot;4567&quot;</span> <span class="p">]]</span> <span class="n">then</span>
+    <span class="n">echo</span> <span class="s">&quot;4567&quot;</span>
+<span class="n">elif</span> <span class="p">[[</span> <span class="n">x</span> <span class="o">-</span><span class="n">eq</span> <span class="s">&quot;1234&quot;</span> <span class="p">]]</span> <span class="n">then</span>
+    <span class="n">echo</span> <span class="s">&quot;1234&quot;</span>
+<span class="k">else</span>
+    <span class="n">echo</span> <span class="s">&quot;none&quot;</span>
+<span class="n">fi</span>
+</pre></div></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/if_else_elif.html">Read more</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/tong-ji-xing-hao.html">统计行号</a></h3>
+                        <p><p>﻿</p>
+<h1>DB2 统计行号, 行数</h1>
+<div class="highlight"><pre><span class="n">ROWNUMBER</span><span class="p">()</span> <span class="n">OVER</span><span class="p">()</span> <span class="n">as</span> <span class="n">ROW</span>
+</pre></div>
+
+
+<p>不能用之作为group 的条件。</p></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/tong-ji-xing-hao.html">Read more</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/db2cha-xun-ben-ji-shu-ju-ku.html">db2查询本机数据库</a></h3>
+                        <p><p>﻿</p>
+<h1>db2 查询本机数据库（本地及远程）</h1>
+<ol>
+<li>db2 "list db directory"  显示本机数据库列表</li>
+<li>db2 list node directory show detail   查询该节点的详细信息</li>
+</ol>
+<p>引用内容:</p>
+<div class="highlight"><pre><span class="nx">db2</span> <span class="nx">Catalog</span>  <span class="mi">2012</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">19</span> <span class="mi">13</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">49</span><span class="o">|</span>  <span class="err">分类：</span> <span class="nx">DB2</span> <span class="o">|</span>  <span class="err">标签：</span> <span class="o">|</span><span class="err">字号大中小</span> <span class="err">订阅</span> <span class="nx">.</span>
+
+
+<span class="err">在</span><span class="nx">DB2</span><span class="err">中从客户端访问服务器端的数据库时，不能直接用</span><span class="nb">connect</span><span class="err">命令，而必须先建立通信</span><span class="nx">node</span><span class="err">，再在</span><span class="nx">node</span><span class="err">的基础上建立数据库连接。在命令行的具体操作如下：</span>
+
+
+<span class="o">-&gt;</span><span class="nx">db2</span> <span class="nx">catalog</span> <span class="nx">tcpip</span> <span class="nx">node</span> <span class="err">$</span><span class="p">{</span><span class="nb">nodeName</span><span class="p">}</span> <span class="nx">remote</span> <span class="err">$</span><span class="p">{</span><span class="nb">serverName</span><span class="p">}</span> <span class="nx">server</span> <span class="err">$</span><span class="p">{</span><span class="nx">portNumber ...</span></pre></div></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/db2cha-xun-ben-ji-shu-ju-ku.html">Read more</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">日 04 五月 2014</h6>
+                        <h3><a href="/db2_export.html">db2_export</a></h3>
+                        <p><h1>db2 导出数据</h1>
+<ol>
+<li>
+<p>基本形式:</p>
+<p>export to filename of del   select * from table_name</p>
+</li>
+<li>
+<p>配置选项</p>
+</li>
+</ol>
+<blockquote>
+<p>of del 后添加 modified  by</p>
+<ol>
+<li>coldel$        coldel表示字段之间的间隔符，默认情况为逗号</li>
+<li>chardel''      chardel表示字符串字段用什 么符号引用，默认情况下为一对双引号括起来， 不使用即为 nochardel</li>
+<li>decplusblank   decplusblank表示对于十进制数据类型，用空格代替最前面的加号</li>
+<li>codepa A delimiter is not valid or is used more than once.
+ge=1208  如果coldel使用 | 或出现  A delimiter is not valid ...</li></ol></blockquote></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/db2_export.html">Read more</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">三 16 四月 2014</h6>
+                        <h3><a href="/java_luan-ma.html">java_乱码</a></h3>
+                        <p><p>﻿</p>
+<h1>java 乱码简要总结</h1></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/java_luan-ma.html">Read more</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class= "menu-category">
+            <div class="thumbnail">
+                    <div class="caption">
+                        <h6 class="summary-date">一 03 三月 2014</h6>
+                        <h3><a href="/markdown_syntax.html">markdown_syntax</a></h3>
+                        <p><h1>MarkDown 笔记</h1>
+<h2>小细节记录</h2>
+<ol>
+<li>非MarkDown的部分，可直接写HTML</li>
+<li>&lt;  div &gt;,  &lt; table&gt;,  &lt; pre&gt;,  &lt; p&gt; 前后要加空行，不能使用空格等来缩进</li>
+<li>HTML区块（block)标签内的MarkDown不做语法处理。</li>
+<li>区段（inline)标签则随意，比如 &lt; span&gt;, &lt; cite&gt;, &lt; del&gt;</li>
+</ol>
+<h2>一、 区块元素</h2>
+<blockquote>
+<h3>1. 段落和换行</h3>
+<p>段落前后有一个以上空行（一般自然就是前后各空一行），不能用空格或制表符来缩进。</p>
+<h3>2. 标题</h3>
+<p>类Setext 底线形式，只有＝（最高阶标题）和－（第二阶标题）
+类Atx 形式，使用＃，1至6个，对应1阶到6阶</p>
+</blockquote>
+<p><em>可以使用闭合式标题，即前后配对，出于美观考虑</em></p>
+<blockquote>
+<h3>3. 区块引用</h3>
+<p>类似EMAIL中的 &gt; 形式，即使用 &gt; 作为缩进的符号 ...</p></blockquote></p>
+                        <p class="btn-read"><a class="btn btn-default" href="/markdown_syntax.html">Read more</a></p>
+                    </div>
             </div>
         </div>
     </div>
-<footer>
-<div id="footer">
-    <ul class="footer-content">
-        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    <ul class="pagination">
+            <li class="prev"><a href="/index6.html">&laquo;</a>
+            </li>
+                <li class=""><a
+                        href="/index.html">1</a></li>
+                <li class=""><a
+                        href="/index2.html">2</a></li>
+                <li class=""><a
+                        href="/index3.html">3</a></li>
+                <li class=""><a
+                        href="/index4.html">4</a></li>
+                <li class=""><a
+                        href="/index5.html">5</a></li>
+                <li class=""><a
+                        href="/index6.html">6</a></li>
+                <li class="active"><a
+                        href="/index7.html">7</a></li>
+                <li class=""><a
+                        href="/index8.html">8</a></li>
+                <li class=""><a
+                        href="/index9.html">9</a></li>
+            <li class="next"><a
+                    href="/index8.html">&raquo;</a></li>
     </ul>
+ 
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12">
+                <div class="row text-center">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <img class="img-circle image100" src="/images/chenlong.jpg" alt="" />
+                    </div>
+                </div><hr />
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a class="btn btn-default" href="/index.html">Home</a></li>
+                    <li>
+                        <a class="btn btn-default" href="/archives.html">Archives</a>
+                    </li>
+                </ul><hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ About me ~
+    </div>
+    <div class="panel-body">
+         I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
+                      Learning on the mooc, working at a IT company for CMB bank.<br> 
+                      上面扯一堆英文，没啥意义， 文章说话。 一语概之， 我叫杨秀隆, 头像是成龙， 大概算粉丝
+    </div>
 </div>
-</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ Follow me ~
+    </div>
+    <div class="panel-body">
+        <a href="http://github.com/sndnyang"><img
+            class= "social-icon" src="/theme/images/github-icon.png"></img>
+        </a>
+        <a href="http://www.linkedin.com/profile/view?id=203117671"><img
+            class= "social-icon" src="/theme/images/linkedin-icon.png"></img>
+        </a>
+        <a href="http://blog.csdn.net/sndnyangd"><img
+            class= "social-icon" src="/theme/images/csdn-icon.png"></img>
+        </a>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+            ~ Tag cloud ~
+    </div>
+    <div class="panel-body">
+        <div id="rotate">
+                <a href="/tag/algorithms.html"><span class="label label-default">algorithms</span></a>
+                <a href="/tag/mooc.html"><span class="label label-default">mooc</span></a>
+                <a href="/tag/cs.html"><span class="label label-default">cs</span></a>
+                <a href="/tag/python.html"><span class="label label-default">python</span></a>
+                <a href="/tag/shell.html"><span class="label label-default">shell</span></a>
+                <a href="/tag/stdlib.html"><span class="label label-default">stdlib</span></a>
+                <a href="/tag/web.html"><span class="label label-default">web</span></a>
+                <a href="/tag/ml.html"><span class="label label-default">ml</span></a>
+                <a href="/tag/re.html"><span class="label label-default">re</span></a>
+                <a href="/tag/ai.html"><span class="label label-default">ai</span></a>
+                <a href="/tag/flask.html"><span class="label label-default">flask</span></a>
+                <a href="/tag/pelican.html"><span class="label label-default">pelican</span></a>
+                <a href="/tag/linux.html"><span class="label label-default">linux</span></a>
+                <a href="/tag/spring.html"><span class="label label-default">spring</span></a>
+                <a href="/tag/makefile.html"><span class="label label-default">makefile</span></a>
+ 
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+            ~ Search ~
+    </div>
+    <div class="panel-body">
+        <form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" style="width: 100%">
+        </form>
+    </div>
+</div>
+
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            ~ GitHub Recent Activity ~
+        </div>
+        <div class="panel-body">
+            <div id="gh_repos">
+             <p class="list-group-item">Status updating...</p>
+            </div>
+         </div>
+    </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                if (!window.jXHR) {
+                    var jxhr = document.createElement('script');
+                    jxhr.type = 'text/javascript';
+                    jxhr.src = '/theme/js/jXHR.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(jxhr, s);
+                }
+
+                github.showRepos({
+                    user: 'sndnyang',
+                    count: 5,
+                    skip_forks: false,
+                    target: '#gh_repos'
+                });
+            });
+        </script>
+        <script src="/theme/js/github.js" type="text/javascript"></script>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        ~ Interesting Links ~
+    </div>
+    <div class="panel-body">
+        <li class="list-group-item"><a href="http://getpelican.com/">Pelican
+        </a></li>
+        <li class="list-group-item"><a href="http://python.org/">Python.org
+        </a></li>
+        <li class="list-group-item"><a href="http://jinja.pocoo.org/">Jinja2
+        </a></li>
+        <li class="list-group-item"><a href="#">You can modify those links in your config file
+        </a></li>
+    </div>
+</div>
+
+                    
+            </div>
+        </div>
+        <hr class="hidden-xs"/>
+        <div class="row">
+            <div class="footer">
+                <div class="container">
+                    <p class="footnote">©Christine Doig. Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</i></a>. Thanks to <a href="http://twitter.github.com/bootstrap/">Bootstrap</i></a>, <a href="http://subtlepatterns.com/">Subtle Patterns</i></a> and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome.</a><a href="https://github.com/chdoig/pelican-bootstrap3-lovers">Lovers Theme</a> by Christine Doig
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.pageslide.min.js"></script>
+<script src="/theme/js/prism.js"></script>
+<script>function validateForm(query)
+    {return (query.length > 0);}
+</script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'sndnyang'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+
+        <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
         <script>
             function validateForm(query)
@@ -162,5 +478,5 @@
                 return (query.length > 0);
             }
         </script>
-    </body>
+</body>
 </html>

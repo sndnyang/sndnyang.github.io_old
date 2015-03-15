@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>/</link><description></description><atom:link href="/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Oct 2014 08:08:23 +0800</lastBuildDate><item><title>Java比较器Comparator</title><link>/Java-Comparator.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Oct 2014 08:08:23 +0800</lastBuildDate><item><title>Java比较器Comparator</title><link>http://sndnyang.github.io/Java-Comparator.html</link><description>
 &lt;h1 id="java-comparator"&gt;Java 比较器 Comparator&lt;/h1&gt;
 &lt;h2 id="comparable"&gt;接口 Comparable&lt;/h2&gt;
 &lt;p&gt;内置方法 int compareTo(Item other);&lt;/p&gt;
@@ -40,7 +40,7 @@
                 public int compare(Student a, Student b) {}
             }
         }&lt;/student&gt;&lt;/student&gt;&lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:08:23 +0800</pubDate><guid>tag:,2014-10-18:Java-Comparator.html</guid></item><item><title>Java 泛型机制及迭代器</title><link>/Java-Generic-Iterator.html</link><description>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:08:23 +0800</pubDate><guid>tag:sndnyang.github.io,2014-10-18:Java-Comparator.html</guid></item><item><title>Java 泛型机制及迭代器</title><link>http://sndnyang.github.io/Java-Generic-Iterator.html</link><description>
 &lt;h1 id="java"&gt;Java 泛型机制及迭代器&lt;/h1&gt;
 &lt;h2 id="generic"&gt;泛型 Generic&lt;/h2&gt;
 &lt;h3 id="_1"&gt;基本框架&lt;/h3&gt;
@@ -151,7 +151,7 @@
             String s = i.next();
         }&lt;/string&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:00:00 +0800</pubDate><guid>tag:,2014-10-18:Java-Generic-Iterator.html</guid></item><item><title>快速合并算法</title><link>/quick_union_algo.html</link><description>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 18 Oct 2014 08:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-10-18:Java-Generic-Iterator.html</guid></item><item><title>快速合并算法</title><link>http://sndnyang.github.io/quick_union_algo.html</link><description>
 &lt;h1 id="quick-union"&gt;quick union 快速合并&lt;/h1&gt;
 &lt;h2 id="_1"&gt;数据结构&lt;/h2&gt;
 &lt;ol&gt;
@@ -189,7 +189,7 @@
 &lt;ol&gt;
 &lt;li&gt;生成树太高、太深&lt;/li&gt;
 &lt;li&gt;查找的成本也高。&lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:07:37 +0800</pubDate><guid>tag:,2014-08-16:quick_union_algo.html</guid><category>cs</category><category>mooc</category><category>algorithms</category></item><item><title>percolation作业</title><link>/percolation_assignment.html</link><description>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:07:37 +0800</pubDate><guid>tag:sndnyang.github.io,2014-08-16:quick_union_algo.html</guid><category>cs</category><category>mooc</category><category>algorithms</category></item><item><title>percolation作业</title><link>http://sndnyang.github.io/percolation_assignment.html</link><description>
 &lt;h1 id="percolation"&gt;percolation 作业&lt;/h1&gt;
 &lt;h2 id="_1"&gt;描述&lt;/h2&gt;
 &lt;p&gt;N * N的方格（site）&lt;/p&gt;
@@ -206,7 +206,7 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;li&gt;任意开放某个格子，直到这个系统percolation&lt;/li&gt;
 &lt;li&gt;计算 概率&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="tip"&gt;tip 提示&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:06:19 +0800</pubDate><guid>tag:,2014-08-16:percolation_assignment.html</guid><category>cs</category><category>mooc</category><category>algorithms</category></item><item><title>连通性问题</title><link>/algo_connectivity.html</link><description>
+&lt;h2 id="tip"&gt;tip 提示&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:06:19 +0800</pubDate><guid>tag:sndnyang.github.io,2014-08-16:percolation_assignment.html</guid><category>cs</category><category>mooc</category><category>algorithms</category></item><item><title>连通性问题</title><link>http://sndnyang.github.io/algo_connectivity.html</link><description>
 &lt;h1 id="_1"&gt;连通性问题&lt;/h1&gt;
 &lt;h2 id="_2"&gt;问题定义：&lt;/h2&gt;
 &lt;p&gt;给定 N个物体（点）&lt;/p&gt;
@@ -231,4 +231,4 @@ N个方格的系统为percolation的。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Find查询: 查询两点是否在同一分量&lt;/li&gt;
 &lt;li&gt;Union连接： &lt;/li&gt;
-&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:03:30 +0800</pubDate><guid>tag:,2014-08-16:algo_connectivity.html</guid><category>cs</category><category>algorithms</category><category>mooc</category></item></channel></rss>
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">sndnyang</dc:creator><pubDate>Sat, 16 Aug 2014 05:03:30 +0800</pubDate><guid>tag:sndnyang.github.io,2014-08-16:algo_connectivity.html</guid><category>cs</category><category>algorithms</category><category>mooc</category></item></channel></rss>

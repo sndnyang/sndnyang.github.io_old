@@ -1,504 +1,160 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
-<head>
-    <title>懒龙微薄</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="杨秀隆(sndnyang)" />
+        <meta name="copyright" content="杨秀隆(sndnyang)" />
 
-    <!-- Open Graph tags -->
-
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="懒龙微薄"/>
-            <meta property="og:url" content=""/>
-            <meta property="og:description" content="懒龙微薄"/>
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.lovers.min.css" type="text/css"/>
-        <link rel="stylesheet" href="/theme/css/style.lovers.css" type="text/css"/>
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
-    <!--link href="/theme/css/pygments.css" rel="stylesheet"-->
-    <link href="/theme/css/prism.css" rel="stylesheet" />
-  
-    <!-- JavaScript plugins (requires jQuery) -->
-    <script src="/theme/js/jquery-1.7.1.min.js"></script>
-    <script src="/theme/js/rotate.js"></script>
-    <link rel="stylesheet" type="text/css" href="/theme/css/jquery.pageslide.css">
-
-
-</head>
-<body>
-
-<div class="wrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-md-8 col-lg-9 col-xs-12">
-                <div>
-                <img src="/images/header.jpg" class="img-responsive" alt="Responsive image">
-                </div>
-                <hr class="hidden-xs"/>
-
-    <!--h4 class="section">Blog</h4-->
-    <div class="row">
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">二 13 五月 2014</h6>
-                        <h3><a href="/ksh_judge.html">ksh_judge</a></h3>
-                        <p><h1>ksh 判断</h1>
-<h2>一. 基础比较</h2>
-<ol>
-<li>运算符号代表意义</li>
-<li>=   等于 应用于：整型或字符串比较 如果在[] 中，只能是字符串    </li>
-<li>!=  不等于 应用于：整型或字符串比较 如果在[] 中，只能是字符串  </li>
-<li>&lt;    小于 应用于：整型比较 在[] 中，不能使用 表示字符串   </li>
-<li>&gt;   大于应用于：整型比较 在[] 中，不能使用 表示字符串  </li>
-<li>-eq 等于 应用于：整型比较  </li>
-<li>-ne 不等于 应用于：整型比较  </li>
-<li>-lt 小于 应用于：整型比较  </li>
-<li>-gt 大于 应用于：整型比较  </li>
-<li>-le 小于或等于 应用于：整型比较 ...</li></ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/ksh_judge.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">一 12 五月 2014</h6>
-                        <h3><a href="/tag_tips.html">tag_tips</a></h3>
-                        <p><p>﻿ 配合 tag 文件可以实现定义跳转。<br />
-   :tags" 命令显示你经过的标签列表：
-   下面的命令跳转到标签列表中最上面的标签：
-         :tag
-你可以在前面加上要向前跳转的标签个数。比如：":3tag"。 CTRL-T 同样可以加上一个
-计数参数。
-   :stag tagname
-使用下面的命令可以分割当前窗口并跳转到光标下的标签:
-         CTRL-W ]
-你现在可以跳转到同一个标签的其它匹配处：
-         :tnext
-重复执行这个命令可以找到更多的匹配。如果存在很多匹配，你可以选择要跳转到哪一
-个：
-   :tselect tagname
-你现在可以输入要跳转到的匹配代号（在第一列）。其它列的信息可以让你知道匹配在何
-处被定义。
-可以用这些命令在各匹配的标签间移动：
-         :tfirst                  到第一个匹配
-         :[count]tprevious        向前 [count] 个匹配
-         :[count]tnext            向后 [count] 个匹配
-         :tlast                   到最后一个匹配
-如果没有指定，[count] 省缺为一。
-猜 测 标 ...</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/tag_tips.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">三 07 五月 2014</h6>
-                        <h3><a href="/pandoc.html">pandoc</a></h3>
-                        <p><p>% pandoc 使用</p>
-<p>pandoc --latex-engine=pdflatex|lualatex|xelatex命令。</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/pandoc.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">三 07 五月 2014</h6>
-                        <h3><a href="/db2jdbc.html">db2jdbc</a></h3>
-                        <p><p>﻿% JDBC连接DB2数据库</p>
-<h1>1. db2数据库驱动的安装</h1>
-<h2>方法:</h2>
-<ol>
-<li>安装db2客户端 </li>
-<li>db2的jdbc驱动放到jdk，jre或者tomcat的common/lib目录下 </li>
-</ol>
-<h2>db2的数据库驱动</h2>
-<ol>
-<li>COM.ibm.db2.jdbc.app.DB2Driver</li>
-<li>COM.ibm.db2.jdbc.net.DB2Driver</li>
-<li>通用驱动程序</li>
-</ol>
-<p>前两种在db2java.zip文件中，可以把他改名成db2java.jar文件使用。 第三种放在文件db2jcc.jar文件中</p>
-<h2>驱动的程序加载和连接建立方法：</h2>
-<ol>
-<li>Class.forName("COM.ibm.db2.jdbc.app.DB2Driver"); </li>
-<li>Class.forName("COM.ibm.db2.jdbc.net.DB2Driver"); </li>
-<li>Class.forName("com.ibm.db2 ...</li></ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/db2jdbc.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">二 06 五月 2014</h6>
-                        <h3><a href="/vi_tips.html">vi_tips</a></h3>
-                        <p><p>﻿# vi 小技巧</p>
-<ol>
-<li>vi +xx 文件名，可以直接跳到位置的， 和vim一样。xx代表行数 </li>
-<li>查找时， \&lt;xxx> 代表全词匹配——vim也一样，而且更先进的是，当光标在该单词上时，vim快捷键shift+8就是向下查找，shift+3就是向上查找。</li>
-</ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/vi_tips.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">二 06 五月 2014</h6>
-                        <h3><a href="/share_folder.html">share_folder</a></h3>
-                        <p><p>% 共享文件夹加载</p>
-<ol>
-<li>进入系统，安装增强功能，安装完关闭系统。 </li>
-<li>在E盘下创建一个共享文件夹 gongxiang。 </li>
-<li>设置-&gt;数据空间-&gt;固定分配，选择共享文件夹路径，注意此时不要勾选自动挂载，如下图所示。 </li>
-<li>重新启动系统 </li>
-<li>执行如下命令，就可以看到共享文件夹下面的文件。 
-        huang@huang-VirtualBox:~$ sudo mount -t vboxsf gongxiang /mnt/shared/</li>
-</ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/share_folder.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">日 04 五月 2014</h6>
-                        <h3><a href="/dot.html">dot</a></h3>
-                        <p><p>﻿# dot 入门</p>
-<h2>基本样式</h2>
-<p>digraph Name{
-    nodes_list;</p>
-<div class="highlight"><pre><span class="n">edge_list</span><span class="p">;</span>
-<span class="n">a</span><span class="o">-&gt;</span><span class="n">b</span><span class="p">;</span>
-<span class="n">b</span><span class="o">-&gt;</span><span class="n">c</span><span class="p">;</span>
-</pre></div>
-
-
-<p>}</p>
-<h2>属性设置</h2>
-<blockquote>
-<p>label
-节点的label属性支持类似于HTML语言中的TABLE形式的定义，通过行列的数目来定义节点的形状，从而使得节点的组成更加灵活。</p>
-<p>bgcolor<br />
-fontname<br />
-fontsize<br />
-rankdir   // 这个是什么</p>
-</blockquote>
-<h2>定义顶点和边的样式</h2>
-<p>在digraph的花括号内，添加顶点和边的新定义：</p>
-<ol>
-<li>node [shape="record", style="filled", color="black", fillcolor="chartreuse"];</li>
-<li>
-<p>edge [style="dashed", color=""];</p>
-</li>
-<li>
-<p>可以针对特定结点和页进行设置。 </p>
-</li>
-</ol>
-<h2>子图绘制</h2>
-<p>subgraph cluster_name {
-}</p>
-<h2>复杂标签</h2>
-<div class="highlight"><pre><span class="nx">st</span><span class="o">\</span><span class="nx">_table</span> <span class="err">[</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;{st\_table|&lt;type&gt;type|num ...</span></pre></div></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/dot.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">日 04 五月 2014</h6>
-                        <h3><a href="/git_bash.html">git_bash</a></h3>
-                        <p><p>% windows下配置git bash 显示中文</p>
-<h2>显示中文文件名</h2>
-<p>1、C:\Program Files\Git\etc\git-completion.bash：</p>
-<p>alias ls='ls --show-control-chars --color=auto'</p>
-<p>说明：使得在 Git Bash 中输入 ls 命令，可以正常显示中文文件名。</p>
-<h2>输入中文</h2>
-<p>2、C:\Program Files\Git\etc\inputrc：</p>
-<p>set output-meta on</p>
-<p>set convert-meta off</p>
-<p>说明：使得在 Git Bash 中可以正常输入中文，比如中文的 commit log。</p>
-<p>3、C ...</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/git_bash.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">日 04 五月 2014</h6>
-                        <h3><a href="/db2pei-zhi-yuan-cheng-shu-ju-ku.html">db2配置远程数据库</a></h3>
-                        <p><h1>配置远程数据库</h1>
-<p>1. 执行db2 catalog tcpip node 节点名 remote xx.xx.xx.xx server 50000</p>
-<ol>
-<li>
-<p>执行db2 list node directory show detail，显示可用的节点，确认NODECRM已加入成功</p>
-</li>
-<li>
-<p>db2 catalog db xxxx as 别名 at node 节点名</p>
-</li>
-<li>
-<p>执行InitDbKey,输入数据库用户名和密码（见上）</p>
-</li>
-<li>
-<p>执行db2 connect to xxxx <code>GetDbKey xxxx</code>,验证一下是否能正常连接数据库</p>
-</li>
-<li>
-<p>进到sqldb2.bnd文件所在的目录(一般在~/bnd/ORCHID下,执行 db2 bind sqldb2 ...</p></li></ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/db2pei-zhi-yuan-cheng-shu-ju-ku.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">日 04 五月 2014</h6>
-                        <h3><a href="/duan-kou-jian-ting.html">端口监听</a></h3>
-                        <p><h1>windows、linux、aix 查询端口号占用情况</h1>
-<p>一、windows</p>
-<p>方法一</p>
-<blockquote>
-<p>提升权限后</p>
-<div class="highlight"><pre>  <span class="n">netstat</span> <span class="o">-</span><span class="n">b</span>
-</pre></div>
-
-
-</blockquote>
-<p>方法二</p>
-<ol>
-<li>
-<p>查询端口占用的进程ID</p>
-<blockquote>
-<div class="highlight"><pre>  <span class="n">netstat</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">n</span>  <span class="err">各个端口占用</span>
-  <span class="n">netstat</span> <span class="o">-</span><span class="n">ano</span>   <span class="err">各个端口占用和进程</span><span class="n">PID</span>
-</pre></div>
-
-
-<p>示例： 
-      netstat -aon | findstr "80"</p>
-<div class="highlight"><pre>  <span class="n">TCP</span>    <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">9080</span>         <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">0</span>              <span class="n">LISTENING</span>       <span class="mi">4632</span>
-</pre></div>
-
-
-</blockquote>
-</li>
-<li>
-<p>查看端口号所对应的应用程序</p>
-<p>tasklist | findstr "  4632" </p>
-</li>
-<li>
-<p>终止进程 </p>
-<div class="highlight"><pre><span class="mf">1.</span> <span class="n">taskkill</span> <span class="o">/</span><span class="n">pid</span> <span class="mi">4632</span> <span class="o">/</span><span class="n">F</span> 
-<span class="mf">2.</span> <span class="n">taskkill ...</span></pre></div></li></ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/duan-kou-jian-ting.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <ul class="pagination">
-            <li class="prev"><a href="/index5.html">&laquo;</a>
-            </li>
-                <li class=""><a
-                        href="/index.html">1</a></li>
-                <li class=""><a
-                        href="/index2.html">2</a></li>
-                <li class=""><a
-                        href="/index3.html">3</a></li>
-                <li class=""><a
-                        href="/index4.html">4</a></li>
-                <li class=""><a
-                        href="/index5.html">5</a></li>
-                <li class="active"><a
-                        href="/index6.html">6</a></li>
-                <li class=""><a
-                        href="/index7.html">7</a></li>
-                <li class=""><a
-                        href="/index8.html">8</a></li>
-                <li class=""><a
-                        href="/index9.html">9</a></li>
-            <li class="next"><a
-                    href="/index7.html">&raquo;</a></li>
-    </ul>
- 
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12">
-                <div class="row text-center">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img class="img-circle image100" src="/images/chenlong.jpg" alt="" />
-                    </div>
-                </div><hr />
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a class="btn btn-default" href="/index.html">Home</a></li>
-                    <li>
-                        <a class="btn btn-default" href="/archives.html">Archives</a>
-                    </li>
-                </ul><hr />
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ About me ~
-    </div>
-    <div class="panel-body">
-         I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
-                      Learning on the mooc, working at a IT company for CMB bank.<br> 
-                      上面扯一堆英文，没啥意义， 文章说话。 一语概之， 我叫杨秀隆, 头像是成龙， 大概算粉丝
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ Follow me ~
-    </div>
-    <div class="panel-body">
-        <a href="http://github.com/sndnyang"><img
-            class= "social-icon" src="/theme/images/github-icon.png"></img>
-        </a>
-        <a href="http://www.linkedin.com/profile/view?id=203117671"><img
-            class= "social-icon" src="/theme/images/linkedin-icon.png"></img>
-        </a>
-        <a href="http://blog.csdn.net/sndnyangd"><img
-            class= "social-icon" src="/theme/images/csdn-icon.png"></img>
-        </a>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-            ~ Tag cloud ~
-    </div>
-    <div class="panel-body">
-        <div id="rotate">
-                <a href="/tag/algorithms.html"><span class="label label-default">algorithms</span></a>
-                <a href="/tag/mooc.html"><span class="label label-default">mooc</span></a>
-                <a href="/tag/cs.html"><span class="label label-default">cs</span></a>
-                <a href="/tag/python.html"><span class="label label-default">python</span></a>
-                <a href="/tag/shell.html"><span class="label label-default">shell</span></a>
-                <a href="/tag/stdlib.html"><span class="label label-default">stdlib</span></a>
-                <a href="/tag/web.html"><span class="label label-default">web</span></a>
-                <a href="/tag/ml.html"><span class="label label-default">ml</span></a>
-                <a href="/tag/re.html"><span class="label label-default">re</span></a>
-                <a href="/tag/ai.html"><span class="label label-default">ai</span></a>
-                <a href="/tag/flask.html"><span class="label label-default">flask</span></a>
-                <a href="/tag/pelican.html"><span class="label label-default">pelican</span></a>
-                <a href="/tag/linux.html"><span class="label label-default">linux</span></a>
-                <a href="/tag/spring.html"><span class="label label-default">spring</span></a>
-                <a href="/tag/makefile.html"><span class="label label-default">makefile</span></a>
- 
-        </div>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-            ~ Search ~
-    </div>
-    <div class="panel-body">
-        <form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" style="width: 100%">
-        </form>
-    </div>
-</div>
-
-
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            ~ GitHub Recent Activity ~
-        </div>
-        <div class="panel-body">
-            <div id="gh_repos">
-             <p class="list-group-item">Status updating...</p>
-            </div>
-         </div>
-    </div>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                if (!window.jXHR) {
-                    var jxhr = document.createElement('script');
-                    jxhr.type = 'text/javascript';
-                    jxhr.src = '/theme/js/jXHR.js';
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(jxhr, s);
-                }
-
-                github.showRepos({
-                    user: 'sndnyang',
-                    count: 5,
-                    skip_forks: false,
-                    target: '#gh_repos'
-                });
-            });
-        </script>
-        <script src="/theme/js/github.js" type="text/javascript"></script>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ Interesting Links ~
-    </div>
-    <div class="panel-body">
-        <li class="list-group-item"><a href="http://getpelican.com/">Pelican
-        </a></li>
-        <li class="list-group-item"><a href="http://python.org/">Python.org
-        </a></li>
-        <li class="list-group-item"><a href="http://jinja.pocoo.org/">Jinja2
-        </a></li>
-        <li class="list-group-item"><a href="#">You can modify those links in your config file
-        </a></li>
-    </div>
-</div>
-
-                    
-            </div>
-        </div>
-        <hr class="hidden-xs"/>
-        <div class="row">
-            <div class="footer">
+        <title>懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
                 <div class="container">
-                    <p class="footnote">©Christine Doig. Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</i></a>. Thanks to <a href="http://twitter.github.com/bootstrap/">Bootstrap</i></a>, <a href="http://subtlepatterns.com/">Subtle Patterns</i></a> and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome.</a><a href="https://github.com/chdoig/pelican-bootstrap3-lovers">Lovers Theme</a> by Christine Doig
-                    </p>
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li  class="active"><a href="http://sndnyang.github.io">Home</a></li>
+                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<div class="row-fluid">
+    <header class="page_header span12">
+    <h1><a href="http://sndnyang.github.io">I'm trying to change myself!!!</a></h1>
+    </header>
+
+    <div class="row-fluid">
+        <div class="span8">
+            <header>
+            <h1 id="about-me">About me</h1>
+            </header>
+            <div class="article-content">
+                 I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
+                      Learning on the mooc, working at a IT company for CMB bank.<br> 
+                      上面扯一堆英文，没啥意义
+            </div>
+        </div>
+
+        <div class="span4">
+            <header>
+            <h1 id="my-projects">My Projects</h1>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/gpa_calculator.html" title="gpa calculator">gpa calculator</a> <span class="proj_desc">a simple gpa calculator for file upload and first project</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <header>
+            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://sndnyang.github.io/archives.html">all posts</a></h1>
+            </header>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/2d-3d-transform.html">2D,3D转换  </a> 
+                <time pubdate="pubdate" datetime="2015-03-07T08:46:07">六 07 三月 2015</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/classical-music-week1.html">古典音乐概论 第一周  </a> 
+                <time pubdate="pubdate" datetime="2015-01-18T10:30:19">日 18 一月 2015</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/Java-Comparator.html">Java比较器Comparator  </a> 
+                <time pubdate="pubdate" datetime="2014-10-18T08:08:23">六 18 十月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/Java-Generic-Iterator.html">Java 泛型机制及迭代器  </a> 
+                <time pubdate="pubdate" datetime="2014-10-18T08:00:00">六 18 十月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html">无聊心得之儒家真牛  </a> 
+                <time pubdate="pubdate" datetime="2014-09-28T00:00:00">日 28 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/automata-hw1.html">正则表达式作业  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T22:50:38">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/bioinform-intro.html">生物信息学算法课程概述  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T10:08:55">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/dasi-project-translate.html">杜克大学数据分析与统计推断 互评项目翻译  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T09:25:01">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/re-2-fa.html">正则表达式转自动机  </a> 
+                <time pubdate="pubdate" datetime="2014-09-07T17:25:07">日 07 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/RE-Basic.html">正则表达式概念  </a> 
+                <time pubdate="pubdate" datetime="2014-09-07T16:41:21">日 07 九月 2014</time>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
-
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/theme/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/theme/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/theme/js/jquery.pageslide.min.js"></script>
-<script src="/theme/js/prism.js"></script>
-<script>function validateForm(query)
-    {return (query.length > 0);}
-</script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="/theme/js/respond.min.js"></script>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'sndnyang'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-
-        <script src="http://code.jquery.com/jquery.min.js"></script>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
         <script>
             function validateForm(query)
@@ -506,5 +162,5 @@ rankdir   // 这个是什么</p>
                 return (query.length > 0);
             }
         </script>
-</body>
+    </body>
 </html>

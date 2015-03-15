@@ -4,1008 +4,1022 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/index.html</loc>
-<lastmod>2015-01-31T22:23:49-00:00</lastmod>
+<loc>http://sndnyang.github.io/index.html</loc>
+<lastmod>2015-03-15T18:23:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/archives.html</loc>
-<lastmod>2015-01-31T22:23:49-00:00</lastmod>
+<loc>http://sndnyang.github.io/archives.html</loc>
+<lastmod>2015-03-15T18:23:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tags.html</loc>
-<lastmod>2015-01-31T22:23:49-00:00</lastmod>
+<loc>http://sndnyang.github.io/tags.html</loc>
+<lastmod>2015-03-15T18:23:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/categories.html</loc>
-<lastmod>2015-01-31T22:23:49-00:00</lastmod>
+<loc>http://sndnyang.github.io/categories.html</loc>
+<lastmod>2015-03-15T18:23:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/classical-music-week1.html</loc>
+<loc>http://sndnyang.github.io/2d-3d-transform.html</loc>
+<lastmod>2015-03-15T00:00:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/classical-music-week1.html</loc>
 <lastmod>2015-01-18T10:30:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/week1-aiplan.html</loc>
-<lastmod>2015-01-23T00:00:00-00:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/Java-Comparator.html</loc>
+<loc>http://sndnyang.github.io/Java-Comparator.html</loc>
 <lastmod>2014-10-18T08:08:23-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/Java-Generic-Iterator.html</loc>
+<loc>http://sndnyang.github.io/Java-Generic-Iterator.html</loc>
 <lastmod>2014-10-18T08:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html</loc>
+<loc>http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html</loc>
 <lastmod>2014-09-28T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/automata-hw1.html</loc>
+<loc>http://sndnyang.github.io/automata-hw1.html</loc>
 <lastmod>2014-09-08T22:50:38-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/bioinform-intro.html</loc>
+<loc>http://sndnyang.github.io/bioinform-intro.html</loc>
 <lastmod>2014-09-08T10:08:55-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/dasi-project-translate.html</loc>
+<loc>http://sndnyang.github.io/dasi-project-translate.html</loc>
 <lastmod>2014-09-08T09:25:01-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/re-2-fa.html</loc>
+<loc>http://sndnyang.github.io/re-2-fa.html</loc>
 <lastmod>2014-09-07T17:25:07-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/RE-Basic.html</loc>
+<loc>http://sndnyang.github.io/RE-Basic.html</loc>
 <lastmod>2014-09-07T16:41:21-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pythonBuiltinLib.html</loc>
+<loc>http://sndnyang.github.io/pythonBuiltinLib.html</loc>
 <lastmod>2014-09-05T21:09:40-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/stdlib-functools.html</loc>
+<loc>http://sndnyang.github.io/stdlib-functools.html</loc>
 <lastmod>2015-01-08T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/HtmlTemplatesInPython.html</loc>
+<loc>http://sndnyang.github.io/HtmlTemplatesInPython.html</loc>
 <lastmod>2014-09-05T08:19:15-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/springController.html</loc>
+<loc>http://sndnyang.github.io/springController.html</loc>
 <lastmod>2014-09-04T22:55:15-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pythonTipsCheckIO.html</loc>
+<loc>http://sndnyang.github.io/pythonTipsCheckIO.html</loc>
 <lastmod>2014-09-04T22:27:11-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/LinuxCommand.html</loc>
+<loc>http://sndnyang.github.io/LinuxCommand.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/union_find_opt.html</loc>
+<loc>http://sndnyang.github.io/union_find_opt.html</loc>
 <lastmod>2014-08-16T05:10:08-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/quick_union_algo.html</loc>
+<loc>http://sndnyang.github.io/quick_union_algo.html</loc>
 <lastmod>2014-08-16T05:07:37-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/percolation_assignment.html</loc>
+<loc>http://sndnyang.github.io/percolation_assignment.html</loc>
 <lastmod>2014-08-16T05:06:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/algo_connectivity.html</loc>
+<loc>http://sndnyang.github.io/algo_connectivity.html</loc>
 <lastmod>2014-08-16T05:03:30-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ML_define.html</loc>
+<loc>http://sndnyang.github.io/ML_define.html</loc>
 <lastmod>2014-08-16T05:00:23-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ksh_manual.html</loc>
+<loc>http://sndnyang.github.io/ksh_manual.html</loc>
 <lastmod>2014-08-13T11:51:02-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/impress-jsjiao-cheng.html</loc>
+<loc>http://sndnyang.github.io/impress-jsjiao-cheng.html</loc>
 <lastmod>2014-07-29T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/makefile.html</loc>
+<loc>http://sndnyang.github.io/makefile.html</loc>
 <lastmod>2014-06-26T10:20:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pelican_config.html</loc>
+<loc>http://sndnyang.github.io/pelican_config.html</loc>
 <lastmod>2014-06-26T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/awkyu-sed.html</loc>
+<loc>http://sndnyang.github.io/awkyu-sed.html</loc>
 <lastmod>2014-06-25T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell-ti-huan-yu-cha-ru.html</loc>
+<loc>http://sndnyang.github.io/shell-ti-huan-yu-cha-ru.html</loc>
 <lastmod>2014-06-25T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/nginx-pei-zhi.html</loc>
+<loc>http://sndnyang.github.io/nginx-pei-zhi.html</loc>
 <lastmod>2014-06-24T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html</loc>
+<loc>http://sndnyang.github.io/suan-fa-ke-bi-ji-zhi-ke-xue-fang-fa.html</loc>
 <lastmod>2014-06-24T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell_gong-neng.html</loc>
+<loc>http://sndnyang.github.io/shell_gong-neng.html</loc>
 <lastmod>2014-06-23T11:25:48-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/week1.html</loc>
+<loc>http://sndnyang.github.io/week1.html</loc>
 <lastmod>2014-06-23T00:36:19-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ksh_yu-fa.html</loc>
+<loc>http://sndnyang.github.io/ksh_yu-fa.html</loc>
 <lastmod>2014-06-20T14:18:56-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/bian-cheng-gui-fan.html</loc>
+<loc>http://sndnyang.github.io/bian-cheng-gui-fan.html</loc>
 <lastmod>2014-06-20T14:14:30-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/cscope_tips.html</loc>
+<loc>http://sndnyang.github.io/cscope_tips.html</loc>
 <lastmod>2014-06-19T09:50:12-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/label_shellgong-ju.html</loc>
+<loc>http://sndnyang.github.io/label_shellgong-ju.html</loc>
 <lastmod>2014-06-16T14:15:30-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/git_an-zhuang-shi-yong-shou-ce.html</loc>
+<loc>http://sndnyang.github.io/git_an-zhuang-shi-yong-shou-ce.html</loc>
 <lastmod>2014-06-12T16:21:58-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2_alter.html</loc>
+<loc>http://sndnyang.github.io/db2_alter.html</loc>
 <lastmod>2014-06-11T16:50:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell_ji-qiao.html</loc>
+<loc>http://sndnyang.github.io/shell_ji-qiao.html</loc>
 <lastmod>2014-06-09T10:18:02-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/find_grep.html</loc>
+<loc>http://sndnyang.github.io/find_grep.html</loc>
 <lastmod>2014-06-06T14:53:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ksh_shu-zu.html</loc>
+<loc>http://sndnyang.github.io/ksh_shu-zu.html</loc>
 <lastmod>2014-06-06T14:26:36-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell_shi-jian.html</loc>
+<loc>http://sndnyang.github.io/shell_shi-jian.html</loc>
 <lastmod>2014-06-06T09:44:02-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/git-hooks.html</loc>
+<loc>http://sndnyang.github.io/git-hooks.html</loc>
 <lastmod>2014-06-04T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/fireflyming-ling.html</loc>
+<loc>http://sndnyang.github.io/fireflyming-ling.html</loc>
 <lastmod>2014-05-28T16:56:52-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/vim_tips.html</loc>
+<loc>http://sndnyang.github.io/vim_tips.html</loc>
 <lastmod>2014-05-28T09:25:08-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/grepji-qiao.html</loc>
+<loc>http://sndnyang.github.io/grepji-qiao.html</loc>
 <lastmod>2014-05-23T09:59:36-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/labelliu-cheng.html</loc>
+<loc>http://sndnyang.github.io/labelliu-cheng.html</loc>
 <lastmod>2014-05-22T11:55:06-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/can-shu-chu-li.html</loc>
+<loc>http://sndnyang.github.io/can-shu-chu-li.html</loc>
 <lastmod>2014-05-15T15:04:56-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2_te-shu-cha-xun.html</loc>
+<loc>http://sndnyang.github.io/db2_te-shu-cha-xun.html</loc>
 <lastmod>2014-05-15T09:42:20-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2_sqlcode.html</loc>
+<loc>http://sndnyang.github.io/db2_sqlcode.html</loc>
 <lastmod>2014-05-13T17:25:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tar_ya-suo.html</loc>
+<loc>http://sndnyang.github.io/tar_ya-suo.html</loc>
 <lastmod>2014-05-13T15:40:08-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ksh_judge.html</loc>
+<loc>http://sndnyang.github.io/ksh_judge.html</loc>
 <lastmod>2014-05-13T13:16:46-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag_tips.html</loc>
+<loc>http://sndnyang.github.io/tag_tips.html</loc>
 <lastmod>2014-05-12T16:49:08-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pandoc.html</loc>
+<loc>http://sndnyang.github.io/pandoc.html</loc>
 <lastmod>2014-05-07T16:35:38-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2jdbc.html</loc>
+<loc>http://sndnyang.github.io/db2jdbc.html</loc>
 <lastmod>2014-05-07T10:10:44-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/vi_tips.html</loc>
+<loc>http://sndnyang.github.io/vi_tips.html</loc>
 <lastmod>2014-05-06T16:27:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/share_folder.html</loc>
+<loc>http://sndnyang.github.io/share_folder.html</loc>
 <lastmod>2014-05-06T09:01:28-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/dot.html</loc>
+<loc>http://sndnyang.github.io/dot.html</loc>
 <lastmod>2014-05-04T15:42:20-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/git_bash.html</loc>
+<loc>http://sndnyang.github.io/git_bash.html</loc>
 <lastmod>2014-05-04T11:51:42-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2pei-zhi-yuan-cheng-shu-ju-ku.html</loc>
+<loc>http://sndnyang.github.io/db2pei-zhi-yuan-cheng-shu-ju-ku.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/duan-kou-jian-ting.html</loc>
+<loc>http://sndnyang.github.io/duan-kou-jian-ting.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/kshzi-dong-bu-quan.html</loc>
+<loc>http://sndnyang.github.io/kshzi-dong-bu-quan.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/profileshe-zhi.html</loc>
+<loc>http://sndnyang.github.io/profileshe-zhi.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell_file.html</loc>
+<loc>http://sndnyang.github.io/shell_file.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shellbian-liang-kong-ge.html</loc>
+<loc>http://sndnyang.github.io/shellbian-liang-kong-ge.html</loc>
 <lastmod>2014-05-04T09:24:04-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/if_else_elif.html</loc>
+<loc>http://sndnyang.github.io/if_else_elif.html</loc>
 <lastmod>2014-05-04T09:20:24-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tong-ji-xing-hao.html</loc>
+<loc>http://sndnyang.github.io/tong-ji-xing-hao.html</loc>
 <lastmod>2014-05-04T09:20:20-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2cha-xun-ben-ji-shu-ju-ku.html</loc>
+<loc>http://sndnyang.github.io/db2cha-xun-ben-ji-shu-ju-ku.html</loc>
 <lastmod>2014-05-04T09:20:18-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/db2_export.html</loc>
+<loc>http://sndnyang.github.io/db2_export.html</loc>
 <lastmod>2014-05-04T09:20:16-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/java_luan-ma.html</loc>
+<loc>http://sndnyang.github.io/java_luan-ma.html</loc>
 <lastmod>2014-04-16T19:36:58-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/markdown_syntax.html</loc>
+<loc>http://sndnyang.github.io/markdown_syntax.html</loc>
 <lastmod>2014-03-03T09:59:54-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/shell_string.html</loc>
+<loc>http://sndnyang.github.io/shell_string.html</loc>
 <lastmod>2014-01-22T16:41:32-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ksh_shu-xue-yun-suan.html</loc>
+<loc>http://sndnyang.github.io/ksh_shu-xue-yun-suan.html</loc>
 <lastmod>2014-01-07T10:56:26-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/date.html</loc>
+<loc>http://sndnyang.github.io/date.html</loc>
 <lastmod>2014-01-07T09:34:36-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/parent.html</loc>
+<loc>http://sndnyang.github.io/parent.html</loc>
 <lastmod>2013-12-27T20:19:14-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/size.html</loc>
+<loc>http://sndnyang.github.io/size.html</loc>
 <lastmod>2013-12-27T20:03:44-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/opr_css.html</loc>
+<loc>http://sndnyang.github.io/opr_css.html</loc>
 <lastmod>2013-12-27T19:59:28-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/del_element.html</loc>
+<loc>http://sndnyang.github.io/del_element.html</loc>
 <lastmod>2013-12-27T19:39:02-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/add_new_element.html</loc>
+<loc>http://sndnyang.github.io/add_new_element.html</loc>
 <lastmod>2013-12-27T19:38:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/content_attr.html</loc>
+<loc>http://sndnyang.github.io/content_attr.html</loc>
 <lastmod>2013-12-27T19:36:44-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/jquery_function.html</loc>
+<loc>http://sndnyang.github.io/jquery_function.html</loc>
 <lastmod>2013-12-26T20:39:56-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/jquery_grammar.html</loc>
+<loc>http://sndnyang.github.io/jquery_grammar.html</loc>
 <lastmod>2013-12-26T20:24:20-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/jquery_ready_func.html</loc>
+<loc>http://sndnyang.github.io/jquery_ready_func.html</loc>
 <lastmod>2013-12-26T19:56:06-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/import_jquery.html</loc>
+<loc>http://sndnyang.github.io/import_jquery.html</loc>
 <lastmod>2013-12-26T19:43:58-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/ge-ren-bi-ji.html</loc>
+<loc>http://sndnyang.github.io/ge-ren-bi-ji.html</loc>
 <lastmod>2013-12-26T04:56:26-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/syspath.html</loc>
+<loc>http://sndnyang.github.io/syspath.html</loc>
 <lastmod>2013-12-25T20:12:20-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/package.html</loc>
+<loc>http://sndnyang.github.io/package.html</loc>
 <lastmod>2013-12-25T13:30:10-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pac_init.html</loc>
+<loc>http://sndnyang.github.io/pac_init.html</loc>
 <lastmod>2013-12-25T13:30:06-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/c_c.html</loc>
+<loc>http://sndnyang.github.io/category/c_c.html</loc>
 <lastmod>2014-06-20T14:14:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/cs.html</loc>
-<lastmod>2015-01-23T00:00:00-00:00</lastmod>
+<loc>http://sndnyang.github.io/category/cs.html</loc>
+<lastmod>2014-09-08T10:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/dao-note-de-lian-jie.html</loc>
+<loc>http://sndnyang.github.io/category/dao-note-de-lian-jie.html</loc>
 <lastmod>2013-12-26T04:56:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/data.html</loc>
+<loc>http://sndnyang.github.io/category/data.html</loc>
 <lastmod>2014-09-08T09:25:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/db2.html</loc>
+<loc>http://sndnyang.github.io/category/db2.html</loc>
 <lastmod>2014-06-11T16:50:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/essay.html</loc>
+<loc>http://sndnyang.github.io/category/essay.html</loc>
 <lastmod>2014-09-28T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/firefly.html</loc>
+<loc>http://sndnyang.github.io/category/firefly.html</loc>
 <lastmod>2014-06-16T14:15:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/git.html</loc>
+<loc>http://sndnyang.github.io/category/git.html</loc>
 <lastmod>2014-06-12T16:21:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/grammar.html</loc>
+<loc>http://sndnyang.github.io/category/grammar.html</loc>
 <lastmod>2013-12-25T20:12:20-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/graphviz.html</loc>
+<loc>http://sndnyang.github.io/category/graphviz.html</loc>
 <lastmod>2014-05-04T15:42:20-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/java.html</loc>
+<loc>http://sndnyang.github.io/category/java.html</loc>
 <lastmod>2014-10-18T08:08:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/jquery.html</loc>
+<loc>http://sndnyang.github.io/category/jquery.html</loc>
 <lastmod>2013-12-27T20:19:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/makefile.html</loc>
+<loc>http://sndnyang.github.io/category/makefile.html</loc>
 <lastmod>2014-06-26T10:20:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/markdown.html</loc>
+<loc>http://sndnyang.github.io/category/markdown.html</loc>
 <lastmod>2014-05-07T16:35:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/mooc.html</loc>
+<loc>http://sndnyang.github.io/category/mooc.html</loc>
 <lastmod>2014-09-08T22:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/music.html</loc>
+<loc>http://sndnyang.github.io/category/music.html</loc>
 <lastmod>2015-01-18T10:30:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/python.html</loc>
+<loc>http://sndnyang.github.io/category/python.html</loc>
 <lastmod>2015-01-08T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/server.html</loc>
+<loc>http://sndnyang.github.io/category/server.html</loc>
 <lastmod>2014-06-24T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/shell.html</loc>
+<loc>http://sndnyang.github.io/category/shell.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/tool.html</loc>
+<loc>http://sndnyang.github.io/category/tool.html</loc>
 <lastmod>2014-07-29T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/totalleader.html</loc>
+<loc>http://sndnyang.github.io/category/totalleader.html</loc>
 <lastmod>2014-06-23T00:36:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/vbox.html</loc>
+<loc>http://sndnyang.github.io/category/vbox.html</loc>
 <lastmod>2014-05-06T09:01:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/vim.html</loc>
+<loc>http://sndnyang.github.io/category/vim.html</loc>
 <lastmod>2014-06-19T09:50:12-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/web.html</loc>
-<lastmod>2014-09-05T08:19:15-00:00</lastmod>
+<loc>http://sndnyang.github.io/category/web.html</loc>
+<lastmod>2015-03-15T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/pelican.html</loc>
+<loc>http://sndnyang.github.io/tag/pelican.html</loc>
 <lastmod>2014-06-26T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ai.html</loc>
-<lastmod>2015-01-23T00:00:00-00:00</lastmod>
+<loc>http://sndnyang.github.io/tag/ai.html</loc>
+<lastmod>2014-08-16T05:00:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/spring.html</loc>
+<loc>http://sndnyang.github.io/tag/spring.html</loc>
 <lastmod>2014-09-04T22:55:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/stdlib.html</loc>
+<loc>http://sndnyang.github.io/tag/stdlib.html</loc>
 <lastmod>2015-01-08T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/linux.html</loc>
+<loc>http://sndnyang.github.io/tag/linux.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/cs.html</loc>
+<loc>http://sndnyang.github.io/tag/cs.html</loc>
 <lastmod>2014-09-08T22:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/web.html</loc>
+<loc>http://sndnyang.github.io/tag/web.html</loc>
 <lastmod>2014-09-05T08:19:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/mooc.html</loc>
+<loc>http://sndnyang.github.io/tag/mooc.html</loc>
 <lastmod>2014-09-08T22:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/flask.html</loc>
+<loc>http://sndnyang.github.io/tag/flask.html</loc>
 <lastmod>2014-09-05T08:19:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/makefile.html</loc>
+<loc>http://sndnyang.github.io/tag/makefile.html</loc>
 <lastmod>2014-06-26T10:20:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/note.html</loc>
+<loc>http://sndnyang.github.io/tag/note.html</loc>
 <lastmod>2014-07-29T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/re.html</loc>
+<loc>http://sndnyang.github.io/tag/re.html</loc>
 <lastmod>2014-09-07T17:25:07-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/music.html</loc>
+<loc>http://sndnyang.github.io/tag/html.html</loc>
+<lastmod>2015-03-15T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/music.html</loc>
 <lastmod>2015-01-18T10:30:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/template.html</loc>
+<loc>http://sndnyang.github.io/tag/template.html</loc>
 <lastmod>2014-06-26T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/bio.html</loc>
+<loc>http://sndnyang.github.io/tag/css.html</loc>
+<lastmod>2015-03-15T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/bio.html</loc>
 <lastmod>2014-09-08T10:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/shell.html</loc>
+<loc>http://sndnyang.github.io/tag/shell.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/python.html</loc>
+<loc>http://sndnyang.github.io/tag/python.html</loc>
 <lastmod>2015-01-08T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/tool.html</loc>
+<loc>http://sndnyang.github.io/tag/tool.html</loc>
 <lastmod>2014-07-29T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/data.html</loc>
+<loc>http://sndnyang.github.io/tag/data.html</loc>
 <lastmod>2014-09-08T09:25:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ml.html</loc>
+<loc>http://sndnyang.github.io/tag/ml.html</loc>
 <lastmod>2014-09-08T09:25:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ke-xue-fang-fa.html</loc>
+<loc>http://sndnyang.github.io/tag/ke-xue-fang-fa.html</loc>
 <lastmod>2014-06-24T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/algorithms.html</loc>
+<loc>http://sndnyang.github.io/tag/algorithms.html</loc>
 <lastmod>2014-09-08T10:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/os.html</loc>
+<loc>http://sndnyang.github.io/tag/os.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/sndnyang.html</loc>
+<loc>http://sndnyang.github.io/author/sndnyang.html</loc>
 <lastmod>2014-10-18T08:08:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/sxq.html</loc>
+<loc>http://sndnyang.github.io/author/sxq.html</loc>
 <lastmod>2014-06-26T10:20:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/yang-xiu-long.html</loc>
+<loc>http://sndnyang.github.io/author/yang-xiu-long.html</loc>
 <lastmod>2014-09-05T08:19:15-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/yang-xiu-long-sndnyang.html</loc>
+<loc>http://sndnyang.github.io/author/yang-xiu-long-sndnyang.html</loc>
 <lastmod>2014-09-28T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/yang-xiu-long-sndnyang-sndnyanggithubio.html</loc>
-<lastmod>2015-01-23T00:00:00-00:00</lastmod>
+<loc>http://sndnyang.github.io/author/yang-xiu-long-sndnyang-sndnyanggithubio.html</loc>
+<lastmod>2015-03-15T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/yang-xiu-long-sndnyangd-sndnyanggithubio.html</loc>
+<loc>http://sndnyang.github.io/author/yang-xiu-long-sndnyangd-sndnyanggithubio.html</loc>
 <lastmod>2015-01-18T10:30:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="/" rel="alternate"></link><link href="/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.atom.xml" rel="self"></link><id>/</id><updated>2015-01-23T00:00:00+08:00</updated><entry><title>人工智能规划 第一周笔记</title><link href="/week1-aiplan.html" rel="alternate"></link><updated>2015-01-23T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2015-01-17:week1-aiplan.html</id><summary type="html">
-&lt;h1 id="_1"&gt;定义&lt;/h1&gt;
-&lt;p&gt;以计算化的方法研究规划过程&lt;/p&gt;
-&lt;h1 id="_2"&gt;类型&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;领域特定&lt;/li&gt;
-&lt;li&gt;领域无关&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="ai"></category></entry><entry><title>正则表达式作业</title><link href="/automata-hw1.html" rel="alternate"></link><updated>2014-09-08T22:50:38+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-08:automata-hw1.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2015-03-15T00:00:00+08:00</updated><entry><title>2D,3D转换</title><link href="http://sndnyang.github.io/2d-3d-transform.html" rel="alternate"></link><updated>2015-03-15T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2015-03-07:2d-3d-transform.html</id><summary type="html">
+&lt;h1 id="2d"&gt;2D 转换&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;translate&lt;/li&gt;
+&lt;li&gt;rotate&lt;/li&gt;
+&lt;li&gt;scale&lt;/li&gt;
+&lt;li&gt;skew&lt;/li&gt;
+&lt;li&gt;matrix&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="3d"&gt;3D 转换&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;rotateX&lt;/li&gt;
+&lt;li&gt;rotateY&lt;/li&gt;
+&lt;li&gt;rotateZ&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="html"></category><category term="css"></category></entry><entry><title>正则表达式作业</title><link href="http://sndnyang.github.io/automata-hw1.html" rel="alternate"></link><updated>2014-09-08T22:50:38+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-08:automata-hw1.html</id><summary type="html">
 &lt;h1 id="_1"&gt;编程容易，笔算不易，且写且珍惜&lt;/h1&gt;
 &lt;p&gt;有点像个傻子一样在发广告
 csdn 博客在 &lt;a href="http://blog.csdn.net/sndnyangd"&gt;sndnyangd&lt;/a&gt;
@@ -60,7 +67,7 @@ github 在 &lt;a href="https://github.com/sndnyang"&gt;sndnyang&lt;/a&gt;&lt;/p&
 &lt;h2 id="_6"&gt;结论&lt;/h2&gt;
 &lt;p&gt;个人经验， 手工推导DFA到RE 非常容易错乱，而老师题目中的几个选项稍认真分析下，可以直接判断正误， 我之前是有多不认真呢。&lt;/p&gt;
 &lt;h1 id="_7"&gt;总&lt;/h1&gt;
-&lt;p&gt;中秋节学习是好事， 可这样不认真导致时间浪费，真是不应该。&lt;/p&gt;</summary><category term="cs"></category><category term="mooc"></category></entry><entry><title>生物信息学算法课程概述</title><link href="/bioinform-intro.html" rel="alternate"></link><updated>2014-09-08T10:08:55+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-08:bioinform-intro.html</id><summary type="html">
+&lt;p&gt;中秋节学习是好事， 可这样不认真导致时间浪费，真是不应该。&lt;/p&gt;</summary><category term="cs"></category><category term="mooc"></category></entry><entry><title>生物信息学算法课程概述</title><link href="http://sndnyang.github.io/bioinform-intro.html" rel="alternate"></link><updated>2014-09-08T10:08:55+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-08:bioinform-intro.html</id><summary type="html">
 &lt;h1 id="_1"&gt;简述&lt;/h1&gt;
 &lt;p&gt;本课是生物信息学算法的第一部分， 内容主要是一些生物信息学里的算法。主要对应以下主题：基因组合，DNA和蛋白质序列比对，regulatory motifs（调控特征序列？），基因重组分析，蛋白质识别等&lt;/p&gt;
 &lt;h1 id="_2"&gt;概述&lt;/h1&gt;
@@ -109,7 +116,7 @@ github 在 &lt;a href="https://github.com/sndnyang"&gt;sndnyang&lt;/a&gt;&lt;/p&
 &lt;p&gt;&lt;strong&gt;课程有认证证书吗？&lt;/strong&gt;
 是的， 想要认证证书，请选本课的  Signature Track 方式。&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cs"></category><category term="algorithms"></category><category term="bio"></category></entry><entry><title>杜克大学数据分析与统计推断 互评项目翻译</title><link href="/dasi-project-translate.html" rel="alternate"></link><updated>2014-09-08T09:25:01+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-08:dasi-project-translate.html</id><summary type="html">
+&lt;/ul&gt;</summary><category term="cs"></category><category term="algorithms"></category><category term="bio"></category></entry><entry><title>杜克大学数据分析与统计推断 互评项目翻译</title><link href="http://sndnyang.github.io/dasi-project-translate.html" rel="alternate"></link><updated>2014-09-08T09:25:01+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-08:dasi-project-translate.html</id><summary type="html">
 &lt;h1 id="_1"&gt;项目介绍&lt;/h1&gt;
 &lt;p&gt;Your independent data analysis project will be done in two phases, each assessed by other students using peer assessment. You can also share your projects via the forums for additional feedback. The project counts as 15% of your grade for a certificate with distinction. 
 独立的数据分析项目需分两步完成。每一个阶段结束后都有学生互评。你可以在讨论区里分享你的项目，以便获得一些额外的反馈信息。在评“优秀证书”时，本项目会占到15%的分值。&lt;/p&gt;
@@ -219,7 +226,7 @@ There are two phases of the project: a project proposal phase and a data analysi
 &lt;li&gt;向Coursera报告抄袭&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id="_6"&gt;我自己该如何避免抄袭？&lt;/h4&gt;
-&lt;p&gt;抄袭是指未加引用地使用了他人的工作成果。关于来源引用，请访问&lt;a href="https://owl.english.purdue.edu/"&gt;OWL&lt;/a&gt;。在你个人项目中，需要对所有来源给出可信引用，甚至你就是原作者但发表在其他地方。&lt;/p&gt;</summary><category term="cs"></category><category term="data"></category><category term="ml"></category></entry><entry><title>正则表达式转自动机</title><link href="/re-2-fa.html" rel="alternate"></link><updated>2014-09-07T17:25:07+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-07:re-2-fa.html</id><summary type="html">
+&lt;p&gt;抄袭是指未加引用地使用了他人的工作成果。关于来源引用，请访问&lt;a href="https://owl.english.purdue.edu/"&gt;OWL&lt;/a&gt;。在你个人项目中，需要对所有来源给出可信引用，甚至你就是原作者但发表在其他地方。&lt;/p&gt;</summary><category term="cs"></category><category term="data"></category><category term="ml"></category></entry><entry><title>正则表达式转自动机</title><link href="http://sndnyang.github.io/re-2-fa.html" rel="alternate"></link><updated>2014-09-07T17:25:07+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-07:re-2-fa.html</id><summary type="html">
 &lt;h1 id="_1"&gt;转换方法&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;正则表达式 -&amp;gt; epsilon-NFA&lt;/li&gt;
@@ -239,7 +246,7 @@ There are two phases of the project: a project proposal phase and a data analysi
     结点从序号不大于k-1 到 不大于 k&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;公式:  &lt;/p&gt;
-&lt;p&gt;$$R^k_{ij} =R^{k-1}&lt;em ik="ik"&gt;{ij} + R^{k-1}&lt;/em&gt;(R^{k-1}&lt;em kj="kj"&gt;{kk})* R^{k-1}&lt;/em&gt; $$&lt;/p&gt;</summary><category term="cs"></category><category term="re"></category></entry><entry><title>正则表达式概念</title><link href="/RE-Basic.html" rel="alternate"></link><updated>2014-09-07T16:41:21+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-07:RE-Basic.html</id><summary type="html">
+&lt;p&gt;$$R^k_{ij} =R^{k-1}&lt;em ik="ik"&gt;{ij} + R^{k-1}&lt;/em&gt;(R^{k-1}&lt;em kj="kj"&gt;{kk})* R^{k-1}&lt;/em&gt; $$&lt;/p&gt;</summary><category term="cs"></category><category term="re"></category></entry><entry><title>正则表达式概念</title><link href="http://sndnyang.github.io/RE-Basic.html" rel="alternate"></link><updated>2014-09-07T16:41:21+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-07:RE-Basic.html</id><summary type="html">
 &lt;h1 id="definition"&gt;definition&lt;/h1&gt;
 &lt;p&gt;algebraic notation that describes the regular languages.
 E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
@@ -261,11 +268,11 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="star"&gt;star&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;infinity&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="cs"></category><category term="re"></category></entry><entry><title>python 内建函数</title><link href="/pythonBuiltinLib.html" rel="alternate"></link><updated>2014-09-05T21:09:40+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-05:pythonBuiltinLib.html</id><summary type="html">
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="cs"></category><category term="re"></category></entry><entry><title>python 内建函数</title><link href="http://sndnyang.github.io/pythonBuiltinLib.html" rel="alternate"></link><updated>2014-09-05T21:09:40+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-05:pythonBuiltinLib.html</id><summary type="html">
 &lt;h1 id="_1"&gt;列表&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;reduce&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>标准库functools</title><link href="/stdlib-functools.html" rel="alternate"></link><updated>2015-01-08T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-05:stdlib-functools.html</id><summary type="html">
+&lt;/ol&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>标准库functools</title><link href="http://sndnyang.github.io/stdlib-functools.html" rel="alternate"></link><updated>2015-01-08T00:00:00+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</id><summary type="html">
 &lt;h1 id="_1"&gt;列表&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="mf"&gt;1.&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;cmp_to_key&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;get_cache_token&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -278,7 +285,7 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;total_ordering&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;update_wrapper&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;wraps&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>controller.mkd</title><link href="/springController.html" rel="alternate"></link><updated>2014-09-04T22:55:15+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-04:springController.html</id><summary type="html">
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="stdlib"></category></entry><entry><title>controller.mkd</title><link href="http://sndnyang.github.io/springController.html" rel="alternate"></link><updated>2014-09-04T22:55:15+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-04:springController.html</id><summary type="html">
 &lt;h1 id="annotation"&gt;记号 Annotation&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;类上 @Controller&lt;/li&gt;
@@ -295,13 +302,13 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
 &lt;h1 id="_2"&gt;转换&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;json 到 ResponseBody 和 RequestBody 之间的转换&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="web"></category><category term="spring"></category></entry><entry><title>checkio.mkd</title><link href="/pythonTipsCheckIO.html" rel="alternate"></link><updated>2014-09-04T22:27:11+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-09-04:pythonTipsCheckIO.html</id><summary type="html">
+&lt;/ol&gt;</summary><category term="web"></category><category term="spring"></category></entry><entry><title>checkio.mkd</title><link href="http://sndnyang.github.io/pythonTipsCheckIO.html" rel="alternate"></link><updated>2014-09-04T22:27:11+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-09-04:pythonTipsCheckIO.html</id><summary type="html">
 &lt;ol&gt;
 &lt;li&gt;boolean 可以用作整数， True 1 ， False 0&lt;/li&gt;
 &lt;li&gt;for while 可以有 else&lt;/li&gt;
 &lt;li&gt;sum(y in t.lower() for y in w)  字符串代表真， 不用bool, sum\all\any使用的是迭代器， 所以不用建[]&lt;/li&gt;
 &lt;li&gt;对元组或列表使用 * , 就可以将 之转成不定长参数&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="python"></category></entry><entry><title>Linux常用命令</title><link href="/LinuxCommand.html" rel="alternate"></link><updated>2014-08-30T19:56:58+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:,2014-08-30:LinuxCommand.html</id><summary type="html">
+&lt;/ol&gt;</summary><category term="python"></category></entry><entry><title>Linux常用命令</title><link href="http://sndnyang.github.io/LinuxCommand.html" rel="alternate"></link><updated>2014-08-30T19:56:58+08:00</updated><author><name>杨秀隆 sndnyang sndnyang.github.io</name></author><id>tag:sndnyang.github.io,2014-08-30:LinuxCommand.html</id><summary type="html">
 &lt;h1 id="_1"&gt;常用命令列表&lt;/h1&gt;
 &lt;p&gt;常用命令大概20个左右， 非要分类的话，大致可以分成以下几类：
 1. 文件系统相关

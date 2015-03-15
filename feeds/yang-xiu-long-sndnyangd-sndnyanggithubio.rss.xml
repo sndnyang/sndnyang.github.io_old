@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>/</link><description></description><atom:link href="/feeds/yang-xiu-long-sndnyangd-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 Jan 2015 10:30:19 +0800</lastBuildDate><item><title>古典音乐概论 第一周</title><link>/classical-music-week1.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyangd-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 Jan 2015 10:30:19 +0800</lastBuildDate><item><title>古典音乐概论 第一周</title><link>http://sndnyang.github.io/classical-music-week1.html</link><description>
 &lt;h1 id="_1"&gt;区别&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -35,4 +35,4 @@
 &lt;span class="err"&gt;情感&lt;/span&gt;
 &lt;span class="n"&gt;limbic&lt;/span&gt; &lt;span class="err"&gt;系统，&lt;/span&gt; &lt;span class="n"&gt;amygdala&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id="_3"&gt;节奏、 旋律&lt;/h1&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyangd sndnyang.github.io</dc:creator><pubDate>Sun, 18 Jan 2015 10:30:19 +0800</pubDate><guid>tag:,2015-01-18:classical-music-week1.html</guid><category>music</category></item></channel></rss>
+&lt;h1 id="_3"&gt;节奏、 旋律&lt;/h1&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyangd sndnyang.github.io</dc:creator><pubDate>Sun, 18 Jan 2015 10:30:19 +0800</pubDate><guid>tag:sndnyang.github.io,2015-01-18:classical-music-week1.html</guid><category>music</category></item></channel></rss>

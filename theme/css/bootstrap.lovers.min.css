@@ -180,7 +180,7 @@ pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:1.428
 .container:after{clear:both;}
 .container:before,.container:after{content:" ";display:table;}
 .container:after{clear:both;}
-@media (min-width:768px){.container{width:750px;}}@media (min-width:992px){.container{width:970px;}}@media (min-width:1200px){.container{width:1170px;}}
+@media (min-width:768px){.container{width:750px;}}@media (min-width:992px){.container{width:98%;}}@media (min-width:1200px){.container{width:1170px;}}
 .row{margin-left:-15px;margin-right:-15px;}.row:before,.row:after{content:" ";display:table;}
 .row:after{clear:both;}
 .row:before,.row:after{content:" ";display:table;}

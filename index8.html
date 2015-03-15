@@ -1,491 +1,160 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
-<head>
-    <title>懒龙微薄</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="杨秀隆(sndnyang)" />
+        <meta name="copyright" content="杨秀隆(sndnyang)" />
 
-    <!-- Open Graph tags -->
-
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="懒龙微薄"/>
-            <meta property="og:url" content=""/>
-            <meta property="og:description" content="懒龙微薄"/>
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.lovers.min.css" type="text/css"/>
-        <link rel="stylesheet" href="/theme/css/style.lovers.css" type="text/css"/>
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
-    <!--link href="/theme/css/pygments.css" rel="stylesheet"-->
-    <link href="/theme/css/prism.css" rel="stylesheet" />
-  
-    <!-- JavaScript plugins (requires jQuery) -->
-    <script src="/theme/js/jquery-1.7.1.min.js"></script>
-    <script src="/theme/js/rotate.js"></script>
-    <link rel="stylesheet" type="text/css" href="/theme/css/jquery.pageslide.css">
-
-
-</head>
-<body>
-
-<div class="wrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-md-8 col-lg-9 col-xs-12">
-                <div>
-                <img src="/images/header.jpg" class="img-responsive" alt="Responsive image">
-                </div>
-                <hr class="hidden-xs"/>
-
-    <!--h4 class="section">Blog</h4-->
-    <div class="row">
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">三 22 一月 2014</h6>
-                        <h3><a href="/shell_string.html">shell_string</a></h3>
-                        <p><h1>shell string总结</h1>
-<ol>
-<li>
-<p>空串判断  if [ -z "$line" ]</p>
-</li>
-<li>
-<p>在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug</p>
-</li>
-<li>
-<p>for循环遍历文件时，使用 for line in <code>cat $filename</code>
-    缺点: 当行内有空格时，一行会被划分成两行</p>
-</li>
-<li>
-<p>上一条的替代方法 while read line do done &lt; filename
-    缺点：过程中需要 命令行交互时， 无法输入命令。</p>
-</li>
-</ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/shell_string.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">二 07 一月 2014</h6>
-                        <h3><a href="/ksh_shu-xue-yun-suan.html">ksh_数学运算</a></h3>
-                        <p><h1>ksh 里的数学运算</h1>
-<p>ksh 里的数学运算不同于 bash，且资料不多，难以查询</p>
-<p>实际使用的是 (( 运算式 )) 
-示例 :
-    (( bch_id += 1 )) 不支持 ++ 
-    (( next = pre + 1 )) 不能用 next=((pre+1))</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/ksh_shu-xue-yun-suan.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">二 07 一月 2014</h6>
-                        <h3><a href="/date.html">date</a></h3>
-                        <p><h1>date命令的使用</h1>
-<ol>
-<li>
-<p>不带任何参数的使用，结果:
-    Tue Jan  7 07:25:17 CST 2014</p>
-</li>
-<li>
-<p>时间显示格式  date +%Y%m%D%H%M%S, 即加号后%字母%字母2......</p>
-</li>
-<li>
-<p>常用格式参数 
-    %Y   year
-    %m   month
-    %d   当月几号
-    %D   等价于  %m/%d/%y
-    %H   24小时制
-    %h   月份的英文缩写
-    %M   分钟
-    %S   秒
-    %s   January 1, 1970至今多少秒，UNIGW系统的标准方式</p>
-</li>
-</ol></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/date.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/parent.html">parent</a></h3>
-                        <p><h1>jquery travel</h1>
-<p>•parent()
- •parents()
- •parentsUntil()</p>
-<p>•children()
- •find()</p>
-<p>•siblings()
- •next()
- •nextAll()
- •nextUntil()
- •prev()
- •prevAll()
- •prevUntil()</p>
-<p>jQuery first() 方法</p>
-<p>first() 方法返回被选元素的首个元素。</p>
-<p>jQuery last() 方法</p>
-<p>last() 方法返回被选元素的最后一个元素。</p>
-<p>jQuery eq() 方法</p>
-<p>eq() 方法返回被选元素中带有指定索引号的元素</p>
-<p>jQuery filter() 方法</p>
-<p>filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。</p>
-<p>jQuery not() 方法</p>
-<p>not() 方法返回不匹配标准的所有元素。</p>
-<p>提示：not() 方法与 filter() 相反。</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/parent.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/size.html">size</a></h3>
-                        <p><h1>jquery 尺寸</h1>
-<p>jQuery width() 和 height() 方法</p>
-<p>width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。</p>
-<p>height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。</p>
-<p>jQuery innerWidth() 和 innerHeight() 方法</p>
-<p>innerWidth() 方法返回元素的宽度（包括内边距）。</p>
-<p>innerHeight() 方法返回元素的高度（包括内边距）。</p>
-<p>jQuery outerWidth() 和 outerHeight() 方法</p>
-<p>outerWidth() 方法返回元素的宽度（包括内边距和边框）。</p>
-<p>outerHeight() 方法返回元素的高度（包括内边距和边框）。</p>
-<p>文档（HTML 文档）和窗口（浏览器视口）的宽度和高度
-$(document) $(window)</p>
-<p>css() 中带参数即为设置</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/size.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/opr_css.html">opr_css</a></h3>
-                        <p><h1>操作css</h1>
-<p>•addClass() - 向被选元素添加一个或多个类
-•removeClass() - 从被选元素删除一个或多个类
-•toggleClass() - 对被选元素进行添加/删除类的切换操作
-•css() - 设置或返回样式属性</p>
-<p>向不同的元素添加 class 属性</p>
-<h2>CSS函数</h2>
-<h2>返回 CSS 属性</h2>
-<p>如需返回指定的 CSS 属性的值，请使用如下语法：
-css("propertyname");
-下面的例子将返回首个匹配元素的 background-color 值：</p>
-<h2>设置 CSS 属性</h2>
-<p>如需设置指定的 CSS 属性，请使用如下语法：
-css("propertyname","value");
-下面的例子将为所有匹配元素设置 background-color 值：</p>
-<h2>设置多个 CSS 属性</h2>
-<p>如需设置多个 CSS 属性，请使用如下语法：
-css({"propertyname":"value","propertyname ...</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/opr_css.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/del_element.html">del_element</a></h3>
-                        <p><h1>删除元素</h1>
-<p>•remove() - 删除被选元素（及其子元素）
-•empty() - 从被选元素中删除子元素</p>
-<p>过滤被删除的元素</p>
-<p>jQuery remove() 方法也可接受一个参数，允许您对被删元素进行过滤。</p>
-<p>该参数可以是任何 jQuery 选择器的语法。</p>
-<p>下面的例子删除 class="italic" 的所有 <p> 元素：</p>
-<p>实例
-$("p").remove(".italic");</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/del_element.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/add_new_element.html">add_new_element</a></h3>
-                        <p><h1>添加新元素</h1>
-<p>•append() - 在被选元素的结尾插入内容
-•prepend() - 在被选元素的开头插入内容
-•after() - 在被选元素之后插入内容
-•before() - 在被选元素之前插入内容</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/add_new_element.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">五 27 十二月 2013</h6>
-                        <h3><a href="/content_attr.html">content_attr</a></h3>
-                        <p><h1>获取，设置内容及属性</h1>
-<p>获得内容 - text()、html() 以及 val()</p>
-<p>三个简单实用的用于 DOM 操作的 jQuery 方法：
- •text() - 设置或返回所选元素的文本内容
- •html() - 设置或返回所选元素的内容（包括 HTML 标记）
- •val() - 设置或返回表单字段的值</p>
-<p>获取属性 - attr();</p>
-<p>说明，不带参数为获取，带参数为设置。</p>
-<p>上述四个回调函数写法：
-拥有回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。</p>
-<p>$("#btn1").click(function(){
-  $("#test1").text(function(i,origText){
-    return "Old text: " + origText + " New text: Hello world ...</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/content_attr.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-        <div class= "menu-category">
-            <div class="thumbnail">
-                    <div class="caption">
-                        <h6 class="summary-date">四 26 十二月 2013</h6>
-                        <h3><a href="/jquery_function.html">jquery_function</a></h3>
-                        <p><h1>jquery 常用函数</h1>
-<h2>隐藏</h2>
-<ol>
-<li>show</li>
-<li>hide</li>
-<li>toggle</li>
-</ol>
-<h2>图形渐消失</h2>
-<ol>
-<li>fadein</li>
-<li>fadeout</li>
-<li>fadetoggle</li>
-<li>fadeto  指定透明度</li>
-</ol>
-<h2>滑动</h2>
-<p>slideDown
-slideUp
-slideToggle</p>
-<h2>动画</h2>
-<ol>
-<li>animate 使用animate来操作CSS属性，
-animate （{})
-当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名</li>
-</ol>
-<h2>stop</h2>
-<h2>callback</h2>
-<p>在动画函数中， 增加最后一个参数 function
-如
-    x.hide("slow", function() {xxxx})</p>
-<h2>方法链接</h2>
-<p>css().hide().slideDown()</p></p>
-                        <p class="btn-read"><a class="btn btn-default" href="/jquery_function.html">Read more</a></p>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <ul class="pagination">
-            <li class="prev"><a href="/index7.html">&laquo;</a>
-            </li>
-                <li class=""><a
-                        href="/index.html">1</a></li>
-                <li class=""><a
-                        href="/index2.html">2</a></li>
-                <li class=""><a
-                        href="/index3.html">3</a></li>
-                <li class=""><a
-                        href="/index4.html">4</a></li>
-                <li class=""><a
-                        href="/index5.html">5</a></li>
-                <li class=""><a
-                        href="/index6.html">6</a></li>
-                <li class=""><a
-                        href="/index7.html">7</a></li>
-                <li class="active"><a
-                        href="/index8.html">8</a></li>
-                <li class=""><a
-                        href="/index9.html">9</a></li>
-            <li class="next"><a
-                    href="/index9.html">&raquo;</a></li>
-    </ul>
- 
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-3 col-xs-12">
-                <div class="row text-center">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img class="img-circle image100" src="/images/chenlong.jpg" alt="" />
-                    </div>
-                </div><hr />
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a class="btn btn-default" href="/index.html">Home</a></li>
-                    <li>
-                        <a class="btn btn-default" href="/archives.html">Archives</a>
-                    </li>
-                </ul><hr />
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ About me ~
-    </div>
-    <div class="panel-body">
-         I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
-                      Learning on the mooc, working at a IT company for CMB bank.<br> 
-                      上面扯一堆英文，没啥意义， 文章说话。 一语概之， 我叫杨秀隆, 头像是成龙， 大概算粉丝
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ Follow me ~
-    </div>
-    <div class="panel-body">
-        <a href="http://github.com/sndnyang"><img
-            class= "social-icon" src="/theme/images/github-icon.png"></img>
-        </a>
-        <a href="http://www.linkedin.com/profile/view?id=203117671"><img
-            class= "social-icon" src="/theme/images/linkedin-icon.png"></img>
-        </a>
-        <a href="http://blog.csdn.net/sndnyangd"><img
-            class= "social-icon" src="/theme/images/csdn-icon.png"></img>
-        </a>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-            ~ Tag cloud ~
-    </div>
-    <div class="panel-body">
-        <div id="rotate">
-                <a href="/tag/algorithms.html"><span class="label label-default">algorithms</span></a>
-                <a href="/tag/mooc.html"><span class="label label-default">mooc</span></a>
-                <a href="/tag/cs.html"><span class="label label-default">cs</span></a>
-                <a href="/tag/python.html"><span class="label label-default">python</span></a>
-                <a href="/tag/shell.html"><span class="label label-default">shell</span></a>
-                <a href="/tag/stdlib.html"><span class="label label-default">stdlib</span></a>
-                <a href="/tag/web.html"><span class="label label-default">web</span></a>
-                <a href="/tag/ml.html"><span class="label label-default">ml</span></a>
-                <a href="/tag/re.html"><span class="label label-default">re</span></a>
-                <a href="/tag/ai.html"><span class="label label-default">ai</span></a>
-                <a href="/tag/flask.html"><span class="label label-default">flask</span></a>
-                <a href="/tag/pelican.html"><span class="label label-default">pelican</span></a>
-                <a href="/tag/linux.html"><span class="label label-default">linux</span></a>
-                <a href="/tag/spring.html"><span class="label label-default">spring</span></a>
-                <a href="/tag/makefile.html"><span class="label label-default">makefile</span></a>
- 
-        </div>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-            ~ Search ~
-    </div>
-    <div class="panel-body">
-        <form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" style="width: 100%">
-        </form>
-    </div>
-</div>
-
-
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            ~ GitHub Recent Activity ~
-        </div>
-        <div class="panel-body">
-            <div id="gh_repos">
-             <p class="list-group-item">Status updating...</p>
-            </div>
-         </div>
-    </div>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                if (!window.jXHR) {
-                    var jxhr = document.createElement('script');
-                    jxhr.type = 'text/javascript';
-                    jxhr.src = '/theme/js/jXHR.js';
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(jxhr, s);
-                }
-
-                github.showRepos({
-                    user: 'sndnyang',
-                    count: 5,
-                    skip_forks: false,
-                    target: '#gh_repos'
-                });
-            });
-        </script>
-        <script src="/theme/js/github.js" type="text/javascript"></script>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        ~ Interesting Links ~
-    </div>
-    <div class="panel-body">
-        <li class="list-group-item"><a href="http://getpelican.com/">Pelican
-        </a></li>
-        <li class="list-group-item"><a href="http://python.org/">Python.org
-        </a></li>
-        <li class="list-group-item"><a href="http://jinja.pocoo.org/">Jinja2
-        </a></li>
-        <li class="list-group-item"><a href="#">You can modify those links in your config file
-        </a></li>
-    </div>
-</div>
-
-                    
-            </div>
-        </div>
-        <hr class="hidden-xs"/>
-        <div class="row">
-            <div class="footer">
+        <title>懒龙微薄
+</title>
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
                 <div class="container">
-                    <p class="footnote">©Christine Doig. Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</i></a>. Thanks to <a href="http://twitter.github.com/bootstrap/">Bootstrap</i></a>, <a href="http://subtlepatterns.com/">Subtle Patterns</i></a> and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome.</a><a href="https://github.com/chdoig/pelican-bootstrap3-lovers">Lovers Theme</a> by Christine Doig
-                    </p>
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙微薄</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li  class="active"><a href="http://sndnyang.github.io">Home</a></li>
+                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<div class="row-fluid">
+    <header class="page_header span12">
+    <h1><a href="http://sndnyang.github.io">I'm trying to change myself!!!</a></h1>
+    </header>
+
+    <div class="row-fluid">
+        <div class="span8">
+            <header>
+            <h1 id="about-me">About me</h1>
+            </header>
+            <div class="article-content">
+                 I'm sndnyang(d), <a href="https://github.com/sndnyang">sndnyang</a> at github and  <a href="http://blog.csdn.net/sndnyangd">sndnyangd</a> at csdn.<br>
+                      Learning on the mooc, working at a IT company for CMB bank.<br> 
+                      上面扯一堆英文，没啥意义
+            </div>
+        </div>
+
+        <div class="span4">
+            <header>
+            <h1 id="my-projects">My Projects</h1>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/gpa_calculator.html" title="gpa calculator">gpa calculator</a> <span class="proj_desc">a simple gpa calculator for file upload and first project</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <header>
+            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://sndnyang.github.io/archives.html">all posts</a></h1>
+            </header>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/2d-3d-transform.html">2D,3D转换  </a> 
+                <time pubdate="pubdate" datetime="2015-03-07T08:46:07">六 07 三月 2015</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/classical-music-week1.html">古典音乐概论 第一周  </a> 
+                <time pubdate="pubdate" datetime="2015-01-18T10:30:19">日 18 一月 2015</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/Java-Comparator.html">Java比较器Comparator  </a> 
+                <time pubdate="pubdate" datetime="2014-10-18T08:08:23">六 18 十月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/Java-Generic-Iterator.html">Java 泛型机制及迭代器  </a> 
+                <time pubdate="pubdate" datetime="2014-10-18T08:00:00">六 18 十月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html">无聊心得之儒家真牛  </a> 
+                <time pubdate="pubdate" datetime="2014-09-28T00:00:00">日 28 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/automata-hw1.html">正则表达式作业  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T22:50:38">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/bioinform-intro.html">生物信息学算法课程概述  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T10:08:55">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/dasi-project-translate.html">杜克大学数据分析与统计推断 互评项目翻译  </a> 
+                <time pubdate="pubdate" datetime="2014-09-08T09:25:01">一 08 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/re-2-fa.html">正则表达式转自动机  </a> 
+                <time pubdate="pubdate" datetime="2014-09-07T17:25:07">日 07 九月 2014</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="http://sndnyang.github.io/RE-Basic.html">正则表达式概念  </a> 
+                <time pubdate="pubdate" datetime="2014-09-07T16:41:21">日 07 九月 2014</time>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
-
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/theme/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/theme/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/theme/js/jquery.pageslide.min.js"></script>
-<script src="/theme/js/prism.js"></script>
-<script>function validateForm(query)
-    {return (query.length > 0);}
-</script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="/theme/js/respond.min.js"></script>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'sndnyang'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-
-        <script src="http://code.jquery.com/jquery.min.js"></script>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
         <script>
             function validateForm(query)
@@ -493,5 +162,5 @@ animate （{})
                 return (query.length > 0);
             }
         </script>
-</body>
+    </body>
 </html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙微薄</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/sndnyang.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-10-18T08:08:23+08:00</updated><entry><title>Java比较器Comparator</title><link href="http://sndnyang.github.io/Java-Comparator.html" rel="alternate"></link><updated>2014-10-18T08:08:23+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-10-18:Java-Comparator.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>懒龙谷</title><link href="http://sndnyang.github.io/" rel="alternate"></link><link href="http://sndnyang.github.io/feeds/sndnyang.atom.xml" rel="self"></link><id>http://sndnyang.github.io/</id><updated>2014-10-18T08:08:23+08:00</updated><entry><title>Java比较器Comparator</title><link href="http://sndnyang.github.io/Java-Comparator.html" rel="alternate"></link><updated>2014-10-18T08:08:23+08:00</updated><author><name>sndnyang</name></author><id>tag:sndnyang.github.io,2014-10-18:Java-Comparator.html</id><summary type="html">
 &lt;h1 id="java-comparator"&gt;Java 比较器 Comparator&lt;/h1&gt;
 &lt;h2 id="comparable"&gt;接口 Comparable&lt;/h2&gt;
 &lt;p&gt;内置方法 int compareTo(Item other);&lt;/p&gt;

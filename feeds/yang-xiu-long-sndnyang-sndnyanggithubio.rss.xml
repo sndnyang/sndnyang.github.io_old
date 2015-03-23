@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 15 Mar 2015 00:00:00 +0800</lastBuildDate><item><title>2D,3D转换</title><link>http://sndnyang.github.io/2d-3d-transform.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 23 Mar 2015 00:00:00 +0800</lastBuildDate><item><title>week2</title><link>http://sndnyang.github.io/.html</link><description>
+&lt;h1 id="_1"&gt;一元线性回归&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;SSE -- sum of squared errors&lt;/li&gt;
+&lt;li&gt;RMSE -- Root-Mean-Square Error &lt;/li&gt;
+&lt;li&gt;R^2 -- compare the best model to a "baseline" model
+    R^2 = 1 - SSE/SST&lt;/li&gt;
+&lt;li&gt;baseline -- avg, not use any variables, predict the avg value of the dependent variable.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SST total sum of squares&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;R^2 meaning&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;using a model 的效果&lt;/li&gt;
+&lt;li&gt;= 0 则无效果&lt;/li&gt;
+&lt;li&gt;= 1 则是完美&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_2"&gt;多元线性回归&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;多元可以对一元进行优化？ 跟没说差不多&lt;/li&gt;
+&lt;li&gt;添加更多元变量能提高 model &lt;/li&gt;
+&lt;li&gt;diminishing returns as more variables are added&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不要使用过多元（维）变量
+1. 每个变量都会多算很多数据
+2. 建模时 R^2 很高， 但对未知数据的预测反而不准， 即为 过拟合&lt;/p&gt;
+&lt;h1 id="on-r"&gt;线性回归 on R&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;lm(target ~ variable1 + variable2 ..., data = xxx);&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="_3"&gt;模型系数分析&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;estimate -- 0 代表模型无关 ， 所以越小越无用， 可以考虑不加入&lt;/li&gt;
+&lt;li&gt;std error -- &lt;/li&gt;
+&lt;li&gt;t value -- estimate / stderror,  绝对值越大的变量， 越重要&lt;/li&gt;
+&lt;li&gt;Pr(&amp;gt;|t|) -- t 的绝对值大， 它就小&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="correlation"&gt;correlation 相关&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;正相关&lt;/li&gt;
+&lt;li&gt;不相关&lt;/li&gt;
+&lt;li&gt;负相关&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;R: cor(data$variable1, data$variable2)&lt;/p&gt;
+&lt;h1 id="multicollinearity"&gt;multicollinearity 多元共线性&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;独立变量之间存在高度相关&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id="_4"&gt;预测&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newdata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;testData&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;SST&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Target&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Mon, 23 Mar 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-03-22:.html</guid><category></category></item><item><title>2D,3D转换</title><link>http://sndnyang.github.io/2d-3d-transform.html</link><description>
 &lt;h1 id="2d"&gt;2D 转换&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;translate&lt;/li&gt;

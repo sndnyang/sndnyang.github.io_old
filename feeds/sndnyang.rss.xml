@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙微薄</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Oct 2014 08:08:23 +0800</lastBuildDate><item><title>Java比较器Comparator</title><link>http://sndnyang.github.io/Java-Comparator.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Oct 2014 08:08:23 +0800</lastBuildDate><item><title>Java比较器Comparator</title><link>http://sndnyang.github.io/Java-Comparator.html</link><description>
 &lt;h1 id="java-comparator"&gt;Java 比较器 Comparator&lt;/h1&gt;
 &lt;h2 id="comparable"&gt;接口 Comparable&lt;/h2&gt;
 &lt;p&gt;内置方法 int compareTo(Item other);&lt;/p&gt;

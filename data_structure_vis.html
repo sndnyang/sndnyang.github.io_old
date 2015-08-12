@@ -7,13 +7,20 @@
   <style type="text/css">
     #datastruct {
       width: 95%;
-      height: 400px;
+      height: 100px;
       border: 1px solid lightgray;
+    }
+    #code {
+        width: 95%;
+        height: 150px;
     }
   </style>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.css" rel="stylesheet" type="text/css" />
+  
+  <!--<script type="text/javascript" src="./vis.js"></script>
+  <link href="./vis.css" rel="stylesheet" type="text/css" />-->
 
   <script type="text/javascript">
     var nodes = null;
@@ -21,6 +28,16 @@
     var network = null;
     var stepLog = new Array();
     var index = 0;
+    
+    function execute() {
+        var code = document.getElementById('code').value;
+        var obj;
+        /* jslint evil:true */
+        obj = eval("(" + code + ")");
+        console.log("Code is", obj);
+        obj.next();
+        console.log(index);
+    }
 
     function stepRedraw() {
     // create a network
@@ -61,17 +78,17 @@
         
         nodes[j].color = "red";
         nodes[j-1].color = "red";
-        
-        var data = {
-            nodes: nodes,
-            edges: edges
-        };
-                
+               
         if (step.swap == true) {
             var label = nodes[j].label;
             nodes[j].label = nodes[j-1].label;
             nodes[j-1].label = label;
         }
+                
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
         
         network.setData(data);
         network.redraw();
@@ -145,5 +162,22 @@
 	</select>
     <input type="submit" value="算法运行" onclick="start()"/>
     <input type="button" value="下一步" onclick="next()"/>
+    
+    <div class="code">
+        <textarea name="Code" id="code">{
+next: function() {
+    nodes[index].color = "red";
+    var data = {
+        nodes: nodes,
+        edges: edges
+      };
+network.setData(data);
+        network.redraw();
+        index++;
+}
+}</textarea>
+    </div>
+    </br>
+    <button id="button_apply" onclick="execute()">Apply</button>
 </body>
 </html>

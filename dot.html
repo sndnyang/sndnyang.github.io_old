@@ -59,7 +59,7 @@
         <div class="span8 offset2 article-content">
 
             <p>﻿# dot 入门</p>
-<h2>基本样式</h2>
+<h2 id="_1">基本样式</h2>
 <p>digraph Name{
     nodes_list;</p>
 <div class="highlight"><pre><span class="n">edge_list</span><span class="p">;</span>
@@ -69,7 +69,7 @@
 
 
 <p>}</p>
-<h2>属性设置</h2>
+<h2 id="_2">属性设置</h2>
 <blockquote>
 <p>label
 节点的label属性支持类似于HTML语言中的TABLE形式的定义，通过行列的数目来定义节点的形状，从而使得节点的组成更加灵活。</p>
@@ -78,7 +78,7 @@ fontname<br />
 fontsize<br />
 rankdir   // 这个是什么</p>
 </blockquote>
-<h2>定义顶点和边的样式</h2>
+<h2 id="_3">定义顶点和边的样式</h2>
 <p>在digraph的花括号内，添加顶点和边的新定义：</p>
 <ol>
 <li>node [shape="record", style="filled", color="black", fillcolor="chartreuse"];</li>
@@ -89,10 +89,10 @@ rankdir   // 这个是什么</p>
 <p>可以针对特定结点和页进行设置。 </p>
 </li>
 </ol>
-<h2>子图绘制</h2>
+<h2 id="_4">子图绘制</h2>
 <p>subgraph cluster_name {
 }</p>
-<h2>复杂标签</h2>
+<h2 id="_5">复杂标签</h2>
 <div class="highlight"><pre><span class="nx">st</span><span class="o">\</span><span class="nx">_table</span> <span class="err">[</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;{st\_table|&lt;type&gt;type|num\_bins|num\_entries|&lt;bins&gt;bins}&quot;</span><span class="cp">]</span>;
 
 st\_table:bins -&gt; st\_table\_entry:head;
@@ -103,7 +103,7 @@ st\_table:bins -&gt; st\_table\_entry:head;
 <p>label 使用{}, 将多个标签用|分隔开</p>
 <p>&lt;&gt; 锚点，用于后期某个位置 指向某个位置</p>
 </blockquote>
-<h2>结点位置关系</h2>
+<h2 id="_6">结点位置关系</h2>
 <ol>
 <li>
 <p>使用rank </p>

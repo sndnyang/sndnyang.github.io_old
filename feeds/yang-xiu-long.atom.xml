@@ -344,27 +344,27 @@ Trap “rm –f $tmp;exit” 0 1 2 15 ;当shell程序退出，用户退出，按
    &lt;span class="n"&gt;Commands&lt;/span&gt;   
 &lt;span class="n"&gt;Done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如果满足条件condition则执行commands   &lt;/p&gt;</summary><category term="shell"></category></entry><entry><title>impress js教程</title><link href="http://sndnyang.github.io/impress-jsjiao-cheng.html" rel="alternate"></link><updated>2014-07-29T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-07-29:impress-jsjiao-cheng.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1&gt;impress js 介绍&lt;/h1&gt;
-&lt;h1&gt;pandoc 模板&lt;/h1&gt;
-&lt;h1&gt;参数列表&lt;/h1&gt;
+&lt;p&gt;如果满足条件condition则执行commands   &lt;/p&gt;</summary><category term="shell"></category></entry><entry><title>impress js教程</title><link href="http://sndnyang.github.io/impress-jsjiao-cheng.html" rel="alternate"></link><updated>2014-07-29T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-07-29:impress-jsjiao-cheng.html</id><summary type="html">
+&lt;h1 id="impress-js"&gt;impress js 介绍&lt;/h1&gt;
+&lt;h1 id="pandoc"&gt;pandoc 模板&lt;/h1&gt;
+&lt;h1 id="_1"&gt;参数列表&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;都需要指定坐标，因为是绝对位置&lt;/strong&gt;
 所以如果pandoc 能自动地对impress.js 进行相对处理，会好很多&lt;/p&gt;
-&lt;h2&gt;位置&lt;/h2&gt;
+&lt;h2 id="_2"&gt;位置&lt;/h2&gt;
 &lt;p&gt;位置坐标，物体中心所在
 data-x=-1500
 data-y=1500
 data-z=1500&lt;/p&gt;
-&lt;h2&gt;外观&lt;/h2&gt;
+&lt;h2 id="_3"&gt;外观&lt;/h2&gt;
 &lt;p&gt;data-perspective="500"
 data-scale=4&lt;/p&gt;
-&lt;h2&gt;动作&lt;/h2&gt;
+&lt;h2 id="_4"&gt;动作&lt;/h2&gt;
 &lt;p&gt;data-transition-duration="2000"&lt;/p&gt;
 &lt;p&gt;顺时针旋转
-data-rotate=180&lt;br /&gt;
+data-rotate=180&lt;br/&gt;
 data-rotate-x=60
-data-rotate-y=60&lt;/p&gt;</summary><category term="tool"></category><category term="note"></category></entry><entry><title>pelican_config</title><link href="http://sndnyang.github.io/pelican_config.html" rel="alternate"></link><updated>2014-06-26T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-26:pelican_config.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1&gt;markdown 模板格式要求&lt;/h1&gt;
+data-rotate-y=60&lt;/p&gt;</summary><category term="tool"></category><category term="note"></category></entry><entry><title>pelican_config</title><link href="http://sndnyang.github.io/pelican_config.html" rel="alternate"></link><updated>2014-06-26T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-26:pelican_config.html</id><summary type="html">
+&lt;h1 id="markdown"&gt;markdown 模板格式要求&lt;/h1&gt;
 &lt;p&gt;文章模板如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;   
 &lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;   
@@ -378,33 +378,29 @@ data-rotate-y=60&lt;/p&gt;</summary><category term="tool"></category><category t
 
 &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;TOC&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;这个是生成目录用的&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;p&gt;说明&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;slug 是生成的html 文件名， 不然中文转换成拼音，英文则是原文件名。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1&gt;语法要求&lt;/h1&gt;
+&lt;h1 id="_1"&gt;语法要求&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;图片等资源 建议放到顶层目录的 res 或 imags 下。&lt;/li&gt;
 &lt;li&gt;链接到其他 mkd 转化成的html时， 路径不是实际路径，都在 / 下， 名字对应为 title 或 slug 应该是这样。&lt;/li&gt;
 &lt;li&gt;暂时没想到其他的了。&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="pelican"></category><category term="template"></category></entry><entry><title>awk与sed</title><link href="http://sndnyang.github.io/awkyu-sed.html" rel="alternate"></link><updated>2014-06-25T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-25:awkyu-sed.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2&gt;插入&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
-&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/ol&gt;</summary><category term="pelican"></category><category term="template"></category></entry><entry><title>awk与sed</title><link href="http://sndnyang.github.io/awkyu-sed.html" rel="alternate"></link><updated>2014-06-25T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-25:awkyu-sed.html</id><summary type="html">
+&lt;h2 id="_1"&gt;插入&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;"1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var"&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;替换&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dsfds&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gdkok&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>shell 替换与插入</title><link href="http://sndnyang.github.io/shell-ti-huan-yu-cha-ru.html" rel="alternate"></link><updated>2014-06-25T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-25:shell-ti-huan-yu-cha-ru.html</id><summary type="html">&lt;h1&gt;sed 使用技巧&lt;/h1&gt;
-&lt;h2&gt;替换&lt;/h2&gt;
-&lt;h2&gt;插入&lt;/h2&gt;
+&lt;h2 id="_2"&gt;替换&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dsfds&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gdkok&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>shell 替换与插入</title><link href="http://sndnyang.github.io/shell-ti-huan-yu-cha-ru.html" rel="alternate"></link><updated>2014-06-25T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-25:shell-ti-huan-yu-cha-ru.html</id><summary type="html">&lt;h1 id="sed"&gt;sed 使用技巧&lt;/h1&gt;
+&lt;h2 id="_1"&gt;替换&lt;/h2&gt;
+&lt;h2 id="_2"&gt;插入&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;sdfasdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
 &lt;span class="n"&gt;sed&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1i&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;$var&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Git hooks</title><link href="http://sndnyang.github.io/git-hooks.html" rel="alternate"></link><updated>2014-06-04T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-04:git-hooks.html</id><summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1&gt;Git hooks&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Git hooks</title><link href="http://sndnyang.github.io/git-hooks.html" rel="alternate"></link><updated>2014-06-04T00:00:00+08:00</updated><author><name>杨秀隆</name></author><id>tag:sndnyang.github.io,2014-06-04:git-hooks.html</id><summary type="html">
+&lt;h1 id="git-hooks"&gt;Git hooks&lt;/h1&gt;
 &lt;p&gt;Remote Machine
 We create a bare git repo, then point the working tree at the docroot of our website. This means all the git stuff is kept in the somesite.git folder, but the files themselves are checked out to the website's folder. Then we setup a post-receive hook to update the worktree folder after new changes have been pushed to the repo.&lt;/p&gt;
 &lt;p&gt;$ cd git
@@ -417,7 +413,7 @@ $ git config core.worktree /home/caius/vhosts/somesite.com/htdocs
 $ git config core.bare false
 $ git config receive.denycurrentbranch ignore
 $ cat &amp;gt; hooks/post-receive&lt;/p&gt;
-&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+&lt;h1 id="binsh"&gt;!/bin/sh&lt;/h1&gt;
 &lt;p&gt;git checkout -f
 ^D
 $ chmod +x hooks/post-receive
@@ -432,5 +428,5 @@ To ssh://myserver/home/caius/git/somesite.git
  * [new branch]      master -&amp;gt; master
 All Done
 And now if you go to somesite.com you'll see the contents of your git repo there. (somesite.com is just an example url though, I don't actually own it!)&lt;/p&gt;
-&lt;h2&gt;文件夹 hook 下&lt;/h2&gt;
+&lt;h2 id="hook"&gt;文件夹 hook 下&lt;/h2&gt;
 &lt;p&gt;post-receive 这些都是脚本&lt;/p&gt;</summary></entry></feed>

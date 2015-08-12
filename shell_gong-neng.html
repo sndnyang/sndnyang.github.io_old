@@ -61,17 +61,17 @@
             <p>% shell 特殊功能
 % 杨秀隆<br />
 % 20140605</p>
-<h1>有用功能</h1>
-<h2>编码判断加转换</h2>
+<h1 id="_1">有用功能</h1>
+<h2 id="_2">编码判断加转换</h2>
 <p>enca 或 iconv</p>
-<h3>一、利用iconv命令进行文件内容编码转换</h3>
+<h3 id="iconv">一、利用iconv命令进行文件内容编码转换</h3>
 <p>下载地址 <a href="http://99.6.145.70:8090/res/iconv.exe">iconv</a></p>
 <p>用法：iconv [选项...] [文件...]</p>
 <p>有如下选项可用:</p>
 <p>输入/输出格式规范：</p>
 <p>-f, --from-code=名称 原始文本编码</p>
 <p>-t, --to-code=名称 输出编码</p>
-<h3>二、enca</h3>
+<h3 id="enca">二、enca</h3>
 <p>下载地址 <a href="http://99.6.145.70:8090/res/enca.exe">enca</a> 和 <a href="http://99.6.145.70:8090/res/enconv.exe">enconv</a>  </p>
 <p>enca用法如下：</p>
 <p>enca -L zh_CN file 检查文件的编码</p>
@@ -80,7 +80,7 @@
 <p>除了有检查文件编码的功能以外，”enca”还有一个好处就是如果文件本来就是你要转换的那种编码，它不会报错，还是会print出结果来， 而”iconv”则会报错。这对于脚本编写是比较方便的事情。</p>
 <p>转换单个文件的编码
 enca -L none -x utf-8  index.html</p>
-<h2>参数太长</h2>
+<h2 id="_3">参数太长</h2>
 <p>如 rm -f * 删除当前路径下所有文件时，可能文件太多，报错Argument list too long</p>
 <p>解决方法:</p>
 <div class="highlight"><pre><span class="n">ls</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">rm</span> <span class="o">-</span><span class="n">f</span>
@@ -88,8 +88,8 @@ enca -L none -x utf-8  index.html</p>
 
 
 <p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
-<h2>判断操作系统 uname</h2>
-<h2>命令行参数处理模块</h2>
+<h2 id="uname">判断操作系统 uname</h2>
+<h2 id="_4">命令行参数处理模块</h2>
 <p>Shell中提供了一条获取和处理命令行选项的语句，即getopts语句。该语句的格式为:</p>
 <div class="highlight"><pre><span class="n">getopts</span> <span class="n">option_string</span> <span class="n">variable</span>
 </pre></div>

@@ -61,10 +61,10 @@
             <p>﻿% C/C++ 编程规范<br />
 % 杨秀隆<br />
 % 20140616</p>
-<h1>源代码组织</h1>
-<h2>源文件</h2>
+<h1 id="_1">源代码组织</h1>
+<h2 id="_2">源文件</h2>
 <p>.h .c .cpp .hpp</p>
-<h2>库文件</h2>
+<h2 id="_3">库文件</h2>
 <ul>
 <li>
 <p>动态库 <br />
@@ -90,14 +90,14 @@
 </ol>
 </li>
 </ul>
-<h2>静态变量 static</h2>
+<h2 id="static">静态变量 static</h2>
 <p>特点:
 1. 分配在全局数据区
 2. 在声明时初始化一次
 3. 不显式初始化，则为0</p>
-<h2>外部变量 extern</h2>
-<h1>排版命名</h1>
-<h2>匈牙利命名法</h2>
+<h2 id="extern">外部变量 extern</h2>
+<h1 id="_4">排版命名</h1>
+<h2 id="_5">匈牙利命名法</h2>
 <p>组成： </p>
 <div class="highlight"><pre><span class="err">作用域前缀</span> <span class="n">_</span><span class="err">类型简称</span><span class="p">[</span> <span class="n">_</span><span class="err">基本名称</span><span class="p">][</span> <span class="n">_</span><span class="err">限定词</span><span class="p">]</span>
 </pre></div>
@@ -107,17 +107,17 @@
 sm : 类的静态成员变量
 g  : 全局变量
 s  : 静态变量</p>
-<h1>函数事项</h1>
-<h2>命名</h2>
-<h2>参数</h2>
+<h1 id="_6">函数事项</h1>
+<h2 id="_7">命名</h2>
+<h2 id="_8">参数</h2>
 <ol>
 <li>某个参数（指针或引用）功能上不会在函数中修改时， 必须定义为const</li>
 <li>尽量用引用传参</li>
 <li>函数对参数进行合法性检查</li>
 </ol>
-<h2>局部变量</h2>
+<h2 id="_9">局部变量</h2>
 <p>返回时会被释放或析构——别返回错了。</p>
-<h1>对象设计原则</h1>
+<h1 id="_10">对象设计原则</h1>
 <p>抽象、封装、继承、多态</p>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>

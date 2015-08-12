@@ -61,8 +61,8 @@
             <p>﻿% tar 命令说明<br />
 % 杨秀隆<br />
 % 2014年5月13日 修订</p>
-<h1>tar 命令</h1>
-<h2>基本参数</h2>
+<h1 id="tar">tar 命令</h1>
+<h2 id="_1">基本参数</h2>
 <ul>
 <li>-c: 建立压缩档案</li>
 <li>-x：解压</li>
@@ -78,15 +78,15 @@
 -O：将文件解开到标准输出</p>
 <p>下面的参数-f是必须的</p>
 <p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
-<h1>tar -cf all.tar *.jpg</h1>
+<h1 id="tar-cf-alltar-jpg">tar -cf all.tar *.jpg</h1>
 <p>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。 </p>
-<h1>tar -rf all.tar *.gif</h1>
+<h1 id="tar-rf-alltar-gif">tar -rf all.tar *.gif</h1>
 <p>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。 </p>
-<h1>tar -uf all.tar logo.gif</h1>
+<h1 id="tar-uf-alltar-logogif">tar -uf all.tar logo.gif</h1>
 <p>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。 </p>
-<h1>tar -tf all.tar</h1>
+<h1 id="tar-tf-alltar">tar -tf all.tar</h1>
 <p>这条命令是列出all.tar包中所有文件，-t是列出文件的意思 </p>
-<h1>tar -xf all.tar</h1>
+<h1 id="tar-xf-alltar">tar -xf all.tar</h1>
 <p>这条命令是解出all.tar包中所有文件，-x是解开的意思 </p>
 <p>压缩</p>
 <p>tar –cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg</p>
@@ -102,7 +102,7 @@
 <p>tar –xZvf file.tar.Z   //解压tar.Z</p>
 <p>unrar e file.rar //解压rar</p>
 <p>unzip file.zip //解压zip</p>
-<h2>总结</h2>
+<h2 id="_2">总结</h2>
 <p>1、*.tar 用 tar –xvf 解压</p>
 <p>2、*.gz 用 gzip -d或者gunzip 解压</p>
 <p>3、<em>.tar.gz和</em>.tgz 用 tar –xzf 解压</p>

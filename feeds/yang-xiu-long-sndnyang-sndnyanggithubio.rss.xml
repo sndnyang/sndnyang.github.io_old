@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 23 Mar 2015 00:00:00 +0800</lastBuildDate><item><title>week2</title><link>http://sndnyang.github.io/.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang-sndnyanggithubio.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 11 Jul 2015 00:00:00 +0800</lastBuildDate><item><title>week2</title><link>http://sndnyang.github.io/.html</link><description>
 &lt;h1 id="_1"&gt;一元线性回归&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;SSE -- sum of squared errors&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;h1 id="_4"&gt;预测&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newdata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;testData&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;SST&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Target&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Mon, 23 Mar 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-03-22:.html</guid><category></category></item><item><title>2D,3D转换</title><link>http://sndnyang.github.io/2d-3d-transform.html</link><description>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sat, 11 Jul 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-03-22:.html</guid><category></category></item><item><title>2D,3D转换</title><link>http://sndnyang.github.io/2d-3d-transform.html</link><description>
 &lt;h1 id="2d"&gt;2D 转换&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;translate&lt;/li&gt;
@@ -66,7 +66,7 @@
 &lt;li&gt;rotateX&lt;/li&gt;
 &lt;li&gt;rotateY&lt;/li&gt;
 &lt;li&gt;rotateZ&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sun, 15 Mar 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-03-07:2d-3d-transform.html</guid><category>html</category><category>css</category></item><item><title>正则表达式作业</title><link>http://sndnyang.github.io/automata-hw1.html</link><description>
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sat, 11 Jul 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-03-07:2d-3d-transform.html</guid><category>html</category><category>css</category></item><item><title>正则表达式作业</title><link>http://sndnyang.github.io/automata-hw1.html</link><description>
 &lt;h1 id="_1"&gt;编程容易，笔算不易，且写且珍惜&lt;/h1&gt;
 &lt;p&gt;有点像个傻子一样在发广告
 csdn 博客在 &lt;a href="http://blog.csdn.net/sndnyangd"&gt;sndnyangd&lt;/a&gt;
@@ -338,7 +338,7 @@ E 是 RE， L（E）则是它定义的语言&lt;/p&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;total_ordering&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;update_wrapper&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
     &lt;span class="o"&gt;-&lt;/span&gt;  &lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;wraps&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Thu, 08 Jan 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</guid><category>python</category><category>stdlib</category></item><item><title>controller.mkd</title><link>http://sndnyang.github.io/springController.html</link><description>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆 sndnyang sndnyang.github.io</dc:creator><pubDate>Sat, 11 Jul 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2014-09-05:stdlib-functools.html</guid><category>python</category><category>stdlib</category></item><item><title>controller.mkd</title><link>http://sndnyang.github.io/springController.html</link><description>
 &lt;h1 id="annotation"&gt;记号 Annotation&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;类上 @Controller&lt;/li&gt;

@@ -61,13 +61,13 @@
             <p>% find与grep<br />
 % 杨秀隆<br />
 % 20140606</p>
-<h1>find 手册</h1>
-<h1>grep 手册</h1>
-<h2>grep使用shell环境变量</h2>
+<h1 id="find">find 手册</h1>
+<h1 id="grep">grep 手册</h1>
+<h2 id="grepshell">grep使用shell环境变量</h2>
 <p>grep -p "$var" 即可
 只要在var里把形式定义好</p>
-<h2>整词匹配 -w</h2>
-<h1>find 加 grep 递归查找文件中字符串</h1>
+<h2 id="-w">整词匹配 -w</h2>
+<h1 id="find-grep">find 加 grep 递归查找文件中字符串</h1>
 <p>命令:</p>
 <div class="highlight"><pre><span class="n">find</span> <span class="p">.</span> <span class="o">-</span><span class="n">name</span> <span class="s">&quot;GateWay.cfg&quot;</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">grep</span> <span class="o">-</span><span class="n">E</span> <span class="s">&quot;^9520&quot;</span>
 </pre></div>

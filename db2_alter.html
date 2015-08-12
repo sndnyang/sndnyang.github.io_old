@@ -58,10 +58,10 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h1>db2 特殊查询</h1>
-<h2>增加列</h2>
+            <h1 id="db2">db2 特殊查询</h1>
+<h2 id="_1">增加列</h2>
 <p>alter table emp add sex char(1);   ---增加sex这一列</p>
-<h2>更改字段类型</h2>
+<h2 id="_2">更改字段类型</h2>
 <div class="highlight"><pre><span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">alter</span> <span class="n">column</span> <span class="n">sex</span> <span class="n">set</span> <span class="n">data</span> <span class="n">type</span> <span class="nf">char</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>   <span class="o">---</span><span class="err">将</span><span class="n">sex</span><span class="err">这一列修改为</span><span class="kt">char</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">alter</span> <span class="n">column</span> <span class="n">sex</span> <span class="n">set</span> <span class="n">data</span> <span class="n">type</span> <span class="kt">char</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>   <span class="o">---</span><span class="err">将</span><span class="n">sex</span><span class="err">这列修改回</span><span class="kt">char</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">insert</span> <span class="n">into</span> <span class="n">emp</span> <span class="n">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="err">&#39;</span><span class="n">smith</span><span class="err">&#39;</span><span class="p">,</span><span class="mf">18.23</span><span class="p">,</span><span class="err">&#39;</span><span class="mi">22</span><span class="err">&#39;</span><span class="p">);</span>              <span class="o">---</span><span class="err">向</span><span class="n">emp</span><span class="err">表插入一条记录</span>
@@ -75,29 +75,29 @@
 </pre></div>
 
 
-<h3>如果要更改db2的类型，</h3>
+<h3 id="db2_1">如果要更改db2的类型，</h3>
 <ol>
 <li>首先要保证目标类型和要当前表中所有的数据类型都要兼容，比如如果要更改char为decimal，那么原先的字段就不能出现字符，比如abcd等，只能出现数据型字符，比如1,2,3等。否则db2就报错，说“格式不兼容”。</li>
 <li>如果你要更改的只是size大小，而数据的类型不变，那么要保证字段是增加的，比如从char(5)到char(10),decimal(18,2)到decimal(19,2),这样是没问题的。</li>
 <li>如果想缩减字段的size，那么就要保证所有表中的数据都小于你缩减后的值，否则也会报错。此时如果有需求必须要改变，那么就只能删除列，然后重建列了。当然重建表也可以。</li>
 </ol>
-<h2>删除列</h2>
+<h2 id="_3">删除列</h2>
 <div class="highlight"><pre><span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">drop</span> <span class="n">column</span> <span class="n">sex</span><span class="p">;</span>
 </pre></div>
 
 
-<h2>为字段添加默认值</h2>
+<h2 id="_4">为字段添加默认值</h2>
 <div class="highlight"><pre><span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">add</span> <span class="n">sex</span> <span class="nf">char</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">alter</span> <span class="n">column</span> <span class="n">sex</span> <span class="n">set</span> <span class="k">default</span> <span class="sc">&#39;m&#39;</span><span class="p">;</span>
 </pre></div>
 
 
-<h2>添加带默认值的字段</h2>
+<h2 id="_5">添加带默认值的字段</h2>
 <div class="highlight"><pre><span class="n">alter</span> <span class="n">table</span> <span class="n">emp</span> <span class="n">add</span> <span class="n">addr</span> <span class="kt">char</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">not</span> <span class="n">null</span> <span class="n">with</span> <span class="k">default</span> <span class="err">&#39;</span><span class="n">beijing</span><span class="err">&#39;</span><span class="p">;</span>
 </pre></div>
 
 
-<h2>注意</h2>
+<h2 id="_6">注意</h2>
 <p>另外要注意的是，无论是添加，删除，还是更改字段的时候，为了保险起见，最好都运行一下reorg命令  </p>
 <div class="highlight"><pre><span class="n">reorg</span> <span class="n">table</span> <span class="n">table_name</span><span class="p">;</span>
 </pre></div>

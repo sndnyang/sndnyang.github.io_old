@@ -61,14 +61,14 @@
             <p>% 编写健壮的 shell 脚本<br />
 % 杨秀隆<br />
 % 20140605</p>
-<h1>有效技巧</h1>
-<h2>防止变量未赋值</h2>
+<h1 id="_1">有效技巧</h1>
+<h2 id="_2">防止变量未赋值</h2>
 <div class="highlight"><pre><span class="n">set</span> <span class="o">-</span><span class="n">o</span> <span class="n">nounset</span> <span class="o">/</span> <span class="n">set</span> <span class="o">-</span><span class="n">u</span>
 </pre></div>
 
 
 <p>使用这个选项可以使脚本在使用未初始化的变量时直接退出</p>
-<h2>shell 字符串变量中的空格</h2>
+<h2 id="shell">shell 字符串变量中的空格</h2>
 <p>示例：</p>
 <div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="s">&quot; dokjd    &quot;</span>
 </pre></div>
@@ -90,7 +90,7 @@
 
 </li>
 </ol>
-<h2>shell string总结</h2>
+<h2 id="shell-string">shell string总结</h2>
 <ol>
 <li>
 <p>空串判断  if [ -z "$line" ]</p>
@@ -107,7 +107,7 @@
     缺点：过程中需要 命令行交互时， 无法输入命令。</p>
 </li>
 </ol>
-<h2>shell 字符串格式化</h2>
+<h2 id="shell_1">shell 字符串格式化</h2>
 <p>和C相似   </p>
 <div class="highlight"><pre><span class="n">printf</span> <span class="s">&quot;%-12s&quot;</span> <span class="s">&quot;$x&quot;</span>
 </pre></div>
@@ -118,15 +118,15 @@
 </pre></div>
 
 
-<h2>二次赋值</h2>
-<h3>数组中二次赋值</h3>
+<h2 id="_3">二次赋值</h2>
+<h3 id="_4">数组中二次赋值</h3>
 <div class="highlight"><pre>i=1;
 x[1]=2;
 echo <span class="cp">${</span><span class="n">x</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span><span class="cp">}</span>
 </pre></div>
 
 
-<h3>eval 变量二次赋值</h3>
+<h3 id="eval">eval 变量二次赋值</h3>
 <p>见证奇迹的时刻:</p>
 <div class="highlight"><pre><span class="n">first_item</span><span class="o">=</span><span class="s">&quot;PROJECT_NAME&quot;</span>  
 <span class="n">eval</span> <span class="err">$</span><span class="n">first_item</span><span class="o">=</span><span class="s">&quot;LB03&quot;</span>
@@ -152,7 +152,7 @@ echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
 </pre></div>
 
 
-<h2>参数太长</h2>
+<h2 id="_5">参数太长</h2>
 <p>如 rm -f * 删除当前路径下所有文件时，可能文件太多，报错Argument list too long</p>
 <p>解决方法:</p>
 <div class="highlight"><pre><span class="n">ls</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">rm</span> <span class="o">-</span><span class="n">f</span>
@@ -160,7 +160,7 @@ echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
 
 
 <p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
-<h2>判断操作系统 uname</h2>
+<h2 id="uname">判断操作系统 uname</h2>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
 <div class="accordion" id="accordion2">

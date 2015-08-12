@@ -59,20 +59,20 @@
         <div class="span8 offset2 article-content">
 
             <p>﻿% JDBC连接DB2数据库</p>
-<h1>1. db2数据库驱动的安装</h1>
-<h2>方法:</h2>
+<h1 id="1-db2">1. db2数据库驱动的安装</h1>
+<h2 id="_1">方法:</h2>
 <ol>
 <li>安装db2客户端 </li>
 <li>db2的jdbc驱动放到jdk，jre或者tomcat的common/lib目录下 </li>
 </ol>
-<h2>db2的数据库驱动</h2>
+<h2 id="db2">db2的数据库驱动</h2>
 <ol>
 <li>COM.ibm.db2.jdbc.app.DB2Driver</li>
 <li>COM.ibm.db2.jdbc.net.DB2Driver</li>
 <li>通用驱动程序</li>
 </ol>
 <p>前两种在db2java.zip文件中，可以把他改名成db2java.jar文件使用。 第三种放在文件db2jcc.jar文件中</p>
-<h2>驱动的程序加载和连接建立方法：</h2>
+<h2 id="_2">驱动的程序加载和连接建立方法：</h2>
 <ol>
 <li>Class.forName("COM.ibm.db2.jdbc.app.DB2Driver"); </li>
 <li>Class.forName("COM.ibm.db2.jdbc.net.DB2Driver"); </li>
@@ -84,7 +84,7 @@
 </pre></div>
 
 
-<h2>示例</h2>
+<h2 id="_3">示例</h2>
 <div class="highlight"><pre><span class="nx">Class.forName</span><span class="p">(</span><span class="s2">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span><span class="p">);</span>
 
 <span class="c1">//注册驱动程序 </span>

@@ -61,9 +61,9 @@
             <p>% cscope<br />
 % 杨秀隆<br />
 % 20140619</p>
-<h1>cscope</h1>
+<h1 id="cscope">cscope</h1>
 <p>相当于 source insight 里的 look up reference</p>
-<h2>帮助文档</h2>
+<h2 id="_1">帮助文档</h2>
 <p>:help if_cscop.txt</p>
 <p>它被设计用来回答以下的问题:</p>
 <ul>
@@ -98,13 +98,13 @@
 <p>哪些文件包含这个头文件？</p>
 </li>
 </ul>
-<h2>安装Cscope</h2>
+<h2 id="cscope_1">安装Cscope</h2>
 <p>如果你的系统中有cscope命令, 则可以跳过这一小段, 如果没有, 就先跟着我一起安装一个吧.</p>
 <p>在Cscope的主页: http://cscope.sourceforge.net 下载一个源码包, 解压后编译安装:</p>
-<h1>./configure</h1>
-<h1>make</h1>
-<h1>make install       //需要root权限</h1>
-<h2>配置</h2>
+<h1 id="configure">./configure</h1>
+<h1 id="make">make</h1>
+<h1 id="make-install-root">make install       //需要root权限</h1>
+<h2 id="_2">配置</h2>
 <p>在~/vimrc中增加一句:</p>
 <p>:setcscopequickfix=s-,c-,d-,i-,t-,e-
 这个是设定是否使用 quickfix 窗口来显示 cscope 结果, 用法在后面会说到。</p>
@@ -124,7 +124,7 @@
 </pre></div>
 
 
-<h2>使用cscope</h2>
+<h2 id="cscope_2">使用cscope</h2>
 <p>进入vim后第一件事是要把刚才生成的cscope文件导入到vim中来, 用下面的命令:</p>
 <div class="highlight"><pre><span class="o">:</span><span class="n">cs</span> <span class="n">add</span> <span class="p">..</span><span class="o">/</span><span class="n">cscope</span><span class="p">.</span><span class="n">out</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">wooin</span><span class="o">/</span><span class="n">vim71</span>
 </pre></div>

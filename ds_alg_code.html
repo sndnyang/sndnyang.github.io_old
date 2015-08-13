@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title> data structure and algorithm 可视化分步练习</title>
+
+        <link rel="stylesheet" href="static/js/bower/reset-css/reset.css">
+
+        <link rel="stylesheet" href="static/css/trystyle.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.min.css" rel="stylesheet" type="text/css" />
+        <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.min.js"></script>      
+
+        <!--<script type="text/javascript" src="vis.min.js"></script>
+	<link href="vis.min.css" rel="stylesheet" type="text/css" /> 
+        <script data-main="static/js/app" src="static/js/bower/requirejs/require.js"></script>-->
+
+        <script data-main="static/js/app" src="https://cdn.bootcss.com/require.js/2.1.20/require.js"></script>
+        
+        <script type="text/javascript" src="static/js/array.js"> </script>
+        <script type="text/javascript" src="static/js/canvas.js"> </script>
+    </head>
+    <body onload="draw()">
+
+
+        <header>
+            <h1>数据结构和算法 可视化练习<h1>
+        </header>
+
+        <div class = "vismain">
+            输入数组长度（20以内）
+            <input type="text" id="lenth" value="10" onkeydown="javascript:if (event.keyCode==13) draw();"/>
+            <div id="datastruct"></div>
+        </div>
+
+        <div class="main">
+            <div class="console">
+                <p class="info">Type some JavaScript here:</p>
+                <ul>
+                    <li class="input-container"><label>
+                        <span class="prompt">&gt; </span>
+                        <input class="regex-input"/>
+                    </label></li>
+                </ul>
+            </div>
+
+            <div class="tutorial">
+                <div class="lesson lesson1">
+                    <h2>Getting started with regex</h2>
+                    <p>This interactive tutorial serves as an introduction to regular expressions, specifically regular expressions in JavaScript. This will still teach you to write regular expressions that work in other languages, but you should be aware that there are differences.</p>
+                    <p>The console to the left is just a JavaScript console. Tell us your name using <code>setName('Your name')</code> (substituting your name in) to get started with the tutorial.</p>
+                    <p>There are a number of useful commands: run <code>help()</code> to view them.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-storage">
+            <ul>
+                <li class="prompt-completed">
+                <span class="prompt">&gt; </span>
+                <code></code>
+                </li>
+                <li class="prompt-result"><code></code></li>
+            </ul>
+        </div>
+
+        <div class="manual">
+            <select id="sortAlgo" onblur="start()">
+                <option value ="bubble">冒泡</option>
+                <option value ="quick">快排</option>
+                <option value ="merge">归并</option>
+                <option value ="select">选择</option>
+            </select>
+
+            <button onclick="start()">演示</button>
+            <button onclick="next()">下一步</button>
+        </div>
+
+        <div class="code">
+            <textarea name="Code" id="code">{
+                next: function() {
+                nodes[index].color = "red";
+                var data = {
+                nodes: nodes,
+                edges: edges
+                };
+                network.setData(data);
+                network.redraw();
+                index++;
+       }
+}
+            </textarea>
+        </div> 
+
+        <div class="manual">
+            <button id="button_apply" style="float: right" onclick="execute()">Apply</button>
+        </div>
+    </body>
+</html>

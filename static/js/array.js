@@ -1,29 +1,4 @@
-﻿
-<!doctype html>
-<html>
-<head>
-  <title> data structure and algorithm 可视化</title>
-
-  <style type="text/css">
-    #datastruct {
-      width: 95%;
-      height: 100px;
-      border: 1px solid lightgray;
-    }
-    #code {
-        width: 95%;
-        height: 150px;
-    }
-  </style>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.7.0/vis.css" rel="stylesheet" type="text/css" />
-  
-  <!--<script type="text/javascript" src="./vis.js"></script>
-  <link href="./vis.css" rel="stylesheet" type="text/css" />-->
-
-  <script type="text/javascript">
-    var nodes = null;
+var nodes = null;
     var edges = null;
     var network = null;
     var stepLog = new Array();
@@ -143,41 +118,3 @@
       ];
       stepRedraw(nodes, edges);
     }
-  </script>
-<body onload="draw()">
-
-    <p>
-      数据结构和算法 可视化练习 基础， 试排序， 输入数组长度（20以内）
-    </p>
-
-    数组长度：
-    <input type="text" id="lenth" value="10" onkeydown="javascript:if (event.keyCode==13) draw();"/>
-    <div id="datastruct"></div>
-
-    <select id="sortAlgo" onblur="start()">
-		<option value ="bubble">冒泡</option>
-		<option value ="quick">快排</option>
-	  	<option value ="merge">归并</option>
-	  	<option value ="select">选择</option>
-	</select>
-    <input type="submit" value="算法运行" onclick="start()"/>
-    <input type="button" value="下一步" onclick="next()"/>
-    
-    <div class="code">
-        <textarea name="Code" id="code">{
-next: function() {
-    nodes[index].color = "red";
-    var data = {
-        nodes: nodes,
-        edges: edges
-      };
-network.setData(data);
-        network.redraw();
-        index++;
-}
-}</textarea>
-    </div>
-    </br>
-    <button id="button_apply" onclick="execute()">Apply</button>
-</body>
-</html>

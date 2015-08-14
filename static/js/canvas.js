@@ -1,3 +1,13 @@
+function updateData() {
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    network.setData(data);
+    network.redraw();
+}
+
 function markNodes(nodes_list) {
 
     if (nodes_list.length == 0) {
@@ -11,12 +21,6 @@ function markNodes(nodes_list) {
     for (var i in nodes_list) {
         nodes[nodes_list[i]].color = "red";
     }
-
-    var data = {
-        nodes: nodes,
-        edges: edges
-    };
-
-    network.setData(data);
-    network.redraw();
+    
+    updateData();    
 }

@@ -79,7 +79,9 @@ define(['jquery', 'evaluate', 'keymap', 'objToString'], function ($, evaluate, k
 				.insertBefore($this.parent())
 				.find('code')
 				[error ? 'html' : 'text'](result);
-
+            
+            var codeSoFar = $('#code').val();
+            $('#code').val(codeSoFar + ';\n' + code);
 			$this.val('');
 
 			$console.scrollTop($console.prop('scrollHeight'));

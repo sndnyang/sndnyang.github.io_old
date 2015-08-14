@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0800</lastBuildDate><item><title>无聊心得之儒家真牛</title><link>http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html</link><description>&lt;h1 id="_1"&gt;儒家真牛&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jun 2015 00:00:00 +0800</lastBuildDate><item><title>sml第三周-线性回归</title><link>http://sndnyang.github.io/sml-linear-regression.html</link><description>
+&lt;h1 id="_1"&gt;可扩展机器学习&lt;/h1&gt;
+&lt;h1 id="_2"&gt;第三周 线性回归与分布式机器学习原理&lt;/h1&gt;
+&lt;h2 id="_3"&gt;回归概念&lt;/h2&gt;
+&lt;p&gt;从给定训练集中， 得到一个从输入（观察、特征）到输出（连续值的标记）的映射——属于监督学习&lt;/p&gt;
+&lt;h2 id="_4"&gt;线性回归&lt;/h2&gt;
+&lt;p&gt;即features与label之间 是一个线性关系式&lt;/p&gt;
+&lt;p&gt;$$
+y= \sum\limits_{i=0}^m {w_i} {x_i} = W^\mathrm{T}X
+$$&lt;/p&gt;
+&lt;p&gt;$$
+其中 x_0=0
+$$ &lt;/p&gt;
+&lt;h3 id="_5"&gt;为什么&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;简单&lt;/li&gt;
+&lt;li&gt;实践中一般比较好&lt;/li&gt;
+&lt;li&gt;有扩展性、灵活性， 容易引入新的特征&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="_6"&gt;&lt;/h3&gt;
+&lt;p&gt;$$
+\mathbf{w} = (X^\mathrm{T}X)^{-1} X^\mathrm{T}\mathbf{y}
+$$&lt;/p&gt;
+&lt;h2 id="_7"&gt;分布式机器学习的计算与存储&lt;/h2&gt;
+&lt;p&gt;数据量为n, 特征值为 d， 一般情况下n远大于d&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Tue, 02 Jun 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-06-02:sml-linear-regression.html</guid></item><item><title>r接口与pandas对应关系</title><link>http://sndnyang.github.io/r2pandas.html</link><description>&lt;p&gt;R  ,               pandas
+str,  null
+summary,   df.describe
+table,  df.value_count
+tapply,  df.pivot_table (groupby  sum/count  unstack)
+which.max/min,  df.argmax/min
+nrow(df),  len(df)
+match,    pd.match(df,)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Sun, 03 May 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-05-03:r2pandas.html</guid></item><item><title>无聊心得之儒家真牛</title><link>http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html</link><description>&lt;h1 id="_1"&gt;儒家真牛&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;名声响&lt;/li&gt;
 &lt;li&gt;地位高&lt;/li&gt;

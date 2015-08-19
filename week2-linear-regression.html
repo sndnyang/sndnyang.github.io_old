@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
 
-<meta name="keywords" content="cs, mooc, algorithms, cs, " />
-        <title>percolation作业  · 懒龙谷
+<meta name="keywords" content="cs, machine learning, R, machine learning, " />
+        <title>第二周线性回归  · 懒龙谷
 </title>
         <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://sndnyang.github.io/percolation_assignment.html"> percolation作业  </a></h1>
+    <h1><a href="http://sndnyang.github.io/week2-linear-regression.html"> 第二周线性回归  </a></h1>
     </header>
 </div>
 
@@ -61,13 +61,13 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#percolation">percolation 作业</a><ul>
-<li><a href="#_1">描述</a></li>
-<li><a href="#_2">状态</a></li>
-<li><a href="#_3">蒙特卡罗算法</a></li>
-<li><a href="#tip">tip 提示</a></li>
-</ul>
-</li>
+<li><a href="#_1">一元线性回归</a></li>
+<li><a href="#_2">多元线性回归</a></li>
+<li><a href="#on-r">线性回归 on R</a></li>
+<li><a href="#_3">模型系数分析</a></li>
+<li><a href="#correlation">correlation 相关</a></li>
+<li><a href="#multicollinearity">multicollinearity 多元共线性</a></li>
+<li><a href="#_4">预测</a></li>
 </ul>
 </div>
         </nav>
@@ -75,30 +75,66 @@
     <div class="span8 article-content">
 
             
-<h1 id="percolation">percolation 作业</h1>
-<h2 id="_1">描述</h2>
-<p>N * N的方格（site）</p>
+<h1 id="_1">一元线性回归</h1>
 <ol>
-<li>如果方格与顶层中的某一方格是连通的，则称其 is full</li>
-<li>如果方格与底层中的某一方格是连通的，则称其 是开放的。is open</li>
-</ol>
-<p>当顶层中的某一方格与底层中的某一方格连通时，则称这整个N ﹡
-N个方格的系统为percolation的。</p>
-<h2 id="_2">状态</h2>
-<h2 id="_3">蒙特卡罗算法</h2>
+<li>SSE -- sum of squared errors</li>
+<li>RMSE -- Root-Mean-Square Error </li>
+<li>R^2 -- compare the best model to a "baseline" model
+    R^2 = 1 - SSE/SST</li>
+<li>baseline -- avg, not use any variables, predict the avg value of the dependent variable.</li>
+<li>
+<p>SST total sum of squares</p>
+</li>
+<li>
+<p>R^2 meaning</p>
 <ol>
-<li>初始化N﹡N个关闭的格子</li>
-<li>任意开放某个格子，直到这个系统percolation</li>
-<li>计算 概率</li>
+<li>using a model 的效果</li>
+<li>= 0 则无效果</li>
+<li>= 1 则是完美</li>
 </ol>
-<h2 id="tip">tip 提示</h2>
+</li>
+</ol>
+<h1 id="_2">多元线性回归</h1>
+<ol>
+<li>多元可以对一元进行优化？ 跟没说差不多</li>
+<li>添加更多元变量能提高 model </li>
+<li>diminishing returns as more variables are added</li>
+</ol>
+<p>不要使用过多元（维）变量
+1. 每个变量都会多算很多数据
+2. 建模时 R^2 很高， 但对未知数据的预测反而不准， 即为 过拟合</p>
+<h1 id="on-r">线性回归 on R</h1>
+<ol>
+<li>lm(target ~ variable1 + variable2 ..., data = xxx);</li>
+</ol>
+<h1 id="_3">模型系数分析</h1>
+<ol>
+<li>estimate -- 0 代表模型无关 ， 所以越小越无用， 可以考虑不加入</li>
+<li>std error -- </li>
+<li>t value -- estimate / stderror,  绝对值越大的变量， 越重要</li>
+<li>Pr(&gt;|t|) -- t 的绝对值大， 它就小</li>
+</ol>
+<h1 id="correlation">correlation 相关</h1>
+<ol>
+<li>正相关</li>
+<li>不相关</li>
+<li>负相关</li>
+</ol>
+<p>R: cor(data$variable1, data$variable2)</p>
+<h1 id="multicollinearity">multicollinearity 多元共线性</h1>
+<div class="highlight"><pre><span class="err">独立变量之间存在高度相关</span>
+</pre></div>
+<h1 id="_4">预测</h1>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">newdata</span> <span class="o">=</span> <span class="n">testData</span><span class="p">)</span>
+<span class="n">SST</span> <span class="o">=</span> <span class="n">sum</span><span class="p">((</span><span class="n">data</span><span class="err">$</span><span class="n">Target</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="err">$</span><span class="n">Target</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/percolation_assignment.html#disqus_thread">
+                href="http://sndnyang.github.io/week2-linear-regression.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -108,8 +144,8 @@ N个方格的系统为percolation的。</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'http://sndnyang.github.io/percolation_assignment.html';
-    var disqus_url = 'http://sndnyang.github.io/percolation_assignment.html';
+        var disqus_identifier = 'http://sndnyang.github.io/week2-linear-regression.html';
+    var disqus_url = 'http://sndnyang.github.io/week2-linear-regression.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -129,9 +165,9 @@ N个方格的系统为percolation的。</p>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://sndnyang.github.io/algo_connectivity.html" title="Previous: 连通性问题">连通性问题</a></li>
+                <li class="previous_article">« <a href="http://sndnyang.github.io/2d-3d-transform.html" title="Previous: 2D,3D转换">2D,3D转换</a></li>
  
-                <li class="next_article"><a href="http://sndnyang.github.io/quick_union_algo.html" title="Next: 快速合并算法">快速合并算法</a> »</li>
+                <li class="next_article"><a href="http://sndnyang.github.io/r2pandas.html" title="Next: r接口与pandas对应关系">r接口与pandas对应关系</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -140,19 +176,19 @@ N个方格的系统为percolation的。</p>
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-08-16T05:06:19">Aug 16, 2014</time>
+            <time pubdate="pubdate" datetime="2015-03-22T10:36:17">Mar 22, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#cs-ref">cs</a> 
+            <a class="category-link" href="/categories.html#machine-learning-ref">machine learning</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#algorithms-ref">algorithms
-                    <span>6</span>
-</a></li>
                 <li><a href="/tags.html#cs-ref">cs
                     <span>12</span>
 </a></li>
-                <li><a href="/tags.html#mooc-ref">mooc
-                    <span>7</span>
+                <li><a href="/tags.html#machine-learning-ref">machine learning
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#R-ref">R
+                    <span>1</span>
 </a></li>
             </ul>
 

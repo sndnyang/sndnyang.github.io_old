@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jun 2015 00:00:00 +0800</lastBuildDate><item><title>sml第三周-线性回归</title><link>http://sndnyang.github.io/sml-linear-regression.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 19 Aug 2015 00:00:00 +0800</lastBuildDate><item><title>线性代数行列式</title><link>http://sndnyang.github.io/la-determinant.html</link><description>
+&lt;h1 id="_1"&gt;线性代数 行列式笔记&lt;/h1&gt;
+&lt;p&gt;国内教材不知道是不是沿袭苏联的风格， 线性代数书的第一章通常是行列式， 还记得我大一第一门课是线代，好歹拿着书预习了下内容， 结果老师正好跳过那块内容， 听了一节课的天书， 没跟上。&lt;/p&gt;
+&lt;p&gt;有一堆想说的话——&lt;a href="re-thought-university.html"&gt;反思大学生涯&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="_2"&gt;定义&lt;/h2&gt;
+&lt;p&gt;2/3阶的定义及计算不重复了。&lt;/p&gt;
+&lt;p&gt;n阶行列的定义 或 计算公式 可以按行展开， 或列展开&lt;/p&gt;
+&lt;p&gt;某行中， 各元素与其代数余子式的乘积， 再求和， 即得n阶行列式&lt;/p&gt;
+&lt;p&gt;$$
+D = a_{i1}A_{i1} + a_{i2}A_{i2} + \cdots + a_{in}A_{in}
+$$&lt;/p&gt;
+&lt;p&gt;建议自己实现一下&lt;/p&gt;
+&lt;h2 id="_3"&gt;性质&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;行列式的转置与原行列式相等 &lt;br/&gt;
+     $$ D = D^T $$&lt;/li&gt;
+&lt;li&gt;互换两行， 行列式乘一次负号 &lt;ol&gt;
+&lt;li&gt;推论： 若行列式中有两行元素完全相同， 则行列式为零。&lt;/li&gt;
+&lt;li&gt;再推论： 第i行（列）的元素与第j行（列）的代数余子式的乘积 之和 = 0, i != j
+即： 重要！！！&lt;br/&gt;
+$$ a_{j1}A_{i1} + a_{j2}A_{i2} + \cdots + a_{jn}A_{in}=
+\begin{cases}
+D&amp;amp; i=j\
+0&amp;amp; i \neq j
+\end{cases}
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;k乘以某一行的所有元素， 等于用k乘此行列式
+    推论：  某一行的所有元素的公因子可以提到符号外。&lt;/li&gt;
+&lt;li&gt;行列式某行元素加上另一行相应的k位， 值不变， 两种证明方法跟第二条性质有关&lt;/li&gt;
+&lt;li&gt;某一行的元素是两数之和， 可拆成两个行列式之和， 也可以拆成m个行列式之和&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Wed, 19 Aug 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-08-19:la-determinant.html</guid></item><item><title>sml第三周-线性回归</title><link>http://sndnyang.github.io/sml-linear-regression.html</link><description>
 &lt;h1 id="_1"&gt;可扩展机器学习&lt;/h1&gt;
 &lt;h1 id="_2"&gt;第三周 线性回归与分布式机器学习原理&lt;/h1&gt;
 &lt;h2 id="_3"&gt;回归概念&lt;/h2&gt;
@@ -2848,8 +2880,10 @@ st\_table:bins -&amp;gt; st\_table\_entry:head;
 &lt;li&gt;codepa A delimiter is not valid or is used more than once.
 ge=1208  如果coldel使用 | 或出现  A delimiter is not valid or is used more than once时使用&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Sun, 04 May 2014 09:20:16 +0800</pubDate><guid>tag:sndnyang.github.io,2014-05-04:db2_export.html</guid></item><item><title>java_乱码</title><link>http://sndnyang.github.io/java_luan-ma.html</link><description>&lt;p&gt;﻿&lt;/p&gt;
-&lt;h1 id="java"&gt;java 乱码简要总结&lt;/h1&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Wed, 16 Apr 2014 19:36:58 +0800</pubDate><guid>tag:sndnyang.github.io,2014-04-16:java_luan-ma.html</guid></item><item><title>markdown_syntax</title><link>http://sndnyang.github.io/markdown_syntax.html</link><description>&lt;h1 id="markdown"&gt;MarkDown 笔记&lt;/h1&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Sun, 04 May 2014 09:20:16 +0800</pubDate><guid>tag:sndnyang.github.io,2014-05-04:db2_export.html</guid></item><item><title>java各种问题</title><link>http://sndnyang.github.io/java-error.html</link><description>&lt;h1 id="javadoc-gbk"&gt;javadoc 报错GBK&lt;/h1&gt;
+&lt;p&gt;"Extra Javadoc options" 文本框里面加上&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt; &lt;span class="n"&gt;UTF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;charset&lt;/span&gt; &lt;span class="n"&gt;UTF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Wed, 16 Apr 2014 15:22:06 +0800</pubDate><guid>tag:sndnyang.github.io,2014-04-16:java-error.html</guid></item><item><title>markdown_syntax</title><link>http://sndnyang.github.io/markdown_syntax.html</link><description>&lt;h1 id="markdown"&gt;MarkDown 笔记&lt;/h1&gt;
 &lt;h2 id="_1"&gt;小细节记录&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;非MarkDown的部分，可直接写HTML&lt;/li&gt;

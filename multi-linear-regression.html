@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="杨秀隆(sndnyang)" />
-        <meta name="copyright" content="杨秀隆(sndnyang)" />
+        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
 
-<meta name="keywords" content=", shell, " />
-        <title>shell_技巧  · 懒龙谷
+<meta name="keywords" content="ai, cs, ml, mooc, ai, " />
+        <title>多元线性回归  · 懒龙谷
 </title>
         <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -57,123 +57,30 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/shell_ji-qiao.html"> shell_技巧  </a></h1>
+    <h1><a href="/multi-linear-regression.html"> 多元线性回归  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
-        <div class="span8 offset2 article-content">
+    <div class="span2 table-of-content">
+        <nav style="position:fixed; left:10px;">
+        <h4>Contents</h4>
+        <div class="toc">
+<ul></ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
 
-            <p>% 编写健壮的 shell 脚本<br />
-% 杨秀隆<br />
-% 20140605</p>
-<h1 id="_1">有效技巧</h1>
-<h2 id="_2">防止变量未赋值</h2>
-<div class="highlight"><pre><span class="n">set</span> <span class="o">-</span><span class="n">o</span> <span class="n">nounset</span> <span class="o">/</span> <span class="n">set</span> <span class="o">-</span><span class="n">u</span>
-</pre></div>
-
-
-<p>使用这个选项可以使脚本在使用未初始化的变量时直接退出</p>
-<h2 id="shell">shell 字符串变量中的空格</h2>
-<p>示例：</p>
-<div class="highlight"><pre><span class="n">x</span><span class="o">=</span><span class="s">&quot; dokjd    &quot;</span>
-</pre></div>
-
-
-<ol>
-<li>
-<p>保留全部空格： </p>
-<div class="highlight"><pre><span class="n">echo</span> <span class="s">&quot;$x&quot;</span>
-</pre></div>
-
-
-</li>
-<li>
-<p>去除头尾空格:      </p>
-<div class="highlight"><pre><span class="n">echo</span> <span class="err">$</span><span class="n">x</span>
-</pre></div>
-
-
-</li>
-</ol>
-<h2 id="shell-string">shell string总结</h2>
-<ol>
-<li>
-<p>空串判断  if [ -z "$line" ]</p>
-</li>
-<li>
-<p>在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug</p>
-</li>
-<li>
-<p>for循环遍历文件时，使用 for line in <code>cat $filename</code>
-    缺点: 当行内有空格时，一行会被划分成两行</p>
-</li>
-<li>
-<p>上一条的替代方法 while read line do done &lt; filename
-    缺点：过程中需要 命令行交互时， 无法输入命令。</p>
-</li>
-</ol>
-<h2 id="shell_1">shell 字符串格式化</h2>
-<p>和C相似   </p>
-<div class="highlight"><pre><span class="n">printf</span> <span class="s">&quot;%-12s&quot;</span> <span class="s">&quot;$x&quot;</span>
-</pre></div>
-
-
-<p>awk 和 c 的几乎一样</p>
-<div class="highlight"><pre><span class="n">awk</span> <span class="err">&#39;</span> <span class="p">{</span> <span class="n">printf</span> <span class="s">&quot;%s-%s&quot;</span><span class="p">,</span> <span class="err">$</span><span class="mi">1</span><span class="p">,</span> <span class="err">$</span><span class="mi">2</span> <span class="p">}</span> <span class="err">&#39;</span>
-</pre></div>
-
-
-<h2 id="_3">二次赋值</h2>
-<h3 id="_4">数组中二次赋值</h3>
-<div class="highlight"><pre>i=1;
-x[1]=2;
-echo <span class="cp">${</span><span class="n">x</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span><span class="cp">}</span>
-</pre></div>
-
-
-<h3 id="eval">eval 变量二次赋值</h3>
-<p>见证奇迹的时刻:</p>
-<div class="highlight"><pre><span class="n">first_item</span><span class="o">=</span><span class="s">&quot;PROJECT_NAME&quot;</span>  
-<span class="n">eval</span> <span class="err">$</span><span class="n">first_item</span><span class="o">=</span><span class="s">&quot;LB03&quot;</span>
-<span class="n">echo</span> <span class="err">$</span><span class="n">PROJECT_NAME</span>
-</pre></div>
-
-
-<p>结果是</p>
-<div class="highlight"><pre><span class="n">LB03</span>
-</pre></div>
-
-
-<p>引申到数组的利用上</p>
-<div class="highlight"><pre>set -A array_name &quot;PROJECT_NAME&quot; &quot;BRANCH&quot;
-set -A array_value &quot;LB03&quot; &quot;DEV&quot;
-eval <span class="cp">${</span><span class="n">array_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cp">}</span>=<span class="cp">${</span><span class="n">array_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cp">}</span>
-echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
-</pre></div>
-
-
-<p>结果应该是</p>
-<div class="highlight"><pre><span class="n">BRANCH</span> <span class="o">=</span> <span class="n">DEV</span>
-</pre></div>
-
-
-<h2 id="_5">参数太长</h2>
-<p>如 rm -f * 删除当前路径下所有文件时，可能文件太多，报错Argument list too long</p>
-<p>解决方法:</p>
-<div class="highlight"><pre><span class="n">ls</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">rm</span> <span class="o">-</span><span class="n">f</span>
-</pre></div>
-
-
-<p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
-<h2 id="uname">判断操作系统 uname</h2>
+            
+<h1 id="_1"></h1>
 <section>
 <p id="comment-message">this guy is lazy, nothing leave </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="/shell_ji-qiao.html#disqus_thread">
+                href="/multi-linear-regression.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -183,8 +90,8 @@ echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/shell_ji-qiao.html';
-    var disqus_url = '/shell_ji-qiao.html';
+        var disqus_identifier = '/multi-linear-regression.html';
+    var disqus_url = '/multi-linear-regression.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -204,9 +111,7 @@ echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/find_grep.html" title="Previous: find_grep">find_grep</a></li>
- 
-                <li class="next_article"><a href="/db2_alter.html" title="Next: db2_alter">db2_alter</a> »</li>
+                <li class="previous_article">« <a href="/la-determinant.html" title="Previous: 线性代数行列式">线性代数行列式</a></li>
             </ul>
             </nav>
             </aside>
@@ -215,9 +120,24 @@ echo &quot;BRANCH =&quot; <span class="nv">$BRANCH</span>
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-06-09T10:18:02">Jun 9, 2014</time>
+            <time pubdate="pubdate" datetime="2015-09-10T21:26:31">Sep 10, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#shell-ref">shell</a> 
+            <a class="category-link" href="/categories.html#ai-ref">ai</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#ai-ref">ai
+                    <span>2</span>
+</a></li>
+                <li><a href="/tags.html#cs-ref">cs
+                    <span>13</span>
+</a></li>
+                <li><a href="/tags.html#ml-ref">ml
+                    <span>3</span>
+</a></li>
+                <li><a href="/tags.html#mooc-ref">mooc
+                    <span>8</span>
+</a></li>
+            </ul>
 
         </div>
         </section>

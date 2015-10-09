@@ -9,21 +9,21 @@
 <meta name="keywords" content="cs, mooc, algorithms, cs, " />
         <title>percolation作业  · 懒龙谷
 </title>
-        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
-        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
-        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
     </head>
     <body>
         <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
+        <div class="navbar navbar-static-top" style="position:fixed;width:100%">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -31,17 +31,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙谷</span></a>
+                    <a class="brand" href="/"><span class="site-name">懒龙谷</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
-                            <li ><a href="http://sndnyang.github.io">Home</a></li>
-                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
-                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
-                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/categories.html">Categories</a></li>
+                            <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                
             </div>
         </div>
         <div class="container-fluid">
@@ -51,13 +57,13 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://sndnyang.github.io/percolation_assignment.html"> percolation作业  </a></h1>
+    <h1><a href="/percolation_assignment.html"> percolation作业  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
     <div class="span2 table-of-content">
-        <nav>
+        <nav style="position:fixed; left:10px;">
         <h4>Contents</h4>
         <div class="toc">
 <ul>
@@ -98,7 +104,7 @@ N个方格的系统为percolation的。</p>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/percolation_assignment.html#disqus_thread">
+                href="/percolation_assignment.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -108,8 +114,8 @@ N个方格的系统为percolation的。</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'http://sndnyang.github.io/percolation_assignment.html';
-    var disqus_url = 'http://sndnyang.github.io/percolation_assignment.html';
+        var disqus_identifier = '/percolation_assignment.html';
+    var disqus_url = '/percolation_assignment.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -129,9 +135,9 @@ N个方格的系统为percolation的。</p>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="http://sndnyang.github.io/algo_connectivity.html" title="Previous: 连通性问题">连通性问题</a></li>
+                <li class="previous_article">« <a href="/algo_connectivity.html" title="Previous: 连通性问题">连通性问题</a></li>
  
-                <li class="next_article"><a href="http://sndnyang.github.io/quick_union_algo.html" title="Next: 快速合并算法">快速合并算法</a> »</li>
+                <li class="next_article"><a href="/quick_union_algo.html" title="Next: 快速合并算法">快速合并算法</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -149,10 +155,10 @@ N个方格的系统为percolation的。</p>
                     <span>6</span>
 </a></li>
                 <li><a href="/tags.html#cs-ref">cs
-                    <span>12</span>
+                    <span>13</span>
 </a></li>
                 <li><a href="/tags.html#mooc-ref">mooc
-                    <span>7</span>
+                    <span>8</span>
 </a></li>
             </ul>
 

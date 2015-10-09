@@ -8,21 +8,21 @@
 
         <title>懒龙谷
 </title>
-        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/style.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="http://sndnyang.github.io/theme/css/solarizedlight.css" media="screen">
-        <link rel="shortcut icon" href="http://sndnyang.github.io/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://sndnyang.github.io/theme/images/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://sndnyang.github.io/theme/images/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://sndnyang.github.io/theme/images/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
-        <link rel="icon" href="http://sndnyang.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
     </head>
     <body>
         <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
+        <div class="navbar navbar-static-top" style="position:fixed;width:100%">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -30,17 +30,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://sndnyang.github.io/"><span class=site-name>懒龙谷</span></a>
+                    <a class="brand" href="/"><span class="site-name">懒龙谷</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
-                            <li  class="active"><a href="http://sndnyang.github.io">Home</a></li>
-                            <li ><a href="http://sndnyang.github.io/categories.html">Categories</a></li>
-                            <li ><a href="http://sndnyang.github.io/tags.html">Tags</a></li>
-                            <li ><a href="http://sndnyang.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="http://sndnyang.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/categories.html">Categories</a></li>
+                            <li><a href="/tags.html">Tags</a></li>
+                            <li><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                
             </div>
         </div>
         <div class="container-fluid">
@@ -88,66 +94,66 @@
     <div class="row-fluid">
         <div class="span12">
             <header>
-            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://sndnyang.github.io/archives.html">all posts</a></h1>
+            <h1 id="recent-posts">Recent Posts <a id="allposts" href="/archives.html">all posts</a></h1>
             </header>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/la-determinant.html">线性代数行列式  </a> 
+                <a href="/multi-linear-regression.html">多元线性回归  </a> 
+                <time pubdate="pubdate" datetime="2015-09-10T21:26:31">四 10 九月 2015</time>
+                </li>
+            </ul>
+            <ul class="list-all-articles">
+                <li>
+                <a href="/la-determinant.html">线性代数行列式  </a> 
                 <time pubdate="pubdate" datetime="2015-08-19T00:00:00">三 19 八月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/sml-linear-regression.html">sml第三周-线性回归  </a> 
+                <a href="/sml-linear-regression.html">sml第三周-线性回归  </a> 
                 <time pubdate="pubdate" datetime="2015-06-02T00:00:00">二 02 六月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/r2pandas.html">r接口与pandas对应关系  </a> 
+                <a href="/r2pandas.html">r接口与pandas对应关系  </a> 
                 <time pubdate="pubdate" datetime="2015-05-03T00:00:00">日 03 五月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/week2-linear-regression.html">第二周线性回归  </a> 
+                <a href="/week2-linear-regression.html">第二周线性回归  </a> 
                 <time pubdate="pubdate" datetime="2015-03-22T10:36:17">日 22 三月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/2d-3d-transform.html">2D,3D转换  </a> 
+                <a href="/2d-3d-transform.html">2D,3D转换  </a> 
                 <time pubdate="pubdate" datetime="2015-03-07T08:46:07">六 07 三月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/classical-music-week1.html">古典音乐概论 第一周  </a> 
+                <a href="/classical-music-week1.html">古典音乐概论 第一周  </a> 
                 <time pubdate="pubdate" datetime="2015-01-18T10:30:19">日 18 一月 2015</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/Java-Comparator.html">Java比较器Comparator  </a> 
+                <a href="/Java-Comparator.html">Java比较器Comparator  </a> 
                 <time pubdate="pubdate" datetime="2014-10-18T08:08:23">六 18 十月 2014</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/Java-Generic-Iterator.html">Java 泛型机制及迭代器  </a> 
+                <a href="/Java-Generic-Iterator.html">Java 泛型机制及迭代器  </a> 
                 <time pubdate="pubdate" datetime="2014-10-18T08:00:00">六 18 十月 2014</time>
                 </li>
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://sndnyang.github.io/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html">无聊心得之儒家真牛  </a> 
+                <a href="/wu-liao-xin-de-zhi-ru-jia-zhen-niu.html">无聊心得之儒家真牛  </a> 
                 <time pubdate="pubdate" datetime="2014-09-28T00:00:00">日 28 九月 2014</time>
-                </li>
-            </ul>
-            <ul class="list-all-articles">
-                <li>
-                <a href="http://sndnyang.github.io/automata-hw1.html">正则表达式作业  </a> 
-                <time pubdate="pubdate" datetime="2014-09-08T22:50:38">一 08 九月 2014</time>
                 </li>
             </ul>
         </div>

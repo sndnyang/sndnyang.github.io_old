@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 19 Aug 2015 00:00:00 +0800</lastBuildDate><item><title>线性代数行列式</title><link>http://sndnyang.github.io/la-determinant.html</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>懒龙谷</title><link>http://sndnyang.github.io/</link><description></description><atom:link href="http://sndnyang.github.io/feeds/yang-xiu-long-sndnyang.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 13 Oct 2015 00:00:00 +0800</lastBuildDate><item><title>markdown_tips</title><link>http://sndnyang.github.io/markdown_tips.html</link><description>
+&lt;h1 id="markdown"&gt;MarkDown 技巧汇&lt;/h1&gt;
+&lt;h2 id="markdown_1"&gt;markdown 嵌视频截图（没能直接放视频）&lt;/h2&gt;
+&lt;p&gt;来源： &lt;a href="http://stackoverflow.com/questions/4279611/how-to-embed-a-video-into-github-readme-md"&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码块：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;ScreenShot&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://youtu.be/vt5fpE0bzSY"&gt;&lt;img alt="ScreenShot" src="https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png"/&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">杨秀隆(sndnyang)</dc:creator><pubDate>Tue, 13 Oct 2015 00:00:00 +0800</pubDate><guid>tag:sndnyang.github.io,2015-10-13:markdown_tips.html</guid><category>markdown</category><category>tips</category></item><item><title>线性代数行列式</title><link>http://sndnyang.github.io/la-determinant.html</link><description>
 &lt;h1 id="_1"&gt;线性代数 行列式笔记&lt;/h1&gt;
 &lt;p&gt;国内教材不知道是不是沿袭苏联的风格， 线性代数书的第一章通常是行列式， 还记得我大一第一门课是线代，好歹拿着书预习了下内容， 结果老师正好跳过那块内容， 听了一节课的天书， 没跟上。&lt;/p&gt;
 &lt;p&gt;有一堆想说的话——&lt;a href="re-thought-university.html"&gt;反思大学生涯&lt;/a&gt;&lt;/p&gt;

@@ -5,29 +5,50 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/index.html</loc>
-<lastmod>2015-10-10T12:27:55-00:00</lastmod>
+<lastmod>2015-10-17T12:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2015-10-10T12:27:55-00:00</lastmod>
+<lastmod>2015-10-17T12:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2015-10-10T12:27:55-00:00</lastmod>
+<lastmod>2015-10-17T12:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2015-10-10T12:27:55-00:00</lastmod>
+<lastmod>2015-10-17T12:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/word2vec-2-mindmap.html</loc>
+<lastmod>2015-10-17T00:00:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/initate-week1.html</loc>
+<lastmod>2015-10-14T00:00:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/markdown_tips.html</loc>
+<lastmod>2015-10-13T00:00:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -725,6 +746,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://sndnyang.github.io/category/fan-yi.html</loc>
+<lastmod>2015-10-17T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://sndnyang.github.io/category/firefly.html</loc>
 <lastmod>2014-06-16T14:15:30-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -748,6 +776,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/category/graphviz.html</loc>
 <lastmod>2014-05-04T15:42:20-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/category/initate-math.html</loc>
+<lastmod>2015-10-14T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -866,7 +901,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/category/web.html</loc>
-<lastmod>2015-07-11T00:00:00-00:00</lastmod>
+<lastmod>2015-10-13T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -874,6 +909,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/tag/pelican.html</loc>
 <lastmod>2014-06-26T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/markdown.html</loc>
+<lastmod>2015-10-13T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/nlp.html</loc>
+<lastmod>2015-10-17T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -909,6 +958,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/tag/cs.html</loc>
 <lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/linear-algebra.html</loc>
+<lastmod>2015-10-14T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -977,8 +1033,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://sndnyang.github.io/tag/css.html</loc>
-<lastmod>2015-07-11T00:00:00-00:00</lastmod>
+<loc>http://sndnyang.github.io/tag/tips.html</loc>
+<lastmod>2015-10-13T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/math.html</loc>
+<lastmod>2015-10-14T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -993,6 +1056,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/tag/shell.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/tag/word2vec.html</loc>
+<lastmod>2015-10-17T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1054,6 +1124,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://sndnyang.github.io/tag/css.html</loc>
+<lastmod>2015-07-11T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://sndnyang.github.io/tag/os.html</loc>
 <lastmod>2014-08-30T19:56:58-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -1083,14 +1160,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/author/yang-xiu-long-sndnyang.html</loc>
-<lastmod>2015-08-19T00:00:00-00:00</lastmod>
+<lastmod>2015-10-13T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/author/yang-xiu-long-sndnyang-sndnyanggithubio.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<lastmod>2015-10-17T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/index.html</loc>
-<lastmod>2015-10-17T12:49:22-00:00</lastmod>
+<lastmod>2015-12-12T13:05:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2015-10-17T12:49:22-00:00</lastmod>
+<lastmod>2015-12-12T13:05:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2015-10-17T12:49:22-00:00</lastmod>
+<lastmod>2015-12-12T13:05:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2015-10-17T12:49:22-00:00</lastmod>
+<lastmod>2015-12-12T13:05:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -48,13 +48,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/markdown_tips.html</loc>
 <lastmod>2015-10-13T00:00:00-00:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://sndnyang.github.io/multi-linear-regression.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -697,13 +690,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://sndnyang.github.io/category/ai.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://sndnyang.github.io/category/c_c.html</loc>
 <lastmod>2014-06-20T14:14:30-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -929,7 +915,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/tag/ai.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<lastmod>2014-08-16T05:00:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -957,7 +943,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/tag/cs.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<lastmod>2015-03-22T10:36:17-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -978,7 +964,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/tag/mooc.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<lastmod>2014-09-08T22:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1097,7 +1083,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/tag/ml.html</loc>
-<lastmod>2015-09-10T21:26:31-00:00</lastmod>
+<lastmod>2014-09-08T09:25:01-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <title>GPA calculator for all </title>
     <script src="static/js/function.js"></script>
     <script src="static/js/UploadFile.js"></script>
     <script src="static/js/file.js"></script>
-    <script src="static/js/jquery-1.8.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/gpa.css">
     <!--<link rel="stylesheet" type="text/css" href="static/css/c5.css">-->
 
 </head>
@@ -33,7 +33,7 @@
             </div>
             
             <hr />
-            定制文件格式， 学分必选， 三种分数你好歹选一种吧？
+            定制文件格式， 学分必选， 三种记分方式选一种？
             <br>
             <input type="checkbox" name="select" value="0" checked="checked" >课程名
             <input type="checkbox" name="select" value="1" checked="checked" >百分制
@@ -48,9 +48,6 @@
             </div>
             <input type="button" value="计算" onclick="calit();"> 
 
-            <div id="content">
-            </div>
-            
             <hr />
             
             <div id="totals">
@@ -67,6 +64,12 @@
                     <input id="sum3" type="text" size="7" maxlength="7" placeholder="请先填表" readonly="readonly" />
                 </label>
             </div>
+
+            <hr />
+
+            <div id="content">
+            </div>
+            
         </div>
     </div>
     
@@ -76,7 +79,7 @@
             <div class="article">
                 <p>绩点（Grade Point Average 缩写GPA）是对学生各门课程所获学分的加权平均值，是衡量学生学业水平的重要指标。</p>
                 <table>
-                    <caption>百分制等级对照表</caption>
+                    <caption>某校百分制等级对照表</caption>
                     <tr><td>百分制</td><td>等级制</td><td>绩点</td></tr>
                     <tr><td>95-100</td><td>A+</td><td>4.0</td></tr>
                     <tr><td>90-94</td><td>A</td><td>4.0</td></tr>

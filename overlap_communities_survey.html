@@ -12,16 +12,16 @@
 
 <meta name="keywords" content="论文, 研究, " />
 
-<meta property="og:title" content="FOCS总结 "/>
-<meta property="og:url" content="/FOCS_summary.html" />
-<meta property="og:description" content="基本定义 图： G(V, E) 目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community) 即 $ S = {S_i | S_i \subset V } $ 团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图 定义 包含点 $ v_j $ 的团的集合为： $$ S(v_j) = {S_i | v_j \in S_i \land S_i \in S } $$ disjoint cluster: $$ |S(v_j)| \le 1 $$ overlapped cluster: &gt; 1 定义 $ N(v_j) $ 为 $v_j$ 的邻接点 ..." />
+<meta property="og:title" content="群落覆盖问题总结 "/>
+<meta property="og:url" content="/overlap_communities_survey.html" />
+<meta property="og:description" content="算法 1. Clique Percolation 中文名？派系过滤 假设 群落由 完全连通子图的重叠集合组成——a community consists of overlapping sets of fully connected subgraphs 思路 detects communities by searching for adjacent cliques 扩展内容 派系(Cliques)。在一个无向网络图中，“派系”指的是至少包含3个点的最大完备子图。这个概念包含3层含义：①一个派系至少包含三个点。②派系是完备的，根据完备图的定义，派系中任何两点之间都存在直接联系。③派系是“最大”的，即向这个子图中增加任何一点，将改变其“完备”的性质。 n-派系(n-Cliques)。对于一个总图来说，如果其中的一个子图满足如下条件，就称之为n-派系 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-03-01T00:00:00+08:00" />
-<meta name="twitter:title" content="FOCS总结 ">
-<meta name="twitter:description" content="基本定义 图： G(V, E) 目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community) 即 $ S = {S_i | S_i \subset V } $ 团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图 定义 包含点 $ v_j $ 的团的集合为： $$ S(v_j) = {S_i | v_j \in S_i \land S_i \in S } $$ disjoint cluster: $$ |S(v_j)| \le 1 $$ overlapped cluster: &gt; 1 定义 $ N(v_j) $ 为 $v_j$ 的邻接点 ...">
+<meta property="og:article:published_time" content="2016-03-04T00:00:00+08:00" />
+<meta name="twitter:title" content="群落覆盖问题总结 ">
+<meta name="twitter:description" content="算法 1. Clique Percolation 中文名？派系过滤 假设 群落由 完全连通子图的重叠集合组成——a community consists of overlapping sets of fully connected subgraphs 思路 detects communities by searching for adjacent cliques 扩展内容 派系(Cliques)。在一个无向网络图中，“派系”指的是至少包含3个点的最大完备子图。这个概念包含3层含义：①一个派系至少包含三个点。②派系是完备的，根据完备图的定义，派系中任何两点之间都存在直接联系。③派系是“最大”的，即向这个子图中增加任何一点，将改变其“完备”的性质。 n-派系(n-Cliques)。对于一个总图来说，如果其中的一个子图满足如下条件，就称之为n-派系 ...">
 
-        <title>FOCS总结  · 懒龙谷
+        <title>群落覆盖问题总结  · 懒龙谷
 </title>
         <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
         <link href="http://lib.sinaapp.com/js/bootstrap/2.3.2/js/bootstrap.min.js" rel="stylesheet">
@@ -89,7 +89,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="/FOCS_summary.html"> FOCS总结  </a></h1>
+    <h1><a href="/overlap_communities_survey.html"> 群落覆盖问题总结  </a></h1>
     </header>
 </div>
 
@@ -99,23 +99,41 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#_1">基本定义</a></li>
-<li><a href="#_2">新概念定义</a></li>
-<li><a href="#_3">步骤</a><ul>
-<li><a href="#_4">初始化</a></li>
-<li><a href="#_5">脱离阶段</a></li>
-<li><a href="#_6">扩充阶段</a></li>
-<li><a href="#_7">去重阶段</a></li>
+<li><a href="#_1">算法</a><ul>
+<li><a href="#1-clique-percolation">1. Clique Percolation</a><ul>
+<li><a href="#_2">假设</a></li>
+<li><a href="#_3">思路</a></li>
+<li><a href="#_4">扩展内容</a></li>
+<li><a href="#_5">某个的步骤之一</a></li>
+<li><a href="#_6">结论</a></li>
 </ul>
 </li>
-<li><a href="#_8">代码描述</a><ul>
-<li><a href="#_9">参考链接</a></li>
-<li><a href="#_10">输入</a></li>
-<li><a href="#_11">输出</a></li>
-<li><a href="#_12">辅助变量</a></li>
-<li><a href="#preferredcommunities">PREFERREDCOMMUNITIES</a></li>
+<li><a href="#2-line-graph-and-link-partitioning">2. Line Graph and Link Partitioning</a><ul>
+<li><a href="#_7">思路</a></li>
 </ul>
 </li>
+<li><a href="#3-local-expansion-and-optimization">3. Local Expansion and Optimization</a><ul>
+<li><a href="#_8">思路</a></li>
+</ul>
+</li>
+<li><a href="#4-fuzzy-detection">4. Fuzzy Detection</a><ul>
+<li><a href="#_9">思路</a></li>
+<li><a href="#_10">例子</a></li>
+</ul>
+</li>
+<li><a href="#5-agent-based-and-dynamical-algorithms">5. Agent-Based and Dynamical Algorithms</a><ul>
+<li><a href="#_11">思路</a></li>
+</ul>
+</li>
+<li><a href="#6-others">6. others</a></li>
+</ul>
+</li>
+<li><a href="#_12">评估方法</a><ul>
+<li><a href="#1-normalized-mutual-information">1. Normalized Mutual Information</a></li>
+<li><a href="#2-omega-index">2. Omega Index</a></li>
+</ul>
+</li>
+<li><a href="#_13">结论</a></li>
 </ul>
 </div>
         </nav>
@@ -124,75 +142,57 @@
 
             
             
-<h1 id="_1">基本定义</h1>
-<p>图： G(V, E)</p>
-<p>目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community)
-即 $ S = {S_i | S_i \subset V } $</p>
-<p>团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图</p>
-<p>定义 包含点 $ v_j $ 的团的集合为：</p>
-<p>$$ S(v_j) = {S_i | v_j \in S_i \land S_i \in S } $$</p>
-<p>disjoint cluster:   </p>
-<p>$$ |S(v_j)| \le 1 $$</p>
-<p>overlapped cluster: &gt; 1</p>
-<p>定义 $ N(v_j) $ 为 $v_j$ 的邻接点</p>
-<p>定义 $ N_i(v_j) $ 为 $v_j$ 在团 $S_i$ 的邻接点， 即 
-$$ N_i(v_j) ={v_k | (v_j, v_k) \in E \land v_k \in S_i } $$</p>
-<h1 id="_2">新概念定义</h1>
-<p>团连通性 community connectedness, 即点 $v_j$在团$S_i$邻点超阈值个数 除以 该团点数, 代表 点对应团的归属性。</p>
-<p>$$ \zeta^i_j = \frac{|N_i(v_j)|-K+1}{|S_i| - K} if |N_i(v_j)| &gt; K, else, 0 $$</p>
-<p>邻接连通性 neighborhood connectedness， 即 点 $v_j$在团$S_i$邻点数 除以 $v_j$的总邻点数， 代表 点加入新团的可能性</p>
-<p>$$ \xi^i_j = \frac{|N_i(v_j)|}{|N(v_j)|}  $$ </p>
-<p>外围结点 peripheral node: $v_i$的团邻接点</p>
-<p>$$ Added_i = {v_k|v_k \in N(v_i) \land v_k \in S_i }, \forall S_i \in S^l $$</p>
-<h1 id="_3">步骤</h1>
-<h2 id="_4">初始化</h2>
-<p>初始化全部有K个以上邻接点的点， 由它及其邻接点组成团 $S_i$</p>
-<p>定义该阶段的外围结点</p>
-<h2 id="_5">脱离阶段</h2>
+<h1 id="_1">算法</h1>
+<h2 id="1-clique-percolation">1. Clique Percolation</h2>
+<p>中文名？派系过滤</p>
+<h3 id="_2">假设</h3>
+<p>群落由 完全连通子图的重叠集合组成——a community consists of overlapping sets of fully connected subgraphs</p>
+<h3 id="_3">思路</h3>
+<p>detects communities by searching for adjacent cliques</p>
+<h3 id="_4">扩展内容</h3>
 <ol>
-<li>
-<p>对前面所有团里的点 $ V_j$, 计算相应的</p>
+<li>派系(Cliques)。在一个无向网络图中，“派系”指的是至少包含3个点的最大完备子图。这个概念包含3层含义：①一个派系至少包含三个点。②派系是完备的，根据完备图的定义，派系中任何两点之间都存在直接联系。③派系是“最大”的，即向这个子图中增加任何一点，将改变其“完备”的性质。</li>
+<li>n-派系(n-Cliques)。对于一个总图来说，如果其中的一个子图满足如下条件，就称之为n-派系：在该子图中，任何两点之间在总图中的距离(即捷径的长度)最大不超过n。从形式化角度说，令d(i,j)代表两点和n在总图中的距离，那么一个n-派系的形式化定义就是一个满足如下条件的拥有点集的子图，即：d(i,J)\le n，对于所有的，n_i,n_j\in N,来说，在总图中不存在与子图中的任何点的距离不超过n的点。</li>
+<li>n-宗派(n—Clan)。所谓n-宗派(n—Clan)是指满足以下条件的n-派系，即其中任何两点之间的捷径的距离都不超过n。可见，所有的n-宗派都是n-派系。</li>
+<li>k-丛(k-Plex)。一个k-丛就是满足下列条件的一个凝聚子群，即在这样一个子群中，每个点都至少与除了k个点之外的其他点直接相连。也就是说，当这个凝聚子群的规模为n时，其中每个点至少都与该凝聚子群中n-k个点有直接联系，即每个点的度数都至少为n—k。</li>
+</ol>
+<h3 id="_5">某个的步骤之一</h3>
 <ol>
-<li>团连通性 $ \zeta^i_j $</li>
-<li>邻接连通性 $ \xi^i_j $</li>
+<li>begins by identifying all cliques of size k in a network, a new graph is constructed such that each vertex represents one of these k-cliques</li>
 </ol>
-</li>
-<li>
-<p>将[0, 1] 区间划分为 $max(20, N(v_j))$ 块， 每块初始化为0.</p>
-</li>
-<li>根据团连通性分数， 统计各区间 点的个数。</li>
-<li>标记 最右的非0元， 并开始向左遍历， 直到：<ol>
-<li>遍历完毕 或</li>
-<li>遇到某区间，&lt;=标记值(最右非零元)， 且&lt;=左边区间值， 这个值选为 留存阈值 stay cut-of of \zeta</li>
-</ol>
-</li>
-<li>外围结点 $v_k \in Added_i $ 排除出 $S_i$ , 当团连通性分数 $ \zeta^i_k $ 比留存阈值低。</li>
-<li>Removal of only
-peripheral nodes ensures that nodes that form the core of a
-community are never eliminated</li>
-</ol>
-<h2 id="_6">扩充阶段</h2>
-<p>对上一阶段处理后的团中所有点$v_j$， 当以下条件满足：
-1. 该点未入 $ S_i$团
-2. 该点选入 $S_i$团的可能性高（即 邻接连通性 $\xi^i_j$ 高于选中阈值 join cut-off ）</p>
-<p>join cut-off 选中阈值的计算方式与 stay 相同</p>
-<h2 id="_7">去重阶段</h2>
-<h1 id="_8">代码描述</h1>
-<h2 id="_9">参考链接</h2>
-<p><a href="/focs-notebook.html">focs-code</a></p>
-<h2 id="_10">输入</h2>
+<h3 id="_6">结论</h3>
+<p>more like pattern matching rather than finding communities since they aim to find specific, localized structure in a network.</p>
+<h2 id="2-line-graph-and-link-partitioning">2. Line Graph and Link Partitioning</h2>
+<p>中文名？连接划分</p>
+<h3 id="_7">思路</h3>
 <ol>
-<li>图 G， </li>
-<li>团内最小连接数 K</li>
-<li>团间允许最大重复率 OVL</li>
+<li>partitioning links</li>
+<li>A node in the original graph is called overlapping if links connected to it are put in more than one cluster.</li>
 </ol>
-<h2 id="_11">输出</h2>
-<p>$$ S = { $_i | S_i \in V and S_i 是团 }$$</p>
-<h2 id="_12">辅助变量</h2>
-<p>n = |V| </p>
-<p>N(v) = v的邻接点</p>
-<p>$$ Added_i = 上一轮中加入到 S_i 团的点 $$</p>
-<h2 id="preferredcommunities">PREFERREDCOMMUNITIES</h2>
+<h2 id="3-local-expansion-and-optimization">3. Local Expansion and Optimization</h2>
+<p>中文名？局部增广和优化</p>
+<h3 id="_8">思路</h3>
+<ol>
+<li>based on growing a natural community or a partial community</li>
+<li>rely on a local benefit function that characterizes the quality of a densely connected group of nodes</li>
+</ol>
+<h2 id="4-fuzzy-detection">4. Fuzzy Detection</h2>
+<p>中文名？模糊检测</p>
+<h3 id="_9">思路</h3>
+<p>quantify the strength of association between all pairs of nodes and communities</p>
+<h3 id="_10">例子</h3>
+<p>Non-negative Matrix Factorization </p>
+<h2 id="5-agent-based-and-dynamical-algorithms">5. Agent-Based and Dynamical Algorithms</h2>
+<p>中文名？基于啥的动态算法</p>
+<h3 id="_11">思路</h3>
+<p>label propagation algorithm by allowing a node to have multiple labels</p>
+<h2 id="6-others">6. others</h2>
+<p>中文名——无法分类 :)</p>
+<h1 id="_12">评估方法</h1>
+<h2 id="1-normalized-mutual-information">1. Normalized Mutual Information</h2>
+<p>中文名？标准互信息</p>
+<h2 id="2-omega-index">2. Omega Index</h2>
+<h1 id="_13">结论</h1>
             
             <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>
@@ -210,7 +210,7 @@ community are never eliminated</li>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2016-03-01T00:00:00+08:00">三月 1, 2016</time>
+            <time pubdate="pubdate" datetime="2016-03-04T00:00:00+08:00">三月 4, 2016</time>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#yan-jiu-ref">研究</a>
             <h4>Tags</h4>

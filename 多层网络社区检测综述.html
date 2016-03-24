@@ -123,7 +123,7 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <li>聚类扩展 cluster expansion</li>
 <li>矩阵分解 matrix factorization</li>
 <li>统一距离？ unified distance</li>
-<li>model based</li>
+<li>基于概率模型 model based</li>
 <li>模式挖掘 pattern mining</li>
 <li>图合并 graph merging</li>
 </ol>
@@ -248,11 +248,11 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <h1>Unified Distance</h1>
 <p>structural and attribute similarities using a unified distance measure</p>
 <p>SA-Cluster</p>
-</section><section id="unified-distance-measure" class="slide level2">
-<h1>unified distance measure</h1>
+</section><section class="slide level2">
+
+<h3 id="unified-distance-measure">unified distance measure</h3>
 <p>基于属性增广图(attribute-argmented graph), 使用Random Walk with Restart (RWR)</p>
-</section><section id="邻点随机游走距离" class="slide level2">
-<h1>邻点随机游走距离</h1>
+<h3 id="邻点随机游走距离">邻点随机游走距离</h3>
 <p>Neighborhood Random Walk Distance</p>
 <figure>
 <img src="http://b.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=38f2f17585025aafd7327acdcbdd9015/b3b7d0a20cf431ad220ef48c4c36acaf2fdd98a3.jpg" alt="rwd" /><figcaption>rwd</figcaption>
@@ -261,14 +261,17 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <li>l as the length that a random walk can go</li>
 <li>c ∈ (0, 1) as the restart probability</li>
 </ol>
-</section><section id="attribute-argmented-graph" class="slide level2">
-<h1>attribute-argmented graph</h1>
+</section><section class="slide level2">
+
+<h4 id="attribute-argmented-graph">attribute-argmented graph</h4>
 <ol type="1">
 <li>添加属性点（attribute vertices），代表属性的值。</li>
 <li>原始的点连接到对应的属性点上</li>
 <li>两点上共同的属性点越多， 两点相似度直觉上就越高。</li>
 </ol>
-<p>!(augment graph)(http://g.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=3ea1ab85bda1cd1101b676268922f38d/f31fbe096b63f624ad1d76b68044ebf81b4ca3c7.jpg)</p>
+<figure>
+<img src="http://g.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=3ea1ab85bda1cd1101b676268922f38d/f31fbe096b63f624ad1d76b68044ebf81b4ca3c7.jpg" alt="augment graph" /><figcaption>augment graph</figcaption>
+</figure>
 </section><section id="聚类算法" class="slide level2">
 <h1>聚类算法</h1>
 <p>利用unified distance measure， 进行 k-medoids clustering（类似 k-means）</p>
@@ -314,6 +317,9 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 
 <h3 id="投票机制-majority-voting-mechanism">投票机制 majority voting mechanism</h3>
 <p>counts the number of vertices within clusters that share the same attribute values with the centroids on ai</p>
+<figure>
+<img src="http://c.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=7322499d902bd40746c7d7fb4bb9a520/c75c10385343fbf2c8177196b77eca8065388f48.jpg" alt="voting" /><figcaption>voting</figcaption>
+</figure>
 </section><section id="主要贡献-1" class="slide level2">
 <h1>主要贡献</h1>
 <ol type="1">
@@ -354,6 +360,9 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <figure>
 <img src="http://b.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=1cbfc47eb5fb43161e1f7e7c10947d52/314e251f95cad1c886545892783e6709c83d5193.jpg" alt="var-distri" /><figcaption>var-distri</figcaption>
 </figure>
+</section><section class="slide level2">
+
+<p>全局最优就转成求局部最优</p>
 <figure>
 <img src="http://f.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=9028769497ef76c6d4d2ff2dad26c68b/b151f8198618367aaf41db6829738bd4b21ce5bf.jpg" alt="local-max" /><figcaption>local-max</figcaption>
 </figure>
@@ -370,20 +379,24 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <li>边采样 sampling edges with bias</li>
 <li>聚类 clustering</li>
 </ol>
-</section><section id="creating-content-edges" class="slide level2">
-<h1>creating content edges</h1>
+</section><section class="slide level2">
+
+<h3 id="creating-content-edges">creating content edges</h3>
 <ol type="1">
 <li>对每个点vi, 用cosine相似度， 计算k 内容最近邻</li>
 <li>在vi 和 k近邻间 建立content edges</li>
 </ol>
-</section><section id="combining-edges" class="slide level2">
-<h1>combining edges</h1>
+</section><section class="slide level2">
+
+<h3 id="combining-edges">combining edges</h3>
 <p>将新创建的content edges 和 初始的拓扑边集进行简单的联合(unified)</p>
-</section><section id="sampling-edges-with-bias" class="slide level2">
-<h1>sampling edges with bias</h1>
+</section><section class="slide level2">
+
+<h3 id="sampling-edges-with-bias">sampling edges with bias</h3>
 <p>对每个点 vi， 从邻点选择要保留的边， 通过 cosine 相似度或Jaccard 相似度</p>
-</section><section id="clustering" class="slide level2">
-<h1>clustering</h1>
+</section><section class="slide level2">
+
+<h4 id="clustering">clustering</h4>
 <p>因为图合并部分独立于community detection， 所以任意 community detection 都可以，</p>
 <p>这块不是本文的重点</p>
 </section><section id="主要贡献-2" class="slide level2">
@@ -436,37 +449,90 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <section><section id="模式挖掘" class="titleslide slide level1"><h1>模式挖掘</h1></section><section id="pattern-mining" class="slide level2">
 <h1>Pattern Mining</h1>
 <p>Coherent Closed Quasi-Clique Discovery from Large Dense Graph Databases</p>
+<p>Cocain</p>
 </section><section id="方法-1" class="slide level2">
 <h1>方法</h1>
 <p>子图挖掘算法， 搜索多层图中频率高于某给定阈值的 quasi-cliques</p>
-</section><section id="主要贡献-3" class="slide level2">
-<h1>主要贡献</h1>
-<p>find cross-graph quasi-cliques in a multi-layer graph that are frequent, coherent, and closed</p>
-</section><section id="cross-graph-quasi-clique" class="slide level2">
-<h1>cross-graph quasi-clique:</h1>
-<p>a set of vertices belonging to a quasi-clique that appears on all layers and must be the maximal set</p>
-</section><section id="步骤-4" class="slide level2">
-<h1>步骤</h1>
+</section><section id="基础定义" class="slide level2">
+<h1>基础定义</h1>
+<figure>
+<img src="http://b.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=68169e8f374e251fe6f7e0fe97b6f266/b3fb43166d224f4a09864fa60ef790529822d163.jpg" alt="formation" /><figcaption>formation</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h4 id="gammaγ-quasi-clique">gamma(γ)-Quasi-clique</h4>
+<figure>
+<img src="http://e.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=d1d43fd81738534388cf8327a3238b0f/d50735fae6cd7b897aaff637082442a7d8330e47.jpg" alt="Quasi-clique" /><figcaption>Quasi-clique</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h4 id="cross-graph-quasi-clique">cross-graph quasi-clique:</h4>
+<p>a set of vertices</p>
 <ol type="1">
-<li>将子图转成 canonical forms</li>
+<li>belonging to a quasi-clique</li>
+<li>appears on all layers</li>
+<li>must be the maximal set</li>
 </ol>
-</section><section id="以下部分忽略" class="slide level2">
-<h1>以下部分忽略</h1>
-</section><section id="problem-formulation" class="slide level2">
-<h1>problem formulation</h1>
-<p>!(formation)(http://b.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=68169e8f374e251fe6f7e0fe97b6f266/b3fb43166d224f4a09864fa60ef790529822d163.jpg)</p>
-</section><section id="gamma-quasi-clique" class="slide level2">
-<h1>gamma-Quasi-clique</h1>
-<p>!(Quasi-clique)(http://e.picphotos.baidu.com/album/s%3D1600%3Bq%3D90/sign=d1d43fd81738534388cf8327a3238b0f/d50735fae6cd7b897aaff637082442a7d8330e47.jpg)</p>
-</section><section id="edge-cut-and-edge-connectivity" class="slide level2">
-<h1>Edge Cut and Edge Connectivity</h1>
+</section><section class="slide level2">
+
+<h4 id="edge-cut-edge-connectivity">Edge Cut, Edge Connectivity</h4>
 <ol type="1">
 <li>edge cut is a set of edges Ec such that G'=(V ,E-Ec) is disconnected</li>
 <li>A minimum cut is the smallest set among all edge cuts.</li>
 <li>The edge connectivity of G, denoted by κ(G), is the size of the minimum cut</li>
 </ol>
-</section><section id="gamma-isomorphism-同构" class="slide level2">
-<h1>gamma-Isomorphism 同构</h1>
+<p>coherent subgraph: a subgraph that satisfies a minimum cut bound</p>
+</section><section class="slide level2">
+
+<h4 id="gammaγ-isomorphism-同构">gamma(γ)-Isomorphism 同构</h4>
+<p>若两个图G1, G2是 gamma同构， 当且仅当：</p>
+<ol type="1">
+<li>都是 γgamma-quasi-cliques</li>
+<li>点个数相同</li>
+<li>存在 biject f:V1-&gt;V2, 对V1中的每个点v, 满足F1(v) = F2(f(v))</li>
+</ol>
+<table style="width:10%;">
+<colgroup>
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>#### multiset</td>
+</tr>
+<tr class="even">
+<td>1. 点的标签的集合(a bag of vertex labels) 2. 忽略顺序 3. 突出多样性 4. 定义为 M(G)， G的multiset</td>
+</tr>
+</tbody>
+</table>
+<h4 id="string-of-a-graph">string of a graph</h4>
+<p>Given a k-graph g, any sequence of all elements in M(g)</p>
+<p>给定 k-graph g, M(g)的任意一种序列</p>
+</section><section class="slide level2">
+
+<h4 id="canonical-form-of-a-graph">canonical form of a graph</h4>
+<p>the minimum string among all its strings and denoted by CF(G)</p>
+<p>图的最小 string, 记作 CF(G)</p>
+<p>有引理：</p>
+<p>两个γ-quasi-cliques Q1 Q2 是γ同构， 当且仅当 CF(Q1) = CF(Q2)</p>
+</section><section id="步骤-4" class="slide level2">
+<h1>步骤</h1>
+<ol type="1">
+<li>将子图转成 canonical forms</li>
+<li>枚举γ-quasi-cliques可行解(feasible candidate for γ-quasi-cliques), 用DFS策略进行剪枝</li>
+<li>基于 闭包检查规划(closure-checking scheme)， 选择出闭包的 γ-quasi-cliques</li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="枚举策略">枚举策略</h3>
+<ol type="1">
+<li>枚举树</li>
+<li>满足： 子代必须能归入祖先</li>
+</ol>
+<p>关键：</p>
+<p>对每个 quasi-clique Q, 处理完它的子代后， 进行闭包检查</p>
+</section><section id="主要贡献-3" class="slide level2">
+<h1>主要贡献</h1>
+<p>find cross-graph quasi-cliques in a multi-layer graph that are frequent, coherent, and closed</p>
 </section></section>
 <section><section id="另一篇模式挖掘" class="titleslide slide level1"><h1>另一篇模式挖掘</h1></section><section id="论文" class="slide level2">
 <h1>论文</h1>
@@ -503,6 +569,17 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <p>Mining Multi-layered, Attributed Graphs</p>
 <p>计算出最大化、 无冗余、 高质量（不是最优质量）的聚类</p>
 <p>基于寻找quasi-cliques的快速算法。</p>
+</section></section>
+<section><section id="总结" class="titleslide slide level1"><h1>总结</h1></section><section id="section" class="slide level2">
+<h1></h1>
+<ol type="1">
+<li>Apriori 频繁项集的， 特例或通用</li>
+<li>随机游走</li>
+<li>概率模型</li>
+<li>矩阵分解</li>
+<li>clique</li>
+</ol>
+<p>community 没有严格定义</p>
 </section></section>
 <section><section id="未来研究方向" class="titleslide slide level1"><h1>未来研究方向</h1></section><section id="通用多层图的适应性" class="slide level2">
 <h1>通用多层图的适应性</h1>

@@ -167,11 +167,18 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 </ol>
 </section><section id="第一步-core-probing" class="slide level2">
 <h1>第一步 Core Probing</h1>
+<h3 id="基本思想">基本思想</h3>
 <p>co-occurrence analysis: multiple objects are linked simultaneously by others, they are more likely to be able to define a coherent topic scope</p>
+</section><section class="slide level2">
+
+<h3 id="prob-步骤">prob 步骤</h3>
 <ol type="1">
 <li>生成每个点的outgoing relations</li>
 <li>用关联规则来计算频繁项集(Apriori)</li>
 </ol>
+<figure>
+<img src="img/cikm2008_original.png" alt="original" /><figcaption>original</figcaption>
+</figure>
 </section><section class="slide level2">
 
 <h3 id="与-apriori-的不同点">与 Apriori 的不同点</h3>
@@ -200,6 +207,16 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <h3 id="计算-p-min-p-max-p-">计算 p-min, p-max, p-</h3>
 <figure>
 <img src="img/cikm2008_pvalue.png" alt="pvalue" /><figcaption>pvalue</figcaption>
+</figure>
+<ol type="1">
+<li>p-min, pmax: 在特征空间内， 为 core生成了边界框</li>
+<li>p- : 中心</li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="图示">图示：</h3>
+<figure>
+<img src="img/cikm2008_merge_view.png" alt="merge-view" /><figcaption>merge-view</figcaption>
 </figure>
 </section><section id="affiliation-propagation" class="slide level2">
 <h1>Affiliation Propagation</h1>
@@ -232,7 +249,7 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <li>使用 LDA（Latent Dirichlet Allocation）来降维</li>
 <li>使用某种分类器（SVM），将负标签的点都移除</li>
 </ol>
-</section><section id="图示" class="slide level2">
+</section><section id="图示-1" class="slide level2">
 <h1>图示</h1>
 <p><img src="img/cikm2008_original.png" alt="original" /> <img src="img/cikm2008_probing.png" alt="prob" /></p>
 </section><section class="slide level2">
@@ -248,6 +265,12 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <h1>Unified Distance</h1>
 <p>structural and attribute similarities using a unified distance measure</p>
 <p>SA-Cluster</p>
+</section><section id="步骤-3" class="slide level2">
+<h1>步骤</h1>
+<ol type="1">
+<li>建立统一距离度量， 新的图</li>
+<li>用新的图 进行聚类， 类k-means</li>
+</ol>
 </section><section class="slide level2">
 
 <h3 id="unified-distance-measure">unified distance measure</h3>
@@ -298,12 +321,22 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 </ol>
 </section><section id="聚类目标函数" class="slide level2">
 <h1>聚类目标函数</h1>
-<figure>
-<img src="img/28-set-distance.png" alt="set distance" /><figcaption>set distance</figcaption>
-</figure>
+<p>目标是最大化</p>
 <figure>
 <img src="img/28-objective-function.png" alt="obj function" /><figcaption>obj function</figcaption>
 </figure>
+<figure>
+<img src="img/28-set-distance.png" alt="set distance" /><figcaption>set distance</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h3 id="问题转化">问题转化</h3>
+<p>有以上的目标函数后， 可转化成三个子问题</p>
+<ol type="1">
+<li>聚类分配</li>
+<li>中心更新</li>
+<li>权重调整</li>
+</ol>
 </section><section id="权重自我调整" class="slide level2">
 <h1>权重自我调整</h1>
 <p>在每次迭代时， 进行权重调整</p>
@@ -331,11 +364,11 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <section><section id="基于模型方法" class="titleslide slide level1"><h1>基于模型方法</h1></section><section id="model-based-method" class="slide level2">
 <h1>Model-Based Method</h1>
 <p>model-based community detection approach based on both structural and attribute aspects of a graph</p>
-</section><section id="关键点" class="slide level2">
-<h1>关键点</h1>
+</section><section id="步骤关键点" class="slide level2">
+<h1>步骤关键点</h1>
 <ol type="1">
 <li>概率模型的构建， 结合结构和属性信息， 不使用人工定义的距离</li>
-<li>变分法解决模型</li>
+<li>变分法(variational approach)解决模型</li>
 </ol>
 </section><section id="构建概率模型" class="slide level2">
 <h1>构建概率模型</h1>
@@ -343,7 +376,7 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <ol type="1">
 <li>X: n x n 的邻接矩阵</li>
 <li>Y: n x t 的属性矩阵</li>
-<li>Z: n x 1 的聚类向量， 即每个点所属的类</li>
+<li>Z: n x 1 的聚类向量， 即每个点所属的聚类</li>
 </ol>
 </section><section id="目标" class="slide level2">
 <h1>目标：</h1>
@@ -372,7 +405,7 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <h1>Graph Merging</h1>
 <p>combine structural and attribute information using the graph merging process</p>
 <p>CODICIL</p>
-</section><section id="步骤-3" class="slide level2">
+</section><section id="步骤-4" class="slide level2">
 <h1>步骤</h1>
 <ol type="1">
 <li>创建内容边 create content edges</li>
@@ -492,19 +525,17 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <li>点个数相同</li>
 <li>存在 biject f:V1-&gt;V2, 对V1中的每个点v, 满足F1(v) = F2(f(v))</li>
 </ol>
-<table style="width:10%;">
-<colgroup>
-<col style="width: 9%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>#### multiset</td>
-</tr>
-<tr class="even">
-<td>1. 点的标签的集合(a bag of vertex labels) 2. 忽略顺序 3. 突出多样性 4. 定义为 M(G)， G的multiset</td>
-</tr>
-</tbody>
-</table>
+</section><section class="slide level2">
+
+<h4 id="multiset">multiset</h4>
+<ol type="1">
+<li>点的标签的集合(a bag of vertex labels)</li>
+<li>忽略顺序</li>
+<li>突出多样性</li>
+<li>定义为 M(G)， G的multiset</li>
+</ol>
+</section><section class="slide level2">
+
 <h4 id="string-of-a-graph">string of a graph</h4>
 <p>Given a k-graph g, any sequence of all elements in M(g)</p>
 <p>给定 k-graph g, M(g)的任意一种序列</p>
@@ -515,7 +546,7 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <p>图的最小 string, 记作 CF(G)</p>
 <p>有引理：</p>
 <p>两个γ-quasi-cliques Q1 Q2 是γ同构， 当且仅当 CF(Q1) = CF(Q2)</p>
-</section><section id="步骤-4" class="slide level2">
+</section><section id="步骤-5" class="slide level2">
 <h1>步骤</h1>
 <ol type="1">
 <li>将子图转成 canonical forms</li>

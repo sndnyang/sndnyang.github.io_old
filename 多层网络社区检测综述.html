@@ -380,13 +380,28 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 </ol>
 </section><section id="目标" class="slide level2">
 <h1>目标：</h1>
-<p>联合概率分布 <img src="img/26-joint-prob.png" alt="joint-prob" /></p>
+<p>求最优化：<img src="img/26-map.png" alt="map" /></p>
+<p>其中</p>
+<figure>
+<img src="img/26-posterior.png" alt="posterior" /><figcaption>posterior</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>联合概率分布</p>
+<figure>
+<img src="img/26-joint-prob.png" alt="joint-prob" /><figcaption>joint-prob</figcaption>
+</figure>
 <ol type="1">
 <li>alpha - 每个聚类的点分布（vertex distribution)</li>
 <li>theta - 属性分布(attribute distribution)</li>
 <li>phi - 类间 边出现概率(edge occurrence prob)</li>
 </ol>
-<p>求最优化：<img src="img/26-map.png" alt="map" /></p>
+</section><section id="两大问题" class="slide level2">
+<h1>两大问题</h1>
+<ol type="1">
+<li>Z 的N个变量最大化 计算量过大， 全局最优基本不可能</li>
+<li>计算Z的后验概率分布时， 不存在 p(Z|X,Y)的closed-form expression</li>
+</ol>
 </section><section id="变分法-variational-algorithm" class="slide level2">
 <h1>变分法 variational algorithm</h1>
 <p>使用variational distribution q(α, θ, φ, Z) 来逼近原分布</p>
@@ -399,6 +414,35 @@ tags: 论文, 多目标进化算法, 群落检测</p>
 <p>全局最优就转成求局部最优</p>
 <figure>
 <img src="img/26-local-maximum.png" alt="local-max" /><figcaption>local-max</figcaption>
+</figure>
+</section><section id="两个新问题" class="slide level2">
+<h1>两个新问题</h1>
+<ol type="1">
+<li>如何定义the family of variational distributions</li>
+<li>如何从中找出最优分布， 最接近p(α, θ, φ, Z|X, Y)</li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="parametric-family">Parametric Family</h3>
+<figure>
+<img src="img/26-map-simple.png" alt="map-simple" /><figcaption>map-simple</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h3 id="optimizing-variational-parameters">Optimizing Variational Parameters</h3>
+<p>measure the distance between a variational distribution q(α, θ, φ, Z) and the true posterior p(α, θ, φ, Z|X, Y)</p>
+<figure>
+<img src="img/26-kl-divergence.png" alt="kl-divergence" /><figcaption>kl-divergence</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>等价于 最大化</p>
+<figure>
+<img src="img/26-kl-maxim.png" alt="kl-maxim" /><figcaption>kl-maxim</figcaption>
+</figure>
+<p>关系式：</p>
+<figure>
+<img src="img/26-kl-relate.png" alt="kl-relate" /><figcaption>kl-relate</figcaption>
 </figure>
 </section></section>
 <section><section id="图合并" class="titleslide slide level1"><h1>图合并</h1></section><section id="graph-merging" class="slide level2">

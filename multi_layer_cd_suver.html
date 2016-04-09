@@ -174,12 +174,18 @@
 <li><a href="#_33">步骤关键点</a></li>
 <li><a href="#_34">构建概率模型</a></li>
 <li><a href="#_35">目标：</a></li>
+<li><a href="#_36">两大问题</a></li>
 <li><a href="#variational-algorithm">变分法 variational algorithm</a></li>
+<li><a href="#_37">两个新问题</a><ul>
+<li><a href="#parametric-family">Parametric Family</a></li>
+<li><a href="#optimizing-variational-parameters">Optimizing Variational Parameters</a></li>
 </ul>
 </li>
-<li><a href="#_36">图合并</a><ul>
+</ul>
+</li>
+<li><a href="#_38">图合并</a><ul>
 <li><a href="#graph-merging">Graph Merging</a></li>
-<li><a href="#_37">步骤</a><ul>
+<li><a href="#_39">步骤</a><ul>
 <li><a href="#creating-content-edges">creating content edges</a></li>
 <li><a href="#combining-edges">combining edges</a></li>
 <li><a href="#sampling-edges-with-bias">sampling edges with bias</a><ul>
@@ -188,24 +194,24 @@
 </li>
 </ul>
 </li>
-<li><a href="#_38">主要贡献</a></li>
+<li><a href="#_40">主要贡献</a></li>
 </ul>
 </li>
-<li><a href="#_39">矩阵分解</a><ul>
+<li><a href="#_41">矩阵分解</a><ul>
 <li><a href="#matrix-factorization">Matrix Factorization</a></li>
 <li><a href="#idea">主要idea</a></li>
-<li><a href="#_40">方法</a></li>
-<li><a href="#_41">目标</a><ul>
-<li><a href="#_42">求最小化：</a></li>
+<li><a href="#_42">方法</a></li>
+<li><a href="#_43">目标</a><ul>
+<li><a href="#_44">求最小化：</a></li>
 </ul>
 </li>
-<li><a href="#_43">全局转局部最优</a></li>
+<li><a href="#_45">全局转局部最优</a></li>
 </ul>
 </li>
-<li><a href="#_44">模式挖掘</a><ul>
+<li><a href="#_46">模式挖掘</a><ul>
 <li><a href="#pattern-mining">Pattern Mining</a></li>
-<li><a href="#_45">方法</a></li>
-<li><a href="#_46">基础定义</a><ul>
+<li><a href="#_47">方法</a></li>
+<li><a href="#_48">基础定义</a><ul>
 <li><a href="#gamma-quasi-clique">gamma(γ)-Quasi-clique</a></li>
 <li><a href="#cross-graph-quasi-clique">cross-graph quasi-clique:</a></li>
 <li><a href="#edge-cut-edge-connectivity">Edge Cut, Edge Connectivity</a></li>
@@ -215,16 +221,16 @@
 <li><a href="#canonical-form-of-a-graph">canonical form of a graph</a></li>
 </ul>
 </li>
-<li><a href="#_47">步骤</a><ul>
-<li><a href="#_48">枚举策略</a></li>
+<li><a href="#_49">步骤</a><ul>
+<li><a href="#_50">枚举策略</a></li>
 </ul>
 </li>
-<li><a href="#_49">主要贡献</a></li>
+<li><a href="#_51">主要贡献</a></li>
 </ul>
 </li>
-<li><a href="#_50">另一篇模式挖掘</a><ul>
-<li><a href="#_51">论文</a></li>
-<li><a href="#_52">本文贡献</a><ul>
+<li><a href="#_52">另一篇模式挖掘</a><ul>
+<li><a href="#_53">论文</a></li>
+<li><a href="#_54">本文贡献</a><ul>
 <li><a href="#multi-layer-coherent-subgraph-mlcs-model">multi-layer coherent subgraph (MLCS) model</a></li>
 </ul>
 </li>
@@ -235,18 +241,18 @@
 <li><a href="#mimag">MiMAG 算法</a></li>
 </ul>
 </li>
-<li><a href="#_53">总结</a><ul>
-<li><a href="#_54"></a></li>
+<li><a href="#_55">总结</a><ul>
+<li><a href="#_56"></a></li>
 </ul>
 </li>
-<li><a href="#_55">未来研究方向</a><ul>
-<li><a href="#_56">通用多层图的适应性</a></li>
-<li><a href="#_57">多层图的不确定性</a></li>
-<li><a href="#_58">可扩展性问题</a></li>
+<li><a href="#_57">未来研究方向</a><ul>
+<li><a href="#_58">通用多层图的适应性</a></li>
+<li><a href="#_59">多层图的不确定性</a></li>
+<li><a href="#_60">可扩展性问题</a></li>
 <li><a href="#temporal-analysis">Temporal analysis</a></li>
 </ul>
 </li>
-<li><a href="#_59">谢谢！</a></li>
+<li><a href="#_61">谢谢！</a></li>
 </ul>
 </div>
         </nav>
@@ -533,13 +539,22 @@
 <li>Z: n x 1 的聚类向量， 即每个点所属的聚类</li>
 </ol>
 <h2 id="_35">目标：</h2>
-<p>联合概率分布 <img alt="joint-prob" src="img/26-joint-prob.png"/></p>
+<p>求最优化：<img alt="map" src="img/26-map.png"/></p>
+<p>其中</p>
+<p><img alt="posterior" src="img/26-posterior.png"/></p>
+<hr/>
+<p>联合概率分布 </p>
+<p><img alt="joint-prob" src="img/26-joint-prob.png"/></p>
 <ol>
 <li>alpha - 每个聚类的点分布（vertex distribution)</li>
 <li>theta - 属性分布(attribute distribution)</li>
 <li>phi - 类间 边出现概率(edge occurrence prob)</li>
 </ol>
-<p>求最优化：<img alt="map" src="img/26-map.png"/></p>
+<h2 id="_36">两大问题</h2>
+<ol>
+<li>Z 的N个变量最大化 计算量过大， 全局最优基本不可能</li>
+<li>计算Z的后验概率分布时， 不存在 p(Z|X,Y)的closed-form expression</li>
+</ol>
 <h2 id="variational-algorithm">变分法 variational algorithm</h2>
 <p>使用variational distribution q(α, θ, φ, Z) 来逼近原分布</p>
 <p>并且对 variational distribution 作限制</p>
@@ -547,11 +562,28 @@
 <hr/>
 <p>全局最优就转成求局部最优</p>
 <p><img alt="local-max" src="img/26-local-maximum.png"/></p>
-<h1 id="_36">图合并</h1>
+<h2 id="_37">两个新问题</h2>
+<ol>
+<li>如何定义the family of variational distributions</li>
+<li>如何从中找出最优分布， 最接近p(α, θ, φ, Z|X, Y)</li>
+</ol>
+<hr/>
+<h3 id="parametric-family">Parametric Family</h3>
+<p><img alt="map-simple" src="img/26-map-simple.png"/></p>
+<hr/>
+<h3 id="optimizing-variational-parameters">Optimizing Variational Parameters</h3>
+<p>measure the distance between a variational distribution q(α, θ, φ, Z) and the true posterior p(α, θ, φ, Z|X, Y)</p>
+<p><img alt="kl-divergence" src="img/26-kl-divergence.png"/></p>
+<hr/>
+<p>等价于 最大化</p>
+<p><img alt="kl-maxim" src="img/26-kl-maxim.png"/></p>
+<p>关系式：</p>
+<p><img alt="kl-relate" src="img/26-kl-relate.png"/></p>
+<h1 id="_38">图合并</h1>
 <h2 id="graph-merging">Graph Merging</h2>
 <p>combine structural and attribute information using the graph merging process</p>
 <p>CODICIL</p>
-<h2 id="_37">步骤</h2>
+<h2 id="_39">步骤</h2>
 <ol>
 <li>创建内容边 create content edges</li>
 <li>边组合 combining edges</li>
@@ -574,9 +606,9 @@
 <h4 id="clustering">clustering</h4>
 <p>因为图合并部分独立于community detection， 所以任意 community detection 都可以，</p>
 <p>这块不是本文的重点</p>
-<h2 id="_38">主要贡献</h2>
+<h2 id="_40">主要贡献</h2>
 <p>通过 用内容信息消除连接结构里的噪音， 来强化社区信号</p>
-<h1 id="_39">矩阵分解</h1>
+<h1 id="_41">矩阵分解</h1>
 <h2 id="matrix-factorization">Matrix Factorization</h2>
 <p>论文： Community Detection with Edge Content in Social Media Networks</p>
 <p>Edge-Induced Matrix Factorization </p>
@@ -586,17 +618,17 @@
 <li>把不同信息进行结合</li>
 <li>使用通用的聚类方法处理</li>
 </ol>
-<h2 id="_40">方法</h2>
+<h2 id="_42">方法</h2>
 <ol>
 <li>使用 低秩矩阵因子分解(low-rank matrix factorization) 来逼近目标矩阵O， <img alt="o=PAP'" src="img/25-matrix-factors.png"/></li>
 <li>P: n x n 的特征矩阵</li>
 <li>lambda(大写的？): n x n 特征值矩阵</li>
 </ol>
-<h2 id="_41">目标</h2>
+<h2 id="_43">目标</h2>
 <p>对于多个目标矩阵O^i, i = 1,-,l</p>
 <p>要算出一个common factor matrix</p>
 <hr/>
-<h3 id="_42">求最小化：</h3>
+<h3 id="_44">求最小化：</h3>
 <p><img alt="obj-mini" src="img/25-obj-minimize.png"/></p>
 <ol>
 <li>P: n x n的所有层 公因子矩阵</li>
@@ -604,20 +636,20 @@
 <li>|| ·|| is the Frobenius norm</li>
 <li>α: regularization 参数</li>
 </ol>
-<h2 id="_43">全局转局部最优</h2>
+<h2 id="_45">全局转局部最优</h2>
 <p>迭代处理：</p>
 <ol>
 <li>固定P , 优化 Λ^i</li>
 <li>固定Λ^i , 优化 P</li>
 <li>直到 收敛</li>
 </ol>
-<h1 id="_44">模式挖掘</h1>
+<h1 id="_46">模式挖掘</h1>
 <h2 id="pattern-mining">Pattern Mining</h2>
 <p>Coherent Closed Quasi-Clique Discovery from Large Dense Graph Databases</p>
 <p>Cocain</p>
-<h2 id="_45">方法</h2>
+<h2 id="_47">方法</h2>
 <p>子图挖掘算法， 搜索多层图中频率高于某给定阈值的 quasi-cliques</p>
-<h2 id="_46">基础定义</h2>
+<h2 id="_48">基础定义</h2>
 <p><img alt="formation" src="img/27-pattern-mining-notation.png"/></p>
 <hr/>
 <h4 id="gamma-quasi-clique">gamma(γ)-Quasi-clique</h4>
@@ -664,26 +696,26 @@
 <p>图的最小 string, 记作 CF(G)</p>
 <p>有引理：</p>
 <p>两个γ-quasi-cliques Q1 Q2 是γ同构， 当且仅当 CF(Q1) = CF(Q2)</p>
-<h2 id="_47">步骤</h2>
+<h2 id="_49">步骤</h2>
 <ol>
 <li>将子图转成 canonical forms</li>
 <li>枚举γ-quasi-cliques可行解(feasible candidate for γ-quasi-cliques), 用DFS策略进行剪枝</li>
 <li>基于 闭包检查规划(closure-checking scheme)， 选择出闭包的 γ-quasi-cliques</li>
 </ol>
 <hr/>
-<h3 id="_48">枚举策略</h3>
+<h3 id="_50">枚举策略</h3>
 <ol>
 <li>枚举树</li>
 <li>满足： 子代必须能归入祖先</li>
 </ol>
 <p>关键：</p>
 <p>对每个 quasi-clique Q, 处理完它的子代后， 进行闭包检查</p>
-<h2 id="_49">主要贡献</h2>
+<h2 id="_51">主要贡献</h2>
 <p>find cross-graph quasi-cliques in a multi-layer graph that are frequent, coherent, and closed</p>
-<h1 id="_50">另一篇模式挖掘</h1>
-<h2 id="_51">论文</h2>
+<h1 id="_52">另一篇模式挖掘</h1>
+<h2 id="_53">论文</h2>
 <p>论文： Mining Coherent Subgraphs in Multi-Layer Graphs with Edge Labels</p>
-<h2 id="_52">本文贡献</h2>
+<h2 id="_54">本文贡献</h2>
 <ol>
 <li>提出了带边标签的多层图聚类的新范式</li>
 <li>提出了MLCS, 避免了结果集的冗余</li>
@@ -708,8 +740,8 @@
 <p>Mining Multi-layered, Attributed Graphs</p>
 <p>计算出最大化、 无冗余、 高质量（不是最优质量）的聚类</p>
 <p>基于寻找quasi-cliques的快速算法。</p>
-<h1 id="_53">总结</h1>
-<h2 id="_54"></h2>
+<h1 id="_55">总结</h1>
+<h2 id="_56"></h2>
 <ol>
 <li>Apriori 频繁项集的， 特例或通用</li>
 <li>随机游走</li>
@@ -718,23 +750,23 @@
 <li>clique</li>
 </ol>
 <p>community 没有严格定义</p>
-<h1 id="_55">未来研究方向</h1>
-<h2 id="_56">通用多层图的适应性</h2>
+<h1 id="_57">未来研究方向</h1>
+<h2 id="_58">通用多层图的适应性</h2>
 <p>General multi-layer graph applicability</p>
 <p>当前算法一般仅研究了 pillar(柱形)多层图</p>
 <p>现实世界不保证不同层之间正好一一对应</p>
 <p>所以现有算法的泛化， 对通用多层图的适应性非常有意义</p>
-<h2 id="_57">多层图的不确定性</h2>
+<h2 id="_59">多层图的不确定性</h2>
 <p>Uncertainty in multi-layer graphs</p>
 <p>现有的研究都假定 图数据已经清理完毕， 缺少噪音、歧义的研究</p>
 <p>constructing multi-layer graphs with entity resolution and/or trustworthy analysis certainly enhances the quality of the community detection process</p>
-<h2 id="_58">可扩展性问题</h2>
+<h2 id="_60">可扩展性问题</h2>
 <p>所以可能要考虑并行及分布式之类的方法</p>
 <p>或是对多层图的特征向量矩阵（feature-vector matrices）进行采样</p>
 <h2 id="temporal-analysis">Temporal analysis</h2>
 <p>图是随时间变化的。</p>
 <p>目前存在一些对单层图的时间变化的研究， 但基本不可用于多层图</p>
-<h1 id="_59">谢谢！</h1>
+<h1 id="_61">谢谢！</h1>
             
             <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>

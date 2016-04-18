@@ -425,3 +425,18 @@ dt:hover > a.headerlink {
     visibility: visible;
     text-decoration:none;
 }
+
+.hint {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #bbb;
+    border-radius: 7px;
+    opacity: 0.8;
+	display: none;
+	z-index: 888;
+}
+
+.hint ul {
+    padding: 10px;
+}

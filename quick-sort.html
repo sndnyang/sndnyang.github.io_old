@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="cs, 算法, 算法, " />
+
+<meta property="og:title" content="快速排序 "/>
+<meta property="og:url" content="/quick-sort.html" />
+<meta property="og:description" content="欢迎在zhimind上学习 本教程将尽我所能，指导您理解、练习并掌握快速排序算法。虽然目前仅限于使用javascript, 但算法对其他语言是通用的， 具体的语言不会影响您的理解。 左侧是javascript输入控制台，现在先告诉我们您的名字, 请输入 setName(&#39;您的昵称&#39;) 另外，有一些有用的命令: 输入 help() 来查看帮助吧！ 排序问题 现实中非常常见的一个问题就是， 给定一堆乱序的数字或名称， 给它们排好序。 之前可能已经学过以下几种排序算法: 冒泡排序 选择排序 插入排序 归并排序 堆排序 我们现在又要用新的方法实现了, 它就是 快速排序。 在开始正题之前， 先来查看待排序数组 v[] 的数据 ， 请输入print_list() 分治思想 不同于选择或冒泡排序逐个处理的暴力搜索思想， 我 们现在来考虑分治的思想 划分的方式 从中间位置划分，分后治之的是归并排序。 如果不指定位置划分， 有其他方法划分否？ 另外能否边分边治？ 还有哪些可能的划分方式? 随机 值大小 位置 ..." />
+<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2016-04-17T00:00:00+08:00" />
+<meta name="twitter:title" content="快速排序 ">
+<meta name="twitter:description" content="欢迎在zhimind上学习 本教程将尽我所能，指导您理解、练习并掌握快速排序算法。虽然目前仅限于使用javascript, 但算法对其他语言是通用的， 具体的语言不会影响您的理解。 左侧是javascript输入控制台，现在先告诉我们您的名字, 请输入 setName(&#39;您的昵称&#39;) 另外，有一些有用的命令: 输入 help() 来查看帮助吧！ 排序问题 现实中非常常见的一个问题就是， 给定一堆乱序的数字或名称， 给它们排好序。 之前可能已经学过以下几种排序算法: 冒泡排序 选择排序 插入排序 归并排序 堆排序 我们现在又要用新的方法实现了, 它就是 快速排序。 在开始正题之前， 先来查看待排序数组 v[] 的数据 ， 请输入print_list() 分治思想 不同于选择或冒泡排序逐个处理的暴力搜索思想， 我 们现在来考虑分治的思想 划分的方式 从中间位置划分，分后治之的是归并排序。 如果不指定位置划分， 有其他方法划分否？ 另外能否边分边治？ 还有哪些可能的划分方式? 随机 值大小 位置 ...">
+
+        <title>快速排序  · 懒龙谷
+</title>
+        <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="http://cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+		<link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74494551-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="/">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+
+
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+		    backToTop();
+		});
+      
+    	</script>
+        
+        <div class="hint">
+            <ul class="flashes">
+            </ul>
+        </div>
+        
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="/quick-sort.html"> 快速排序  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav style="position:fixed; left:10px;">
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#zhimind">欢迎在zhimind上学习</a></li>
+<li><a href="#_1">排序问题</a></li>
+<li><a href="#_2">分治思想</a></li>
+<li><a href="#_3">划分的方式</a></li>
+<li><a href="#_4">怎么选值呢?</a></li>
+<li><a href="#_5">准备划分</a></li>
+<li><a href="#_6">分析初始和目标状态</a><ul>
+<li><a href="#_7">遍历划分</a></li>
+<li><a href="#_8">递归解决子问题</a></li>
+<li><a href="#_9">快速排序优化， 请待后续分解</a></li>
+<li><a href="#_10">如何求解</a></li>
+<li><a href="#k">那请找出比 k 小的值的个数</a></li>
+<li><a href="#_11">哪里不对？</a></li>
+<li><a href="#k_1">能否在计算 k 位置的同时， 把集合划分好？</a></li>
+<li><a href="#_12">向右移动到新位置</a></li>
+<li><a href="#_13">原位置怎么办？</a></li>
+<li><a href="#_14">顺利？</a></li>
+<li><a href="#_15">如何避免覆盖？</a></li>
+<li><a href="#_16">回顾一下？</a><ul>
+<li><a href="#k_2">先选一个 k</a></li>
+</ul>
+</li>
+<li><a href="#_17">循环遍历</a></li>
+<li><a href="#_18">正确实现</a></li>
+<li><a href="#_19">可以像归并排序那样分完再治吗？</a></li>
+<li><a href="#_20">撒花庆祝！</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h2 id="zhimind">欢迎在zhimind上学习</h2>
+<p>本教程将尽我所能，指导您理解、练习并掌握快速排序算法。虽然目前仅限于使用javascript, 但算法对其他语言是通用的， 具体的语言不会影响您的理解。</p>
+<p>左侧是javascript输入控制台，现在先告诉我们您的名字, 请输入 <code>setName('您的昵称')</code></p>
+<p>另外，有一些有用的命令: 输入 <code>help()</code> 来查看帮助吧！</p>
+<h2 id="_1">排序问题</h2>
+<p>现实中非常常见的一个问题就是， 给定一堆乱序的数字或名称， 给它们排好序。 </p>
+<p>之前可能已经学过以下几种排序算法:</p>
+<ol>
+<li><a href="/index">冒泡排序</a></li>
+<li><a href="/index">选择排序</a></li>
+<li><a href="/index">插入排序</a></li>
+<li><a href="/index">归并排序</a></li>
+<li><a href="/index">堆排序</a></li>
+</ol>
+<p>我们现在又要用新的方法实现了, 它就是 <a href="" title="http://baike.baidu.com/link?url=Ba5BF-czRTU7OYN7kOctQnw-ZNCAabQ2nPGTxg-vGRVf3oOtRjwr-_d5EjRbP6h4qmv2AmqmGKQD96n64ILWz4v1DEW0nFwuGlqmmVI-ZBVkF3Nb5U7zc4mpsVF1UYc4XQF802_gZGKvOsJAJ0hCf3XoxJPEjkLNh4XEAbvyC0eS00VoyIZkFYt_Bw5eWqme">快速排序</a>。</p>
+<p>在开始正题之前， 先来查看待排序数组 v[] 的数据 ， 请输入<code>print_list()</code> </p>
+<h2 id="_2">分治思想</h2>
+<p>不同于选择或冒泡排序逐个处理的暴力搜索思想， 我
+们现在来考虑分治的思想</p>
+<p>
+<div><input class="answers" type="hidden" value="9556661369382e0ad772180a2c789e69"/><input class="comments" type="hidden" value="什么排序算法#标准名字#没学过归并排序？不好意思啦"/><br/>
+</div>
+</p>
+<h2 id="_3">划分的方式</h2>
+<p>从中间位置划分，分后治之的是归并排序。</p>
+<p>如果不指定位置划分， 有其他方法划分否？ 另外能否边分边治？</p>
+<p>
+<div>
+<p>还有哪些可能的划分方式?</p>
+<input class="quiz" name="quiz" type="checkbox" value="随机"/><b>随机</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="值大小"/><b>值大小</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="位置"/><b>位置</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="不知道"/><b>不知道</b><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="8e166f97c6de7190344278eac4f0259b"/><input class="comments" type="hidden" value="位置不算入#你居然选随机和不知道？"/><br/>
+</div>
+</p>
+<h2 id="_4">怎么选值呢?</h2>
+<p>不按位置，那我们只能按实际值的大小来划分。</p>
+<p>
+<div>
+<p>那怎么选划分值呢？</p>
+<input class="quiz" name="quiz" type="checkbox" value="随机一个"/><b>随机一个</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="第一个"/><b>第一个</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="最后一个"/><b>最后一个</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="中间那一个"/><b>中间那一个</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="平均值"/><b>平均值</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="中位数"/><b>中位数</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="不知道"/><b>不知道</b><br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="25d224858040cb99e0f11dff7aa14d08"/><input class="comments" type="hidden" value="标准教材最终会讲到任意一个#也就是平均值、中位数不知道#你居然选了不知道？"/><br/>
+</div>
+</p>
+<h2 id="_5">准备划分</h2>
+<p>既然已经知道了划分的k值， 那么现在就来划分数组了。</p>
+<p>目标就是让小于k的数放到左边， 大于等于k的数在右边，k在中间 </p>
+<p>想法是简单，可这不是废话吗？排好序的就有这性质啊。 那乱序的数组不排序怎么做呢？</p>
+<h1 id="_6">分析初始和目标状态</h1>
+<p>关于初始状态，只知道</p>
+<ol>
+<li>k在数组第一个位置</li>
+<li>k左边没有数，为空</li>
+<li>右集合是一堆乱序数。 </li>
+</ol>
+<p>反过来看目标状态，是不是也是三个集合：</p>
+<ol>
+<li>k自己是一个集合</li>
+<li>比k小的数组成一个集合 </li>
+<li>不比k小的数组成一个集合（除k）</li>
+</ol>
+<p>正好对应上</p>
+<p>既然如此， 就定义两个空集合（k本身是一个集合）， 分别叫做 left, right.</p>
+<p>请写代码<code>left=[],right=[]</code></p>
+<h2 id="_7">遍历划分</h2>
+<p>很简单， 我们只要遍历一遍数组v[]，将里面的元素按比k值的大小结果，相应地添加到left和right</p>
+<p>请实现， 得到left, right结果</p>
+<p>请从第二位开始从左往右遍历， 否则顺序不匹配， 也过不了</p>
+<h2 id="_8">递归解决子问题</h2>
+<p>目前求得三个集合， k, 比k小， 不比k小。</p>
+<p>然后要递归处理子问题， </p>
+<p>首先， 当问题规模 &lt;= 1时， 不需要再划分， 直接返回该数组-- 作为递归出口
+其次， 子问题处理完毕后， 三块集合要连接， 才能向更上层返回。</p>
+<p>请基于前面几步， 编写一个递归函数quicksort， 并调用它来处理数组v[]</p>
+<h2 id="_9">快速排序优化， 请待后续分解</h2>
+<p>以上部分是最容易实现的快速排序方法， 但有浪费一些空间， 教科书上最常见的不需要这部分空间, 会有一些小陷阱， 我暂时写不下去了--打算先写点别的</p>
+<h2 id="_10">如何求解</h2>
+<p>所以现在问题就是 如何求 i(index), 就是k的目标位置</p>
+<p>从初始状态开始， k 在第一个位置，而js数组下标从0开始， 所以 i = 0</p>
+<p>
+<div>
+<p>目标位置可以由什么直接决定?</p>
+<input class="quiz" name="quiz" type="radio" value="不比k小的个数"/><b>不比k小的个数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="比k大的个数"/><b>比k大的个数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="比k小的个数"/><b>比k小的个数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="和k相等的个数"/><b>和k相等的个数</b><br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<input class="answers" type="hidden" value="c6d973784f0edd469c3574f8b6725097"/><input class="comments" type="hidden" value="直接相关"/><br/>
+</div>
+</p>
+<h2 id="k">那请找出比 k 小的值的个数</h2>
+<p>so easy! </p>
+<p>请在得到该值后（直接数个数也行），建议用循环比较（文本框问题全部写成一行)，并保存到变量里， 输入<code>变量或值</code></p>
+<h2 id="_11">哪里不对？</h2>
+<p>看起来位置是知道了， 但感觉哪里不对？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="哪里都不对"/><b>哪里都不对</b><br/>
+<input class="quiz" name="quiz" type="radio" value="知道k位置，还不知道左右集合大小"/><b>知道k位置，还不知道左右集合大小</b><br/>
+<input class="quiz" name="quiz" type="radio" value="只知道k位置，其他值没说"/><b>只知道k位置，其他值没说</b><br/>
+<input class="quiz" name="quiz" type="radio" value=" 有哪里不对"/><b> 有哪里不对</b><br/>
+<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<input class="answers" type="hidden" value="9bfb5f5a139a1799d8d25496114ac1d9"/><br/>
+</div>
+</p>
+<h2 id="k_1">能否在计算 k 位置的同时， 把集合划分好？</h2>
+<p>之前你是怎么统计 &lt;k 的值的个数的？ 还记得吧？</p>
+<p>从左往右扫描时（或从右往左），假设不扫描k所在的第一位</p>
+<p>是不是 看到一个小的数，就加1呢？ 如果求的是 &gt;= k 的个数， 也是类似的， 不是吗？</p>
+<p>做成动画的话， 是不是 k 的位置往右移动了一格呢？</p>
+<p>那有什么问题吗？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="checkbox" value="原位置留的坑怎么办？"/><b>原位置留的坑怎么办？</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="不知道看到哪里了？"/><b>不知道看到哪里了？</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="新位置的值怎么办？"/><b>新位置的值怎么办？</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="这些都不是问题"/><b>这些都不是问题</b><br/>
+<button onclick="checkQuiz(this, 6)">submit</button><br/>
+<input class="answers" type="hidden" value="0002a04039108d8dffd521efaf9f6f87"/><input class="comments" type="hidden" value="选择题不太好提示啊~~~"/><br/>
+</div>
+</p>
+<h2 id="_12">向右移动到新位置</h2>
+<p>新位置上的值怎么办？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="只用下标记位置"/><b>只用下标记位置</b><br/>
+<input class="quiz" name="quiz" type="radio" value="用临时变量保存起来"/><b>用临时变量保存起来</b><br/>
+<button onclick="checkQuiz(this, 7)">submit</button><br/>
+<input class="answers" type="hidden" value="2f87336ca3fcf3fcf4756711b1220823"/><br/>
+</div>
+</p>
+<h2 id="_13">原位置怎么办？</h2>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="留空"/><b>留空</b><br/>
+<input class="quiz" name="quiz" type="radio" value="k"/><b>k</b><br/>
+<input class="quiz" name="quiz" type="radio" value="我也不知道"/><b>我也不知道</b><br/>
+<input class="quiz" name="quiz" type="radio" value="随便找个小于k的数填上"/><b>随便找个小于k的数填上</b><br/>
+<input class="quiz" name="quiz" type="radio" value="正看到的那个小于k的数来填上"/><b>正看到的那个小于k的数来填上</b><br/>
+<button onclick="checkQuiz(this, 8)">submit</button><br/>
+<input class="answers" type="hidden" value="c90f9208fa6143e6aa3378df76fda934"/><br/>
+</div>
+</p>
+<h2 id="_14">顺利？</h2>
+<p>上一步有什么问题？ 想想上上一步 新位置上的值是怎么处理的？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="有问题？我不知道"/><b>有问题？我不知道</b><br/>
+<input class="quiz" name="quiz" type="radio" value="位置只是下标,原位置的实际值会被覆盖"/><b>位置只是下标,原位置的实际值会被覆盖</b><br/>
+<input class="quiz" name="quiz" type="radio" value="k的位置可能会乱掉"/><b>k的位置可能会乱掉</b><br/>
+<button onclick="checkQuiz(this, 9)">submit</button><br/>
+<input class="answers" type="hidden" value="c7256d2eaee78750f5c76d05c52ed325"/><br/>
+</div>
+</p>
+<h2 id="_15">如何避免覆盖？</h2>
+<p>当然是</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="两个位置的值进行交换"/><b>两个位置的值进行交换</b><br/>
+<input class="quiz" name="quiz" type="radio" value="用临时变量保存"/><b>用临时变量保存</b><br/>
+<button onclick="checkQuiz(this, 10)">submit</button><br/>
+<input class="answers" type="hidden" value="3473159d89c4c0d31a9770eaa0b23064"/><input class="comments" type="hidden" value="临时变量保存能不能搞定， 其实没试过"/><br/>
+</div>
+</p>
+<h2 id="_16">回顾一下？</h2>
+<p>那我们脑海里的动画似乎可以顺利进行了</p>
+<ol>
+<li>选择好 k 的值——先假设是数组的第一个数， 当前位置是下标0</li>
+<li>数组从左往右扫描时（或从右往左）， 遍历时怎么处理？</li>
+<li>看到一个小于k的数，k的位置向右走一格， 原位置和扫描到的位置进行交换(即小于k的值被移到了k的左边，而在原位置上的数是之前扫描过的不小于k的数，交换后仍然保持在k的右边)。</li>
+<li>否则继续遍历， 直到遍历完整个数组。</li>
+</ol>
+<p>好， 那我们开始走一遍</p>
+<h3 id="k_2">先选一个 k</h3>
+<p>请用代码选出当前数组的第一个值,及下标<code>i=0;k = ???</code>，请不要直接填写具体值</p>
+<h2 id="_17">循环遍历</h2>
+<p>假设从左往右扫描， </p>
+<p>都说了边分边治，为什么不呢？难不成还等回来再处理？</p>
+<p>那现在的问题就是， 在我们遍历时， 能不能顺便把小的扔在一起，不小于k的扔在一起？</p>
+<p>假设现在左右两边集合都是空的，遍历时小的放到数组左端， 不小
+的加到数组右端， 省略若干字和一步</p>
+<p>但想想，这两个集合是互斥的，不重叠的，我把左边的搞好了，k就知道了， 右边自然就剩下并满足了，为什么要小也判断一下，大也判断一下</p>
+<p>所以只需要在遍历时， 发现小的就放到数组左端， 像是去排队一样
+, 一开始队伍长度为0， 所以我们定义一个变量<code>var set_length=0</code>, 也可以用队首队尾概念定为-1，问题都不大</p>
+<p>现在请用代码实现 集合长度 变化过程 
+<code>遍历；逐个处理；（这个暂时没想好 怎么算通过测试， 请随意输入）</code>.</p>
+<p>是不是只要知道k 在目标状态时的位置， 并保证左边的都小于k, 右边的都大于等
+于k， 就知道左右集合大小了呢， 至于它们内部需要有序吗？我们不管。
+分后才治之？</p>
+<h2 id="_18">正确实现</h2>
+<p>所以整个过程就是， 当遍历到某个值v[i]时，<code>if (v[i]小于k)
+    {v[set_length] = v[i]; set_length++;}</code></p>
+<p>是不是有什么问题呢——对吧， v[set_length] 被覆盖了， 原来的
+值就这么随意的get out了吗？所以， 我们不能简单地覆盖， 而是应该交换两个位置的值 </p>
+<p>下面就请正确实现 整个划分过程吧， 一定要正确地划分！不然不让
+过哦， 用很多算法书上的 while 循环或一些算法书上的for循环遍历都
+可以，只要满足k 左边的值都小于k,右边的值都不小于k, 请使用已定义
+变量 l 或 k 或 global_l, global_k， 代码写成一行 </p>
+<p>请将 k 目标状态所在位置的值保存在 变量 global_l 中。</p>
+<p>参考答案: 
+<code>l = 1;
+    for(var j = 1; j &amp;lt v.length; j++){ // 这个for 循环要写成
+    一行
+    if (v[j] &amp;lt k){ 
+        swap(v, j, l);
+        l++;
+    }
+    }
+    swap(v, l-1, 0)
+    global_l = l-1;</code></p>
+<h2 id="_19">可以像归并排序那样分完再治吗？</h2>
+<p><strong>如果没学过归并排序， 以下几节不用细看</strong> </p>
+<p>正如之前提到的， 在学习分治算法时， 老师通常会讲 归并排序和快速排序。</p>
+<p>如果有学过<a href="/index">归并排序</a>,  应该有印象， 最常规的归并排序是先不断地递归划分成子问题，直到不可再划分， 等到返回时， 再将子问题进行合并。 所以是先分后治， 分完再治。</p>
+<p>那快速排序可以这样吗？我们每层都可以求出划分的位置，是否可以 先递归求子问题， 再返回求解主问题？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="可以"/><b>可以</b><br/>
+<input class="quiz" name="quiz" type="radio" value="不可以"/><b>不可以</b><br/>
+<button onclick="checkQuiz(this, 11)">submit</button><br/>
+<input class="answers" type="hidden" value="e30dd9eafb44f6d30f924e7cafaed72b"/><input class="comments" type="hidden" value="那就成不同划分方式的归并排序而已"/><br/>
+</div>
+</p>
+<h2 id="_20">撒花庆祝！</h2>
+<p>Congratulations, {{ firstName }}, 你完成了快速排序的学习（中间
+少了很多步还没写呢）。 如果觉得有意义, 但没完全掌握或希望复习的话， 用
+<code>reset()</code>重新学习吧！</p>
+            
+            <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+		<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+		<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+		<a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+	</div>
+
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-04-17T00:00:00+08:00">四月 17, 2016</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#suan-fa-ref">算法</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags.html#cs-ref">cs
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#suan-fa-ref">算法
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+            <h4>Stay in Touch</h4>
+	<a href="http://weibo.com/u/2405149384" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+	    <i class="icon icon-twitter sidebar-social-links"></i></a>
+	<a href="http://github.com/sndnyang" title="My Github Profile" class="sidebar-social-links" target="_blank">
+	    <i class="icon icon-github sidebar-social-links"></i></a>
+	<a href="http://blog.csdn.net/sndnyangd" title="My CSDN Profile" class="sidebar-social-links" target="_blank">
+	    <i class="icon icon-facebook sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+        <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

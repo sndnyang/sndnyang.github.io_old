@@ -16,35 +16,76 @@ function backToTop() {
             scrollTop: "0"
         }, 500);
     });
-
-    //初始化tip
-    $(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+    
 }
 
-init_mathjax = function() {
-        if (window.MathJax) {
-          // MathJax loaded
-          MathJax.Hub.Config({
-            TeX: {
-              equationNumbers: {
-                autoNumber: "AMS",
-                useLabelIds: true
-              }
-            },
-            tex2jax: {
-              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-              processEscapes: true,
-              processEnvironments: true
-            },
-            displayAlign: 'center',
-            "HTML-CSS": {
-              styles: {'.MathJax_Display': {"margin": 0}},
-              linebreaks: { automatic: true }
+var error_times = 0;
+
+function checkQuiz(obj, id) {
+    var value,
+        your_answer,
+        back_check = false,
+        eleparent = $(obj).parent(),
+        ele = eleparent.children(".quiz"),
+        type = ele.attr("type"),
+        lesson_name = eleparent.parent()[0].className,
+        lesson_id = parseInt(lesson_name.substr(13)),
+        correct = eleparent.children(".answers").val(),
+        comments = eleparent.children(".comments");
+
+    if (type === "radio") {
+        ele.each(function() {
+            if ($(this).prop('checked') === true) {
+                value = $(this).val();
             }
-          });
-          MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        });
+    } else if (type === "checkbox") {
+
+        value = '';
+
+        ele.each(function() {
+            if ($(this).prop('checked') === true) {
+                value += $(this).val()+"@";
+            }
+        });
+
+        value = value.substring(0, value.length-1);
+
+    } else if (type === "text") {
+        value = ele.val();
+    }
+
+    if (type === "text" && ele.hasClass("formula")) {
+        var expression = ele.val();
+        console.log("暂不支持公式");
+    } else {
+        your_answer = $.md5(value);
+
+        if (your_answer === correct) {
+            $('.hint').css('display', 'block');
+            $('.flashes').html("<li>恭喜答案正确</li>");
+            error_times = 0;
+        } else {
+            $('.hint').css('display', 'block');
+            $('.flashes').html('');
+            $('.flashes').append("<li>对不起， 答案错误</li>")
+            $('.flashes').append("<li>提示:</li>")
+
+            if (comments === "undefined") {
+                comments = "无提示";
+            }
+            else {
+                comments = comments.val();
+            }
+
+            comments = comments.split('#');
+            if (error_times >= comments.length)
+                $('.flashes').append("<li>"+comments+"</li>");
+            else
+                $('.flashes').append("<li>"+comments[error_times]+"</li>");
+            error_times++;
+            setTimeout("$('.hint').fadeOut('slow')", 5000)
         }
-      }
+    }
+}
+

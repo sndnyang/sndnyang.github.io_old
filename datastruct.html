@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title> data structure 可视化</title>
+
+        <link rel="stylesheet" href="static/js/bower/reset-css/reset.css">
+        <style type="text/css">
+
+    div, canvas {
+        min-height: 300px; 
+        width: 95%;
+    }
+    </style>
+
+        <script src="http://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+        <link href="http://cdn.bootcss.com/vis/4.15.0/vis.min.css" rel="stylesheet">
+        <script src="http://cdn.bootcss.com/vis/4.15.0/vis.min.js"></script>
+        <script type="text/javascript" src="static/js/datastruct.js"> </script>
+        <script type="text/javascript" src="static/js/DataStructVis.js"> </script>
+        <script type="text/javascript" src="static/js/canvas.js"> </script>
+    </head>
+    <body onload="draw()">
+
+
+        <header>
+            <h1>数据结构可视化<h1>
+        </header>
+
+        <div class = "vismain">
+            输入数组长度（20以内）
+            <input type="text" id="lenth" value="10" onkeydown="javascript:if (event.keyCode==13) draw();"/>
+            <div id="Matrix"></div>
+            <div id="LinedList"></div>
+            <div id="Stack"></div>
+            <div id="Queue"></div>
+            <div id="Forest"></div>
+            <div id="Tree"></div>
+            <div id="BinaryTree"></div>
+            <div id="Graph"></div>
+            <div id="DGraph"></div>
+        </div>
+    </body>
+</html>

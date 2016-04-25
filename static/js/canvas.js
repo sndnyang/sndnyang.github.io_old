@@ -5,7 +5,6 @@ function updateData() {
     };
 
     network.setData(data);
-    network.redraw();
 }
 
 function markNodes(nodes_list) {
@@ -14,13 +13,13 @@ function markNodes(nodes_list) {
         return;
     }
 
+    var colors = []
     for (var i = 0; i < nodes.length; i++) {
-        nodes[i].color = "orange";
+        colors.push({id: (i+1), color: {background: 'orange'}})
     }
 
     for (var i in nodes_list) {
-        nodes[nodes_list[i]].color = "red";
-    }
-    
-    updateData();    
+        colors.push({id: nodes_list[i], color: {background: 'red'}})
+    }   
+    nodes.update(colors);
 }

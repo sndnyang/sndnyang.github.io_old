@@ -180,6 +180,53 @@ function parseTreeData(points, type) {
     return {nodes: node_list, edges: edge_list};
 }
 
+function parseGraphData(points, type) {
+
+    var i, j, node, edge, u, v, sub_node = 0, length = 0,
+        no_list = [], node_list = [], edge_list = [];
+
+    for (i in points) {
+        u = parseInt(indexof(no_list, i)) + 1;
+        if (u == 0) {
+            node = {
+                id: length + 1, label: i,
+                shape: 'circle', color: 'orange'
+            }
+            length += 1;
+            node_list.push(node);
+            u = length;
+            no_list.push(i);
+        }
+
+        for (j in points[i]) {
+            v = parseInt(indexof(no_list, points[i][j]))+1;
+            if (0 == v) {
+                node = {
+                    id: length + 1,
+                    label: points[i][j],
+                    shape: 'circle',
+                    color: 'orange'
+                }
+                length += 1;
+                v = length;
+                node_list.push(node);
+                no_list.push(points[i][j]);
+            }
+
+            edge = {
+                from: u,
+                to: v
+            };
+            if (type === "有向图") {
+                edge.arrows = 'to';
+            }
+            edge_list.push(edge);
+        }
+    }
+
+    return {node_list: node_list, edge_list: edge_list};
+}
+
 var HashMap = function (container, length) {
     'use strict';
     var self = {};
@@ -300,13 +347,31 @@ var Matrix = function (container, dimension) {
         self.dimension[1] * 50, y: self.dimension[0] * 50, shape: 'text'}];
 
     self.initData = function () {
-        self.parseData(null);
+        var i, j, a = [];
+        for (i = 0; i < self.dimension[0]; i += 1) {
+            a[i] = [];
+            for (j = 0; j < self.dimension[1]; j += 1) {
+                a[i][j] = Math.floor(Math.random() * 100 - 50);
+            }
+        }
+        self.parseData(a);
     };
 
     self.parseData = function (points) {
-        nodes = [];
-        edges = [];
+        var i, j, node;
+        nodes = []
 
+        self.dimension = [points.length, points[0].length];
+        self.length = [points.length, points[0].length];
+
+        for (i = 0; i < points.length; i += 1) {
+            for (j = 0; j < points[i].length; j += 1) {
+                nodes.push({
+                    id: 1 + j + i * points.length, label: points[i][j], 
+                    shape: "text", x: 25 + j * 50, y: 25 + i * 50
+                });
+            }
+        }
         nodeSet = new vis.DataSet(nodes);
         nodeSet.add(self.extra[0]);
         nodeSet.add(self.extra[1]);
@@ -842,61 +907,15 @@ var DGraph = function (container, length) {
     };
 
     self.parseData = function (points) {
-        var i, j, node, edge, u, v;
-        var i, node, edge, odds = 1.3, no_list = [], leafs = [], 
-            sub_node = 0;
 
-        self.length = 0;
-        nodes = [];
-        edges = [];
-        //console.log(points);
+        var a = parseGraphData(points, self.type);
+        console.log(a);
+        nodeSet = new vis.DataSet(a.node_list);
+        edgeSet = new vis.DataSet(a.edge_list);
 
-        for (i in points) {
-            u = parseInt(indexof(no_list, i)) + 1;
-            if (u == 0) {
-                node = {
-                    id: self.length + 1,
-                    label: i,
-                    shape: 'circle',
-                    color: 'orange'
-                }
-                self.length += 1;
-                nodes.push(node);
-                u = self.length;
-                no_list.push(i);
-            }
-
-            //console.log(i + ' id ' +  u + ' to ' + points[i]);
-
-            for (j in points[i]) {
-                v = parseInt(indexof(no_list, points[i][j]))+1;
-                
-                if (0 == v) {
-                    node = {
-                        id: self.length + 1,
-                        label: points[i][j],
-                        shape: 'circle',
-                        color: 'orange'
-                    }
-                    self.length += 1;
-                    v = self.length;
-                    nodes.push(node);
-                    no_list.push(points[i][j]);
-                }
-                //console.log(u + ' -> ' + v + ' ' + points[i][j]);
-                edge = {
-                    from: u,
-                    to: v,
-                    arrows: 'to'
-                };
-                edges.push(edge);
-            }
-        }
-
-        nodeSet = new vis.DataSet(nodes);
         data = {
             nodes: nodeSet,
-            edges: edges
+            edges: edgeSet
         };
         self.draw();
     };
@@ -949,58 +968,15 @@ var Graph = function (container, length) {
     };
 
     self.parseData = function (points) {
-        var i, j, node, edge, u, v;
-        var i, node, edge, odds = 1.3, no_list = new Array(), leafs = [], 
-            sub_node = 0;
 
-        self.length = 0;
-        nodes = [];
-        edges = [];
-        //console.log(points);
-
-        for (i in points) {
-            u = parseInt(indexof(no_list, i)) + 1;
-            if (u == 0) {
-                node = {
-                    id: self.length + 1,
-                    label: i,
-                    shape: 'circle',
-                    color: 'orange'
-                }
-                self.length += 1;
-                nodes.push(node);
-                u = self.length;
-                no_list.push(i);
-            }
-
-            for (j in points[i]) {
-                v = parseInt(indexof(no_list, points[i][j]))+1;
-                
-                if (0 == v) {
-                    node = {
-                        id: self.length + 1,
-                        label: points[i][j],
-                        shape: 'circle',
-                        color: 'orange'
-                    }
-                    self.length += 1;
-                    v = self.length;
-                    nodes.push(node);
-                    no_list.push(points[i][j]);
-                }
-                edge = {
-                    from: u,
-                    to: v
-                };
-                edges.push(edge);
-            }
-        }
-
-        nodeSet = new vis.DataSet(nodes);
+        var a = parseGraphData(points, self.type);
+        console.log(a);
+        nodeSet = new vis.DataSet(a.node_list);
+        edgeSet = new vis.DataSet(a.edge_list);
 
         data = {
             nodes: nodeSet,
-            edges: edges
+            edges: edgeSet
         };
         self.draw();
     };
@@ -1018,3 +994,191 @@ var Graph = function (container, length) {
     self.initData();
     return self;
 }
+
+
+var ScatterPlot = function (container, length) {
+    'use strict';
+    var self = {};
+    self.type = "散点图";
+    self.container = container;
+    self.length = length;
+    self.classes = 2;
+    self.dimension = 2;
+    self.w = [];
+    self.b = 0;
+    self.options =  {
+        sort: false,
+        sampling: false,
+        style: 'dot-color',
+        dataAxis: {
+          //left: {
+          //    range: {
+          //        min: 300, max: 800
+          //    }
+          //}
+        },
+        drawPoints: {
+            enabled: true,
+            size: 6,
+            style: 'circle' // square, circle
+        },
+        defaultGroup: 'Scatterplot'
+    };
+
+    self.initData = function () {
+        var i, j, x = [], y, c, a = [], v, t;
+        for (i = 1; i < self.dimension; i += 1) {
+            self.w.push(Math.random() * 100 - 50);
+        }
+
+        for (i = 0; i < self.length; i += 1) {
+
+            v = 0;
+            x = [];
+            for (j = 1; j < self.dimension; j += 1) {
+                t = Math.floor(Math.random() * 100 - 50);
+                v += t * self.w[j - 1];
+                x.push(t);
+            }
+            y = Math.random() * 100;
+            self.b = Math.random() * 50 - 25;
+            
+            if (v + self.b - y >= 0) {
+                c = 1;
+            }
+            else {
+                c = 0;
+            }
+            a.push([x, y, c]);
+        }
+        self.parseData(a);
+    };
+
+    self.parseData = function (points) {
+        if (self.dimension === 2) {
+            self.draw2D(points);
+            return;
+        }
+
+      //var i, x, y, z, v = 0, node, edge, node_list = [];
+      //self.length = points.length;
+
+      //for (i = 0; i < self.length; i += 1) {
+      //    x = points[i][0];
+      //    y = points[i][1];
+    ////    console.log(x + ' ' + y)
+      //    if (self.dimension === 2) {
+      //        var dist = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+      //        node = {
+      //            x: x[0], y: y, z: 0, style: dist
+      //        };
+      //    }
+      //    node_list.push(node);
+      //}
+
+      //console.log()
+      //nodes = node_list;
+      //nodeSet = new vis.DataSet(node_list);
+
+      //self.draw();
+    };
+
+    self.draw = function () {
+        if (self.dimension === 2) {
+            self.options.cameraPosition = {
+                horizontal: -1.5717963267948964,
+                vertical: 1.5707963267948966
+            };
+            self.options.zMax = 0;
+
+        }
+        network = new vis.Graph3d(container, nodeSet, self.options);
+    };
+
+    self.draw2D = function (points) {
+        var i, c, line, markLineOpt, node_list = [], x = [10000, 0];
+        for (i = 0; i < self.classes; i += 1) {
+            node_list.push([]);
+        }
+
+        for (i in points) {
+            c = points[i][2];
+            //console.log(c + ' ' + points[i][0][0] + ' ' + points[i][1]);
+            if (points[i][0][0] < x[0]) {
+                x[0] = points[i][0][0];
+            }
+            if (points[i][0][0] > x[1]) {
+                x[1] = points[i][0][0];
+            }
+            node_list[c].push([points[i][0][0], points[i][1]]);
+        }
+
+        line = 'y = ' + self.w[0] + ' * x + ' + self.b;
+
+        markLineOpt = {
+            animation: false,
+            label: {
+                normal: {
+                    formatter: line,
+                    textStyle: {
+                        align: 'right'
+                    }
+                }
+            },
+            lineStyle: {
+                normal: {
+                    type: 'solid'
+                }
+            },
+            tooltip: {
+                formatter: line
+            },
+            data: [[{
+                coord: [(-20 - self.b) / self.w[0], -20],
+                symbol: 'none'
+            }, {
+                //coord: [100, 100*self.w[0]+self.b],
+                coord: [(120 - self.b) / self.w[0], 120],
+                symbol: 'none'
+            }]]
+        };
+
+        var option = {
+            tooltip: {
+                formatter: 'Group {a}: ({c})'
+            },
+            dataZoom: [{
+                type: 'inside',
+                yAxisIndex: [0]
+            }],
+            xAxis: {
+                min: -80,
+                max: 80
+            },
+            yAxis: {
+                min: -20,
+                max: 120
+            },
+            series: []
+        };
+
+        for (i in node_list) {
+            option.series.push({
+                name: i,
+                type: 'scatter',
+                data: node_list[i]
+            });
+        }
+        option.series[0].markLine = markLineOpt;
+
+        network = echarts.init(self.container);
+        network.setOption(option);
+    }
+
+    self.setData = function (data) {
+        network.setData(data);
+    };
+
+    self.initData();
+    return self;
+};

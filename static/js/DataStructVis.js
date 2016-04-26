@@ -1,5 +1,17 @@
 /*global $, data: true, nodes: true, edges: true, network: true, vis, alert, updateData, console*/
 
+function removeFromArray(list, value) {
+    var i, numDeleteIndex = -1;
+    for (i = 0; i < list.length; i += 1) {
+        if (list[i] === value) {
+            list.splice(i, 1);
+            numDeleteIndex = i;
+            break;
+        }
+    }
+    return numDeleteIndex;
+}
+
 function data_swap(a, i, j) {
     var t = a[i];
     a[i] = a[j];
@@ -15,6 +27,260 @@ function indexof(list, e) {
     }
     return -1;
 }
+
+function canAddInBinaryTree(odds, sub_nodes, leafs, add_node_prob){
+    return (odds > add_node_prob || !leafs.length) && sub_nodes.length <= 1;
+}
+
+function canAddInTree(odds, sub_nodes, leafs, add_node_prob){
+    return odds > add_node_prob || !leafs.length;
+}
+
+function canAddInForest(odds, sub_nodes, leafs, add_node_prob){
+    return odds > add_node_prob || !leafs.length;
+}
+
+function canAddNode(type, odds, sub_nodes, leafs) {
+    var add_node_prob = Math.random(),
+        checkMap = {'森林': canAddInForest,
+                    '树': canAddInTree,
+                    '二叉树': canAddInBinaryTree};
+
+    var tmp = checkMap[type](odds, sub_nodes, leafs, add_node_prob);
+    return tmp;
+}
+
+function generateTrees(length, type) {
+    var i, j, u, v, odds = 1.3, sub_node = 0, 
+        root_num = Math.floor(Math.random() * 5 + 1),
+        lists = [], a = {}, leafs = [],
+        root = Math.floor(Math.random() * length);
+
+    if (type != "森林") {
+        root_num = 1;
+    }
+
+    a[root] = [];
+
+    for (i = 0; i < length; i += 1) {
+        lists.push(i);
+    }
+
+    data_swap(lists, 0, root);
+
+    for (i = 1; i < root_num; i += 1) {
+        new_index = Math.floor(Math.random() * (length - i) + i);
+        new_node = lists[new_index];
+        data_swap(lists, i, new_index);
+        leafs.push(new_node);
+        a[new_index] = [];
+    }
+
+    for (i = root_num; i < length; i += 1) {
+        var new_index, new_node;
+
+        if (canAddNode(type, odds, a[root], leafs)) {
+            new_index = Math.floor(Math.random() * (length - i) + i);
+            new_node = lists[new_index];
+            a[root].push(new_node);
+
+            data_swap(lists, i, new_index);
+            leafs.push(new_node);
+            odds -= 0.3;
+            sub_node += 1;
+        } 
+        else {
+            root = leafs.shift();
+            a[root] = [];
+            if (!leafs.length){
+                odds = 1;
+            }
+            i -= 1;
+            sub_node = 0;
+            odds = 0.8;
+            continue;
+        }
+    }
+    //console.log(a);
+
+    return a;
+}
+
+function parseTreeRoot(points) {
+    var i, j, u, v, no_list = [];
+    for (i in points) {
+        no_list.push(parseInt(i));
+    }
+
+    for (i in points) {
+        for (j in points[i]) {
+            removeFromArray(no_list, points[i][j]);
+        }
+    }
+
+    return no_list;
+}
+
+function parseTreeData(points, type) {
+    var i, j, node_list, edge_list, node, edge, u, v, root,
+        odds = 1.3, sub_node = 0, no_list = [],
+        leafs = parseTreeRoot(points);
+    
+    if (type !== "森林" && leafs.length > 1) {
+        return null;                
+    }
+
+    length = 0;
+
+    node_list = [];
+    edge_list = [];
+
+    for (i = 0; i < leafs.length; i += 1) {
+        node = {
+            id: length + 1, label: leafs[i],
+            shape: 'circle', color: 'orange',
+            level: 1
+        }
+        length += 1;
+        node_list.push(node);
+        no_list.push(leafs[i]);
+    }
+
+    while (leafs.length) {
+        i = leafs.shift();
+        if (type === "二叉树" && points[i] && points[i].length > 2) {
+            return null;
+        }
+
+        u = parseInt(indexof(no_list, i));
+
+        for (j in points[i]) {
+            
+            v = parseInt(indexof(no_list, points[i][j]))+1;
+            if (0 == v) {
+                node = {
+                    id: length + 1, label: points[i][j],
+                    shape: 'circle', color: 'orange',
+                    level: node_list[u].level + 1
+                }
+                length += 1;
+                v = length;
+                node_list.push(node);
+                no_list.push(points[i][j]);
+                leafs.push(points[i][j]);
+            }
+            edge = {
+                from: u+1,
+                to: v
+            };
+            edge_list.push(edge);
+        }
+    }
+
+    return {nodes: node_list, edges: edge_list};
+}
+
+var HashMap = function (container, length) {
+    'use strict';
+    var self = {};
+    self.type = "散列表";
+    self.container = container;
+    self.length = length;
+    self.dimension = [length, 1];
+
+    self.options =  {
+        nodes: {
+            fixed: true
+        }
+    };
+
+    self.extra = [{id: 999, x: 0, y: 0, shape: 'text'}, 
+        {id: 998, x: 1000, y: self.dimension[0] * 50, shape: 'text'}];
+
+    self.initData = function () {
+        var a = generateTrees(self.length, "树");
+        self.parseData(a);
+    };
+
+    self.parseData = function (points) {
+        var i, j, u, v, node, edge, count;
+        nodes = [];
+        edges = [];
+        length = 0;
+
+        for (i in points) {
+            node = {
+                id: length + 1, 
+                x: 25, y: parseInt(i) * 50 + 25,
+                shape: 'text'
+            }
+            nodes.push(node);
+            length += 1;
+
+            u = length;
+
+            count = 0;
+            for (j in points[i]) {
+                node = {
+                    id: length + 1, label: points[i][j],
+                    x: 150 + count * 100, 
+                    y: 25 + parseInt(i) * 50,
+                    shape: 'box', font: {size: 25}
+                }
+                length += 1;
+                count += 1;
+                v = length;
+                nodes.push(node);
+
+                edge = {
+                    from: u,
+                    to: v,
+                    arrows: 'to'
+                };
+                edges.push(edge);
+            }
+        }
+
+        nodeSet = new vis.DataSet(nodes);
+        nodeSet.add(self.extra[0]);
+        nodeSet.add(self.extra[1]);
+        data = {
+            nodes: nodeSet,
+            edges: edges
+        };
+        self.draw();
+    };
+
+    self.draw = function () {
+        network = new vis.Network(container, data, self.options);
+        network.on("afterDrawing", function (ctx) {
+            var i;
+            ctx.strokeStyle = '#294475';
+            ctx.fillStyle = 'red';
+            ctx.font="25px Verdana";
+            ctx.lineWidth = 1;
+            for (i = 0; i <= self.dimension[0]; i += 1) {
+                ctx.moveTo(0, i * 50);
+                ctx.lineTo(self.dimension[1] * 50, i * 50);
+                if (i < self.dimension[0]) {
+                    ctx.fillText(i, 25, i * 50 + 25);
+                }
+            }
+            for (i = 0; i <= self.dimension[1]; i += 1) {
+                ctx.moveTo(i * 50, 0);
+                ctx.lineTo(i * 50, self.dimension[0] * 50);
+            }
+            ctx.stroke();
+        });
+    };
+
+    self.setData = function (data) {
+        network.setData(data);
+    };
+
+    self.initData();
+    return self;
+};
 
 var Matrix = function (container, dimension) {
     'use strict';
@@ -34,24 +300,27 @@ var Matrix = function (container, dimension) {
         self.dimension[1] * 50, y: self.dimension[0] * 50, shape: 'text'}];
 
     self.initData = function () {
+        self.parseData(null);
+    };
+
+    self.parseData = function (points) {
         nodes = [];
         edges = [];
-        nodes.push(self.extra[0]);
-        nodes.push(self.extra[1]);
 
+        nodeSet = new vis.DataSet(nodes);
+        nodeSet.add(self.extra[0]);
+        nodeSet.add(self.extra[1]);
         data = {
-            nodes: nodes,
+            nodes: nodeSet,
             edges: []
         };
+        self.draw();
     };
 
     self.draw = function () {
         network = new vis.Network(container, data, self.options);
         network.on("afterDrawing", function (ctx) {
             var i;
-            if (self.viewPosition) {
-                this.moveTo({position: self.viewPosition});
-            }
             ctx.strokeStyle = '#294475';
             ctx.lineWidth = 1;
             ctx.fillStyle = '#A6D5F7';
@@ -61,23 +330,17 @@ var Matrix = function (container, dimension) {
             }
             for (i = 0; i <= self.dimension[1]; i += 1) {
                 ctx.moveTo(i * 50, 0);
-                ctx.lineTo(i * 50, self.dimension[1] * 50);
+                ctx.lineTo(i * 50, self.dimension[0] * 50);
             }
             ctx.stroke();
         });
-    };
-
-    self.parseData = function (data) {
-        network.setData(data);
     };
 
     self.setData = function (data) {
         network.setData(data);
     };
 
-
     self.initData();
-    self.draw();
     return self;
 };
 
@@ -104,8 +367,6 @@ var LinkedList = function (container, length) {
     };
 
     self.draw = function () {
-        console.log(self.options);
-        console.log(data);
         network = new vis.Network(container, data, self.options);
     };
 
@@ -137,8 +398,9 @@ var LinkedList = function (container, length) {
             edges.push(edge);
         }
 
+        nodeSet = new vis.DataSet(nodes);
         data = {
-            nodes: nodes,
+            nodes: nodeSet,
             edges: edges
         };
 
@@ -174,6 +436,38 @@ var Stack = function (container, length) {
             a.push(Math.floor(Math.random() * 100));
         }
         self.parseData(a);
+    };
+
+    self.parseData = function (points) {
+        var i, node, edge;
+        self.length = points.length;
+        self.extra[1].x = self.length * 80 + 120;
+
+        nodes = [];
+        edges = [];
+        
+        for (i = 0; i < self.length; i += 1) {
+            node = {
+                id: i + 1,
+                x: i * 80 + 40,
+                y: 100,
+                label: Math.floor(Math.random() * 100),
+                shape: 'square',
+                color: 'orange'
+            };
+            nodes.push(node);
+        }
+
+        nodeSet = new vis.DataSet(nodes);
+        nodeSet.add(self.extra[0]);
+        nodeSet.add(self.extra[1]);
+
+        data = {
+            nodes: nodeSet,
+            edges: edges
+        };
+
+        self.draw();
     };
 
     self.draw = function () {
@@ -223,38 +517,6 @@ var Stack = function (container, length) {
         updateData();
     };
 
-
-    self.parseData = function (points) {
-        var i, node, edge;
-        self.length = points.length;
-        self.extra[1].x = self.length * 80 + 120;
-
-        nodes = [];
-        edges = [];
-        nodes.push(self.extra[0]);
-        nodes.push(self.extra[1]);
-        
-        for (i = 0; i < self.length; i += 1) {
-            node = {
-                id: i + 1,
-                x: i * 80 + 40,
-                y: 100,
-                label: Math.floor(Math.random() * 100),
-                shape: 'square',
-                color: 'orange'
-            };
-            nodes.push(node);
-        }
-
-        data = {
-            nodes: nodes,
-            edges: edges
-        };
-
-        self.draw();
-    };
-
-
     self.setData = function (data) {
         network.setData(data);
     };
@@ -302,8 +564,9 @@ var Queue = function (container, length) {
             nodes.push(node);
         }
 
+        nodeSet = new vis.DataSet(nodes);
         data = {
-            nodes: nodes,
+            nodes: nodeSet,
             edges: edges
         };
         self.draw();
@@ -335,7 +598,7 @@ var Queue = function (container, length) {
             return;
         }
 
-        e = nodes.splice(0, 1);
+        e = nodes.shift();
         self.length -= 1;
         for (i = 0; i < self.length; i += 1) {
             nodes[i].x -= 80;
@@ -387,48 +650,27 @@ var Forest = function (container, length) {
         }
     };
 
-    self.initData = function (data) {
-        var i, a = {};
-        for (i = 0; i < self.length; i += 1) {
-            a[i] = Math.floor(Math.random() * 100);
-        }
+    self.initData = function () {
+        var a = generateTrees(self.length, self.type);
         self.parseData(a);
     };
 
     self.parseData = function (points) {
-        var i, j, node, edge;
-        self.length = 0;
-        nodes = [];
-        edges = [];
-        for (i in points) {
-            node = {
-                id: self.length + 1,
-                x: self.length * 80 + 40,
-                y: 100,
-                label: points[i],
-                shape: 'dot',
-                color: 'orange'
-            }
-            self.length += 1;
-            nodes.push(node);
-
-            for (j in points[i]) {
-                node = {
-                    id: points[i][j],
-                    x: i * 80 + 40,
-                    y: 100,
-                    label: points[i],
-                    shape: 'dot',
-                    color: 'orange'
-                };
-                self.length += 1
-                nodes.push(node);
-            }
+        
+        var local_data = parseTreeData(points, self.type);
+        if (!local_data) {
+            alert("数据解析失败， 不符合森林格式");
+            return;
         }
 
+        nodes = local_data.nodes;
+        edges = local_data.edges;
+
+        nodeSet = new vis.DataSet(local_data.nodes);
+
         data = {
-            nodes: nodes,
-            edges: edges
+            nodes: nodeSet,
+            edges: local_data.edges
         };
         self.draw();
     };
@@ -468,58 +710,30 @@ var Tree = function (container, length) {
             }
         }
     };
-    self.viewPosition = null;
 
     self.initData = function () {
-        nodes = [];
-        edges = [];
-        var i, node, edge, no_list = [], odds = 1, leafs = [], 
-            root = Math.floor(Math.random() * self.length);
+        var a = generateTrees(self.length, self.type);
+        self.parseData(a);
+    };
 
-        for (i = 0; i < self.length; i += 1) {
-            no_list.push(i);
-            node = {
-                id: i + 1, shape: 'circle',
-                label: Math.floor(Math.random() * 100),
-                color: 'orange'
-            };
-            nodes.push(node);
+    self.parseData = function (points) {
+        
+        var local_data = parseTreeData(points, self.type);
+        if (!local_data) {
+            alert("数据解析失败， 不符合树格式");
+            return;
         }
 
-        data_swap(no_list, 0, root);
-        nodes[root].level = 1;
+        nodes = local_data.nodes;
+        edges = local_data.edges;
 
-        for (i = 1; i < self.length; i += 1) {
-            var new_index, new_node, add_node_prob = Math.random();
-            if (odds > add_node_prob || !leafs.length) {
-                new_index = Math.floor(Math.random() * (self.length - i) + i);
-                new_node = no_list[new_index];
-                data_swap(no_list, i, new_index);
-                nodes[new_node].level = nodes[root].level + 1;
-                leafs.push(new_node);
-                odds -= 0.2;
-            } else {
-                root = leafs.splice(0, 1)[0];
-                if (!leafs.length){
-                    odds = 1;
-                }
-                i -= 1;
-                odds = 0.8;
-                continue;
-            }
-
-            edge = {
-                from: parseInt(root) + 1,
-                to: parseInt(new_node) + 1
-            };
-            edges.push(edge);
-        }
+        nodeSet = new vis.DataSet(local_data.nodes);
 
         data = {
-            nodes: nodes,
-            edges: edges
+            nodes: nodeSet,
+            edges: local_data.edges
         };
-
+        self.draw();
     };
 
     self.draw = function () {
@@ -528,16 +742,8 @@ var Tree = function (container, length) {
             if (self.viewPosition) {
                 this.moveTo({position: self.viewPosition});
             }
-
         });
-
     };
-
-
-    self.parseData = function (data) {
-        network.setData(data);
-    };
-
 
     self.setData = function (data) {
         network.setData(data);
@@ -563,70 +769,35 @@ var BinaryTree = function (container, length) {
     };
 
     self.initData = function () {
-        nodes = [];
-        edges = [];
-        var i, node, edge, odds = 1.3, no_list = [], leafs = [], 
-            sub_node = 0, root = Math.floor(Math.random() * self.length);
+        var a = generateTrees(self.length, self.type);
+        self.parseData(a);
+    };
 
-        for (i = 0; i < self.length; i += 1) {
-            no_list.push(i);
-            node = {
-                id: i + 1, shape: 'circle',
-                label: Math.floor(Math.random() * 100),
-                color: 'orange'
-            };
-            nodes.push(node);
-        }
-
-        data_swap(no_list, 0, root);
-        nodes[root].level = 1;
+    self.parseData = function (points) {
         
-        for (i = 1; i < self.length; i += 1) {
-            var new_index, new_node, add_node_prob = Math.random();
-            if ((odds > add_node_prob || !leafs.length) && sub_node <= 1) {
-                new_index = Math.floor(Math.random() * (self.length - i) + i);
-                new_node = no_list[new_index];
-                data_swap(no_list, i, new_index);
-                nodes[new_node].level = nodes[root].level + 1;
-                leafs.push(new_node);
-                odds -= 0.3;
-                sub_node += 1;
-            } else {
-                root = leafs.splice(0, 1);
-                if (!leafs.length){
-                    odds = 1;
-                }
-                i -= 1;
-                sub_node = 0;
-                odds = 0.8;
-                continue;
-            }
-
-            edge = {
-                from: parseInt(root) + 1,
-                to: parseInt(new_node) + 1
-            };
-            edges.push(edge);
+        var local_data = parseTreeData(points, self.type);
+        if (!local_data) {
+            alert("数据解析失败， 不符合二叉树格式");
+            return;
         }
+
+        nodes = local_data.nodes;
+        edges = local_data.edges;
+
+        nodeSet = new vis.DataSet(local_data.nodes);
 
         data = {
-            nodes: nodes,
-            edges: edges
+            nodes: nodeSet,
+            edges: local_data.edges
         };
-
+        self.draw();
     };
 
     self.draw = function () {
         network = new vis.Network(container, data, self.options);
         network.on("afterDrawing", function (ctx) {
         });
-
     };
-
-    self.parseData = function (data) {
-        network.setData(data);
-    };
-
 
     self.setData = function (data) {
         network.setData(data);
@@ -655,7 +826,7 @@ var DGraph = function (container, length) {
         for (i = 0; i < self.length; i += 1) {
             lists.push(i);
         }
-        console.log(lists);
+        //console.log(lists);
 
         for (i in lists) {
             u = lists[i];
@@ -667,19 +838,18 @@ var DGraph = function (container, length) {
                 }
             }
         }
-
         self.parseData(a);
     };
 
     self.parseData = function (points) {
         var i, j, node, edge, u, v;
-        var i, node, edge, odds = 1.3, no_list = new Array(), leafs = [], 
+        var i, node, edge, odds = 1.3, no_list = [], leafs = [], 
             sub_node = 0;
 
         self.length = 0;
         nodes = [];
         edges = [];
-        console.log(points);
+        //console.log(points);
 
         for (i in points) {
             u = parseInt(indexof(no_list, i)) + 1;
@@ -696,7 +866,7 @@ var DGraph = function (container, length) {
                 no_list.push(i);
             }
 
-            console.log(i + ' id ' +  u + ' to ' + points[i]);
+            //console.log(i + ' id ' +  u + ' to ' + points[i]);
 
             for (j in points[i]) {
                 v = parseInt(indexof(no_list, points[i][j]))+1;
@@ -713,7 +883,7 @@ var DGraph = function (container, length) {
                     nodes.push(node);
                     no_list.push(points[i][j]);
                 }
-                console.log(u + ' -> ' + v + ' ' + points[i][j]);
+                //console.log(u + ' -> ' + v + ' ' + points[i][j]);
                 edge = {
                     from: u,
                     to: v,
@@ -723,8 +893,9 @@ var DGraph = function (container, length) {
             }
         }
 
+        nodeSet = new vis.DataSet(nodes);
         data = {
-            nodes: nodes,
+            nodes: nodeSet,
             edges: edges
         };
         self.draw();
@@ -774,7 +945,6 @@ var Graph = function (container, length) {
                 }
             }
         }
-
         self.parseData(a);
     };
 
@@ -786,7 +956,7 @@ var Graph = function (container, length) {
         self.length = 0;
         nodes = [];
         edges = [];
-        console.log(points);
+        //console.log(points);
 
         for (i in points) {
             u = parseInt(indexof(no_list, i)) + 1;
@@ -826,9 +996,10 @@ var Graph = function (container, length) {
             }
         }
 
-        nodes = new vis.DataSet(nodes);
+        nodeSet = new vis.DataSet(nodes);
+
         data = {
-            nodes: nodes,
+            nodes: nodeSet,
             edges: edges
         };
         self.draw();

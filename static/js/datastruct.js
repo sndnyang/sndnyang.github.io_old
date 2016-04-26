@@ -1,5 +1,6 @@
 var nodes = [];
 var edges = [];
+var nodeSet = null;
 var network = null;
 var data = null;
 var stepLog = new Array();
@@ -27,8 +28,9 @@ function initNetwork() {
     var conta7ner = document.getElementById('BinaryTree');
     var conta8ner = document.getElementById('Graph');
     var conta9ner = document.getElementById('DGraph');
+    var conta0ner = document.getElementById('HashMap');
 
-/// var dem1 = Matrix(conta1ner, [10, 10]);
+    var dem1 = Matrix(conta1ner, [length, length]);
     var dem2 = LinkedList(conta2ner, length);
     var dem3 = Stack(conta3ner, length);
     var dem4 = Queue(conta4ner, length);
@@ -37,6 +39,7 @@ function initNetwork() {
     var dem7 = BinaryTree(conta7ner, length);
     var dem8 = Graph(conta8ner, length);
     var dem9 = DGraph(conta9ner, length);
+    var dem0 = HashMap(conta0ner, length);
 }
 
 function next() {

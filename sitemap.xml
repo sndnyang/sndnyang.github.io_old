@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>sndnyang.github.io/</loc>
-<lastmod>2016-04-28T17:36:25-00:00</lastmod>
+<lastmod>2016-04-28T17:59:59-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/archives.html</loc>
-<lastmod>2016-04-28T17:36:25-00:00</lastmod>
+<lastmod>2016-04-28T17:59:59-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/tags.html</loc>
-<lastmod>2016-04-28T17:36:25-00:00</lastmod>
+<lastmod>2016-04-28T17:59:59-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/categories.html</loc>
-<lastmod>2016-04-28T17:36:25-00:00</lastmod>
+<lastmod>2016-04-28T17:59:59-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/machine-learning-define.html</loc>
+<lastmod>2016-04-28T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -40,6 +47,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>sndnyang.github.io/slides_set.html</loc>
+<lastmod>2016-04-28T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/sml-linear-regression.html</loc>
+<lastmod>2016-04-28T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/union-find-optimize.html</loc>
+<lastmod>2016-04-28T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/word2vec-2-mindmap.html</loc>
 <lastmod>2016-04-28T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -195,13 +223,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>sndnyang.github.io/memory-movies-week1.html</loc>
 <lastmod>2016-02-21T21:39:28+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>sndnyang.github.io/word2vec-2-mindmap.html</loc>
-<lastmod>2015-10-17T08:12:01+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

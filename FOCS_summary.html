@@ -190,8 +190,10 @@ community are never eliminated</li>
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -252,7 +254,7 @@ community are never eliminated</li>
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">matplotlib</span> inline 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
@@ -268,7 +270,7 @@ community are never eliminated</li>
 <div class="prompt input_prompt">In [146]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">random</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 
 <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
@@ -332,9 +334,9 @@ community are never eliminated</li>
 <div class="prompt input_prompt">In [148]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">fp</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="s">'dataset'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span><span class="o">+</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="s1">'dataset'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span><span class="o">+</span><span class="s1">'.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'</span><span class="si">%d</span><span class="s"> </span><span class="si">%d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'</span><span class="si">%d</span><span class="s1"> </span><span class="si">%d</span><span class="se">\n</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -346,7 +348,7 @@ community are never eliminated</li>
 <div class="prompt input_prompt">In [206]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">test</span><span class="p">,</span>  <span class="n">with_label</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">test</span><span class="p">,</span>  <span class="n">with_label</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -688,7 +690,7 @@ A0BIiAEgJMQAEBJiAAgJMQCEPgHIbkyfg7fk1wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [231]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1009,7 +1011,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">added</span> <span class="o">=</span> <span class="p">{}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">added</span> <span class="o">=</span> <span class="p">{}</span>
 </pre></div>
 </div>
 </div>
@@ -1020,14 +1022,14 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [65]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">initializeCommunities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">initializeCommunities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
         <span class="n">neighbors</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
         <span class="k">if</span>  <span class="nb">len</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">:</span>
             <span class="n">S</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span>
             <span class="n">S</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
             <span class="n">added</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span>
-            <span class="c">#S.add(v)</span>
+            <span class="c1">#S.add(v)</span>
 
         
 </pre></div>
@@ -1040,7 +1042,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [118]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">zeta</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">zeta</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">neighbors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
     <span class="k">return</span> <span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">neighbors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">k</span> <span class="k">else</span> <span class="mi">0</span>
     
@@ -1072,7 +1074,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [119]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="k">print</span> <span class="n">findStayOff</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1094,7 +1096,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">computeScoreAndStayOff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">computeScoreAndStayOff</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
     <span class="n">ratio</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
     <span class="n">zeta_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -1106,12 +1108,12 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
         <span class="n">bucket</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">score</span> <span class="o">/</span> <span class="n">ratio</span><span class="p">)</span>
         <span class="n">zeta_list</span><span class="p">[</span><span class="n">bucket</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
         
-        <span class="c">#if score &gt; 0:</span>
-          <span class="c">#  print score, len(set(g.neighbors(v)).intersection(S[s])), len(S[s]), bucket       </span>
+        <span class="c1">#if score &gt; 0:</span>
+          <span class="c1">#  print score, len(set(g.neighbors(v)).intersection(S[s])), len(S[s]), bucket       </span>
     
     <span class="n">anchor</span> <span class="o">=</span> <span class="n">findStayOff</span><span class="p">(</span><span class="n">zeta_list</span><span class="p">)</span>
 
-    <span class="n">data</span><span class="p">[</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">ratio</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">ratio</span>
     <span class="k">return</span> <span class="n">data</span>
         
 </pre></div>
@@ -1138,13 +1140,13 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">duplicationRemovel</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">duplicationRemovel</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
     <span class="n">delete_list</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="k">for</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">psi</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">s1</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="n">s2</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">ovl</span> <span class="ow">and</span> <span class="n">s1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">delete_list</span> <span class="ow">and</span> <span class="n">s2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">delete_list</span><span class="p">:</span>
             <span class="n">delete_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s">'duplicate'</span><span class="p">,</span> <span class="n">delete_list</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">delete_list</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">'duplicate'</span><span class="p">,</span> <span class="n">delete_list</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">delete_list</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">delete_list</span><span class="p">:</span>
         <span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">S</span>
@@ -1158,14 +1160,14 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [124]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">selectBucket</span><span class="p">(</span><span class="n">scores_list</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">selectBucket</span><span class="p">(</span><span class="n">scores_list</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
     <span class="n">ratio</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
     <span class="n">bucket_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">scores_list</span><span class="p">:</span>
         <span class="n">bucket</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">e</span> <span class="o">/</span> <span class="n">ratio</span><span class="p">)</span>
         <span class="n">bucket_list</span><span class="p">[</span><span class="n">bucket</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">anchor</span> <span class="o">=</span> <span class="n">findStayOff</span><span class="p">(</span><span class="n">bucket_list</span><span class="p">)</span>
-    <span class="c">#print scores_list, bucket_list, anchor</span>
+    <span class="c1">#print scores_list, bucket_list, anchor</span>
     <span class="k">return</span> <span class="n">anchor</span>
 </pre></div>
 </div>
@@ -1177,7 +1179,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [120]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">selectBucket</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="mi">20</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">selectBucket</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1199,7 +1201,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [127]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">computeZetaList</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">computeZetaList</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">zeta_scores</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">vj</span> <span class="ow">in</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
@@ -1208,8 +1210,8 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
                 <span class="n">zeta_scores</span><span class="p">[</span><span class="n">vj</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">zeta_scores</span><span class="p">[</span><span class="n">vj</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>
             
-   <span class="c"># for vj in zeta_scores:</span>
-    <span class="c">#    print vj, zeta_scores[vj], g.neighbors(vj)</span>
+   <span class="c1"># for vj in zeta_scores:</span>
+    <span class="c1">#    print vj, zeta_scores[vj], g.neighbors(vj)</span>
     <span class="k">return</span> <span class="n">zeta_scores</span>
 </pre></div>
 </div>
@@ -1221,11 +1223,11 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [149]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">S</span> <span class="o">=</span> <span class="p">{}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">initializeCommunities</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">duplicationRemovel</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
-<span class="c">#for n in S:</span>
-<span class="c">#    print n, S[n]</span>
+<span class="c1">#for n in S:</span>
+<span class="c1">#    print n, S[n]</span>
 </pre></div>
 </div>
 </div>
@@ -1246,12 +1248,12 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [150]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">zeta_scores</span> <span class="o">=</span> <span class="n">computeZetaList</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">zeta_scores</span> <span class="o">=</span> <span class="n">computeZetaList</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">zeta_scores</span><span class="p">:</span>
     <span class="n">count</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
     <span class="n">anchor</span> <span class="o">=</span> <span class="n">selectBucket</span><span class="p">(</span><span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">count</span><span class="p">)</span>
     <span class="k">print</span> <span class="n">v</span><span class="p">,</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">anchor</span>
-    <span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">anchor</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
+    <span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">anchor</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
     
 </pre></div>
 </div>
@@ -1305,7 +1307,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [193]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">leaveCommunities</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">leaveCommunities</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
     
     <span class="n">S</span> <span class="o">=</span> <span class="n">duplicationRemovel</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">ovl</span><span class="p">)</span>
         
@@ -1314,7 +1316,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">zeta_scores</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
         <span class="n">anchor</span> <span class="o">=</span> <span class="n">selectBucket</span><span class="p">(</span><span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">count</span><span class="p">)</span>
-        <span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>    
+        <span class="n">zeta_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>    
     
     
     <span class="n">delete_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1328,16 +1330,16 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
                 <span class="k">continue</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">zeta_scores</span> <span class="ow">or</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="ow">and</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">S</span><span class="p">[</span><span class="n">s</span><span class="p">]:</span>
                 <span class="n">S</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">s</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="ow">or</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">s</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="ow">or</span> <span class="n">zeta_scores</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">S</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-            <span class="c">#print stay_cut_set[n][s]</span>
+            <span class="c1">#print stay_cut_set[n][s]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">s</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
             <span class="n">delete_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
             <span class="n">leave</span> <span class="o">=</span> <span class="mi">0</span>
             
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">delete_list</span><span class="p">:</span>
         <span class="n">S</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s">'after leave is: '</span>
+    <span class="k">print</span> <span class="s1">'after leave is: '</span>
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
         <span class="k">print</span> <span class="n">e</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">leave</span>
@@ -1351,7 +1353,7 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [197]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">expandCommunities</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">expandCommunities</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
 
     <span class="n">join_scores</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
@@ -1364,12 +1366,12 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">join_scores</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
         <span class="n">anchor</span> <span class="o">=</span> <span class="n">selectBucket</span><span class="p">(</span><span class="n">join_scores</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">count</span><span class="p">)</span>
-        <span class="n">join_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
+        <span class="n">join_scores</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">anchor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">count</span>
     
-    <span class="c">#for e in join_scores:</span>
-     <span class="c">#   print e, join_scores[e]</span>
-    <span class="c">#for e in added:</span>
-    <span class="c">#    print e, added[e]</span>
+    <span class="c1">#for e in join_scores:</span>
+     <span class="c1">#   print e, join_scores[e]</span>
+    <span class="c1">#for e in added:</span>
+    <span class="c1">#    print e, added[e]</span>
     
     <span class="n">nowadded</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
@@ -1377,13 +1379,13 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
         <span class="k">for</span> <span class="n">vj</span> <span class="ow">in</span> <span class="n">added</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">uk</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">vj</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">uk</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">join_scores</span> <span class="ow">or</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">join_scores</span><span class="p">[</span><span class="n">uk</span><span class="p">]:</span>
-                    <span class="c">#print 'not in' , uk, i, uk not in join_scores, i not in join_scores[uk]</span>
+                    <span class="c1">#print 'not in' , uk, i, uk not in join_scores, i not in join_scores[uk]</span>
                     <span class="k">continue</span>
-                <span class="k">if</span> <span class="n">join_scores</span><span class="p">[</span><span class="n">uk</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">join_scores</span><span class="p">[</span><span class="n">uk</span><span class="p">][</span><span class="s">'cutoff'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">uk</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">join_scores</span><span class="p">[</span><span class="n">uk</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">join_scores</span><span class="p">[</span><span class="n">uk</span><span class="p">][</span><span class="s1">'cutoff'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">uk</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
                     <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">uk</span><span class="p">)</span>
                     <span class="n">nowadded</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">uk</span><span class="p">)</span>
         <span class="n">added</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nowadded</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">print</span> <span class="s">'after expand is: '</span>
+    <span class="k">print</span> <span class="s1">'after expand is: '</span>
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
         <span class="k">print</span> <span class="n">e</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>    
 </pre></div>
@@ -1396,13 +1398,13 @@ UZQYRkVAURQlhlERUBRFiWFUBBRFUWKY/w975CFP5iGqqQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [189]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="c">#for e in added:</span>
- <span class="c">#   print e, added[e]</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1">#for e in added:</span>
+ <span class="c1">#   print e, added[e]</span>
 <span class="n">initializeCommunities</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 <span class="n">leaveCommunities</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
-<span class="c">#for e in added:</span>
- <span class="c">#   print e, added[e]</span>
+<span class="c1">#for e in added:</span>
+ <span class="c1">#   print e, added[e]</span>
 <span class="n">S</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]),</span> <span class="mi">1</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]),</span> <span class="mi">2</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">31</span><span class="p">]),</span> <span class="mi">10</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">]),</span> <span class="mi">11</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">]),</span> <span class="mi">18</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">22</span><span class="p">]),</span> <span class="mi">20</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">]),</span> <span class="mi">26</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">]),</span> <span class="mi">27</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">27</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">]),</span> <span class="mi">28</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">])}</span>
 <span class="n">expandCommunities</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
@@ -1440,7 +1442,7 @@ expand phrase
 <div class="prompt input_prompt">In [203]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">preferredCommunities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preferredCommunities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ovl</span><span class="p">):</span>
     <span class="n">S</span> <span class="o">=</span> <span class="p">{}</span>
     
     <span class="n">initializeCommunities</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
@@ -1469,7 +1471,7 @@ expand phrase
 <div class="prompt input_prompt">In [204]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">z</span> <span class="o">=</span> <span class="n">preferredCommunities</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">preferredCommunities</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">z</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1573,7 +1575,7 @@ after expand is:
 <div class="prompt input_prompt">In [214]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">z</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -1594,8 +1596,8 @@ after expand is:
 <div class="prompt input_prompt">In [217]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">'r'</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="s">'yellow'</span><span class="p">,</span> <span class="mi">27</span><span class="p">:</span><span class="s">'g'</span><span class="p">}</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">'b'</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="mi">27</span><span class="p">:</span><span class="s1">'g'</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">z</span><span class="p">:</span>
     
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">z</span><span class="p">[</span><span class="n">e</span><span class="p">]:</span>
@@ -1621,7 +1623,7 @@ after expand is:
 <div class="prompt input_prompt">In [238]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2014,7 +2016,7 @@ A5C7eDjeSi60AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">'../dataset/com-dblp.ungraph.txt'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'../dataset/com-dblp.ungraph.txt'</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2025,7 +2027,7 @@ A5C7eDjeSi60AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [52]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>

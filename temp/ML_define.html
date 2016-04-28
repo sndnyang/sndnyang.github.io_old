@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
-        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="author" content="杨秀隆(sndnyang)" />
+        <meta name="copyright" content="杨秀隆(sndnyang)" />
 
 <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
 
-<meta name="keywords" content="cs, re, cs, " />
+<meta name="keywords" content="cs, mooc, ml, ai, cs, " />
 
-        <title>正则表达式转自动机  · 懒龙谷
+        <title>什么是机器学习  · 懒龙谷
 </title>
         <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/re-2-fa.html"> 正则表达式转自动机  </a></h1>
+    <h1><a href="/ML_define.html"> 什么是机器学习  </a></h1>
     </header>
 </div>
 
@@ -83,13 +83,7 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#_1">转换方法</a></li>
-<li><a href="#2">正则2自动机</a></li>
-<li><a href="#2_1">自动机2正则</a><ul>
-<li><a href="#k-paths">k-Paths</a></li>
-<li><a href="#_2">转换步骤</a></li>
-</ul>
-</li>
+<li><a href="#_1">什么是机器学习</a></li>
 </ul>
 </div>
         </nav>
@@ -97,26 +91,31 @@
     <div class="span8 article-content">
 
             
-<h1 id="_1">转换方法</h1>
+<h1 id="_1">什么是机器学习</h1>
+<p>定义：  </p>
+<blockquote>
+<p>从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率)</p>
+</blockquote>
+<p>为什么使用机器学习  </p>
+<blockquote>
 <ol>
-<li>正则表达式 -&gt; epsilon-NFA</li>
-<li>DFA  -&gt; re</li>
+<li>规则难定义或未知</li>
+<li>程序编写复杂</li>
+<li>从数据中学习中相对容易</li>
 </ol>
-<h1 id="2">正则2自动机</h1>
-<h1 id="2_1">自动机2正则</h1>
-<h2 id="k-paths">k-Paths</h2>
-<p>路径中， 不存在序号大于k的状态结点 </p>
+</blockquote>
+<p>使用情形示例：</p>
+<blockquote>
 <ol>
-<li>末端点不限状态</li>
+<li>无法人工编写出全部规则    (规则未可尽知)</li>
+<li>无法准确定义             (规则难以言表)</li>
+<li>快速决策</li>
+<li>面向大量用户</li>
 </ol>
-<h2 id="_2">转换步骤</h2>
-<ol>
-<li>k=0; 仅有直接相连的边或结点本身</li>
-<li>归纳： 从 k-1 Paths 归纳出 k Paths, 即：<br/>
-    结点从序号不大于k-1 到 不大于 k</li>
-</ol>
-<p>公式:  </p>
-<p>$$R^k_{ij} =R^{k-1}<em ik="ik">{ij} + R^{k-1}</em>(R^{k-1}<em kj="kj">{kk})* R^{k-1}</em> $$</p>
+</blockquote>
+<p>所以  </p>
+<div class="highlight"><pre><span class="err">机器学习是编写复杂规则系统的一种替代方法</span>
+</pre></div>
 	<div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>
 		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -134,7 +133,7 @@
 	    <div class="accordion-group">
 		<div class="accordion-heading">
 		    <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-		        href="/re-2-fa.html#disqus_thread">
+		        href="/ML_define.html#disqus_thread">
 		        Comments
 		    </a>
 		</div>
@@ -144,8 +143,8 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/re-2-fa.html';
-    var disqus_url = '/re-2-fa.html';
+        var disqus_identifier = '/ML_define.html';
+    var disqus_url = '/ML_define.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -165,9 +164,9 @@
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/RE-Basic.html" title="Previous: 正则表达式概念">正则表达式概念</a></li>
+                <li class="previous_article">« <a href="/ksh_manual.html" title="Previous: ksh手册">ksh手册</a></li>
  
-                <li class="next_article"><a href="/dasi-project-translate.html" title="Next: 杜克大学数据分析与统计推断 互评项目翻译">杜克大学数据分析与统计推断 互评项目翻译</a> »</li>
+                <li class="next_article"><a href="/algo_connectivity.html" title="Next: 连通性问题">连通性问题</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -176,16 +175,22 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-09-07T17:25:07">Sep 7, 2014</time>
+            <time pubdate="pubdate" datetime="2014-08-16T05:00:23">Aug 16, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#cs-ref">cs</a> 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#ai-ref">ai
+                    <span>1</span>
+</a></li>
                 <li><a href="/tags.html#cs-ref">cs
                     <span>12</span>
 </a></li>
-                <li><a href="/tags.html#re-ref">re
+                <li><a href="/tags.html#ml-ref">ml
                     <span>2</span>
+</a></li>
+                <li><a href="/tags.html#mooc-ref">mooc
+                    <span>7</span>
 </a></li>
             </ul>
             <h4>Stay in Touch</h4>

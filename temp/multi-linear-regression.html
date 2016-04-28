@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="杨秀隆(sndnyang)" />
-        <meta name="copyright" content="杨秀隆(sndnyang)" />
+        <meta name="author" content="杨秀隆 sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="杨秀隆 sndnyang sndnyang.github.io" />
 
 <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
 
-<meta name="keywords" content=", vim, " />
+<meta name="keywords" content="ai, cs, ml, mooc, ai, " />
 
-        <title>vim_tips  · 懒龙谷
+        <title>多元线性回归  · 懒龙谷
 </title>
         <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -73,51 +73,23 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/vim_tips.html"> vim_tips  </a></h1>
+    <h1><a href="/multi-linear-regression.html"> 多元线性回归  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
-        <div class="span8 offset2 article-content">
+    <div class="span2 table-of-content">
+        <nav style="position:fixed; left:10px;">
+        <h4>Contents</h4>
+        <div class="toc">
+<ul></ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
 
-            <p>% vim技巧总结<br />
-% 杨秀隆<br />
-% 20140528</p>
-<h1 id="vim">vim 技巧</h1>
-<h2 id="_1">模式</h2>
-<ol>
-<li>ctrl-v 或 ctrl-q 进入可视块状态， 即 列编辑模式。</li>
-</ol>
-<h2 id="_2">页面跳转</h2>
-<ol>
-<li>gg 文件首行 G 文件末尾 </li>
-<li>H M L 光标跳转页顶，页中，页底</li>
-<li>zt zz zb 光标所在行置顶、置中、置底</li>
-</ol>
-<h2 id="_3">排版缩进</h2>
-<ol>
-<li>
-<p>按v进入visual状态，选择多行，用&gt;或&lt;缩进或缩出  等效于 x &gt;&gt;/&lt;&lt; x行缩进</p>
-</li>
-<li>
-<p>通常根据语言特征使用自动缩进排版：在命令状态下对当前行用== （连按=两次）, 或对多行用n==（n是自然数）表示自动缩进从当前行起的下面n行。你可以试试把代码缩进任意打乱再用n==排版，相当于一般IDE里的code format。使用gg=G可对整篇代码进行排版</p>
-</li>
-<li>
-<p>至于如何针对自定义语言制订缩进规则，还有点问题，成功率不高。</p>
-</li>
-</ol>
-<h2 id="_4">代码跳转</h2>
-<ol>
-<li>%    跳转到配对的括号去</li>
-<li>[[    跳转到代码块的开头去(但要求代码块中'{'必须单独占一行)</li>
-<li>gD    跳转到局部变量的定义处</li>
-<li>''    跳转到光标上次停靠的地方, 是两个', 而不是一个"</li>
-</ol>
-<h2 id="_5">书签</h2>
-<ol>
-<li>mx   设置书签,x只能是a-z的26个字母</li>
-<li><code>x    跳转到书签处("</code>"是1左边的键)</li>
-</ol>
+            
+<h1 id="_1"></h1>
 	<div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>
 		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -135,7 +107,7 @@
 	    <div class="accordion-group">
 		<div class="accordion-heading">
 		    <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-		        href="/vim_tips.html#disqus_thread">
+		        href="/multi-linear-regression.html#disqus_thread">
 		        Comments
 		    </a>
 		</div>
@@ -145,8 +117,8 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/vim_tips.html';
-    var disqus_url = '/vim_tips.html';
+        var disqus_identifier = '/multi-linear-regression.html';
+    var disqus_url = '/multi-linear-regression.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -166,9 +138,9 @@
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/grepji-qiao.html" title="Previous: grep技巧">grep技巧</a></li>
+                <li class="previous_article">« <a href="/la-determinant.html" title="Previous: 线性代数行列式">线性代数行列式</a></li>
  
-                <li class="next_article"><a href="/fireflyming-ling.html" title="Next: Firefly命令">Firefly命令</a> »</li>
+                <li class="next_article"><a href="/markdown_tips.html" title="Next: markdown_tips">markdown_tips</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -177,9 +149,24 @@
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-28T09:25:08">May 28, 2014</time>
+            <time pubdate="pubdate" datetime="2015-09-10T21:26:31">Sep 10, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#vim-ref">vim</a> 
+            <a class="category-link" href="/categories.html#ai-ref">ai</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#ai-ref">ai
+                    <span>2</span>
+</a></li>
+                <li><a href="/tags.html#cs-ref">cs
+                    <span>13</span>
+</a></li>
+                <li><a href="/tags.html#ml-ref">ml
+                    <span>3</span>
+</a></li>
+                <li><a href="/tags.html#mooc-ref">mooc
+                    <span>8</span>
+</a></li>
+            </ul>
             <h4>Stay in Touch</h4>
 	<a href="http://weibo.com/u/2405149384" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
 	    <i class="icon icon-twitter sidebar-social-links"></i></a>

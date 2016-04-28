@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="杨秀隆" />
-        <meta name="copyright" content="杨秀隆" />
+        <meta name="author" content="杨秀隆(sndnyang)" />
+        <meta name="copyright" content="杨秀隆(sndnyang)" />
 
 <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
 
-<meta name="keywords" content=", git, " />
+<meta name="keywords" content="cs, mooc, algorithms, cs, " />
 
-        <title>Git hooks  · 懒龙谷
+        <title>并查集优化  · 懒龙谷
 </title>
         <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/git-hooks.html"> Git hooks  </a></h1>
+    <h1><a href="/union_find_opt.html"> 并查集优化  </a></h1>
     </header>
 </div>
 
@@ -83,9 +83,19 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
-<li><a href="#git-hooks">Git hooks</a></li>
-<li><a href="#binsh">!/bin/sh</a><ul>
-<li><a href="#hook">文件夹 hook 下</a></li>
+<li><a href="#union-find">union find 并查集优化</a><ul>
+<li><a href="#1">方法 1 带权重快速合并</a><ul>
+<li><a href="#_1">数据结构</a></li>
+<li><a href="#_2">查找</a></li>
+<li><a href="#_3">合并</a></li>
+<li><a href="#_4">算法分析</a></li>
+</ul>
+</li>
+<li><a href="#_5">路径压缩</a><ul>
+<li><a href="#_6">实现:</a></li>
+<li><a href="#_7">命题:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -95,36 +105,69 @@
     <div class="span8 article-content">
 
             
-<h1 id="git-hooks">Git hooks</h1>
-<p>Remote Machine
-We create a bare git repo, then point the working tree at the docroot of our website. This means all the git stuff is kept in the somesite.git folder, but the files themselves are checked out to the website's folder. Then we setup a post-receive hook to update the worktree folder after new changes have been pushed to the repo.</p>
-<p>$ cd git
-$ mkdir somesite.git
-$ cd somesite.git/
-$ git init --bare
-Initialized empty Git repository in /home/caius/git/somesite.git/
-$ git --bare update-server-info
-$ git config core.worktree /home/caius/vhosts/somesite.com/htdocs
-$ git config core.bare false
-$ git config receive.denycurrentbranch ignore
-$ cat &gt; hooks/post-receive</p>
-<h1 id="binsh">!/bin/sh</h1>
-<p>git checkout -f
-^D
-$ chmod +x hooks/post-receive
-Local Machine
-And now on the client machine we add the remote repo as a git remote, and then push to it.</p>
-<p>$ git remote add web ssh://myserver/home/caius/git/somesite.git
-$ git push web +master:refs/heads/master
-Counting objects: 3, done.
-Writing objects: 100% (3/3), 229 bytes, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To ssh://myserver/home/caius/git/somesite.git
- * [new branch]      master -&gt; master
-All Done
-And now if you go to somesite.com you'll see the contents of your git repo there. (somesite.com is just an example url though, I don't actually own it!)</p>
-<h2 id="hook">文件夹 hook 下</h2>
-<p>post-receive 这些都是脚本</p>
+<h1 id="union-find">union find 并查集优化</h1>
+<h2 id="1">方法 1 带权重快速合并</h2>
+<p>好处:</p>
+<ol>
+<li>优化 快速合并 ，避免树的层次过多</li>
+<li>随时记录每棵树（子树）的大小</li>
+<li>通过将较小子树的根挂在较大树的根下，来获得平衡</li>
+</ol>
+<h3 id="_1">数据结构</h3>
+<p>比快速合并算法，增加一个大小为N的整型数组sz。
+sz[i]代表以i为根的对象个数。</p>
+<h3 id="_2">查找</h3>
+<p>与快速合并相同， return root(p) == root(q)</p>
+<h3 id="_3">合并</h3>
+<ol>
+<li>将较小子树的根结点连接到较大子树的根结点</li>
+<li>更新sz数组</li>
+</ol>
+<p>public void union(int p, int q)
+{
+    int i = root(p);
+    int j = root(q);</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>  <span class="p">{</span> <span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span> <span class="n">sz</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span>
+<span class="k">else</span>                <span class="p">{</span> <span class="n">id</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">sz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="p">}</span>
+</pre></div>
+<p>}</p>
+<h3 id="_4">算法分析</h3>
+<ol>
+<li>
+<p>运行时间:</p>
+<ol>
+<li>查找: 与p和q的深度成正比 即  lg N</li>
+<li>合并: 对给定的根，只花费常数时间 lg N</li>
+</ol>
+</li>
+<li>
+<p>命题: 结点x的尝试最多为 lg N.</p>
+</li>
+</ol>
+<h2 id="_5">路径压缩</h2>
+<p>方法: 计算出p的根结点后， 将每个被检测到的结点都指向这个根结点</p>
+<h3 id="_6">实现:</h3>
+<p>两次遍历: 循环中再增加一次处理，
+    将每个被检测到的结点的id<a href="即根"></a>指向上一层的根结点。</p>
+<p>private int root(int i)
+{
+    while (i != id[i])
+    {
+        id[i] = id[id[i]];
+        i = id[i];
+    }
+    return i;
+}</p>
+<h3 id="_7">命题:</h3>
+<blockquote>
+<p>从空集开始，N个对象的任意M次操作，对数组的访问次数萍踪:</p>
+</blockquote>
+<div class="highlight"><pre><span class="o">&lt;=</span> <span class="n">c</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="n">M</span>  <span class="n">lg</span><span class="o">*</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="n">lg</span><span class="o">*</span> <span class="n">N</span> <span class="err">其实就是</span> <span class="n">lg</span> <span class="n">N</span> <span class="err">的再次求对数的样子。</span>
+</pre></div>
+<p>In computer science, the iterated logarithm of n, written log* n (usually read "log star"), is the number of times the logarithm function must be iteratively applied before the result is less than or equal to 1.</p>
+<p>本算法理论上非线性复杂度， 实际上可以看作线性。</p>
 	<div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>
 		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -142,7 +185,7 @@ And now if you go to somesite.com you'll see the contents of your git repo there
 	    <div class="accordion-group">
 		<div class="accordion-heading">
 		    <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-		        href="/git-hooks.html#disqus_thread">
+		        href="/union_find_opt.html#disqus_thread">
 		        Comments
 		    </a>
 		</div>
@@ -152,8 +195,8 @@ And now if you go to somesite.com you'll see the contents of your git repo there
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/git-hooks.html';
-    var disqus_url = '/git-hooks.html';
+        var disqus_identifier = '/union_find_opt.html';
+    var disqus_url = '/union_find_opt.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -173,9 +216,9 @@ And now if you go to somesite.com you'll see the contents of your git repo there
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/fireflyming-ling.html" title="Previous: Firefly命令">Firefly命令</a></li>
+                <li class="previous_article">« <a href="/quick_union_algo.html" title="Previous: 快速合并算法">快速合并算法</a></li>
  
-                <li class="next_article"><a href="/shell_shi-jian.html" title="Next: shell_时间">shell_时间</a> »</li>
+                <li class="next_article"><a href="/LinuxCommand.html" title="Next: Linux常用命令">Linux常用命令</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -184,9 +227,21 @@ And now if you go to somesite.com you'll see the contents of your git repo there
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-06-04T00:00:00">Jun 4, 2014</time>
+            <time pubdate="pubdate" datetime="2014-08-16T05:10:08">Aug 16, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#git-ref">git</a> 
+            <a class="category-link" href="/categories.html#cs-ref">cs</a> 
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article"> 
+                <li><a href="/tags.html#algorithms-ref">algorithms
+                    <span>6</span>
+</a></li>
+                <li><a href="/tags.html#cs-ref">cs
+                    <span>12</span>
+</a></li>
+                <li><a href="/tags.html#mooc-ref">mooc
+                    <span>7</span>
+</a></li>
+            </ul>
             <h4>Stay in Touch</h4>
 	<a href="http://weibo.com/u/2405149384" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
 	    <i class="icon icon-twitter sidebar-social-links"></i></a>

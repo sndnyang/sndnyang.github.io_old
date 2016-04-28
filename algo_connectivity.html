@@ -2,158 +2,172 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="sndnyang" />
         <meta name="copyright" content="sndnyang" />
 
-<link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="cs, algorithms, mooc, cs, " />
+<meta name="keywords" content="CS, 算法, MOOC, 算法, " />
+
+<meta property="og:title" content="连通性问题 "/>
+<meta property="og:url" content="sndnyang.github.io/algo_connectivity.html" />
+<meta property="og:description" content="问题定义： 给定 N个物体（点） 存在两种操作： 连接： 连接两点 查询连通性： 两点间是否存在路径 问题建模： 对象建模： 简单就是个点， 然后用个数组下标0 —— N-1来表示 连通性建模： &#39;连接到&#39; 等价于以下数学表示： 反射： 自身是连通的。 对称： 如果p连接到q，则q也连接到p 传递： 如果p连接到q，q又连通r， 则p 也连通r. 连通分量(connected component) 相互连通的物体的最大集合 操作的实现: Find查询: 查询两点是否在同一分量 Union连接：" />
+<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2014-08-16T00:00:00+08:00" />
+<meta name="twitter:title" content="连通性问题 ">
+<meta name="twitter:description" content="问题定义： 给定 N个物体（点） 存在两种操作： 连接： 连接两点 查询连通性： 两点间是否存在路径 问题建模： 对象建模： 简单就是个点， 然后用个数组下标0 —— N-1来表示 连通性建模： &#39;连接到&#39; 等价于以下数学表示： 反射： 自身是连通的。 对称： 如果p连接到q，则q也连接到p 传递： 如果p连接到q，q又连通r， 则p 也连通r. 连通分量(connected component) 相互连通的物体的最大集合 操作的实现: Find查询: 查询两点是否在同一分量 Union连接：">
+
 
         <title>连通性问题  · 懒龙谷
 </title>
-        <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+        <style>
+            body { padding-top: 50px; padding-bottom: 10px; }
+        </style>
+
+        <link href="//cdn.bootcss.com/amazeui/2.5.2/css/amazeui.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="http://cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+
+		<link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="/theme/css/solarizedlight.css" media="screen">
-        <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
-
-        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" />
-        <link rel="icon" href="/theme/images/apple-touch-icon-144x144.png" />
-
-        <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
-        <script type="text/javascript">
-		$(document).ready(function() {
-		    init_mathjax();
-		    backToTop();
-		});
-      
-    	</script>
+        
     </head>
     <body>
         <div id="content-sans-footer">
-        <div class="navbar navbar-static-top" style="position:fixed;width:100%">
+        <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="container">
+                <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class="site-name">懒龙谷</span></a>
+                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
-                            <li><a href="/index.html">Home</a></li>
-                            <li><a href="/categories.html">Categories</a></li>
-                            <li><a href="/tags.html">Tags</a></li>
-                            <li><a href="/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            <li ><a href="/">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action=/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                
-            </div>
-        </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span10">
-<article>
-<div class="row-fluid">
-    <header class="page_header span10 offset2">
-    <h1><a href="/algo_connectivity.html"> 连通性问题  </a></h1>
-    </header>
-</div>
+                <div class="span12">
 
-<div class="row-fluid">
-    <div class="span2 table-of-content">
-        <nav style="position:fixed; left:10px;">
-        <h4>Contents</h4>
-        <div class="toc">
+
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+		    backToTop();
+		});
+      
+    	</script>
+        
+        <div class="hint">
+            <ul class="flashes">
+            </ul>
+        </div>
+        
+        <article>
+            <header class="page-header span12 text-center">
+                <h1>
+                    <a href="/algo_connectivity.html">
+                        连通性问题  
+                    </a>
+                </h1>
+            </header>
+
+            <div class="row-fluid">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
 <ul>
-<li><a href="#_1">连通性问题</a><ul>
-<li><a href="#_2">问题定义：</a></li>
-<li><a href="#_3">问题建模：</a><ul>
-<li><a href="#_4">对象建模：</a></li>
-<li><a href="#_5">连通性建模：</a></li>
-<li><a href="#_6">操作的实现:</a></li>
-</ul>
-</li>
+<li><a href="#_1">问题定义：</a></li>
+<li><a href="#_2">问题建模：</a><ul>
+<li><a href="#_3">对象建模：</a></li>
+<li><a href="#_4">连通性建模：</a></li>
+<li><a href="#connected-component">连通分量(connected component)</a></li>
+<li><a href="#_5">操作的实现:</a></li>
 </ul>
 </li>
 </ul>
 </div>
-        </nav>
-    </div>
-    <div class="span8 article-content">
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
-            
-<h1 id="_1">连通性问题</h1>
-<h2 id="_2">问题定义：</h2>
+                        
+                        
+<h1 id="_1">问题定义：</h1>
 <p>给定 N个物体（点）</p>
 <p>存在两种操作：</p>
-<div class="highlight"><pre><span class="mf">1.</span> <span class="err">连接：</span> <span class="err">连接两点</span>
-<span class="mf">2.</span> <span class="err">查询连通性：</span> <span class="err">两点间是否存在路径</span>
-</pre></div>
-<h2 id="_3">问题建模：</h2>
-<h3 id="_4">对象建模：</h3>
+<ol>
+<li>连接： 连接两点</li>
+<li>查询连通性： 两点间是否存在路径</li>
+</ol>
+<h1 id="_2">问题建模：</h1>
+<h2 id="_3">对象建模：</h2>
 <blockquote>
 <p>简单就是个点， 然后用个数组下标0 —— N-1来表示</p>
 </blockquote>
-<h3 id="_5">连通性建模：</h3>
-<p>'连接到' 等价于以下数学表示：<br/>
-1. 反射： 自身是连通的。
-2. 对称： 如果p连接到q，则q也连接到p
-3. 传递： 如果p连接到q，q又连通r， 则p 也连通r.</p>
-<p>连通分量(connected component)</p>
-<div class="highlight"><pre><span class="err">相互连通的物体的最大集合</span>
-</pre></div>
-<h3 id="_6">操作的实现:</h3>
+<h2 id="_4">连通性建模：</h2>
+<p>'连接到' 等价于以下数学表示：</p>
 <ol>
-<li>Find查询: 查询两点是否在同一分量</li>
-<li>Union连接： </li>
+<li>反射： 自身是连通的。 </li>
+<li>对称： 如果p连接到q，则q也连接到p </li>
+<li>传递： 如果p连接到q，q又连通r， 则p 也连通r.</li>
 </ol>
-	<div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
-		<a href="#" class="bds_more" data-cmd="more"></a>
-		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-		<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-		<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
-		<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-		<a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-	</div>
+<h2 id="connected-component">连通分量(connected component)</h2>
+<p>相互连通的物体的最大集合</p>
+<h2 id="_5">操作的实现:</h2>
+<p>Find查询: 查询两点是否在同一分量
+Union连接：</p>
+                        
+                        <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
+                    <a href="#" class="bds_more" data-cmd="more"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                    <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+                </div>
 
-	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-	<section>
-	<p id="comment-message">this guy is lazy, nothing leave </p>
-	<div class="accordion" id="accordion2">
-	    <div class="accordion-group">
-		<div class="accordion-heading">
-		    <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-		        href="/algo_connectivity.html#disqus_thread">
-		        Comments
-		    </a>
-		</div>
-		<div id="disqus_thread" class="accordion-body collapse">
-		    <div class="accordion-inner">
-		        <div class="comments">
-<div id="disqus_thread"></div>
+                    <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="sndnyang.github.io/algo_connectivity.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/algo_connectivity.html';
-    var disqus_url = '/algo_connectivity.html';
+        var disqus_identifier = 'sndnyang.github.io/algo_connectivity.html';
+    var disqus_url = 'sndnyang.github.io/algo_connectivity.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -162,57 +176,52 @@
      })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>		        </div>
-		    </div>
-		</div>
-	    </div>
-	</div>
-	</section>
-            <aside>
-            <hr/>
-            <nav>
-            <ul class="articles_timeline">
- 
-                <li class="previous_article">« <a href="/ML_define.html" title="Previous: 什么是机器学习">什么是机器学习</a></li>
- 
-                <li class="next_article"><a href="/percolation_assignment.html" title="Next: percolation作业">percolation作业</a> »</li>
-            </ul>
-            </nav>
-            </aside>
-        </div>
-        <section>
-        <div class="span2" style="float:right;font-size:0.9em;">
- 
-            <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-08-16T05:03:30">Aug 16, 2014</time>
-            <h4>Category</h4>
-            <a class="category-link" href="/categories.html#cs-ref">cs</a> 
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article"> 
-                <li><a href="/tags.html#algorithms-ref">algorithms
-                    <span>6</span>
-</a></li>
-                <li><a href="/tags.html#cs-ref">cs
-                    <span>12</span>
-</a></li>
-                <li><a href="/tags.html#mooc-ref">mooc
-                    <span>7</span>
-</a></li>
-            </ul>
-            <h4>Stay in Touch</h4>
-	<a href="http://weibo.com/u/2405149384" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
-	    <i class="icon icon-twitter sidebar-social-links"></i></a>
-	<a href="http://github.com/sndnyang" title="My Github Profile" class="sidebar-social-links" target="_blank">
-	    <i class="icon icon-github sidebar-social-links"></i></a>
-	<a href="http://blog.csdn.net/sndnyangd" title="My CSDN Profile" class="sidebar-social-links" target="_blank">
-	    <i class="icon icon-facebook sidebar-social-links"></i></a>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-        </div>
-        </section>
-</div>
-</article>
                 </div>
-                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+                    <hr/>
+                </div>
+                <div class="span2" style="float:right;font-size:0.9em;">
+                    <h4>Published</h4>
+                    <time pubdate="pubdate" datetime="2014-08-16T00:00:00+08:00">八月 16, 2014</time>
+                    <h4>Category</h4>
+                    <a class="category-link" href="/categories.html#suan-fa-ref">算法</a>
+                    <h4>Tags</h4>
+                    <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#cs-ref">CS
+                            <span>7</span>
+</a></li>
+                        <li><a href="/tags.html#mooc-ref">MOOC
+                            <span>1</span>
+</a></li>
+                        <li><a href="/tags.html#suan-fa-ref">算法
+                            <span>5</span>
+</a></li>
+                    </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+                    <h4>Stay in Touch</h4>
+                    <a href="http://weibo.com/u/2405149384" title="My Weibo
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                    <a href="http://github.com/sndnyang" title="My Github Profile" class="am-icon-btn am-icon-github" target="_blank">
+                    </a>
+                    <a href="http://blog.csdn.net/sndnyangd" title="My CSDN
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                </div>
+            </div>
+        </article>
+                </div>
             </div>
         </div>
         <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
@@ -220,50 +229,72 @@
         <div class="arrow"></div>
         <div class="stick"></div>
       </a>
+        <div id="push"></div>
     </div>
-    </div>
-    
 <footer>
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>
-</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+</footer>            
         <script>
-	
             function validateForm(query)
             {
                 return (query.length > 0);
             }
         </script>
 
-<script type="text/javascript">
-    var disqus_shortname = 'sndnyang';
+            <script type="text/javascript">
+var disqus_shortname = 'sndnyang';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
 
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
-        <script  language="javascript" type="text/javascript">
-            function uncollapse() {
-                var hash_str = window.location.hash;
-                if (window.location.hash.match(/^#comment-\d+$/))
-                {
-                    var hash_str = '#disqus_thread';
-                }
-                $(hash_str).collapse({
-                    toggle: true
-                    })
-            }
+
+        <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-74494551-1', 'auto');
+            ga('send', 'pageview');
+
         </script>
-
-        <script type="text/javascript" language="JavaScript">
-            uncollapse(); 
-        </script>
-
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </body>
 </html>

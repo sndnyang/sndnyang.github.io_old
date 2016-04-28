@@ -8,9 +8,9 @@
 
 <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_24.css">
 
-<meta name="keywords" content=", jquery, " />
+<meta name="keywords" content=", graphviz, " />
 
-        <title>jquery_grammar  · 懒龙谷
+        <title>dot  · 懒龙谷
 </title>
         <!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">-->
         <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -73,66 +73,69 @@
 <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="/jquery_grammar.html"> jquery_grammar  </a></h1>
+    <h1><a href="/dot.html"> dot  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h1 id="jquery">jquery 语法</h1>
-<p>jQuery 语法是为 HTML 元素的选取编制的，可以对元素执行某些操作。
-基础语法是：$(selector).action()
-美元符号定义 jQuery
-选择符（selector）“查询”和“查找” HTML 元素
-jQuery 的 action() 执行对元素的操作</p>
-<p>示例
-    $(this).hide() - 隐藏当前元素</p>
-<div class="highlight"><pre><span class="err">$</span><span class="p">(</span><span class="s">&quot;p&quot;</span><span class="p">).</span><span class="n">hide</span><span class="p">()</span> <span class="o">-</span> <span class="err">隐藏所有段落</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s">&quot;.test&quot;</span><span class="p">).</span><span class="n">hide</span><span class="p">()</span> <span class="o">-</span> <span class="err">隐藏所有</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;test&quot;</span> <span class="err">的所有元素</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s">&quot;#test&quot;</span><span class="p">).</span><span class="n">hide</span><span class="p">()</span> <span class="o">-</span> <span class="err">隐藏所有</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;test&quot;</span> <span class="err">的元素</span>
+            <p>﻿# dot 入门</p>
+<h2 id="_1">基本样式</h2>
+<p>digraph Name{
+    nodes_list;</p>
+<div class="highlight"><pre><span class="n">edge_list</span><span class="p">;</span>
+<span class="n">a</span><span class="o">-&gt;</span><span class="n">b</span><span class="p">;</span>
+<span class="n">b</span><span class="o">-&gt;</span><span class="n">c</span><span class="p">;</span>
 </pre></div>
 
 
-<h2 id="jquery_1">jquery 选择器</h2>
-<h3 id="jquery_2">jQuery 元素选择器</h3>
-<p>jQuery 使用 CSS 选择器来选取 HTML 元素。</p>
-<div class="highlight"><pre><span class="err">$</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span> <span class="err">选取</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="err">元素。</span>
+<p>}</p>
+<h2 id="_2">属性设置</h2>
+<blockquote>
+<p>label
+节点的label属性支持类似于HTML语言中的TABLE形式的定义，通过行列的数目来定义节点的形状，从而使得节点的组成更加灵活。</p>
+<p>bgcolor<br />
+fontname<br />
+fontsize<br />
+rankdir   // 这个是什么</p>
+</blockquote>
+<h2 id="_3">定义顶点和边的样式</h2>
+<p>在digraph的花括号内，添加顶点和边的新定义：</p>
+<ol>
+<li>node [shape="record", style="filled", color="black", fillcolor="chartreuse"];</li>
+<li>
+<p>edge [style="dashed", color=""];</p>
+</li>
+<li>
+<p>可以针对特定结点和页进行设置。 </p>
+</li>
+</ol>
+<h2 id="_4">子图绘制</h2>
+<p>subgraph cluster_name {
+}</p>
+<h2 id="_5">复杂标签</h2>
+<div class="highlight"><pre><span class="nx">st</span><span class="o">\</span><span class="nx">_table</span> <span class="err">[</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;{st\_table|&lt;type&gt;type|num\_bins|num\_entries|&lt;bins&gt;bins}&quot;</span><span class="cp">]</span>;
 
-<span class="err">$</span><span class="p">(</span><span class="s2">&quot;p.intro&quot;</span><span class="p">)</span> <span class="err">选取所有</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;intro&quot;</span> <span class="err">的</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="err">元素。</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s2">&quot;p#demo&quot;</span><span class="p">)</span> <span class="err">选取所有</span> <span class="n">id</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span> <span class="err">的</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span> <span class="err">元素。</span>
+st\_table:bins -&gt; st\_table\_entry:head;
 </pre></div>
 
 
-<h3 id="jquery_3">jQuery 属性选择器</h3>
-<p>jQuery 使用 XPath 表达式来选择带有给定属性的元素。</p>
-<div class="highlight"><pre><span class="err">$</span><span class="p">(</span><span class="s">&quot;[href]&quot;</span><span class="p">)</span> <span class="err">选取所有带有</span> <span class="n">href</span> <span class="err">属性的元素。</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s">&quot;[href=&#39;#&#39;]&quot;</span><span class="p">)</span> <span class="err">选取所有带有</span> <span class="n">href</span> <span class="err">值等于</span> <span class="s">&quot;#&quot;</span> <span class="err">的元素。</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s">&quot;[href!=&#39;#&#39;]&quot;</span><span class="p">)</span> <span class="err">选取所有带有</span> <span class="n">href</span> <span class="err">值不等于</span> <span class="s">&quot;#&quot;</span> <span class="err">的元素。</span>
-
-<span class="err">$</span><span class="p">(</span><span class="s">&quot;[href$=&#39;.jpg&#39;]&quot;</span><span class="p">)</span> <span class="err">选取所有</span> <span class="n">href</span> <span class="err">值以</span> <span class="s">&quot;.jpg&quot;</span> <span class="err">结尾的元素。</span>
-</pre></div>
-
-
-<h3 id="jquery-css">jQuery CSS 选择器</h3>
-<p>jQuery CSS 选择器可用于改变 HTML 元素的 CSS 属性。
-下面的例子把所有 p 元素的背景颜色更改为红色：</p>
-<p>实例
-    $("p").css("background-color","red");</p>
-<p>语法  描述
-    $(this) 当前 HTML 元素
-    $("p")  所有 <p> 元素
-    $("p.intro")    所有 class="intro" 的 <p> 元素
-    $(".intro") 所有 class="intro" 的元素
-    $("#intro") id="intro" 的元素
-    $("ul li:first")    每个 <ul> 的第一个 <li> 元素
-    $("[href$='.jpg']") 所有带有以 ".jpg" 结尾的属性值的 href 属性
-    $("div#intro .head")    id="intro" 的 <div> 元素中的所有 class="head" 的元素</p>
+<blockquote>
+<p>label 使用{}, 将多个标签用|分隔开</p>
+<p>&lt;&gt; 锚点，用于后期某个位置 指向某个位置</p>
+</blockquote>
+<h2 id="_6">结点位置关系</h2>
+<ol>
+<li>
+<p>使用rank </p>
+<p>{rank = same; node1; node2; nodes_list}  并排  </p>
+</li>
+<li>
+<p>使用隐藏线</p>
+<p>node1 -&gt; node2 [style = invis] 不可见的结点先后顺序</p>
+</li>
+</ol>
 	<div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
 		<a href="#" class="bds_more" data-cmd="more"></a>
 		<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -150,7 +153,7 @@ jQuery 的 action() 执行对元素的操作</p>
 	    <div class="accordion-group">
 		<div class="accordion-heading">
 		    <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-		        href="/jquery_grammar.html#disqus_thread">
+		        href="/dot.html#disqus_thread">
 		        Comments
 		    </a>
 		</div>
@@ -160,8 +163,8 @@ jQuery 的 action() 执行对元素的操作</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '/jquery_grammar.html';
-    var disqus_url = '/jquery_grammar.html';
+        var disqus_identifier = '/dot.html';
+    var disqus_url = '/dot.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -181,9 +184,9 @@ jQuery 的 action() 执行对元素的操作</p>
             <nav>
             <ul class="articles_timeline">
  
-                <li class="previous_article">« <a href="/jquery_ready_func.html" title="Previous: jquery_ready_func">jquery_ready_func</a></li>
+                <li class="previous_article">« <a href="/git_bash.html" title="Previous: git_bash">git_bash</a></li>
  
-                <li class="next_article"><a href="/jquery_function.html" title="Next: jquery_function">jquery_function</a> »</li>
+                <li class="next_article"><a href="/share_folder.html" title="Next: share_folder">share_folder</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -192,9 +195,9 @@ jQuery 的 action() 执行对元素的操作</p>
         <div class="span2" style="float:right;font-size:0.9em;">
  
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-12-26T20:24:20">Dec 26, 2013</time>
+            <time pubdate="pubdate" datetime="2014-05-04T15:42:20">May 4, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="/categories.html#jquery-ref">jquery</a> 
+            <a class="category-link" href="/categories.html#graphviz-ref">graphviz</a> 
             <h4>Stay in Touch</h4>
 	<a href="http://weibo.com/u/2405149384" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
 	    <i class="icon icon-twitter sidebar-social-links"></i></a>

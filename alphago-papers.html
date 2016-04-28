@@ -96,25 +96,88 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">参考文献</a></li>
+<li><a href="#_2">战绩</a><ul>
+<li><a href="#fan-hui">对欧洲冠军 Fan Hui</a></li>
+<li><a href="#_3">对李世石</a></li>
+<li><a href="#_4">期待与柯洁的对战</a></li>
+</ul>
+</li>
+<li><a href="#_5">基本定义</a><ul>
+<li><a href="#_6">棋盘状态</a></li>
+<li><a href="#action">动作 action</a></li>
+<li><a href="#_7">暴搜不可行！！！</a><ul>
+<li><a href="#_8">组合爆炸！！！</a></li>
+</ul>
+</li>
+<li><a href="#_9">策略</a></li>
+</ul>
+</li>
+<li><a href="#_10">方法</a><ul>
+<li><a href="#_11"></a></li>
+<li><a href="#_12">步骤</a></li>
+<li><a href="#_13">组成</a></li>
+</ul>
+</li>
+<li><a href="#_14">一. 策略网络学习</a><ul>
+<li><a href="#_15">监督学习</a></li>
+<li><a href="#_16">模型学习算法</a><ul>
+<li><a href="#_17">随机梯度下降</a></li>
+</ul>
+</li>
+<li><a href="#_18">预测</a></li>
+</ul>
+</li>
+<li><a href="#_19">二. 策略网络强化</a><ul>
+<li><a href="#_20">对弈激励</a></li>
+<li><a href="#_21">瓶颈</a></li>
+</ul>
+</li>
+<li><a href="#_22">三. 价值网络强化</a><ul>
+<li><a href="#_23">步骤</a><ul>
+<li><a href="#reduce">reduce 搜索空间的方案</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#monte-carlo">四. monte-carlo 树搜索</a><ul>
+<li><a href="#_24">步骤</a></li>
+<li><a href="#_25">树的组成</a><ul>
+<li><a href="#_26">图示：</a></li>
+<li><a href="#_27">描述</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <h2 id="_1">参考文献</h2>
+                        
+<h1 id="_1">参考文献</h1>
 <ol>
 <li>原文:Mastering the Game of Go with Deep Neural Networks and Tree Search </li>
 <li><a href="http://mp.weixin.qq.com/s?__biz=MzIxNjE3MTM5OA==&amp;mid=402241411&amp;idx=1&amp;sn=98557fdc359a17af9ab6b1ed7e09854a&amp;scene=1&amp;srcid=0314rM6ivyxIaEMfKIaW167Z&amp;from=groupmessage&amp;isappinstalled=0#wechat_redirect">alphago-原理</a> 郑宇,张钧波</li>
 <li><a href="http://zhuanlan.zhihu.com/yuandong/20607684">alphago-分析</a> 田渊栋</li>
 <li>开源代码 <a href="https://github.com/Rochester-NRT/AlphaGo">alphago-code</a></li>
 </ol>
-<h2 id="_2">战绩</h2>
-<h4 id="fan-hui">对欧洲冠军 Fan Hui</h4>
-<p><img alt="fanhui" src="img/fanhui.png" /></p>
+<h1 id="_2">战绩</h1>
+<h2 id="fan-hui">对欧洲冠军 Fan Hui</h2>
+<p><img alt="fanhui" src="img/fanhui.png"/></p>
 <ol>
 <li>formal games were 1 hour main time plus 3 periods of 30 seconds byoyomi</li>
 <li>informal games were 3 periods of 30 seconds byoyomi</li>
 </ol>
-<hr />
-<h3 id="_3">对李世石</h3>
+<hr/>
+<h2 id="_3">对李世石</h2>
 <ol>
 <li>2016.3.9  alpha胜</li>
 <li>2016.3.10  alpha胜</li>
@@ -122,18 +185,18 @@
 <li>2016.3.13  李世石胜</li>
 <li>2016.3.15  alpha胜</li>
 </ol>
-<hr />
-<h3 id="_4">期待与柯洁的对战</h3>
+<hr/>
+<h2 id="_4">期待与柯洁的对战</h2>
 <p>李世石重下战书</p>
 <h1 id="_5">基本定义</h1>
 <h2 id="_6">棋盘状态</h2>
-<p><img alt="go-state" src="img/go-state.png" /></p>
+<p><img alt="go-state" src="img/go-state.png"/></p>
 <h2 id="action">动作 action</h2>
 <p><strong>a</strong>: action 动作</p>
-<p><img alt="go-action" src="img/go-action.png" /></p>
+<p><img alt="go-action" src="img/go-action.png"/></p>
 <h2 id="_7">暴搜不可行！！！</h2>
-<p><img alt="go-brute" src="img/go-brute.png" /></p>
-<hr />
+<p><img alt="go-brute" src="img/go-brute.png"/></p>
+<hr/>
 <h3 id="_8">组合爆炸！！！</h3>
 <ol>
 <li>围棋的可能状态数大约在 250^150 </li>
@@ -146,7 +209,7 @@
 </ol>
 <h1 id="_10">方法</h1>
 <h2 id="_11"></h2>
-<p><img alt="principle" src="img/principle.jpg" /></p>
+<p><img alt="principle" src="img/principle.jpg"/></p>
 <h2 id="_12">步骤</h2>
 <ol>
 <li>用棋谱数据 训练 监督学习策略(走棋)网络, 同时训练快速走子策略</li>
@@ -180,11 +243,11 @@
 <li>CNN正好擅长抽象</li>
 </ol>
 <p>另用线性模型训练快速策略</p>
-<hr />
-<p><img alt="cnn" src="img/cnn.png" /></p>
-<hr />
+<hr/>
+<p><img alt="cnn" src="img/cnn.png"/></p>
+<hr/>
 <h3 id="_17">随机梯度下降</h3>
-<p><img alt="go-gd" src="img/go-gd.png" /></p>
+<p><img alt="go-gd" src="img/go-gd.png"/></p>
 <h2 id="_18">预测</h2>
 <ol>
 <li>输入： 棋盘状态S</li>
@@ -194,7 +257,7 @@
 <h2 id="_20">对弈激励</h2>
 <p>当前版本的策略网络 与 随机的一个版本</p>
 <p>胜 z_t = +1, 负= -1, 未结束=0</p>
-<p><img alt="go-rl" src="img/go-rl.png" /></p>
+<p><img alt="go-rl" src="img/go-rl.png"/></p>
 <h2 id="_21">瓶颈</h2>
 <p>强化学习 存在理论瓶颈， 而且应该是被证明了， 没记。</p>
 <h1 id="_22">三. 价值网络强化</h1>
@@ -207,7 +270,7 @@
 </ol>
 <p>胜负作为输出</p>
 <p>得到价值网络， 判断该盘面的输赢概率</p>
-<hr />
+<hr/>
 <h3 id="reduce">reduce 搜索空间的方案</h3>
 <ol>
 <li>减少搜索树的深度， 价值网络 value network</li>
@@ -228,17 +291,17 @@
 <li>访问次数 visit count N(s, a)</li>
 <li>先验概率 prior probability P(s, a), 初始化为 策略网络值 p(a|s)</li>
 </ol>
-<hr />
+<hr/>
 <h3 id="_26">图示：</h3>
-<p><img alt="go-mcts" src="img/go-mcts2.png" /></p>
-<hr />
+<p><img alt="go-mcts" src="img/go-mcts2.png"/></p>
+<hr/>
 <h3 id="_27">描述</h3>
 <ol>
-<li>根据 <img alt="go-action-max" src="img/go-action-max.png" />， 找到叶子结点</li>
+<li>根据 <img alt="go-action-max" src="img/go-action-max.png"/>， 找到叶子结点</li>
 <li>用策略网络计算所有可能下一步的概率， 逐个进行3</li>
-<li>用价值网络和快速走子策略评估 <img alt="go-leaf-eval" src="img/go-leaf-eval.png" /></li>
+<li>用价值网络和快速走子策略评估 <img alt="go-leaf-eval" src="img/go-leaf-eval.png"/></li>
 </ol>
-<p><img alt="go-bonus" src="img/go-bonus.png" /></p>
+<p><img alt="go-bonus" src="img/go-bonus.png"/></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, CS, 软件工程, 软件工程, " />
+<meta name="keywords" content="other, other, " />
 
-<meta property="og:title" content="FindBugs总结 "/>
-<meta property="og:url" content="sndnyang.github.io/findbugs_summary.html" />
-<meta property="og:description" content="原文: Finding Bugs is Easy by David Hovemeyer, William Pugh 摘要 旧方法基于 formal methods 和 复杂程序分析， 难用， 无作用 bug patterns - detectors 简单的自动技术在遇到常规错误和难解特性时都有用 导论 conclusion 不存在这种bug, 过于明显，以至于在实际代码中没有找到例子——发现的bug中，有些十分明显， 让我们吃惊， 即使是在生产应用和库里 现代OO语言的高度复杂性， 对语言特性及API的滥用是屡见不鲜的。 自动bug检测可以在 程序正确性 上起到巨大作用" />
+<meta property="og:title" content="其他 "/>
+<meta property="og:url" content="sndnyang.github.io/other.html" />
+<meta property="og:description" content="数据库 db2 db2 变更alter db2 导出 db2 特殊查询 db2-jdbc db2 配置远程数据库 系统工具 端口监听 grep技巧 find_grep 命令行工具 tar压缩 date makefile vbox共享文件夹 ctags+vim tag技巧 shell shell文件.html shell技巧.html shell时间.html shell_string.html shell变量控制.html shell替换与插入-ru.html ksh ksh_auto_complete.html ksh判断.html ksh手册.html ksh数学运算.html ksh数组.html ksh语法.html ksh自动补全 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-03-03T21:20:20+08:00" />
-<meta name="twitter:title" content="FindBugs总结 ">
-<meta name="twitter:description" content="原文: Finding Bugs is Easy by David Hovemeyer, William Pugh 摘要 旧方法基于 formal methods 和 复杂程序分析， 难用， 无作用 bug patterns - detectors 简单的自动技术在遇到常规错误和难解特性时都有用 导论 conclusion 不存在这种bug, 过于明显，以至于在实际代码中没有找到例子——发现的bug中，有些十分明显， 让我们吃惊， 即使是在生产应用和库里 现代OO语言的高度复杂性， 对语言特性及API的滥用是屡见不鲜的。 自动bug检测可以在 程序正确性 上起到巨大作用">
+<meta property="og:article:published_time" content="2016-04-28T00:00:00+08:00" />
+<meta name="twitter:title" content="其他 ">
+<meta name="twitter:description" content="数据库 db2 db2 变更alter db2 导出 db2 特殊查询 db2-jdbc db2 配置远程数据库 系统工具 端口监听 grep技巧 find_grep 命令行工具 tar压缩 date makefile vbox共享文件夹 ctags+vim tag技巧 shell shell文件.html shell技巧.html shell时间.html shell_string.html shell变量控制.html shell替换与插入-ru.html ksh ksh_auto_complete.html ksh判断.html ksh手册.html ksh数学运算.html ksh数组.html ksh语法.html ksh自动补全 ...">
 
 
-        <title>FindBugs总结  · 懒龙谷
+        <title>其他  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +89,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/findbugs_summary.html">
-                        FindBugs总结  
+                    <a href="/other.html">
+                        其他  
                     </a>
                 </h1>
             </header>
@@ -101,9 +101,21 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">摘要</a></li>
-<li><a href="#_2">导论</a><ul>
-<li><a href="#conclusion">conclusion</a></li>
+<li><a href="#_1">数据库</a><ul>
+<li><a href="#db2">db2</a></li>
+</ul>
+</li>
+<li><a href="#_2">系统工具</a><ul>
+<li><a href="#ctagsvim">ctags+vim</a></li>
+<li><a href="#shell">shell</a></li>
+<li><a href="#ksh">ksh</a></li>
+</ul>
+</li>
+<li><a href="#_3">论文</a></li>
+<li><a href="#mooc">MOOC</a></li>
+<li><a href="#_4">编程语言</a><ul>
+<li><a href="#python">python</a></li>
+<li><a href="#java">java</a></li>
 </ul>
 </li>
 </ul>
@@ -114,18 +126,58 @@
 
                         
                         
-<p>原文: Finding Bugs is Easy by David Hovemeyer, William Pugh</p>
-<h1 id="_1">摘要</h1>
-<p>旧方法基于 formal methods 和 复杂程序分析， 难用， 无作用</p>
-<p>bug patterns  -  detectors</p>
-<p>简单的自动技术在遇到常规错误和难解特性时都有用</p>
-<h1 id="_2">导论</h1>
-<h2 id="conclusion">conclusion</h2>
-<ol>
-<li>不存在这种bug, 过于明显，以至于在实际代码中没有找到例子——发现的bug中，有些十分明显， 让我们吃惊， 即使是在生产应用和库里</li>
-<li>现代OO语言的高度复杂性， 对语言特性及API的滥用是屡见不鲜的。 </li>
-<li>自动bug检测可以在 程序正确性 上起到巨大作用</li>
-</ol>
+<h1 id="_1">数据库</h1>
+<h2 id="db2">db2</h2>
+<p><a href="db2_alter.html">db2 变更alter</a><br/>
+<a href="db2_export.html">db2 导出</a><br/>
+<a href="db2_te-shu-cha-xun.html">db2 特殊查询</a><br/>
+<a href="db2_jdbc.html">db2-jdbc</a><br/>
+<a href="db2_pei-zhi-yuan-cheng-shu-ju-ku.html">db2 配置远程数据库</a> </p>
+<h1 id="_2">系统工具</h1>
+<p><a href="duan-kou-jian-ting.html">端口监听</a><br/>
+<a href="grepji-qiao.html">grep技巧</a><br/>
+<a href="find_grep.html">find_grep</a><br/>
+<a href="LinuxCommand.html">命令行工具</a><br/>
+<a href="tar_ya-suo.html">tar压缩</a><br/>
+<a href="date.html">date</a><br/>
+<a href="makefile.html">makefile</a><br/>
+<a href="share_folder.html">vbox共享文件夹</a> </p>
+<h2 id="ctagsvim">ctags+vim</h2>
+<p><a href="tag_tips.html">tag技巧</a> </p>
+<h2 id="shell">shell</h2>
+<p><a href="shell_file.html">shell文件.html</a><br/>
+<a href="shell_ji-qiao.html">shell技巧.html</a><br/>
+<a href="shell_shi-jian.html">shell时间.html</a><br/>
+<a href="shell_string.html">shell_string.html</a><br/>
+<a href="shellbian-liang-kong-ge.html">shell变量控制.html</a><br/>
+<a href="shell-ti-huan-yu-cha-ru.html">shell替换与插入-ru.html</a> </p>
+<h2 id="ksh">ksh</h2>
+<p><a href="ksh_auto_complete.html">ksh_auto_complete.html</a><br/>
+<a href="ksh_judge.html">ksh判断.html</a><br/>
+<a href="ksh_manual.html">ksh手册.html</a><br/>
+<a href="ksh_shu-xue-yun-suan.html">ksh数学运算.html</a><br/>
+<a href="ksh_shu-zu.html">ksh数组.html</a><br/>
+<a href="ksh_yu-fa.html">ksh语法.html</a><br/>
+<a href="kshzi-dong-bu-quan.html">ksh自动补全.html</a><br/>
+<a href="profileshe-zhi.html">profile设置</a> </p>
+<h1 id="_3">论文</h1>
+<p><a href="FOCS_summary.html">FOCS总结</a><br/>
+<a href="focs-notebook.html">FOCS notebook</a><br/>
+<a href="ea_based_communities_survey.html">基于进化算法的社区发现综述</a><br/>
+<a href="overlap_communities_survey.html">社区重叠综述</a><br/>
+<a href="ema_comminities_dynamic_networks.html">进化多目标方法在动态网络聚落检测中的应用-总结</a> </p>
+<h1 id="mooc">MOOC</h1>
+<p><a href="dasi-project-translate.html">数据分析与统计推断项目翻译</a><br/>
+<a href="bioinform-intro.html">生物信息学算法课程概述</a> </p>
+<h1 id="_4">编程语言</h1>
+<h2 id="python">python</h2>
+<p><a href="HtmlTemplatesInPython.html">python web框架html模板</a><br/>
+<a href="HtmlTemplatesInPython.html"></a> </p>
+<h2 id="java">java</h2>
+<p><a href="java_luan-ma.html">java乱码.html</a><br/>
+<a href="java-Comparator.html">java-Comparator.html</a><br/>
+<a href="java-error.html">java错误.html</a><br/>
+<a href="java-Generic-Iterator.html">java-Generic-Iterator.html</a> </p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -141,7 +193,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="sndnyang.github.io/findbugs_summary.html#disqus_thread">
+                href="sndnyang.github.io/other.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -151,8 +203,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'sndnyang.github.io/findbugs_summary.html';
-    var disqus_url = 'sndnyang.github.io/findbugs_summary.html';
+        var disqus_identifier = 'sndnyang.github.io/other.html';
+    var disqus_url = 'sndnyang.github.io/other.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -174,18 +226,12 @@
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-03-03T21:20:20+08:00">三月 3, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-04-28T00:00:00+08:00">四月 28, 2016</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ruan-jian-gong-cheng-ref">软件工程</a>
+                    <a class="category-link" href="/categories.html#other-ref">other</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>7</span>
-</a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>9</span>
-</a></li>
-                        <li><a href="/tags.html#ruan-jian-gong-cheng-ref">软件工程
+                        <li><a href="/tags.html#other-ref">other
                             <span>1</span>
 </a></li>
                     </ul>

@@ -8,19 +8,19 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="http://cdn.bootcss.com/reveal.js/3.2.0/css/reveal.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.2.0/css/reveal.css">
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="http://cdn.bootcss.com/reveal.js/3.2.0/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.2.0/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://cdn.bootcss.com/reveal.js/3.2.0/css/print/pdf.css' : 'http://cdn.bootcss.com/reveal.js/3.2.0/css/print/paper.css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '//cdn.bootcss.com/reveal.js/3.2.0/css/print/pdf.css' : '//cdn.bootcss.com/reveal.js/3.2.0/css/print/paper.css';
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
   <!--[if lt IE 9]>
-  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/html5shiv.js"></script>
+  <script src="//cdn.bootcss.com/reveal.js/3.2.0/lib/js/html5shiv.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -37,10 +37,10 @@
 <h1>参考文献</h1>
 <ol type="1">
 <li>原文:Mastering the Game of Go with Deep Neural Networks and Tree Search</li>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MzIxNjE3MTM5OA==&amp;mid=402241411&amp;idx=1&amp;sn=98557fdc359a17af9ab6b1ed7e09854a&amp;scene=1&amp;srcid=0314rM6ivyxIaEMfKIaW167Z&amp;from=groupmessage&amp;isappinstalled=0#wechat_redirect">alphago-原理</a> 郑宇,张钧波</li>
-<li><a href="http://zhuanlan.zhihu.com/yuandong/20607684">alphago-分析</a> 田渊栋</li>
+<li><a href="//mp.weixin.qq.com/s?__biz=MzIxNjE3MTM5OA==&amp;mid=402241411&amp;idx=1&amp;sn=98557fdc359a17af9ab6b1ed7e09854a&amp;scene=1&amp;srcid=0314rM6ivyxIaEMfKIaW167Z&amp;from=groupmessage&amp;isappinstalled=0#wechat_redirect">alphago-原理</a> 郑宇,张钧波</li>
+<li><a href="//zhuanlan.zhihu.com/yuandong/20607684">alphago-分析</a> 田渊栋</li>
 <li>how alphago work</li>
-<li>开源代码 <a href="https://github.com/Rochester-NRT/AlphaGo">alphago-code</a></li>
+<li>开源代码 <a href="//github.com/Rochester-NRT/AlphaGo">alphago-code</a></li>
 </ol>
 </section><section id="战绩" class="slide level2">
 <h1>战绩</h1>
@@ -108,7 +108,7 @@
 </ol>
 </section><section id="组成" class="slide level2">
 <h1>组成</h1>
-<p>链接：http://zhuanlan.zhihu.com/yuandong/20607684 来源：知乎</p>
+<p>链接：//zhuanlan.zhihu.com/yuandong/20607684 来源：知乎</p>
 <ol type="1">
 <li>走棋网络（Policy Network），给定当前局面，预测/采样下一步的走棋。</li>
 <li>快速走子（Fast rollout），目标和1一样，但在适当牺牲走棋质量的条件下，速度要比1快1000倍。</li>
@@ -133,7 +133,7 @@
 <li>围棋对局势的评估很难建模， 抽象</li>
 <li>CNN正好擅长抽象</li>
 </ol>
-<p><a href="http://scs.ryerson.ca/~aharley/vis/conv/">visual-cnn</a></p>
+<p><a href="//scs.ryerson.ca/~aharley/vis/conv/">visual-cnn</a></p>
 <p>另用线性模型训练快速策略</p>
 </section><section class="slide level2">
 
@@ -218,20 +218,20 @@
     </div>
   </div>
 
-  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/head.min.js"></script>
-  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/js/reveal.js"></script>
+  <script src="//cdn.bootcss.com/reveal.js/3.2.0/lib/js/head.min.js"></script>
+  <script src="//cdn.bootcss.com/reveal.js/3.2.0/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // //github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true },
-          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/plugin/notes/notes.js', async: true }
+          { src: '//cdn.bootcss.com/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '//cdn.bootcss.com/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true },
+          { src: '//cdn.bootcss.com/reveal.js/3.2.0/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

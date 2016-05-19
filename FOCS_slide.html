@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="sndnyang">
+  <title>Fast Overlapping Communities Search</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/reveal.js/3.2.0/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/reveal.js/3.2.0/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://cdn.bootcss.com/reveal.js/3.2.0/css/print/pdf.css' : 'http://cdn.bootcss.com/reveal.js/3.2.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Fast Overlapping Communities Search</h1>
+  <h2 class="author">sndnyang</h2>
+  <h3 class="date">2016-5</h3>
+</section>
+
+<section><section id="基本定义" class="titleslide slide level1"><h1>基本定义</h1></section><section id="section" class="slide level2">
+<h1></h1>
+<p>给定图G(V, E)</p>
+<p>目标: 找到一簇子图， 每个子图都是一个社区（community) 即 <span class="math inline">\(S = \{S_i | S_i \subset V \}\)</span></p>
+<p>社区（community)： 子图中任意点在该子图中的连通性 高于 非社区的子图</p>
+</section><section class="slide level2">
+
+<p>定义</p>
+<ul>
+<li>包含点 <span class="math inline">\(v_j\)</span> 的社区的集合为： <span class="math display">\[ S(v_j) = \{S_i | v_j \in S_i \land S_i \in S \} \]</span></li>
+<li>disjoint cluster: <span class="math inline">\(|S(v_j)| \le 1\)</span></li>
+<li>overlapped cluster: <span class="math inline">\(|S(v_j)| &gt; 1\)</span></li>
+<li><span class="math inline">\(N(v_j)\)</span> 为 <span class="math inline">\(v_j\)</span> 的邻接点</li>
+<li><span class="math inline">\(N_i(v_j)\)</span> 为 <span class="math inline">\(v_j\)</span> 在社区 <span class="math inline">\(S_i\)</span> 的邻接点， 即 <span class="math display">\[ N_i(v_j) =\{v_k | (v_j, v_k) \in E \land v_k \in S_i \} \]</span></li>
+</ul>
+</section><section id="新定义" class="slide level2">
+<h1>新定义</h1>
+<p>社区连通性 community connectedness, 即点 <span class="math inline">\(v_j\)</span>在社区<span class="math inline">\(S_i\)</span>邻点超阈值个数 除以 该社区点数, 代表 点对应社区的归属性。</p>
+<p><span class="math display">\[ \zeta^i_j = \frac{|N_i(v_j)|-K+1}{|S_i| - K} if |N_i(v_j)| &gt; K, else, 0 \]</span></p>
+<p>邻接连通性 neighborhood connectedness， 即 点 <span class="math inline">\(v_j\)</span>在社区<span class="math inline">\(S_i\)</span>邻点数 除以 <span class="math inline">\(v_j\)</span>的总邻点数， 代表 点加入新社区的可能性</p>
+<p><span class="math display">\[ \xi^i_j = \frac{|N_i(v_j)|}{|N(v_j)|}  \]</span></p>
+<p>外围结点 peripheral node: <span class="math inline">\(v_i\)</span>的在社区内的邻接点</p>
+<p><span class="math display">\[ Added_i = \{v_k|v_k \in N(v_i) \land v_k \in S_i \}, \forall S_i \in S^l \]</span></p>
+</section></section>
+<section><section id="步骤" class="titleslide slide level1"><h1>步骤</h1></section><section class="slide level2">
+
+<h3 id="示意图">示意图</h3>
+<p><img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focsorigin_graph.png" alt="1" /> <img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focsleave_phase.png" alt="2" /></p>
+</section><section class="slide level2">
+
+<p><img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focsexpand.png" alt="3" /> <img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focsfinal.png" alt="4" /></p>
+</section></section>
+<section><section id="初始化" class="titleslide slide level1"><h1>初始化</h1></section></section>
+<section><section id="相重删除" class="titleslide slide level1"><h1>相重删除</h1></section><section id="几乎相重near-duplicate社区定义" class="slide level2">
+<h1>几乎相重(near-duplicate)社区定义</h1>
+<p>对两个社区<span class="math inline">\((C, C^{&#39;})\)</span>, 定义社区相似度：</p>
+<p><span class="math display">\[\psi(C, C^{&#39;}) = \frac{|C \cap C^{&#39;}|}{min(|C|, |C^{&#39;}|)}\]</span></p>
+</section><section class="slide level2">
+
+<p>图示: <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Venn_diagram_for_subtractive_RG_color.svg/512px-Venn_diagram_for_subtractive_RG_color.svg.png" alt="duplicate" /></p>
+</section><section class="slide level2">
+
+<h3 id="意义">意义</h3>
+<ol type="1">
+<li>去重后， 计算量减少</li>
+<li>防止两种连通性分数的分布出现不需要的偏斜(undesirably skewed)</li>
+</ol>
+<h3 id="说明">说明</h3>
+<p>对点<span class="math inline">\(v_i\)</span>为索引的社区<span class="math inline">\(S_i\)</span>，仅需要与该社区内其他点为索引的社区进行比较， 可有效节省时间。</p>
+</section></section>
+<section><section id="计算点与社区间连通性" class="titleslide slide level1"><h1>计算点与社区间连通性</h1></section><section id="步骤-1" class="slide level2">
+<h1>步骤</h1>
+<ol type="1">
+<li>对所有社区里的所有点 <span class="math inline">\(V_j\)</span>, 计算相应的
+<ol type="1">
+<li>社区连通性 <span class="math inline">\(\zeta^i_j\)</span></li>
+<li>邻接连通性 <span class="math inline">\(\xi^i_j\)</span></li>
+</ol></li>
+<li>将(0, 1] 区间划分为 <span class="math inline">\(max(20, N(v_j))\)</span> 块， 每块初始化为0.</li>
+<li>根据连通性分数， 统计各区间 分值的个数。（两种连通性分开统计）</li>
+<li>标记 最右的非0元， 并开始向左遍历， 直到：
+<ol type="1">
+<li>遍历完毕 或</li>
+<li>遇到某区间，&lt;=标记值(最右非零元)， 且&lt;=左边区间值， 这个值选为 阈值 stay cut-off of </li>
+</ol></li>
+</ol>
+</section><section id="示意图-1" class="slide level2">
+<h1>示意图</h1>
+<figure>
+<img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focs/select_bucket.png" alt="select" /><figcaption>select</figcaption>
+</figure>
+<blockquote>
+<p>最右的非零元为 第14位, 向左扫描， 第11位的值小于第14位且小于第10位， 因此选择第11位</p>
+</blockquote>
+</section><section class="slide level2">
+
+<h4 id="代码">代码</h4>
+<pre><code>for(j = buck-1 ; j &gt; 0; j--){
+    if(network[i].bcount[j]){
+        mbuck = j;
+        break;
+    }
+}
+
+min = network[i].bcount[mbuck];
+for(j = mbuck-1 ; j &gt; 0; j--){
+    if(network[i].bcount[j] &lt; min)
+        min = network[i].bcount[j];
+    if(network[i].bcount[j] == min &amp;&amp; network[i].bcount[j] &lt;= network[i].bcount[j -1]){
+        network[i].bucket = j + 1;
+        break;
+    }
+}
+if(j == 0)
+    network[i].bucket = 0;</code></pre>
+</section></section>
+<section><section id="排除阶段" class="titleslide slide level1"><h1>排除阶段</h1></section><section id="leave-phase" class="slide level2">
+<h1>leave phase</h1>
+<p>对各个社区<span class="math inline">\(S_i\)</span> 进行如下操作：</p>
+<ol type="1">
+<li>遍历外围结点 <span class="math inline">\(v_k \in Added_i\)</span>, 若社区连通性分数 <span class="math inline">\(\zeta^i_k\)</span> 比留存阈值低, 则排除出 <span class="math inline">\(S_i\)</span>。</li>
+<li>若更新后的<span class="math inline">\(S_i\)</span>社区内 点的个数 &lt;= K， 则<span class="math inline">\(S_i\)</span>不满足社区的条件， 取消<span class="math inline">\(S_i\)</span>社区。</li>
+</ol>
+<p>注： &gt; Removal of only peripheral nodes ensures that nodes that form the core of a community are never eliminated</p>
+</section></section>
+<section><section id="扩展阶段" class="titleslide slide level1"><h1>扩展阶段</h1></section><section id="expand-phase" class="slide level2">
+<h1>expand phase</h1>
+<p>对每个社区<span class="math inline">\(S_i\)</span>， 从外围点<span class="math inline">\(Added_i\)</span>向它的邻点<span class="math inline">\(v_j\)</span>进行扩展。</p>
+<p>扩展需要满足以下条件：</p>
+<ol type="1">
+<li>该点未入 <span class="math inline">\(S_i\)</span>社区</li>
+<li>该点选入 <span class="math inline">\(S_i\)</span>社区的可能性高（即 邻接连通性 <span class="math inline">\(\xi^i_j\)</span> 高于选中阈值 join cut-off ）</li>
+</ol>
+<p>join cut-off 选中阈值的计算方式与 stay 相同</p>
+</section></section>
+<section><section id="代码描述" class="titleslide slide level1"><h1>代码描述</h1></section><section id="参考链接" class="slide level2">
+<h1>参考链接</h1>
+<p><a href="http://sndnyang.github.io/focs-notebook.html">focs-code</a></p>
+</section></section>
+<section><section id="分析" class="titleslide slide level1"><h1>分析</h1></section></section>
+<section><section id="论文总结" class="titleslide slide level1"><h1>论文总结</h1></section><section id="优点" class="slide level2">
+<h1>优点</h1>
+<ol type="1">
+<li>速度非常快</li>
+<li>思想直观简洁</li>
+</ol>
+<p>时间复杂度：</p>
+<p><span class="math display">\[O(m+nl^2 + nl^3 + nl^3) = O(m + nl^3) \approx O(m+n)\]</span></p>
+<ol type="1">
+<li>l be the average number of communities per node, 点平均所属社区个数（或邻点个数）</li>
+<li>m 边数</li>
+<li>n 点数</li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="实验时间">实验时间</h3>
+<figure>
+<img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focs/runtime.png" alt="runtime" /><figcaption>runtime</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h3 id="实验准确度">实验准确度</h3>
+<figure>
+<img src="http://7xt8es.com1.z0.glb.clouddn.com/paper/focs/nmi.png" alt="nmi" /><figcaption>nmi</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<h3 id="nmi">NMI</h3>
+<p><span class="math display">\[
+NMI(C_A, C_B) = \frac
+{
+-2 \sum^{C_A}_{i=1}\sum^{C_B}_{j=1} C_{ij} 
+log( \frac{C_{ij}N}{C_{i.} C_{.j}} )
+}
+{
+\sum^{C_A}_{i=1}{C_{i.}log(\frac{C_{i.}}{N})}
++ 
+\sum^{C_B}_{j=1}{c_{.j} log(\frac{c_{.j}}{N})}
+}
+\]</span></p>
+<ol type="1">
+<li>Given two partitions A and B of a network</li>
+<li>C be the confusion matrix, <span class="math inline">\(C_{ij}\)</span> the number of nodes in common by community i in A and community j in B</li>
+<li>$C_A(C_B) number of clusters in partition A(B)</li>
+<li><span class="math inline">\(C_{i.}(C_{.j})\)</span> the sum of elements of C in row i(column j)</li>
+<li>N number of nodes of the network</li>
+</ol>
+</section></section>
+<section><section id="问题" class="titleslide slide level1"><h1>问题</h1></section><section id="阈值选择方法" class="slide level2">
+<h1>阈值选择方法</h1>
+<p>有点奇怪</p>
+<ol type="1">
+<li>如何解释</li>
+<li>极端情况，最右边的非零元就是最小值</li>
+</ol>
+</section><section id="社区个数有限" class="slide level2">
+<h1>社区个数有限</h1>
+<blockquote>
+<p>maximum number of communities that can be detected by this method is equaltothenumberofnodesinanetwork</p>
+<p>因为 初始化后， 只有删除社区， 没有添加新社区</p>
+<p>Orkut 社区个数是点数的两倍有余</p>
+</blockquote>
+<p>如果能合理地添加新社区， 也许可以作为很好的 动态图的方法</p>
+</section><section id="顺序会影响" class="slide level2">
+<h1>顺序会影响</h1>
+<p>在去重与排除两个阶段， 遍历的次序会有小的影响</p>
+</section></section>
+<section><section id="改进方案" class="titleslide slide level1"><h1>改进方案</h1></section><section id="section-1" class="slide level2">
+<h1></h1>
+</section></section>
+<section><section id="谢谢" class="titleslide slide level1"><h1>谢谢</h1></section></section>
+    </div>
+  </div>
+
+  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/head.min.js"></script>
+  <script src="http://cdn.bootcss.com/reveal.js/3.2.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://cdn.bootcss.com/reveal.js/3.2.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

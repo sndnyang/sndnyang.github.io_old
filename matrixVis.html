@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title> data structure 可视化</title>
+
+        <link rel="stylesheet" href="static/js/bower/reset-css/reset.css">
+        <style type="text/css">
+
+    div, canvas {
+        min-height: 300px; 
+        width: 95%;
+    }
+    </style>
+
+        <script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+        <link href="//cdn.bootcss.com/vis/4.15.0/vis.min.css" rel="stylesheet">
+        <script src="//cdn.bootcss.com/vis/4.15.0/vis.min.js"></script>
+        <script type="text/javascript" src="static/js/DataStructVis.js"> </script>
+        <script type="text/javascript" src="static/js/canvas.js"> </script>
+    </head>
+    <script type="text/javascript">
+var nodes = [];
+var edges = [];
+var nodeSet = null;
+var edgeSet = null;
+var network = null;
+var data = null;
+var index = 0;
+
+
+    function initNetwork() {
+        var container = document.getElementById('Matrix');
+        var demo = Matrix(container, [1, 20]);
+        demo.parseData([[2,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]);
+    }
+function draw() {
+    var len = document.getElementById('lenth').value;
+    nodes = new Array();
+
+    for (var i = 0; i < len; i++) {
+        var node = {id: i+1,  font:{size:10}, 
+            fixed: {x:true, y:true }, 
+            label: Math.floor(Math.random()*100), 
+            shape: 'square', 
+            color: 'orange'
+        };
+        nodes.push(node);
+    }
+
+    edges = [];
+    initNetwork();
+}
+    </script>
+    <body onload="draw()">
+
+        <div class = "vismain">
+            输入数组长度（20以内）
+            <input type="text" id="lenth" value="10" onkeydown="javascript:if (event.keyCode==13) draw();"/>
+            <p>矩阵:</p>
+            <div id="Matrix"></div>
+        </div>
+    </body>
+</html>

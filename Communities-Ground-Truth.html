@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 算法, 自动机, CS, " />
+<meta name="keywords" content="论文, CS, 社区发现, CS, " />
 
-<meta property="og:title" content="自动机作业1-正则表达式 "/>
-<meta property="og:url" content="sndnyang.github.io/automata-hw1.html" />
-<meta property="og:description" content="编程容易，笔算不易，且写且珍惜 开篇语 第二周的编程练习非常简单——前两轮开课时不知道是不是会难很多， 总之这次把代码框架都搭好了， 顺利的话， 10分钟就OK了。 不顺利的地方在哪儿——我使用的是python版本， 里面有个小bug，我看不懂输出。 在源文件里找了半天代码结构没明白， 最后打算从main开始吧， 一看， 代码里面是这样写的 def main(filepath): return Start(&#39;testRE.in&#39;) if __name__ == &#39;__main__&#39;: main(sys.argv[1]) 好吧，难怪我的文件名参数没用——剩下的在看懂他输出是什么内容后很快就解决了。 无耻的分界线 你以为我就想说这个？ NO！ 最起码笔算不易还没说呢！！！ 本周第一个视频讲的是正则表达式基础，从定义到正则表达式转换成NFA CUT！！！ 概念没兴趣， RE转NFA 学过的内容，看到那张图就OK了， 主要是确实so easy. CONTINUE！！！ 然后就到DFA转RE了， 说实话吧 ..." />
+<meta property="og:title" content="Defining and Evaluating Network Communities based on Ground-truth "/>
+<meta property="og:url" content="sndnyang.github.io/Communities-Ground-Truth.html" />
+<meta property="og:description" content="摘要 社区发现的挑战 社区定义的多样性、不确定性 a plethora of definitions of a community 算法困难， NP-hard intractability of algorithms 评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth 本文工作 定义 ground-truth 根据230个大规模的实际网络数据， 包括社交、协作、信息网络 这些数据里的点有明确的归属关系，属于 进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签 量化评估 量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能 导论 贡献 A possible solution would be to find ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2014-09-08T00:00:00+08:00" />
-<meta name="twitter:title" content="自动机作业1-正则表达式 ">
-<meta name="twitter:description" content="编程容易，笔算不易，且写且珍惜 开篇语 第二周的编程练习非常简单——前两轮开课时不知道是不是会难很多， 总之这次把代码框架都搭好了， 顺利的话， 10分钟就OK了。 不顺利的地方在哪儿——我使用的是python版本， 里面有个小bug，我看不懂输出。 在源文件里找了半天代码结构没明白， 最后打算从main开始吧， 一看， 代码里面是这样写的 def main(filepath): return Start(&#39;testRE.in&#39;) if __name__ == &#39;__main__&#39;: main(sys.argv[1]) 好吧，难怪我的文件名参数没用——剩下的在看懂他输出是什么内容后很快就解决了。 无耻的分界线 你以为我就想说这个？ NO！ 最起码笔算不易还没说呢！！！ 本周第一个视频讲的是正则表达式基础，从定义到正则表达式转换成NFA CUT！！！ 概念没兴趣， RE转NFA 学过的内容，看到那张图就OK了， 主要是确实so easy. CONTINUE！！！ 然后就到DFA转RE了， 说实话吧 ...">
+<meta property="og:article:published_time" content="2016-06-09T10:23:17+08:00" />
+<meta name="twitter:title" content="Defining and Evaluating Network Communities based on Ground-truth ">
+<meta name="twitter:description" content="摘要 社区发现的挑战 社区定义的多样性、不确定性 a plethora of definitions of a community 算法困难， NP-hard intractability of algorithms 评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth 本文工作 定义 ground-truth 根据230个大规模的实际网络数据， 包括社交、协作、信息网络 这些数据里的点有明确的归属关系，属于 进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签 量化评估 量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能 导论 贡献 A possible solution would be to find ...">
 
 
-        <title>自动机作业1-正则表达式  · 懒龙谷
+        <title>Defining and Evaluating Network Communities based on Ground-truth  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +89,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/automata-hw1.html">
-                        自动机作业1-正则表达式  
+                    <a href="/Communities-Ground-Truth.html">
+                        Defining and Evaluating Network Communities based on Ground-truth  
                     </a>
                 </h1>
             </header>
@@ -101,11 +101,55 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">开篇语</a></li>
-<li><a href="#_2">无耻的分界线</a></li>
-<li><a href="#_3">转折</a></li>
-<li><a href="#_4">万万没想到（其实不至于）</a></li>
-<li><a href="#_5">结论</a></li>
+<li><a href="#_1">摘要</a><ul>
+<li><a href="#_2">社区发现的挑战</a></li>
+<li><a href="#_3">本文工作</a><ul>
+<li><a href="#ground-truth">定义 ground-truth</a></li>
+<li><a href="#_4">量化评估</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_5">导论</a><ul>
+<li><a href="#_6">贡献</a></li>
+</ul>
+</li>
+<li><a href="#_7">数据集评估</a><ul>
+<li><a href="#_8">社区参考标准</a><ul>
+<li><a href="#_9">好处</a></li>
+<li><a href="#_10">其他方案</a></li>
+</ul>
+</li>
+<li><a href="#_11">数据预处理</a></li>
+<li><a href="#_12">社区评分方法</a><ul>
+<li><a href="#_13">分类</a></li>
+<li><a href="#_14">实验结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_15">评估社区评分函数</a><ul>
+<li><a href="#_16">社区效果度量</a><ul>
+<li><a href="#goodness">定义四个社区效果（goodness)度量</a></li>
+<li><a href="#_17">区别</a></li>
+<li><a href="#_18">分类</a></li>
+</ul>
+</li>
+<li><a href="#_19">实验设置</a></li>
+<li><a href="#_20">实验结果</a></li>
+</ul>
+</li>
+<li><a href="#robustness">社区评分函数稳定性 Robustness</a><ul>
+<li><a href="#community-perturbation-strategies">Community perturbation strategies</a></li>
+<li><a href="#_21">量化差别</a></li>
+<li><a href="#_22">实验</a></li>
+</ul>
+</li>
+<li><a href="#_23">基于种子点的社区发现</a><ul>
+<li><a href="#_24">基本算法</a></li>
+</ul>
+</li>
+<li><a href="#_25">个人总结</a></li>
 </ul>
 </div>
                     </nav>
@@ -114,50 +158,173 @@
 
                         
                         
-<p><strong>编程容易，笔算不易，且写且珍惜</strong></p>
-<h1 id="_1">开篇语</h1>
-<p>第二周的编程练习非常简单——前两轮开课时不知道是不是会难很多， 总之这次把代码框架都搭好了， 顺利的话， 10分钟就OK了。</p>
-<p>不顺利的地方在哪儿——我使用的是python版本， 里面有个小bug，我看不懂输出。 在源文件里找了半天代码结构没明白， 最后打算从main开始吧， 一看， 代码里面是这样写的</p>
-<div class="highlight"><pre><span></span>def main(filepath):
-     return Start('testRE.in')
-if __name__ == '__main__':
-     main(sys.argv[1])
-</pre></div>
-<p>好吧，难怪我的文件名参数没用——剩下的在看懂他输出是什么内容后很快就解决了。</p>
-<h1 id="_2">无耻的分界线</h1>
-<p>你以为我就想说这个？ NO！ 最起码笔算不易还没说呢！！！</p>
-<p>本周第一个视频讲的是正则表达式基础，从定义到正则表达式转换成NFA</p>
-<p>CUT！！！</p>
-<p>概念没兴趣， RE转NFA 学过的内容，看到那张图就OK了， 主要是确实so easy.</p>
-<p>CONTINUE！！！</p>
-<p>然后就到DFA转RE了， 说实话吧， 过程不是很复杂，对于我这种人来说，就一个公式（虽然后面不停地修正自己对过程理解上的缺陷）， 套公式，谁不会呢？！</p>
-<h1 id="_3">转折</h1>
-<p>我还真不会了， 小测第一题就是DFA转RE, 4个状态之间的转换，</p>
-<p>套用公式简单</p>
-<div class="math">$$ R^k_{ij} =R^{k-1}{ij} + R^{k-1}(R^{k-1}{kk})* R^{k-1} $$</div>
-<p>问题有几个： 1. 状态的序号， 给状态按什么顺序分配序号最好呢，在这里可能没影响，不过我换了好几次。 2. 手算真是很绕， 整个下午，多半时间都花在推导上了，连午觉都想想后起来先推导了几次，实在绕晕了才午休。</p>
-<p>在纸上推导被绕的过程中， 顺手写代码，模拟一下这个公式， 就是个递归的公式，用nnn 的数组来记录状态嘛。</p>
-<p>初始版的数组下标就不对，不经过额外状态的路径（直接连结或无连结）被我忽略了， 另外也没有组织好正则表达式的表达形式，括号没用好。 输出的结果自然是无效的。</p>
-<p>最后第二周的第一个小测是我经过7次连蒙带猜后，总算拿到5分。 第一题纸算太难，第二题花费很长时间来理解题意，后3题时不时拖后腿，几次前两题答对（后几次已经不是猜了），后三题不小心出错。</p>
-<h1 id="_4">万万没想到（其实不至于）</h1>
-<p>到晚上， 做其他事耐心缺失之下， 又打开了代码， 决定调整好数组下标， 再组织好括号的输出。很快修改完毕， 随意运行之后，输出结果居然就这么达到预期 因 honor code， 只摘取与题目要求无关的输出部分</p>
-<div class="highlight"><pre><span></span>k i j regular expression
-4 1 1 1(11+0(01+10))*(1+00)
-4 1 2 1(11+0(01+10))*01
-4 1 3 1(11+0(01+10))*0
-4 1 4 1+1(11+0(01+10))*(11+0(01+10))
-4 2 1 0(11+0(01+10))*(1+00)
-4 2 2 0(11+0(01+10))*01
-4 2 3 0(11+0(01+10))*0
-4 2 4 0+0(11+0(01+10))*(11+0(01+10))
-4 3 1 0+(01+10)(11+0(01+10))*(1+00)
-4 3 2 1+(01+10)(11+0(01+10))*01
-4 3 3 (01+10)(11+0(01+10))*0
-</pre></div>
-<p>虽然没有经过完全化简——也不确认全部正确，但形式上是没问题了。 测验第一题对应的结果也是正确的。</p>
-<p>根据输出的结果， 回顾题目， 我去， 选项怎么这么明显啊， 我之前的推导都在为了什么？</p>
-<h1 id="_5">结论</h1>
-<p>个人经验， 手工推导DFA到RE 非常容易错乱，而老师题目中的几个选项稍认真分析下，可以直接判断正误， 我之前是有多不认真呢。</p>
+<h1 id="_1">摘要</h1>
+<h2 id="_2">社区发现的挑战</h2>
+<ol>
+<li>社区定义的多样性、不确定性 a plethora of definitions of a community</li>
+<li>算法困难， NP-hard intractability of algorithms</li>
+<li>评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth</li>
+</ol>
+<h2 id="_3">本文工作</h2>
+<h3 id="ground-truth">定义 ground-truth</h3>
+<p>根据230个大规模的实际网络数据， 包括社交、协作、信息网络</p>
+<p>这些数据里的点有明确的归属关系，属于</p>
+<p>进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签</p>
+<h3 id="_4">量化评估</h3>
+<p>量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能</p>
+<h1 id="_5">导论</h1>
+<h2 id="_6">贡献</h2>
+<p>A possible solution would be to find a reliable definition of explicitly labeled gold-standard ground-truth communities</p>
+<p>贡献：</p>
+<ol>
+<li>对230个大规模的社交、信息网络，用一种可靠的方法，定义了参考（ground-truth）社区</li>
+<li>基于ground-truth，量化评估了网络社区的13种常用的结构化定义， 并检验了它们的稳定性和敏感性</li>
+<li>扩展了局部谱聚类算法， 得到一种无参社区发现方法， 可支持百万点级别的网络检测</li>
+</ol>
+<h1 id="_7">数据集评估</h1>
+<h2 id="_8">社区参考标准</h2>
+<ol>
+<li>社交网络的社区， 基于特定主题的分组</li>
+<li>购物网络， 基于层次化组织的货物分类</li>
+<li>科研合作网络， 基于相同的出版组织（会议等）</li>
+</ol>
+<h3 id="_9">好处</h3>
+<p>与社区发现工作的隐含前提一致： </p>
+<blockquote>
+<p>社区内的成员会有相同的功能或性质
+这是网络的组织原则</p>
+</blockquote>
+<h3 id="_10">其他方案</h3>
+<p>用成员点对点的相似度， 以属性来评估社区</p>
+<p>来源：Y.-Y. Ahn, J. P. Bagrow, and S. Lehmann Link communities reveal multi-scale complexity in networks 
+<a href="https://www.researchgate.net/publication/44687459_Link_Communities_Reveal_Multiscale_Complexity_in_Networks">文章链接</a></p>
+<h2 id="_11">数据预处理</h2>
+<ol>
+<li>无权重无向静态图。</li>
+<li>组里成员可能无外连， 视作独立的社区</li>
+<li>参考社区可内嵌、 可重叠</li>
+</ol>
+<h2 id="_12">社区评分方法</h2>
+<p>思想：</p>
+<p>给定一个社区评分方法，</p>
+<blockquote>
+<p>把它发现的高分点集视作社区
+社区内点的连通度高，
+社区间连通度低。</p>
+</blockquote>
+<hr/>
+<h3 id="_13">分类</h3>
+<ol>
+<li>基于内部连通性<ol>
+<li>内部边密度</li>
+<li>内部边数</li>
+<li>平均度数</li>
+<li>度数中位数上比例</li>
+<li>三角参与比例</li>
+</ol>
+</li>
+<li>基于外部连通性<ol>
+<li>扩展</li>
+<li>割比例 cut ratio</li>
+</ol>
+</li>
+<li>内外部连通性结合<ol>
+<li>传导性 conductance</li>
+<li>标准割 normalized cut</li>
+<li>最大出度分数</li>
+<li>平均出度分数</li>
+<li>Flake出度分数</li>
+</ol>
+</li>
+<li>基于网络模型<ol>
+<li>模块性</li>
+</ol>
+</li>
+</ol>
+<p>因公式麻烦， 请看图片</p>
+<p><img alt="png1" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_function1.png"/>
+<img alt="png2" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_function2.png"/></p>
+<h3 id="_14">实验结果</h3>
+<ol>
+<li>计算每个标准社区的的这13种分数</li>
+<li>计算一个相关矩阵 correlation matrix</li>
+<li>设定相关阈值， 比如 0.6 分成四组</li>
+</ol>
+<p><img alt="scoreConnect" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoringConnect.png"/></p>
+<h1 id="_15">评估社区评分函数</h1>
+<blockquote>
+<p>to develop an evaluation methodology
+for network community detection</p>
+</blockquote>
+<h2 id="_16">社区效果度量</h2>
+<p>采用一种公理化方法（然而只有第一步）：</p>
+<h3 id="goodness">定义四个社区效果（goodness)度量</h3>
+<p>对“好”社区的直观定义进行规范形式化(formalize)</p>
+<h3 id="_17">区别</h3>
+<blockquote>
+<p>社区评分函数量化了一个集合的“社区相似度”
+效果试题量化社区的满意度(desirable property)</p>
+</blockquote>
+<h3 id="_18">分类</h3>
+<p>对点集S 的效果度量g(S)有：</p>
+<ol>
+<li>可分度Separability： g(S) = 内边数/外边数</li>
+<li>密度Density: g(S) = 边数/（2点组合数）</li>
+<li>凝聚度Cohesiveness: S诱导（生成）子图的最大导率(conductance)</li>
+<li>聚类协同系数Clustering coefficient：没有准确描述，得看其他论文</li>
+</ol>
+<h2 id="_19">实验设置</h2>
+<p>步骤：</p>
+<ol>
+<li>有很多标准社区Si</li>
+<li>对每个评分函数， 把标准社区按该方法的分数降序排列</li>
+<li>计算前k个标准社区的效果度量值， 并计算累积平均</li>
+</ol>
+<p>直观思路：</p>
+<ol>
+<li>好的社区评分函数与效果度量完美相关（正或负）</li>
+<li>则效果度量的平均值 应该 随k 单调</li>
+<li>假设社区评分函数乱排序， 效果度量平均值将是k的固定函数 constant function</li>
+</ol>
+<h2 id="_20">实验结果</h2>
+<p><img alt="scoreMetrics" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_metrics.png"/></p>
+<h1 id="robustness">社区评分函数稳定性 Robustness</h1>
+<h2 id="community-perturbation-strategies">Community perturbation strategies</h2>
+<ol>
+<li>点交换： 随机选择一条边(u, v), <span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u，加上v</li>
+<li>随机： 随机选择<span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u，加上v</li>
+<li>扩展: 随机选择 <span class="math">\(u \in S, v \notin S\)</span>， 对S 加上v</li>
+<li>收缩： 随机选择 <span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u</li>
+</ol>
+<h2 id="_21">量化差别</h2>
+<p>h(S, p)代表干扰后， 则 Z-score:</p>
+<p><img alt="zscore" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/zscore.png"/></p>
+<p>E是期望， Var 是方差</p>
+<p>高Z-score意味着什么？</p>
+<p>标准社区的期望分数比扰动后的低， 所以对f评估函数来说， 标准社区比扰动后好。</p>
+<h2 id="_22">实验</h2>
+<h1 id="_23">基于种子点的社区发现</h1>
+<h2 id="_24">基本算法</h2>
+<p>给定： 图G、 种子节点s、 评分函数f</p>
+<p>步骤：</p>
+<ol>
+<li>用PageRank-Nibble， 从点s开始计算随机游走分数<span class="math">\(r_u\)</span></li>
+<li>根据<span class="math">\(r_u\)</span>/d(u)，对点进行排序， d(u)是点u的度</li>
+<li>对前k个点， 计算社区评分函数 f(Sk)</li>
+<li>检测f(Sk)的极小值，发现一到多个社区</li>
+<li>if 要发现一个社区  <br/>
+       找到第一个局部最优的fk  <br/>
+   else <br/>
+       找到全部的局部最优</li>
+</ol>
+<p>英文版描述：</p>
+<p><img alt="comDetect" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/communityDetection.png"/></p>
+<h1 id="_25">个人总结</h1>
+<ol>
+<li>本文定义标准社区思想非常简洁。</li>
+<li>新提出的社区发现方法， 里面极小值的使用不知道是什么原理。</li>
+<li>实验部分长， 但真正做研究也确实应该这样认真地做实验分析， 不同的评估函数、衡量标准、 干扰等等。</li>
+</ol>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -230,7 +397,7 @@ if __name__ == '__main__':
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="sndnyang.github.io/automata-hw1.html#disqus_thread">
+                href="sndnyang.github.io/Communities-Ground-Truth.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -240,8 +407,8 @@ if __name__ == '__main__':
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'sndnyang.github.io/automata-hw1.html';
-    var disqus_url = 'sndnyang.github.io/automata-hw1.html';
+        var disqus_identifier = 'sndnyang.github.io/Communities-Ground-Truth.html';
+    var disqus_url = 'sndnyang.github.io/Communities-Ground-Truth.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -263,7 +430,7 @@ if __name__ == '__main__':
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2014-09-08T00:00:00+08:00">九月 8, 2014</time>
+                    <time pubdate="pubdate" datetime="2016-06-09T10:23:17+08:00">六月 9, 2016</time>
                     <h4>Category</h4>
                     <a class="category-link" href="/categories.html#cs-ref">CS</a>
                     <h4>Tags</h4>
@@ -271,11 +438,11 @@ if __name__ == '__main__':
                         <li><a href="/tags.html#cs-ref">CS
                             <span>15</span>
 </a></li>
-                        <li><a href="/tags.html#suan-fa-ref">算法
-                            <span>6</span>
+                        <li><a href="/tags.html#lun-wen-ref">论文
+                            <span>10</span>
 </a></li>
-                        <li><a href="/tags.html#zi-dong-ji-ref">自动机
-                            <span>1</span>
+                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
+                            <span>5</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

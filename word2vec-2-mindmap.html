@@ -113,7 +113,7 @@
                         
                         
 <p>译自：</p>
-<p><a href="//codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/">原文链接</a>(没有找过作者， 随手就翻译了)</p>
+<p><a href="https://codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/">原文链接</a>(没有找过作者， 随手就翻译了)</p>
 <p>思维导图这一工具因其长于组织大量任务、材料信息，在头脑风暴、 计划和问题解决等领域得到广泛使用、一致好评。</p>
 <p>对思路的可视整理有助于整个思考的过程， 并且模拟了我们人类思考时获取脑中知识的方式。</p>
 <p>现今有很多工具可以帮助我们画出思维导图， 但还没有一个能自行生成的， “生成”是指从文本（语音）内容中提成。</p>
@@ -121,15 +121,15 @@
 <p>当然， 第一个问题就是， 任意一段文字都不会只有那么一种可行的思维导图。</p>
 <p>只是， 如果你要构建自己的思维导图， 有这么一个自动工具， 可能会给你更多的思路和洞见， 特别是头脑风暴时， 或帮你查缺补漏。</p>
 <p>那我们先来看看一个思维导图的样式——</p>
-<p><img alt="mindmap" src="//codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/"/></p>
+<p><img alt="mindmap" src="https://codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/"/></p>
 <p>两个关键点：</p>
 <ul>
 <li>思维导图并不简单地是一棵树， 不只是递归地将主题划分成子主题。 它本质上更像图， 连接项在语义上是相关的。</li>
 <li>正如‘夜晚’可能会让你想到‘白天’， 思维导图中， 意义相反的两个概念之间也很可能存在连接。</li>
 </ul>
 <p>还有诸如使用图片强化概念等其他点。但这些并不是本文的主旨（我的设计师风格创造力糟透了）。</p>
-<p>有备无患 ， <a href="//lifehacker.com/how-to-use-mind-maps-to-unleash-your-brains-creativity-1348869811">Heres</a> 这篇文章能帮助你熟悉构建和使用思维导图的过程。</p>
-<p>在我上一篇博文 <a href="//codesachin.wordpress.com/2015/10/09/generating-a-word2vec-model-from-a-block-of-text-using-gensim-python/">链接</a> 中， 我描述了一种从文本生成Word2Vec模型的方法（使用维基的文章作为示例）。</p>
+<p>有备无患 ， <a href="http://lifehacker.com/how-to-use-mind-maps-to-unleash-your-brains-creativity-1348869811">Heres</a> 这篇文章能帮助你熟悉构建和使用思维导图的过程。</p>
+<p>在我上一篇博文 <a href="https://codesachin.wordpress.com/2015/10/09/generating-a-word2vec-model-from-a-block-of-text-using-gensim-python/">链接</a> 中， 我描述了一种从文本生成Word2Vec模型的方法（使用维基的文章作为示例）。</p>
 <p>在这里， 我将描述我使用的从 Word2Vec模型生成基本思维导图的方法。</p>
 <h1 id="n">第一步： 从文章中找出前n项</h1>
 <p>（就像我上一篇博文所说， 我只使用stemmed unigrams（一个词干的n-gram), 你可以自行采用更高阶的ngrams, 想来会更棘手（准确来说， 是当你生成n-gram的算法有效时）</p>
@@ -336,7 +336,7 @@ $$</div>
 <p>另外注意74和75行， 我使用了上篇博文所写的 StemmingHelper 类， 所以在思维导图中显示的是词干原始形式， 而不是词干。可以将StemmingHelper类直接当做参数 stemmer 传入。 所以， 如果你不需要词干处理， 那就把第4,74,75三行的代码干掉吧。</p>
 <p>如果你仔细看过代码， 你会发现， 这看着很像 迪杰斯特拉的单点最短路径， 只是情境不同。</p>
 <h1 id="_1">示例输出</h1>
-<p><a href="//codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/">原文链接</a></p>
+<p><a href="https://codesachin.wordpress.com/2015/10/15/generating-rudimentary-mind-maps-from-word2vec-models/">原文链接</a></p>
 <p>看着不错， 和我人工画的也挺像的。</p>
 <h1 id="_2">其他</h1>
 <p>还有一些可尝试的东西。</p>
@@ -359,7 +359,7 @@ $$</div>
 
     var mathjaxscript = document.createElement('script');
     var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = '';
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
     mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
@@ -437,8 +437,8 @@ $$</div>
          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
      })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                 </div>
             </div>
@@ -457,10 +457,10 @@ $$</div>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>13</span>
+                            <span>15</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>5</span>
+                            <span>6</span>
 </a></li>
                         <li><a href="/tags.html#zi-ran-yu-yan-chu-li-ref">自然语言处理
                             <span>1</span>
@@ -496,7 +496,7 @@ $$</div>
 <footer>
 <div id="footer">
     <ul class="footer-content">
-        <li class="elegant-power">Powered by <a href="//getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="//oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="//oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>
 </footer>            

@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>sndnyang.github.io/</loc>
-<lastmod>2016-05-08T16:11:46-00:00</lastmod>
+<lastmod>2016-06-17T16:26:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/archives.html</loc>
-<lastmod>2016-05-08T16:11:46-00:00</lastmod>
+<lastmod>2016-06-17T16:26:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/tags.html</loc>
-<lastmod>2016-05-08T16:11:46-00:00</lastmod>
+<lastmod>2016-06-17T16:26:51-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>sndnyang.github.io/categories.html</loc>
-<lastmod>2016-05-08T16:11:46-00:00</lastmod>
+<lastmod>2016-06-17T16:26:51-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/Communities-Ground-Truth.html</loc>
+<lastmod>2016-06-09T10:23:17+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -104,6 +111,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>sndnyang.github.io/total-probability.html</loc>
 <lastmod>2016-04-20T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sndnyang.github.io/svm-1-max-margin.html</loc>
+<lastmod>2016-04-19T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

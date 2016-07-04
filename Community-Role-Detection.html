@@ -10,20 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, AI, Machine Learning, 机器学习, " />
+<meta name="keywords" content="CS, 论文, 社区发现, 研究, " />
 
-<meta property="og:title" content="支持向量机系列二之对偶化 "/>
-<meta property="og:url" content="sndnyang.github.io/svm-2-dual.html" />
-<meta property="og:description" content="支持向量机对偶化" />
+<meta property="og:title" content="社区及角色发现 "/>
+<meta property="og:url" content="sndnyang.github.io/Community-Role-Detection.html" />
+<meta property="og:description" content="摘要 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that defines the ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-04-19T00:00:00+08:00" />
-<meta property="" content="2016-05-03T00:00:00+08:00" />
-<meta name="twitter:title" content="支持向量机系列二之对偶化 ">
-<meta name="twitter:description" content="支持向量机对偶化">
+<meta property="og:article:published_time" content="2016-06-21T15:51:58+08:00" />
+<meta name="twitter:title" content="社区及角色发现 ">
+<meta name="twitter:description" content="摘要 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that defines the ...">
 
 
-        <title>支持向量机系列二之对偶化  · 懒龙谷
+        <title>社区及角色发现  · 懒龙谷
 </title>
 
         <style>
@@ -90,8 +89,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/svm-2-dual.html">
-                        支持向量机系列二之对偶化  
+                    <a href="/Community-Role-Detection.html">
+                        社区及角色发现  
                     </a>
                 </h1>
             </header>
@@ -102,8 +101,23 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">免责说明</a></li>
-<li><a href="#_2">导读</a></li>
+<li><a href="#_1">摘要</a><ul>
+<li><a href="#_2">基本观点</a><ul>
+<li><a href="#_3">例子</a></li>
+<li><a href="#_4">主要贡献</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_5">正文</a><ul>
+<li><a href="#_6">定义生成模型</a><ul>
+<li><a href="#_7">原模型</a></li>
+<li><a href="#_8">改进</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_9">总结</a></li>
 </ul>
 </div>
                     </nav>
@@ -112,86 +126,68 @@
 
                         
                         
-<h2 id="_1">免责说明</h2>
-<p>本文参考以下文献：</p>
+<h1 id="_1">摘要</h1>
+<p>
+<div><input class="answers" type="hidden" value="5dd93697ae229bcf46047f29173a7edf"/><input class="comments" type="hidden" value="不知道就尴尬了"/><br/>
+</div>
+</p>
+<p>再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少</p>
+<p>
+<div><input class="answers" type="hidden" value="5dd93697ae229bcf46047f29173a7edf"/><input class="comments" type="hidden" value="呃"/><br/>
+</div>
+</p>
+<p>之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。</p>
+<h2 id="_2">基本观点</h2>
 <ol>
-<li>pluskid支持向量机系列博文，特别是图片引用 <a href="http://blog.pluskid.org/?page_id=683">pluskid-svm</a></li>
-<li>Andrew Ng在斯坦福的cs229讲义， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
-<li>jerrylead 博文 <a href="http://www.cnblogs.com/jerrylead/archive/2011/03/13/1982684.html">jerrylead-svm</a>, pluskid 的公式显示出问题， 看着头大</li>
+<li>正确地划分出社区， 能促进对点的功能、角色的检测。</li>
+<li>正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。</li>
 </ol>
-<p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
-<h1 id="_2">导读</h1>
-<p>在上一篇 <a href="http://zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">svm介绍</a> 中， 我们已经得到了如下一个公式：</p>
-<div class="math">$$ 
-\begin{align} 
-&amp;\min_{w,b} \frac{1}{2}\|w\|^2 \\
-&amp; 
-\begin{array}
-&amp;
-s.t., y_i(w^Tx_i+b)\geq 1, i=1,\ldots,m\\ \end{array}
-\end{align}
-$$</div>
-<p>这个式子或者说优化问题 大家都说是有现成的优化方法来求解， 所以完成了一部分内容。</p>
-<p>既然已经能用了， 为什么还要继续讲下去， 肯定是有更优的方案。 这也是明摆的事。</p>
-<p>如果说上面的多数内容是普通读者(会来学习svm或机器学习的人)能顺利理解每一步公式的话， 后面的内容对于很多人就困难得多了， 特别是对高数没学好的（比如我）来说。</p>
-<p>我现在强行凑文章， 也不合适， 还是得先学好数学了再说。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
+<h3 id="_3">例子</h3>
+<p>如图：</p>
+<p>两个群、 3种角色</p>
+<h3 id="_4">主要贡献</h3>
+<p>写了三个</p>
+<ol>
+<li>Studying a novel problem of integrating community and role detection in information networks. 这也能算 :(</li>
+<li>Proposing a unified probabilistic generative model that defines the link generation probability based on both community and role labels of nodes, and a Gibbs sampling based inference algorithm is proposed.</li>
+<li>在三个人工数据和两个真实数据上实验， 证明了方法对社区/功能检测 和 链接预测上的有效性-- 这也能算？</li>
+</ol>
+<p>应该就第二条， 结合了社区、功能检测思想，提出了一个统一（通用）概率生成模型来定义链接生成概率， 并使用Gibbs采样算法（别人的）。</p>
+<h1 id="_5">正文</h1>
+<p>除掉实验和公式， 内容不多。</p>
+<p>没看过概率图模型的内容， 我估计以下步骤是概率图模型的内容</p>
+<p>就像MMDS(Mining Massive Datasets)课程或书里写的， 社区发现分两步：</p>
+<ol>
+<li>定义一个生成网络的生成概率模型 generative model</li>
+<li>再根据某种统计推断方法， 确定生成模型里的各个参数</li>
+</ol>
+<p>因为本文使用的统计推断算法几乎就是别人原版吧， 所以也就是在生成模型上有点新意——可能也就各种凑合。</p>
+<h2 id="_6">定义生成模型</h2>
+<h3 id="_7">原模型</h3>
+<p>基于 Mixed Membership Stochastic Blockmodel (MMSB) <a href="https://www.baidu.com/link?url=0hWpL1H88T3XJqIXC4Fs9pEC5wdWUlgHmOEpF5dMyEslDwBdz9j6ubYR4bKOOByRHsMka3Zwj5dXi1rH4etnbfPEzg8_LFwC_rl6zoDw6WsLqVynPUYG3axemysoEG7Nuk9O4cDs8gEbEQ3rfau3LK&amp;wd=&amp;eqid=bed192060008ba3300000003576903b6">4</a></p>
+<p>MMSB的连接生成过程（边生成）如下：</p>
+<div class="highlight"><pre><span></span>For each node i:
+    - Draw a group membership distribution vector πi ～ Dirichlet(α)
 
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
+For each node pair (i, j):
+    - Draw node i’s latent group Zij ～ Multinomial(πi)
+    - Draw node j’s latent group Zji ～ Multinomial(πj)
+    - Draw the link Eij ～ Bernoulli(SZij ;Zji)
+</pre></div>
+<p>S: group-group interaction probability matrix </p>
+<h3 id="_8">改进</h3>
+<p>Mixed Membership Community and Role (MMCR) Model</p>
+<p>大概就是给点多加一个role功能的向量</p>
+<h1 id="_9">总结</h1>
+<p>本篇或许是比较新颖地把原本不相关的社区发现和功能检测进行了关联--假设他们是第一个吧。</p>
+<p>但给我感觉比较水， </p>
+<ol>
+<li>重复地讲那简单的思想原理——不过其他论文也经常重复当强调</li>
+<li>对整个过程用了种理所当然的描述——the collapsed Gibbs sampling algorithm is straightforward。不得不去看Gibbs这个算法的论文。</li>
+<li>伪代码也没有</li>
+<li>实验数据非常小。 百来个点， 效果好了， 性能没实验， 复杂度说是平方</li>
+<li>感觉英文写作水平不是很好，不知道是真的， 还是我英文差。</li>
+</ol>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -207,7 +203,7 @@ $$</div>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="sndnyang.github.io/svm-2-dual.html#disqus_thread">
+                href="sndnyang.github.io/Community-Role-Detection.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -217,8 +213,8 @@ $$</div>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'sndnyang.github.io/svm-2-dual.html';
-    var disqus_url = 'sndnyang.github.io/svm-2-dual.html';
+        var disqus_identifier = 'sndnyang.github.io/Community-Role-Detection.html';
+    var disqus_url = 'sndnyang.github.io/Community-Role-Detection.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -240,23 +236,19 @@ $$</div>
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-04-19T00:00:00+08:00">四月 19, 2016</time>
-
-<h4>Last Updated</h4>
-<time datetime="2016-05-03T00:00:00+08:00">五月 3, 2016</time>
-
+                    <time pubdate="pubdate" datetime="2016-06-21T15:51:58+08:00">六月 21, 2016</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <a class="category-link" href="/categories.html#yan-jiu-ref">研究</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#ai-ref">AI
-                            <span>1</span>
-</a></li>
                         <li><a href="/tags.html#cs-ref">CS
                             <span>17</span>
 </a></li>
-                        <li><a href="/tags.html#machine-learning-ref">Machine Learning
-                            <span>1</span>
+                        <li><a href="/tags.html#lun-wen-ref">论文
+                            <span>12</span>
+</a></li>
+                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
+                            <span>7</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

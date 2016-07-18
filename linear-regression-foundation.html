@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="CS, AI, Machine Learning, 机器学习, " />
+
+<meta property="og:title" content="线性回归基础 "/>
+<meta property="og:url" content="sndnyang.github.io/linear-regression-foundation.html" />
+<meta property="og:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 关于机器学习的概念、定义，我写不明白。 监督学习、无监督学习的区别， 分类问题和回归问题的区别也写不好，所以这里假设读者对这些概念都有一定了解。 本节要讲的内容就是线性回归及其求解。 一言不合就问问题。 同学你知道什么是线性回归吗？ 知道 不知道 submit 是什么？ 线性回归是什么？ 线性简单，代表模型、理论函数是 y=w*x+b, 这里的x可以是一个变量，也可以是向量。 回归是什么？建议找本统计学的书来看看， 比如陈希孺《概率论与数理统计》第258页开始， 介绍回归分析的基本概念。 我们假设了模型，但模型的参数未知， 回归分析就是去分析、求出参数的值， 并达到某个效果 ..." />
+<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2016-07-16T00:00:00+08:00" />
+<meta property="" content="2016-07-16T00:00:00+08:00" />
+<meta name="twitter:title" content="线性回归基础 ">
+<meta name="twitter:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 关于机器学习的概念、定义，我写不明白。 监督学习、无监督学习的区别， 分类问题和回归问题的区别也写不好，所以这里假设读者对这些概念都有一定了解。 本节要讲的内容就是线性回归及其求解。 一言不合就问问题。 同学你知道什么是线性回归吗？ 知道 不知道 submit 是什么？ 线性回归是什么？ 线性简单，代表模型、理论函数是 y=w*x+b, 这里的x可以是一个变量，也可以是向量。 回归是什么？建议找本统计学的书来看看， 比如陈希孺《概率论与数理统计》第258页开始， 介绍回归分析的基本概念。 我们假设了模型，但模型的参数未知， 回归分析就是去分析、求出参数的值， 并达到某个效果 ...">
+
+
+        <title>线性回归基础  · 懒龙谷
+</title>
+
+        <style>
+            body { padding-top: 50px; padding-bottom: 10px; }
+        </style>
+
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+
+		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="/">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action=/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+
+
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+		    backToTop();
+		});
+      
+    	</script>
+        
+        <div class="hint">
+            <ul class="flashes">
+            </ul>
+        </div>
+        
+        <article>
+            <header class="page-header span12 text-center">
+                <h1>
+                    <a href="/linear-regression-foundation.html">
+                        线性回归基础  
+                    </a>
+                </h1>
+            </header>
+
+            <div class="row-fluid">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">导读</a><ul>
+<li><a href="#_3">是什么？</a></li>
+<li><a href="#_4">为什么？</a></li>
+<li><a href="#_5">总览</a></li>
+</ul>
+</li>
+<li><a href="#_6">模型</a></li>
+<li><a href="#_7">策略</a><ul>
+<li><a href="#_8">损失函数</a></li>
+</ul>
+</li>
+<li><a href="#_9">算法</a><ul>
+<li><a href="#_10">从随机状态开始</a></li>
+<li><a href="#_11">坡度和梯度</a></li>
+<li><a href="#_12">导数</a></li>
+<li><a href="#_13">求偏导</a></li>
+<li><a href="#_14">继续求导</a></li>
+<li><a href="#_15">求导结果</a></li>
+<li><a href="#_16">滚多远？</a></li>
+<li><a href="#_17">什么时候结束</a></li>
+<li><a href="#_18">算法部分总结</a></li>
+</ul>
+</li>
+<li><a href="#_19">梯度下降实践</a></li>
+<li><a href="#_20">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
+
+                        
+                        
+<h1 id="_1">说明</h1>
+<p>本文参考以下文献：</p>
+<ol>
+<li>Andrew Ng在斯坦福的cs229讲义， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
+</ol>
+<p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
+<h1 id="_2">导读</h1>
+<p>关于机器学习的概念、定义，我写不明白。 监督学习、无监督学习的区别， 分类问题和回归问题的区别也写不好，所以这里假设读者对这些概念都有一定了解。</p>
+<p>本节要讲的内容就是线性回归及其求解。</p>
+<p>一言不合就问问题。</p>
+<p>
+<div>
+<p>同学你知道什么是线性回归吗？</p>
+<input class="quiz" name="quiz" type="radio" value="知道"/><b>知道</b><br/>
+<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="d5b347ba776c874ba96f18efb764b2de"/><input class="comments" type="hidden" value="我个人水平问题，请选不知道"/><br/>
+</div>
+</p>
+<h2 id="_3">是什么？</h2>
+<p>线性回归是什么？</p>
+<p>线性简单，代表模型、理论函数是 y=w*x+b, 这里的x可以是一个变量，也可以是向量。</p>
+<p>回归是什么？建议找本统计学的书来看看， 比如陈希孺《概率论与数理统计》第258页开始， 介绍回归分析的基本概念。</p>
+<p>我们假设了模型，但模型的参数未知， 回归分析就是去分析、求出参数的值， 并达到某个效果。</p>
+<p>和分类问题相比， 分类是输出“类别”，离散的值， 回归输出的是连续的值。</p>
+<h2 id="_4">为什么？</h2>
+<p>为什么是线性回归， 首先线性肯定比非线性简单， 其次跟线性代数、 统计课程能连上。 但为什么线性模型足够有效，超过我的知识水平了。</p>
+<h2 id="_5">总览</h2>
+<p>机器学习有三要素（李航《统计学习方法》统计学习方法的三要素）：</p>
+<ol>
+<li>模型</li>
+<li>策略</li>
+<li>算法</li>
+</ol>
+<p>所以，本文内容相应的就是：</p>
+<ol>
+<li>模型--线性模型， y=w*x+b</li>
+<li>策略--确定模型（参数）选择的准则（评价方法），即损失\误差函数。用策略一词，是有点不习惯。</li>
+<li>算法--求解最优模型的过程。</li>
+</ol>
+<h1 id="_6">模型</h1>
+<p>前面说过多回了， 线性回归， 线性方程 y=h(x)=<span class="math">\(\sum \limits_{i=0} w_i*x_i\)</span>, 这里把b看作是 <span class="math">\(w_0 * x_0\)</span></p>
+<p>这里采用这种标记法，另有一种常用的是<span class="math">\(Y=\theta^TX\)</span>。只是符号问题。</p>
+<p>接下来， 我们就要考虑求最优模型（参数）。</p>
+<h1 id="_7">策略</h1>
+<p>为了求解最优模型， 需要采取一定的策略。机器学习里的策略大概就是指模型选择的准则。</p>
+<p>对线性回归来说，我们考虑让预测值和实际值之间误差最小作为标准，选取损失函数。 篇幅限制及原课程的安排， 所以， 推导具体的损失函数请看 <a href="">概率解释</a></p>
+<p>
+<div>
+<p>是否已看过概率解释部分？</p>
+<input class="quiz" name="quiz" type="radio" value="看了"/><b>看了</b><br/>
+<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="9af57bb5fca8a7d70defa45220b1664f"/><input class="comments" type="hidden" value="建议先看看"/><br/>
+</div>
+</p>
+<h2 id="_8">损失函数</h2>
+<p>上结论， 我们选择评估误差的标准为 <span class="math">\((h(x) - y)^2\)</span>, h(x)=w*x是预测值，y是实际值。平方强调了误差越大，影响越大。</p>
+<p>这是单个数据点的误差， 所以整个数据集的误差就是：
+</p>
+<div class="math">$$
+J(w)=\sum^m_{i=1}(h(x^i) - y^i)^2
+$$</div>
+<p>于是， 任务就变成了对上式求最小化（误差最小），并求出最小是h(x)的参数w。</p>
+<div class="math">$$
+\min\limits_w\sum^m_{i=1}(h(x^i) - y^i)^2
+$$</div>
+<h1 id="_9">算法</h1>
+<p>如果了解、熟悉梯度下降法的同学已经可以不用看了。直接点下一段到结束吧！</p>
+<p><span class="math">\(x^2\)</span>平方函数有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。而损失函数也会存在最小值， 这个我也不会证，但应该没有疑义吧？</p>
+<p>在训练集数据x,y都已知的情况， 损失函数的自变量是否只有一个w了？损失函数的值会随着w的变化而变化。</p>
+<p>我们假设一个一维w对应的损失函数如图：</p>
+<p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"/></p>
+<p>人眼能估计最小值在哪个位置对吧， 先说明下，我写的函数是 <span class="math">\(y=3*x^2-2*x+5\)</span>。所以最小值不是在x=0。</p>
+<p>
+<div>
+<p>你觉得应该怎么做?</p>
+<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
+<input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试"/><b>从非常小到非常大全部试</b><br/>
+<input class="quiz" name="quiz" type="radio" value="从一个随机位置开始"/><b>从一个随机位置开始</b><br/>
+<input class="quiz" name="quiz" type="radio" value="公式变换找最小位置"/><b>公式变换找最小位置</b><br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="b9e68e5388c4abb82455bfc742377a02"/><input class="comments" type="hidden" value="呃"/><br/>
+</div>
+</p>
+<h2 id="_10">从随机状态开始</h2>
+<p>暴力搜索地从非常小到非常大地尝试肯定是不可取的，又慢又试不完。PASS。</p>
+<p>公式变换对于已知系数一元二次方程是可行的， 但现在就是要去求出系数。PASS。</p>
+<p>只能从某个随机值开始，以前学的算法多数是确定性算法， 貌似只有快速排序里可选地提及随机选择。</p>
+<p>而现实中， 类似的搜索性问题多半是从随机初始状态开始的。这可能算是个很重要的<strong>随机化</strong>思路。</p>
+<p>我们现在随机选择了x=5这一点（实际可能喜欢用0向量）， 在上图的红点有个X。这里是个坡，我们放个小球，会自然地顺着坡滚下去。那计算机程序怎么办呢？一维的w在图上还只有左右两个方向，二维的w加上y值形成3D图，每个点都是360度连续空间</p>
+<p><img alt="3d找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum-3d.png"/></p>
+<p>怎么选？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="随机选"/><b>随机选</b><br/>
+<input class="quiz" name="quiz" type="radio" value="采样求平均"/><b>采样求平均</b><br/>
+<input class="quiz" name="quiz" type="radio" value="求坡度"/><b>求坡度</b><br/>
+<input class="quiz" name="quiz" type="radio" value="求最小"/><b>求最小</b><br/>
+<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
+<input class="quiz" name="quiz" type="radio" value="求反函数"/><b>求反函数</b><br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<input class="answers" type="hidden" value="df392d35276c711aa10f7f8eb23cfae4"/><input class="comments" type="hidden" value="顺着坡滚"/><br/>
+</div>
+</p>
+<h2 id="_11">坡度和梯度</h2>
+<p>坡度是什么呢？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="极值"/><b>极值</b><br/>
+<input class="quiz" name="quiz" type="radio" value="导数"/><b>导数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="反函数"/><b>反函数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="指数"/><b>指数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="对数"/><b>对数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="二阶导数"/><b>二阶导数</b><br/>
+<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<input class="answers" type="hidden" value="a1a27d155f7a37a2146c9ab3a1b7f284"/><input class="comments" type="hidden" value="这个，那个"/><br/>
+</div>
+</p>
+<h2 id="_12">导数</h2>
+<p>很明显了， 我们要求导！！！  一维的w，也就是只有一个变量， 求导肯定对的，非左即右。 </p>
+<p>那2维、多维的w呢？拿2维来说，就相当于x轴和y轴，要同时在两个变量上求导~~~所以， 分别对两个变量求偏导。并可以类推到更高维。</p>
+<p>高数、线代没学好，这里强词夺理、囫囵吞枣。</p>
+<h2 id="_13">求偏导</h2>
+<p>终于， 绕过来了， 需要要对J（w）函数求偏导，找出当前点的“滚动”方向。写作<span class="math">\(
+\frac{\partial}{\partial w}J(w)\)</span>。</p>
+<p>其中,忽略求和符号后，<span class="math">\(J(w)=(h(x) - y)^2\)</span>。一个简单的复合函数。</p>
+<p>本以为，终于可以有填空题了。结果发现失败了。</p>
+<p>
+<div><b>复合函数求导h(x)=f(g(x)),则h'(x)=<input class="quiz" type="text"/>?不需要*符号</b><br/>
+<button onclick="checkQuiz(this, 6)">submit</button><br/>
+<input class="answers" type="hidden" value="bba33b6c234fb7d02fb28be428e2f177"/><input class="comments" type="hidden" value="这个应该OK"/><br/>
+</div>
+</p>
+<h2 id="_14">继续求导</h2>
+<p>复合函数的求导法则知道了， 来推导本例子。</p>
+<div class="math">$$
+\begin{aligned} 
+\frac{\partial}{\partial w_i}J(w)
+&amp; = \frac{\partial}{\partial w}(h(x) - y)^2 \\
+&amp; = 2*(h(x)-y) * \frac{\partial}{\partial w_i}(h(x) - y) \\
+\end{aligned}
+$$</div>
+<p>想实现读者自行推导过程， 辅助提醒， 但公式判断怎么做？搜都不知道搜什么。强行中断一下。</p>
+<p>已知 h(x) = w*x, 等于向量w和x的内积</p>
+<p>那 <span class="math">\(\frac{\partial}{\partial w_i}(h(x) - y)\)</span>化简结果是？ </p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="w向量的i分量"/><b>w向量的i分量</b><br/>
+<input class="quiz" name="quiz" type="radio" value="x的i分量"/><b>x的i分量</b><br/>
+<input class="quiz" name="quiz" type="radio" value="x的和"/><b>x的和</b><br/>
+<input class="quiz" name="quiz" type="radio" value="w的和"/><b>w的和</b><br/>
+<button onclick="checkQuiz(this, 7)">submit</button><br/>
+<input class="answers" type="hidden" value="dc7ee6fe1212d0a8d3a3a81e654cb8b5"/><input class="comments" type="hidden" value="w的i分量被微分了#w的非i分量直接当常数没了"/><br/>
+</div>
+</p>
+<h2 id="_15">求导结果</h2>
+<p>所以结果为：</p>
+<div class="math">$$
+\frac{\partial}{\partial w_i}J(w) = 2*(h(x)-y)*x_i 
+$$</div>
+<p>求偏导给出了方向， 所以， 要沿着方向。那么，</p>
+<p>
+<div>
+<p>把w看作点的位置，怎么滚？</p>
+<input class="quiz" name="quiz" type="radio" value="w-偏导值"/><b>w-偏导值</b><br/>
+<input class="quiz" name="quiz" type="radio" value="偏导值替换w"/><b>偏导值替换w</b><br/>
+<input class="quiz" name="quiz" type="radio" value="二者相乘"/><b>二者相乘</b><br/>
+<input class="quiz" name="quiz" type="radio" value="二者相加"/><b>二者相加</b><br/>
+<button onclick="checkQuiz(this, 8)">submit</button><br/>
+<input class="answers" type="hidden" value="7571dcabb99d9b7387ae8f2e68633d55"/><input class="comments" type="hidden" value="偏导值为正，代表什么？"/><br/>
+</div>
+</p>
+<h2 id="_16">滚多远？</h2>
+<p>所以 w是当前坐标， 要减掉偏导得到的结果（沿着梯度方向滚）， 才能使得J(w)变小。</p>
+<p>我们能沿着这个方向没没完没了地滚下去吗？ 要知道哪怕只滚动一厘米、 一毫米， 新的位置的偏导值（向量）都有可能发生变化。</p>
+<p>
+<div>
+<p>所以要怎么样？</p>
+<input class="quiz" name="quiz" type="radio" value="给偏导值向量乘上个小系数"/><b>给偏导值向量乘上个小系数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="无聊"/><b>无聊</b><br/>
+<input class="quiz" name="quiz" type="radio" value="乘上个大系数"/><b>乘上个大系数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="偏导值改成倒数"/><b>偏导值改成倒数</b><br/>
+<button onclick="checkQuiz(this, 9)">submit</button><br/>
+<input class="answers" type="hidden" value="88e4d4b4a59ff45a858c9f83d553239a"/><input class="comments" type="hidden" value="都提示不要变化太大了"/><br/>
+</div>
+</p>
+<h2 id="_17">什么时候结束</h2>
+<p><span class="math">\(\alpha\)</span>的取值太大太小都有问题，这是工程实践上的问题，跳过。</p>
+<p>综上所述， 我们有 <span class="math">\(w=w-\alpha \frac{\partial}{\partial w}J(w)\)</span>， 作为每次迭代对w的更新。</p>
+<p>迭代总要有个停。大概可能有以下这些方案：</p>
+<ol>
+<li>迭代指定次数</li>
+<li>两次迭代的J(w)值之差足够小——这个好像比较常用。</li>
+<li>偏导值奇迹般地等于0</li>
+</ol>
+<h2 id="_18">算法部分总结</h2>
+<p>以上就是线性回归求解的算法，即梯度下降法</p>
+<p>大致步骤为：</p>
+<ol>
+<li>已知一个待求最优（最小或最大）的一元、多元函数</li>
+<li>给自变量选取一个随机的起始值</li>
+<li>对自变量的各个分量求偏导</li>
+<li>根据偏导的方向（值）来适当更新自变量</li>
+<li>迭代3、4步直到满足你设定的收敛或其他条件</li>
+</ol>
+<h1 id="_19">梯度下降实践</h1>
+<p>梯度下降法在更新w上可以采取不同的策略。 从之前的公式， 我们得到完整用于整个训练集的公式为（原先的2是常数，跟alpha合并即可）：</p>
+<div class="math">$$
+w_i = w_i - \alpha \sum^m_{j=1}(h(x^j)-y^j)*x^j_i 
+$$</div>
+<p>这个式子每次都要把整个训练集X求个和， 所以叫<strong>批量梯度下降</strong> Batch Gradient Descent</p>
+<p>在数据量比较大的时候就会很慢。</p>
+<p>那相应的就是不批量策略。比如stochastic随机梯度下降也叫增量梯度下降。</p>
+<p>简单来说， 就是不求和，不停扫描。</p>
+<p>Repeat {
+for j=1 to m {    </p>
+<p><span class="math">\(w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i\)</span>  (for all i)</p>
+<p>} <br/>
+}</p>
+<h1 id="_20">恭喜</h1>
+<p>线性回归的主要部分就是这些， 谢谢您的参与。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                        
+                        <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
+                    <a href="#" class="bds_more" data-cmd="more"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                    <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+                </div>
+
+                    <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="sndnyang.github.io/linear-regression-foundation.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sndnyang';
+        var disqus_identifier = 'sndnyang.github.io/linear-regression-foundation.html';
+    var disqus_url = 'sndnyang.github.io/linear-regression-foundation.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+                    <hr/>
+                </div>
+                <div class="span2" style="float:right;font-size:0.9em;">
+                    <h4>Published</h4>
+                    <time pubdate="pubdate" datetime="2016-07-16T00:00:00+08:00">七月 16, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-07-16T00:00:00+08:00">七月 16, 2016</time>
+
+                    <h4>Category</h4>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <h4>Tags</h4>
+                    <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#ai-ref">AI
+                            <span>2</span>
+</a></li>
+                        <li><a href="/tags.html#cs-ref">CS
+                            <span>18</span>
+</a></li>
+                        <li><a href="/tags.html#machine-learning-ref">Machine Learning
+                            <span>2</span>
+</a></li>
+                    </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+                    <h4>Stay in Touch</h4>
+                    <a href="//weibo.com/u/2405149384" title="My Weibo
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                    <a href="//github.com/sndnyang" title="My Github Profile" class="am-icon-btn am-icon-github" target="_blank">
+                    </a>
+                    <a href="//blog.csdn.net/sndnyangd" title="My CSDN
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                </div>
+            </div>
+        </article>
+                </div>
+            </div>
+        </div>
+        <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+        <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'sndnyang';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+        <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-74494551-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </body>
+</html>

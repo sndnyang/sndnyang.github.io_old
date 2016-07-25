@@ -121,8 +121,12 @@
 <li><a href="#_11">总结</a></li>
 </ul>
 </li>
-<li><a href="#_12">严谨版证明</a></li>
-<li><a href="#_13">恭喜</a></li>
+<li><a href="#_12">严谨版证明</a><ul>
+<li><a href="#_13">对方阵求导</a></li>
+<li><a href="#_14">迹求导</a></li>
+</ul>
+</li>
+<li><a href="#_15">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -289,10 +293,80 @@ $$</div>
 <h1 id="_12">严谨版证明</h1>
 <p>从<span class="math">\(J(w)=(Xw-y)^2=(Xw-y)^T(Xw-y)\)</span>开始，展开得</p>
 <div class="math">$$J(w) = w^T X^T Xw - w^T X^T y - y^T Xw + y^T y$$</div>
-<p>Ng在这里直接引入迹 tr(A)的概念及一堆结论。我尽量简化下。</p>
-<p>首先， 第4项两个 y向量，跟w无关，一求导就没了。</p>
-<p>呃， 暂时解释不下去了~~~等我看矩阵论了，回来再说吧。</p>
-<h1 id="_13">恭喜</h1>
+<p>Ng在这里直接引入迹 tr(A)的概念及一堆结论。</p>
+<p>如果函数 <span class="math">\(f:\mathbb{R}^{m \times n} \mapsto \mathbb{R}\)</span>, 也就是<span class="math">\(m*n\)</span>维矩阵求成一个实数， 定义：</p>
+<div class="math">$$
+\nabla_Af(A) = \left[
+\begin{matrix}
+ \frac{\partial{f}}{\partial{A_{11}}}      &amp; \cdots &amp; \frac{\partial{f}}{\partial{A_{1n}}}      \\
+ \vdots &amp; \ddots &amp; \vdots \\
+ \frac{\partial{f}}{\partial{A_{m1}}}      &amp; \cdots &amp; \frac{\partial{f}}{\partial{A_{mn}}}      \\
+\end{matrix}
+\right]
+$$</div>
+<p>迹trace的定义:</p>
+<p>前提： <span class="math">\(A \in \mathbb{R}^{n \times n}\)</span>, 即A是方阵， 则</p>
+<div class="math">$$tr A = \sum^n_{i=1}A_{ii}$$</div>
+<p>因为要求比较丰富的线性代数、矩阵论知识， 不可能在这里补充， 就想到哪里讲哪里了。</p>
+<p>所以， J(w)的结果是个什么东西？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="一个实数"/><b>一个实数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="一个向量"/><b>一个向量</b><br/>
+<input class="quiz" name="quiz" type="radio" value="一个矩阵"/><b>一个矩阵</b><br/>
+<input class="quiz" name="quiz" type="radio" value="一个方阵"/><b>一个方阵</b><br/>
+<button onclick="checkQuiz(this, 11)">submit</button><br/>
+<input class="answers" type="hidden" value="d10ff1669e8b6d3a2630b2947f54b857"/><input class="comments" type="hidden" value="数数维数"/><br/>
+</div>
+</p>
+<h2 id="_13">对方阵求导</h2>
+<p>接下来的证明， 涉及几个定理：</p>
+<ol>
+<li>实数的迹 等于实数本身, <span class="math">\(tr \alpha = \alpha\)</span>。可以对J(w)求迹， 进而再使用迹的其他定理</li>
+<li><span class="math">\(tr AB = tr BA\)</span> 和 <span class="math">\(tr ABC = tr CAB = tr BCA\)</span>, 给矩阵相乘顺序作调整。</li>
+<li><span class="math">\(tr A = tr A^T\)</span></li>
+</ol>
+<p>最重要的是：</p>
+<p>如果 <span class="math">\(f:\mathbb{R}^{m \times n} \mapsto \mathbb{R}, 且 f(A) = tr AB\)</span>， 则有：</p>
+<ol>
+<li><span class="math">\(\nabla_A tr AB = B^T\)</span></li>
+<li><span class="math">\(\nabla_A tr ABA^T C = CAB + C^T A B^T\)</span></li>
+</ol>
+<p>这几个定理的证明我不太清楚哪里有， 好像不是线性代数里的内容。</p>
+<p>接下来， 就是对展开式的进一步变换了。</p>
+<div class="math">$$J(w) = w^T X^T Xw - w^T X^T y - y^T Xw + y^T y \\
+= tr (w^T X^T Xw - w^T X^T y - y^T Xw + y^T y)$$</div>
+<ol>
+<li>第四项 <span class="math">\(y^T y\)</span>求导肯定为0。</li>
+<li>第2、3项互为转置，求导结果相等，只看其中的<span class="math">\(y^T Xw\)</span>，把<span class="math">\(y^T X\)</span>看作是B, 所以这两项求导结果就是<span class="math">\(2*(y^T X)^T = 2 X^T y\)</span></li>
+<li>第一项最复杂， 跟<span class="math">\(tr ABA^TC\)</span>最相似，有<span class="math">\(A和A^T\)</span>。来问题了, 我们把<span class="math">\(X^T X\)</span>看作是B呢还是C呢？</li>
+</ol>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="B"/><b>B</b><br/>
+<input class="quiz" name="quiz" type="radio" value="C"/><b>C</b><br/>
+<button onclick="checkQuiz(this, 12)">submit</button><br/>
+<input class="answers" type="hidden" value="0d61f8370cad1d412f80b84d143e1257"/><input class="comments" type="hidden" value="按顺序一个个对上，看看#匹配错后，A是什么"/><br/>
+</div>
+</p>
+<h2 id="_14">迹求导</h2>
+<p>把<span class="math">\(X^T X\)</span>看成C， 那现在的顺序是 <span class="math">\(tr w^T C w\)</span>, 要把顺序从ABC改成CAB， 变成<span class="math">\(tr(w w^T X^T X)\)</span></p>
+<p>所以<span class="math">\(A, A^T\)</span>之间的B 就可以用 单位矩阵来表示。 这又是个种技巧，也许就叫 <strong>单位元</strong> 技巧。</p>
+<p>然后代入结果， 就得到：</p>
+<div class="math">$$
+\nabla_w tr(w^T X^T X w) = X^T Xw + (X^T X)^T w \\
+= 2 X^T Xw
+$$</div>
+<p><span class="math">\((X^T X)^T=X^T X\)</span> 是叫什么来着？</p>
+<p>所以综合一下得到：</p>
+<div class="math">$$
+\nabla_w J(w) = 2X^T Xw - 2 X^T y
+$$</div>
+<p>令上式等于0， 求得：</p>
+<div class="math">$$w = (X^T X)^{-1} X^T y$$</div>
+<h1 id="_15">恭喜</h1>
 <p>线性回归的标准方程 Normal Equations 内容就是这么多， 又叫 closed form 什么的。</p>
 <p>其实就是二次函数只有极小（大）值点的导数为0。所以对J(w)求个导， 令结果=0， 就得到极值点了。</p>
 <p>这是个理论吧， 实践中用这个的应该比较少。</p>
@@ -412,13 +486,13 @@ $$</div>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ai-ref">AI
-                            <span>3</span>
+                            <span>6</span>
 </a></li>
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>20</span>
+                            <span>23</span>
 </a></li>
                         <li><a href="/tags.html#machine-learning-ref">Machine Learning
-                            <span>3</span>
+                            <span>6</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, CS, 社区发现, CS, " />
+<meta name="keywords" content="CS, AI, Machine Learning, 机器学习, " />
 
-<meta property="og:title" content="Defining and Evaluating Network Communities based on Ground-truth "/>
-<meta property="og:url" content="http://sndnyang.github.io/Communities-Ground-Truth.html" />
-<meta property="og:description" content="摘要 社区发现的挑战 社区定义的多样性、不确定性 a plethora of definitions of a community 算法困难， NP-hard intractability of algorithms 评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth 本文工作 定义 ground-truth 根据230个大规模的实际网络数据， 包括社交、协作、信息网络 这些数据里的点有明确的归属关系，属于 进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签 量化评估 量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能 导论 贡献 A possible solution would be to find ..." />
+<meta property="og:title" content="局部加权回归 "/>
+<meta property="og:url" content="http://sndnyang.github.io/Locally-weighted-regression.html" />
+<meta property="og:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ 分段线性函数 太明显了 submit 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。 接下来， 看这小节的题目 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-06-09T10:23:17+08:00" />
-<meta name="twitter:title" content="Defining and Evaluating Network Communities based on Ground-truth ">
-<meta name="twitter:description" content="摘要 社区发现的挑战 社区定义的多样性、不确定性 a plethora of definitions of a community 算法困难， NP-hard intractability of algorithms 评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth 本文工作 定义 ground-truth 根据230个大规模的实际网络数据， 包括社交、协作、信息网络 这些数据里的点有明确的归属关系，属于 进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签 量化评估 量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能 导论 贡献 A possible solution would be to find ...">
+<meta property="og:article:published_time" content="2016-07-25T16:25:59+08:00" />
+<meta property="" content="2016-07-16T00:00:00+08:00" />
+<meta name="twitter:title" content="局部加权回归 ">
+<meta name="twitter:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ 分段线性函数 太明显了 submit 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。 接下来， 看这小节的题目 ...">
 
 
-        <title>Defining and Evaluating Network Communities based on Ground-truth  · 懒龙谷
+        <title>局部加权回归  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +90,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/Communities-Ground-Truth.html">
-                        Defining and Evaluating Network Communities based on Ground-truth  
+                    <a href="/Locally-weighted-regression.html">
+                        局部加权回归  
                     </a>
                 </h1>
             </header>
@@ -101,55 +102,17 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">摘要</a><ul>
-<li><a href="#_2">社区发现的挑战</a></li>
-<li><a href="#_3">本文工作</a><ul>
-<li><a href="#ground-truth">定义 ground-truth</a></li>
-<li><a href="#_4">量化评估</a></li>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">导读</a></li>
+<li><a href="#_3">局部线性</a><ul>
+<li><a href="#_4">局部的强调</a></li>
+<li><a href="#_5">加权重</a></li>
+<li><a href="#_6">钟型曲线</a></li>
+<li><a href="#_7">特点</a></li>
+<li><a href="#_8">总结</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_5">导论</a><ul>
-<li><a href="#_6">贡献</a></li>
-</ul>
-</li>
-<li><a href="#_7">数据集评估</a><ul>
-<li><a href="#_8">社区参考标准</a><ul>
-<li><a href="#_9">好处</a></li>
-<li><a href="#_10">其他方案</a></li>
-</ul>
-</li>
-<li><a href="#_11">数据预处理</a></li>
-<li><a href="#_12">社区评分函数</a><ul>
-<li><a href="#_13">分类</a></li>
-<li><a href="#_14">实验结果</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_15">评估社区评分函数</a><ul>
-<li><a href="#_16">社区效果度量</a><ul>
-<li><a href="#goodness">定义四个社区效果（goodness)度量</a></li>
-<li><a href="#_17">区别</a></li>
-<li><a href="#_18">分类</a></li>
-</ul>
-</li>
-<li><a href="#_19">实验设置</a></li>
-<li><a href="#_20">实验结果</a></li>
-</ul>
-</li>
-<li><a href="#robustness">社区评分函数稳定性 Robustness</a><ul>
-<li><a href="#community-perturbation-strategies">Community perturbation strategies</a></li>
-<li><a href="#_21">量化差别</a></li>
-<li><a href="#_22">实验</a></li>
-</ul>
-</li>
-<li><a href="#_23">基于种子点的社区发现</a><ul>
-<li><a href="#_24">基本算法</a></li>
-</ul>
-</li>
-<li><a href="#_25">个人总结</a></li>
+<li><a href="#_9">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -158,173 +121,90 @@
 
                         
                         
-<h1 id="_1">摘要</h1>
-<h2 id="_2">社区发现的挑战</h2>
+<h1 id="_1">说明</h1>
+<p>本文参考以下文献：</p>
 <ol>
-<li>社区定义的多样性、不确定性 a plethora of definitions of a community</li>
-<li>算法困难， NP-hard intractability of algorithms</li>
-<li>评估困难，缺少可靠的参考 lack of a reliable gold-standard ground-truth</li>
+<li>Andrew Ng在斯坦福的cs229视频和讲义， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
-<h2 id="_3">本文工作</h2>
-<h3 id="ground-truth">定义 ground-truth</h3>
-<p>根据230个大规模的实际网络数据， 包括社交、协作、信息网络</p>
-<p>这些数据里的点有明确的归属关系，属于</p>
-<p>进而可以用这些信息来定义参考（ground-truth） 社区的可靠、可信的标记标签</p>
-<h3 id="_4">量化评估</h3>
-<p>量化评估网络社区的不同结构化定义， 评估敏感度、 稳定性和性能</p>
-<h1 id="_5">导论</h1>
-<h2 id="_6">贡献</h2>
-<p>A possible solution would be to find a reliable definition of explicitly labeled gold-standard ground-truth communities</p>
-<p>贡献：</p>
+<p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
+<h1 id="_2">导读</h1>
+<p>经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。</p>
+<p>假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。</p>
+<p>比如这张图, 我随机弄的点， 实际是啥模型不知道：</p>
+<p><img alt="lwr" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg.png"/></p>
+<p>怎么把它看成线性的呢？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="分段线性函数"/><b>分段线性函数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="太明显了"/><b>太明显了</b><br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="bedd3eb7cc9c7e36ca07e4dc9a29f45a"/><input class="comments" type="hidden" value="太明显了"/><br/>
+</div>
+</p>
+<h1 id="_3">局部线性</h1>
+<p>大概就是这样的</p>
+<p><img alt="lwr-l" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg-l.png"/></p>
+<p>这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。</p>
+<p>接下来， 看这小节的题目——局部线性， 线性肯定熟悉了， 关键是怎么局部？</p>
+<p>拿上图来说， 人眼在这图上可以看出三段直线， 计算机怎么知道是三段， 然后每段用上哪些数据点， 就是我们试图解决的问题。</p>
+<p>要有局部性， 最显然的， 你要预测某个点x的值， 就找x 附近的点， 把它们找出来， 然后做线性回归， 这肯定是一种方法。 速度上也可以用一些结构来优化效率——Ng在视频里提到的 KD树的局部线性方法 我猜应该就是这个方向。</p>
+<p>但这种方法有问题。</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="checkbox" value="x附近这个范围难定"/><b>x附近这个范围难定</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="不在范围内的点完全无用"/><b>不在范围内的点完全无用</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="x附近可能没点"/><b>x附近可能没点</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="x附近点也不线性"/><b>x附近点也不线性</b><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="a982a9c1bcf3d132720fff1e41477843"/><input class="comments" type="hidden" value="我的感觉不一定对，选项胡编的#x附近不线性那也无所谓了"/><br/>
+</div>
+</p>
+<h2 id="_4">局部的强调</h2>
+<p>那我们就说， 既要抓重点（局部）， 又不能把次要的（远点）全部忽略点。那怎么办？</p>
+<p>
+<div><b><input class="quiz" type="text"/></b><br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="d8d298940b2015a611582f7334aa30f8"/><input class="comments" type="hidden" value="怎么突出重点又保留次要项？"/><br/>
+</div>
+</p>
+<h2 id="_5">加权重</h2>
+<p><strong>加权</strong> 这种思想、 方法应该也是经常用的。</p>
+<p>别的不说， 线性回归方程的系数就是不同特征<span class="math">\(x_i\)</span>的一个权重。</p>
+<p>还有老师为了让学生能及格、不挂科， 会在期末考、 期中考、 平时作业、 考勤等项目上调整权重。</p>
+<p>那很明显了， 要给<strong>每个点</strong>一个权重， M个点， 就是一个M的权重向量， 一般用w(weight)表示, 但我这里为了不写<span class="math">\(\theta\)</span>(theta), 线性模型里就用过w了。我们这里用 p 代表权重。</p>
+<p>那我们的损失函数 J(w)就可以写成：</p>
+<div class="math">$$
+J(w) = \sum^m_{i=1}p^i(h(x^i) - y^i)^2
+$$</div>
+<p>这个式子不容易表达成纯矩阵、向量乘法~~~</p>
+<p>那怎么求 p 呢？ 用什么方法把 p 和 w 一起求出来？也许有， 但不是本文研究的。 本文里的p 是先行计算出来， 而不是w这种给定模型后，用数据拟合出来。</p>
+<p>想想 p 有什么特点， 我们要预测 x 的值，所以离x越近的值的权重就会越大， 越远就越小， 但这里我们认为始终大于0.</p>
+<p>也就是x点或0点值最高， 然后往两边递减， 这样的特点你能想到什么相似的东西吗？</p>
+<h2 id="_6">钟型曲线</h2>
+<p>是的， 像正态分布或钟型曲线。 <img alt="bell" src="http://www.hzbh.com/upfiles/201503/20150309134605749.jpg"/></p>
+<p>我们也知道正态分布的概率密度函数为： <img alt="pdf" src="http://h.hiphotos.baidu.com/baike/s%3D205/sign=2abf505a42166d223c77129473220945/342ac65c1038534384b650b09213b07eca808822.jpg"/></p>
+<p>平均值 <span class="math">\(\mu\)</span> 是什么？ 就是我们要预测的 x 。</p>
+<p>方差 <span class="math">\(\sigma\)</span> 是什么？ 没说， 简单点的话就是1， 也可以根据实际估计一个值。 用字母t来表示。</p>
+<p>最后还有前面的这个系数， 不需要了， 一个指数已经够了。</p>
+<p>这样我们就得到一个权重的表达式：</p>
+<div class="math">$$
+点 i 的权重 p^{(i)} = \exp \large(-\frac{(x^i - x)^2}{2t^2}\large) 
+$$</div>
+<p>最后的最后要说的是：</p>
 <ol>
-<li>对230个大规模的社交、信息网络，用一种可靠的方法，定义了参考（ground-truth）社区</li>
-<li>基于ground-truth，量化评估了网络社区的13种常用的结构化定义， 并检验了它们的稳定性和敏感性</li>
-<li>扩展了局部谱聚类算法， 得到一种无参社区发现方法， 可支持百万点级别的网络检测</li>
+<li>这是一种权重的计算方式， 有其他的也可以用。</li>
+<li>虽然我是从正态分布转过来的， 但 Ng 特意强调这个跟正态分布没有关系， 就是长得像。</li>
 </ol>
-<h1 id="_7">数据集评估</h1>
-<h2 id="_8">社区参考标准</h2>
-<ol>
-<li>社交网络的社区， 基于特定主题的分组</li>
-<li>购物网络， 基于层次化组织的货物分类</li>
-<li>科研合作网络， 基于相同的出版组织（会议等）</li>
-</ol>
-<h3 id="_9">好处</h3>
-<p>与社区发现工作的隐含前提一致： </p>
-<blockquote>
-<p>社区内的成员会有相同的功能或性质
-这是网络的组织原则</p>
-</blockquote>
-<h3 id="_10">其他方案</h3>
-<p>用成员点对点的相似度， 以属性来评估社区</p>
-<p>来源：Y.-Y. Ahn, J. P. Bagrow, and S. Lehmann Link communities reveal multi-scale complexity in networks 
-<a href="https://www.researchgate.net/publication/44687459_Link_Communities_Reveal_Multiscale_Complexity_in_Networks">文章链接</a></p>
-<h2 id="_11">数据预处理</h2>
-<ol>
-<li>无权重无向静态图。</li>
-<li>组里成员可能无外连， 视作独立的社区</li>
-<li>参考社区可内嵌、 可重叠</li>
-</ol>
-<h2 id="_12">社区评分函数</h2>
-<p>思想：</p>
-<p>给定一个社区评分函数，</p>
-<blockquote>
-<p>把它发现的高分点集视作社区
-社区内点的连通度高，
-社区间连通度低。</p>
-</blockquote>
-<hr/>
-<h3 id="_13">分类</h3>
-<ol>
-<li>基于内部连通性<ol>
-<li>内部边密度</li>
-<li>内部边数</li>
-<li>平均度数</li>
-<li>度数中位数上比例</li>
-<li>三角参与比例</li>
-</ol>
-</li>
-<li>基于外部连通性<ol>
-<li>扩展</li>
-<li>割比例 cut ratio</li>
-</ol>
-</li>
-<li>内外部连通性结合<ol>
-<li>传导性 conductance</li>
-<li>标准割 normalized cut</li>
-<li>最大出度分数</li>
-<li>平均出度分数</li>
-<li>Flake出度分数</li>
-</ol>
-</li>
-<li>基于网络模型<ol>
-<li>模块性</li>
-</ol>
-</li>
-</ol>
-<p>因公式麻烦， 请看图片</p>
-<p><img alt="png1" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_function1.png"/>
-<img alt="png2" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_function2.png"/></p>
-<h3 id="_14">实验结果</h3>
-<ol>
-<li>计算每个标准社区的的这13种分数</li>
-<li>计算一个相关矩阵 correlation matrix</li>
-<li>设定相关阈值， 比如 0.6 分成四组</li>
-</ol>
-<p><img alt="scoreConnect" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoringConnect.png"/></p>
-<h1 id="_15">评估社区评分函数</h1>
-<blockquote>
-<p>to develop an evaluation methodology
-for network community detection</p>
-</blockquote>
-<h2 id="_16">社区效果度量</h2>
-<p>采用一种公理化方法（然而只有第一步）：</p>
-<h3 id="goodness">定义四个社区效果（goodness)度量</h3>
-<p>对“好”社区的直观定义进行规范形式化(formalize)</p>
-<h3 id="_17">区别</h3>
-<blockquote>
-<p>社区评分函数量化了一个集合的“社区相似度”
-效果试题量化社区的满意度(desirable property)</p>
-</blockquote>
-<h3 id="_18">分类</h3>
-<p>对点集S 的效果度量g(S)有：</p>
-<ol>
-<li>可分度Separability： g(S) = 内边数/外边数</li>
-<li>密度Density: g(S) = 边数/（2点组合数）</li>
-<li>凝聚度Cohesiveness: S诱导（生成）子图的最大导率(conductance)</li>
-<li>聚类协同系数Clustering coefficient：没有准确描述，得看其他论文</li>
-</ol>
-<h2 id="_19">实验设置</h2>
-<p>步骤：</p>
-<ol>
-<li>有很多标准社区Si</li>
-<li>对每个评分函数， 把标准社区按该方法的分数降序排列</li>
-<li>计算前k个标准社区的效果度量值， 并计算累积平均</li>
-</ol>
-<p>直观思路：</p>
-<ol>
-<li>好的社区评分函数与效果度量完美相关（正或负）</li>
-<li>则效果度量的平均值 应该 随k 单调</li>
-<li>假设社区评分函数乱排序， 效果度量平均值将是k的固定函数 constant function</li>
-</ol>
-<h2 id="_20">实验结果</h2>
-<p><img alt="scoreMetrics" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/scoring_metrics.png"/></p>
-<h1 id="robustness">社区评分函数稳定性 Robustness</h1>
-<h2 id="community-perturbation-strategies">Community perturbation strategies</h2>
-<ol>
-<li>点交换： 随机选择一条边(u, v), <span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u，加上v</li>
-<li>随机： 随机选择<span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u，加上v</li>
-<li>扩展: 随机选择 <span class="math">\(u \in S, v \notin S\)</span>， 对S 加上v</li>
-<li>收缩： 随机选择 <span class="math">\(u \in S, v \notin S\)</span>， 对S 删除u</li>
-</ol>
-<h2 id="_21">量化差别</h2>
-<p>h(S, p)代表干扰后， 则 Z-score:</p>
-<p><img alt="zscore" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/zscore.png"/></p>
-<p>E是期望， Var 是方差</p>
-<p>高Z-score意味着什么？</p>
-<p>标准社区的期望分数比扰动后的低， 所以对f评估函数来说， 标准社区比扰动后好。</p>
-<h2 id="_22">实验</h2>
-<h1 id="_23">基于种子点的社区发现</h1>
-<h2 id="_24">基本算法</h2>
-<p>给定： 图G、 种子节点s、 评分函数f</p>
-<p>步骤：</p>
-<ol>
-<li>用PageRank-Nibble， 从点s开始计算随机游走分数<span class="math">\(r_u\)</span></li>
-<li>根据<span class="math">\(r_u\)</span>/d(u)，对点进行排序， d(u)是点u的度</li>
-<li>对前k个点， 计算社区评分函数 f(Sk)</li>
-<li>检测f(Sk)的极小值，发现一到多个社区</li>
-<li>if 要发现一个社区  <br/>
-       找到第一个局部最优的fk  <br/>
-   else <br/>
-       找到全部的局部最优</li>
-</ol>
-<p>英文版描述：</p>
-<p><img alt="comDetect" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/groundtruth/communityDetection.png"/></p>
-<h1 id="_25">个人总结</h1>
-<ol>
-<li>本文定义标准社区思想非常简洁。</li>
-<li>新提出的社区发现方法， 里面极小值的使用不知道是什么原理。</li>
-<li>实验部分长， 但真正做研究也确实应该这样认真地做实验分析， 不同的评估函数、衡量标准、 干扰等等。</li>
-</ol>
+<h2 id="_7">特点</h2>
+<p>局部加权回归每次预测时， 因为要先知道预测的中心点，才能有附近、权重， 所以每次预测新的x值时， 都要重新计算。</p>
+<p>有其他方法解决这个问题， 但不是本文讲解内容了。</p>
+<h2 id="_8">总结</h2>
+<p>复杂的非线性模型可能可以考虑采用局部线性回归来拟合， 让相近点权重大，远点权重小。就是把每一个局部数据都看作是线性的。</p>
+<p>再用， 用钟型曲线的函数来生成所有点相对x的权重。</p>
+<h1 id="_9">恭喜</h1>
+<p>局部加权线性回归的主要内容就是这些， 谢谢您的阅读。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -398,7 +278,7 @@ for network community detection</p>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/Communities-Ground-Truth.html#disqus_thread">
+                href="http://sndnyang.github.io/Locally-weighted-regression.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -408,8 +288,8 @@ for network community detection</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'Communities-Ground-Truth.html';
-    var disqus_url = 'http://sndnyang.github.io/Communities-Ground-Truth.html';
+        var disqus_identifier = 'Locally-weighted-regression.html';
+    var disqus_url = 'http://sndnyang.github.io/Locally-weighted-regression.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -431,19 +311,23 @@ for network community detection</p>
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-06-09T10:23:17+08:00">六月 9, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-07-25T16:25:59+08:00">七月 25, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-07-16T00:00:00+08:00">七月 16, 2016</time>
+
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#ai-ref">AI
+                            <span>6</span>
+</a></li>
                         <li><a href="/tags.html#cs-ref">CS
                             <span>23</span>
 </a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>14</span>
-</a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>9</span>
+                        <li><a href="/tags.html#machine-learning-ref">Machine Learning
+                            <span>6</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

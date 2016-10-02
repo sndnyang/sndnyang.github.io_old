@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="数学, 线性代数, 线性代数, " />
+<meta name="keywords" content="数学, 概率, 数学, " />
 
-<meta property="og:title" content="图解数学学习之矩阵 "/>
-<meta property="og:url" content="http://sndnyang.github.io/tu-jie-shu-xue-xue-xi-zhi-ju-zhen.html" />
-<meta property="og:description" content="matrix 矩阵的英文叫 Matrix， 原意是&#34;母体， 基质&#34;， 作者认为西方原意是指为了形成一个整体而填充进去的填充物。 所以 $$ \begin{pmatrix} 1&amp;2 \\ 3&amp;4 \end{pmatrix} $$ 在西方人的眼中很可能是数字填充在了括号的空间里。 用黑客帝国来理解呢？ 其实它的英文名是 matrix, 直译应该是母体的意思， 矩阵是个母体， 里面的数字就是啥？ 其实矩阵的译名应该不错， 矩形不一定对， 但目前只见过矩形的。 阵也是个整体， 个体站在需要的位置上。 原文这段主要在吐槽 日文里的行列译法， 而且应该是跟 他们的队列、 排队 相重了。 还有当年日本文字是竖写的， 行、列的意思与现在相反。 矩阵的出现 矩阵公认是根据方程组发明的。 比如一个方程组 $$ \begin{equation} \left\{ \begin{aligned} x+5y+2z=9 \\ 4x+6y+z=12 \\ 9x+3y+3z = 6 \end{aligned} \right. \end{equation} $$ ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:title" content="概率基础概念 "/>
+<meta property="og:url" content="http://sndnyang.github.io/probability-foudation-concepts.html" />
+<meta property="og:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素 输入 输出 映射规则 定义域 值域 submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-04-10T00:00:00+08:00" />
-<meta name="twitter:title" content="图解数学学习之矩阵 ">
-<meta name="twitter:description" content="matrix 矩阵的英文叫 Matrix， 原意是&#34;母体， 基质&#34;， 作者认为西方原意是指为了形成一个整体而填充进去的填充物。 所以 $$ \begin{pmatrix} 1&amp;2 \\ 3&amp;4 \end{pmatrix} $$ 在西方人的眼中很可能是数字填充在了括号的空间里。 用黑客帝国来理解呢？ 其实它的英文名是 matrix, 直译应该是母体的意思， 矩阵是个母体， 里面的数字就是啥？ 其实矩阵的译名应该不错， 矩形不一定对， 但目前只见过矩形的。 阵也是个整体， 个体站在需要的位置上。 原文这段主要在吐槽 日文里的行列译法， 而且应该是跟 他们的队列、 排队 相重了。 还有当年日本文字是竖写的， 行、列的意思与现在相反。 矩阵的出现 矩阵公认是根据方程组发明的。 比如一个方程组 $$ \begin{equation} \left\{ \begin{aligned} x+5y+2z=9 \\ 4x+6y+z=12 \\ 9x+3y+3z = 6 \end{aligned} \right. \end{equation} $$ ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:article:published_time" content="2016-10-01T21:50:00+08:00" />
+<meta property="" content="2016-10-02T00:00:00+08:00" />
+<meta name="twitter:title" content="概率基础概念 ">
+<meta name="twitter:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素 输入 输出 映射规则 定义域 值域 submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ...">
 
 
-        <title>图解数学学习之矩阵  · 懒龙谷
+        <title>概率基础概念  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +90,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/tu-jie-shu-xue-xue-xi-zhi-ju-zhen.html">
-                        图解数学学习之矩阵  
+                    <a href="/probability-foudation-concepts.html">
+                        概率基础概念  
                     </a>
                 </h1>
             </header>
@@ -101,13 +102,18 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#matrix">matrix</a></li>
-<li><a href="#_1">矩阵的出现</a></li>
-<li><a href="#_2">抽象</a></li>
-<li><a href="#_3">矩阵的现实意义</a></li>
-<li><a href="#_4">乘法运算为什么是行乘列？</a></li>
-<li><a href="#_5">解释</a></li>
-<li><a href="#_6">不好意思， 内容就这么多~~~</a></li>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">前提条件</a></li>
+<li><a href="#_3">概率课程总览</a></li>
+<li><a href="#_4">基本概念</a><ul>
+<li><a href="#_5">输出样本空间</a></li>
+<li><a href="#-">映射规则--概率公理</a></li>
+<li><a href="#_6">一些推论及性质</a></li>
+<li><a href="#_7">连续样本空间概率计算</a></li>
+<li><a href="#_8">可数相加公理</a></li>
+</ul>
+</li>
+<li><a href="#_9">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -116,110 +122,86 @@
 
                         
                         
-<h2 id="matrix">matrix</h2>
-<p>矩阵的英文叫 Matrix， 原意是"母体， 基质"， 作者认为西方原意是指为了形成一个整体而填充进去的填充物。</p>
-<p>所以 </p>
-<div class="math">$$ \begin{pmatrix} 1&amp;2 \\ 3&amp;4 \end{pmatrix} $$</div>
-<p>在西方人的眼中很可能是数字填充在了括号的空间里。</p>
-<p><strong> 用黑客帝国来理解呢？ 其实它的英文名是 matrix, 直译应该是母体的意思， 矩阵是个母体， 里面的数字就是啥？ </strong></p>
-<p>其实矩阵的译名应该不错， 矩形不一定对， 但目前只见过矩形的。 阵也是个整体， 个体站在需要的位置上。</p>
-<p>原文这段主要在吐槽 日文里的行列译法， 而且应该是跟 他们的队列、 排队 相重了。 还有当年日本文字是竖写的， 行、列的意思与现在相反。</p>
-<h2 id="_1">矩阵的出现</h2>
-<p>矩阵公认是根据方程组发明的。 比如一个方程组
-</p>
-<div class="math">$$ 
-\begin{equation}
-\left\{
-\begin{aligned}
-x+5y+2z=9 \\
-4x+6y+z=12 \\
-9x+3y+3z = 6
-\end{aligned}
-\right.
-\end{equation} 
-$$</div>
-<p>如果方程式再增多， 写起来就非常烦琐了。 于是数学家经过抽象（也就是偷懒）， 发明了 Matrix 概念。 </p>
+<h1 id="_1">说明</h1>
+<p>本文参考以下文献：</p>
+<ol>
+<li>MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 <a href="http://www.xuetangx.com/community/post/2786">链接</a></li>
+</ol>
+<p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
+<h1 id="_2">前提条件</h1>
+<p>假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。</p>
+<p>所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。</p>
 <p>
 <div>
-<p>怎么抽象？</p>
-<input class="quiz" name="quiz" type="checkbox" value="提取系数"/><b>提取系数</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="提取未知变量"/><b>提取未知变量</b><br/>
+<p>函数的几个要素</p>
+<input class="quiz" name="quiz" type="checkbox" value="输入"/><b>输入</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="输出"/><b>输出</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="映射规则"/><b>映射规则</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="定义域"/><b>定义域</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="值域"/><b>值域</b><br/>
 <button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="a3cfbacfe0082921fbb47d098e45af1b"/><input class="comments" type="hidden" value="要记得抽象#数学家和程序员都要会偷懒#提示好像没什么用了"/><br/>
+<input class="answers" type="hidden" value="eb0d0d8a3ed8c6c2849ad95591772c93"/><input class="comments" type="hidden" value="这个，那个"/><br/>
 </div>
 </p>
-<h2 id="_2">抽象</h2>
-<p>没错， 系数和变量分开装， 先是变成了这样(latex公式不太会写)：</p>
-<div class="math">$$ 
-\begin{equation}
-\begin{aligned}
-(1 \ 5 \ 2) \\
-(4 \ 6 \ 1) \\
-(9 \ 3 \ 3)
-\end{aligned}
-\times (x \ y  \ z)
-= ?
-\end{equation} 
-$$</div>
-<p>再把所有数字放进一个括号里， 就成一个整体 A 了， </p>
-<div class="math">$$ A=\begin{pmatrix} 1&amp;5&amp;2 \\ 4&amp;6&amp;1 \\ 9&amp;3&amp;3 \end{pmatrix} $$</div>
-<p>问题就成了求方程: </p>
-<div class="math">$$ A*(x \ y \ z) = ? $$</div>
-<p>你可能会想:"A的这些数字之间没联系， 怎么看成整体？"</p>
-<p>所以这就是抽象的威力了， 数学家不只是偷懒， 他们还给矩阵定义了很多严密的规则（运算规则）， 使得大家都认可了这些规则。</p>
-<p><strong>所以， 学数学的过程 其实也包括锻炼抽象思维能力， 甚至于具体知识用不上，就只剩下抽象、 逻辑等思维能力了， 不然可以说高等数学真的完全没用。</strong></p>
-<h2 id="_3">矩阵的现实意义</h2>
-<p>之前提到matrix 的原意， 但数学上matrix 矩阵 到底算个什么东西呢？</p>
-<p>教科书上喜欢的定义是： </p>
-<div class="math">$$ 由 m \times n 个数组成的 m 行 n列的数表 ， 称为一个 m行n列的矩阵，或 m \times n 矩阵 $$</div>
-<hr/>
-<p>只抽取了数字， 对数字背后潜藏的意义无动于衷。 最关键的是定义加减乘除（貌似很少说除）规则后， 还让你手算~~~ 这样的计算， 只知方法， 不知意义， 就很可能使学生越来越讨厌数学。</p>
-<p>原文从销售例子介绍了一堆， 但我觉得 他说的“看到矩阵， 在脑中就应该浮现出原来的数据表” 不太现实。</p>
-<p>矩阵和数据表 中间还有个方程组这一步， 甚至高观点里矩阵相乘是什么线性变换， 跟现实的市场数据就套不上了。</p>
-<p>所以决定直接跳到乘法运算分析这部分(最后面加减也无视了)。</p>
-<h2 id="_4">乘法运算为什么是行乘列？</h2>
-<p>我们已经得到了一个这样的式子</p>
-<div class="math">$$ 
-\begin{equation}
-\begin{pmatrix} 1&amp;5&amp;2 \\ 4&amp;6&amp;1 \\ 9&amp;3&amp;3 \end{pmatrix}
-\times 
-\begin{pmatrix}  x &amp; y  &amp; z \end{pmatrix}
-= ?
-\end{equation} 
-$$</div>
-<p>不对， 课本上是这样的啊</p>
-<div class="math">$$ 
-\begin{equation}
-\begin{pmatrix} 1&amp;5&amp;2 \\ 4&amp;6&amp;1 \\ 9&amp;3&amp;3 \end{pmatrix}
-\begin{pmatrix}  x \\ y  \\ z \end{pmatrix}
-\end{equation}
-$$</div>
-<p>
-<div>
-<p>为什么要竖着排？</p>
-<input class="quiz" name="quiz" type="radio" value="就是这样定义的"/><b>就是这样定义的</b><br/>
-<input class="quiz" name="quiz" type="radio" value="节约空间"/><b>节约空间</b><br/>
-<input class="quiz" name="quiz" type="radio" value="好玩"/><b>好玩</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不走异常路"/><b>不走异常路</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="d5b347ba776c874ba96f18efb764b2de"/><input class="comments" type="hidden" value="不好意思，我也不知道"/><br/>
-</div>
-</p>
-<h2 id="_5">解释</h2>
-<p>现在解释这个 可能没什么意义， 纯粹科普。</p>
-<p>但不好意思的是， 原文里 这段的例子不好打~~~放弃了。</p>
-<p>大概意思就是， 如果矩阵乘法使用行乘行的话（不考虑列乘行这种更违背习惯的）， 假设左矩阵（被乘数矩阵？）固定了 </p>
-<p>那右矩阵再扩展的话， 得纵向延伸也就是继续加新的行， 但计算的结果（矩阵）却是横向延伸，加新的列。 延伸方向不一样。</p>
-<p>乘数矩阵添加了第i行， 计算结果矩阵却添加了第i列。</p>
-<p>所以改成行乘列的话， 乘数和计算结果矩阵延伸方向就一致， 第j列对应第j列。 符合从左向右看算式的习惯。</p>
-<h2 id="_6">不好意思， 内容就这么多~~~</h2>
-<p>作者其实在讨论最基本的东西， 可以说 -- <strong>这本书的内容不看也没问题</strong></p>
-<p>他重点不是把各种高深的理论解释一遍， 让你全部弄懂。 </p>
-<p>作者希望的是“把日常生活和抽象世界（数学）紧紧联系起来， 就能理解数学”。所以应该是通过他写的这几个例子， 有这方面的意识， 懂得怎么去联系。</p>
-<p>说起来， 这话也没错， 但对于有些知识数学知识来说， 很难跟日常生活联系起来。</p>
-<p>比如抽象代数群环域， 据说 刚提出时， 连大数学家欧拉都无法理解， 欧拉公式都有点跟现实世界联系不起来了， 何况欧拉看不懂的。</p>
-<p>联系的应该是他另外地方说的模板， 也就是包括日常生活经验以及以往的数学知识。 没有模板， 全新的内容学起来就会很痛苦。</p>
+<h1 id="_3">概率课程总览</h1>
+<p>显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系：</p>
+<ol>
+<li>输入： 各种离散或连续的，一元或多元的变量。</li>
+<li>输出： 各种情况下的输出概率likelihood及 可信度 belief</li>
+<li>映射规则： 如概率公理及其推论</li>
+</ol>
+<p>所以， 概率课的大纲往往按照总分结构，先抽象后具体，先给抽象的总体性概念，接着是理论基石--条件概率、概率公理， 中间掺杂点约等于基础组合数学的古典概率， 主体总分是对各种具体概率分布类型的介绍。</p>
+<p>配上统计课， 统计课则是把概率课学到各种概率分布应用到具体数据上进行分析，求出实际的概率分布参数及参数的可信程度。</p>
+<h1 id="_4">基本概念</h1>
+<p>对照函数的三个要素，我们来看看有什么基本概念需要我们先行了解。</p>
+<p>首先来看输入部分，输入的是各种变量，所以貌似没有特别的概念，具体内容将在以后的章节中进行讲述。</p>
+<p>输出部分，我们知道函数的输出有值域，对应到概率上就是可能是输出结果的集合， 另外， 因为是概率，所以每个输出值还要对应上一个概率值。</p>
+<p>我们可以把 所有可能的输出的集合 叫做 样本空间(sample space)，虽然说样本这两个字习惯上跟输入的关系更密切，但这样的翻译已经约定俗成，就这样吧。</p>
+<h2 id="_5">输出样本空间</h2>
+<ol>
+<li>元素互斥性 mutually exclusive</li>
+<li>collectively exhaustive 应该是指完全列举， 所有可能事件的集合才是样本空间，哪怕无数可能性缺了一个也不是。实际输出也必然属于样本空间。</li>
+<li></li>
+</ol>
+<p><strong>此处应有样本空间例子</strong></p>
+<h2 id="-">映射规则--概率公理</h2>
+<p>正如实数连续统之于数学分析， 欧几里德4+1公理之于那各种几何， 概率同样也打造了坚实的公理基础， 精简有用。</p>
+<p>先声明，公理只是映射规则的基础、基石， 并不是映射规则只有这么点。</p>
+<p>因为我们不需要求样本空间的概率（就是1）， 一般来说是求他的子集的概率，所以我们把样本空间的一个子集称作 事件(event)。 求事件A的概率记为 P(A).</p>
+<p>接下来给出概率的这几条公理：</p>
+<ol>
+<li>非负性： 事件发生概率大于等于0。 P(A)&gt;=0 (P(A)&lt;=1)</li>
+<li>标准性： 样本空间的概率为一。 <span class="math">\(P(\omega)=1\)</span></li>
+<li>加法公理： <span class="math">\(if A \cap B = \emptyset, then P(A\cup B) = P(A) + P(B)\)</span> </li>
+</ol>
+<p>最典型例子就是掷一个骰子，不同点数概率相加就是这条公理的体现。</p>
+<p>另外<span class="math">\(if A \cap B = \emptyset\)</span>, 我们把A、B叫做互斥事件(disjoint events), 一开始需要和A\B独立区分开来。</p>
+<h2 id="_6">一些推论及性质</h2>
+<p>由以上三条公理， 我们可以推导出以下：</p>
+<ol>
+<li>P(A) &lt;= 1</li>
+<li>P(空集) = 0</li>
+<li>P(A) + P(A的补集) = 1</li>
+<li><span class="math">\(P(A \cup B \cup C) = P(A)+P(B)+P(C)\)</span>, 对k个互斥事件都成立</li>
+<li><span class="math">\(if A \subset B, then P(A) &lt;= P(B)\)</span></li>
+<li><span class="math">\(P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span></li>
+<li><span class="math">\(P(A \cup B)\)</span> &lt;= P(A) + P(B)</li>
+<li><span class="math">\(P(A\cup B \cup C) = P(A) + P(A^c\cap B) + P(A^c \ cap B^c \cap C, A^c B^c 是指补集complement\)</span></li>
+</ol>
+<p>以上推论可以自行推导， 因为还是比较直观， 理解记清能用到就行。</p>
+<h2 id="_7">连续样本空间概率计算</h2>
+<p>例如平面上选取一点或一直线、 直线上选一点， 因为都有无数个样本，所以概率</p>
+<p>这块非常直观， 样本空间对应总面积是1，概率100%， 那么事件所占的长度、 面积、 体积比例就是概率了。</p>
+<p>需要有个前提条件是满足均匀分布， 单位长度、 面积、体积的概率都相等。不是射箭比赛的分数， 中心分值高。</p>
+<h2 id="_8">可数相加公理</h2>
+<p>之前的加法公理是在有限集上的， 无限集要扩展成新公理——不是定理，没有逻辑推导过程。</p>
+<p>可数相加公理：</p>
+<p>如果<span class="math">\(A_1,A_2,A_3...\)</span>是 一个无限的互斥事件序列，则有：</p>
+<div class="math">$$P(A_1 \cup A_2 \cup A_3 ...) = P(A_1)+P(A_2)+P(A_3)+...$$</div>
+<p>然后扯了一堆 序列代表事件是可排序的，这个公理只能适用于事件序列， 像平面里的点或线并不存在顺序关系， 该公理不适用。所以不能把点（线）的概率相加（一堆0相加等于0）得到平面的概率， 所以 平面上的点（线）是不可数的。最后是面积是可数的，满足可数可加性。</p>
+<p>还提了下这块是测度论的内容， 在概率论范围内不需要考虑这种事。</p>
+<h1 id="_9">恭喜</h1>
+<p>我笔记做得不认真， 太过敷衍， 推导不到位。 惭愧惭愧。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -293,7 +275,7 @@ $$</div>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/tu-jie-shu-xue-xue-xi-zhi-ju-zhen.html#disqus_thread">
+                href="http://sndnyang.github.io/probability-foudation-concepts.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -303,8 +285,8 @@ $$</div>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'tu-jie-shu-xue-xue-xi-zhi-ju-zhen.html';
-    var disqus_url = 'http://sndnyang.github.io/tu-jie-shu-xue-xue-xi-zhi-ju-zhen.html';
+        var disqus_identifier = 'probability-foudation-concepts.html';
+    var disqus_url = 'http://sndnyang.github.io/probability-foudation-concepts.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -326,16 +308,20 @@ $$</div>
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-04-10T00:00:00+08:00">四月 10, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-10-01T21:50:00+08:00">十月 1, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-10-02T00:00:00+08:00">十月 2, 2016</time>
+
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#xian-xing-dai-shu-ref">线性代数</a>
+                    <a class="category-link" href="/categories.html#shu-xue-ref">数学</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#gai-lu-ref">概率
+                            <span>1</span>
+</a></li>
                         <li><a href="/tags.html#shu-xue-ref">数学
                             <span>6</span>
-</a></li>
-                        <li><a href="/tags.html#xian-xing-dai-shu-ref">线性代数
-                            <span>1</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

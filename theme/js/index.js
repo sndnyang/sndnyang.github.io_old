@@ -65,6 +65,7 @@ function checkQuiz(obj, id) {
             $('.hint').css('display', 'block');
             $('.flashes').html("<li>恭喜答案正确</li>");
             error_times = 0;
+            setTimeout("$('.hint').fadeOut('slow')", 5000)
         } else {
             $('.hint').css('display', 'block');
             $('.flashes').html('');

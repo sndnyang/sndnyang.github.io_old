@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 算法, 数据结构, 算法, " />
+<meta name="keywords" content="CS, 机器学习, 人工智能, 机器学习, " />
 
-<meta property="og:title" content="并查集优化 "/>
-<meta property="og:url" content="http://sndnyang.github.io/union-find-optimize.html" />
-<meta property="og:description" content="方法 1 带权重快速合并 好处: 优化 快速合并 ，避免树的层次过多 随时记录每棵树（子树）的大小 通过将较小子树的根挂在较大树的根下，来获得平衡 数据结构 比快速合并算法，增加一个大小为N的整型数组sz。 sz[i]代表以i为根的对象个数。 查找 与快速合并相同， return root(p) == root(q) 合并 将较小子树的根结点连接到较大子树的根结点 更新sz数组 public void union(int p, int q) { int i = root(p); int j = root(q); if (sz[i] &lt; sz[j]) { id[i ..." />
+<meta property="og:title" content="zhimind-机器学习目录 "/>
+<meta property="og:url" content="http://sndnyang.github.io/machine-learning-catalog.html" />
+<meta property="og:description" content="机器学习目录 思维导图 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法（未） 指数分布簇 广义线性模型" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-04-28T00:00:00+08:00" />
-<meta name="twitter:title" content="并查集优化 ">
-<meta name="twitter:description" content="方法 1 带权重快速合并 好处: 优化 快速合并 ，避免树的层次过多 随时记录每棵树（子树）的大小 通过将较小子树的根挂在较大树的根下，来获得平衡 数据结构 比快速合并算法，增加一个大小为N的整型数组sz。 sz[i]代表以i为根的对象个数。 查找 与快速合并相同， return root(p) == root(q) 合并 将较小子树的根结点连接到较大子树的根结点 更新sz数组 public void union(int p, int q) { int i = root(p); int j = root(q); if (sz[i] &lt; sz[j]) { id[i ...">
+<meta property="og:article:published_time" content="2016-10-08T19:18:30+08:00" />
+<meta property="" content="2016-10-08T20:18:30+08:00" />
+<meta name="twitter:title" content="zhimind-机器学习目录 ">
+<meta name="twitter:description" content="机器学习目录 思维导图 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法（未） 指数分布簇 广义线性模型">
 
 
-        <title>并查集优化  · 懒龙谷
+        <title>zhimind-机器学习目录  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +90,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/union-find-optimize.html">
-                        并查集优化  
+                    <a href="/machine-learning-catalog.html">
+                        zhimind-机器学习目录  
                     </a>
                 </h1>
             </header>
@@ -101,18 +102,7 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#1">方法 1 带权重快速合并</a><ul>
-<li><a href="#_1">数据结构</a></li>
-<li><a href="#_2">查找</a></li>
-<li><a href="#_3">合并</a></li>
-<li><a href="#_4">算法分析</a></li>
-</ul>
-</li>
-<li><a href="#_5">路径压缩</a><ul>
-<li><a href="#_6">实现:</a></li>
-<li><a href="#_7">命题:</a></li>
-</ul>
-</li>
+<li><a href="#_1">机器学习目录</a></li>
 </ul>
 </div>
                     </nav>
@@ -121,48 +111,27 @@
 
                         
                         
-<h1 id="1">方法 1 带权重快速合并</h1>
-<p>好处:</p>
-<ol>
-<li>优化 快速合并 ，避免树的层次过多</li>
-<li>随时记录每棵树（子树）的大小</li>
-<li>通过将较小子树的根挂在较大树的根下，来获得平衡</li>
-</ol>
-<h2 id="_1">数据结构</h2>
-<p>比快速合并算法，增加一个大小为N的整型数组sz。 sz[i]代表以i为根的对象个数。</p>
-<h2 id="_2">查找</h2>
-<p>与快速合并相同， return root(p) == root(q)</p>
-<h2 id="_3">合并</h2>
-<ol>
-<li>将较小子树的根结点连接到较大子树的根结点</li>
-<li>
-<p>更新sz数组</p>
-<p>public void union(int p, int q) { int i = root(p); int j = root(q);</p>
-<p>if (sz[i] &lt; sz[j])  { id[i] = j; sz[j] += sz[i];}
-else                { id[j] = i; sz[i] += sz[i]; }
-}</p>
+<h1 id="_1">机器学习目录</h1>
+<p><a href="http://zhimind.com/map/f349e9b2-1412-44f4-a18e-618825613bcb">思维导图</a></p>
+<ul>
+<li>线性模型  <ul>
+<li>线性回归  <ul>
+<li><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E5%9F%BA%E7%A1%80&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归基础</a></li>
+<li><a href="http://zhimind.com/tutorial/89fbbdc0-0f8b-44e5-b141-990844232119?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E6%A0%87%E5%87%86%E6%96%B9%E7%A8%8B&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">标准方程</a></li>
+<li><a href="http://zhimind.com/tutorial/9ccd6d11-4403-44ed-8484-8f872a9e52ac?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E6%A6%82%E7%8E%87%E8%A7%A3%E9%87%8A&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">概率解释</a></li>
+<li><a href="http://zhimind.com/tutorial/7eef4776-2c9a-48e7-adfa-02aabd4cea7d?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E5%B1%80%E9%83%A8%E5%8A%A0%E6%9D%83%E5%9B%9E%E5%BD%92&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">局部加权回归</a></li>
+</ul>
 </li>
-</ol>
-<h2 id="_4">算法分析</h2>
-<p>运行时间:</p>
-<ol>
-<li>查找: 与p和q的深度成正比 即 lg N</li>
-<li>合并: 对给定的根，只花费常数时间 lg N</li>
-<li>结点x的尝试最多为 lg N.</li>
-</ol>
-<h1 id="_5">路径压缩</h1>
-<p>方法: 计算出p的根结点后， 将每个被检测到的结点都指向这个根结点</p>
-<h2 id="_6">实现:</h2>
-<p>两次遍历: 循环中再增加一次处理， 将每个被检测到的结点的id指向上一层的根结点。</p>
-<div class="highlight"><pre><span></span>private int root(int i) { while (i != id[i]) { id[i] = id[id[i]]; i = id[i]; } return i; }
-</pre></div>
-<h2 id="_7">命题:</h2>
-<p>从空集开始，N个对象的任意M次操作，对数组的访问次数萍踪:</p>
-<div class="highlight"><pre><span></span>&lt;= c (N + M  lg* N)
-</pre></div>
-<p>lg<em> N 其实就是 lg N 的再次求对数的样子。
-In computer science, the iterated logarithm of n, written log</em> n (usually read "log star"), is the number of times the logarithm function must be iteratively applied before the result is less than or equal to 1.</p>
-<p>本算法理论上非线性复杂度， 实际上可以看作线性。</p>
+<li>逻辑回归  <ul>
+<li><a href="http://zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%9F%BA%E7%A1%80&amp;parent=%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归基础</a></li>
+<li><a href="#">牛顿迭代法（未）</a></li>
+</ul>
+</li>
+<li>指数分布簇</li>
+<li>广义线性模型</li>
+</ul>
+</li>
+</ul>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -179,7 +148,7 @@ In computer science, the iterated logarithm of n, written log</em> n (usually re
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/union-find-optimize.html#disqus_thread">
+                href="http://sndnyang.github.io/machine-learning-catalog.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -189,8 +158,8 @@ In computer science, the iterated logarithm of n, written log</em> n (usually re
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'union-find-optimize.html';
-    var disqus_url = 'http://sndnyang.github.io/union-find-optimize.html';
+        var disqus_identifier = 'machine-learning-catalog.html';
+    var disqus_url = 'http://sndnyang.github.io/machine-learning-catalog.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -212,19 +181,23 @@ In computer science, the iterated logarithm of n, written log</em> n (usually re
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-04-28T00:00:00+08:00">四月 28, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-10-08T19:18:30+08:00">十月 8, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-10-08T20:18:30+08:00">十月 8, 2016</time>
+
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#suan-fa-ref">算法</a>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
                             <span>25</span>
 </a></li>
-                        <li><a href="/tags.html#shu-ju-jie-gou-ref">数据结构
-                            <span>2</span>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>5</span>
 </a></li>
-                        <li><a href="/tags.html#suan-fa-ref">算法
-                            <span>6</span>
+                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
+                            <span>7</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

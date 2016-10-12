@@ -110,40 +110,41 @@
 </ul>
 </li>
 <li><a href="#-">分类结果-超平面</a><ul>
-<li><a href="#_6">多个超平面</a></li>
+<li><a href="#_6">无数个超平面</a></li>
 <li><a href="#_7">评估方法</a></li>
 </ul>
 </li>
 <li><a href="#-_1">评估超平面-距离</a><ul>
 <li><a href="#_8">定义</a></li>
 <li><a href="#_9">几何距离</a></li>
-<li><a href="#_10">标准定义</a></li>
+<li><a href="#_10">有问题？</a></li>
+<li><a href="#_11">标准定义</a></li>
 </ul>
 </li>
-<li><a href="#_11">几何间隔</a><ul>
-<li><a href="#_12">定义</a></li>
-<li><a href="#_13">函数间隔</a></li>
+<li><a href="#_12">几何间隔</a><ul>
+<li><a href="#_13">定义</a></li>
+<li><a href="#_14">函数间隔</a></li>
 </ul>
 </li>
-<li><a href="#_14">最大间隔</a><ul>
-<li><a href="#_15">一帆风顺地旅途到此结束</a></li>
+<li><a href="#_15">最大间隔</a><ul>
+<li><a href="#_16">一帆风顺的旅途到此结束</a></li>
 </ul>
 </li>
-<li><a href="#_16">优化</a><ul>
-<li><a href="#_17">等比变化</a><ul>
-<li><a href="#_18">别人的解释</a></li>
+<li><a href="#_17">优化</a><ul>
+<li><a href="#_18">乘常数不变</a></li>
+<li><a href="#_19">还有呢？</a></li>
+<li><a href="#_20">结论</a></li>
+<li><a href="#_21">师出有名</a><ul>
+<li><a href="#_22">别人的解释</a></li>
 </ul>
 </li>
-<li><a href="#_19">继续</a></li>
-<li><a href="#_20">倒数变形</a></li>
-<li><a href="#_21">等效变形</a></li>
+<li><a href="#_23">继续</a></li>
+<li><a href="#_24">倒数变形</a></li>
+<li><a href="#_25">等效变形</a></li>
 </ul>
 </li>
-<li><a href="#_22">总结</a><ul>
-<li><a href="#_23">复习</a></li>
-<li><a href="#_24">恭喜！！！</a></li>
-</ul>
-</li>
+<li><a href="#_26">总结</a></li>
+<li><a href="#_27">恭喜！！！</a></li>
 </ul>
 </div>
                     </nav>
@@ -158,37 +159,68 @@
 <li>pluskid支持向量机系列博文，特别是图片引用 <a href="http://blog.pluskid.org/?page_id=683">pluskid-svm</a></li>
 <li>Andrew Ng在斯坦福的cs229讲义， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
-<p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
+<p>在下文笔较烂，贻笑大方。基于markdown格式纯文本编写，改动成本低，所以欢迎提出意见及建议、问题， 谢谢。</p>
 <h2 id="_2">导读</h2>
 <p>支持向量机support vector machine(SVM)有着很长很长的故事， 然而我并不熟悉~~~略过</p>
-<p>默认读者已经了解机器学习领域里的分类 和 回归 的概念， 若不懂， 请参考 <a href="">敬请期待</a> 和 <a href="">请看下回</a></p>
+<p>默认读者已经了解机器学习领域里的分类 和 回归 的概念， 若不懂， 请参考 <a href="">敬请期待(没有写)</a> 和 <a href="">请看下回(没有写)</a></p>
 <p>先下结论， SVM是效果最好、 现成可用的分类算法之一， 虽然也有被用来做回归的。</p>
-<p>所以， 让我们从二元线性分类问题开始， 慢慢引出SVM。</p>
+<p>所以， 让我们从二元线性分类这个问题开始， 慢慢引出SVM。</p>
 <h2 id="_3">分类器</h2>
+<p>假设读者已了解 分类问题，下面直接给出一般的数学符号定义。</p>
 <h3 id="_4">分类问题定义</h3>
-<p>默认读者已经了解 分类问题， 但定义还是要写写</p>
-<p>定义：</p>
-<p>数据集 <span class="math">\(X = [x_1,...,x_m], 其中 x_i\)</span> 一般是一个n维列向量， 代表一个数据点，写程序时貌似更喜欢一行代表一个点</p>
+<p>符号定义：</p>
+<p>数据集 <span class="math">\(X = [x_1,...,x_m], 其中 x_i\)</span>是一个n维列向量。(n行m列有点别扭对我来说有点别扭，更习惯<span class="math">\(X是 m \times n\)</span>维矩阵。)</p>
 <p>对应类别 <span class="math">\(y\)</span>, 用 1，-1 或 0，1 代表不同的分类。</p>
-<p>分类问题就是要在 n维的数据空间中找出一个超平面, 希望通过这个超平面可以把两类数据完全分隔开来， 设函数 <span class="math">\(f(x)\)</span>, 该超平面方程为 f(x) = 0, 那么定义：</p>
+<p>分类问题就是要在 n维的数据空间中找出一个超平面, 希望通过这个超平面可以把各类数据分隔开来， 设函数 <span class="math">\(f(x)\)</span>, 该超平面方程为 f(x) = 0, 那么定义：</p>
 <ol>
 <li>超平面上的点都有 f(x) = 0</li>
 <li>对 f(x) &lt; 0的点， 就令 y = -1</li>
 <li>对 f(x) &gt; 0的点， 就令 y = 1</li>
 </ol>
-<p>用于提神的第一个问题(没水平， 连问题都编不出来), </p>
+<p>用于提神的第一个问题, 我现在在介绍什么分类问题？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="checkbox" value="多元"/><b>多元</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="二元"/><b>二元</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="svm"/><b>svm</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="贝叶斯"/><b>贝叶斯</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="逻辑"/><b>逻辑</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="一次"/><b>一次</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="二次"/><b>二次</b><br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="e3d5c5ae0f57b32317ccb046aab88336"/><input class="comments" type="hidden" value="前面才写的~~~#线性又叫什么#从哪里引出svm?"/><br/>
+</div>
+</p>
 <h3 id="_5">线性分类器</h3>
 <p>我们先从简单的线性分类器开始。 先来个前提， 假设数据确实线性可分。</p>
-<p>假设该超平面的权重系数为 n维向量 w， bias偏置项为 b， x为n维列向量的点。</p>
-<p>用于醒脑的第二个问题</p>
+<p>假设该超平面的权重系数为 n维列向量 w， bias偏置项为 b， x为<span class="math">\(n\times m\)</span>维矩阵。</p>
+<p>用于醒脑的第二个问题，矩阵相乘不要乘号，维度要对上</p>
+<p>
+<div>
+<p>这个超平面的方程(f(x)=0)表示为<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview"></div>
+</p>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="comments" type="hidden" value="请把w作为系数写在x前面#但维度是否对上，没对上要如何对上？#偏置项都是kx+b哪见过kx-b了#答案w^Tx + b = 0"/><br/>
+</div>
+</p>
 <h2 id="-">分类结果-超平面</h2>
 <p>所以超平面方程可表示为： <span class="math">\(w^Tx + b = 0， 即 f(x) = w^Tx + b\)</span></p>
-<p>我们知道， 超平面在二维空间中的例子就是一条直线, 如图所示(直接从pluskid博客上引用过来,需要自己另行制作吗？)：</p>
+<p>我们知道， 超平面在二维空间中的例子就是一条直线<a href="">超平面(没写的都勿点)</a> 如图所示(直接从pluskid博客上引用过来，盗图)：</p>
 <p><img alt="pluskid-hyperplane" src="http://blog.pluskid.org/wp-content/uploads/2010/09/Hyper-Plane.png"/></p>
-<h3 id="_6">多个超平面</h3>
-<p>以上图为例， 我们知道，除了已有的这条啥颜色直线， 还有无数条直线， 都可以把红蓝点正确地分成两块。</p>
+<p>
+<div>
+<p>下一步你觉得应该考虑什么，请自由发挥。<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="d41d8cd98f00b204e9800998ecf8427e"/><input class="comments" type="hidden" value=""/><br/>
+</div>
+</p>
+<h3 id="_6">无数个超平面</h3>
+<p>以上图为例， 我们知道，除了已有的这条直线， 还有无数条直线， 都可以把红蓝点正确地分成两块。</p>
 <p>比如， 用逻辑回归， 不同的初始值就可能得到不同的直线。</p>
-<p>既然有无数种可能， 那我们应该如何选择？我承认问题和选项有点别扭~~~还好不是关键步骤。</p>
+<p>既然有无数种可能， 那我们应该如何选择？我承认问题和选项有点别扭，很明显的答案，但仍然有它的内在逻辑，为什么这个时候要这么选，真不是每次都这么选。</p>
 <p>
 <div>
 <p></p>
@@ -196,7 +228,7 @@
 <input class="quiz" name="quiz" type="radio" value="多条取平均"/><b>多条取平均</b><br/>
 <input class="quiz" name="quiz" type="radio" value="放弃"/><b>放弃</b><br/>
 <input class="quiz" name="quiz" type="radio" value="找出最好的一个"/><b>找出最好的一个</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
 <input class="answers" type="hidden" value="bb36eb80ffc15aea450fb766de38045f"/><input class="comments" type="hidden" value="感觉有点别扭的问题~~~#答案是找最好的"/><br/>
 </div>
 </p>
@@ -208,20 +240,20 @@
 <div>
 <p></p>
 <input class="quiz" name="quiz" type="checkbox" value="w范数值最小"/><b>w范数值最小</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超平面到所有点的距离之和最大"/><b>超平面到所有点的距离之和最大</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超平面到最近点的距离最大"/><b>超平面到最近点的距离最大</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超平面到所有点的距离之和取最大"/><b>超平面到所有点的距离之和取最大</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超平面到最近点的距离取最大"/><b>超平面到最近点的距离取最大</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="w范数最大"/><b>w范数最大</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="8aac4336078e3170bc8325035835ede9"/><input class="comments" type="hidden" value="虽然是多选题，svm只有一个选项(我的理解)"/><br/>
+<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<input class="answers" type="hidden" value="b5391945a40ac80805a3b4d844a80200"/><input class="comments" type="hidden" value="虽然是多选题，svm只有一个选项(我的理解)"/><br/>
 </div>
 </p>
 <h2 id="-_1">评估超平面-距离</h2>
-<p>范数没用， theta 乘上个常数， 范数就变了， 但超平面不变——不进行数学推导了。</p>
-<p>所有点距离之和 与 最近点距离 有点像， 但可能就是求所有点的距离 计算量可能大了点， 或者 数学推导出来效果不好</p>
+<p>范数没用， w和b 乘上个常数， 范数就变了， 但超平面不变， 不进行数学推导了。</p>
+<p>所有点距离之和 与 最近点距离 有点像， 但求所有点的距离 计算量可能确实大了点， 或者 数学推导出来效果不好，还有其他直观理由。</p>
 <p>所以 只要找出 到相应最近点距离最大的超平面就好。（或许以后有人能找出其他方法~~~）</p>
-<p>就是缓冲地带最大</p>
+<p>到相应最近点距离其实就是缓冲地带，缓冲地带最大比 最近点距离最大要少绕口一点。</p>
 <h3 id="_8">定义</h3>
-<p>那我们说距离、 或者间隔最大， 这里距离是指什么？</p>
+<p>那我们说距离或者缓冲地带、间隔最大， 这里距离是指什么？</p>
 <p>
 <div>
 <p></p>
@@ -229,18 +261,28 @@
 <input class="quiz" name="quiz" type="radio" value="点到超平面的垂线距离"/><b>点到超平面的垂线距离</b><br/>
 <input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
 <input class="quiz" name="quiz" type="radio" value="编不出来选项了"/><b>编不出来选项了</b><br/>
-<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<button onclick="checkQuiz(this, 6)">submit</button><br/>
 <input class="answers" type="hidden" value="5613fd326e424953f2b615ce26d3b0f9"/><input class="comments" type="hidden" value="超平面到相应最近点距离，第一反应不可能是其他吧"/><br/>
 </div>
 </p>
 <h3 id="_9">几何距离</h3>
 <p>所以， 点到超平面的垂线距离 定义为 几何距离。</p>
 <p>关于 <span class="math">\(f(x) = w^Tx+b=0\)</span>的超平面P 和 点z 的几何距离的计算或者说通用式， 建议不熟悉、 没印象的读者动手推导一下。</p>
-<p>推导过程。 见<a href="">后续补充</a></p>
+<p>推导过程。 见<a href="">后续也许会补充(没写的都勿点)</a></p>
 <p>先上结论： 点到超平面的几何距离(可能有误， 所以说要动手推导一下)</p>
 <div class="math">$$ 
 \gamma = \frac{w^Tx+b}{\|w\|}=\frac{f(x)}{\|w\|}
 $$</div>
+<p>因为有多种写法， 李航的《统计学习方法》和Andrew Ng的机器学习讲义是用w*x+b, 用了<span class="math">\(||w||\)</span> 没有考虑b，有些人的符号使用的是 <span class="math">\(\theta^T X\)</span>, 反正b又会给w添加一个分量， <span class="math">\(||w||\)</span>对b的影响还是线性的，这时强调一下我后面有时候会纠结于b到底会不会被影响。</p>
+<p>
+<div>
+<p>继续?还是发现问题?<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 7)">submit</button><br/>
+<input class="answers" type="hidden" value="d41d8cd98f00b204e9800998ecf8427e"/><input class="comments" type="hidden" value=""/><br/>
+</div>
+</p>
+<h3 id="_10">有问题？</h3>
 <p>本式有个问题， 不能做为距离使用， 请指出</p>
 <p>
 <div>
@@ -252,13 +294,13 @@ $$</div>
 <input class="quiz" name="quiz" type="radio" value="太简单"/><b>太简单</b><br/>
 <input class="quiz" name="quiz" type="radio" value="推导太复杂"/><b>推导太复杂</b><br/>
 <input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<button onclick="checkQuiz(this, 8)">submit</button><br/>
 <input class="answers" type="hidden" value="8d090ea1a62ae94387a91c6c9de21e16"/><input class="comments" type="hidden" value="距离一定是什么样的？"/><br/>
 </div>
 </p>
-<h3 id="_10">标准定义</h3>
-<p>上式存在负值的可能， 距离是不可能用负值的， 所以再取个绝对值， 等效于乘以 y, 因为 f(x)小于0时, y = -1. 仍使用 gamma 记号
-</p>
+<h3 id="_11">标准定义</h3>
+<p>上式存在负值的可能， 距离是不可能用负值的， 所以再取个绝对值， 等效于乘以 y（这步再引导我就要疯了）, 因为 f(x)小于0时, y = -1。</p>
+<p>改写式子， 仍使用 gamma 记号（很快符号就要混乱了）</p>
 <div class="math">$$
 几何距离: \gamma = |\gamma| = y\gamma = y*\frac{w^Tx+b}{\|w\|}=\frac{y*f(x)}{\|w\|}
 $$</div>
@@ -272,25 +314,38 @@ $$</div>
 <input class="quiz" name="quiz" type="radio" value="找最近点"/><b>找最近点</b><br/>
 <input class="quiz" name="quiz" type="radio" value="求平均值"/><b>求平均值</b><br/>
 <input class="quiz" name="quiz" type="radio" value="求平均值后找最接近平均值的一个点"/><b>求平均值后找最接近平均值的一个点</b><br/>
-<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<button onclick="checkQuiz(this, 9)">submit</button><br/>
 <input class="answers" type="hidden" value="a6b4831bf495ea8b0095d2963b153d2a"/><input class="comments" type="hidden" value="还记得如何评估超平面吗？"/><br/>
 </div>
 </p>
-<h2 id="_11">几何间隔</h2>
+<h2 id="_12">几何间隔</h2>
 <p>已知某个点到超平面的几何距离（几何间隔）</p>
 <div class="math">$$ \gamma = y*\frac{w^Tx+b}{\|w\|}=\frac{y*f(x)}{\|w\|} $$</div>
-<p>我们知道， 要找的是超平面的最近点。</p>
-<h3 id="_12">定义</h3>
-<p>最近点到其超平面的几何距离， 就是所有点到该超平面的几何距离的最小值， 定义为该平面的几何间隔geometrical margin （当然我这个概念理解 可能有问题， 但大体上不影响理解）</p>
+<p>我们知道， 要找的是超平面的最近点， 这个如何描写成数学表达式， 应该有头绪吧？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="有，会做"/><b>有，会做</b><br/>
+<input class="quiz" name="quiz" type="radio" value="完全不理解"/><b>完全不理解</b><br/>
+<input class="quiz" name="quiz" type="radio" value="程序找最小会，数学抽象是什么鬼"/><b>程序找最小会，数学抽象是什么鬼</b><br/>
+<button onclick="checkQuiz(this, 10)">submit</button><br/>
+<input class="answers" type="hidden" value="b16640d85849581702c7f26bcd5dfd6f"/><input class="comments" type="hidden" value="这个智能有限，大家去动动脑最重要，结果不要勉强了"/><br/>
+</div>
+</p>
+<h3 id="_13">定义</h3>
+<p>最近点到其超平面的几何距离， 就是所有点到该超平面的几何距离的最小值， 定义为该平面的几何间隔geometrical margin （我个人对这个概念理解 可能有问题， 先凑合看吧）</p>
 <p>所以有 几何间隔:</p>
 <div class="math">$$
 \tilde{\gamma} = \min_{i=1,...,m} \gamma^{(i)}
 $$</div>
-<h3 id="_13">函数间隔</h3>
-<p>一般的教程 会同时介绍个 函数间隔  functional margin。 但咱们秉承从直观分析开始， 需要时再合理推导的精神， 先不讨论这个玩意(貌似后面就没讨论过， 真可以不要）， 虽然二者等价， 但我们现在只要一个就够。</p>
-<p>直接上定义（单点 函数距离 求最小为间隔， 公式里写的是函数距离， 省略求最小）</p>
-<div class="math">$$\hat{\gamma}=y(w^Tx+b)=yf(x)$$</div>
-<p>已知几何间隔，</p>
+<h3 id="_14">函数间隔</h3>
+<p>一般的教程 会同时介绍个 函数间隔  functional margin。 但咱们秉承从直观分析开始， 需要时再合理推导的精神， 先不讨论这个玩意(貌似后面就没讨论过， 真可以不要）， 虽然二者等价， 但我们现在只要一个就够，我实在找不到任何理由来引入它来搞乱我的符号。</p>
+<p>直接上定义（单点 函数距离 求最小为间隔， 公式里写的是函数距离， 再写求最小表达式，要累死我）</p>
+<div class="math">$$\hat{\gamma}=y(w^Tx+b)=yf(x) = \tilde{\gamma} ||w||$$</div>
+<p>已知几何间隔最小化，</p>
+<div class="math">$$
+\tilde{\gamma} = \min_{i=1,...,m} \gamma^{(i)}
+$$</div>
 <p>
 <div>
 <p>那下一步呢?</p>
@@ -299,12 +354,12 @@ $$</div>
 <input class="quiz" name="quiz" type="radio" value="求最大化"/><b>求最大化</b><br/>
 <input class="quiz" name="quiz" type="radio" value="蒙特卡罗模拟"/><b>蒙特卡罗模拟</b><br/>
 <input class="quiz" name="quiz" type="radio" value="酱油"/><b>酱油</b><br/>
-<button onclick="checkQuiz(this, 6)">submit</button><br/>
+<button onclick="checkQuiz(this, 11)">submit</button><br/>
 <input class="answers" type="hidden" value="b4007b0b6bed21d43e8a51a202b84137"/><input class="comments" type="hidden" value="还记得要做什么吗？"/><br/>
 </div>
 </p>
-<h2 id="_14">最大间隔</h2>
-<p>还记得我们要做什么吧？ 找出到相应最近点距离最大的超平面， 也就是几何间隔最大的 超平面。</p>
+<h2 id="_15">最大间隔</h2>
+<p>还记得我们要做什么吧？ 找出到相应最近点距离最大的超平面， 也就是几何间隔最大的 超平面。重复的简单抽象问题不再提。  </p>
 <p>如下：</p>
 <div class="math">$$
 \begin{align}
@@ -312,7 +367,7 @@ $$</div>
 &amp; 
 \begin{array}
 &amp;s.t.
-&amp;y^{(i)}(w^Tx^{(i)} + b) ≥ \tilde{\gamma},  &amp;i=1,\ldots,m\\
+&amp;\frac{y^{(i)}(w^Tx^{(i)} + b)}{||w||} ≥ \tilde{\gamma},  &amp;i=1,\ldots,m\\
 \end{array}
 \end{align}
 $$</div>
@@ -322,69 +377,132 @@ $$</div>
 &amp;\max_{w,b} \min_{i=1,...,m}  \frac{y^{(i)}(w^Tx^{(i)}+b)}{\|w\|} 
 \end{align}
 $$</div>
-<p>为美观着想， 忽略求最近点，即求最小的min符号及i标号</p>
+<p>为美观着想，求最近点，即求最小的min符号及i标号。</p>
 <div class="math">$$
 \begin{align}
 &amp;\max_{w,b} \frac{y(w^Tx+b)}{\|w\|} \\
 &amp; 
 \begin{array}
 &amp;s.t.
-&amp;y^{(i)}(w^Tx^{(i)} + b) ≥ \tilde{\gamma}*||w||,  &amp;i=1,\ldots,m\\
+&amp;y^{(i)}(w^Tx^{(i)} + b) ≥ \tilde{\gamma}||w||,  &amp;i=1,\ldots,m\\
 \end{array}
 \end{align}
 $$</div>
-<h3 id="_15">一帆风顺地旅途到此结束</h3>
-<p>到上面的公式（latex给公式上标号 不会啊）， 应该是已经得到一个待优化的问题。</p>
+<p><strong>作者注：</strong> 从这个式子开始， 约束条件我有点晕了，不是一个教程看完的，好几个混着，可能写错， 来修订时彻底晕了。</p>
+<h3 id="_16">一帆风顺的旅途到此结束</h3>
+<p>到上面的式子（没有编号，我的锅）， 应该是已经得到一个待优化的问题。</p>
 <p>那我们还能再进一步优化吗？我们要真正地去发现、 分析、 探索。做科研就是这样， 但因为没有具体的方向， 我们就要有一些指导性的原则， 遇到 什么问题， 大概用什么样的思路地尝试。</p>
-<p>技术问题， 暂不提供无标准答案的填空题， 有心的读者请先再草稿纸上写写你的想法， 你要来优化， 会怎么做？写思路。</p>
-<h2 id="_16">优化</h2>
+<p>技术问题， 没有标准答案， 有心的读者请在草稿纸上写写你的想法，你要来优化，会怎么做？哪个地方可以简化。写思路。</p>
+<p>流程还是要走的，随便填，以后会记录你的想法，现在没做到。</p>
+<p>
+<div>
+<p>你的想法是？<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 12)">submit</button><br/>
+<input class="answers" type="hidden" value="d41d8cd98f00b204e9800998ecf8427e"/><input class="comments" type="hidden" value=""/><br/>
+</div>
+</p>
+<h2 id="_17">优化</h2>
 <p>所以， 就来看这个式子</p>
 <div class="math">$$ \max_{w,b} \frac{y(w^Tx+b)}{\|w\|}=\frac{\hat{\gamma}}{||w||} $$</div>
-<p>首先， <span class="math">\(w 和 ||w||\)</span> 和 <span class="math">\(b\)</span> 是未知的， 待求的， 肯定没法下手了。</p>
+<p>首先， <span class="math">\(w 和 ||w||\)</span> 和 <span class="math">\(b\)</span> 是未知待求的， 应该没法下手。</p>
 <p>那上面的这个 <span class="math">\(\hat{\gamma}\)</span> 是不是能做点文章呢? </p>
-<p>y 就是给它取正，取正 = 取绝对值， 平方也能取正， 好， 小本子上记下， 来个求平方？</p>
+<p>y 就是给它取正，取正 = 取绝对值， 平方也能取正， 好， 小本子上记下， 来个求平方？ 明显更复杂了。</p>
 <p>还有呢？ <span class="math">\(w^Tx+b\)</span> 是个线性关系， 对吧？</p>
-<p>所以， 它有什么性质， 而且还是个跟除法有关的性质呢？</p>
+<p>所以， 它有什么性质， 而且还是个跟除法有关的性质呢？前面好像有提到。我选项描述可能有点问题。</p>
 <p>
 <div>
 <p></p>
 <input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
 <input class="quiz" name="quiz" type="radio" value="编不出来"/><b>编不出来</b><br/>
-<input class="quiz" name="quiz" type="radio" value="等比变化不变"/><b>等比变化不变</b><br/>
-<input class="quiz" name="quiz" type="radio" value="最简方程"/><b>最简方程</b><br/>
+<input class="quiz" name="quiz" type="radio" value="乘常数不变性"/><b>乘常数不变性</b><br/>
+<input class="quiz" name="quiz" type="radio" value="最简最低次性"/><b>最简最低次性</b><br/>
 <input class="quiz" name="quiz" type="radio" value="可线性组合"/><b>可线性组合</b><br/>
-<button onclick="checkQuiz(this, 7)">submit</button><br/>
-<input class="answers" type="hidden" value="1585ce72ed04e7192e7ee3024f046088"/><input class="comments" type="hidden" value="答案比较明显，选项太难编了"/><br/>
+<button onclick="checkQuiz(this, 13)">submit</button><br/>
+<input class="answers" type="hidden" value="7e2b2f0d4541a8f09fee7e352a919a7d"/><input class="comments" type="hidden" value="前面提过范数#答案比较明显，选项太难编了"/><br/>
 </div>
 </p>
-<h3 id="_17">等比变化</h3>
+<h3 id="_18">乘常数不变</h3>
 <p>那小本本上的求平方就被我们扔脑后了， 求平方还会搞得更复杂。</p>
-<p>将<span class="math">\(\hat{\gamma}=y(w^Tx+b) 的 w和b\)</span>按比例变化时， 有两点</p>
-<ol>
-<li>对目标函数的优化没影响， 这个比较直观， 因为方程变化后， 最近点还是最近点， 几何间隔（最近点到超平面的几何距离 ）<span class="math">\(\tilde{\gamma}\)</span>不变。</li>
-<li>不等式约束不变化， 没影响。 几何间隔<span class="math">\(\tilde{\gamma}\)</span>不变, 左式变化的比例， 会等比地影响到<span class="math">\(||w||\)</span>。</li>
-</ol>
-<p>那我们就开始搞坏事了~~~就要去给它变一下。 怎么变？</p>
+<div class="math">$$
+\begin{align}
+&amp;\max_{w,b} \frac{y(w^Tx+b)}{\|w\|} \\
+&amp; 
+\begin{array}
+&amp;s.t.
+&amp;y^{(i)}(w^Tx^{(i)} + b) ≥ \tilde{\gamma}||w||,  &amp;i=1,\ldots,m\\
+\end{array}
+\end{align}
+$$</div>
+<p>将<span class="math">\(\hat{\gamma}=y(w^Tx+b) 的 w和b\)</span>乘上个常数时，有什么好处呢？</p>
+<p>对目标函数的优化怎么样？ 肯定没影响。为什么？</p>
 <p>
 <div>
 <p></p>
-<input class="quiz" name="quiz" type="radio" value="等于0"/><b>等于0</b><br/>
-<input class="quiz" name="quiz" type="radio" value="等于1"/><b>等于1</b><br/>
-<input class="quiz" name="quiz" type="radio" value="除以几何间隔"/><b>除以几何间隔</b><br/>
-<input class="quiz" name="quiz" type="radio" value="除以||w||"/><b>除以||w||</b><br/>
-<button onclick="checkQuiz(this, 8)">submit</button><br/>
-<input class="answers" type="hidden" value="307dabc681f0cfd49db8021904df2b5f"/><input class="comments" type="hidden" value="效果相同，但是原因更重要（仅仅个人观点），而且貌似也不对"/><br/>
+<input class="quiz" name="quiz" type="checkbox" value="最近点还是最近点"/><b>最近点还是最近点</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="几何间隔不变"/><b>几何间隔不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="函数间隔不变"/><b>函数间隔不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超平面不变"/><b>超平面不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="编不出来了"/><b>编不出来了</b><br/>
+<button onclick="checkQuiz(this, 14)">submit</button><br/>
+<input class="answers" type="hidden" value="0bd36a25372732a2b7cc5d9a160209c3"/><input class="comments" type="hidden" value="我快编不下去了"/><br/>
 </div>
 </p>
-<h4 id="_18">别人的解释</h4>
-<p>好吧， 我还是无法严密地说清楚这一变化的原因。</p>
-<p>李航的《统计学习方法》就说 <span class="math">\(\hat{\gamma}\)</span>的取值不影响最优化问题的解</p>
-<p>pluskid 写的是固定变量， 固定的方式有两种：</p>
+<h3 id="_19">还有呢？</h3>
+<p>不等式约束怎么样？ 也是不影响，为什么？和上面绝对不是一样的。</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="checkbox" value="最近点还是最近点"/><b>最近点还是最近点</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="几何间隔不变"/><b>几何间隔不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="函数间隔不变"/><b>函数间隔不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超平面不变"/><b>超平面不变</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="编不出来了"/><b>编不出来了</b><br/>
+<button onclick="checkQuiz(this, 15)">submit</button><br/>
+<input class="answers" type="hidden" value="e3e15b5afeb0a5cc73448c6e7db1d06a"/><input class="comments" type="hidden" value="约束条件跟最近点、超平面无关#函数间隔本来就会变"/><br/>
+</div>
+</p>
+<h3 id="_20">结论</h3>
+<p>所以我们就知道， w和b乘常数：</p>
 <ol>
-<li>固定 <span class="math">\(\|w\|\)</span> </li>
-<li>固定 <span class="math">\(\hat{\gamma}\)</span> ，</li>
+<li>对目标函数的优化没影响， 这个比较直观， 因为方程变化后， 最近点还是最近点， 几何间隔（最近点到超平面的几何距离 ）<span class="math">\(\tilde{\gamma}\)</span>不变。</li>
+<li>不等式约束不变化， 没影响。 几何间隔<span class="math">\(\tilde{\gamma}\)</span>不变， 左式变化的比例， 会等比地影响到右边式子的<span class="math">\(||w||\)</span>。</li>
 </ol>
-<p>出于方便推导和优化的目的，选择第二种</p>
+<h3 id="_21">师出有名</h3>
+<p>那我们就开始搞坏事了~~~</p>
+<div class="math">$$
+\begin{align}
+&amp;\max_{w,b} \frac{y(w^Tx+b)}{\|w\|}\frac{\hat{\gamma}}{||w||} \\
+&amp; 
+\begin{array}
+&amp;s.t.
+&amp;y^{(i)}(w^Tx^{(i)} + b) ≥ \tilde{\gamma}||w||,  &amp;i=1,\ldots,m\\
+\end{array}
+\end{align}
+$$</div>
+<p>就要去给它变一下。 怎么变？</p>
+<p>
+<div>
+<p></p>
+<input class="quiz" name="quiz" type="radio" value="令函数间隔（分子）等于0"/><b>令函数间隔（分子）等于0</b><br/>
+<input class="quiz" name="quiz" type="radio" value="令函数间隔等于1"/><b>令函数间隔等于1</b><br/>
+<input class="quiz" name="quiz" type="radio" value="除以函数间隔"/><b>除以函数间隔</b><br/>
+<input class="quiz" name="quiz" type="radio" value="除以||w||"/><b>除以||w||</b><br/>
+<button onclick="checkQuiz(this, 16)">submit</button><br/>
+<input class="answers" type="hidden" value="a4e3217634a2b575be13dbdb9714a392"/><input class="comments" type="hidden" value="效果相同，但是原因更重要（仅仅个人观点），但我的观点貌似也不对"/><br/>
+</div>
+</p>
+<h4 id="_22">别人的解释</h4>
+<p>好吧， 我还是无法严密地说清楚这一变化的原因。是最优化课程有会推导，还是纯粹我自己没理解？</p>
+<p>李航的《统计学习方法》就一句话，说 <span class="math">\(\hat{\gamma}\)</span>的取值不影响最优化问题的解</p>
+<p>pluskid 写的是</p>
+<div class="highlight"><pre><span></span>固定变量， 固定的方式有两种：
+
+1. 固定 $\|w\|$ 
+2. 固定 $\hat{\gamma}$ ，
+
+出于方便推导和优化的目的，选择第二种
+</pre></div>
 <p>Ng的描述为：</p>
 <p>Recall our earlier discussion that we can add an arbitrary scaling constraint on w and b without changing anything. This is the key idea we’ll use now. </p>
 <p>We will introduce the scaling constraint that the functional margin of w, b with respect to the training set must be 1:
@@ -393,7 +511,7 @@ $$</div>
 <p>Since multiplying w and b by some constant results in the functional margin being multiplied by that same constant, this is indeed a scaling constraint, and can be satisfied by rescaling w, b. Plugging this into our problem above, and noting that maximizing
 </p>
 <div class="math">$$\hat{\gamma}/||w|| = 1/||w||$$</div>
-<h3 id="_19">继续</h3>
+<h3 id="_23">继续</h3>
 <p>总之， 令 <span class="math">\(\hat{\gamma}=1\)</span></p>
 <p>则我们的目标函数化为： 
 </p>
@@ -408,9 +526,9 @@ s.t., y_i(w^Tx_i+b)\geq 1, i=1,\ldots,m\\ \end{array}
 $$</div>
 <p>通过求解这个问题，我们就可以找到一个 margin 最大的 classifier ，如下图所示，中间的红色线条是 Optimal Hyper Plane ，另外两条线到红线的距离都是等于 <span class="math">\(\tilde{\gamma}\)</span> 的：</p>
 <p><img alt="optimal-hplane" src="http://blog.pluskid.org/wp-content/uploads/2010/09/Optimal-Hyper-Plane.png"/></p>
-<h3 id="_20">倒数变形</h3>
+<h3 id="_24">倒数变形</h3>
 <p>到上一步时， 我们得到了一个优化问题， 优化一个 <code>1/||w||</code>, 一个倒数， 不好。</p>
-<p>根据最优化理论——我也不懂， <span class="math">\(\max \frac{1}{||w||}\)</span>等价于<span class="math">\(\min ||w||\)</span></p>
+<p>根据最优化理论——我也不懂， 但很明显的， 显然易得： <span class="math">\(\max \frac{1}{||w||}\)</span>等价于<span class="math">\(\min ||w||\)</span></p>
 <p>
 <div>
 <p>有什么问题吗?</p>
@@ -419,12 +537,12 @@ $$</div>
 <input class="quiz" name="quiz" type="radio" value="不能求导"/><b>不能求导</b><br/>
 <input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
 <input class="quiz" name="quiz" type="radio" value="值不连续"/><b>值不连续</b><br/>
-<button onclick="checkQuiz(this, 9)">submit</button><br/>
+<button onclick="checkQuiz(this, 17)">submit</button><br/>
 <input class="answers" type="hidden" value="518c5be23ab22d7b9f28cdcf8f3f07b1"/><input class="comments" type="hidden" value="最优化问题都少不了用偏导来梯度下降"/><br/>
 </div>
 </p>
-<h3 id="_21">等效变形</h3>
-<p>不能用一次的， 那就改成平方， 对求最优化问题没影响， 另外求导的原因， 再加上一个参数， 最终结果如下：</p>
+<h3 id="_25">等效变形</h3>
+<p>对，一次的怎么求导？优化不求导，应该搞不了，那就改成平方，还是显然，对求最优化问题没影响， 另外为了求导结果漂亮一点， 再加上一个常系数， 最终结果如下：</p>
 <div class="math">$$ 
 \begin{align} 
 &amp;\min_{w,b} \frac{1}{2}\|w\|^2 \\
@@ -434,12 +552,21 @@ $$</div>
 s.t., y_i(w^Tx_i+b)\geq 1, i=1,\ldots,m\\ \end{array}
 \end{align}
 $$</div>
-<p>最终我们得到了一个凸优化问题，或者更具体地说，它是一个二次优化问题——目标函数是二次的，约束条件是线性的。这个问题可以用任何现成的 QP (Quadratic Programming) 的优化包进行求解。</p>
-<h2 id="_22">总结</h2>
-<h3 id="_23">复习</h3>
+<p>最终我们得到了一个凸优化问题，或者更具体地说，它是一个二次优化问题——目标函数是二次的，约束条件是线性的。这个问题可以用任何现成的 QP (Quadratic Programming) 的优化包进行求解——具体求解不是机器学习课程的教学内容。</p>
+<p>
+<div>
+<p>所以，学完了吗？</p>
+<input class="quiz" name="quiz" type="radio" value="结束，撒花"/><b>结束，撒花</b><br/>
+<input class="quiz" name="quiz" type="radio" value="想太多"/><b>想太多</b><br/>
+<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
+<button onclick="checkQuiz(this, 18)">submit</button><br/>
+<input class="answers" type="hidden" value="e3b62237a699d640ab7b3cc57450bace"/><input class="comments" type="hidden" value="这篇是要结束了，但svm没有，还有复习呢"/><br/>
+</div>
+</p>
+<h2 id="_26">总结</h2>
 <p>回忆一下， 我们整个过程做了哪些事。</p>
 <ol>
-<li>从二元线性分类开始， 我们明确要求超平面， 分类器都是这么干的。</li>
+<li>从二元线性分类开始， 我们明确目标是求超平面， 分类器都是这么干的。</li>
 <li>超平面有很多个， 我们就要有对超平面的评估标准。</li>
 <li>评估标准就要计算距离， 我们就用上了几何距离。</li>
 <li>有了几何距离， 我们就有最近点的几何距离， 就是几何间隔。</li>
@@ -447,7 +574,8 @@ $$</div>
 <li>优化公式里的 <span class="math">\(\hat{\gamma}=y(w^Tx+b)\)</span> 有着特殊的性质， 取值对最优化问题的解不影响。 所以我们把它设为1了。</li>
 <li>最后再把倒数形式的<span class="math">\(\max \frac{1}{||w||}\)</span> 转成 <span class="math">\(\min \frac{1}{2}\|w\|^2\)</span></li>
 </ol>
-<h3 id="_24">恭喜！！！</h3>
+<p>完结撒花！</p>
+<h1 id="_27">恭喜！！！</h1>
 <p>一路艰辛， SVM 这才完成了最简单的部分， 后面理论 的推导更加复杂， 做好心理准备吧！</p>
 <p>下一节<a href="">支持向量 并没有写出来</a></p>
 <p>如果您觉得这种学习方式有帮助的话， 呃， 那就好~~~</p>

@@ -5,29 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2016-10-13T23:24:35-00:00</lastmod>
+<lastmod>2016-10-17T20:33:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2016-10-13T23:24:35-00:00</lastmod>
+<lastmod>2016-10-17T20:33:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2016-10-13T23:24:35-00:00</lastmod>
+<lastmod>2016-10-17T20:33:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2016-10-13T23:24:35-00:00</lastmod>
+<lastmod>2016-10-17T20:33:24-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2017-10-17-diary.html</loc>
+<lastmod>2017-10-17T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2016-10-16-diary.html</loc>
+<lastmod>2016-10-16T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 

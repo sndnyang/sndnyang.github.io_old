@@ -9015,11 +9015,11 @@ var defaults = {
   xhtmlOut:     false,        // Use '/' to close single tags (<br />)
   breaks:       false,        // Convert '\n' in paragraphs into <br>
   langPrefix:   'language-',  // CSS language prefix for fenced blocks
-  linkify:      true,         // autoconvert URL-like texts to links
-  typographer:  true,         // Enable smartypants and other sweet transforms
+  linkify:      false,         // autoconvert URL-like texts to links
+  typographer:  false,         // Enable smartypants and other sweet transforms
 
   // options below are for demo only
-  _highlight: true,
+  _highlight: false,
   _strict: false,
   _view: 'html'               // html / src / debug
 };
@@ -9143,54 +9143,85 @@ String.prototype.format = function() {
         });
 }
 
-function problem_parse(line) {
+String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/\{(\d+)\}/g,
+        function(m,i){
+            return args[i];
+        });
+}
 
-    line = line.substr(2, line.length-4);
-    var type, stem, comment, response, template, answer, qparts, submit;
-    response = '<div class="math-container">';
-    submit = '<br><button>submit</button><br><br>'
-
-    type = line.substring(0, line.indexOf("|"));
-    stem = line.substring(line.indexOf("|")+1, line.indexOf("@"));
-    answer = line.substring(line.indexOf("@")+1, line.indexOf("&"));
-    
-    if (type == "radio" || type == "checkbox") {
-        
-        qparts = stem.split("&");
-        template = '<input type="{0}" class="quiz" name="quiz">{1}</input>';
-        response += '<p>{0}</p>'.format(qparts[0]);
-
-        for (var j = 1; j < qparts.length; j++) {
-            response += template.format(type, qparts[j]) + '<br>';
-        }
-    }
-    else if (type == "text") {
-        var blank = '<input type="text" class="quiz">';
-        response += stem.replace('_', blank);
-    }
-    else if (type == "formula") {
-        blank = '<input type="text" class="quiz formula"/> '
-        blank += '<br><div class="MathPreview"></div>'
-        response += stem.replace('_', '<br>'+blank+'<br>')
-    }
-
-    response += submit;
-
-
-    return response
+String.prototype.trim=function() {
+    return this.replace(/(^\s*)|(\s*$)/g, "");
 }
 
 function qa_parse(c) {
-    var lines = c.split(/\n/),
-        p = '{%\\w*\\|[^%{}@]*@[^%]*%}';
+    var clists = [], type, stem, response, template, match,
+        answer, qparts, submit, html = "", quiz_count = 0,
+        p = /{%([\w\W]*?)%}/g,
+        typep = /([\w\W]*?)\|/,
+        stemp = /\|[\w\W]*/,
+        submit = '<br><button onclick="checkQuiz(this, {0})">submit</button><br><br>';
 
-    for (var i in lines) {
-        if (lines[i].match(p)) {
-            lines[i] = problem_parse(lines[i]);
-        }
+    while (match = p.exec(c)) {
+        clists.push(match[0]);
+        p.lastIndex = match.index + 1;
     }
-    return lines.join('\n');
+
+    var start = 0;
+
+    for (var i in clists) {
+        var stemend, temp = clists[i],
+            response = '<div class="math-container">';
+
+        type = temp.match(typep)[0];
+        type = type.substring(2, type.length-1).trim();
+        //console.log('temp ' + temp);
+
+        stem = temp.match(stemp)[0];
+        stemend = stem.indexOf("@");
+
+
+        if (stemend < 0)
+            stemend = stem.length
+        stem = stem.substring(1, stemend).trim();
+        //console.log(type + ' stem ' + stem);
+        if (stem.endsWith("%}")) {
+            stem = stem.substring(0, stem.length-2).trim();
+        }
+
+        if (type == "radio" || type == "checkbox") {
+            quiz_count++;
+            qparts = stem.split("&");
+            template = '<input type="{0}" class="quiz" name="quiz" value="{1}">{2}</input>';
+            response += '<p>{0}</p>'.format(qparts[0]);
+
+            for (var j = 1; j < qparts.length; j++) {
+                response += template.format(type, qparts[j], String.fromCharCode(64+j)
+                        + ". " + qparts[j]) + '<br>';
+            }
+        }
+        else if (type == "text") {
+            quiz_count++;
+            var blank = '<input type="text" class="quiz">';
+            response += stem.replace('_', blank);
+        }
+        else if (type == "formula") {
+            quiz_count++;
+            blank = '<input type="text" class="quiz formula" ';
+            blank += 'onkeyup="Preview.Update(this)">'
+            blank += '<br><div class="MathPreview"></div>';
+            response += stem.replace('_', '<br>'+blank+'<br>');
+        }
+
+        response += submit.format(quiz_count);
+        html += c.substring(start, c.indexOf(temp)) + response;
+        start = c.indexOf(temp) + temp.length;
+    }
+    html += c.substring(start, c.length);
+    return html;
 }
+
 
 function renderButton(html) {
     var match, r = "",

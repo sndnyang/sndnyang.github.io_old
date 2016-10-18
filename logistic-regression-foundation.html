@@ -107,7 +107,7 @@
 <li><a href="#_3">模型</a><ul>
 <li><a href="#_4">分类定义</a></li>
 <li><a href="#_5">分类超平面</a></li>
-<li><a href="#g">g函数</a></li>
+<li><a href="#g">G函数</a></li>
 <li><a href="#_6">模型总结</a></li>
 </ul>
 </li>
@@ -148,18 +148,6 @@
 <h2 id="_4">分类定义</h2>
 <p>先对分类问题进行定义。 分类， y值肯定是离散的， 这例子里就两类，那就可以写成 <span class="math">\(y \in [0, 1] 或 [-1, 1]\)</span>， 习惯上取前者[0,1]。</p>
 <p>这例子， x的参数有几个呢？</p>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="1"/><b>1</b><br/>
-<input class="quiz" name="quiz" type="radio" value="2"/><b>2</b><br/>
-<input class="quiz" name="quiz" type="radio" value="3"/><b>3</b><br/>
-<input class="quiz" name="quiz" type="radio" value="n"/><b>n</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="c81e728d9d4c2f636f067f89cc14862c"/><input class="comments" type="hidden" value="图的坐标轴忘做标记了#好意思选错吗"/><br/>
-</div>
-</p>
 <h2 id="_5">分类超平面</h2>
 <p>肯定是2个， x轴和y轴啊， y已经有定义？ 那就<span class="math">\(x_1轴和x_2轴\)</span>。</p>
 <p>2维平面上的分类， 所以用1维的直线来分类， 如果是3维空间中的分类，则用2维平面来划分。 </p>
@@ -180,18 +168,7 @@ $$</div>
 <div class="math">$$g(w^Tx^i)$$</div>
 <p>毫无疑问， 上面那个&lt;0,&gt;=0可以作为一个g函数。如果基于这个， 那就是 感知器模型算法(Perceptron)。</p>
 <p>它和逻辑回归非常像， 策略和算法部分也一致， 虽然还没讲到。现在继续讲逻辑回归。</p>
-<p>
-<div>
-<p>但用这个作为g函数有什么问题？</p>
-<input class="quiz" name="quiz" type="radio" value="一视同仁，无视远近"/><b>一视同仁，无视远近</b><br/>
-<input class="quiz" name="quiz" type="radio" value="太暴力"/><b>太暴力</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不知道，哪有那么多问题"/><b>不知道，哪有那么多问题</b><br/>
-<input class="quiz" name="quiz" type="radio" value="没法解释"/><b>没法解释</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="b0e15dc554f75c35938f89f954280758"/><input class="comments" type="hidden" value="编选项不容易啊#概率没法解释也是对的，囧"/><br/>
-</div>
-</p>
-<h2 id="g">g函数</h2>
+<h2 id="g">G函数</h2>
 <p>我们要把点到分类直线的远近考虑到，可以认为是类似权重之类的。那起码有两种方案：</p>
 <ol>
 <li>与0比较大小之外，再添加距离作权重——这个算是svm的方式， 请看<a href="http://zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">svm基础</a></li>

@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 论文, 社区发现, 研究, " />
+<meta name="keywords" content="CS, 机器学习, 人工智能, 机器学习, " />
 
-<meta property="og:title" content="社区及角色发现 "/>
-<meta property="og:url" content="http://sndnyang.github.io/Community-Role-Detection.html" />
-<meta property="og:description" content="摘要 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that defines the ..." />
+<meta property="og:title" content="机器学习练习环境配置 "/>
+<meta property="og:url" content="http://sndnyang.github.io/machine-learning-env-config.html" />
+<meta property="og:description" content="为了节省环境配置工作， 可以使用网上配置好的虚拟机——个人使用足够。 链接见： 数据科学工具箱 下载安装步骤 下载安装vbox 链接地址 下载安装vagrant 链接地址 下载和启动数据科学工具箱，使用的是命令行方式 登录，在Vagrantfile所在路径，输入： vagrant ssh 如果是windows用户， 网站推荐使用putty，但我推荐 mysy-git 给右键菜单添加git bash。 设置ipython notebook环境，补充说明： 在运行dst setup base，自定一个密码后，要exit，才能继续执行vagrant load(vagrant 命令是在windows下的，而vagrant ssh意味着已经连入虚拟机内)，不过先完成后续步骤，再exit和reload 安装额外工具包，如果采用下方网盘中的box（太老旧了），起码需要sudo pip install -U pip ipython jupyter notebook ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-06-21T15:51:58+08:00" />
-<meta name="twitter:title" content="社区及角色发现 ">
-<meta name="twitter:description" content="摘要 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that defines the ...">
+<meta property="og:article:published_time" content="2016-10-19T12:53:50+08:00" />
+<meta name="twitter:title" content="机器学习练习环境配置 ">
+<meta name="twitter:description" content="为了节省环境配置工作， 可以使用网上配置好的虚拟机——个人使用足够。 链接见： 数据科学工具箱 下载安装步骤 下载安装vbox 链接地址 下载安装vagrant 链接地址 下载和启动数据科学工具箱，使用的是命令行方式 登录，在Vagrantfile所在路径，输入： vagrant ssh 如果是windows用户， 网站推荐使用putty，但我推荐 mysy-git 给右键菜单添加git bash。 设置ipython notebook环境，补充说明： 在运行dst setup base，自定一个密码后，要exit，才能继续执行vagrant load(vagrant 命令是在windows下的，而vagrant ssh意味着已经连入虚拟机内)，不过先完成后续步骤，再exit和reload 安装额外工具包，如果采用下方网盘中的box（太老旧了），起码需要sudo pip install -U pip ipython jupyter notebook ...">
 
 
-        <title>社区及角色发现  · 懒龙谷
+        <title>机器学习练习环境配置  · 懒龙谷
 </title>
 
         <style>
@@ -89,8 +89,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/Community-Role-Detection.html">
-                        社区及角色发现  
+                    <a href="/machine-learning-env-config.html">
+                        机器学习练习环境配置  
                     </a>
                 </h1>
             </header>
@@ -101,23 +101,13 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">摘要</a><ul>
-<li><a href="#_2">基本观点</a><ul>
-<li><a href="#_3">例子</a></li>
-<li><a href="#_4">主要贡献</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_5">正文</a><ul>
-<li><a href="#_6">定义生成模型</a><ul>
-<li><a href="#_7">原模型</a></li>
-<li><a href="#_8">改进</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_9">总结</a></li>
+<li><a href="#_1">下载安装步骤</a></li>
+<li><a href="#_2">网盘下载</a></li>
+<li><a href="#_3">安装工具包</a></li>
+<li><a href="#spark">spark包</a></li>
+<li><a href="#vagrant">vagrant 简要使用</a></li>
+<li><a href="#_4">一些问题</a></li>
+<li><a href="#notebook">notebook使用</a></li>
 </ul>
 </div>
                     </nav>
@@ -126,68 +116,53 @@
 
                         
                         
-<h1 id="_1">摘要</h1>
-<p>
-<div><input class="answers" type="hidden" value="5dd93697ae229bcf46047f29173a7edf"/><input class="comments" type="hidden" value="不知道就尴尬了"/><br/>
-</div>
-</p>
-<p>再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少</p>
-<p>
-<div><input class="answers" type="hidden" value="5dd93697ae229bcf46047f29173a7edf"/><input class="comments" type="hidden" value="呃"/><br/>
-</div>
-</p>
-<p>之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。</p>
-<h2 id="_2">基本观点</h2>
+<p>为了节省环境配置工作， 可以使用网上配置好的虚拟机——个人使用足够。</p>
+<p>链接见： <a href="http://datasciencetoolbox.org/#local">数据科学工具箱</a></p>
+<h2 id="_1">下载安装步骤</h2>
 <ol>
-<li>正确地划分出社区， 能促进对点的功能、角色的检测。</li>
-<li>正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。</li>
+<li>下载安装vbox <a href="https://www.virtualbox.org/wiki/Downloads">链接地址</a></li>
+<li>下载安装vagrant <a href="http://www.vagrantup.com/downloads.html">链接地址</a></li>
+<li>下载和启动数据科学工具箱，使用的是命令行方式 </li>
+<li>登录，在Vagrantfile所在路径，输入： vagrant ssh  <br/>
+    如果是windows用户， 网站推荐使用putty，但我推荐 <a href="https://git-for-windows.github.io/">mysy-git</a> 给右键菜单添加git bash。</li>
+<li>设置ipython notebook环境，补充说明：<br/>
+    在运行dst setup base，自定一个密码后，要exit，才能继续执行vagrant load(vagrant 命令是在windows下的，而vagrant ssh意味着已经连入虚拟机内)，不过先完成后续步骤，再exit和reload</li>
+<li>安装额外工具包，如果采用下方网盘中的box（太老旧了），起码需要sudo pip install -U pip ipython jupyter notebook</li>
 </ol>
-<h3 id="_3">例子</h3>
-<p>如图：</p>
-<p>两个群、 3种角色</p>
-<h3 id="_4">主要贡献</h3>
-<p>写了三个</p>
+<h2 id="_2">网盘下载</h2>
+<p>由于网络原因，若网站上的命令下载过慢，可使用我已经下载好的文件 <a href="http://pan.baidu.com/s/1pLjKNpx">链接</a> 密码: 6jei ，使用方法:</p>
 <ol>
-<li>Studying a novel problem of integrating community and role detection in information networks. 这也能算 :(</li>
-<li>Proposing a unified probabilistic generative model that defines the link generation probability based on both community and role labels of nodes, and a Gibbs sampling based inference algorithm is proposed.</li>
-<li>在三个人工数据和两个真实数据上实验， 证明了方法对社区/功能检测 和 链接预测上的有效性-- 这也能算？</li>
+<li>vagrant init data-science-toolbox/dst // 这一步和网站上所写一致， 应该是生成Vagrantfile</li>
+<li>打开 Vagrantfile 文件，查看 config.vm.box = // 即找到对应box名字， 我这里的是 datascience</li>
+<li>vagrant.exe box add ./data-science-tool.box --name datascience //即vagrant box添加一个名字叫datascience的box， 对应路径是你下载文件所在路径</li>
+<li>在Vagrantfile中找 config.vm.network "forwarded_port", guest: 8888, host: 8888， 没有则添加这一行</li>
 </ol>
-<p>应该就第二条， 结合了社区、功能检测思想，提出了一个统一（通用）概率生成模型来定义链接生成概率， 并使用Gibbs采样算法（别人的）。</p>
-<h1 id="_5">正文</h1>
-<p>除掉实验和公式， 内容不多。</p>
-<p>没看过概率图模型的内容， 我估计以下步骤是概率图模型的内容</p>
-<p>就像MMDS(Mining Massive Datasets)课程或书里写的， 社区发现分两步：</p>
+<h2 id="_3">安装工具包</h2>
+<p>这块有点复杂， 主要是网络状况影响（没办法）， 需要自行研究各路软件的更新方式。</p>
+<p>比如我现在的网络访问 pypi就很不方便，需要设置pip 的访问路径, 参考<a href="http://blog.csdn.net/langb2014/article/details/52413834">pip配置</a> 建议使用豆瓣源</p>
+<p>然而好像还是有问题</p>
+<h2 id="spark">spark包</h2>
+<p>同理，可使用edx课程的spark.box <a href="http://pan.baidu.com/s/1o77Tiki">spark.box</a> 密码: cjpm， 带一个现成的vagrantfile，只需要box add， 即可使用。虚拟机里若缺什么工具包，请用vagrant ssh 登录安装。</p>
+<h2 id="vagrant">vagrant 简要使用</h2>
 <ol>
-<li>定义一个生成网络的生成概率模型 generative model</li>
-<li>再根据某种统计推断方法， 确定生成模型里的各个参数</li>
+<li>vagrant up，启动虚拟机，之前设置好的话， 可以用浏览器访问 localhost:指定端口 访问 ipython notebook， 也是主要的练习方式。不过 ipython notebook是否自动启动，我也不太清楚</li>
+<li>vagrant ssh，登录虚拟机，如果要安装什么新软件的话</li>
+<li>vagrant halt， 有up就要有down</li>
+<li>vagrant -h， 帮助。</li>
 </ol>
-<p>因为本文使用的统计推断算法几乎就是别人原版吧， 所以也就是在生成模型上有点新意——可能也就各种凑合。</p>
-<h2 id="_6">定义生成模型</h2>
-<h3 id="_7">原模型</h3>
-<p>基于 Mixed Membership Stochastic Blockmodel (MMSB) <a href="https://www.baidu.com/link?url=0hWpL1H88T3XJqIXC4Fs9pEC5wdWUlgHmOEpF5dMyEslDwBdz9j6ubYR4bKOOByRHsMka3Zwj5dXi1rH4etnbfPEzg8_LFwC_rl6zoDw6WsLqVynPUYG3axemysoEG7Nuk9O4cDs8gEbEQ3rfau3LK&amp;wd=&amp;eqid=bed192060008ba3300000003576903b6">4</a></p>
-<p>MMSB的连接生成过程（边生成）如下：</p>
-<div class="highlight"><pre><span></span>For each node i:
-    - Draw a group membership distribution vector πi ～ Dirichlet(α)
-
-For each node pair (i, j):
-    - Draw node i’s latent group Zij ～ Multinomial(πi)
-    - Draw node j’s latent group Zji ～ Multinomial(πj)
-    - Draw the link Eij ～ Bernoulli(SZij ;Zji)
+<h2 id="_4">一些问题</h2>
+<p>data-science-toolbox升级ipython 到 jupyter后，外部访问会有问题， 网站的命令不管用了，要使用</p>
+<div class="highlight"><pre><span></span>jupyter notebook --no-browser --ip=0.0.0.0
 </pre></div>
-<p>S: group-group interaction probability matrix </p>
-<h3 id="_8">改进</h3>
-<p>Mixed Membership Community and Role (MMCR) Model</p>
-<p>大概就是给点多加一个role功能的向量</p>
-<h1 id="_9">总结</h1>
-<p>本篇或许是比较新颖地把原本不相关的社区发现和功能检测进行了关联--假设他们是第一个吧。</p>
-<p>但给我感觉比较水， </p>
-<ol>
-<li>重复地讲那简单的思想原理——不过其他论文也经常重复当强调</li>
-<li>对整个过程用了种理所当然的描述——the collapsed Gibbs sampling algorithm is straightforward。不得不去看Gibbs这个算法的论文。</li>
-<li>伪代码也没有</li>
-<li>实验数据非常小。 百来个点， 效果好了， 性能没实验， 复杂度说是平方</li>
-<li>感觉英文写作水平不是很好，不知道是真的， 还是我英文差。</li>
-</ol>
+<p>最好是在 Vagrantfile 里添加 </p>
+<div class="highlight"><pre><span></span>  config.vm.provision "shell", run: "always", inline: &lt;&lt;-SHELL
+    jupyter notebook --notebook-dir=/vagrant/notebook --no-browser --ip=0.0.0.0 &amp;
+  SHELL
+</pre></div>
+<p>这样应该能在vagrant up时，自动运行 jupyter notebook了</p>
+<h2 id="notebook">notebook使用</h2>
+<p>打开浏览器后， 会有上传功能， ipynb和其他文件都可以在这里上传</p>
+<p>配置部分大概这么些</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -204,7 +179,7 @@ For each node pair (i, j):
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/Community-Role-Detection.html#disqus_thread">
+                href="http://sndnyang.github.io/machine-learning-env-config.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -214,8 +189,8 @@ For each node pair (i, j):
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'Community-Role-Detection.html';
-    var disqus_url = 'http://sndnyang.github.io/Community-Role-Detection.html';
+        var disqus_identifier = 'machine-learning-env-config.html';
+    var disqus_url = 'http://sndnyang.github.io/machine-learning-env-config.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -237,19 +212,19 @@ For each node pair (i, j):
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-06-21T15:51:58+08:00">六月 21, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-10-19T12:53:50+08:00">十月 19, 2016</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#yan-jiu-ref">研究</a>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
                             <span>26</span>
 </a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>14</span>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>6</span>
 </a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>9</span>
+                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
+                            <span>8</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

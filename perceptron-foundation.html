@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="CS, 机器学习, 人工智能, 机器学习, " />
+
+<meta property="og:title" content="感知器基础 "/>
+<meta property="og:url" content="http://sndnyang.github.io/perceptron-foundation.html" />
+<meta property="og:description" content="说明 本文参考以下内容： 李航《统计学习方法》第2章 感知机 没有参考但可以参考 林轩田《机器学习基石》第二单元？ 有问题、建议，欢迎讨论。 再说明 因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。 如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。 于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。 本段我提到了本书和门课程？ submit 就看你对这些名字的印象了， 涉及书、 公开课和MOOC。 李菊福的开头不容易 首先，假设读者了解 监督学习 ..." />
+<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2016-10-19T17:53:50+08:00" />
+<meta name="twitter:title" content="感知器基础 ">
+<meta name="twitter:description" content="说明 本文参考以下内容： 李航《统计学习方法》第2章 感知机 没有参考但可以参考 林轩田《机器学习基石》第二单元？ 有问题、建议，欢迎讨论。 再说明 因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。 如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。 于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。 本段我提到了本书和门课程？ submit 就看你对这些名字的印象了， 涉及书、 公开课和MOOC。 李菊福的开头不容易 首先，假设读者了解 监督学习 ...">
+
+
+        <title>感知器基础  · 懒龙谷
+</title>
+
+        <style>
+            body { padding-top: 50px; padding-bottom: 10px; }
+        </style>
+
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+
+		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="/">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action=/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+
+
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+		    backToTop();
+		});
+      
+    	</script>
+        
+        <div class="hint">
+            <ul class="flashes">
+            </ul>
+        </div>
+        
+        <article>
+            <header class="page-header span12 text-center">
+                <h1>
+                    <a href="/perceptron-foundation.html">
+                        感知器基础  
+                    </a>
+                </h1>
+            </header>
+
+            <div class="row-fluid">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">说明</a><ul>
+<li><a href="#_2">再说明</a></li>
+</ul>
+</li>
+<li><a href="#_3">李菊福的开头不容易</a><ul>
+<li><a href="#_4">从最简单的问题出发</a><ul>
+<li><a href="#_5">这些面是什么？</a></li>
+<li><a href="#_6">模型的思考</a></li>
+<li><a href="#_7">为什么？</a></li>
+<li><a href="#_8">简单原则</a></li>
+<li><a href="#_9">模型终于出来了</a></li>
+<li><a href="#_10">最终模型</a></li>
+<li><a href="#_11">抽象定义</a></li>
+</ul>
+</li>
+<li><a href="#_12">策略</a></li>
+</ul>
+</li>
+<li><a href="#_13">编程实践</a></li>
+<li><a href="#_14">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
+
+                        
+                        
+<h1 id="_1">说明</h1>
+<p>本文参考以下内容：</p>
+<ol>
+<li>李航《统计学习方法》第2章 感知机</li>
+<li>没有参考但可以参考 林轩田《机器学习基石》第二单元？</li>
+</ol>
+<p>有问题、建议，欢迎讨论。</p>
+<h2 id="_2">再说明</h2>
+<p>因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。</p>
+<p>如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。</p>
+<p>于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。</p>
+<p>
+<div>
+<p>本段我提到了<input class="quiz" type="text"/>本书和<input class="quiz" type="text"/>门课程？</p>
+<br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="c87599df25462e48c9e070d90373b1ee"/><input class="comments" type="hidden" value="仅限这一段，上一段不算"/><br/>
+</div>
+</p>
+<p>就看你对这些名字的印象了， 涉及书、 公开课和MOOC。</p>
+<h1 id="_3">李菊福的开头不容易</h1>
+<p>首先，假设读者了解 监督学习、分类问题等概念(见<a href="">机器学习的类型#todo</a>)， 另外也假设了解 <a href="">统计学习三要素#todo</a>，我是在李航《统计学习方法》看到的，其他书是不是基本这么个描述方式，不确认。</p>
+<p>回顾下， 三要素：</p>
+<ol>
+<li>模型。建的什么模，即目标条件概率分布或决策函数。</li>
+<li>策略。选择、评估模型好坏的准则，一般用损失函数、风险函数等。</li>
+<li>算法。具体的最优化求解算法，比如线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
+</ol>
+<p>如果直接上结论，那我就没办法搞这么个网站，专门来写这个教程了，别人知识的深度广度、语言的精炼到位都甩我十八条街，我唯一的优势就在于，要理清这一切的来源，给出这条关系链。</p>
+<p>
+<div>
+<p>探索世界要从什么开始？</p>
+<input class="quiz" name="quiz" type="radio" value="算法"/><b>算法</b><br/>
+<input class="quiz" name="quiz" type="radio" value="数据"/><b>数据</b><br/>
+<input class="quiz" name="quiz" type="radio" value="策略"/><b>策略</b><br/>
+<input class="quiz" name="quiz" type="radio" value="模型"/><b>模型</b><br/>
+<input class="quiz" name="quiz" type="radio" value="问题"/><b>问题</b><br/>
+<input class="quiz" name="quiz" type="radio" value="哲学"/><b>哲学</b><br/>
+<input class="quiz" name="quiz" type="radio" value="方法"/><b>方法</b><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="5dc99f6efe53adda80974655b26b8df8"/><input class="comments" type="hidden" value="临时觉得该有这么个问题，但是答案没想好~~~"/><br/>
+</div>
+</p>
+<p>我想改填空，怕直接卡死在这里，那就尴尬了。不然从你的回答里也许也能了解下你自己。</p>
+<h2 id="_4">从最简单的问题出发</h2>
+<p>反正我是觉得吧，有好奇心、有需求，就会提出问题， 才会想办法去解决问题。不过，好奇心和需求只是准备条件， 提出问题</p>
+<p>比如区分男女的二类分类问题，二类分类是最简单的分类问题——多类一般在它基础之上的改进。问题要求很明显，根据输入的实例的特征、属性值， 输出该实例的类别，取0、1或-1、+1。</p>
+<p>这个抽象过程应该比较显然了，不再另行解释。</p>
+<p>假设每个人（个体）在高维空间中都是一个点，</p>
+<p>
+<div>
+<p>那么我们可能用什么来划分男女呢？</p>
+<input class="quiz" name="quiz" type="checkbox" value="超平面"/><b>超平面</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超直线"/><b>超直线</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超曲线"/><b>超曲线</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超曲面"/><b>超曲面</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="超球面"/><b>超球面</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="其他不规则的面"/><b>其他不规则的面</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="方便面"/><b>方便面</b><br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="e66efe43095565ca456b1e19c74a8f5d"/><input class="comments" type="hidden" value="有些项不知道有没有这东西，反正空间里线肯定不能分开两堆点的，所以是面"/><br/>
+</div>
+</p>
+<h3 id="_5">这些面是什么？</h3>
+<p>我们有这么多种面，方便面、干脆面，不，超平面，超曲面，超球面，超不规则面，可能可以把男女分成两堆。</p>
+<p>
+<div>
+<p>所以，这些面是什么？<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<input class="answers" type="hidden" value="8000f187a5d4f41f098c85c81d0d83d7"/><input class="comments" type="hidden" value="我们要做什么？机器学习、统计学习里的概念#前面讲过的，而且从问题开始，下一步就是建模啊，所以呢？"/><br/>
+</div>
+</p>
+<h3 id="_6">模型的思考</h3>
+<p>我们有这么多种面， 三千碗面，只吃一碗， 就是我们要学一个模型， 一个目标条件概率分布或决策函数。种类这么多，是因为模型的假设空间(hypothesis space)包含所有可能的条件概率分布或决策函数，也就是说空间里有无数种面，每种面还有无数个可能。</p>
+<p>我们肯定是要找到足够好的面——最好吃的面你知道是什么吗？有些人觉得这个好吃，有些人觉得那个好——所以找足够好的面，一个就够。</p>
+<p>
+<div>
+<p>选择就要有个原则， 超平面，超曲面，超球面，超不规则面， 你会选<input class="quiz" type="text"/>？</p>
+<br/>
+<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<input class="answers" type="hidden" value="d84827ccb4f57bee6b98652c0cca4c2a"/><input class="comments" type="hidden" value="我觉得这个原则我应该没理解错"/><br/>
+</div>
+</p>
+<h3 id="_7">为什么？</h3>
+<p>
+<div>
+<p>为什么选超平面，你的原则是<input class="quiz" type="text"/>?</p>
+<br/>
+<button onclick="checkQuiz(this, 6)">submit</button><br/>
+<input class="answers" type="hidden" value="7a416554ec3f477fcdfc3bc737f12925"/><input class="comments" type="hidden" value="答案中要有那一个字，超平面相对其他几个是最什么的？"/><br/>
+</div>
+</p>
+<h3 id="_8">简单原则</h3>
+<p>没错， 有用、有效之外， 简单原则重要，没事搞那么复杂不合适，除非是发现需要这样做，比如现在量子力学和相对论就没能合并成一个更简单的理论。</p>
+<p>
+<div>
+<p>根据简单原则选择超平面，那对应的决策函数或条件概率分布应该是什么样的？</p>
+<input class="quiz" name="quiz" type="radio" value="一次"/><b>一次</b><br/>
+<input class="quiz" name="quiz" type="radio" value="二次"/><b>二次</b><br/>
+<input class="quiz" name="quiz" type="radio" value="指数"/><b>指数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="n次"/><b>n次</b><br/>
+<input class="quiz" name="quiz" type="radio" value="对数"/><b>对数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="开方"/><b>开方</b><br/>
+<button onclick="checkQuiz(this, 7)">submit</button><br/>
+<input class="answers" type="hidden" value="06af55ea8dcc536c0c94d2d894c28e07"/><input class="comments" type="hidden" value="超平面的各个参数分量是什么关系？"/><br/>
+</div>
+</p>
+<h3 id="_9">模型终于出来了</h3>
+<p>不管绕了多远， 总之我们现在打算根据简单原则先弄个线性模型， 即 y=w*x+b</p>
+<p>
+<div>
+<p>有问题吗?<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 8)">submit</button><br/>
+<input class="answers" type="hidden" value="cc4ad2fd27e24ff9191e254d8576d2ba"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><br/>
+</div>
+</p>
+<h3 id="_10">最终模型</h3>
+<p>那简单，y=w<em>x+b 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w</em>x+b的正负，写作：</p>
+<p><span class="math">\($
+f(x) = sign(w*x+b) = <div class="math">\begin{cases}
++1&amp; {w*x+b \ge 0}\\
+-1&amp; {w*x+b &lt; 0}
+\end{cases}</div>
+$Todo\)</span></p>
+<p>
+<div>
+<p>下一步是？</p>
+<input class="quiz" name="quiz" type="radio" value="选策略"/><b>选策略</b><br/>
+<input class="quiz" name="quiz" type="radio" value="写算法"/><b>写算法</b><br/>
+<input class="quiz" name="quiz" type="radio" value="给定义"/><b>给定义</b><br/>
+<button onclick="checkQuiz(this, 9)">submit</button><br/>
+<input class="answers" type="hidden" value="6896ecf3f01bf7bb735937bb14cbaf35"/><input class="comments" type="hidden" value="模型样子知道了，需要给名字了，特性也要明确分析下"/><br/>
+</div>
+</p>
+<h3 id="_11">抽象定义</h3>
+<p>上面得到的 f(x) = sign(w*x+b)， 可以用下图表示：</p>
+<p><img alt="感知器" src="http://p11.qhimg.com/t01a0d86bec3b62c499.png"/> 或 <img alt="2" src="http://img.ph.126.net/Mw41Nua9-AOf3YtHtBID8g==/2359604729765843658.png"/></p>
+<p>学术界就把这么个模型叫做 感知器(Perceptron)，又叫感知机，我更习惯前者。</p>
+<p>我们来明确下，感知器是做什么的？</p>
+<ol>
+<li>看数学表达式，可知， 是二类（正或负）分类的线性（w*x+b)分类模型</li>
+<li>输入是实例的特征向量——特征、属性组成的向量</li>
+<li>输出是类别，取+1或-1</li>
+<li>对应空间中将实例划分为正负两类的超平面</li>
+</ol>
+<p>
+<div>
+<p>模型部分讲完了吗？</p>
+<input class="quiz" name="quiz" type="radio" value="完了"/><b>完了</b><br/>
+<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
+<button onclick="checkQuiz(this, 10)">submit</button><br/>
+<input class="answers" type="hidden" value="6b2dfe066533275f45f9b00f49e0bc5d"/><input class="comments" type="hidden" value="让你猜"/><br/>
+</div>
+</p>
+<h2 id="_12">策略</h2>
+<p>累了， 暂时不死了</p>
+<h1 id="_13">编程实践</h1>
+<p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习#Todo， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/perceptron.ipynb">链接下载地址</a> </p>
+<p>有ipython notebook的朋友知道如何使用。</p>
+<p>没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>
+<p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a> </p>
+<h1 id="_14">恭喜</h1>
+<p>本篇到此为止， 复杂形式后续再讲——等我看懂先。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                        
+                        <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
+                    <a href="#" class="bds_more" data-cmd="more"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                    <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+                </div>
+
+                    <section>
+<p id="comment-message">this man is lazy, nothing left </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://sndnyang.github.io/perceptron-foundation.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sndnyang';
+        var disqus_identifier = 'perceptron-foundation.html';
+    var disqus_url = 'http://sndnyang.github.io/perceptron-foundation.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+                    <hr/>
+                </div>
+                <div class="span2" style="float:right;font-size:0.9em;">
+                    <h4>Published</h4>
+                    <time pubdate="pubdate" datetime="2016-10-19T17:53:50+08:00">十月 19, 2016</time>
+                    <h4>Category</h4>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <h4>Tags</h4>
+                    <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#cs-ref">CS
+                            <span>29</span>
+</a></li>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>7</span>
+</a></li>
+                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
+                            <span>9</span>
+</a></li>
+                    </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+                    <h4>Stay in Touch</h4>
+                    <a href="//weibo.com/u/2405149384" title="My Weibo
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                    <a href="//github.com/sndnyang" title="My Github Profile" class="am-icon-btn am-icon-github" target="_blank">
+                    </a>
+                    <a href="//blog.csdn.net/sndnyangd" title="My CSDN
+                        Profile" class="am-icon-btn am-icon-weibo" target="_blank">
+                    </a>
+                </div>
+            </div>
+        </article>
+                </div>
+            </div>
+        </div>
+        <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+        <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'sndnyang';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+        <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-74494551-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </body>
+</html>

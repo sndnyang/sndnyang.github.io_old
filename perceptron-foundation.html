@@ -105,22 +105,43 @@
 <li><a href="#_2">再说明</a></li>
 </ul>
 </li>
-<li><a href="#_3">李菊福的开头不容易</a><ul>
-<li><a href="#_4">从最简单的问题出发</a><ul>
-<li><a href="#_5">这些面是什么？</a></li>
-<li><a href="#_6">模型的思考</a></li>
-<li><a href="#_7">为什么？</a></li>
-<li><a href="#_8">简单原则</a></li>
-<li><a href="#_9">模型终于出来了</a></li>
-<li><a href="#_10">最终模型</a></li>
-<li><a href="#_11">抽象定义</a></li>
+<li><a href="#_3">李菊福的开头不容易</a></li>
+<li><a href="#_4">模型</a><ul>
+<li><a href="#_5">从最简单的问题出发</a></li>
+<li><a href="#_6">这些面是什么？</a></li>
+<li><a href="#_7">模型的思考</a></li>
+<li><a href="#_8">为什么？</a></li>
+<li><a href="#_9">简单原则</a></li>
+<li><a href="#_10">模型终于出来了</a></li>
+<li><a href="#_11">最终模型</a><ul>
+<li><a href="#_12">抽象定义</a></li>
 </ul>
 </li>
-<li><a href="#_12">策略</a></li>
 </ul>
 </li>
-<li><a href="#_13">编程实践</a></li>
-<li><a href="#_14">恭喜</a></li>
+<li><a href="#_13">策略</a><ul>
+<li><a href="#ok">OK？</a><ul>
+<li><a href="#_14">推导距离</a></li>
+</ul>
+</li>
+<li><a href="#_15">一大波结论来袭</a><ul>
+<li><a href="#_16">一次就好</a></li>
+</ul>
+</li>
+<li><a href="#_17">最终的策略</a><ul>
+<li><a href="#_18">补充可分性</a></li>
+<li><a href="#_19">不可分怎么办？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_20">算法</a><ul>
+<li><a href="#_21">算法收敛性</a></li>
+<li><a href="#dual">算法对偶形式(dual)</a></li>
+</ul>
+</li>
+<li><a href="#_22">编程实践</a></li>
+<li><a href="#_23">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -129,14 +150,14 @@
 
                         
                         
-<h1 id="_1">说明</h1>
+<h2 id="_1">说明</h2>
 <p>本文参考以下内容：</p>
 <ol>
 <li>李航《统计学习方法》第2章 感知机</li>
 <li>没有参考但可以参考 林轩田《机器学习基石》第二单元？</li>
 </ol>
 <p>有问题、建议，欢迎讨论。</p>
-<h2 id="_2">再说明</h2>
+<h3 id="_2">再说明</h3>
 <p>因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。</p>
 <p>如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。</p>
 <p>于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。</p>
@@ -154,8 +175,8 @@
 <p>回顾下， 三要素：</p>
 <ol>
 <li>模型。建的什么模，即目标条件概率分布或决策函数。</li>
-<li>策略。选择、评估模型好坏的准则，一般用损失函数、风险函数等。</li>
-<li>算法。具体的最优化求解算法，比如线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
+<li>策略。即选择、评估模型好坏的准则。</li>
+<li>算法。即具体的最优化求解算法。 常用算法有线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
 </ol>
 <p>如果直接上结论，那我就没办法搞这么个网站，专门来写这个教程了，别人知识的深度广度、语言的精炼到位都甩我十八条街，我唯一的优势就在于，要理清这一切的来源，给出这条关系链。</p>
 <p>
@@ -172,15 +193,17 @@
 <input class="answers" type="hidden" value="5dc99f6efe53adda80974655b26b8df8"/><input class="comments" type="hidden" value="临时觉得该有这么个问题，但是答案没想好~~~"/><br/>
 </div>
 </p>
-<p>我想改填空，怕直接卡死在这里，那就尴尬了。不然从你的回答里也许也能了解下你自己。</p>
-<h2 id="_4">从最简单的问题出发</h2>
-<p>反正我是觉得吧，有好奇心、有需求，就会提出问题， 才会想办法去解决问题。不过，好奇心和需求只是准备条件， 提出问题</p>
+<p>我想改填空，怕直接卡死在这里，那就尴尬了。不然从你各种回答记录里也许也能了解更真实的你自己。</p>
+<h1 id="_4">模型</h1>
+<p>反正我是觉得吧，有好奇心、有需求，就会提出问题， 才会想办法去解决问题。不过，好奇心和需求只是准备条件， 提出问题才是真正的开始。</p>
+<p>从问题开始，设定模型、完成建模，所以我们现在要先分析三大要素里的<strong>模型</strong>。</p>
+<h3 id="_5">从最简单的问题出发</h3>
 <p>比如区分男女的二类分类问题，二类分类是最简单的分类问题——多类一般在它基础之上的改进。问题要求很明显，根据输入的实例的特征、属性值， 输出该实例的类别，取0、1或-1、+1。</p>
 <p>这个抽象过程应该比较显然了，不再另行解释。</p>
-<p>假设每个人（个体）在高维空间中都是一个点，</p>
+<p>假设每个人（个体）在高维空间中都是一个点，那么我们 <strong>可能</strong> 用什么来划分男女呢</p>
 <p>
 <div>
-<p>那么我们可能用什么来划分男女呢？</p>
+<p>？</p>
 <input class="quiz" name="quiz" type="checkbox" value="超平面"/><b>超平面</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="超直线"/><b>超直线</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="超曲线"/><b>超曲线</b><br/>
@@ -192,8 +215,8 @@
 <input class="answers" type="hidden" value="e66efe43095565ca456b1e19c74a8f5d"/><input class="comments" type="hidden" value="有些项不知道有没有这东西，反正空间里线肯定不能分开两堆点的，所以是面"/><br/>
 </div>
 </p>
-<h3 id="_5">这些面是什么？</h3>
-<p>我们有这么多种面，方便面、干脆面，不，超平面，超曲面，超球面，超不规则面，可能可以把男女分成两堆。</p>
+<h3 id="_6">这些面是什么？</h3>
+<p>我们有这么多种面，方便面、干脆面，不，超平面，超曲面，超球面，超不规则面， <strong>可能可以</strong> 把男女分成两堆。</p>
 <p>
 <div>
 <p>所以，这些面是什么？<input class="quiz" type="text"/></p>
@@ -202,7 +225,7 @@
 <input class="answers" type="hidden" value="8000f187a5d4f41f098c85c81d0d83d7"/><input class="comments" type="hidden" value="我们要做什么？机器学习、统计学习里的概念#前面讲过的，而且从问题开始，下一步就是建模啊，所以呢？"/><br/>
 </div>
 </p>
-<h3 id="_6">模型的思考</h3>
+<h3 id="_7">模型的思考</h3>
 <p>我们有这么多种面， 三千碗面，只吃一碗， 就是我们要学一个模型， 一个目标条件概率分布或决策函数。种类这么多，是因为模型的假设空间(hypothesis space)包含所有可能的条件概率分布或决策函数，也就是说空间里有无数种面，每种面还有无数个可能。</p>
 <p>我们肯定是要找到足够好的面——最好吃的面你知道是什么吗？有些人觉得这个好吃，有些人觉得那个好——所以找足够好的面，一个就够。</p>
 <p>
@@ -213,7 +236,7 @@
 <input class="answers" type="hidden" value="d84827ccb4f57bee6b98652c0cca4c2a"/><input class="comments" type="hidden" value="我觉得这个原则我应该没理解错"/><br/>
 </div>
 </p>
-<h3 id="_7">为什么？</h3>
+<h3 id="_8">为什么？</h3>
 <p>
 <div>
 <p>为什么选超平面，你的原则是<input class="quiz" type="text"/>?</p>
@@ -222,7 +245,7 @@
 <input class="answers" type="hidden" value="7a416554ec3f477fcdfc3bc737f12925"/><input class="comments" type="hidden" value="答案中要有那一个字，超平面相对其他几个是最什么的？"/><br/>
 </div>
 </p>
-<h3 id="_8">简单原则</h3>
+<h3 id="_9">简单原则</h3>
 <p>没错， 有用、有效之外， 简单原则重要，没事搞那么复杂不合适，除非是发现需要这样做，比如现在量子力学和相对论就没能合并成一个更简单的理论。</p>
 <p>
 <div>
@@ -237,7 +260,7 @@
 <input class="answers" type="hidden" value="06af55ea8dcc536c0c94d2d894c28e07"/><input class="comments" type="hidden" value="超平面的各个参数分量是什么关系？"/><br/>
 </div>
 </p>
-<h3 id="_9">模型终于出来了</h3>
+<h3 id="_10">模型终于出来了</h3>
 <p>不管绕了多远， 总之我们现在打算根据简单原则先弄个线性模型， 即 y=w*x+b</p>
 <p>
 <div>
@@ -247,14 +270,14 @@
 <input class="answers" type="hidden" value="cc4ad2fd27e24ff9191e254d8576d2ba"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><br/>
 </div>
 </p>
-<h3 id="_10">最终模型</h3>
+<h2 id="_11">最终模型</h2>
 <p>那简单，y=w<em>x+b 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w</em>x+b的正负，写作：</p>
-<p><span class="math">\($
-f(x) = sign(w*x+b) = <div class="math">\begin{cases}
+<div class="math">$$
+f(x) = sign(w*x+b) = \begin{cases}
 +1&amp; {w*x+b \ge 0}\\
 -1&amp; {w*x+b &lt; 0}
-\end{cases}</div>
-$Todo\)</span></p>
+\end{cases}
+$$</div>
 <p>
 <div>
 <p>下一步是？</p>
@@ -265,7 +288,7 @@ $Todo\)</span></p>
 <input class="answers" type="hidden" value="6896ecf3f01bf7bb735937bb14cbaf35"/><input class="comments" type="hidden" value="模型样子知道了，需要给名字了，特性也要明确分析下"/><br/>
 </div>
 </p>
-<h3 id="_11">抽象定义</h3>
+<h3 id="_12">抽象定义</h3>
 <p>上面得到的 f(x) = sign(w*x+b)， 可以用下图表示：</p>
 <p><img alt="感知器" src="http://p11.qhimg.com/t01a0d86bec3b62c499.png"/> 或 <img alt="2" src="http://img.ph.126.net/Mw41Nua9-AOf3YtHtBID8g==/2359604729765843658.png"/></p>
 <p>学术界就把这么个模型叫做 感知器(Perceptron)，又叫感知机，我更习惯前者。</p>
@@ -285,15 +308,104 @@ $Todo\)</span></p>
 <input class="answers" type="hidden" value="6b2dfe066533275f45f9b00f49e0bc5d"/><input class="comments" type="hidden" value="让你猜"/><br/>
 </div>
 </p>
-<h2 id="_12">策略</h2>
-<p>累了， 暂时不死了</p>
-<h1 id="_13">编程实践</h1>
-<p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习#Todo， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/perceptron.ipynb">链接下载地址</a> </p>
+<h1 id="_13">策略</h1>
+<p>上面说了， 感知机学习是求一个将训练集划分成两部分（两类）的超平面，最好当然是要把正负实例点完全正确分开，确定感知机器参数 w，b。</p>
+<p>根据定义、目标--把正负实例点完全正确分开，</p>
+<p>
+<div>
+<p>损失函数可以选择为?</p>
+<input class="quiz" name="quiz" type="radio" value="误分类点的总数"/><b>误分类点的总数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离"/><b>误分类点到超平面的总距离</b><br/>
+<input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离"/><b>所有点到超平面的总距离</b><br/>
+<input class="quiz" name="quiz" type="radio" value="误分类点距离平方和"/><b>误分类点距离平方和</b><br/>
+<button onclick="checkQuiz(this, 11)">submit</button><br/>
+<input class="answers" type="hidden" value="7a82378ec3466c2a0b42ac16c76b000b"/><input class="comments" type="hidden" value="没话说"/><br/>
+</div>
+</p>
+<h2 id="ok">OK？</h2>
+<p>显然可以用<strong>误分类点的总数</strong>，表达式未记录，自行领会。</p>
+<p>但大家<strong>注意</strong>，在机器学习对模型进行优化时，一般采用导数、偏导、梯度一类的概念，找损失函数的极值点，所以，<em>找极值点自然是要在连续可导函数上进行的</em>， 离散、不可导的函数就尽量不要来凑热闹，虽然它们可能很直观， 这个应该是机器学习、最优化里一个小小的准则了。</p>
+<p>很显然， 误分数点总数就不是w,b的连续可导函数， 不能采用， 所以问题又来了，</p>
+<p>
+<div>
+<p>损失函数可以选择为?</p>
+<input class="quiz" name="quiz" type="radio" value="误分类点的总数"/><b>误分类点的总数</b><br/>
+<input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离"/><b>误分类点到超平面的总距离</b><br/>
+<input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离"/><b>所有点到超平面的总距离</b><br/>
+<input class="quiz" name="quiz" type="radio" value="误分类点距离平方和"/><b>误分类点距离平方和</b><br/>
+<button onclick="checkQuiz(this, 12)">submit</button><br/>
+<input class="answers" type="hidden" value="f40b68f2e649ad651a2aedf95f55fd47"/><input class="comments" type="hidden" value="简单原则还记得吗"/><br/>
+</div>
+</p>
+<h3 id="_14">推导距离</h3>
+<p>好，那我们来推导距离的表达式——并没有，因为是中学的知识，虽然没推过或时间太久，都会造成没有深刻的印象，但还是请读者自己推导任一点$x_0到超平面S的距离。</p>
+<p>
+<div>
+<p>你推导出来了吗？</p>
+<input class="quiz" name="quiz" type="radio" value="OK"/><b>OK</b><br/>
+<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
+<button onclick="checkQuiz(this, 13)">submit</button><br/>
+<input class="answers" type="hidden" value="b4ebe3f519ec51d5bd5fc832345135db"/><input class="comments" type="hidden" value="无所谓啦"/><br/>
+</div>
+</p>
+<h2 id="_15">一大波结论来袭</h2>
+<p><span class="math">\(x_i\)</span> 到超平面的距离:<span class="math">\(\frac{1}{||w||}|w*x_i+b|, ||w||\)</span>是w的<span class="math">\(L_2\)</span>范数。</p>
+<p>去掉绝对值，需要乘上<span class="math">\(y_i\)</span>(这算常用技巧不？)， 因为对误分类数据而言， 乘上y_i一定会 &lt; 0，还得再取个反，乘上-1。 最后求所有误分类点的总距离为：</p>
+<div class="math">$$-\frac{1}{||w||}\sum \limits_{x_i \in M} y_i(w*x_i + b)$$</div>
+<p>
+<div>
+<p>完了吗？</p>
+<input class="quiz" name="quiz" type="radio" value="可以了"/><b>可以了</b><br/>
+<input class="quiz" name="quiz" type="radio" value="还有"/><b>还有</b><br/>
+<button onclick="checkQuiz(this, 14)">submit</button><br/>
+<input class="answers" type="hidden" value="8a5139fcfd5cc59917f78a2d83ca0111"/><input class="comments" type="hidden" value="分子分母都有w，不能忍"/><br/>
+</div>
+</p>
+<h3 id="_16">一次就好</h3>
+<p>看<a href="http://www.zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">SVM-最大间隔</a>时会发现，几乎一样的式子，但下一步就大相径庭了。</p>
+<p>所以这一步算是最难解释清楚的， 所以我不知道编写什么引导问题。</p>
+<p>其实是利用了线性函数（方程？）乘常数不变的性质。因为我们求的实际上还是超平面，即<span class="math">\(w*x+b=0\)</span>, 我们知道 <span class="math">\(2(w*x+b)=0, (w*x+b)/w = 0\)</span>等表示的都是同一个方程，所以我们可以将 <span class="math">\(||w||\)</span> 看成常数1， 反正都能变换成常数1。</p>
+<p>所以， 我们把<span class="math">\(||w||\)</span>固定看作1， 就等于是忽略掉了分母——SVM方案就是搞分子，更难理解。</p>
+<p>习惯上会觉得b也应该受影响，如果把b看作是<span class="math">\(w_0*x_0\)</span> 就没这个问题了。</p>
+<p>另习惯上，我们也会认为 y=w*x+b，那||w||变换，y也会变，但这里二者并不相关。</p>
+<h2 id="_17">最终的策略</h2>
+<p>感知机<span class="math">\(sign(w*x+b)\)</span>学习的损失函数定义为 <span class="math">\(L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)\)</span></p>
+<p>是否是w,b的连续可导函数， 书上也只是概念上的分析，并没有推导、证明，反正它就是。</p>
+<p>感知机学习的策略就是求:</p>
+<div class="math">$$\min_{w,b} L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)$$</div>
+<h3 id="_18">补充可分性</h3>
+<p>显然， 能否没有误分类点，即损失函数值为0，关键还看数据集， 如果数据集能完全正确地划分开，那就是有可分性，如果能用超平面S完全正确地划分到两侧，那就是线性可分性——这个定义确实很明显。</p>
+<p>
+<div>
+<p>你觉得数据集有线性可分性的可能性高吗？</p>
+<input class="quiz" name="quiz" type="radio" value="高"/><b>高</b><br/>
+<input class="quiz" name="quiz" type="radio" value="低"/><b>低</b><br/>
+<button onclick="checkQuiz(this, 15)">submit</button><br/>
+<input class="answers" type="hidden" value="19ac677ac052e0736310f8b475cededa"/><input class="comments" type="hidden" value="嘿嘿，想想就知道不可能"/><br/>
+</div>
+</p>
+<h3 id="_19">不可分怎么办？</h3>
+<p>凉拌！ 损失函数迭代次数求最小,或见下面的算法部分。</p>
+<h1 id="_20">算法</h1>
+<p>绕了大圈，终于开始搞算法了——计算机专业一般都听说过 程序=数据结构+算法，但在机器学习中，模型选定很难，策略选择一开始好说，但转换就麻烦了，反倒是最后的算法部分，很多都使用梯度下降法(stochastic gradient descent)，要么像SVM直接说凸二次规划问题，算法细节上的缺失让我经常有名不副实的感觉 8-)</p>
+<p>感知机学习的算法也是用的<a href="">随机梯度下降法#todo</a>， 原始形式：</p>
+<ol>
+<li>选取初值$w_0,b_0</li>
+<li>在训练集中选取数据$(x_i,y_i)</li>
+<li>如果 $y_i(w*x_i+b) \le 0w = w + \eta y_i x_i \ b = b + \eta y_i</li>
+<li>转至（2），直到训练集中没有误分类点（或可分性未知情况下，迭代若干次，选误分类最小的）</li>
+</ol>
+<h2 id="_21">算法收敛性</h2>
+<p><a href="">收敛性部分#todo</a> 暂缺</p>
+<h2 id="dual">算法对偶形式(dual)</h2>
+<p>意义不是很看得懂，也空缺。</p>
+<h1 id="_22">编程实践</h1>
+<p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/perceptron.ipynb">链接下载地址</a> </p>
 <p>有ipython notebook的朋友知道如何使用。</p>
 <p>没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>
 <p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a> </p>
-<h1 id="_14">恭喜</h1>
-<p>本篇到此为止， 复杂形式后续再讲——等我看懂先。</p>
+<h1 id="_23">恭喜</h1>
+<p>本篇到此为止， 希望您能有所收获。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

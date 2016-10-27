@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="机器学习定义 "/>
 <meta property="og:url" content="http://sndnyang.github.io/machine-learning-define.html" />
-<meta property="og:description" content="什么是机器学习 定义： 从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率) 为什么使用机器学习 规则难定义或未知 程序编写复杂 从数据中学习中相对容易 使用情形示例： 无法人工编写出全部规则 (规则未可尽知) 无法准确定义 (规则难以言表) 快速决策 面向大量用户 所以 机器学习是编写复杂规则系统的一种替代方法" />
+<meta property="og:description" content="什么是机器学习 名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看别人写好的概念、定义说WTF，死记别人写好的定义肯定非常无聊，我们学着自己去抽象、总结，这就是锻炼。 我们来看名字，机器没什么说的，也可以说是里面的计算机程序、系统；学习呢？一个过程或一件事，那就有几大要素， 它们是? 时间 地点 人物 起因 经过 结果 submit 套路、模板作文 既然是起因、经过、结果， 来分析下 起因是什么？某个方面不够好； 结果？ 就是希望某个方面得到提高，这是目标，不一定真做到，邯郸学步还退步了。 经过。 这就是从哪里学，怎么学的问题。 从哪里学？从人这里学————肯定没错，就算病毒能变异或以后程序自己能编程序了，但母程序不还是人编的？但人只是引导、指导作用，有学习能力的机器肯定是“自学 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-04-28T00:00:00+08:00" />
 <meta name="twitter:title" content="机器学习定义 ">
-<meta name="twitter:description" content="什么是机器学习 定义： 从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率) 为什么使用机器学习 规则难定义或未知 程序编写复杂 从数据中学习中相对容易 使用情形示例： 无法人工编写出全部规则 (规则未可尽知) 无法准确定义 (规则难以言表) 快速决策 面向大量用户 所以 机器学习是编写复杂规则系统的一种替代方法">
+<meta name="twitter:description" content="什么是机器学习 名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看别人写好的概念、定义说WTF，死记别人写好的定义肯定非常无聊，我们学着自己去抽象、总结，这就是锻炼。 我们来看名字，机器没什么说的，也可以说是里面的计算机程序、系统；学习呢？一个过程或一件事，那就有几大要素， 它们是? 时间 地点 人物 起因 经过 结果 submit 套路、模板作文 既然是起因、经过、结果， 来分析下 起因是什么？某个方面不够好； 结果？ 就是希望某个方面得到提高，这是目标，不一定真做到，邯郸学步还退步了。 经过。 这就是从哪里学，怎么学的问题。 从哪里学？从人这里学————肯定没错，就算病毒能变异或以后程序自己能编程序了，但母程序不还是人编的？但人只是引导、指导作用，有学习能力的机器肯定是“自学 ...">
 
 
         <title>机器学习定义  · 懒龙谷
@@ -101,7 +101,15 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">什么是机器学习</a></li>
+<li><a href="#_1">什么是机器学习</a><ul>
+<li><a href="#_2">套路、模板作文</a></li>
+<li><a href="#_3">自己的定义</a></li>
+<li><a href="#_4">定义</a></li>
+</ul>
+</li>
+<li><a href="#_5">为什么要用机器学习</a></li>
+<li><a href="#_6">结束</a></li>
+<li><a href="#_7">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -111,25 +119,85 @@
                         
                         
 <h1 id="_1">什么是机器学习</h1>
-<p>定义：</p>
-<div class="highlight"><pre><span></span>从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率)
+<p>名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看别人写好的概念、定义说WTF，死记别人写好的定义肯定非常无聊，我们学着自己去抽象、总结，这就是锻炼。</p>
+<p>我们来看名字，机器没什么说的，也可以说是里面的计算机程序、系统；学习呢？一个过程或一件事，那就有几大要素，</p>
+<p>
+<div>
+<p>它们是?</p>
+<input class="quiz" name="quiz" type="checkbox" value="时间"/><b>时间</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="地点"/><b>地点</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="人物"/><b>人物</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="起因"/><b>起因</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="经过"/><b>经过</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="结果"/><b>结果</b><br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="d1ef1e254ad32a4048ad836f4bfcd047"/><input class="comments" type="hidden" value="学习不限时间地点吧？#可以说机器就是人物了嘛"/><br/>
+</div>
+</p>
+<h3 id="_2">套路、模板作文</h3>
+<p>既然是起因、经过、结果， 来分析下</p>
+<ol>
+<li>起因是什么？某个方面不够好；</li>
+<li>结果？ 就是希望某个方面得到提高，这是目标，不一定真做到，邯郸学步还退步了。</li>
+<li>经过。 这就是从哪里学，怎么学的问题。</li>
+</ol>
+<p>从哪里学？从人这里学————肯定没错，就算病毒能变异或以后程序自己能编程序了，但母程序不还是人编的？但人只是引导、指导作用，有学习能力的机器肯定是“自学”， 接受外部的信息进行学习。</p>
+<p>
+<div>
+<p>外部信息对机器来说是什么？ </p>
+<input class="quiz" name="quiz" type="checkbox" value="输入"/><b>输入</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="输出"/><b>输出</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="存储"/><b>存储</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="数据"/><b>数据</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="网络"/><b>网络</b><br/>
+<input class="quiz" name="quiz" type="checkbox" value="通信"/><b>通信</b><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="7f68fca8589a1153a4c8b35e630e484e"/><input class="comments" type="hidden" value="应该不难？我可以实现选项解释的功能，但编写选项解释很麻烦"/><br/>
+</div>
+</p>
+<h2 id="_3">自己的定义</h2>
+<p>我们就说是从数据中学习到经验，怎么学，这对人来说都不是件简单事，各种教辅书、学习方法大行其道，大赚特赚，就是因为大家不知道人到底怎么学的，天赋能否培养等等。</p>
+<p>那机器学习就有机器学习的方法， 一方面像飞机摆脱飞鸟的思维限制，发展自己的方法，另一方面则是了解、模拟人类大脑。</p>
+<p>现在我们人物、事件的起因、经过、结果都讲过了，所以定义就是：</p>
+<p>
+<div>
+<p>人物<input class="quiz" type="text"/>,起因<input class="quiz" type="text"/>，在<input class="quiz" type="text"/>的指导下，从<input class="quiz" type="text"/>里经过机器学习的方法学习到经验，结果<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="386dc988111c3db39d0bcb6225939e1b"/><input class="comments" type="hidden" value="好像没什么好解释的了"/><br/>
+</div>
+</p>
+<p>请用原文里的用词，比如用提高不要用“更好”——同义词判断没实现。</p>
+<h2 id="_4">定义</h2>
+<p>和人学习的定义也没什么区别，不过是主体从人变机器，指导者从老师变成计算机科学家而已。</p>
+<p>现在给出 Tom Mitchell的定义：</p>
+<div class="highlight"><pre><span></span>A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.
 </pre></div>
-<p>为什么使用机器学习</p>
+<p>我们的定义里主要少了 性能评估performance measure P，只说了目标是某个方面的提高。</p>
+<p>
+<div>
+<p>你猜我接下来要扯些什么?<input class="quiz" type="text"/></p>
+<br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<input class="answers" type="hidden" value="d41d8cd98f00b204e9800998ecf8427e"/><input class="comments" type="hidden" value=""/><br/>
+</div>
+</p>
+<h1 id="_5">为什么要用机器学习</h1>
+<p>老套路了，本来应该从问题开始，学会发现问题、对问题建模是好事。 但可能机器学习针对的问题比较没意思，也比较难建模，从问题引入开始不太顺利，所以就放后面了。</p>
+<p>我们知道， 识别手写的文字， 人看一眼就知道了，构不成问题。但编写程序时，就会发现这非常困难--如何让程序识别图片（里的信息）是非常复杂、困难的问题。</p>
+<p>还有像线性回归，教科书上例题一般是多少数据？ 但现实中是多大的数据量？还有推荐，一个人能看过几部好电影和好书？好电影都上千部， 好书就更多了。</p>
+<p>我们要追求自动化、智能化的机器，肯定都要靠机器来学习数据， 而这些问题都有几个特点：</p>
 <ol>
 <li>规则难定义或未知</li>
-<li>程序编写复杂</li>
-<li>从数据中学习中相对容易</li>
+<li>数据现成</li>
 </ol>
-<p>使用情形示例：</p>
-<ol>
-<li>无法人工编写出全部规则 (规则未可尽知)</li>
-<li>无法准确定义 (规则难以言表)</li>
-<li>快速决策</li>
-<li>面向大量用户</li>
-</ol>
-<p>所以</p>
-<div class="highlight"><pre><span></span>机器学习是编写复杂规则系统的一种替代方法
-</pre></div>
+<p>所以，让机器自己从数据中学到规则——甚至能讲清楚规则——就是最好的。</p>
+<h1 id="_6">结束</h1>
+<p>这种概念是没什么意思， 因为机器学习、人工智能要有趣的话， 一定得从科幻角度开始， 从科幻片里的大白这种超智能机器人开始， 但这种智能机器人已经不是“一个”问题，而是一堆问题， 已经超出一般的机器学习的范畴。</p>
+<p>此外，就是描述性语言过多，很难编写启发式问题，选择太简单，填空很难填。</p>
+<h1 id="_7">恭喜</h1>
+<p>虽然“为什么”可能没有什么体会，讲得不好，但也试着自己总结了下机器学习的定义， 希望您觉得您还是有所收获。</p>
+<p>下一篇<a href="">机器学习主要类型#todo</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

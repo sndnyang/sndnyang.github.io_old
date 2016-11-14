@@ -1,10 +1,113 @@
+.math-container {
+    display: block;
+    padding: 5px;
+    min-height: 80px;
+}
+
+.MathPreview {
+    display: block;
+    background-color: #f1f1f1;
+    padding: 5px;
+    min-width: 60px;
+    border-radius: 4px;
+    display: inline-block;
+    min-height: 30px;
+}
+
+.quiz {
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 70%
+    min-width: 100px;
+}
+
+#loadingDiv {
+    position: fixed;
+    cursor1: wait;
+    width: auto;
+    height: 57px; 
+    line-height: 57px; 
+    padding-left: 50px; 
+    padding-right: 5px; 
+    background: #fff url(/static/img/loading.gif) no-repeat scroll 5px 10px; 
+    border: 2px solid #95B8E7; 
+    color: #696969; 
+    font-family:\'Microsoft YaHei\';
+}
+
+.lesson h1, .lesson h2, .lesson h3, .lesson h4 {
+    text-align: center;
+}
+
+#top {
+	position: fixed;
+	right: 25px;
+	bottom: 10px;
+	width: 60px;
+	height: 60px;
+	background-color: #bbb;
+	border-radius:7px;
+	opacity: 0.8;
+	display: none;
+	z-index: 888;
+}
+#top .arrow{
+	margin:0 auto;
+	padding-top:11px;
+	width:0;
+	height: 0;
+	border-right: 15px solid transparent;
+	border-left: 15px solid transparent; 
+	border-bottom: 15px solid #7f7f7f;
+	
+}
+#top .stick{
+	margin:0 auto;
+	padding-bottom:21px;
+	width: 13px;
+	border-bottom: 13px solid #bbb;
+	background-color: #7f7f7f;
+}
+
+textarea.quiz {
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 500px;
+    height: 30px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 6px 6px;
+    border-style: none solid solid none;
+    border-width: medium 1px 1px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #555555;
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+}
+
+textarea.quiz:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    min-height: 100px;
+    outline-width: 0;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
 .small_step {
     border-style:solid; 
     border-top-width:0px;   
     border-right-width:0px;   
     border-bottom-width:1px;   
-    border-left-width:0px;  
-  //border-radius: 4px;
+    border-left-width:0px;
+    border-radius: 8px;
+    width: 90%;
+    display: inline-block;
 }
 
 .process {

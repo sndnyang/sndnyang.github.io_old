@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="感知器基础 "/>
 <meta property="og:url" content="http://sndnyang.github.io/perceptron-foundation.html" />
-<meta property="og:description" content="说明 本文参考以下内容： 李航《统计学习方法》第2章 感知机 没有参考但可以参考 林轩田《机器学习基石》第二单元？ 有问题、建议，欢迎讨论。 再说明 因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。 如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。 于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。 本段我提到了本书和门课程？ submit 就看你对这些名字的印象了， 涉及书、 公开课和MOOC。 李菊福的开头不容易 首先，假设读者了解 监督学习 ..." />
+<meta property="og:description" content="感知器基础， 也是模型， 策略， 算法， 应该还有证明" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-10-19T17:53:50+08:00" />
 <meta name="twitter:title" content="感知器基础 ">
-<meta name="twitter:description" content="说明 本文参考以下内容： 李航《统计学习方法》第2章 感知机 没有参考但可以参考 林轩田《机器学习基石》第二单元？ 有问题、建议，欢迎讨论。 再说明 因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。 如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。 于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。 本段我提到了本书和门课程？ submit 就看你对这些名字的印象了， 涉及书、 公开课和MOOC。 李菊福的开头不容易 首先，假设读者了解 监督学习 ...">
+<meta name="twitter:description" content="感知器基础， 也是模型， 策略， 算法， 应该还有证明">
 
 
         <title>感知器基础  · 懒龙谷
@@ -155,6 +155,7 @@
 <p>本文参考以下内容：</p>
 <ol>
 <li>李航《统计学习方法》第2章 感知机</li>
+<li>Hinton coursera《neural network for machine learning》第二周第三周</li>
 <li>没有参考但可以参考 林轩田《机器学习基石》第二单元？</li>
 </ol>
 <p>有问题、建议，欢迎讨论。</p>
@@ -519,13 +520,13 @@ $$</div>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>33</span>
+                            <span>34</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>11</span>
+                            <span>12</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>13</span>
+                            <span>14</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

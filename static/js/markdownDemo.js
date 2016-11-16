@@ -9632,6 +9632,7 @@ function setHighlightedlContent(selector, content, lang) {
 
 function updateResult() {
     var source = $('.source').val();
+    console.log(source.length);
 
     // Update only active view to avoid slowdowns
     // (debug & src view with highlighting are a bit slow)
@@ -9648,7 +9649,8 @@ function updateResult() {
     } else { /*defaults._view === 'html'*/
         source = qa_parse_full(source);
 
-        var root = '', html = mdHtml.render(source);
+        var root = '', html = mdHtml.render(source)+"<h1>";
+        $('#result-html').html('');
         generate_lesson($('#result-html'), html, root);
     }
 

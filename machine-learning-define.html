@@ -14,12 +14,13 @@
 
 <meta property="og:title" content="机器学习定义 "/>
 <meta property="og:url" content="http://sndnyang.github.io/machine-learning-define.html" />
-<meta property="og:description" content="序言 本文参考到没参考到的内容都挺多。 Hinton coursera《neural network for machine learning》第一周第五个视频 Andrew Ng在斯坦福的cs229， cs229 李航《统计学习方法》 我原则上会从什么开始？ 问题 定义 故事 历史 submit 从问题出发 现在的问题是，我们到底遇到了什么问题？没钱，房价太高，生活压力大，对吧，好尴尬啊，没头没脑的问这么个问题，谁能回答得上来，是吧！ 所以说，发现新问题，或者说创造性思维都是要基于足够的领域积累，比如正在讨论的这个机器学习概念，就需要在计算机领域及智能领域有一定的研究才会有这感受， 比如说， 对目前计算机领域，以下哪个任务最难？ 存储1000G的视频数据 看几十张图说话 处理10万人同时访问 submit 人和机器不一样 对人来说，看图说话简直太容易了，根本不是问题，但现在计算机领域——当然计算复杂度等高难度问题 ..." />
+<meta property="og:description" content="机器学习，从问题引入，引导读者自行归纳、抽象出定义，并与比较权威的定义作比较。" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-10-28T16:07:07+08:00" />
+<meta property="" content="2016-11-16T14:20:20+08:00" />
 <meta name="twitter:title" content="机器学习定义 ">
-<meta name="twitter:description" content="序言 本文参考到没参考到的内容都挺多。 Hinton coursera《neural network for machine learning》第一周第五个视频 Andrew Ng在斯坦福的cs229， cs229 李航《统计学习方法》 我原则上会从什么开始？ 问题 定义 故事 历史 submit 从问题出发 现在的问题是，我们到底遇到了什么问题？没钱，房价太高，生活压力大，对吧，好尴尬啊，没头没脑的问这么个问题，谁能回答得上来，是吧！ 所以说，发现新问题，或者说创造性思维都是要基于足够的领域积累，比如正在讨论的这个机器学习概念，就需要在计算机领域及智能领域有一定的研究才会有这感受， 比如说， 对目前计算机领域，以下哪个任务最难？ 存储1000G的视频数据 看几十张图说话 处理10万人同时访问 submit 人和机器不一样 对人来说，看图说话简直太容易了，根本不是问题，但现在计算机领域——当然计算复杂度等高难度问题 ...">
+<meta name="twitter:description" content="机器学习，从问题引入，引导读者自行归纳、抽象出定义，并与比较权威的定义作比较。">
 
 
         <title>机器学习定义  · 懒龙谷
@@ -103,23 +104,33 @@
                         <div class="toc">
 <ul>
 <li><a href="#_1">序言</a></li>
-<li><a href="#_2">从问题出发</a><ul>
-<li><a href="#_3">人和机器不一样</a></li>
-<li><a href="#_4">知道问题的难点</a><ul>
-<li><a href="#_5">知难而退？</a></li>
+<li><a href="#_2">故事:不是不想从故事和历史开始，孤陋寡闻了</a></li>
+<li><a href="#_3">历史:不是不想从故事和历史开始，孤陋寡闻了</a></li>
+<li><a href="#_4">定义:直接上定义和以前教科书有什么区别？%}</a></li>
+<li><a href="#_5">从问题出发</a><ul>
+<li><a href="#_6">人和机器不一样</a></li>
+<li><a href="#_7">知道问题的难点</a><ul>
+<li><a href="#_8">知难而退？</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_6">学与习</a></li>
-<li><a href="#_7">什么是机器学习</a><ul>
-<li><a href="#_8">套路模板</a></li>
-<li><a href="#_9">自己的定义</a></li>
-<li><a href="#_10">定义</a></li>
-<li><a href="#_11">结束</a></li>
+<li><a href="#_9">学与习</a></li>
+<li><a href="#_10">栗子:说过了#故事:并不知道什么故事#应用:科幻电影里的机器人啊，虽然还没能做到%}</a></li>
+<li><a href="#_11">什么是机器学习</a><ul>
+<li><a href="#_12">套路模板</a></li>
+<li><a href="#_13">自己的定义</a></li>
 </ul>
 </li>
-<li><a href="#_12">恭喜</a></li>
+<li><a href="#_14">好像没什么好解释的了%}</a><ul>
+<li><a href="#_15">定义</a></li>
+</ul>
+</li>
+<li><a href="#_16">机器学习的应用</a><ul>
+<li><a href="#_17">结束</a></li>
+</ul>
+</li>
+<li><a href="#_18">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -129,118 +140,102 @@
                         
                         
 <h1 id="_1">序言</h1>
-<p>本文参考到没参考到的内容都挺多。</p>
+<p>本文参考到、没参考到的内容有：</p>
 <ol>
-<li>Hinton coursera《neural network for machine learning》第一周第五个视频</li>
+<li>Hinton coursera《neural network for machine learning》第一周</li>
 <li>Andrew Ng在斯坦福的cs229， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 <li>李航《统计学习方法》</li>
 </ol>
-<p>
-<div>
-<p>我原则上会从什么开始？</p>
-<input class="quiz" name="quiz" type="radio" value="问题"/><b>问题</b><br/>
-<input class="quiz" name="quiz" type="radio" value="定义"/><b>定义</b><br/>
-<input class="quiz" name="quiz" type="radio" value="故事"/><b>故事</b><br/>
-<input class="quiz" name="quiz" type="radio" value="历史"/><b>历史</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="5dc99f6efe53adda80974655b26b8df8"/><input class="comments" type="hidden" value="不是不想从故事和历史开始，孤陋寡闻了#直接上定义和以前教科书有什么区别？"/><br/>
-</div>
-</p>
-<h1 id="_2">从问题出发</h1>
-<p>现在的问题是，我们到底遇到了什么问题？没钱，房价太高，生活压力大，对吧，好尴尬啊，没头没脑的问这么个问题，谁能回答得上来，是吧！</p>
-<p>所以说，发现新问题，或者说创造性思维都是要基于足够的领域积累，比如正在讨论的这个机器学习概念，就需要在计算机领域及智能领域有一定的研究才会有这感受， 比如说， </p>
+<p>{%radio|我原则上会从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
+<h1 id="_2">故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1 id="_3">历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1 id="_4">定义:直接上定义和以前教科书有什么区别？%}</h1>
+<h1 id="_5">从问题出发</h1>
+<p>现在问题是，我们到底遇到了什么问题？没钱，房价太高，生活压力大，都是问题。 好尴尬，没头没脑的问这么个问题，谁能回答得上来，是吧！</p>
+<p>所以说，发现新问题，或者说创造性思维都是要基于足够的领域积累，比如正在讨论的这个机器学习概念，就需要在计算机领域及智能领域有一定的研究才会有这经验， 比如说， </p>
 <p>
 <div>
 <p>对目前计算机领域，以下哪个任务最难？</p>
-<input class="quiz" name="quiz" type="radio" value="存储1000G的视频数据"/><b>存储1000G的视频数据</b><br/>
+<input class="quiz" name="quiz" type="radio" value="存储10*1000G的视频数据"/><b>存储10*1000G的视频数据</b><br/>
 <input class="quiz" name="quiz" type="radio" value="看几十张图说话"/><b>看几十张图说话</b><br/>
-<input class="quiz" name="quiz" type="radio" value="处理10万人同时访问"/><b>处理10万人同时访问</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="c6a8f6e80e49e405272ed41f1aa48876"/><input class="comments" type="hidden" value="这就是了解才有的感受"/><br/>
+<input class="quiz" name="quiz" type="radio" value="处理100万人同时访问"/><b>处理100万人同时访问</b><br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="c6a8f6e80e49e405272ed41f1aa48876"/><input class="comments" type="hidden" value="了解编程、IT行业的人都知道"/><br/>
 </div>
 </p>
-<h3 id="_3">人和机器不一样</h3>
-<p>对人来说，看图说话简直太容易了，根本不是问题，但现在计算机领域——当然计算复杂度等高难度问题——非常困难、而又重要的就是类似看图说话的人工智能问题。</p>
-<p>这种人不了解这个领域的情况，想从问题出发就比较困难， 所以这里必须假设读者明白看图、对话等人工智能问题非常困难， 了解这些问题为什么困难，才能继续讲下去， 如果哪位觉得这些问题太简单了，那没法讲下去的。</p>
+<h3 id="_6">人和机器不一样</h3>
+<p>看图说话简直太容易了，根本不是问题，但对计算机行业来说， 看图说话这种人工智能就是天大的难题。</p>
+<p>如果不了解这个领域，那想发现、提出问题就很困难。 这里必须假设读者明白看图、对话等人工智能问题的难点。 如果哪位觉得这些问题都小菜一碟、不理解为什么会难住计算机，那我该如何聊下去呢？</p>
 <p>
 <div>
-<p>对计算机来说， 这些问题难在哪里？</p>
+<p>对计算机来说， 这些问题最难的地方是哪里？</p>
 <input class="quiz" name="quiz" type="radio" value="规则\模式未知"/><b>规则\模式未知</b><br/>
 <input class="quiz" name="quiz" type="radio" value="规则\模式很复杂"/><b>规则\模式很复杂</b><br/>
 <input class="quiz" name="quiz" type="radio" value="运算速度不够快"/><b>运算速度不够快</b><br/>
 <input class="quiz" name="quiz" type="radio" value="容量不够大"/><b>容量不够大</b><br/>
 <input class="quiz" name="quiz" type="radio" value="现实没法用二进制模拟"/><b>现实没法用二进制模拟</b><br/>
-<button onclick="checkQuiz(this, 3)">submit</button><br/>
-<input class="answers" type="hidden" value="d33c14d2e31e53db1f143e568c0435a5"/><input class="comments" type="hidden" value="另外几项应该没问题，复杂算不算难，可能不同人想法不同"/><br/>
+<button onclick="checkQuiz(this, 2)">submit</button><br/>
+<input class="answers" type="hidden" value="d33c14d2e31e53db1f143e568c0435a5"/><input class="comments" type="hidden" value="最难应该没问题，复杂也是很难，但不如未知难，复杂主要是麻烦、啰嗦"/><br/>
 </div>
 </p>
-<h2 id="_4">知道问题的难点</h2>
-<p>毫无疑问，人脑是如何识别图片、如何学会语言里模式的？这个我们不知道！难就难在这里，没法用数学进行表达。</p>
-<p>那规则、模式很复杂算不算难呢？这当然主要看它的复杂程度了，估且算是可以解决的、不难的问题，哪怕很复杂，但毕竟还是知道的。</p>
+<h2 id="_7">知道问题的难点</h2>
+<p>毫无疑问，人脑如何识别图片、如何掌握语言， 这些我们都不知道！难就难在这里，根本没法用数学来表达。</p>
+<p>规则、模式很复杂算不算难点呢？ 一般算，但相对未知规则、模式而言，个人认为还能接受，反正现在复杂的程序、数学定理多了去了， 1亿的复杂度和10亿的复杂度对普通人来说，没区别。</p>
 <p>
 <div>
-<p>规则模式不知道、说不出来， 你能想到一句什么话?<input class="quiz" type="text"/></p>
+<p>规则模式不知道、说不出来， 你能想到一句什么名言?<input class="quiz" type="text"/></p>
 <br/>
-<button onclick="checkQuiz(this, 4)">submit</button><br/>
-<input class="answers" type="hidden" value="7f8a08ff36b12b4f05da4f815e8ecc0f"/><input class="comments" type="hidden" value="这跟思维没关系，规则就是一种“道”，想到了吧？"/><br/>
+<button onclick="checkQuiz(this, 3)">submit</button><br/>
+<input class="answers" type="hidden" value="e1721d9612c40f0ca9ed4d81b8789c74"/><input class="comments" type="hidden" value="这跟思维没关系，规则就是一种“道”，想到了吧？"/><br/>
 </div>
 </p>
-<h3 id="_5">知难而退？</h3>
-<p>不可道， 我们就永远学不会了吗？ 人的世界里“道可道 非常道”，那人也还要学“道”，虽然不是每个人都学或能学会，勤奋或天赋不一样，但机器又没天赋这事，你250核CPU，250万核 GPU， 250T内存了不起哦？也就比我快，智商还是一样的，最多吃得快点，装得多点， 消化本质上还是一样的。</p>
-<p>扯远了，“道” 和这些图像识别、语法规则一样，也是讲不清楚的， </p>
+<h3 id="_8">知难而退？</h3>
+<p>不可道， 我们就永远学不会了吗？ 人的世界里“道可道 非常道”，那人也还要学“道”，虽然不是每个人都学或能学会，勤奋或天赋不一样，但机器又没天赋这事，你250核CPU，250万核 GPU， 250T内存了不起哦？也就比我快一些，“智商”本质上还是一样的。</p>
+<p>扯远了，总之， 我们知道， “道” 和这些图像识别、语法规则一样，都是讲不清楚的。</p>
 <p>
 <div>
-<p>那人是如何近（接近）道的？</p>
+<p>那人是如何近（接近、学习）道的？</p>
 <input class="quiz" name="quiz" type="radio" value="看四书五经"/><b>看四书五经</b><br/>
 <input class="quiz" name="quiz" type="radio" value="看道家书籍"/><b>看道家书籍</b><br/>
-<input class="quiz" name="quiz" type="radio" value="冥想思考"/><b>冥想思考</b><br/>
+<input class="quiz" name="quiz" type="radio" value="打坐冥想"/><b>打坐冥想</b><br/>
 <input class="quiz" name="quiz" type="radio" value="模仿体验"/><b>模仿体验</b><br/>
 <input class="quiz" name="quiz" type="radio" value="抄袭"/><b>抄袭</b><br/>
-<button onclick="checkQuiz(this, 5)">submit</button><br/>
-<input class="answers" type="hidden" value="cc2446fed5de4618c6fee9d08e282fa8"/><input class="comments" type="hidden" value="也许看法不同，但这种先过了吧，以后有机会优化的话，再说"/><br/>
+<button onclick="checkQuiz(this, 4)">submit</button><br/>
+<input class="answers" type="hidden" value="cc2446fed5de4618c6fee9d08e282fa8"/><input class="comments" type="hidden" value="不是要求从哲学角度回答，所以，哪个合适选哪个"/><br/>
 </div>
 </p>
-<h1 id="_6">学与习</h1>
-<p>模仿体验其实就是学习，只是没有限定学习范围只有书本、文字、老师指导，更多强调了一种归纳、演绎及记忆， 具体来源无所谓了。</p>
-<p>所以结论就来了， 因为图像识别、语法规则“不可道”， 所以只能机器自己去模仿体验，去归纳、演绎及记忆， 也就是机器学习， 当然这个定义上，叫人工智能可能普遍一点。 光从名字上，只能说是侧重点不一样，有学习能力 基本上等于 智能了。</p>
-<p>以上就是很罗嗦的 遇到的问题或原因， 用了这么长的废话， 终于从问题引出了我们教程的主角——机器学习</p>
-<p>
-<div>
-<p>下一步干什么？</p>
-<input class="quiz" name="quiz" type="radio" value="举个栗子"/><b>举个栗子</b><br/>
-<input class="quiz" name="quiz" type="radio" value="看个应用"/><b>看个应用</b><br/>
-<input class="quiz" name="quiz" type="radio" value="给个定义"/><b>给个定义</b><br/>
-<input class="quiz" name="quiz" type="radio" value="讲个故事"/><b>讲个故事</b><br/>
-<button onclick="checkQuiz(this, 6)">submit</button><br/>
-<input class="answers" type="hidden" value="7ac324975a1aa4d777de0438729725ab"/><input class="comments" type="hidden" value="另外三项既有我个人水平问题，也有不该选的道理，有问题引出了，再来几个例子可能是更好"/><br/>
-</div>
-</p>
-<h1 id="_7">什么是机器学习</h1>
-<p>名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看别人写好的概念、定义说"WTF"。死记别人写的定义非常枯燥、困难，我们学着自己去抽象、总结，一来容易记忆，二来是对抽象能力的锻炼。</p>
-<p>我估计会经常在教程里强调做些什么是为了什么，比如是为了某种思维的锻炼，当然也有纯属无聊的问题。</p>
-<p>好，我们来看名字（从问题来看也行），机器没什么说的，机器、里面的计算机程序、系统都行；学习呢？ 广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式<a href="http://baike.baidu.com/link?url=BafnjZgNR49wPt6Z71Fz5TrtcrHAbVsFGRuUhWtEep9kqOvUg1UVDoi8oDgz03TBmEF_949Xym_pGcvk5rV4ocsCxTN8u8QVCEkxXlcbINq">百度百科</a>——怎么感觉有点病句？ 8-)</p>
+<h1 id="_9">学与习</h1>
+<p>模仿体验就是一种学习，没有限定学习范围，也许还能看出一点归纳（模仿）、演绎（体验）的意思。</p>
+<p>所以结论就来了， 因为图像识别、语法规则“不可道”， 所以希望机器自己去“模仿体验”，去归纳、演绎，自己去学习到“不可道”的规则， 也就是机器学习。 </p>
+<p>前面也是废话， 说白了， 就是希望机器（计算机）和人一样聪明、一样有学习能力，能像科幻电影里的机器人一样。我们也都知道现在的计算机程序， 蠢，很蠢，非常蠢。 就希望“机器学习”技术能让机器学习起来。</p>
+<p>终于，引出了我们教程的主角——机器学习</p>
+<p>{%radio|下一步干什么？&amp;举个栗子&amp;看个应用&amp;给个定义&amp;讲个故事@给个定义</p>
+<h1 id="_10">栗子:说过了#故事:并不知道什么故事#应用:科幻电影里的机器人啊，虽然还没能做到%}</h1>
+<h1 id="_11">什么是机器学习</h1>
+<p>名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看着别人写好的概念、定义 说"WTF"。死记别人写的定义非常枯燥、困难，我们学着自己去抽象、总结，一来容易记忆，二来是对抽象能力的锻炼。</p>
+<p>我们来看名字，机器没什么说的，机器、里面的计算机程序、系统都行；学习呢？ 广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式<a href="http://baike.baidu.com/link?url=BafnjZgNR49wPt6Z71Fz5TrtcrHAbVsFGRuUhWtEep9kqOvUg1UVDoi8oDgz03TBmEF_949Xym_pGcvk5rV4ocsCxTN8u8QVCEkxXlcbINq">百度百科</a>——怎么感觉有点病句？ 8-)</p>
 <p>看不明白，套点熟悉的东西，语文里写作文、故事不是讲究 时间&amp;地点&amp;人物&amp;起因&amp;经过&amp;结果 吗？ </p>
 <p>
 <div>
-<p>如果把 机器学习 就是一个过程或一件事， 它还需要哪几大要素的定义？</p>
+<p>如果把 机器学习 就是一个过程或一件事， 你觉得“机器学习” <em>还</em> 需要哪几大要素？</p>
 <input class="quiz" name="quiz" type="checkbox" value="时间"/><b>时间</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="地点"/><b>地点</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="人物"/><b>人物</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="起因"/><b>起因</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="经过"/><b>经过</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="结果"/><b>结果</b><br/>
-<button onclick="checkQuiz(this, 7)">submit</button><br/>
-<input class="answers" type="hidden" value="d1ef1e254ad32a4048ad836f4bfcd047"/><input class="comments" type="hidden" value="学习不限时间地点吧？#可以说机器就是人物了嘛"/><br/>
+<button onclick="checkQuiz(this, 5)">submit</button><br/>
+<input class="answers" type="hidden" value="d1ef1e254ad32a4048ad836f4bfcd047"/><input class="comments" type="hidden" value="时间地点不限吧？#可以说机器就是人物了嘛"/><br/>
 </div>
 </p>
-<h3 id="_8">套路模板</h3>
+<h3 id="_12">套路模板</h3>
 <p>既然是起因、经过、结果， 来分析下</p>
 <ol>
 <li>起因是什么？毫无疑问，某个方面不够好；</li>
 <li>结果？ 就是希望某个方面得到提高，这是目标，不一定真做到，邯郸学步还退步了。</li>
 <li>经过。 这就是从哪里学，怎么学的问题。</li>
 </ol>
-<p>从哪里学？从人这里学————肯定没错，程序、学习能力不就人给的？ 但我们说的是写完程序后的事，有学习能力的机器是“自学”， 接受外部的信息进行学习。</p>
+<p>从哪里学？从人这里学————没错。 这里得强调下是指程序已经完成的机器。有学习能力的机器能“自学”， 就是指接受外部的信息进行学习。</p>
 <p>
 <div>
 <p>外部信息对机器来说是什么？ </p>
@@ -250,26 +245,20 @@
 <input class="quiz" name="quiz" type="checkbox" value="数据"/><b>数据</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="网络"/><b>网络</b><br/>
 <input class="quiz" name="quiz" type="checkbox" value="通信"/><b>通信</b><br/>
-<button onclick="checkQuiz(this, 8)">submit</button><br/>
-<input class="answers" type="hidden" value="7f68fca8589a1153a4c8b35e630e484e"/><input class="comments" type="hidden" value="应该不难？我可以实现选项解释的功能，但编写选项解释很麻烦"/><br/>
+<button onclick="checkQuiz(this, 6)">submit</button><br/>
+<input class="answers" type="hidden" value="7f68fca8589a1153a4c8b35e630e484e"/><input class="comments" type="hidden" value="应该不难？排除不可能，剩下的就是可能"/><br/>
 </div>
 </p>
-<h2 id="_9">自己的定义</h2>
+<h2 id="_13">自己的定义</h2>
 <p>外部信息是输入，也叫数据。 我们就说是从数据中学习到经验。</p>
 <p>怎么学？这对人来说都不是件简单事，各种教辅书、学习方法大行其道，大赚特赚，就是因为大家不知道人到底怎么学的，天赋能否培养等等。</p>
-<p>那机器要学习就有机器学习的方法， 一方面像飞机摆脱对飞鸟的模仿，发展自己的方法，另一方面则是了解、模拟、逼近人类大脑。这是《机器学习》课程、 本系列教程要教的内容。</p>
+<p>那机器要学习就有机器学习的方法， 一方面像飞机摆脱对飞鸟的模仿，发展自己的方法，另一方面则是了解、模拟、逼近人类大脑。这就是《机器学习》课程、 本系列教程要讲的内容。</p>
 <p>现在我们人物、事件的起因、经过、结果都讲过了，所以定义就是：</p>
-<p>
-<div>
-<p>人物<input class="quiz" type="text"/>,起因<input class="quiz" type="text"/>，在<input class="quiz" type="text"/>的指导下，从<input class="quiz" type="text"/>里经过机器学习的方法学习到经验，结果<input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 9)">submit</button><br/>
-<input class="answers" type="hidden" value="386dc988111c3db39d0bcb6225939e1b"/><input class="comments" type="hidden" value="好像没什么好解释的了"/><br/>
-</div>
-</p>
-<p>请用原文里的用词，比如用“提高”不要用“更好”——同义词、句判断对计算机来说就是个很难的问题。</p>
-<h2 id="_10">定义</h2>
-<p>我们可以看到， 和人学习的定义也没什么区别，不过是主体从人变机器，指导者从老师变成计算机科学家而已。</p>
+<p>{%text|人物_,起因_，从_里经过机器学习的方法学习到经验，结果_@机器@不&amp;好@数据@提高</p>
+<h1 id="_14">好像没什么好解释的了%}</h1>
+<p>请使用原文里的字词，比如结果这一空 不要用“更好、长进、进步”等词语——同义词、句判断对计算机来说就是个很难的问题。</p>
+<h2 id="_15">定义</h2>
+<p>我们可以看到， 和人学习的定义也没什么区别，不过是主体从人变机器， 具体方法不一样而已。</p>
 <p>现在给出 Tom Mitchell的定义：</p>
 <div class="highlight"><pre><span></span>A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.
 </pre></div>
@@ -278,14 +267,16 @@
 <div>
 <p>你猜我接下来要扯些什么?<input class="quiz" type="text"/></p>
 <br/>
-<button onclick="checkQuiz(this, 10)">submit</button><br/>
+<button onclick="checkQuiz(this, 7)">submit</button><br/>
 <input class="answers" type="hidden" value="d41d8cd98f00b204e9800998ecf8427e"/><input class="comments" type="hidden" value=""/><br/>
 </div>
 </p>
-<h2 id="_11">结束</h2>
-<p>没得扯的了~~~描述性语言过多，很难编写启发式问题，选择太简单，填空很难填。</p>
-<h1 id="_12">恭喜</h1>
-<p>“为什么”讲得不好，读者应该试着总结了下机器学习的定义，希望您觉得有所收获， 不是个很好编写的知识点。</p>
+<h1 id="_16">机器学习的应用</h1>
+<p>有很多应用， 效果好不好的都有很多。 其他课程里都会有介绍， 这块我还是不要乱发言的好。</p>
+<h2 id="_17">结束</h2>
+<p>没话说了~~~描述性语言过多，很难编写启发式问题，选择太简单，填空很难填。</p>
+<h1 id="_18">恭喜</h1>
+<p>“为什么”讲得不好，读者应该试着总结了下机器学习的定义，希望您觉得有所收获。</p>
 <p>下一篇<a href="http://www.zhimind.com/tutorial/3b230a16-7472-42dc-b9c6-ced54c9fe9f7">机器学习主要类型</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -337,18 +328,22 @@
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
                     <time pubdate="pubdate" datetime="2016-10-28T16:07:07+08:00">十月 28, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-11-16T14:20:20+08:00">十一月 16, 2016</time>
+
                     <h4>Category</h4>
                     <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>33</span>
+                            <span>34</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>11</span>
+                            <span>12</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>13</span>
+                            <span>14</span>
 </a></li>
                     </ul>
 <h4>Contact</h4>

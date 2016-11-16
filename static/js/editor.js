@@ -50,7 +50,7 @@ function save_tutorial() {
 
 function qa_parse_full(c) {
     var start = c.indexOf("{%"), end, lists = [],
-        s, quiz_type;
+        s, quiz_type, html = '';
 
     while (start >= 0 && start < c.length) {
         end = find_right_next(c, start, 0, '\n')

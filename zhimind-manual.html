@@ -204,11 +204,18 @@
 </pre></div>
 <h2 id="_9">其他说明</h2>
 <ol>
-<li>填空和公式题 题干必填 ， 用 <code>_</code> 代表一个空</li>
-<li>填空使用关键字查找方式， 多关键字用普通空格（非全角）隔开——其他符号中文输入法和英文经常不一样。 示例：<br/>
-       {%text|请填空:_是有意义的,_也是有意义的@教育 科学@数学 物理 化学#随便写点什么#不想写也可以%} 
-    水平有限， 关键字顺序不论</li>
+<li>填空和公式题 题干必填 ， 用 下划线<code>_</code> 代表一个空</li>
+<li>填空使用关键字查找方式， 多关键字逻辑关系使用 &amp; 表示且, | 表示或， 支持一层括号，默认 或 优先级高于 且（与顺序无关），所以有时候需要括号调整顺序。 示例：   </li>
 </ol>
+<p>
+<div>
+<p>请填空:<input class="quiz" type="text"/>是有意义的,<input class="quiz" type="text"/>也是有意义的
+   </p>
+<br/>
+<button onclick="checkQuiz(this, 1)">submit</button><br/>
+<input class="answers" type="hidden" value="0f03d4198eb47c00c32cd715b5094643"/><input class="comments" type="hidden" value="随便写点什么#不想写也可以"/><br/>
+</div>
+</p>
 <h1 id="_10">思维导图使用步骤</h1>
 <ol>
 <li>注册登录</li>

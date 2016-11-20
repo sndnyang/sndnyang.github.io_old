@@ -163,14 +163,7 @@
 <p>因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。</p>
 <p>如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。</p>
 <p>于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。</p>
-<p>
-<div>
-<p>本段我提到了<input class="quiz" type="text"/>本书和<input class="quiz" type="text"/>门课程？</p>
-<br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="c87599df25462e48c9e070d90373b1ee"/><input class="comments" type="hidden" value="仅限这一段，上一段不算"/><br/>
-</div>
-</p>
+<div class="process"><span><p>本段我提到了<input class="quiz" type="text"/>本书和<input class="quiz" type="text"/>门课程？</p></span><br/><input class="answers" type="hidden" value="1@3"/><input class="comments" type="hidden" value="仅限这一段，上一段不算"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <p>就看你对这些名字的印象了， 涉及书、 公开课和MOOC。</p>
 <h1 id="_3">李菊福的开头不容易</h1>
 <p>首先，假设读者了解 监督学习、分类问题等概念(见<a href="">机器学习的类型#todo</a>)， 另外也假设了解 <a href="">统计学习三要素#todo</a>，我是在李航《统计学习方法》看到的，其他书是不是基本这么个描述方式，不确认。</p>
@@ -181,20 +174,7 @@
 <li>算法。即具体的最优化求解算法。 常用算法有线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
 </ol>
 <p>如果直接上结论，那我就没办法搞这么个网站，专门来写这个教程了，别人知识的深度广度、语言的精炼到位都甩我十八条街，我唯一的优势就在于，要理清这一切的来源，给出这条关系链。</p>
-<p>
-<div>
-<p>探索世界要从什么开始？</p>
-<input class="quiz" name="quiz" type="radio" value="算法"/><b>算法</b><br/>
-<input class="quiz" name="quiz" type="radio" value="数据"/><b>数据</b><br/>
-<input class="quiz" name="quiz" type="radio" value="策略"/><b>策略</b><br/>
-<input class="quiz" name="quiz" type="radio" value="模型"/><b>模型</b><br/>
-<input class="quiz" name="quiz" type="radio" value="问题"/><b>问题</b><br/>
-<input class="quiz" name="quiz" type="radio" value="哲学"/><b>哲学</b><br/>
-<input class="quiz" name="quiz" type="radio" value="方法"/><b>方法</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="5dc99f6efe53adda80974655b26b8df8"/><input class="comments" type="hidden" value="临时觉得该有这么个问题，但是答案没想好~~~"/><br/>
-</div>
-</p>
+<div class="process"><span><p>探索世界要从什么开始？</p><input class="quiz" name="quiz" type="radio" value="算法">算法</input><br/><input class="quiz" name="quiz" type="radio" value="数据">数据</input><br/><input class="quiz" name="quiz" type="radio" value="策略">策略</input><br/><input class="quiz" name="quiz" type="radio" value="模型">模型</input><br/><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="哲学">哲学</input><br/><input class="quiz" name="quiz" type="radio" value="方法">方法</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="临时觉得该有这么个问题，但是答案没想好~~~"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <p>我想改填空，怕直接卡死在这里，那就尴尬了。不然从你各种回答记录里也许也能了解更真实的你自己。</p>
 <h1 id="_4">模型</h1>
 <p>反正我是觉得吧，有好奇心、有需求，就会提出问题， 才会想办法去解决问题。不过，好奇心和需求只是准备条件， 提出问题才是真正的开始。</p>
@@ -203,75 +183,22 @@
 <p>比如区分男女的二类分类问题，二类分类是最简单的分类问题——多类一般在它基础之上的改进。问题要求很明显，根据输入的实例的特征、属性值， 输出该实例的类别，取0、1或-1、+1。</p>
 <p>这个抽象过程应该比较显然了，不再另行解释。</p>
 <p>假设每个人（个体）在高维空间中都是一个点，那么我们 <strong>可能</strong> 用什么来划分男女呢</p>
-<p>
-<div>
-<p>？</p>
-<input class="quiz" name="quiz" type="checkbox" value="超平面"/><b>超平面</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超直线"/><b>超直线</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超曲线"/><b>超曲线</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超曲面"/><b>超曲面</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="超球面"/><b>超球面</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="其他不规则的面"/><b>其他不规则的面</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="方便面"/><b>方便面</b><br/>
-<button onclick="checkQuiz(this, 3)">submit</button><br/>
-<input class="answers" type="hidden" value="e66efe43095565ca456b1e19c74a8f5d"/><input class="comments" type="hidden" value="有些项不知道有没有这东西，反正空间里线肯定不能分开两堆点的，所以是面"/><br/>
-</div>
-</p>
+<div class="process"><span><p>？</p><input class="quiz" name="quiz" type="checkbox" value="超平面">超平面</input><br/><input class="quiz" name="quiz" type="checkbox" value="超直线">超直线</input><br/><input class="quiz" name="quiz" type="checkbox" value="超曲线">超曲线</input><br/><input class="quiz" name="quiz" type="checkbox" value="超曲面">超曲面</input><br/><input class="quiz" name="quiz" type="checkbox" value="超球面">超球面</input><br/><input class="quiz" name="quiz" type="checkbox" value="其他不规则的面">其他不规则的面</input><br/><input class="quiz" name="quiz" type="checkbox" value="方便面">方便面</input><br/></span><br/><input class="answers" type="hidden" value="超平面@超曲面@超球面@其他不规则的面"/><input class="comments" type="hidden" value="有些项不知道有没有这东西，反正空间里线肯定不能分开两堆点的，所以是面"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h3 id="_6">这些面是什么？</h3>
 <p>我们有这么多种面，方便面、干脆面，不，超平面，超曲面，超球面，超不规则面， <strong>可能可以</strong> 把男女分成两堆。</p>
-<p>
-<div>
-<p>所以，这些面是什么？<input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 4)">submit</button><br/>
-<input class="answers" type="hidden" value="8000f187a5d4f41f098c85c81d0d83d7"/><input class="comments" type="hidden" value="我们要做什么？机器学习、统计学习里的概念#前面讲过的，而且从问题开始，下一步就是建模啊，所以呢？"/><br/>
-</div>
-</p>
+<div class="process"><span><p>所以，这些面是什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="模型"/><input class="comments" type="hidden" value="我们要做什么？机器学习、统计学习里的概念#前面讲过的，而且从问题开始，下一步就是建模啊，所以呢？"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h3 id="_7">模型的思考</h3>
 <p>我们有这么多种面， 三千碗面，只吃一碗， 就是我们要学一个模型， 一个目标条件概率分布或决策函数。种类这么多，是因为模型的假设空间(hypothesis space)包含所有可能的条件概率分布或决策函数，也就是说空间里有无数种面，每种面还有无数个可能。</p>
 <p>我们肯定是要找到足够好的面——最好吃的面你知道是什么吗？有些人觉得这个好吃，有些人觉得那个好——所以找足够好的面，一个就够。</p>
-<p>
-<div>
-<p>选择就要有个原则， 超平面，超曲面，超球面，超不规则面， 你会选<input class="quiz" type="text"/>？</p>
-<br/>
-<button onclick="checkQuiz(this, 5)">submit</button><br/>
-<input class="answers" type="hidden" value="d84827ccb4f57bee6b98652c0cca4c2a"/><input class="comments" type="hidden" value="我觉得这个原则我应该没理解错"/><br/>
-</div>
-</p>
+<div class="process"><span><p>选择就要有个原则，超平面，超曲面，超球面，超不规则面，你会选<input class="quiz" type="text"/>？</p></span><br/><input class="answers" type="hidden" value="超平面"/><input class="comments" type="hidden" value="我觉得这个原则我应该没理解错"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h3 id="_8">为什么？</h3>
-<p>
-<div>
-<p>为什么选超平面，你的原则是<input class="quiz" type="text"/>?</p>
-<br/>
-<button onclick="checkQuiz(this, 6)">submit</button><br/>
-<input class="answers" type="hidden" value="7a416554ec3f477fcdfc3bc737f12925"/><input class="comments" type="hidden" value="答案中要有那一个字，超平面相对其他几个是最什么的？"/><br/>
-</div>
-</p>
+<div class="process"><span><p>为什么选超平面，你的原则是<input class="quiz" type="text"/>?</p></span><br/><input class="answers" type="hidden" value="简"/><input class="comments" type="hidden" value="答案中要有那一个字，超平面相对其他几个是最什么的？"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_9">简单原则</h3>
 <p>没错， 有用、有效之外， 简单原则重要，没事搞那么复杂不合适，除非是发现需要这样做，比如现在量子力学和相对论就没能合并成一个更简单的理论。</p>
-<p>
-<div>
-<p>根据简单原则选择超平面，那对应的决策函数或条件概率分布应该是什么样的？</p>
-<input class="quiz" name="quiz" type="radio" value="一次"/><b>一次</b><br/>
-<input class="quiz" name="quiz" type="radio" value="二次"/><b>二次</b><br/>
-<input class="quiz" name="quiz" type="radio" value="指数"/><b>指数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="n次"/><b>n次</b><br/>
-<input class="quiz" name="quiz" type="radio" value="对数"/><b>对数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="开方"/><b>开方</b><br/>
-<button onclick="checkQuiz(this, 7)">submit</button><br/>
-<input class="answers" type="hidden" value="06af55ea8dcc536c0c94d2d894c28e07"/><input class="comments" type="hidden" value="超平面的各个参数分量是什么关系？"/><br/>
-</div>
-</p>
+<div class="process"><span><p>根据简单原则选择超平面，那对应的决策函数或条件概率分布应该是什么样的？</p><input class="quiz" name="quiz" type="radio" value="一次">一次</input><br/><input class="quiz" name="quiz" type="radio" value="二次">二次</input><br/><input class="quiz" name="quiz" type="radio" value="指数">指数</input><br/><input class="quiz" name="quiz" type="radio" value="n次">n次</input><br/><input class="quiz" name="quiz" type="radio" value="对数">对数</input><br/><input class="quiz" name="quiz" type="radio" value="开方">开方</input><br/></span><br/><input class="answers" type="hidden" value="一次"/><input class="comments" type="hidden" value="超平面的各个参数分量是什么关系？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h3 id="_10">模型终于出来了</h3>
 <p>不管绕了多远， 总之我们现在打算根据简单原则先弄个线性模型， 即 y=w*x+b</p>
-<p>
-<div>
-<p>有问题吗?<input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 8)">submit</button><br/>
-<input class="answers" type="hidden" value="cc4ad2fd27e24ff9191e254d8576d2ba"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><br/>
-</div>
-</p>
+<div class="process"><span><p>有问题吗?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_11">最终模型</h2>
 <p>那简单，y=w<em>x+b 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w</em>x+b的正负，写作：</p>
 <div class="math">$$
@@ -280,16 +207,7 @@ f(x) = sign(w*x+b) = \begin{cases}
 -1&amp; {w*x+b &lt; 0}
 \end{cases}
 $$</div>
-<p>
-<div>
-<p>下一步是？</p>
-<input class="quiz" name="quiz" type="radio" value="选策略"/><b>选策略</b><br/>
-<input class="quiz" name="quiz" type="radio" value="写算法"/><b>写算法</b><br/>
-<input class="quiz" name="quiz" type="radio" value="给定义"/><b>给定义</b><br/>
-<button onclick="checkQuiz(this, 9)">submit</button><br/>
-<input class="answers" type="hidden" value="6896ecf3f01bf7bb735937bb14cbaf35"/><input class="comments" type="hidden" value="模型样子知道了，需要给名字了，特性也要明确分析下"/><br/>
-</div>
-</p>
+<div class="process"><span><p>下一步是？</p><input class="quiz" name="quiz" type="radio" value="选策略">选策略</input><br/><input class="quiz" name="quiz" type="radio" value="写算法">写算法</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/></span><br/><input class="answers" type="hidden" value="给定义"/><input class="comments" type="hidden" value="模型样子知道了，需要给名字了，特性也要明确分析下"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h3 id="_12">抽象定义</h3>
 <p>上面得到的 f(x) = sign(w*x+b)， 可以用下图表示：</p>
 <p><img alt="感知器" src="http://p11.qhimg.com/t01a0d86bec3b62c499.png"/> 或 <img alt="2" src="http://img.ph.126.net/Mw41Nua9-AOf3YtHtBID8g==/2359604729765843658.png"/></p>
@@ -301,68 +219,24 @@ $$</div>
 <li>输出是类别，取+1或-1</li>
 <li>对应空间中将实例划分为正负两类的超平面</li>
 </ol>
-<p>
-<div>
-<p>模型部分讲完了吗？</p>
-<input class="quiz" name="quiz" type="radio" value="完了"/><b>完了</b><br/>
-<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
-<button onclick="checkQuiz(this, 10)">submit</button><br/>
-<input class="answers" type="hidden" value="6b2dfe066533275f45f9b00f49e0bc5d"/><input class="comments" type="hidden" value="让你猜"/><br/>
-</div>
-</p>
+<div class="process"><span><p>模型部分讲完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="完了"/><input class="comments" type="hidden" value="让你猜"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
 <h1 id="_13">策略</h1>
 <p>上面说了， 感知机学习是求一个将训练集划分成两部分（两类）的超平面，最好当然是要把正负实例点完全正确分开，确定感知机器参数 w，b。</p>
 <p>根据定义、目标--把正负实例点完全正确分开，</p>
-<p>
-<div>
-<p>损失函数可以选择为?</p>
-<input class="quiz" name="quiz" type="radio" value="误分类点的总数"/><b>误分类点的总数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离"/><b>误分类点到超平面的总距离</b><br/>
-<input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离"/><b>所有点到超平面的总距离</b><br/>
-<input class="quiz" name="quiz" type="radio" value="误分类点距离平方和"/><b>误分类点距离平方和</b><br/>
-<button onclick="checkQuiz(this, 11)">submit</button><br/>
-<input class="answers" type="hidden" value="7a82378ec3466c2a0b42ac16c76b000b"/><input class="comments" type="hidden" value="没话说"/><br/>
-</div>
-</p>
+<div class="process"><span><p>损失函数可以选择为?</p><input class="quiz" name="quiz" type="radio" value="误分类点的总数">误分类点的总数</input><br/><input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离">误分类点到超平面的总距离</input><br/><input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离">所有点到超平面的总距离</input><br/><input class="quiz" name="quiz" type="radio" value="误分类点距离平方和">误分类点距离平方和</input><br/></span><br/><input class="answers" type="hidden" value="误分类点的总数"/><input class="comments" type="hidden" value="没话说"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h2 id="ok">OK？</h2>
 <p>显然可以用<strong>误分类点的总数</strong>，表达式未记录，自行领会。</p>
 <p>但大家<strong>注意</strong>，在机器学习对模型进行优化时，一般采用导数、偏导、梯度一类的概念，找损失函数的极值点，所以，<em>找极值点自然是要在连续可导函数上进行的</em>， 离散、不可导的函数就尽量不要来凑热闹，虽然它们可能很直观， 这个应该是机器学习、最优化里一个小小的准则了。</p>
 <p>很显然， 误分数点总数就不是w,b的连续可导函数， 不能采用， 所以问题又来了，</p>
-<p>
-<div>
-<p>损失函数可以选择为?</p>
-<input class="quiz" name="quiz" type="radio" value="误分类点的总数"/><b>误分类点的总数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离"/><b>误分类点到超平面的总距离</b><br/>
-<input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离"/><b>所有点到超平面的总距离</b><br/>
-<input class="quiz" name="quiz" type="radio" value="误分类点距离平方和"/><b>误分类点距离平方和</b><br/>
-<button onclick="checkQuiz(this, 12)">submit</button><br/>
-<input class="answers" type="hidden" value="f40b68f2e649ad651a2aedf95f55fd47"/><input class="comments" type="hidden" value="简单原则还记得吗"/><br/>
-</div>
-</p>
+<div class="process"><span><p>损失函数可以选择为?</p><input class="quiz" name="quiz" type="radio" value="误分类点的总数">误分类点的总数</input><br/><input class="quiz" name="quiz" type="radio" value="误分类点到超平面的总距离">误分类点到超平面的总距离</input><br/><input class="quiz" name="quiz" type="radio" value="所有点到超平面的总距离">所有点到超平面的总距离</input><br/><input class="quiz" name="quiz" type="radio" value="误分类点距离平方和">误分类点距离平方和</input><br/></span><br/><input class="answers" type="hidden" value="误分类点到超平面的总距离"/><input class="comments" type="hidden" value="简单原则还记得吗"/><button onclick="checkQuiz(this, 11)">submit</button><br/></div>
 <h3 id="_14">推导距离</h3>
 <p>好，那我们来推导距离的表达式——并没有，因为是中学的知识，虽然没推过或时间太久，都会造成没有深刻的印象，但还是请读者自己推导任一点$x_0到超平面S的距离。</p>
-<p>
-<div>
-<p>你推导出来了吗？</p>
-<input class="quiz" name="quiz" type="radio" value="OK"/><b>OK</b><br/>
-<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
-<button onclick="checkQuiz(this, 13)">submit</button><br/>
-<input class="answers" type="hidden" value="b4ebe3f519ec51d5bd5fc832345135db"/><input class="comments" type="hidden" value="无所谓啦"/><br/>
-</div>
-</p>
+<div class="process"><span><p>你推导出来了吗？</p><input class="quiz" name="quiz" type="radio" value="OK">OK</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="无所谓啦"/><button onclick="checkQuiz(this, 12)">submit</button><br/></div>
 <h2 id="_15">一大波结论来袭</h2>
 <p><span class="math">\(x_i\)</span> 到超平面的距离:<span class="math">\(\frac{1}{||w||}|w*x_i+b|, ||w||\)</span>是w的<span class="math">\(L_2\)</span>范数。</p>
 <p>去掉绝对值，需要乘上<span class="math">\(y_i\)</span>(这算常用技巧不？)， 因为对误分类数据而言， 乘上y_i一定会 &lt; 0，还得再取个反，乘上-1。 最后求所有误分类点的总距离为：</p>
 <div class="math">$$-\frac{1}{||w||}\sum \limits_{x_i \in M} y_i(w*x_i + b)$$</div>
-<p>
-<div>
-<p>完了吗？</p>
-<input class="quiz" name="quiz" type="radio" value="可以了"/><b>可以了</b><br/>
-<input class="quiz" name="quiz" type="radio" value="还有"/><b>还有</b><br/>
-<button onclick="checkQuiz(this, 14)">submit</button><br/>
-<input class="answers" type="hidden" value="8a5139fcfd5cc59917f78a2d83ca0111"/><input class="comments" type="hidden" value="分子分母都有w，不能忍"/><br/>
-</div>
-</p>
+<div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="可以了">可以了</input><br/><input class="quiz" name="quiz" type="radio" value="还有">还有</input><br/></span><br/><input class="answers" type="hidden" value="还有"/><input class="comments" type="hidden" value="分子分母都有w，不能忍"/><button onclick="checkQuiz(this, 13)">submit</button><br/></div>
 <h3 id="_16">一次就好</h3>
 <p>看<a href="http://www.zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">SVM-最大间隔</a>时会发现，几乎一样的式子，但下一步就大相径庭了。</p>
 <p>所以这一步算是最难解释清楚的， 所以我不知道编写什么引导问题。</p>
@@ -377,15 +251,7 @@ $$</div>
 <div class="math">$$\min_{w,b} L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)$$</div>
 <h3 id="_18">补充可分性</h3>
 <p>显然， 能否没有误分类点，即损失函数值为0，关键还看数据集， 如果数据集能完全正确地划分开，那就是有可分性，如果能用超平面S完全正确地划分到两侧，那就是线性可分性——这个定义确实很明显。</p>
-<p>
-<div>
-<p>你觉得数据集有线性可分性的可能性高吗？</p>
-<input class="quiz" name="quiz" type="radio" value="高"/><b>高</b><br/>
-<input class="quiz" name="quiz" type="radio" value="低"/><b>低</b><br/>
-<button onclick="checkQuiz(this, 15)">submit</button><br/>
-<input class="answers" type="hidden" value="19ac677ac052e0736310f8b475cededa"/><input class="comments" type="hidden" value="嘿嘿，想想就知道不可能"/><br/>
-</div>
-</p>
+<div class="process"><span><p>你觉得数据集有线性可分性的可能性高吗？</p><input class="quiz" name="quiz" type="radio" value="高">高</input><br/><input class="quiz" name="quiz" type="radio" value="低">低</input><br/></span><br/><input class="answers" type="hidden" value="低"/><input class="comments" type="hidden" value="嘿嘿，想想就知道不可能"/><button onclick="checkQuiz(this, 14)">submit</button><br/></div>
 <h3 id="_19">不可分怎么办？</h3>
 <p>凉拌！ 损失函数迭代次数求最小,或见下面的算法部分。</p>
 <h1 id="_20">算法</h1>
@@ -520,7 +386,7 @@ $$</div>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>33</span>
+                            <span>34</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
                             <span>11</span>

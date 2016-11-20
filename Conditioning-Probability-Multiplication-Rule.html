@@ -137,41 +137,16 @@
 <p>罗嗦一点， 用排列组合，r只红球选两个的目标方案数 除以 r+b只球里选两个的总方案数。 </p>
 <div class="math">$$\frac{C_{r}^2}{C_{r+b}^2} = \frac{r(r-1)}{(r+b)(r+b-1)}$$</div>
 <p>就这样嘛， 不就得了？ 能用就好了呗， 不好意思， 条件概率的乘法法则 就希望避免掉计算组合数。</p>
-<p>
-<div>
-<p>那怎么办？</p>
-<input class="quiz" name="quiz" type="radio" value="不想看这么罗嗦的东西了，关掉"/><b>不想看这么罗嗦的东西了，关掉</b><br/>
-<input class="quiz" name="quiz" type="radio" value="跟条件概率关联上"/><b>跟条件概率关联上</b><br/>
-<input class="quiz" name="quiz" type="radio" value="分两次求概率后相乘"/><b>分两次求概率后相乘</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="e284e482bd80b21e5e8292dcf3051feb"/><input class="comments" type="hidden" value="我也想弄填空，让大家自由发挥，现在先这样吧，请选实际方案"/><br/>
-</div>
-</p>
+<div class="process"><span><p>那怎么办？</p><input class="quiz" name="quiz" type="radio" value="不想看这么罗嗦的东西了，关掉">不想看这么罗嗦的东西了，关掉</input><br/><input class="quiz" name="quiz" type="radio" value="跟条件概率关联上">跟条件概率关联上</input><br/><input class="quiz" name="quiz" type="radio" value="分两次求概率后相乘">分两次求概率后相乘</input><br/></span><br/><input class="answers" type="hidden" value="分两次求概率后相乘"/><input class="comments" type="hidden" value="我也想弄填空，让大家自由发挥，现在先这样吧，请选实际方案"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h3 id="_4">哪有条件概率</h3>
 <p>不就两次取球吗， 第一次是 <span class="math">\(r/(r+b)\)</span>的概率， 第二次不就是 <span class="math">\((r-1)/(r+b-1)\)</span> 吗， 两个相乘就得了。</p>
-<p>
-<div>
-<p>这不常识吗？也跟条件概率有关系?</p>
-<input class="quiz" name="quiz" type="radio" value="有"/><b>有</b><br/>
-<input class="quiz" name="quiz" type="radio" value="没有"/><b>没有</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="cc4ad2fd27e24ff9191e254d8576d2ba"/><input class="comments" type="hidden" value="当然有，好好想想"/><br/>
-</div>
-</p>
+<div class="process"><span><p>这不常识吗？也跟条件概率有关系?</p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="当然有，好好想想"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_5">条件概率没有存在感</h3>
 <p>对吧， 还真有， 第二次不就是基于第一次成功的条件嘛。</p>
 <p>所以说， 条件概率特别是乘法法则可能真是太没有存在感了， 更像一种常识。 </p>
 <p>目前可能有点简单，本来的常识就是 看山是山看水是水，强行引入条件概率的思考方式，变成了看山不是山，看水也不是水，整个人做题时就怀疑人生，觉得题目怎么绕成这样， 到最后习惯了，又到了 看山还是山，看水还是水。但是， 你人已经不一样了。</p>
 <p>上面这段只是吹的， 条件概率有没有那么夸张，我并不知道。</p>
-<p>
-<div>
-<p>下一步呢？</p>
-<input class="quiz" name="quiz" type="radio" value="分析事件的独立性"/><b>分析事件的独立性</b><br/>
-<input class="quiz" name="quiz" type="radio" value="归纳乘法法则"/><b>归纳乘法法则</b><br/>
-<button onclick="checkQuiz(this, 3)">submit</button><br/>
-<input class="answers" type="hidden" value="a6442a0dd2448fc0537b93a2b9981208"/><input class="comments" type="hidden" value="现在只学了2个事件的乘法法则，满足了？"/><br/>
-</div>
-</p>
+<div class="process"><span><p>下一步呢？</p><input class="quiz" name="quiz" type="radio" value="分析事件的独立性">分析事件的独立性</input><br/><input class="quiz" name="quiz" type="radio" value="归纳乘法法则">归纳乘法法则</input><br/></span><br/><input class="answers" type="hidden" value="归纳乘法法则"/><input class="comments" type="hidden" value="现在只学了2个事件的乘法法则，满足了？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h3 id="_6">推广</h3>
 <p>我们肯定不满足于此，n=1,2都是特例， 一定会想着归纳、 推广到任意n，不管是费马大定理还是1元n次方程求根公式， 只不过是有或是没有，证不证得出来。 没结果也要有过程， 要有这颗探索的心。</p>
 <p>还是不放回的取球问题， 之前只是取两个， 推广到取任意n(n&lt;=r)个球是红球的概率（原题更一般化）。</p>

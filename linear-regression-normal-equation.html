@@ -153,31 +153,11 @@
 <p>这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。</p>
 <p>回归正题。 这里我们讲的还是算法部分（起算法作用），所以模型和策略还是原样。</p>
 <p>还记得这题不？</p>
-<p>
-<div>
-<p>你觉得应该怎么做?</p>
-<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试"/><b>从非常小到非常大全部试</b><br/>
-<input class="quiz" name="quiz" type="radio" value="从一个随机位置开始"/><b>从一个随机位置开始</b><br/>
-<input class="quiz" name="quiz" type="radio" value="公式变换找最小位置"/><b>公式变换找最小位置</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="b9e68e5388c4abb82455bfc742377a02"/><input class="comments" type="hidden" value="呃"/><br/>
-</div>
-</p>
+<div class="process"><span><p>你觉得应该怎么做?</p><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/><input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试">从非常小到非常大全部试</input><br/><input class="quiz" name="quiz" type="radio" value="从一个随机位置开始">从一个随机位置开始</input><br/><input class="quiz" name="quiz" type="radio" value="公式变换找最小位置">公式变换找最小位置</input><br/></span><br/><input class="answers" type="hidden" value="从一个随机位置开始"/><input class="comments" type="hidden" value="呃"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h1 id="_3">标准方程</h1>
 <p>之前，在讲梯度下降法时， 强行PASS公式变换。但我们都知道，在高中初学抛物线方程时，叫配项还是配方，把式子转成<span class="math">\(y=a(x-t)^2+b\)</span>的形式，最低点就在x=t处。</p>
 <p>我们现在要给J(w)进行配方吗？已经是这个形式了， 搞不定。那怎么办？想想最低点有什么特点、 性质？（用填空更好，但这判断正误太难了）</p>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="最低点最小"/><b>最低点最小</b><br/>
-<input class="quiz" name="quiz" type="radio" value="一阶导数为0"/><b>一阶导数为0</b><br/>
-<input class="quiz" name="quiz" type="radio" value="二阶导数为常数"/><b>二阶导数为常数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<button onclick="checkQuiz(this, 2)">submit</button><br/>
-<input class="answers" type="hidden" value="75d82214a3ed4ef48e296d9eff6c2f37"/><input class="comments" type="hidden" value="没提示"/><br/>
-</div>
-</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="最低点最小">最低点最小</input><br/><input class="quiz" name="quiz" type="radio" value="一阶导数为0">一阶导数为0</input><br/><input class="quiz" name="quiz" type="radio" value="二阶导数为常数">二阶导数为常数</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="一阶导数为0"/><input class="comments" type="hidden" value="没提示"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_4">求导</h2>
 <p>高中学导数或大学学微分会知道，二次函数的极值点的一阶导数为0，这是已知条件， 看来可以用了。</p>
 <p>不过， 和一元二次方程就只有一个最小值不一样的是， 现在是矩阵、 向量的求导， 是否有多个一阶导数为0的极小值呢？ 应该没有吧~~~我也不知道</p>
@@ -186,52 +166,18 @@
 <p>已知， 训练集 X是个 <span class="math">\(m*n\)</span>维的矩阵， 或者<span class="math">\(m*(n+1)\)</span>的矩阵(把b看作0项的话）。 y 是 <span class="math">\(m*1\)</span>维的向量。</p>
 <div class="math">$$h(x)=\sum \limits^n_{i=1}w_i*x_i$$</div>
 <p>所以, J(w)要写得更漂亮点，使用一些先进的符号，不要用求和、 上下标之类的，档次太低。</p>
-<p>
-<div>
-<p>使用哪方面的符号来改写J(w)?</p>
-<input class="quiz" name="quiz" type="radio" value="微积分"/><b>微积分</b><br/>
-<input class="quiz" name="quiz" type="radio" value="数学分析"/><b>数学分析</b><br/>
-<input class="quiz" name="quiz" type="radio" value="矩阵"/><b>矩阵</b><br/>
-<input class="quiz" name="quiz" type="radio" value="概率论"/><b>概率论</b><br/>
-<input class="quiz" name="quiz" type="radio" value="不知道"/><b>不知道</b><br/>
-<button onclick="checkQuiz(this, 3)">submit</button><br/>
-<input class="answers" type="hidden" value="f739e5c9038960c20907a5fac564d123"/><input class="comments" type="hidden" value="还是不知道写什么提示"/><br/>
-</div>
-</p>
+<div class="process"><span><p>使用哪方面的符号来改写J(w)?</p><input class="quiz" name="quiz" type="radio" value="微积分">微积分</input><br/><input class="quiz" name="quiz" type="radio" value="数学分析">数学分析</input><br/><input class="quiz" name="quiz" type="radio" value="矩阵">矩阵</input><br/><input class="quiz" name="quiz" type="radio" value="概率论">概率论</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="矩阵"/><input class="comments" type="hidden" value="还是不知道写什么提示"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="hx">h(x)的矩阵化</h2>
 <p>先定义， 使用小写的w 直接代表参数向量， 大写的X 代表数据集X， y还是y, ^T代表矩阵转置。</p>
 <p>从内到外， 先改h(x), 就是 <strong>w</strong> 这个<span class="math">\(n*1\)</span>维的系数向量 和 <strong>X</strong> 这个<span class="math">\(m*n\)</span>维的矩阵相乘得到一个 <span class="math">\(m*1\)</span>维的预测向量？</p>
-<p>
-<div>
-<p>所以h(x)改写成<input class="quiz" type="text"/>？</p>
-<br/>
-<button onclick="checkQuiz(this, 4)">submit</button><br/>
-<input class="answers" type="hidden" value="3a76d2b264d27248dc29c6a4c3c46fb1"/><input class="comments" type="hidden" value="顺序别错#线性代数不用乘号"/><br/>
-</div>
-</p>
+<div class="process"><span><p>所以h(x)改写成<input class="quiz" type="text"/>？</p></span><br/><input class="answers" type="hidden" value="Xw"/><input class="comments" type="hidden" value="顺序别错#线性代数不用乘号"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h2 id="_6">平方和的矩阵化</h2>
 <p>-y好说， J(w)求平方后再求和呢？ 已知 h(x)-y 是个向量。</p>
-<p>
-<div>
-<p>一个向量v的平方和就是？</p>
-<input class="quiz" name="quiz" type="radio" value="v和v的叉乘"/><b>v和v的叉乘</b><br/>
-<input class="quiz" name="quiz" type="radio" value="v和v的内积"/><b>v和v的内积</b><br/>
-<input class="quiz" name="quiz" type="radio" value="我也编不出来了"/><b>我也编不出来了</b><br/>
-<button onclick="checkQuiz(this, 5)">submit</button><br/>
-<input class="answers" type="hidden" value="8fbe3ebcd698d9c7b1fa5e93c769a4bd"/><input class="comments" type="hidden" value="头痛"/><br/>
-</div>
-</p>
+<div class="process"><span><p>一个向量v的平方和就是？</p><input class="quiz" name="quiz" type="radio" value="v和v的叉乘">v和v的叉乘</input><br/><input class="quiz" name="quiz" type="radio" value="v和v的内积">v和v的内积</input><br/><input class="quiz" name="quiz" type="radio" value="我也编不出来了">我也编不出来了</input><br/></span><br/><input class="answers" type="hidden" value="v和v的内积"/><input class="comments" type="hidden" value="头痛"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="_7">矩阵化结果</h2>
 <p>当然， 内积是个符号， 还要再换个形式。 <span class="math">\(n*1\)</span>维的向量v和v的内积， 就等于 <span class="math">\(1*n\)</span>维的<span class="math">\(v^T\)</span>和v的乘积<span class="math">\(v^Tv\)</span>。</p>
 <p>请代入之前的结果， 写出完整表达式</p>
-<p>
-<div>
-<p><input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 6)">submit</button><br/>
-<input class="answers" type="hidden" value="5de0efac9c254f7104eab8d8dbf398f4"/><input class="comments" type="hidden" value="顺序不要反，不要乘号#数学式子判断比较麻烦#(Xw-y)^T(Xw-y)"/><br/>
-</div>
-</p>
+<div class="process"><span><p><input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="(Xw-y)^T(Xw-y)"/><input class="comments" type="hidden" value="顺序不要反，不要乘号#数学式子判断比较麻烦#(Xw-y)^T(Xw-y)"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h1 id="_8">简化版求解</h1>
 <p>Ng的视频和讲义用到了矩阵的迹及一堆定理， 太复杂。 Bekeley里呢， 就非常简单了。</p>
 <p>先从简单的讲起。</p>
@@ -242,16 +188,7 @@
 $$</div>
 <p>关键就是后面一部分的结果， 虽然也简单，但我觉得这种显性地思考过比潜意识觉得对好一点。</p>
 <p>先来个问题，<span class="math">\(\frac{df}{dw}(w)\)</span> 这个应该是什么结果？ w是个<span class="math">\(n*1\)</span>维向量。</p>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="一个实数"/><b>一个实数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="n*n维矩阵"/><b>n*n维矩阵</b><br/>
-<input class="quiz" name="quiz" type="radio" value="n*1维向量"/><b>n*1维向量</b><br/>
-<button onclick="checkQuiz(this, 7)">submit</button><br/>
-<input class="answers" type="hidden" value="f2b870e106e0ebe20d7b0ca7487d8158"/><input class="comments" type="hidden" value="很明显对吧？"/><br/>
-</div>
-</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="一个实数">一个实数</input><br/><input class="quiz" name="quiz" type="radio" value="n*n维矩阵">n*n维矩阵</input><br/><input class="quiz" name="quiz" type="radio" value="n*1维向量">n*1维向量</input><br/></span><br/><input class="answers" type="hidden" value="n*1维向量"/><input class="comments" type="hidden" value="很明显对吧？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h2 id="_9">对向量求导</h2>
 <p>某函数对向量求导、偏导（表达没错吧？）就是这个函数对每个分量都求一下， 结果也就是一个向量。</p>
 <p>现在， <br/>
@@ -259,14 +196,7 @@ $$</div>
 2. Xw-y 是<span class="math">\(m*1\)</span>维的向量， 因为是m行的数据</p>
 <p><span class="math">\(\frac{df}{dw}(Xw - y)\)</span>中， y对w来说是常数，微分就没了， Xw是个<span class="math">\(m*1\)</span>维向量，对<span class="math">\(n*1\)</span>维的w求导，那对w的n个分量,都有m个结果， 所以是 <span class="math">\(n*m\)</span>维。</p>
 <p>那<span class="math">\(\frac{df}{dw}(Xw - y)\)</span>的结果应该是什么？</p>
-<p>
-<div>
-<p><input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 8)">submit</button><br/>
-<input class="answers" type="hidden" value="54e59fa769df35dea2d65bb88712586e"/><input class="comments" type="hidden" value="想想维数，想想Xw对w求导"/><br/>
-</div>
-</p>
+<div class="process"><span><p><input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="X^T"/><input class="comments" type="hidden" value="想想维数，想想Xw对w求导"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_10">求导的结果</h2>
 <p><span class="math">\(\frac{df}{dw}(Xw - y)\)</span>是<span class="math">\(n*m\)</span>维的，又加上Xw是w的一次函数，所以，符合<span class="math">\(X^T\)</span>的特征，那结果没跑了吧。</p>
 <p>维数上好理解，但正好是<span class="math">\(X^T\)</span>还是蛮神奇的，我也不知道怎么解释。线性代数就没学好，这部分已经到矩阵论了吧。</p>
@@ -278,25 +208,10 @@ $$</div>
 \end{aligned}
 $$</div>
 <p>下一步呢？</p>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="继续化简"/><b>继续化简</b><br/>
-<input class="quiz" name="quiz" type="radio" value="令结果=0"/><b>令结果=0</b><br/>
-<button onclick="checkQuiz(this, 9)">submit</button><br/>
-<input class="answers" type="hidden" value="649beaf5b12a708605c0820442461ce2"/><input class="comments" type="hidden" value="最低点的特点嘛"/><br/>
-</div>
-</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="继续化简">继续化简</input><br/><input class="quiz" name="quiz" type="radio" value="令结果=0">令结果=0</input><br/></span><br/><input class="answers" type="hidden" value="令结果=0"/><input class="comments" type="hidden" value="最低点的特点嘛"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h2 id="w">求w</h2>
 <p>请写出最终结果， 求逆请写^(-1), 转置 仍是^T, 仍然不要用乘号*</p>
-<p>
-<div>
-<p>w=<input class="quiz" type="text"/></p>
-<br/>
-<button onclick="checkQuiz(this, 10)">submit</button><br/>
-<input class="answers" type="hidden" value="52d5eaf846ff979692bf96dd3fa229f0"/><input class="comments" type="hidden" value="是很难看"/><br/>
-</div>
-</p>
+<div class="process"><span><p>w=<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="(X^TX)^(-1)X^Ty"/><input class="comments" type="hidden" value="是很难看"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
 <h2 id="_11">总结</h2>
 <p>简化版我也写得很啰嗦， 实际上不解释矩阵求导、向量求导的话， 从<span class="math">\(J(w)=(Xw-y)^2\)</span>到结果只要三五步而已。</p>
 <h1 id="_12">严谨版证明</h1>
@@ -318,17 +233,7 @@ $$</div>
 <div class="math">$$tr A = \sum^n_{i=1}A_{ii}$$</div>
 <p>因为要求比较丰富的线性代数、矩阵论知识， 不可能在这里补充， 就想到哪里讲哪里了。</p>
 <p>所以， J(w)的结果是个什么东西？</p>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="一个实数"/><b>一个实数</b><br/>
-<input class="quiz" name="quiz" type="radio" value="一个向量"/><b>一个向量</b><br/>
-<input class="quiz" name="quiz" type="radio" value="一个矩阵"/><b>一个矩阵</b><br/>
-<input class="quiz" name="quiz" type="radio" value="一个方阵"/><b>一个方阵</b><br/>
-<button onclick="checkQuiz(this, 11)">submit</button><br/>
-<input class="answers" type="hidden" value="d10ff1669e8b6d3a2630b2947f54b857"/><input class="comments" type="hidden" value="数数维数"/><br/>
-</div>
-</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="一个实数">一个实数</input><br/><input class="quiz" name="quiz" type="radio" value="一个向量">一个向量</input><br/><input class="quiz" name="quiz" type="radio" value="一个矩阵">一个矩阵</input><br/><input class="quiz" name="quiz" type="radio" value="一个方阵">一个方阵</input><br/></span><br/><input class="answers" type="hidden" value="一个实数"/><input class="comments" type="hidden" value="数数维数"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h2 id="_13">对方阵求导</h2>
 <p>接下来的证明， 涉及几个定理：</p>
 <ol>
@@ -351,15 +256,7 @@ $$</div>
 <li>第2、3项互为转置，求导结果相等，只看其中的<span class="math">\(y^T Xw\)</span>，把<span class="math">\(y^T X\)</span>看作是B, 所以这两项求导结果就是<span class="math">\(2*(y^T X)^T = 2 X^T y\)</span></li>
 <li>第一项最复杂， 跟<span class="math">\(tr ABA^TC\)</span>最相似，有<span class="math">\(A和A^T\)</span>。来问题了, 我们把<span class="math">\(X^T X\)</span>看作是B呢还是C呢？</li>
 </ol>
-<p>
-<div>
-<p></p>
-<input class="quiz" name="quiz" type="radio" value="B"/><b>B</b><br/>
-<input class="quiz" name="quiz" type="radio" value="C"/><b>C</b><br/>
-<button onclick="checkQuiz(this, 12)">submit</button><br/>
-<input class="answers" type="hidden" value="0d61f8370cad1d412f80b84d143e1257"/><input class="comments" type="hidden" value="按顺序一个个对上，看看#匹配错后，A是什么"/><br/>
-</div>
-</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="B">B</input><br/><input class="quiz" name="quiz" type="radio" value="C">C</input><br/></span><br/><input class="answers" type="hidden" value="C"/><input class="comments" type="hidden" value="按顺序一个个对上，看看#匹配错后，A是什么"/><button onclick="checkQuiz(this, 11)">submit</button><br/></div>
 <h2 id="_14">迹求导</h2>
 <p>把<span class="math">\(X^T X\)</span>看成C， 那现在的顺序是 <span class="math">\(tr w^T C w\)</span>, 要把顺序从ABC改成CAB， 变成<span class="math">\(tr(w w^T X^T X)\)</span></p>
 <p>所以<span class="math">\(A, A^T\)</span>之间的B 就可以用 单位矩阵来表示。 这又是个种技巧，也许就叫 <strong>单位元</strong> 技巧。</p>
@@ -498,7 +395,7 @@ $$</div>
                             <span>8</span>
 </a></li>
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>33</span>
+                            <span>34</span>
 </a></li>
                         <li><a href="/tags.html#machine-learning-ref">Machine Learning
                             <span>8</span>

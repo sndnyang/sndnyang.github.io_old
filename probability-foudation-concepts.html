@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="概率基础概念 "/>
 <meta property="og:url" content="http://sndnyang.github.io/probability-foudation-concepts.html" />
-<meta property="og:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素 输入 输出 映射规则 定义域 值域 submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ..." />
+<meta property="og:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素输入输出映射规则定义域值域submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-10-01T21:50:00+08:00" />
 <meta property="" content="2016-10-02T00:00:00+08:00" />
 <meta name="twitter:title" content="概率基础概念 ">
-<meta name="twitter:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素 输入 输出 映射规则 定义域 值域 submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ...">
+<meta name="twitter:description" content="说明 本文参考以下文献： MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 前提条件 假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。 所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。 函数的几个要素输入输出映射规则定义域值域submit 概率课程总览 显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系： 输入： 各种离散或连续的，一元或多元的变量。 输出： 各种情况下的输出概率likelihood及 可信度 belief 映射规则： 如概率公理及其推论 所以， 概率课的大纲往往按照总分结构 ...">
 
 
         <title>概率基础概念  · 懒龙谷
@@ -132,18 +132,7 @@
 <h1 id="_2">前提条件</h1>
 <p>假设读者起码熟悉初高中的数学知识， 知道函数、映射这些基本概念。</p>
 <p>所以， 函数是什么？ 大概就是把一个空间按某个法则映射到另一空间， 实例点就是把一个矩阵（向量，数）映射到另一个矩阵（向量，数）。</p>
-<p>
-<div>
-<p>函数的几个要素</p>
-<input class="quiz" name="quiz" type="checkbox" value="输入"/><b>输入</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="输出"/><b>输出</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="映射规则"/><b>映射规则</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="定义域"/><b>定义域</b><br/>
-<input class="quiz" name="quiz" type="checkbox" value="值域"/><b>值域</b><br/>
-<button onclick="checkQuiz(this, 1)">submit</button><br/>
-<input class="answers" type="hidden" value="eb0d0d8a3ed8c6c2849ad95591772c93"/><input class="comments" type="hidden" value="这个，那个"/><br/>
-</div>
-</p>
+<div class="process"><span><p>函数的几个要素</p><input class="quiz" name="quiz" type="checkbox" value="输入">输入</input><br/><input class="quiz" name="quiz" type="checkbox" value="输出">输出</input><br/><input class="quiz" name="quiz" type="checkbox" value="映射规则">映射规则</input><br/><input class="quiz" name="quiz" type="checkbox" value="定义域">定义域</input><br/><input class="quiz" name="quiz" type="checkbox" value="值域">值域</input><br/></span><br/><input class="answers" type="hidden" value="输入@输出@映射规则"/><input class="comments" type="hidden" value="这个，那个"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h1 id="_3">概率课程总览</h1>
 <p>显然，概率模型也可以表现成函数映射关系。存在以下三种对应关系：</p>
 <ol>

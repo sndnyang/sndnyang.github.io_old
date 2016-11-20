@@ -10,20 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS 机器学习 人工智能 深度学习, 机器学习, " />
+<meta name="keywords" content="CS, 调试, CS, " />
 
-<meta property="og:title" content="神经网络引入 "/>
-<meta property="og:url" content="http://sndnyang.github.io/introduce-neural-network.html" />
-<meta property="og:description" content="神经网络概念的引入，没什么内容" />
+<meta property="og:title" content="Udacity调试课笔记之调试者的工作方式 "/>
+<meta property="og:url" content="http://sndnyang.github.io/udacity-debug-debugger-work-methods.html" />
+<meta property="og:description" content="udacity的调试课程笔记， 第一部分， 调试者的工作方式， 主要内容：基本概念，科学方法。 强行改造成知维图教程" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-11-01T16:38:30+08:00" />
-<meta property="" content="2016-11-19T16:35:30+08:00" />
-<meta name="twitter:title" content="神经网络引入 ">
-<meta name="twitter:description" content="神经网络概念的引入，没什么内容">
+<meta property="og:article:published_time" content="2016-11-20T17:45:30+08:00" />
+<meta property="" content="2016-11-20T17:45:30+08:00" />
+<meta name="twitter:title" content="Udacity调试课笔记之调试者的工作方式 ">
+<meta name="twitter:description" content="udacity的调试课程笔记， 第一部分， 调试者的工作方式， 主要内容：基本概念，科学方法。 强行改造成知维图教程">
 
 
-        <title>神经网络引入  · 懒龙谷
+        <title>Udacity调试课笔记之调试者的工作方式  · 懒龙谷
 </title>
 
         <style>
@@ -91,8 +91,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/introduce-neural-network.html">
-                        神经网络引入  
+                    <a href="/udacity-debug-debugger-work-methods.html">
+                        Udacity调试课笔记之调试者的工作方式  
                     </a>
                 </h1>
             </header>
@@ -103,13 +103,9 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1"></a></li>
-<li><a href="#_2">为什么要引入神经网络</a></li>
-<li><a href="#_3">抽谁，对谁进行抽象</a></li>
-<li><a href="#_4">抽象结果</a></li>
-<li><a href="#_5">历史部分</a></li>
-<li><a href="#_6">安排</a></li>
-<li><a href="#_7">完成！！！</a></li>
+<li><a href="#_1">默认的开头</a></li>
+<li><a href="#_2">身临其境、痛哭流涕</a></li>
+<li><a href="#_3">调试的基础知识</a></li>
 </ul>
 </div>
                     </nav>
@@ -118,52 +114,75 @@
 
                         
                         
-<h1 id="_1"></h1>
-<p>本文参考以下文献：</p>
+<h1 id="_1">默认的开头</h1>
+<p>本文来自以下内容：</p>
 <ol>
-<li>Hinton coursera《neural network for machine learning》<a href="https://www.coursera.org/learn/neural-networks">课程主页</a></li>
-<li>学堂在线 袁博 <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+2016_T2/about">数据挖掘：理论与算法</a></li>
+<li><a href="https://cn.udacity.com/course/software-debugging--cs259">udacity调试课</a></li>
 </ol>
-<p>本文内容比较简单，甚至有点空洞无物， 因为从人脑抽象出最基础的神经网络还是很直观的， 本文又不涉及具体方案的实现和验证。了解神经网络是什么一回事的读者完全可以跳过。</p>
 <div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h1 id="_2">为什么要引入神经网络</h1>
-<p>很明显， 人类大脑是目前已知学习能力最强的可模仿对象。 机器学习要有学习能力， 怎能不从人脑这里取点经？</p>
-<p>所以科学家们模仿大脑、神经网络，提出了人工神经网络artificial neural network, 缩写ann，一般计算机相关领域就简称<strong>神经网络</strong>（neural network），缩写 nn。</p>
-<p>人脑的介绍部分 大家在中学或科普书上应该都了解过， 可以在Hinton课程第一周第二个视频再看一下。</p>
-<div class="process"><span><p>接下来，我们要做什么?</p><input class="quiz" name="quiz" type="radio" value="归纳">归纳</input><br/><input class="quiz" name="quiz" type="radio" value="演绎">演绎</input><br/><input class="quiz" name="quiz" type="radio" value="抽象">抽象</input><br/><input class="quiz" name="quiz" type="radio" value="推导">推导</input><br/><input class="quiz" name="quiz" type="radio" value="证明">证明</input><br/><input class="quiz" name="quiz" type="radio" value="实验">实验</input><br/><input class="quiz" name="quiz" type="radio" value="关闭浏览器">关闭浏览器</input><br/></span><br/><input class="answers" type="hidden" value="抽象"/><input class="comments" type="hidden" value="关闭浏览器:开玩笑的啦！#实验:不是生物课，我们无脑实验#证明:啊？#演绎:在逼我表演？#归纳:好像是有点像，可能是我的锅#抽象:我觉得应该是它，对世界上的客观事物进行抽象"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h1 id="_3">抽谁，对谁进行抽象</h1>
-<p>生物问题就不问了。暴露一下自己的无知， 人脑神经系统主要是神经元和突触， 对吧？ 就抽它俩。 </p>
-<p>我们知道， 人脑视觉、听觉各种觉、活动都是神经元细胞间通过突触来传递信号，传着传着就传出了非常复杂的大脑功能——有说大脑进行量子处理的，这完全超出我的知识范围， 没法介绍， 现在我们就假设人脑活动就是 神经元间用突触传信号。 8-)</p>
-<div class="highlight"><pre><span></span>这里有没有必要提问，如果提问，该如何问。 
-学过图论、离散数学、数据结构的读者知道突触肯定抽象成图， 没有基础的呢？
-神经元抽象成数学模型、函数，看起来顺理成章，但我们自己能否有这意识，细胞具体做了多少工作我们不知道，为什么不被抽象成一个图灵机？ 
-我们能想到借鉴人脑神经结构、抽象神经系统吗？
-</pre></div>
-<h1 id="_4">抽象结果</h1>
-<p>抽象起来不难， 一个神经元可以看作是一个数学模型或函数， 接收信号，输出信号。</p>
-<p>而多个神经元通过突触连接显然是个有向图， 每个神经元都可以有多个神经元向它传信号，也有多个神经元可以接受它传出来的信号。</p>
-<p>所以，我们抽象得到一个基础的神经网络（框架）：</p>
-<ol>
-<li>整个神经系统看成一个图， 有输入有输出， 不闭合。</li>
-<li>单个神经元看作是一个数学模型、函数， 即图上的一点。</li>
-<li>神经元间的突触，看成是两个神经元间的边。</li>
-</ol>
-<p>一个典型的图示: </p>
-<p><img alt="nn" src="http://images.cnitblog.com/blog/407700/201306/11152815-3019e78787a14a378046678dcf8bedd1.gif"/></p>
-<p>那之后呢， 就是在这个框架基础之上的各种不同的实现方案， 神经元的具体方案、 突触的具体方案。</p>
-<h1 id="_5">历史部分</h1>
-<p>最开始的是相当于神经元的感知机模型(perceptron)， 发展起来浅层的神经网络， 可人工智能之父之一明斯基1969年与人合著，证明感知机能力有限， 神经网络方法一度沉寂。</p>
-<p>06年后，Hinton开始，发展出深度学习，神经网络再度火热。</p>
-<p>其他课程里可能有讲历史的部分。</p>
-<h1 id="_6">安排</h1>
-<ol>
-<li>先介绍类似神经元的 <a href="http://www.zhimind.com/tutorial/0c089ff0-48f8-43ed-a84f-760d73a1a68d">感知机</a> 和 <a href="http://www.zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归</a></li>
-<li>再介绍神经网络的经典算法 <a href="">前向传播#todo</a> 和 <a href="">反向传播#todo</a></li>
-<li>介绍深度学习网络——#todo目前本人还没看过深度学习，所以没法估计后面内容。</li>
-</ol>
-<p>思维导图 <a href="http://www.zhimind.com/map/b1c760fb-aa1a-40c5-8330-a45e18f0cdd7">深度学习导图</a></p>
-<h1 id="_7">完成！！！</h1>
-<p>真的没话说。</p>
+<h1 id="_2">身临其境、痛哭流涕</h1>
+<p>我想， 没有哪个程序员没有过漫长而又黑暗的调试经历吧？</p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="出门右转，不送！"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<p>单元内容概述</p>
+<p>1、调试的基础知识。（应该是基本概念）
+2、科学方法
+3、清晰调试
+4、用Python构建Python的交互式调试器</p>
+<h1 id="_3">调试的基础知识</h1>
+<p>回顾自己的调试经历，是否在调试时有种调到海枯石烂、天荒地老，山无棱、天地合，乃敢调出来的感觉，是不是想着和bug同归于尽了？</p>
+<p>来看一份魔鬼调试指南说明书，看看你满足其中几条。</p>
+<p>魔鬼调试指南：
+1、处处print。想看谁就看谁，想哪儿看就哪儿看。
+2、猜测式巧合编程。哥是无敌幸运星，bug一向随意改改就搞定，呃，偶尔改到面目全非也没搞定。
+3、从不备份。什么？难道你没听说过破釜沉舟、刻舟求剑、背水一战？给自己退路的人，怎么能勇往直前！
+4、理解程序很烦。为什么要理解程序的目的意图？看注释、代码很晕的好不好。
+5、神来之笔。兵来将挡，水来土掩。大不了，哥用一堆if，也要跟你卯上了！脚痛医脚，头痛砍头，这么浅显的道理，难道你不懂吗？</p>
+<p>第5条的神来之笔何意？举例说明。假设，你写了个程序或者就是一个函数，比如是求平方根的函数……当你输入4的时候，你知道的，返回值肯定是2。就假设，你的函数有问题，于是返回了1.2 或是直接整个程序就挂掉了。试了半天，没解决这个问题，于是，你一怒之下，在函数开头来了句神来之笔：
+if x == 4 then return 2;</p>
+<p>上面这个例子过于极端，只是我也想不出来靠谱的例子。神来之笔的实际含义就是针对症状而不是问题来进行修复，只要症状解决、不再出现（出错），也就不再管bug是否还在。所谓的治标不治本。希望大家能理解。</p>
+<p>看完魔鬼调试指南，让我们速速回到人间，太上老君急急如律令！看看人间调试指南是什么样的。</p>
+<p>人间调试指南：
+1、解决问题。解决bug，而不只是bug引起的症状。针对魔鬼法则5
+2、理解程序。理解程序的意图，分析输入和期望输出。针对魔鬼法则4
+3、版本控制、备份。针对魔鬼法则3
+4、使用系统的调试方法。针对魔鬼法则1和2</p>
+<p>坚持使用人间调试指南，就是你变得职业的必经之路。西天取经要上路，一走就是十万里。不强迫自己养成这个习惯，如何称得上专业人士？</p>
+<p>就像《中国电影人物访谈》（是叫这个吧）之王晶篇里，王晶从编剧的角度来说，什么叫专业。专业就是，在你刚刚失恋之后，让你写一个爱情喜剧，男女主角幸福生活在一起的剧本。你也要高质量、不受情绪影响地写出来，这就叫专业。所以他说，靠直觉、灵感的都不叫专业。虽然他现在拍的喜剧电影也是越来越不专业了。</p>
+<p>要去取经，万里长征第一步，让我想到广告。在我们磨刀霍霍向bug时，我们要先做到以下几点：
+1、理解问题。理解程序出了什么问题。
+2、理解程序目的。程序原本是打算做什么，结果应该是什么。
+3、预测下如何解决问题，而不是症状。也就是提出个解决问题的可能方案。
+第3点将是下一部分，科学方法的前提。</p>
+<p>最后来点概念了。一堆英语名词解释，让我们尽情地晕吧。无所谓。
+失败(failure)——用户在程序外看到的错误。
+错误(error)——偏离了正确，不再正确的都是错误。晕。
+缺陷(defect)——代码中的error，将有效的状态变成错误的状态，进而可能引起程序的失败(failure)。
+Fault——也就是缺陷(defect)，不过它还用于描述数据data的问题。
+Bug——缺陷的最著名的说法，等价。指bug本不属于代码的一部分，自己爬进来的。但Zeller认为bug就是程序员写出来的，所以他更偏好defect这个词。
+Infection(不清楚有没有对应的术语）——程序状态中的错误，由带缺陷的语句引入。
+上面几个名词间还有一些比较绕的关系，什么不是每个什么都是什么什么的。
+再提一个后续单元经常用到的概念。
+Cause effect chain，我只能想到翻译成因果链。因果链其实就是 
+defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散) -- failure (失败)。</p>
+<p>而调试的目的就是，
+发现因果链，并打破它（从源头解决）。
+下一部分就是科学方法。</p>
+<p>二、科学方法
+科学方法其实一个流程图就列完了。如图（呃，真是偷懒了，直接从视频中截了图片过来，以后争取制下图）：</p>
+<p>用段流程化的文字来描述就是：
+1、根据程序的代码、运行情况、失败情况、观察结果等等因素，提出一个假说（hypothesis），也就是上一部分，准备工作中的第3条，可能的bug解决方案。转步骤2.
+2、预测结果，记录，并进行实验，再记录观察结果，比对。转步骤3。
+3、如果比对结果一致，表示实验结果支持提出的假说，可以对假说进行改进，再转步骤2（图片中是转步骤1）；否则表示假说不符，不正确，拒绝掉，转步骤1，提出新假说。
+直到假说不能再改进，且所有实验（所有测试）结果都符合，则转入步骤4.
+4、假说能解释并预测实验（测试）结果，所以变成一个学说，调试里就是诊断结果（诊断报告）。OVER。</p>
+<p>这个过程很简单，看过一遍后，多数人都能理解并记住。难点就在于应用上。视频里，Zeller教授说，对于经验丰富的程序员来说，如果能在5分钟内解决问题，确实可以不用这么系统或者叫死板地使用科学方法。
+Zeller教授假设看视频的人是编程高手，而我不能这么假设，所以我的观点有所不同。对于新手、生手来说，需要强制地使用这么一个方法、过程（一万小时理论），不断地练习，这样才会有进步，才会真正地向高手转变。唯一或者说少数的例外，只在于当看到程序出错，甚至运行程序的那一刹那，就能想到bug所在，这种情况下自然是直接修改代码即可。但只要想法不正确，或10秒内没想到问题所在，1分钟内无法解决bug，就要强制地使用科学方法。当成长为专家、高手之后，科学方法已经成为习惯，自然能掌握好使用它的时机。
+三、清晰调试
+清晰调试(Explicit Debugging，自译不标准)的内容主要有两点，一是记录，二是描述。
+所谓记录，即及时记录重要调试信息。如程序输入，预期结果，实际结果。尤其在使用科学方法时，提出的假说、假想的解决方案同样重要。也许习惯了记在脑中，可工作中干扰过多，记忆的时长也有限，一旦遗忘，大侠又要重新来过。只要下班之前，将信息记录在案，第二天上班时，就可以以清醒的大脑再战江湖，何乐而不为？</p>
+<p>而描述、阐述从表面上看，是向某人（甚至某只泰迪熊、玩具鸭）描述自己遇到的问题，实际上也是在整理思路、理清脉络，使之更加结构化，于是可能在描述bug时，突然霍然开朗，手舞足蹈地离开，留下满头雾水的同伴（所以才要换作一只泰迪熊、玩具鸭）。</p>
+<p>第一单元教学部分笔记至此结束。后面还有练习部分，主要是Python构建Python的交互式调试器，利用到几个重要的函数。自己重心暂时在理论学习上，所以实践部分没有总结。顺便可惜一下就是，Python交互式调试器的实现因为Python有个很好的API而轻而易举，但C语言、Pascal语言的调试器就需要额外的知识了。更不用说，面对的主要语言是一门自制语言，根本没有调试器。我能自己为之编写出调试器，自然是大功一件……</p>
+<p>我去，CSDN博客增加缩进难道这么麻烦？这是博客……不是代码文件。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -180,7 +199,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/introduce-neural-network.html#disqus_thread">
+                href="http://sndnyang.github.io/udacity-debug-debugger-work-methods.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -190,8 +209,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'introduce-neural-network.html';
-    var disqus_url = 'http://sndnyang.github.io/introduce-neural-network.html';
+        var disqus_identifier = 'udacity-debug-debugger-work-methods.html';
+    var disqus_url = 'http://sndnyang.github.io/udacity-debug-debugger-work-methods.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -213,16 +232,19 @@
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-11-01T16:38:30+08:00">十一月 1, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-11-20T17:45:30+08:00">十一月 20, 2016</time>
 
 <h4>Last Updated</h4>
-<time datetime="2016-11-19T16:35:30+08:00">十一月 19, 2016</time>
+<time datetime="2016-11-20T17:45:30+08:00">十一月 20, 2016</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ji-qi-xue-xi-ren-gong-zhi-neng-shen-du-xue-xi-ref">CS 机器学习 人工智能 深度学习
+                        <li><a href="/tags.html#cs-ref">CS
+                            <span>34</span>
+</a></li>
+                        <li><a href="/tags.html#diao-shi-ref">调试
                             <span>1</span>
 </a></li>
                     </ul>

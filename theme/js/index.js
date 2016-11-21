@@ -25,8 +25,9 @@ function checkQuiz(obj, id) {
     var value,
         your_answer,
         back_check = false,
+        problem = $($(obj).parents('.process')[0]),
         eleparent = $(obj).parent(),
-        ele = eleparent.children(".quiz"),
+        ele = problem.children().children(".quiz"),
         type = ele.attr("type"),
         lesson_name = eleparent.parent()[0].className,
         lesson_id = parseInt(lesson_name.substr(13)),
@@ -59,13 +60,16 @@ function checkQuiz(obj, id) {
         var expression = ele.val();
         console.log("暂不支持公式");
     } else {
-        your_answer = $.md5(value);
+        your_answer = value;
 
         if (your_answer === correct) {
             $('.hint').css('display', 'block');
             $('.flashes').html("<li>恭喜答案正确</li>");
             error_times = 0;
             setTimeout("$('.hint').fadeOut('slow')", 5000)
+            $("body").animate({
+                scrollTop: $(problem).offset().top + $(problem).height() - 55
+            }, 500);
         } else {
             $('.hint').css('display', 'block');
             $('.flashes').html('');

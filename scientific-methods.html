@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 论文, 社区发现, 研究, " />
+<meta name="keywords" content="CS, 调试, CS, " />
 
-<meta property="og:title" content="社区及角色发现 "/>
-<meta property="og:url" content="http://sndnyang.github.io/Community-Role-Detection.html" />
-<meta property="og:description" content="摘要 submit 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 submit 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that ..." />
+<meta property="og:title" content="Udacity调试课笔记之科学方法 "/>
+<meta property="og:url" content="http://sndnyang.github.io/scientific-methods.html" />
+<meta property="og:description" content="udacity的调试课程笔记， 基本概念，科学方法" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-06-21T15:51:58+08:00" />
-<meta name="twitter:title" content="社区及角色发现 ">
-<meta name="twitter:description" content="摘要 submit 再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少 submit 之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。 基本观点 正确地划分出社区， 能促进对点的功能、角色的检测。 正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。 例子 如图： 两个群、 3种角色 主要贡献 写了三个 Studying a novel problem of integrating community and role detection in information networks. 这也能算 :( Proposing a unified probabilistic generative model that ...">
+<meta property="og:article:published_time" content="2016-11-22T17:45:30+08:00" />
+<meta property="" content="2016-11-22T22:45:30+08:00" />
+<meta name="twitter:title" content="Udacity调试课笔记之科学方法 ">
+<meta name="twitter:description" content="udacity的调试课程笔记， 基本概念，科学方法">
 
 
-        <title>社区及角色发现  · 懒龙谷
+        <title>Udacity调试课笔记之科学方法  · 懒龙谷
 </title>
 
         <style>
@@ -90,8 +91,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/Community-Role-Detection.html">
-                        社区及角色发现  
+                    <a href="/scientific-methods.html">
+                        Udacity调试课笔记之科学方法  
                     </a>
                 </h1>
             </header>
@@ -102,23 +103,8 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">摘要</a><ul>
-<li><a href="#_2">基本观点</a><ul>
-<li><a href="#_3">例子</a></li>
-<li><a href="#_4">主要贡献</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_5">正文</a><ul>
-<li><a href="#_6">定义生成模型</a><ul>
-<li><a href="#_7">原模型</a></li>
-<li><a href="#_8">改进</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_9">总结</a></li>
+<li><a href="#_1">科学方法</a></li>
+<li><a href="#_2">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -127,62 +113,24 @@
 
                         
                         
-<h1 id="_1">摘要</h1>
-<div class="process"><input class="answers" type="hidden" value="知道"/><input class="comments" type="hidden" value="不知道就尴尬了"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<p>再来一遍， 不权威定义：社区发现大概就是发现高密度的点群， 群内互连较多；连到群外的较少</p>
-<div class="process"><input class="answers" type="hidden" value="知道"/><input class="comments" type="hidden" value="呃"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<p>之前社区发现和role detection（作用检测）两个领域各玩各的， 本篇论文就是把这两个结合起来， 以一种统一的模型结合，来同时处理这两个任务， 并且要做到更好的效果。</p>
-<h2 id="_2">基本观点</h2>
+<h1 id="_1">科学方法</h1>
+<p>科学方法其实一个流程图就列完了。如图（呃，直接从视频中截了图片过来）：</p>
+<p><img alt="科学方法流程图" src="http://img.blog.csdn.net/20130922221503343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc25kbnlhbmdk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"/></p>
+<p>用段流程化的文字来描述就是：</p>
 <ol>
-<li>正确地划分出社区， 能促进对点的功能、角色的检测。</li>
-<li>正确地识别点的功能，可以得到更好的网络模型，社区发现也就更好。</li>
+<li>根据程序的代码. 运行情况. 失败情况. 观察结果等等因素，提出一个假说（hypothesis），也就是上一部分，准备工作中的第3条，可能的bug解决方案。转步骤2.</li>
+<li>预测结果，记录，并进行实验，再记录观察结果，比对。转步骤3。</li>
+<li>如果比对结果一致，表示实验结果支持提出的假说，可以对假说进行改进，再转步骤2（图片中是转步骤1）；否则表示假说不符，不正确，拒绝掉，转步骤1，提出新假说。
+直到假说不能再改进，且所有实验（所有测试）结果都符合，则转入步骤4.</li>
+<li>假说能解释并预测实验（测试）结果，所以变成一个学说，调试里就是诊断结果（诊断报告）。OVER。</li>
 </ol>
-<h3 id="_3">例子</h3>
-<p>如图：</p>
-<p>两个群、 3种角色</p>
-<h3 id="_4">主要贡献</h3>
-<p>写了三个</p>
-<ol>
-<li>Studying a novel problem of integrating community and role detection in information networks. 这也能算 :(</li>
-<li>Proposing a unified probabilistic generative model that defines the link generation probability based on both community and role labels of nodes, and a Gibbs sampling based inference algorithm is proposed.</li>
-<li>在三个人工数据和两个真实数据上实验， 证明了方法对社区/功能检测 和 链接预测上的有效性-- 这也能算？</li>
-</ol>
-<p>应该就第二条， 结合了社区、功能检测思想，提出了一个统一（通用）概率生成模型来定义链接生成概率， 并使用Gibbs采样算法（别人的）。</p>
-<h1 id="_5">正文</h1>
-<p>除掉实验和公式， 内容不多。</p>
-<p>没看过概率图模型的内容， 我估计以下步骤是概率图模型的内容</p>
-<p>就像MMDS(Mining Massive Datasets)课程或书里写的， 社区发现分两步：</p>
-<ol>
-<li>定义一个生成网络的生成概率模型 generative model</li>
-<li>再根据某种统计推断方法， 确定生成模型里的各个参数</li>
-</ol>
-<p>因为本文使用的统计推断算法几乎就是别人原版吧， 所以也就是在生成模型上有点新意——可能也就各种凑合。</p>
-<h2 id="_6">定义生成模型</h2>
-<h3 id="_7">原模型</h3>
-<p>基于 Mixed Membership Stochastic Blockmodel (MMSB) <a href="https://www.baidu.com/link?url=0hWpL1H88T3XJqIXC4Fs9pEC5wdWUlgHmOEpF5dMyEslDwBdz9j6ubYR4bKOOByRHsMka3Zwj5dXi1rH4etnbfPEzg8_LFwC_rl6zoDw6WsLqVynPUYG3axemysoEG7Nuk9O4cDs8gEbEQ3rfau3LK&amp;wd=&amp;eqid=bed192060008ba3300000003576903b6">4</a></p>
-<p>MMSB的连接生成过程（边生成）如下：</p>
-<div class="highlight"><pre><span></span>For each node i:
-    - Draw a group membership distribution vector πi ～ Dirichlet(α)
-
-For each node pair (i, j):
-    - Draw node i’s latent group Zij ～ Multinomial(πi)
-    - Draw node j’s latent group Zji ～ Multinomial(πj)
-    - Draw the link Eij ～ Bernoulli(SZij ;Zji)
-</pre></div>
-<p>S: group-group interaction probability matrix </p>
-<h3 id="_8">改进</h3>
-<p>Mixed Membership Community and Role (MMCR) Model</p>
-<p>大概就是给点多加一个role功能的向量</p>
-<h1 id="_9">总结</h1>
-<p>本篇或许是比较新颖地把原本不相关的社区发现和功能检测进行了关联--假设他们是第一个吧。</p>
-<p>但给我感觉比较水， </p>
-<ol>
-<li>重复地讲那简单的思想原理——不过其他论文也经常重复当强调</li>
-<li>对整个过程用了种理所当然的描述——the collapsed Gibbs sampling algorithm is straightforward。不得不去看Gibbs这个算法的论文。</li>
-<li>伪代码也没有</li>
-<li>实验数据非常小。 百来个点， 效果好了， 性能没实验， 复杂度说是平方</li>
-<li>感觉英文写作水平不是很好，不知道是真的， 还是我英文差。</li>
-</ol>
+<p>这个过程很简单，看过一遍后，多数人都能理解并记住。难点就在于应用上。视频里，Zeller教授说，对于经验丰富的程序员来说，如果能在5分钟内解决问题，确实可以不用这么系统或者叫死板地使用科学方法。</p>
+<p>但对于新手、 生手来说，需要强制地使用这么一个方法、过程。根据一万小时理论，不断地刻意练习，这样才会进步，真正地向高手转变。</p>
+<p>例外，只在于当看到程序出错，甚至运行程序的那一刹那，就能想到bug所在，这种情况下自然是直接修改代码即可。</p>
+<p>但只要想法不正确，或10秒内没想到问题所在，1分钟内无法解决bug，就要强制地使用科学方法。当成长为专家. 高手之后，科学方法已经成为习惯，自然能掌握好使用它的时机。</p>
+<h1 id="_2">恭喜</h1>
+<p>恭喜你看完科学方法这篇， 本来打算写 知维教程的， 但感觉编不出问题， 因为几个步骤都是语言描述的， 很难引导、判断回答。</p>
+<p>下一篇 <a href="http://blog.zhimind.com/Explicit-Debugging.html">显式调试</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -199,7 +147,7 @@ For each node pair (i, j):
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/Community-Role-Detection.html#disqus_thread">
+                href="http://sndnyang.github.io/scientific-methods.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -209,8 +157,8 @@ For each node pair (i, j):
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'Community-Role-Detection.html';
-    var disqus_url = 'http://sndnyang.github.io/Community-Role-Detection.html';
+        var disqus_identifier = 'scientific-methods.html';
+    var disqus_url = 'http://sndnyang.github.io/scientific-methods.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -232,19 +180,20 @@ For each node pair (i, j):
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-06-21T15:51:58+08:00">六月 21, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-11-22T17:45:30+08:00">十一月 22, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-11-22T22:45:30+08:00">十一月 22, 2016</time>
+
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#yan-jiu-ref">研究</a>
+                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
                             <span>37</span>
 </a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>14</span>
-</a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>9</span>
+                        <li><a href="/tags.html#diao-shi-ref">调试
+                            <span>4</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

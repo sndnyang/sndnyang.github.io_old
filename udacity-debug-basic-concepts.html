@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, CS, 社区发现, 算法, 数据挖掘, " />
+<meta name="keywords" content="CS, 调试, CS, " />
 
-<meta property="og:title" content="FOCS总结 "/>
-<meta property="og:url" content="http://sndnyang.github.io/FOCS_summary.html" />
-<meta property="og:description" content="基本定义 图： G(V, E) 目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community) 即 $ S = {S_i | S_i \subset V } $ 团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图 定义 包含点 $ v_j $ 的团的集合为： $$ S(v_j) = \{S_i | v_j \in S_i \land S_i \in S \} $$ disjoint cluster: $$ |S(v_j)| \le 1 $$ overlapped cluster: &gt; 1 定义 \( N(v_j) $ 为 $v_j\) 的邻接点 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:title" content="Udacity调试课之基础概念集合 "/>
+<meta property="og:url" content="http://sndnyang.github.io/udacity-debug-basic-concepts.html" />
+<meta property="og:description" content="udacity的调试课程笔记，各种基础概念的总结， 不适合写zhimind，就写在博客里，再链接。" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-03-01T00:00:00+08:00" />
-<meta name="twitter:title" content="FOCS总结 ">
-<meta name="twitter:description" content="基本定义 图： G(V, E) 目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community) 即 $ S = {S_i | S_i \subset V } $ 团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图 定义 包含点 $ v_j $ 的团的集合为： $$ S(v_j) = \{S_i | v_j \in S_i \land S_i \in S \} $$ disjoint cluster: $$ |S(v_j)| \le 1 $$ overlapped cluster: &gt; 1 定义 \( N(v_j) $ 为 $v_j\) 的邻接点 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:article:published_time" content="2016-11-22T23:45:30+08:00" />
+<meta property="" content="2016-11-22T23:45:30+08:00" />
+<meta name="twitter:title" content="Udacity调试课之基础概念集合 ">
+<meta name="twitter:description" content="udacity的调试课程笔记，各种基础概念的总结， 不适合写zhimind，就写在博客里，再链接。">
 
 
-        <title>FOCS总结  · 懒龙谷
+        <title>Udacity调试课之基础概念集合  · 懒龙谷
 </title>
 
         <style>
@@ -90,8 +91,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/FOCS_summary.html">
-                        FOCS总结  
+                    <a href="/udacity-debug-basic-concepts.html">
+                        Udacity调试课之基础概念集合  
                     </a>
                 </h1>
             </header>
@@ -102,19 +103,8 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">基本定义</a></li>
-<li><a href="#_2">新概念定义</a></li>
-<li><a href="#_3">步骤</a><ul>
-<li><a href="#_4">初始化</a></li>
-<li><a href="#_5">脱离阶段</a></li>
-<li><a href="#_6">扩充阶段</a></li>
-<li><a href="#_7">去重阶段</a></li>
-</ul>
-</li>
-<li><a href="#_8">代码描述</a><ul>
-<li><a href="#_9">参考链接</a></li>
-</ul>
-</li>
+<li><a href="#_1">基础概念集合</a></li>
+<li><a href="#_2">其他概念</a></li>
 </ul>
 </div>
                     </nav>
@@ -123,121 +113,31 @@
 
                         
                         
-<h1 id="_1">基本定义</h1>
-<p>图： G(V, E)</p>
-<p>目标—— 找到一簇子图(全部并正确)， 每个子图都是一个团（community)
-即 $ S = {S_i | S_i \subset V } $</p>
-<p>团（community)： 子图中任意点在该子图中的连通性 高于 非团的子图</p>
-<p>定义 包含点 $ v_j $ 的团的集合为：</p>
-<div class="math">$$ S(v_j) = \{S_i | v_j \in S_i \land S_i \in S \} $$</div>
-<p>disjoint cluster:   </p>
-<div class="math">$$ |S(v_j)| \le 1 $$</div>
-<p>overlapped cluster: &gt; 1</p>
-<p>定义 <span class="math">\( N(v_j) $ 为 $v_j\)</span> 的邻接点</p>
-<p>定义 <span class="math">\( N_i(v_j) $ 为 $v_j\)</span> 在团 <span class="math">\(S_i\)</span> 的邻接点， 即 
-</p>
-<div class="math">$$ N_i(v_j) =\{v_k | (v_j, v_k) \in E \land v_k \in S_i \} $$</div>
-<h1 id="_2">新概念定义</h1>
-<p>团连通性 community connectedness, 即点 <span class="math">\(v_j\)</span>在团<span class="math">\(S_i\)</span>邻点超阈值个数 除以 该团点数, 代表 点对应团的归属性。</p>
-<div class="math">$$ \zeta^i_j = \frac{|N_i(v_j)|-K+1}{|S_i| - K} if |N_i(v_j)| &gt; K, else, 0 $$</div>
-<p>邻接连通性 neighborhood connectedness， 即 点 <span class="math">\(v_j\)</span>在团<span class="math">\(S_i\)</span>邻点数 除以 <span class="math">\(v_j\)</span>的总邻点数， 代表 点加入新团的可能性</p>
-<div class="math">$$ \xi^i_j = \frac{|N_i(v_j)|}{|N(v_j)|}  $$</div>
-<p>外围结点 peripheral node: <span class="math">\(v_i\)</span>的团邻接点</p>
-<div class="math">$$ Added_i = \{v_k|v_k \in N(v_i) \land v_k \in S_i \}, \forall S_i \in S^l $$</div>
-<h1 id="_3">步骤</h1>
-<h2 id="_4">初始化</h2>
-<p>初始化全部有K个以上邻接点的点， 由它及其邻接点组成团 <span class="math">\(S_i\)</span></p>
-<p>定义该阶段的外围结点</p>
-<h2 id="_5">脱离阶段</h2>
+<h1 id="_1">基础概念集合</h1>
+<p>最后来点概念了。一堆英语名词解释，让我们尽情地晕吧。无所谓。</p>
+<ul>
+<li>失败(failure)——用户在程序外看到的错误。</li>
+<li>错误(error)——偏离了正确，不再正确的都是错误。晕。</li>
+<li>缺陷(defect)——代码中的error，将有效的状态变成错误的状态，进而可能引起程序的失败(failure)。</li>
+<li>Fault——也就是缺陷(defect)，不过它还用于描述数据data的问题。</li>
+<li>Bug——缺陷的最著名的说法，等价。指bug本不属于代码的一部分，自己爬进来的。但Zeller认为bug就是程序员写出来的，所以他更偏好defect这个词。</li>
+<li>Infection(不清楚有没有对应的术语）——程序状态中的错误，由带缺陷的语句引入。</li>
+</ul>
+<p>上面几个名词间还有一些比较绕的关系，什么不是每个什么都是什么什么的。</p>
+<p>再提一个后续单元经常用到的概念。</p>
+<ul>
+<li>Cause effect chain，我只能想到翻译成因果链。因果链其实就是 
+defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散) -- failure (失败)。</li>
+</ul>
+<p>调试的目的就是</p>
+<div class="highlight"><pre><span></span>发现因果链，并打破它（从源头解决）。
+</pre></div>
+<h1 id="_2">其他概念</h1>
 <ol>
-<li>
-<p>对前面所有团里的点 <span class="math">\( V_j\)</span>, 计算相应的</p>
-<ol>
-<li>团连通性 $ \zeta^i_j $</li>
-<li>邻接连通性 $ \xi^i_j $</li>
+<li>科学方法</li>
+<li>清晰调试</li>
+<li>冥界、仙界调试指南</li>
 </ol>
-</li>
-<li>
-<p>将[0, 1] 区间划分为 <span class="math">\(max(20, N(v_j))\)</span> 块， 每块初始化为0.</p>
-</li>
-<li>根据团连通性分数， 统计各区间 点的个数。</li>
-<li>标记 最右的非0元， 并开始向左遍历， 直到：<ol>
-<li>遍历完毕 或</li>
-<li>遇到某区间，&lt;=标记值(最右非零元)， 且&lt;=左边区间值， 这个值选为 留存阈值 stay cut-of of \zeta</li>
-</ol>
-</li>
-<li>外围结点 <span class="math">\(v_k \in Added_i $ 排除出 $S_i\)</span> , 当团连通性分数 $ \zeta^i_k $ 比留存阈值低。</li>
-<li>Removal of only
-peripheral nodes ensures that nodes that form the core of a
-community are never eliminated</li>
-</ol>
-<h2 id="_6">扩充阶段</h2>
-<p>对上一阶段处理后的团中所有点<span class="math">\(v_j\)</span>， 当以下条件满足：
-1. 该点未入 <span class="math">\( S_i\)</span>团
-2. 该点选入 <span class="math">\(S_i\)</span>团的可能性高（即 邻接连通性 <span class="math">\(\xi^i_j\)</span> 高于选中阈值 join cut-off ）</p>
-<p>join cut-off 选中阈值的计算方式与 stay 相同</p>
-<h2 id="_7">去重阶段</h2>
-<h1 id="_8">代码描述</h1>
-<h2 id="_9">参考链接</h2>
-<p><a href="/focs-notebook.html">focs-code</a></p>
-<div class="process"><input class="answers" type="hidden" value="{%notebookcs/论文/FOCS.ipynb%"/><input class="comments" type="hidden" value="{%notebookcs/论文/FOCS.ipynb"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -254,7 +154,7 @@ community are never eliminated</li>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/FOCS_summary.html#disqus_thread">
+                href="http://sndnyang.github.io/udacity-debug-basic-concepts.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -264,8 +164,8 @@ community are never eliminated</li>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'FOCS_summary.html';
-    var disqus_url = 'http://sndnyang.github.io/FOCS_summary.html';
+        var disqus_identifier = 'udacity-debug-basic-concepts.html';
+    var disqus_url = 'http://sndnyang.github.io/udacity-debug-basic-concepts.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -287,22 +187,20 @@ community are never eliminated</li>
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-03-01T00:00:00+08:00">三月 1, 2016</time>
+                    <time pubdate="pubdate" datetime="2016-11-22T23:45:30+08:00">十一月 22, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-11-22T23:45:30+08:00">十一月 22, 2016</time>
+
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#shu-ju-wa-jue-ref">数据挖掘</a>
+                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
                             <span>35</span>
 </a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>14</span>
-</a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>9</span>
-</a></li>
-                        <li><a href="/tags.html#suan-fa-ref">算法
-                            <span>6</span>
+                        <li><a href="/tags.html#diao-shi-ref">调试
+                            <span>2</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

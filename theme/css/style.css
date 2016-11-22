@@ -397,6 +397,7 @@ img {
 
 .table-of-content .toc {
     font-size: 0.7em;
+    max-width: 200px;
 }
 .last_updated a {
      color: black;

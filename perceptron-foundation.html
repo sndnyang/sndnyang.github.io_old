@@ -155,14 +155,14 @@
 <p>本文参考以下内容：</p>
 <ol>
 <li>李航《统计学习方法》第2章 感知机</li>
-<li>Hinton coursera《neural network for machine learning》第二周第三周</li>
 <li>没有参考但可以参考 林轩田《机器学习基石》第二单元？</li>
+<li>Hinton Coursera Neural Network for Machine Learning</li>
 </ol>
 <p>有问题、建议，欢迎讨论。</p>
 <h3 id="_2">再说明</h3>
 <p>因为计划一直在变更，最开始看《统计学习方法》，后来改成看Ng的机器学习（斯坦福cs229课堂录像)， 最近又因为写整个机器学习内容太多， 打算先看深度学习，打算先看udacity的深度学习课程，看完正好接Hinton的机器学习中的神经网络。</p>
-<p>如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞，udacity的深度学习课居然用逻辑回归作引子——不可理喻——还是要从感知器说起，于是又转回李航《统计学习方法》。</p>
-<p>于是这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。</p>
+<p>如果说深度学习、神经网络是一堆细胞的话，那它们的基础 感知器(Perceptron)就是一个细胞\神经元，udacity的深度学习课居然用逻辑回归作引子——个人觉得还是要从感知器说起，于是又转回李航《统计学习方法》。 现在看Hinton的机器学习中的神经网络， 也是从感知器开始的。</p>
+<p>所以这篇的一些内容会是其他篇（线性回归、逻辑回归）的重复，就是因为不同路线的混杂。</p>
 <div class="process"><span><p>本段我提到了<input class="quiz" type="text"/>本书和<input class="quiz" type="text"/>门课程？</p></span><br/><input class="answers" type="hidden" value="1@3"/><input class="comments" type="hidden" value="仅限这一段，上一段不算"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <p>就看你对这些名字的印象了， 涉及书、 公开课和MOOC。</p>
 <h1 id="_3">李菊福的开头不容易</h1>
@@ -170,8 +170,8 @@
 <p>回顾下， 三要素：</p>
 <ol>
 <li>模型。建的什么模，即目标条件概率分布或决策函数。</li>
-<li>策略。即选择、评估模型好坏的准则。</li>
-<li>算法。即具体的最优化求解算法。 常用算法有线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
+<li>策略。选择、评估模型好坏的准则，一般用损失函数、风险函数等。</li>
+<li>算法。具体的最优化求解算法，比如线性回归的最小二乘法、梯度下降法、牛顿迭代法。</li>
 </ol>
 <p>如果直接上结论，那我就没办法搞这么个网站，专门来写这个教程了，别人知识的深度广度、语言的精炼到位都甩我十八条街，我唯一的优势就在于，要理清这一切的来源，给出这条关系链。</p>
 <div class="process"><span><p>探索世界要从什么开始？</p><input class="quiz" name="quiz" type="radio" value="算法">算法</input><br/><input class="quiz" name="quiz" type="radio" value="数据">数据</input><br/><input class="quiz" name="quiz" type="radio" value="策略">策略</input><br/><input class="quiz" name="quiz" type="radio" value="模型">模型</input><br/><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="哲学">哲学</input><br/><input class="quiz" name="quiz" type="radio" value="方法">方法</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="临时觉得该有这么个问题，但是答案没想好~~~"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
@@ -200,7 +200,7 @@
 <p>不管绕了多远， 总之我们现在打算根据简单原则先弄个线性模型， 即 y=w*x+b</p>
 <div class="process"><span><p>有问题吗?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_11">最终模型</h2>
-<p>那简单，y=w<em>x+b 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w</em>x+b的正负，写作：</p>
+<p>那简单，<span class="math">\(y=w*x+b\)</span> 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w*x+b的正负，写作：</p>
 <div class="math">$$
 f(x) = sign(w*x+b) = \begin{cases}
 +1&amp; {w*x+b \ge 0}\\
@@ -386,13 +386,13 @@ $$</div>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>37</span>
+                            <span>39</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>11</span>
+                            <span>14</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>13</span>
+                            <span>15</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

@@ -10,20 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 调试, CS, " />
+<meta name="keywords" content="神经网络, 机器学习, 深度学习, 机器学习, " />
 
-<meta property="og:title" content="Udacity调试课之基础概念集合 "/>
-<meta property="og:url" content="http://sndnyang.github.io/udacity-debug-basic-concepts.html" />
-<meta property="og:description" content="udacity的调试课程笔记，各种基础概念的总结， 不适合写zhimind，就写在博客里，再链接。" />
+<meta property="og:title" content="神经网络前向传播 "/>
+<meta property="og:url" content="http://sndnyang.github.io/feed-forward-nn.html" />
+<meta property="og:description" content="神经网络前向传播算法简介" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-11-22T23:45:30+08:00" />
-<meta property="" content="2016-11-22T23:45:30+08:00" />
-<meta name="twitter:title" content="Udacity调试课之基础概念集合 ">
-<meta name="twitter:description" content="udacity的调试课程笔记，各种基础概念的总结， 不适合写zhimind，就写在博客里，再链接。">
+<meta property="og:article:published_time" content="2016-11-23T11:38:30+08:00" />
+<meta name="twitter:title" content="神经网络前向传播 ">
+<meta name="twitter:description" content="神经网络前向传播算法简介">
 
 
-        <title>Udacity调试课之基础概念集合  · 懒龙谷
+        <title>神经网络前向传播  · 懒龙谷
 </title>
 
         <style>
@@ -91,8 +90,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/udacity-debug-basic-concepts.html">
-                        Udacity调试课之基础概念集合  
+                    <a href="/feed-forward-nn.html">
+                        神经网络前向传播  
                     </a>
                 </h1>
             </header>
@@ -103,8 +102,17 @@
                     <h4>Contents</h4>
                         <div class="toc">
 <ul>
-<li><a href="#_1">基础概念集合</a></li>
-<li><a href="#_2">其他概念</a></li>
+<li><a href="#_1"></a><ul>
+<li><a href="#_2">还记得学了什么吗？</a></li>
+<li><a href="#_3">还有呢？</a></li>
+<li><a href="#_4">触即是边，边即是触</a></li>
+<li><a href="#_5">以架构之名</a></li>
+<li><a href="#_6">不要解释</a></li>
+</ul>
+</li>
+<li><a href="#_7">前向传播</a></li>
+<li><a href="#_8">编程实践</a></li>
+<li><a href="#_9">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -113,31 +121,43 @@
 
                         
                         
-<h1 id="_1">基础概念集合</h1>
-<p>最后来点概念了。一堆英语名词解释，让我们尽情地晕吧。无所谓。</p>
-<ul>
-<li>失败(failure)——用户在程序外看到的错误。</li>
-<li>错误(error)——偏离了正确，不再正确的都是错误。晕。</li>
-<li>缺陷(defect)——代码中的error，将有效的状态变成错误的状态，进而可能引起程序的失败(failure)。</li>
-<li>Fault——也就是缺陷(defect)，不过它还用于描述数据data的问题。</li>
-<li>Bug——缺陷的最著名的说法，等价。指bug本不属于代码的一部分，自己爬进来的。但Zeller认为bug就是程序员写出来的，所以他更偏好defect这个词。</li>
-<li>Infection(不清楚有没有对应的术语）——程序状态中的错误，由带缺陷的语句引入。</li>
-</ul>
-<p>上面几个名词间还有一些比较绕的关系，什么不是每个什么都是什么什么的。</p>
-<p>再提一个后续单元经常用到的概念。</p>
-<ul>
-<li>Cause effect chain，我只能想到翻译成因果链。因果链其实就是 
-defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散) -- failure (失败)。</li>
-</ul>
-<p>调试的目的就是</p>
-<div class="highlight"><pre><span></span>发现因果链，并打破它（从源头解决）。
-</pre></div>
-<h1 id="_2">其他概念</h1>
-<ol>
-<li>科学方法</li>
-<li>清晰调试</li>
-<li>冥界、仙界调试指南</li>
-</ol>
+<h1 id="_1"></h1>
+<p>这部分非常简要地介绍下， 就不说参考哪个了。 随便一门机器学习、 深度学习课都会有它。</p>
+<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<h3 id="_2">还记得学了什么吗？</h3>
+<p>我们学习了 <a href="http://www.zhimind.com/tutorial/introduce-neural-network">神经网络的引入</a>， 回顾一下</p>
+<div class="process"><span><p>基础的神经网络（框架）包含了<input class="quiz" type="text"/>。</p></span><br/><input class="comments" type="hidden" value="咋解释？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<h3 id="_3">还有呢？</h3>
+<p>还学习了 <a href="http://www.zhimind.com/tutorial/perceptron-foundation">感知机</a>， <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a>， 及 <a href="http://www.zhimind.com/tutorial/models-of-neurons">简单的神经元模型</a></p>
+<div class="process"><span><p>所以，我们接下来要研究的是<input class="quiz" type="text"/>。</p></span><br/><input class="answers" type="hidden" value="突触"/><input class="comments" type="hidden" value="怎么过上面那题的？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h2 id="_4">触即是边，边即是触</h2>
+<p>神经元间的突触，看成是两个点（神经元）间的边。 那就是一堆点， 然后点间拉红线， 随便画， 比如：</p>
+<p><img alt="hopfield-network" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/hopfield_work.png"/> </p>
+<p>很明显, 神经网络的边 也可以有不同的连接方式，即神经元的输出是如何被下一个神经元利用的。</p>
+<div class="process"><span><p>你了解、听说过几种神经网络的连接方式？请诚实作答<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":没有标准答案"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h2 id="_5">以架构之名</h2>
+<p>不同神经网络的边连接方式 肯定是有不同的核心思想， 根据各自的核心思想、原则，建设出神经网络， 估且把神经网络的连接方式叫做神经网络的架构——要真说架构，神经元应该也考虑在内。</p>
+<p>神经网络、 深度学习主要就是学习几种架构、实现、应用及它们的优缺点（限于个人认识水平）， 这将是以后教程的内容。本篇后续内容是介绍最基本的一种架构。</p>
+<div class="process"><span><p>你觉得最简单的神经网络连接方式应该是什么样的？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":伤心地发现这问题没法回答"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<h2 id="_6">不要解释</h2>
+<p>很明显，最简单的连接方式， 就是把n个其他神经元输出给它的值当作自己的输入， 单向， 多对多关系， 如图所示（<a href="http://www.open-open.com/lib/view/open1452752687042.html">图片引用</a>）：</p>
+<p><img alt="simple-nn" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/simple-nn.jpg"/></p>
+<p>所以我们很明显地要直接给非常简单的前向传播的定义了。</p>
+<h1 id="_7">前向传播</h1>
+<p>输入层和输出层中间可以有多层的神经元，如图：</p>
+<p><img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
+<p>把这些中间层叫做隐藏（隐含？）层， hidden layers。</p>
+<p>前向传播feed-forward，也可以叫前馈神经网络。 就是逐层计算各个神经元层的输出，传给下一层作输入。</p>
+<p>具体神经元如何算输出值，则根据神经元采用的模型而定， 比如我们之前 <a href="http://www.zhimind.com/tutorial/models-of-neurons">常见简单神经元模型</a>里学习的五个（3个？）模型。</p>
+<p>一般使用前馈神经网络解决分类问题时， 用 sigmoid神经元，即逻辑回归模型的比较多。</p>
+<h1 id="_8">编程实践</h1>
+<p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/feedforward.ipynb">前向神经网络notebook#todo</a> </p>
+<p>有ipython notebook的朋友知道如何使用。没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>
+<p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a></p>
+<h1 id="_9">恭喜</h1>
+<p>前向传播是神经网络的基础， 毕竟一个神经元将信号传给下一个神经元是再直观简单的事。 </p>
+<p>感想： 复杂的知识点很难讲清， 简单的知识点很难讲通， 到处都是显然易见， 很难把里面的逻辑线捋清楚。 目标是让读者自己发明一遍，但这篇明显差得太远。</p>
+<p>下一篇 <a href="http://www.zhimind.com/tutorial/backpropagation-nn">反向传播算法</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -154,7 +174,7 @@ defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/udacity-debug-basic-concepts.html#disqus_thread">
+                href="http://sndnyang.github.io/feed-forward-nn.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -164,8 +184,8 @@ defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'udacity-debug-basic-concepts.html';
-    var disqus_url = 'http://sndnyang.github.io/udacity-debug-basic-concepts.html';
+        var disqus_identifier = 'feed-forward-nn.html';
+    var disqus_url = 'http://sndnyang.github.io/feed-forward-nn.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -187,20 +207,19 @@ defect (代码中的缺陷) --  infection (运行时的缺陷) -- progate(扩散
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-11-22T23:45:30+08:00">十一月 22, 2016</time>
-
-<h4>Last Updated</h4>
-<time datetime="2016-11-22T23:45:30+08:00">十一月 22, 2016</time>
-
+                    <time pubdate="pubdate" datetime="2016-11-23T11:38:30+08:00">十一月 23, 2016</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>39</span>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>14</span>
 </a></li>
-                        <li><a href="/tags.html#diao-shi-ref">调试
-                            <span>4</span>
+                        <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
+                            <span>6</span>
+</a></li>
+                        <li><a href="/tags.html#shen-jing-wang-luo-ref">神经网络
+                            <span>1</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

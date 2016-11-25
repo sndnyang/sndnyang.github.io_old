@@ -114,9 +114,18 @@
 </ul>
 </li>
 <li><a href="#_8">前向传播</a></li>
-<li><a href="#_9">数学符号</a></li>
-<li><a href="#_10">编程实践</a></li>
-<li><a href="#_11">恭喜</a></li>
+<li><a href="#_9">数学符号</a><ul>
+<li><a href="#_10">神经元符号化</a></li>
+<li><a href="#_11">权重建模</a></li>
+<li><a href="#_12">一个小练习</a><ul>
+<li><a href="#_13">输入输出建模</a></li>
+<li><a href="#ok">OK?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_14">编程实践</a></li>
+<li><a href="#_15">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -167,14 +176,106 @@
 <p>比如：<img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
 <div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结">总结</input><br/><input class="quiz" name="quiz" type="radio" value="实践">实践</input><br/><input class="quiz" name="quiz" type="radio" value="数学化">数学化</input><br/><input class="quiz" name="quiz" type="radio" value="应用">应用</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/><input class="quiz" name="quiz" type="radio" value="结束">结束</input><br/></span><br/><input class="answers" type="hidden" value="数学化"/><input class="comments" type="hidden" value="总结好了就可以数学形式化了"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h1 id="_9">数学符号</h1>
-<h1 id="_10">编程实践</h1>
+<p>先回顾 逻辑或sigmoid神经元的模型：</p>
+<div class="math">$$h(x) = g(w^Tx) = \frac{1}{1+e^{-w^Tx}}$$</div>
+<p>w代表权重向量 weight vector, x 代表输入变量， y代表输入变量的标签label即实际结果， h(x)就是我们的模型对x的预测结果。</p>
+<p>接下来我们要对 神经网络进行数学符号建模。还是两部分：</p>
+<ol>
+<li>神经元（点）</li>
+<li>突触（边），即权重</li>
+</ol>
+<div class="process"><span><p>你觉得神经元建模还有什么元素要符号化？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":第几层第几个"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<h2 id="_10">神经元符号化</h2>
+<p>随便用个字母a表示， 第i层第j个神经元的输出 就记为 <span class="math">\(a_j^i\)</span></p>
+<p>注意：</p>
+<ol>
+<li><span class="math">\(n \times 1\)</span>维的输入向量既可能直接作为有n个输入单元的输入层（第一层），也可能只是第一层各神经元的输入向量。 Ng的课程使用的是前者。</li>
+<li>还记得线性模型<span class="math">\( w^Tx=w*x+b\)</span>吧，偏置项bias(b)可以被记作 <span class="math">\(w_0\)</span>即每层的第0个神经元<span class="math">\(a_0^i\)</span>，偏置神经元。</li>
+</ol>
+<h2 id="_11">权重建模</h2>
+<p>单个神经元的权重是 w向量(Coursera 使用的是 <span class="math">\(\theta\)</span>)， 我们知道神经网络里的权重是层与层之间的多对多关系。</p>
+<p>所以是上一层的m个神经元与下一层n个神经元形成的 <span class="math">\(m \times n\)</span>维矩阵。</p>
+<p>记 <span class="math">\(w^k\)</span> 是第k层到第k+1层的 <strong>权重矩阵</strong>。 其中，<span class="math">\(w_{i,j}^k\)</span>是第k层的第j个神经元 到 第k+1层第i个神经元的权重， 指第k+1层第i个神经元接收第k层第j个神经元的权重， 而不是i号传给j号的权重。</p>
+<h2 id="_12">一个小练习</h2>
+<p>现在要计算第2层第1个神经元<span class="math">\(a_1^2\)</span>的输出，第一层是输入单元<span class="math">\(x=(x_0,x_1,x_2)\)</span>,映射函数g(x)。</p>
+<p>A. <span class="math">\(a_1^2=g(w_{1,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)\)</span><br/>
+B. <span class="math">\(a_1^2=g(w_{1,0}^2 x_0 + w_{1,0}^2 x_1 + w_{1,2}^2 x_2)\)</span><br/>
+C. <span class="math">\(a_1^2=g(w_{0,1}^1 x_0 + w_{1,1}^1 x_1 + w_{2,1}^1 x_2)\)</span><br/>
+D. <span class="math">\(a_1^2=g(w_{0,1}^2 x_0 + w_{1,1}^2 x_1 + w_{1,2}^2 x_2)\)</span><br/>
+E. <span class="math">\(a_1^2=g(w_{0,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)\)</span><br/>
+F. <span class="math">\(a_1^2=g(w_{0,0}^2 x_0 + w_{1,1}^2 x_1 + w_{2,2}^2 x_2)\)</span> </p>
+<div class="process"><span><p>以上哪式正确？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="A"/><input class="comments" type="hidden" value="我也很混乱#第k+1层第i个神经元接收第k层第j个神经元的权重"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<h3 id="_13">输入输出建模</h3>
+<p>和逻辑回归一样</p>
+<p>输入向量即 <span class="math">\(x = (x_0, ..., x_n)\)</span>，其中 <span class="math">\(x_0\)</span>对应偏置项<span class="math">\(w_0\)</span></p>
+<p>输出单元，即最后一层神经元的输出。 </p>
+<h3 id="ok">OK?</h3>
+<div class="process"><span><p>看完上面内容，尤其是那个小小的练习，对神经网络的数学符号化搞清楚了吗？</p><input class="quiz" name="quiz" type="radio" value="清楚了">清楚了</input><br/><input class="quiz" name="quiz" type="radio" value="并没有">并没有</input><br/></span><br/><input class="answers" type="hidden" value="清楚了"/><input class="comments" type="hidden" value="清楚了:虽然我觉得那么容易记清，但这里只是为了后面内容的统一，编程时别搞错序号就行#这个不重要"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<h1 id="_14">编程实践</h1>
 <p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/feedforward.ipynb">前向神经网络notebook#todo</a> </p>
 <p>有ipython notebook的朋友知道如何使用。没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>
 <p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a></p>
-<h1 id="_11">恭喜</h1>
+<h1 id="_15">恭喜</h1>
 <p>前向传播是神经网络的基础， 毕竟一个神经元将信号传给下一个神经元是再直观简单的事。 </p>
 <p>感想： 复杂的知识点很难讲清， 简单的知识点很难讲通， 到处都是显然易见， 很难把里面的逻辑线捋清楚。 目标是让读者自己发明一遍，但这篇明显差得太远。</p>
 <p>下一篇 <a href="http://www.zhimind.com/tutorial/backpropagation-nn">反向传播算法</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -230,7 +331,7 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>14</span>
+                            <span>15</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
                             <span>6</span>

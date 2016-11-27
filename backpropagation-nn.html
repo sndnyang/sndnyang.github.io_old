@@ -257,7 +257,13 @@ sigmoid求偏导部分暂略。
 
 如图所示（暂时没有）：
 
-梯度可以看作是概率， 学习速率或系数其实是 $\Delta x$，所以二者相乘 = $\Delta y$。我们已经找到了梯度， 但还差 $\Delta x$， 一个不同层不同神经元不同的$\Delta x$。
+梯度可以看作是概率， 学习速率或系数其实是 $\Delta x$，所以二者相乘 = $\Delta y$。意味着 x的变化率对y的影响。
+
+我们已经找到了梯度， 但还差 $\Delta x$， 不同层不同神经元不同边有不同的$\Delta x$。
+
+<div class="process"><span><p>读者觉得它应该是从何而来？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 18)">submit</button><br/></div>
+
+
 
 # 反向传播算法步骤
 
@@ -276,10 +282,11 @@ $进行改进， 进而得到 **反向传播算法**。
 实验品， 
 <div class="process"><input class="comments" type="hidden" value="反向传播之前先进行什么传播？
 #(前向|前馈)&amp;传播:反向传播第一步肯定是要先跟标签label比较，所以是计算什么？
-#计算&amp;输出&amp;(误差|偏差):{%radio|从大目标上看，输出层求出来了，是不是反向了，反向到哪里？_@(前|上)&amp;一层#一层:往上或前的那层了，所以大目标是不是求那层的错误呢？具体步骤再说#反向到哪层？%}
-#计算sigmoid的梯度:接下来的相乘一步到位，不要分两步走，就算计算出来上一层的误差了
-#梯度&amp;乘&amp;(前|上)&amp;一层&amp;(误差|偏差)&amp;权重:{%formula|按算法来看就可以更新了,但用的是l层的_和l+1层的_来更新(名称)？@输出@误差#我暂时晕了%}
-"/><button onclick="checkQuiz(this, 18)">submit</button><br/></div>
+#输出&amp;(误差|偏差):{%radio|从大目标上看，输出层求出来了，是不是反向了，反向到哪里？_@(前|上)&amp;一层#一层:往上或前的那层了，所以大目标是不是求那层的错误呢？具体步骤再说#反向到哪层？%}
+#sigmoid&amp;(梯度|导|微):接下来的相乘一步到位，不要分两步走，就算计算出来上一层的误差了
+#(梯度|导|微)&amp;乘&amp;(前|上)&amp;一层&amp;(误差|偏差)&amp;权重:{%formula|按算法来看就可以更新了,但用的是l层的_和l+1层的_来更新(名称)？@输出@误差#我暂时晕了%}
+#更新&amp;权重&amp;l层输出&amp;l+1层误差:
+"/><button onclick="checkQuiz(this, 19)">submit</button><br/></div>
 
 # 恭喜
 

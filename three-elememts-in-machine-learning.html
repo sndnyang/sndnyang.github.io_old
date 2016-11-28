@@ -237,6 +237,7 @@
 <li>对数(似然)损失函数<div class="math">$$ L(Y, P(Y|X)) = -log P(Y|X)$$</div>
 </li>
 </ol>
+<p>还有一些其他损失函数， 如 <a href="http://www.zhimind.com/tutorial/softmax-output">softmax回归</a> 中使用的损失函数 交叉熵Cross-entropy 损失函数， 但不在本文范围内。</p>
 <div class="process"><span><p>我们找到的模型越好，意味着损失函数值越<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="小|small"/><input class="comments" type="hidden" value="越好，误差越少，所以越什么？"/><button onclick="checkQuiz(this, 13)">submit</button><br/></div>
 <h1 id="_17">风险函数</h1>
 <p>以下照抄《统计学习方法》</p>
@@ -260,7 +261,7 @@
 <p>那就是要考虑模型复杂度，要把它也算到损失里。 估计因为模型复杂情况就叫模型的结构， 所以我们有 <strong>结构风险 structural risk</strong>， 求这个的最小化， 即：
 </p>
 <div class="math">$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</div>
-<p><span class="math">\(J(f)\)</span>就代表模型复杂度——具体怎么算那是具体问题具体分析，我是作者，我可以扯题外话， 读者不好意思，没那么强的自主功能。</p>
+<p><span class="math">\(J(f)\)</span>就代表模型复杂度，称之为 正则化项(regularizer) 或 罚项(penalty term)——具体怎么算得具体问题具体分析.</p>
 <h1 id="_21">策略总结</h1>
 <p>以上就是我们的两种策略：</p>
 <ol>

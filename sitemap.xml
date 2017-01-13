@@ -5,29 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2016-12-11T21:40:27-00:00</lastmod>
+<lastmod>2017-01-13T16:50:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2016-12-11T21:40:27-00:00</lastmod>
+<lastmod>2017-01-13T16:50:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2016-12-11T21:40:27-00:00</lastmod>
+<lastmod>2017-01-13T16:50:42-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2016-12-11T21:40:27-00:00</lastmod>
+<lastmod>2017-01-13T16:50:42-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/introduce-computer-networks.html</loc>
+<lastmod>2016-12-29T15:23:30+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/database-table-of-content.html</loc>
+<lastmod>2016-12-29T11:19:20+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 

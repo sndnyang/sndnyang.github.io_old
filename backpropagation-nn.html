@@ -144,18 +144,18 @@
 <p>我们刚刚学习了 <a href="http://www.zhimind.com/tutorial/feed-forward-nn">神经网络前向传播</a>, </p>
 <div class="process"><span><p>现在有什么问题？</p><input class="quiz" name="quiz" type="checkbox" value="权重参数向量如何更新">权重参数向量如何更新</input><br/><input class="quiz" name="quiz" type="checkbox" value="输出结果不对怎么办">输出结果不对怎么办</input><br/><input class="quiz" name="quiz" type="checkbox" value="如何初始化权重向量">如何初始化权重向量</input><br/></span><br/><input class="answers" type="hidden" value="权重参数向量如何更新@输出结果不对怎么办@如何初始化权重向量"/><input class="comments" type="hidden" value="不知道说什么，问题编不完"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_3">关键问题</h3>
-<p>关键问题是啥？ 不知道的话， 逐个分析一下。</p>
-<div class="process"><span><p>如何初始化？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="0|零"/><input class="comments" type="hidden" value=":{%text|举一反三，其他方法怎么初始化的？_@0|零#:{%radio|没看过其他方法包括感知机和逻辑回归？前面文章都没看过？&amp;是&amp;否@否#是:怎么就直接看到这了呢？#否:没编程实践过是吧？我教程里确实没说，我做不到滴水不漏啊！%}%}"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<p>这三个问题中，你觉得关键问题是啥？ 不知道的话， 逐个分析一下。</p>
+<div class="process"><span><p>如何初始化权重矩阵（向量）？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="0|零"/><input class="comments" type="hidden" value=":{%text|举一反三，其他方法怎么初始化的？_@0|零#:{%radio|没看过其他方法包括感知机和逻辑回归的初始化吗？前面文章都没看过？&amp;是&amp;否@否#是:怎么就直接看到这了呢？#否:没编程实践过是吧？我还没制作好编程部分。%}%}"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h3 id="_4">继续分析</h3>
-<p>初始化一般不是随机就全0， 权重参数向量 随机不常用， 一般是全部置0.</p>
-<p>第二项 输出结果不对怎么办？很明显就是要去更新 权重参数向量啊！ 所以 这两个选项其实指向同一个问题。</p>
+<p>初始化权重一般是全部置0。</p>
+<p>第二项 输出结果不对怎么办？ 这个很明显就是要去更新 权重参数向量！ 所以 这两个选项是同一个问题。</p>
 <div class="process"><span><p>难道本质不是同一个问题吗？</p><input class="quiz" name="quiz" type="radio" value="是同一问题">是同一问题</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="是同一问题"/><input class="comments" type="hidden" value="否:请联系我，说下您的看法？"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h3 id="_5">最后一项</h3>
-<div class="process"><span><p>就是要去更新权重参数向量，那有什么方法吗？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":读者万一没看过,先给过吧"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p>要更新权重参数向量，您现在有想到什么方法，之前学过，也许能用？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="梯度下降|牛顿"/><input class="comments" type="hidden" value="逻辑回归用的方法也许能用？"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="_6">方法对吗？</h2>
-<p>上面的空不知道读者会填成什么——不能因为读者之前内容没看过就堵死在上面，所以放过了。</p>
+<p>上面的空不知道读者会填成什么。</p>
 <p>以前在<a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a>使用的 <a href="http://www.zhimind.com/tutorial/gradient-descent">梯度下降</a> 或 <a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a>  是否能直接拿来用呢？</p>
-<div class="process"><span><p>你觉得能直接拿来使用吗？</p><input class="quiz" name="quiz" type="radio" value="可以">可以</input><br/><input class="quiz" name="quiz" type="radio" value="不行">不行</input><br/></span><br/><input class="answers" type="hidden" value="不行"/><input class="comments" type="hidden" value="不行:{%text|为什么？_@隐|hidden#发现问题，奖励朵小红花%}#可以:下面就可以看到为什么不可以。其实你应该猜一下。"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p>你觉得能直接拿来使用吗？</p><input class="quiz" name="quiz" type="radio" value="可以">可以</input><br/><input class="quiz" name="quiz" type="radio" value="不行">不行</input><br/></span><br/><input class="answers" type="hidden" value="不行"/><input class="comments" type="hidden" value="不行:{%text|为什么？_@隐|hidden#发现问题，奖励朵小红花%}#可以:下面就可以看到为什么不可以。其实应该猜一下。"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_7">哪里不行了？</h3>
 <p>还记得 <a href="http://www.zhimind.com/tutorial/gradient-descent">梯度下降法</a> 或 <a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a> 的过程吗？</p>
 <div class="process"><span><p>求什么运算<input class="quiz" type="text"/>进行迭代，迭代到什么时候<input class="quiz" type="text"/>结束。</p></span><br/><input class="answers" type="hidden" value="导|微@0|零|极|最|次"/><input class="comments" type="hidden" value="梯度下降和牛顿迭代都是进行什么运算？应该有印象？#什么时候结束也能答上来吧？#答不上来请找我投诉~~~"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
@@ -183,7 +183,7 @@ $$</div>
 <h2 id="_9"></h2>
 <div class="process"><span><p>所以梯度下降和牛顿迭代直接用在神经网络上会有什么问题？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="隐|hidden"/><input class="comments" type="hidden" value="输入层就是输入单元，不需要调整，输出层的可以调整，那么？#是不是有不知道怎么调整的神经元？"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h2 id="_10">那怎么办？</h2>
-<p>总不能只管调整最后输出层的 权重向量吧？梯度下降法或牛顿迭代法大概应该能调整传给输出层的权重向量， 不至于来输出层都不行~~~</p>
+<p>总不能只管调整最后输出层的 权重向量吧？梯度下降法或牛顿迭代法应该只能调整传给输出层的权重向量~~~</p>
 <p>反正隐藏层没有label标签可以比较，不能直接用梯度下降法。</p>
 <div class="process"><span><p>不能直接用，那是否应该借鉴梯度下降牛顿法的思想，调整一下后使用？</p><input class="quiz" name="quiz" type="radio" value="应该试试">应该试试</input><br/><input class="quiz" name="quiz" type="radio" value="直接想新办法">直接想新办法</input><br/></span><br/><input class="answers" type="hidden" value="应该试试"/><input class="comments" type="hidden" value="呃#应该试试:多借鉴、多模仿、多改进、多尝试"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
 <h3 id="_11">试试又不会掉块肉</h3>
@@ -263,13 +263,48 @@ sigmoid求偏导部分暂略。
 
 <div class="process"><span><p>读者觉得它应该是从何而来？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 18)">submit</button><br/></div>
 
+### 我跪了
 
+扯不下去了， 赶紧结束这篇。$\Delta x$ 可以理解成差异、 变化量等等，但终究是一个减法， $\Delta$ 这符号一般就用来表示“差”。
+
+目前， 唯一的已知的“差”值 就是 数据实际的标签label 和 前向传播输出的差， 实际值和预测值的差别 $y - a^L$， 就叫 **误差**。
+
+所以要从输出层的这个$\Delta x$开始，往回一层层地更新权重矩阵。
+
+<div class="process"><span><p>反向传播为什么叫反向，不需要我这段解释，很简单，对吗？</p><input class="quiz" name="quiz" type="radio" value="对">对</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 19)">submit</button><br/></div>
+
+### 接下来
+
+视频和文字各有不好，视频不好改，要重录， 文字不好做动画——特别是我不会做动画~~~
+
+从输出层怎么反向到上一层呢？输出层的神经元通过突触（边）影响到上一隐藏层的神经元， 所以有两个数据了。
+
+1. 输出层L层神经元的误差 $y - a^L$
+2. 上一层l层到输出层L层的边 的权重 $w^l$ 
+
+那系数就是这两货的乘积了，那梯度、求导再结合进来， 先明显应该使用输出L层的g(x)求导——事实上从这里看不出来， 用l层的g(x)求导，然后除一下，可能更符合逻辑关系——前一层的变化通过导数、斜率影响下一层。为什么在下一段。
+
+### 推广
+
+接上面的，为什么不用l层神经元的函数，很简单，输入层到第一个隐藏层这里怎么办？ 输入层可没有这个函数~~~
+
+如何推广到其他层？ 其他层没有输出，不知道具体误差， 所以要利用下一层的误差， 下一层的误差则是来自下下一层，直到输出层的误差。
+
+所以， 下面给出总结：
 
 # 反向传播算法步骤
 
-1. l(w)使用sigmoid神经元的sigmoid函数 g(z(x))。
+0. 先计算输出层L层误差 $y - a^L$
+1. 第l层l(w)使用sigmoid神经元的sigmoid函数 g(x)。
 2. 系数$\alpha$ 则是上一层的**误差**，反向乘以边的权重
-3. 第k层的误差 就是由第k+1层的误差乘上
+3. 第k层的误差 上面第2步的系数 乘上第1步函数的导数。
+4. 权重向量更新是 输出$a_j^l * \delta_i^{l+1}$ -- 有点乱
+
+如图：
+
+![1](http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/nn_error.png)
+
+![2](http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/bp_algorithm.png)
 
 # 总结
 
@@ -286,9 +321,10 @@ $进行改进， 进而得到 **反向传播算法**。
 #sigmoid&amp;(梯度|导|微):接下来的相乘一步到位，不要分两步走，就算计算出来上一层的误差了
 #(梯度|导|微)&amp;乘&amp;(前|上)&amp;一层&amp;(误差|偏差)&amp;权重:{%formula|按算法来看就可以更新了,但用的是l层的_和l+1层的_来更新(名称)？@输出@误差#我暂时晕了%}
 #更新&amp;权重&amp;l层输出&amp;l+1层误差:
-"/><button onclick="checkQuiz(this, 19)">submit</button><br/></div>
+"/><button onclick="checkQuiz(this, 20)">submit</button><br/></div>
 
 # 恭喜
+不好意思， 本篇因为有点复杂， 捋顺整个逻辑比较难， 拖的时间太长， 又心情不好， 写不下去了~~中间关键步骤敷衍了事，草草结尾。
 
 神经网络反向传播算法就是以上内容。 浅层神经网络一般讲完反向传播算法 就结束。 所以， 有兴趣的读者可以准备看 深度学习 了。
 

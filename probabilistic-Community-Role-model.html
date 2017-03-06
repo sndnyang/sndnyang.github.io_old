@@ -154,9 +154,9 @@
 <h1 id="_4">正文</h1>
 <h2 id="_5">定义</h2>
 <h3 id="community">社区community：</h3>
-<p>Each community has a multinomial distribution over all pairs (v, u), denoted as <span class="math">\(\zeta\)</span></p>
+<p>Each community has a multinomial distribution over all pairs (v, u), denoted as $\zeta$</p>
 <h3 id="node-distribution-over-communities">社区上的点分布node distribution over communities？:</h3>
-<p>Each node has a multinomial distribution over communities, which is denoted as <span class="math">\(\phi\)</span></p>
+<p>Each node has a multinomial distribution over communities, which is denoted as $\phi$</p>
 <h3 id="role">角色role:</h3>
 <ol>
 <li>每个点可能有多个角色设定。</li>
@@ -164,11 +164,11 @@
 <li>我们这里用 高斯分布。</li>
 </ol>
 <h3 id="nodes-distribution-over-roles">角色上的点分布 nodes distribution over Roles:</h3>
-<p>Each node has a multinomial distribution over roles, which is denoted as <span class="math">\(\theta\)</span></p>
+<p>Each node has a multinomial distribution over roles, which is denoted as $\theta$</p>
 <h3 id="action">动作action</h3>
 <p>动作多种，比如转发和关注。 y 表示 action</p>
 <h3 id="community-role-pair">社区角色对 community-role pair</h3>
-<p>the distribution of community-role pairs over actions, denoted as <span class="math">\(\rho\)</span></p>
+<p>the distribution of community-role pairs over actions, denoted as $\rho$</p>
 <p>因为actioin y只有两种结果，所以，使用伯努利分布。</p>
 <h2 id="_6">模型描述</h2>
 <p>regard a node as a random mixture over communities</p>
@@ -189,63 +189,6 @@
 <p>总结不出来什么内容。</p>
 <p>这里一个分布， 那里一个分布， 我就没思考为什么用这个、那个分布。推断部分的两个算法都不认识。</p>
 <p>最后的实验也没看。还是要看实验才行， 实验看多了， 才能估计模型、方法有没有效果吧。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -322,6 +265,7 @@
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

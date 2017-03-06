@@ -119,18 +119,18 @@
 <div class="process"><span><p>原则上我会从什么开始？</p><input type="radio" class="quiz" name="quiz" value="问题">问题</input><br/><input type="radio" class="quiz" name="quiz" value="定义">定义</input><br/><input type="radio" class="quiz" name="quiz" value="故事">故事</input><br/><input type="radio" class="quiz" name="quiz" value="历史">历史</input><br/></span><br/><input type="hidden" class="answers" value="问题"/><input type="hidden" class="comments" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 
 <h1 id="_2">目前遇到的问题</h1>
-<p>我们现在遇到的是什么问题呢？ 不出意外， 是已经给定了一个没有任何限制(unconstrained)的函数， 指自变量的定义域、取值范围没有额外的限制条件， 不是说<span class="math">\(\frac{1}{x}\)</span>里 x可以等于0。</p>
+<p>我们现在遇到的是什么问题呢？ 不出意外， 是已经给定了一个没有任何限制(unconstrained)的函数， 指自变量的定义域、取值范围没有额外的限制条件， 不是说$\frac{1}{x}$里 x可以等于0。</p>
 <div class="highlight"><pre><span></span>给定了一个没有任何限制(unconstrained)的函数f(x)， 问题是如何求这个函数的最值（最大最小），如果最值存在的话。
 </pre></div>
 
 
 <p>如果函数本身不存在最值的话，可能就是有限制的最优化问题，本篇介绍的方法是 无限制最优化问题的求解方法。</p>
 <p>为了配合讲解， 我们需要一个例子， 也就是找一个函数作 小白鼠， 让我们可以实践、学习。</p>
-<p>这里，我们用线性回归里的损失函数 <span class="math">\(J(x)=x^2\)</span>平方函数作为例子， 实际问题中则代入实际的函数。</p>
+<p>这里，我们用线性回归里的损失函数 $J(x)=x^2$平方函数作为例子， 实际问题中则代入实际的函数。</p>
 <h1 id="_3">先来点直观的</h1>
-<p><span class="math">\(x^2\)</span>有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。如图：</p>
+<p>$x^2$有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。如图：</p>
 <p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png" /></p>
-<p>先明确下，我写的函数是 <span class="math">\(y=3*x^2-2*x+5\)</span>。所以最小值不是在x=0。</p>
+<p>先明确下，我写的函数是 $y=3<em>x^2-2</em>x+5$。所以最小值不是在x=0。</p>
 <p>人眼能直接估计最小值在哪个位置，准确结果是经过公式变换，可以求出来，对吧？</p>
 <div class="process"><span><p>你觉得计算机程序怎么做的？是用公式变换求最低点吗？</p><input type="radio" class="quiz" name="quiz" value="是">是</input><br/><input type="radio" class="quiz" name="quiz" value="否">否</input><br/></span><br/><input type="hidden" class="answers" value="否"/><input type="hidden" class="comments" value="这个比较明显了"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 
@@ -164,17 +164,17 @@
 
 <h2 id="_9">距离</h2>
 <p>先深入认识问题， 找的这个“距离”是什么？这个解到下一个解的距离， 意味着什么？意味着“变化”， 自变量x的变化。</p>
-<p>那它影响了什么？ x变化<span class="math">\(\Delta x\)</span>，会引起y=J(x)变化<span class="math">\(\Delta y\)</span>。</p>
+<p>那它影响了什么？ x变化$\Delta x$，会引起y=J(x)变化$\Delta y$。</p>
 <div class="process"><span><p>此处你会想到一个什么？上文刚提到<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="answers" value="求导|偏导|偏微|微分|坡度|梯度|导数|斜率"/><input type="hidden" class="comments" value="这俩在一起，一般是什么运算？#相除啊！一除得什么？#呃，前面的问题是怎么过来的？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 
 <h3 id="_10">变化多少合适</h3>
-<p>每个点有每个点的切线斜率， 意味着 x变化<span class="math">\(\Delta x\)</span>，引起y=J(x)变化的剧烈程度， 即<span class="math">\(\Delta y\)</span>的大小。</p>
+<p>每个点有每个点的切线斜率， 意味着 x变化$\Delta x$，引起y=J(x)变化的剧烈程度， 即$\Delta y$的大小。</p>
 <p>所以， 不同点到下一点的距离 这个变化量 跟 这点切线的斜率相关，相关有两种方案：</p>
 <ol>
 <li>斜率越大， 变化的距离越大， 正比， 典型的就是线性相关。</li>
 <li>斜率越大， 变化的距离相对越小， 反比， 典型的互为倒数。</li>
 </ol>
-<p>本文介绍的梯度下降法就是使用正比 线性相关， 比如令 <span class="math">\(\Delta x = x'\)</span>， 我们就得到一个式子来算到下一点的距离。</p>
+<p>本文介绍的梯度下降法就是使用正比 线性相关， 比如令 $\Delta x = x'$， 我们就得到一个式子来算到下一点的距离。</p>
 <div class="process"><span><p>OK了吗？有问题吗？</p><input type="radio" class="quiz" name="quiz" value="OK">OK</input><br/><input type="radio" class="quiz" name="quiz" value="没有">没有</input><br/></span><br/><input type="hidden" class="answers" value="没有"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 
 <h3 id="_11">还有问题</h3>
@@ -200,8 +200,8 @@
 <div class="process"><span><p>我们知道如何找下一个点了，那接下来做什么呢？</p><input type="radio" class="quiz" name="quiz" value="完成了">完成了</input><br/><input type="radio" class="quiz" name="quiz" value="判断什么搜索结束">判断什么搜索结束</input><br/><input type="radio" class="quiz" name="quiz" value="不知道">不知道</input><br/></span><br/><input type="hidden" class="answers" value="判断什么时候搜索结束"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 
 <h2 id="_14">什么时候结束</h2>
-<p><span class="math">\(\alpha\)</span>的取值太大太小都有问题，但这是工程实践上的问题，跳过。</p>
-<p>综上所述， 我们有 <span class="math">\(x=x-\alpha \frac{\partial}{\partial x}J(x)\)</span>， 作为每次迭代对x的更新。</p>
+<p>$\alpha$的取值太大太小都有问题，但这是工程实践上的问题，跳过。</p>
+<p>综上所述， 我们有 $x=x-\alpha \frac{\partial}{\partial x}J(x)$， 作为每次迭代对x的更新。</p>
 <p>迭代总要有个停。大概有以下这些方案：</p>
 <ol>
 <li>迭代指定次数，取其中J(x)最小的。</li>
@@ -220,16 +220,16 @@
 </ol>
 <h1 id="_16">梯度下降实践</h1>
 <p>梯度下降法在更新w上可以采取不同的策略。 从之前的公式， 我们得到完整用于整个训练集的公式为（原先的2是常数，跟alpha合并即可）：</p>
-<div class="math">$$
+<p>$$
 w_i = w_i - \alpha \sum^m_{j=1}(h(x^j)-y^j)*x^j_i 
-$$</div>
+$$</p>
 <p>这个式子每次都要把整个训练集X求个和， 所以叫<strong>批量梯度下降</strong> Batch Gradient Descent</p>
 <p>在数据量比较大的时候就会很慢。</p>
 <p>那相应的就是不批量策略。比如stochastic随机梯度下降也叫增量梯度下降。</p>
 <p>简单来说， 就是不求和，不停扫描。</p>
 <p>Repeat {
 for j=1 to m {    </p>
-<p><span class="math">\(w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i\)</span>  (for all i)</p>
+<p>$w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i$  (for all i)</p>
 <p>} <br />
 }</p>
 <h1 id="_17">恭喜</h1>
@@ -237,63 +237,6 @@ for j=1 to m {    </p>
 <p>严格来说， 梯度即求导或偏导并不难理解， 主要是要准确把握 用梯度下降法迭代更新向量时 <strong>系数乘梯度</strong>的含义。</p>
 <p>对比同为求导（偏导）的<a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a>有助理解。</p>
 <p>所以，下一篇就可以是 <a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a></p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -386,6 +329,7 @@ for j=1 to m {    </p>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

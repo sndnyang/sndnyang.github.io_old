@@ -1,6 +1,23 @@
 /**
  * 回到顶部
  */
+var Preview = {
+    preview: null,     // filled in by Init below
+    Update: function (obj) {
+        var ele = $(obj),
+            parentdiv = ele.parent().parent(),
+            preview = parentdiv.children(".MathPreview").eq(0),
+            pid = preview.attr("id"),
+            previewEle = document.getElementById(pid),
+            text = ele.val();
+        MathJax.Hub.Config({
+            messageStyle: "none"
+        });
+        preview.html("`" + text + "`");
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, previewEle]);
+    }
+};
+
 function backToTop() {
     //滚页面才显示返回顶部
     $(window).scroll(function() {

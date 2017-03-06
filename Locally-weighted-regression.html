@@ -149,13 +149,13 @@
 <div class="process"><span><p><input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="权"/><input class="comments" type="hidden" value="怎么突出重点又保留次要项？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="_5">加权重</h2>
 <p><strong>加权</strong> 这种思想、 方法应该也是经常用的。</p>
-<p>别的不说， 线性回归方程的系数就是不同特征<span class="math">\(x_i\)</span>的一个权重。</p>
+<p>别的不说， 线性回归方程的系数就是不同特征$x_i$的一个权重。</p>
 <p>还有老师为了让学生能及格、不挂科， 会在期末考、 期中考、 平时作业、 考勤等项目上调整权重。</p>
-<p>那很明显了， 要给<strong>每个点</strong>一个权重， M个点， 就是一个M的权重向量， 一般用w(weight)表示, 但我这里为了不写<span class="math">\(\theta\)</span>(theta), 线性模型里就用过w了。我们这里用 p 代表权重。</p>
+<p>那很明显了， 要给<strong>每个点</strong>一个权重， M个点， 就是一个M的权重向量， 一般用w(weight)表示, 但我这里为了不写$\theta$(theta), 线性模型里就用过w了。我们这里用 p 代表权重。</p>
 <p>那我们的损失函数 J(w)就可以写成：</p>
-<div class="math">$$
+<p>$$
 J(w) = \sum^m_{i=1}p^i(h(x^i) - y^i)^2
-$$</div>
+$$</p>
 <p>这个式子不容易表达成纯矩阵、向量乘法~~~</p>
 <p>那怎么求 p 呢？ 用什么方法把 p 和 w 一起求出来？也许有， 但不是本文研究的。 本文里的p 是先行计算出来， 而不是w这种给定模型后，用数据拟合出来。</p>
 <p>想想 p 有什么特点， 我们要预测 x 的值，所以离x越近的值的权重就会越大， 越远就越小， 但这里我们认为始终大于0.</p>
@@ -163,13 +163,13 @@ $$</div>
 <h2 id="_6">钟型曲线</h2>
 <p>是的， 像正态分布或钟型曲线。 <img alt="bell" src="http://www.hzbh.com/upfiles/201503/20150309134605749.jpg"/></p>
 <p>我们也知道正态分布的概率密度函数为： <img alt="pdf" src="http://h.hiphotos.baidu.com/baike/s%3D205/sign=2abf505a42166d223c77129473220945/342ac65c1038534384b650b09213b07eca808822.jpg"/></p>
-<p>平均值 <span class="math">\(\mu\)</span> 是什么？ 就是我们要预测的 x 。</p>
-<p>方差 <span class="math">\(\sigma\)</span> 是什么？ 没说， 简单点的话就是1， 也可以根据实际估计一个值。 用字母t来表示。</p>
+<p>平均值 $\mu$ 是什么？ 就是我们要预测的 x 。</p>
+<p>方差 $\sigma$ 是什么？ 没说， 简单点的话就是1， 也可以根据实际估计一个值。 用字母t来表示。</p>
 <p>最后还有前面的这个系数， 不需要了， 一个指数已经够了。</p>
 <p>这样我们就得到一个权重的表达式：</p>
-<div class="math">$$
+<p>$$
 点 i 的权重 p^{(i)} = \exp \large(-\frac{(x^i - x)^2}{2t^2}\large) 
-$$</div>
+$$</p>
 <p>最后的最后要说的是：</p>
 <ol>
 <li>这是一种权重的计算方式， 有其他的也可以用。</li>
@@ -183,63 +183,6 @@ $$</div>
 <p>再用， 用钟型曲线的函数来生成所有点相对x的权重。</p>
 <h1 id="_9">恭喜</h1>
 <p>局部加权线性回归的主要内容就是这些， 谢谢您的阅读。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -320,6 +263,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

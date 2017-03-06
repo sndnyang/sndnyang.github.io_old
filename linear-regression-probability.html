@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="线性回归概率解释 "/>
 <meta property="og:url" content="http://sndnyang.github.io/linear-regression-probability.html" />
-<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=w*x+b， 为求方便，\(b=w_0*x_0\) 策略。 损失函数 \(J(w) = (h(x) - y)^2\) 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-07-20T00:00:00+08:00" />
 <meta property="" content="2016-07-20T00:00:00+08:00" />
 <meta name="twitter:title" content="线性回归概率解释 ">
-<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=w*x+b， 为求方便，\(b=w_0*x_0\) 策略。 损失函数 \(J(w) = (h(x) - y)^2\) 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ...">
 
 
         <title>线性回归概率解释  · 懒龙谷
@@ -134,19 +134,19 @@
 <h1 id="_2">导读</h1>
 <p><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a>介绍了线性回归基础的三大要素：</p>
 <ol>
-<li>模型， y=h(x)=w*x+b， 为求方便，<span class="math">\(b=w_0*x_0\)</span></li>
-<li>策略。 损失函数 <span class="math">\(J(w) = (h(x) - y)^2\)</span></li>
+<li>模型， y=h(x)=w<em>x+b， 为求方便，$b=w_0</em>x_0$</li>
+<li>策略。 损失函数 $J(w) = (h(x) - y)^2$</li>
 <li>算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。</li>
 </ol>
 <p>这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。</p>
-<p>回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法，也就是 损失函数<span class="math">\(J(w) = (h(x) - y)^2\)</span> 为什么是可行有效的。</p>
+<p>回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法，也就是 损失函数$J(w) = (h(x) - y)^2$ 为什么是可行有效的。</p>
 <p>本文将介绍一种概率的解释方法， 存在其他解释（比如几何的）。</p>
 <h1 id="_3">引入误差</h1>
-<p>首先， 假设确实是线性模型，<span class="math">\(y=w*x\)</span>。</p>
+<p>首先， 假设确实是线性模型，$y=w*x$。</p>
 <p>在理想的实验环境下，这个模型也许就是完美的。但我们知道，理想和现实是有差距的， 也就是我们还要加上一个误差项error。所以得：</p>
-<div class="math">$$
+<p>$$
 y = w*x + \varepsilon
-$$</div>
+$$</p>
 <p>这里的误差有几种可能来源</p>
 <ol>
 <li>没有考虑到的特征</li>
@@ -161,113 +161,55 @@ $$</div>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="中心极限定理">中心极限定理</input><br/><input class="quiz" name="quiz" type="radio" value="大数定律">大数定律</input><br/><input class="quiz" name="quiz" type="radio" value="方差分析">方差分析</input><br/><input class="quiz" name="quiz" type="radio" value="期望和方差">期望和方差</input><br/></span><br/><input class="answers" type="hidden" value="中心极限定理"/><input class="comments" type="hidden" value="应该是最直接相关的#跟其他几项不能说没关系，但Ng只提了一个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_5">数学表达</h2>
 <p>所以数学式子有：
-</p>
-<div class="math">$$
-\varepsilon \sim \mathcal{N}(0, \sigma^2) \\
+$$
+\varepsilon \sim \mathcal{N}(0, \sigma^2) \
 概率密度 P(\varepsilon) = \frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{\varepsilon^2}{2\sigma^2})
-$$</div>
-<p>因为 <span class="math">\(\varepsilon = y-w*x\)</span>, 而数据集方差不变。</p>
+$$</p>
+<p>因为 $\varepsilon = y-w*x$, 而数据集方差不变。</p>
 <p>请回答：</p>
-<div class="math">$$y|x;w \sim \mathcal{N}(?, \sigma^2)$$</div>
+<p>$$y|x;w \sim \mathcal{N}(?, \sigma^2)$$</p>
 <div class="process"><span><p>N(<input class="quiz" type="text"/>,...)?</p></span><br/><input class="answers" type="hidden" value="w*x"/><input class="comments" type="hidden" value="中心、均值、期望是什么#顺序和符号要和前几行的一致，不要有空格"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h1 id="_6">似然值</h1>
-<p>已知<span class="math">\(y|x;w \sim \mathcal{N}(w*x, \sigma^2)\)</span>，则单个数据<span class="math">\((x^i,y^i)\)</span>的概率表达式为：</p>
-<div class="math">$$
+<p>已知$y|x;w \sim \mathcal{N}(w*x, \sigma^2)$，则单个数据$(x^i,y^i)$的概率表达式为：</p>
+<p>$$
 P(y^i|x^i;w) = \frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - x^iw)^2}{2\sigma^2})
-$$</div>
-<p>不要在意乘号、矩阵向量相乘这些细节, 有时候是 <span class="math">\(w*x\)</span>, 有时候<span class="math">\(Xw\)</span>, 有时候<span class="math">\(x^iw\)</span>， 我也很乱的。</p>
+$$</p>
+<p>不要在意乘号、矩阵向量相乘这些细节, 有时候是 $w*x$, 有时候$Xw$, 有时候$x^iw$， 我也很乱的。</p>
 <p>那所有数据(X, y)的似然值（概率）呢？</p>
 <div class="process"><span><p>跟单个概率什么关系？</p><input class="quiz" name="quiz" type="radio" value="所有概率之和">所有概率之和</input><br/><input class="quiz" name="quiz" type="radio" value="所有概率之积">所有概率之积</input><br/></span><br/><input class="answers" type="hidden" value="所有概率之积"/><input class="comments" type="hidden" value="各个数据是不相关的"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h2 id="_7">表达式</h2>
 <p>所以， 完整的w似然值(likelihood)为：</p>
-<div class="math">$$
+<p>$$
 \begin{aligned}
-L(w) &amp; = P(\vec{y} | X; w) \\
-&amp; = \prod^m_{i=1} P(y^i| X^i; w) \\
+L(w) &amp; = P(\vec{y} | X; w) \
+&amp; = \prod^m_{i=1} P(y^i| X^i; w) \
 &amp; = \prod^m_{i=1}\frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - X^iw)^2}{2\sigma^2})
 \end{aligned}
-$$</div>
+$$</p>
 <p>其实已经可以看到曙光了， 似然值自然是越大越好， 但看这个式子， 求积太复杂了， 肯定要化简。</p>
 <div class="process"><span><p>怎么化简?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="对数"/><input class="comments" type="hidden" value="有乘有e指数很明显了#填空匹配也不容易#对原公式求什么？#计算什么？#有指数有就可以干嘛？#不玩了"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="_8">对数化</h2>
 <p>概率的值本来就很小， 再相乘就太小了。 所以， 遇到概率时， 经常使用到<strong>取对数</strong>的方法。</p>
 <p>所以就有：</p>
-<div class="math">$$
+<p>$$
 \begin{aligned}
-\mathcal{l}(w) &amp; = log L(w) \\
-化积为和： \\
-&amp;= \sum^m_{i=1}log(\frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - X^iw)^2}{2\sigma^2})) \\
-展开 \\
+\mathcal{l}(w) &amp; = log L(w) \
+化积为和： \
+&amp;= \sum^m_{i=1}log(\frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - X^iw)^2}{2\sigma^2})) \
+展开 \
 &amp; = m*log \frac{1}{\sqrt{2}\pi\sigma} + \sum^m_{i=1}-\frac{(y^i - X^iw)^2}{2\sigma^2}
 \end{aligned}
-$$</div>
-<p>因为<span class="math">\(\sigma\)</span>跟数据样本有关，跟<span class="math">\(w\)</span>无关，所以第一项常数可忽略， 后一项的分母也是常数忽略。</p>
+$$</p>
+<p>因为$\sigma$跟数据样本有关，跟$w$无关，所以第一项常数可忽略， 后一项的分母也是常数忽略。</p>
 <p>所以对 l(w)求最大化似然值就等价于最小二乘法的最小化。</p>
-<div class="math">$$
+<p>$$
 \max_w \sum^m_{i=1}-(y^i - X^iw)^2 = \min_w \space (y-Xw)^2
-$$</div>
+$$</p>
 <p>至此，我们给出了最小二乘法的一个概率解释。</p>
 <h1 id="_9">总结</h1>
 <p>希望通过本文的介绍， 你能了解如何通过对误差的概率分析，得到似然值的表达式，再取对数化简，最终得到和最小二乘法一样的最优化目标。</p>
 <h1 id="_10">恭喜</h1>
 <p>恭喜你看完本文， 完结撒花！！！</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -348,6 +290,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

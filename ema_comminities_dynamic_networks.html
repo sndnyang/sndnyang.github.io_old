@@ -216,14 +216,14 @@ a network and endowed with two complementary objectives</p>
 <p>他们使用了 matlab 实现的 NSGA-II 算法框架, DYNMOGA支持 定制的、可表示网络分割情况的群体类型, 并具有两种互补的目标（然而并没有说是哪两种）。</p>
 <h2 id="_14">目标函数</h2>
 <h3 id="_15">定义</h3>
-<p><span class="math">\($\)</span></p>
+<p>$$$</p>
 <p>CR^t = { C^t_1, ... C^t_k } 是图在 t 阶段的聚类结果</p>
 <p>一个聚类中有 n_S 个结点 m_S 条边。</p>
 <p>m_S(u) = {v | v \in C_t } 是结点u 在聚类C^t 的邻点个数 
 c_S = { (u, v) | u \in C^t, v \notin C^t} 是聚类C^t边界的边数。
 l_S 是 只连接 模块 C^t_S 内部结点 的边总数。
 d_S 是 C^t_S 中点的度数之和</p>
-<p><span class="math">\($\)</span></p>
+<p>$$$</p>
 <h3 id="_16">多种分值定义</h3>
 <p>Q: the first term of each summand is
 the fraction of edges inside a community, while the second
@@ -233,17 +233,13 @@ to the community structure. Values approaching 1 indicate
 strong community structure</p>
 <ol>
 <li>modularity 颗粒度 ：<br/>
-<div class="math">$$ Q = \sum^k_{s=1}[\frac{l_s}{m} - (\frac{d_s}{2m})^2] $$</div>
-</li>
+$$ Q = \sum^k_{s=1}[\frac{l_s}{m} - (\frac{d_s}{2m})^2] $$</li>
 <li>conductance 导率, the fraction of edges pointing outside the clustering：<br/>
-<div class="math">$$ CO = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} $$</div>
-</li>
+$$ CO = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} $$</li>
 <li>Normalized Cut 归一化分割 the fraction of total edge connections to all the nodes in the graph: <br/>
-<div class="math">$$ NC = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} + \frac{c_S}{2(m-m_S)+c_S} $$</div>
-</li>
+$$ NC = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} + \frac{c_S}{2(m-m_S)+c_S} $$</li>
 <li>Community Score 群落分值, measure the fraction of internal edges of each cluster per nodes：<br/>
-<div class="math">$$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} $$</div>
-</li>
+$$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} $$</li>
 </ol>
 <h3 id="_17">基因表达</h3>
 <p>locus-based adjacency representation  [34]</p>
@@ -266,63 +262,6 @@ strong community structure</p>
 <p>给定两个父辈个体， 创建一个随机二元mask, 进行选择， 当 mask 为0时， 取第一个父辈个体的基因（值）， 为1时， 取第二个父辈个体。 如此组成子代的基因</p>
 <h3 id="_19">突变</h3>
 <p>与初始化类似， 对结点i 随机变更值成其他邻点。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -402,6 +341,7 @@ strong community structure</p>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

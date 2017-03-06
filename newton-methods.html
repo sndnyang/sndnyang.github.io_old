@@ -163,89 +163,30 @@
 <p><strong>说明</strong> 前面写复杂了，觉得这块没必要讲这么多。后面简略。</p>
 <p>可以想到，我们可以延长切线到y=0，此时的x值就可以作为下一次迭代的x值，这样我们就可以自动地找合适的距离。如图：</p>
 <p><img alt="牛顿法" src="http://h.hiphotos.baidu.com/baike/s%3D220/sign=4c0545c0d158ccbf1fbcb23829d9bcd4/1ad5ad6eddc451da7e10e099b6fd5266d11632da.jpg"/></p>
-<p>那这个x值 怎么求， 明显要推导了。如上图<span class="math">\(x_{n+1} 和 x_{n}\)</span>， 显然有：</p>
-<div class="math">$$
+<p>那这个x值 怎么求， 明显要推导了。如上图$x_{n+1} 和 x_{n}$， 显然有：</p>
+<p>$$
 f'(x_n) = \frac{f(x_n)}{x_n - x_{n+1}}
-$$</div>
-<p>所以有</p>
-<div class="math">$$ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$</div>
+$$</p>
+<p>所以有$$ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$</p>
 <p>步骤与梯度下降法相似：</p>
 <ol>
-<li>初始于某值作为<span class="math">\(\theta_0\)</span></li>
-<li>根据上面的方法求出下一迭代<span class="math">\(\theta_{n+1}\)</span></li>
-<li>直到 <span class="math">\(f(\theta) 接近 0\)</span>，有多近看你要求了。</li>
+<li>初始于某值作为$\theta_0$</li>
+<li>根据上面的方法求出下一迭代$\theta_{n+1}$</li>
+<li>直到 $f(\theta) 接近 0$，有多近看你要求了。</li>
 </ol>
-<p>另外，我们在回归问题中要求解的是一次导<span class="math">\(J'(\theta) = 0\)</span>时得到的极值， 所以在回归里的式子就是</p>
-<div class="math">$$ \theta_{n+1} = \theta_n - \frac{J'(\theta_n)}{J''(\theta_n)}$$</div>
+<p>另外，我们在回归问题中要求解的是一次导$J'(\theta) = 0$时得到的极值， 所以在回归里的式子就是$$ \theta_{n+1} = \theta_n - \frac{J'(\theta_n)}{J''(\theta_n)}$$</p>
 <h2 id="_9">速度分析</h2>
 <p>不是时间复杂度， 具体分析也没说， 只说是 二次收敛， 速度上比梯度快很多——但为什么以往更多用梯度下降法、 线性回归没说用牛顿法没说（可能是求导结果不好）。</p>
 <h2 id="_10">泛化</h2>
 <p>泛化到向量、矩阵， 但没有详细推导。</p>
-<div class="math">$$ \theta_{n+1} = \theta_n - H^{-1}\bigtriangledown_{\theta}J$$</div>
+<p>$$ \theta_{n+1} = \theta_n - H^{-1}\bigtriangledown_{\theta}J$$</p>
 <p>H 是 Hessian 矩阵</p>
-<div class="math">$$
+<p>$$
 H_{ij} = \frac{\partial^2 J}{\partial\theta_i\partial\theta_j}
-$$</div>
+$$</p>
 <p>都没听说过这个矩阵~~~这种比线性代数高阶的内容，是高等代数还是矩阵论还是啥 我也不知道</p>
 <h1 id="_11">恭喜</h1>
 <p>恭喜您读完本节内容， 完结撒花！！！</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -326,6 +267,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

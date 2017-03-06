@@ -112,9 +112,22 @@
 </ul>
 </li>
 <li><a href="#_7">条件概率公式</a><ul>
-<li><a href="#_8">开始</a></li>
+<li><a href="#_8">开始</a><ul>
+<li><a href="#_9">题不要停</a></li>
+<li><a href="#_10">没完不要停</a></li>
 </ul>
 </li>
+<li><a href="#_11">推导分析</a><ul>
+<li><a href="#_12">从简单开始</a></li>
+<li><a href="#_13">找到答案了吗？</a></li>
+<li><a href="#_14">继续试</a></li>
+<li><a href="#_15">成功</a></li>
+</ul>
+</li>
+<li><a href="#_16">概率公理</a></li>
+</ul>
+</li>
+<li><a href="#_17">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -144,9 +157,7 @@
 <h2 id="_4">定义符号</h2>
 <p>把搭讪成功叫事件A，明星搭讪叫事件B。</p>
 <p>所以，最开始的是P(A)，搭讪成功概率， 之后加个条件， 是否明星搭讪B。</p>
-<p>这就是条件概率的最直观定义了， 要定义下符号， 要去求出的搭讪成功A概率最重要，放前面， 是明星放后面，中间用个|分隔， 记成 </p>
-<div class="math">$$P(A|B)$$</div>
-<p> 就是 在明星搭讪的条件下，搭讪成功的概率。</p>
+<p>这就是条件概率的最直观定义了， 要定义下符号， 要去求出的搭讪成功A概率最重要，放前面， 是明星放后面，中间用个|分隔， 记成 $$P(A|B)$$ 就是 在明星搭讪的条件下，搭讪成功的概率。</p>
 <h2 id="_5">条件概率无处不在</h2>
 <p>这个例子想想让人激动， 近距离接触明星（娱乐、学术、商业各领域）多激动啊。但我觉得还是不能体现出条件概率的意义与无处不在。</p>
 <p>因为现实中用到的 多数的概率都是条件概率， 比如掷骰子和扔硬币也有条件，条件是它们是均匀的，没有出老千，只是教材里不是教大家骗钱，所以这个概率明显是1。</p>
@@ -175,154 +186,50 @@
 <p>好习惯， 先抽象化、 数学化建模。</p>
 <p>设A:“第k个人抽到入场券”，B：“前k-1个人均未抽到入场券”</p>
 <div class="process"><span><p>不要偷懒，求P(A)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value="n/m"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
-
-### 题不要停
-
-条件概率定义之前说过了， 现在就到你尝试的时候了， 目前还是古典概率。
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value="n/m"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h3 id="_9">题不要停</h3>
+<p>条件概率定义之前说过了， 现在就到你尝试的时候了， 目前还是古典概率。</p>
 <div class="process"><span><p>求P(A|B)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value="n/(m-k+1)"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
-
-### 没完不要停
-
-还没求完呢，事件B也是可求的， 对吧？
-
-因为表达式的复杂度问题， 定义写法， 组合M中取N的可能数 $$C_m^n = {m \choose n}$$ 请写成 (C(m,n)), M和N的组合函数C 大写。
-
-为了公式显示正确， 需要写成 (分子)/(分母)
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value="n/(m-k+1)"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<h3 id="_10">没完不要停</h3>
+<p>还没求完呢，事件B也是可求的， 对吧？</p>
+<p>因为表达式的复杂度问题， 定义写法， 组合M中取N的可能数 $$C_m^n = {m \choose n}$$ 请写成 (C(m,n)), M和N的组合函数C 大写。</p>
+<p>为了公式显示正确， 需要写成 (分子)/(分母)</p>
 <div class="process"><span><p>求P(B)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value="C(m-k+1,n)/C(m,n)"/><input class="comments" type="hidden" value="古典概率"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
-
-## 推导分析
-
-教材没有把这一切当宝贝，毫不重视地把结论扔给我们，这肯定不好。现实中， 这一切都藏得很深， 都是宝贝， 所以我希望能锻炼这种找宝贝(探索)的习惯、 思维和能力。
-
-刚才通过古典概率算出了 $P(A)=\frac{n}{m}$和$P(A|B)=\frac{n}{m-k+1}$，还有个$$P(B)=\frac{{m-k+1 \choose n}}{{m \choose n}}$$。
-
-这三个式子看起来毫无关系，我们要如何探索、如何试呢？
-
-没有头绪， 瞎试、瞎组合， 各种情况都试一遍， 砍掉解释不通的、 复杂过头的。
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value="C(m-k+1,n)/C(m,n)"/><input class="comments" type="hidden" value="古典概率"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<h2 id="_11">推导分析</h2>
+<p>教材没有把这一切当宝贝，毫不重视地把结论扔给我们，这肯定不好。现实中， 这一切都藏得很深， 都是宝贝， 所以我希望能锻炼这种找宝贝(探索)的习惯、 思维和能力。</p>
+<p>刚才通过古典概率算出了 $P(A)=\frac{n}{m}$和$P(A|B)=\frac{n}{m-k+1}$，还有个$$P(B)=\frac{{m-k+1 \choose n}}{{m \choose n}}$$。</p>
+<p>这三个式子看起来毫无关系，我们要如何探索、如何试呢？</p>
+<p>没有头绪， 瞎试、瞎组合， 各种情况都试一遍， 砍掉解释不通的、 复杂过头的。</p>
 <div class="process"><span><p>3个式子选2个进行组合，有几种可能</p><input class="quiz" name="quiz" type="radio" value="1">1</input><br/><input class="quiz" name="quiz" type="radio" value="2">2</input><br/><input class="quiz" name="quiz" type="radio" value="3">3</input><br/><input class="quiz" name="quiz" type="radio" value="4">4</input><br/><input class="quiz" name="quiz" type="radio" value="5">5</input><br/><input class="quiz" name="quiz" type="radio" value="6">6</input><br/></span><br/><input class="answers" type="hidden" value="3"/><input class="comments" type="hidden" value="答案就是你敢再错一次？#我认了，3种"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
-
-### 从简单开始
-
-A和B事件组合， 不外乎且和或嘛， 这里直觉觉得或or不出来， 只考虑且and。 所以我们要**考虑事件$P(A \cap B)$**。 同时我们有 P(A)*P(B)，不好写， 不写了，就是这么任性。
-
-$P(A \cap B)$ 可以算出来吧？因为这种表达式的化简问题，请化简成两个组合数相除，不要几个相加后再除。
-
-老样子，组合M中取N的可能数 $C_m^n$ 请写成 C(m,n), M和N的组合函数C 大写。
-
+<h3 id="_12">从简单开始</h3>
+<p>A和B事件组合， 不外乎且和或嘛， 这里直觉觉得或or不出来， 只考虑且and。 所以我们要<strong>考虑事件$P(A \cap B)$</strong>。 同时我们有 P(A)*P(B)，不好写， 不写了，就是这么任性。</p>
+<p>$P(A \cap B)$ 可以算出来吧？因为这种表达式的化简问题，请化简成两个组合数相除，不要几个相加后再除。</p>
+<p>老样子，组合M中取N的可能数 $C_m^n$ 请写成 C(m,n), M和N的组合函数C 大写。</p>
 <div class="process"><span><p>P(AandB)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value="C(m-k,n-1)/C(m,n)"/><input class="comments" type="hidden" value="这个的推导过程不应该在此处,所以没提示"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
-
-### 找到答案了吗？
-
-$P(A \cap B)$==P(A)*P(B)?
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value="C(m-k,n-1)/C(m,n)"/><input class="comments" type="hidden" value="这个的推导过程不应该在此处,所以没提示"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<h3 id="_13">找到答案了吗？</h3>
+<p>$P(A \cap B)$==P(A)*P(B)?</p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="对">对</input><br/><input class="quiz" name="quiz" type="radio" value="错">错</input><br/></span><br/><input class="answers" type="hidden" value="错"/><input class="comments" type="hidden" value="P(AandB)很难算吗？"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
-
-### 继续试
-
-不好意思， $P(A \cap B) \ne P(A)*P(B)$，继续试， 这回试谁和谁的组合呢？
-
+<h3 id="_14">继续试</h3>
+<p>不好意思， $P(A \cap B) \ne P(A)*P(B)$，继续试， 这回试谁和谁的组合呢？</p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="A">A</input><br/><input class="quiz" name="quiz" type="checkbox" value="B">B</input><br/><input class="quiz" name="quiz" type="checkbox" value="A|B">A|B</input><br/></span><br/><input class="answers" type="hidden" value="B@A|B"/><input class="comments" type="hidden" value="AB是A和B同时成立，从描述上哪两个最可能呢？"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
-
-### 成功
-
-先分析， A和A|B， 一个是A的概率， 另一个是已知B发生的条件下A发生的概率， 都是A的概率， 明显凑不上。 PASS.
-
-只剩下 B和A|B， 先看结果
-
-$$P(A \cap B) = \frac{{m-k \choose n-1}}{{m \choose n}} = \frac{n}{m-k+1} * \frac{{m-k+1 \choose n}}{{m \choose n}} = P(A|B)* P(B) $$
-
-(应该是个排列组合定理或很好的推导练习机会，但没计划写)
-
-再从语义上分析， P(A|B) 是已知B发生的条件下A发生的概率, P(B)则是B发生的概率， 所以没错， 这俩相乘就是$P(A \cap B)$。
-
-所以我们就得到了结论：
-
-$$P(A \cap B) = P(A|B) P(B) 或 P(A|B) = \frac{P(A \cap B)}{P(B)}, P(B) &gt; 0 $$
-
-这么简单、显而易见的公式， 我显然扯了这么一大段， 是不是太罗嗦了？
-
+<h3 id="_15">成功</h3>
+<p>先分析， A和A|B， 一个是A的概率， 另一个是已知B发生的条件下A发生的概率， 都是A的概率， 明显凑不上。 PASS.</p>
+<p>只剩下 B和A|B， 先看结果</p>
+<p>$$P(A \cap B) = \frac{{m-k \choose n-1}}{{m \choose n}} = \frac{n}{m-k+1} * \frac{{m-k+1 \choose n}}{{m \choose n}} = P(A|B)* P(B) $$</p>
+<p>(应该是个排列组合定理或很好的推导练习机会，但没计划写)</p>
+<p>再从语义上分析， P(A|B) 是已知B发生的条件下A发生的概率, P(B)则是B发生的概率， 所以没错， 这俩相乘就是$P(A \cap B)$。</p>
+<p>所以我们就得到了结论：</p>
+<p>$$P(A \cap B) = P(A|B) P(B) 或 P(A|B) = \frac{P(A \cap B)}{P(B)}, P(B) &gt; 0 $$</p>
+<p>这么简单、显而易见的公式， 我显然扯了这么一大段， 是不是太罗嗦了？</p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="虽然我也觉得罗嗦，但你敢说我罗嗦还想过？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
-
-## 概率公理
-
-这部分一般显然了， 条件概率也是概率，那些基本的概率公理照样成立， 证明过程再写我要疯了~~~找理由、编理由很难的！
-
-特别是很多事都有默认， 平时根本没想到， 没错就忽视，错了再改， 所以根本没理由。
-
-# 恭喜
-
-这就是我写的条件概率内容， 已经很罗嗦了， 觉得想继续的， 请看下一篇 [乘法法则]()
-
-
-
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
+<h2 id="_16">概率公理</h2>
+<p>这部分一般显然了， 条件概率也是概率，那些基本的概率公理照样成立， 证明过程再写我要疯了~~~找理由、编理由很难的！</p>
+<p>特别是很多事都有默认， 平时根本没想到， 没错就忽视，错了再改， 所以根本没理由。</p>
+<h1 id="_17">恭喜</h1>
+<p>这就是我写的条件概率内容， 已经很罗嗦了， 觉得想继续的， 请看下一篇 <a href="">乘法法则</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -400,6 +307,7 @@ $$P(A \cap B) = P(A|B) P(B) 或 P(A|B) = \frac{P(A \cap B)}{P(B)}, P(B) &gt; 0 $
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

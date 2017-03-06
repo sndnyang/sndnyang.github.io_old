@@ -155,7 +155,7 @@
 <h1 id="_2">哪有问题？</h1>
 <p>你说这对应什么问题？说不出来啊，更多是对多种机器学习方法进行归纳总结后，提出它们都有模型、策略、算法。</p>
 <p>所以，应该是直接上定义，让大家牢记于心。即：</p>
-<div class="math">$$机器学习方法=模型+策略+算法$$</div>
+<p>$$机器学习方法=模型+策略+算法$$</p>
 <p>简单的定义也比较好记~~~太复杂、大段文本就难记了，不过话多倒是可以学着自己总结， 这种定义，要学过很多种方法后才能总结出来。</p>
 <div class="process"><span><p>那么，是先学定义，指导后面具体内容学习好呢，还是先学具体方法，再总结定义、特点好？</p><input class="quiz" name="quiz" type="checkbox" value="先定义总结后内容">先定义总结后内容</input><br/><input class="quiz" name="quiz" type="checkbox" value="先内容后定义总结">先内容后定义总结</input><br/></span><br/><input class="answers" type="hidden" value="先定义总结后内容@先内容后定义总结"/><input class="comments" type="hidden" value="一个全方位碾压另一个？#你能说得清楚到底好在哪儿吗？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_3"></h2>
@@ -176,27 +176,25 @@
 <p>模型f对给定输入X，输出预测值f(X)， 监督学习里会有真实值或label Y, 所以把损失函数记作 L(Y,f(X))。</p>
 <p>度量错误程度方案很简单， 比如说</p>
 <ol>
-<li>错多少个是多少的 0-1损失函数：<div class="math">$$L(Y,f(X))=\begin{cases}
-1&amp; {Y \ne f(X)}\\
+<li>错多少个是多少的 0-1损失函数：$$L(Y,f(X))=\begin{cases}
+1&amp; {Y \ne f(X)}\
 0&amp; {Y = f(X)}
-\end{cases}$$</div>
-</li>
-<li>错误距离多远就是多少的 绝对损失函数：<div class="math">$$L(Y,f(X))=|Y-f(X)|$$</div>
-</li>
+\end{cases}$$</li>
+<li>错误距离多远就是多少的 绝对损失函数：$$L(Y,f(X))=|Y-f(X)|$$</li>
 </ol>
 <p>这两种是基本的，但毫无疑问总有点不足。</p>
 <p>针对绝对损失函数， 有两个问题，一是<strong>不好求导</strong>，求导就变常数了， 二是希望让错误距离影响更大一点， 线性条件下，距离差4个单位是差2个单位的2倍，但这不够，再大一点。</p>
 <div class="process"><span><p>所以我们怎么做？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="平方|二次"/><input class="comments" type="hidden" value="又要能求导，又要全是正数#求导结果还要简单一点#求平方嘛"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h1 id="_7">平方损失函数</h1>
 <p>这个是最常用的一个损失函数， 平方损失函数 quadratic loss function。</p>
-<div class="math">$$L(Y,f(X))=(Y-f(X))^2$$</div>
+<p>$$L(Y,f(X))=(Y-f(X))^2$$</p>
 <p>线性回归等基于距离的方法使用的一般都是这个 平方损失函数。</p>
 <div class="process"><span><p>那么平方损失函数能几乎没有问题地使用到其他问题上吗？</p><input class="quiz" name="quiz" type="radio" value="能">能</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="不知道"/><input class="comments" type="hidden" value="不试怎么知道呢"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_8">试试</h3>
 <p>我们知道，线性回归是解决回归问题方法， </p>
 <div class="process"><span><p>机器学习还有一类可能更常见的问题是<input class="quiz" type="text"/>问题</p></span><br/><input class="answers" type="hidden" value="分类|classify"/><input class="comments" type="hidden" value="读者没学过机器学习的话，怎么看到这儿的~~~百度一下也行"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h3 id="_9">分类问题怎么样？</h3>
-<p>分类问题能用平方损失函数<span class="math">\(L(Y,f(X))=(Y-f(X))^2\)</span>吗？</p>
+<p>分类问题能用平方损失函数$L(Y,f(X))=(Y-f(X))^2$吗？</p>
 <p>我们要先来看看 Y 和 f(X)是什么。</p>
 <div class="process"><span><p>Y是X对应的label，取值是什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":(0&amp;1)|(-1&amp;+1)"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h3 id="_10">分类的标签</h3>
@@ -220,55 +218,46 @@
 <p>概率经常就很可能遇到这种情况， 联合概率多个事件概率一乘， what， 接近0了，对吧？</p>
 <div class="process"><span><p>那这种情况怎么办？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="对数"/><input class="comments" type="hidden" value="怎么计算？#总共有几种运算啊？#加减乘除三角指对阶乘组合"/><button onclick="checkQuiz(this, 12)">submit</button><br/></div>
 <h1 id="_15">对数(似然)损失函数</h1>
-<div class="math">$$ L(Y, P(Y|X)) = -log P(Y|X)$$</div>
+<p>$$ L(Y, P(Y|X)) = -log P(Y|X)$$</p>
 <p>这样几乎就能避免概率、联合概率值时的问题。</p>
 <h1 id="_16">损失函数总结</h1>
 <p>所以常见的损失函数就是以上四种：</p>
 <ol>
-<li>0-1损失函数：<div class="math">$$L(Y,f(X))=\begin{cases}
-1&amp; {Y \ne f(X)}\\
+<li>0-1损失函数：$$L(Y,f(X))=\begin{cases}
+1&amp; {Y \ne f(X)}\
 0&amp; {Y = f(X)}
-\end{cases}$$</div>
-</li>
-<li>绝对损失函数：<div class="math">$$L(Y,f(X))=|Y-f(X)|$$</div>
-</li>
-<li>平方损失函数: quadratic loss function<div class="math">$$L(Y,f(X))=(Y-f(X))^2$$</div>
-</li>
-<li>对数(似然)损失函数<div class="math">$$ L(Y, P(Y|X)) = -log P(Y|X)$$</div>
-</li>
+\end{cases}$$</li>
+<li>绝对损失函数：$$L(Y,f(X))=|Y-f(X)|$$</li>
+<li>平方损失函数: quadratic loss function$$L(Y,f(X))=(Y-f(X))^2$$</li>
+<li>对数(似然)损失函数$$ L(Y, P(Y|X)) = -log P(Y|X)$$</li>
 </ol>
 <p>还有一些其他损失函数， 如 <a href="http://www.zhimind.com/tutorial/softmax-output">softmax回归</a> 中使用的损失函数 交叉熵Cross-entropy 损失函数， 但不在本文范围内。</p>
 <div class="process"><span><p>我们找到的模型越好，意味着损失函数值越<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="小|small"/><input class="comments" type="hidden" value="越好，误差越少，所以越什么？"/><button onclick="checkQuiz(this, 13)">submit</button><br/></div>
 <h1 id="_17">风险函数</h1>
 <p>以下照抄《统计学习方法》</p>
 <p>模型的输入输出（X，Y）遵循联合分布P(X, Y)。所以损失函数的期望是：
-</p>
-<div class="math">$$R_{exp}(f) = \int_{X \times Y}L(y, f(x))P(x,y)dxdy$$</div>
+$$R_{exp}(f) = \int_{X \times Y}L(y, f(x))P(x,y)dxdy$$</p>
 <p>上式是理论上模型f(X)善于联合分布P(X,Y)的平均意义下的损失， 称之为风险函数risk function 或 期望损失 expected loss</p>
 <p>所以，我们的目标找最优的模型就得到个比较明确的定义——选择期望风险损失最小的模型，进而引出学习策略。</p>
 <h1 id="_18">策略</h1>
-<p>显然， 期望损失 是整个数据集的总的损失， 不好直接拿总数，对大数据集太不公平， 要拿人均、平均损失来比较， 即 <strong>经验风险 empirical risk</strong>, 记作<span class="math">\(R_{emp}\)</span>
-</p>
-<div class="math">$$R_{emp}(f) = \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</div>
+<p>显然， 期望损失 是整个数据集的总的损失， 不好直接拿总数，对大数据集太不公平， 要拿人均、平均损失来比较， 即 <strong>经验风险 empirical risk</strong>, 记作$R_{emp}$
+$$R_{emp}(f) = \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</p>
 <p>策略一就是求上式最小化的 经验风险最小化</p>
 <h2 id="_19">经验风险最小化</h2>
-<div class="math">$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</div>
+<p>$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</p>
 <p>其中，F是假设空间。</p>
 <p>但是当样本容量很小时， 经验风险最小化学习很容易产生 <a href="http://www.zhimind.com/tutorial/over-under-fitting">过拟合#todo</a>现象。</p>
 <p>简单说就是用<strong>过于复杂的模型</strong>在训练集上达到非常好的拟合效果，但测试集就跪了。</p>
 <div class="process"><span><p>为了尽量防止使用过于复杂的模型，我们可以做什么？<input class="quiz" type="text"/></p></span><br/><input class="comments" type="hidden" value=":{%radio|知道很难答上来，防止模型过于复杂，是不是要把模型的复杂度也算进去？&amp;是&amp;否@是#否:这我怎么聊下去？#是:{%text|所以是模型复杂度和_进行_运算?@经验风险@加#都到这步了，我真没话说了~~~%}%}"/><button onclick="checkQuiz(this, 14)">submit</button><br/></div>
 <h2 id="_20">结构风险</h2>
 <p>那就是要考虑模型复杂度，要把它也算到损失里。 估计因为模型复杂情况就叫模型的结构， 所以我们有 <strong>结构风险 structural risk</strong>， 求这个的最小化， 即：
-</p>
-<div class="math">$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</div>
-<p><span class="math">\(J(f)\)</span>就代表模型复杂度，称之为 正则化项(regularizer) 或 罚项(penalty term)——具体怎么算得具体问题具体分析.</p>
+$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</p>
+<p>$J(f)$就代表模型复杂度，称之为 正则化项(regularizer) 或 罚项(penalty term)——具体怎么算得具体问题具体分析.</p>
 <h1 id="_21">策略总结</h1>
 <p>以上就是我们的两种策略：</p>
 <ol>
-<li>经验风险最优化<div class="math">$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</div>
-</li>
-<li>结构风险最优化<div class="math">$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</div>
-</li>
+<li>经验风险最优化$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</li>
+<li>结构风险最优化$$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</li>
 </ol>
 <p>所以， 机器学习问题就变成了二选一策略的最优化问题。 我看的是李航《统计学习方法》，原句是监督学习问题， 无监督、强化问题 应该也差不多， 估计主要是具体函数会有区别。</p>
 <h1 id="_22">算法</h1>
@@ -282,63 +271,6 @@
 </ol>
 <h1 id="_23">恭喜</h1>
 <p>机器学习三要素涉及的 模型、 策略、 算法 就这么过了一遍概念， 接近抄了一遍书， 李航《统计学习方法》珠玉在前， 我抄一遍， 这效果确实不太好， 但还是希望读者能有所收获。 我一开头就说了， 熟悉这三要素概念的就不用看这篇。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -413,6 +345,7 @@
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

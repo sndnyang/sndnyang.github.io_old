@@ -141,13 +141,12 @@
 <h2 id="_9">过程方法类</h2>
 <p>如果是 方法&amp;定理&amp;公理&amp;定律&amp;算法 这些，都有一些过程、步骤，步骤之间有一定的逻辑、因果关系，请读者开动脑筋，真正把这过程想清楚。</p>
 <p><strong>注：</strong> 每一步可以猜测、尝试、错误后返工，但不能直接“显然易得”地给结论、引入其他东西，就是每一步一定要有理由。</p>
-<p>举个反例（感觉教材经常这样）。 证明向量内积满足</p>
-<div class="math">$$|\langle \alpha, \beta \rangle | \le |\alpha| |\beta|$$</div>
-<p>某书（其他书不想找了）先证 <span class="math">\(\mathbf{\beta}=\mathbf{0}\)</span>，这正常。然后证 <span class="math">\(\mathbf{\beta} \ne \mathbf{0}\)</span>， 一来就是，令</p>
-<div class="math">$$
+<p>举个反例（感觉教材经常这样）。 证明向量内积满足$$|\langle \alpha, \beta \rangle | \le |\alpha| |\beta|$$</p>
+<p>某书（其他书不想找了）先证 $\mathbf{\beta}=\mathbf{0}$，这正常。然后证 $\mathbf{\beta} \ne \mathbf{0}$， 一来就是，令</p>
+<p>$$
 \xi = \mathbf{\alpha} - \frac{\langle \mathbf{\alpha}, \mathbf{\beta} \rangle}{|\mathbf{\beta}|^2} \mathbf{\beta}
-$$</div>
-<p>没头没脑地引入这么个辅助变量， 是不是很难理解？ <strong>关键</strong>就是 为什么<strong>能</strong>想到这么引入？ 怎么想到的， 这个理由起码得给出啊。 我们老师当初解释了，但好像只解释了这个和<span class="math">\(\beta\)</span>正交， 至于有没有讲 为什么能想到引入这个辅助变量，我忘了， 没认真听。</p>
+$$</p>
+<p>没头没脑地引入这么个辅助变量， 是不是很难理解？ <strong>关键</strong>就是 为什么<strong>能</strong>想到这么引入？ 怎么想到的， 这个理由起码得给出啊。 我们老师当初解释了，但好像只解释了这个和$\beta$正交， 至于有没有讲 为什么能想到引入这个辅助变量，我忘了， 没认真听。</p>
 <div class="process"><span><p>所以，写过程时，一定要<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="comments" value="在上面的文本中搜一下“一定要”#理由:光理由吗？一个理由？一万个理由？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 
 <h2 id="_10">过程学习</h2>
@@ -157,63 +156,6 @@ $$</div>
 <p>暂时没想到还有哪些类型， 欢迎补充。</p>
 <h1 id="_12">恭喜</h1>
 <p>恭喜你， 学习了{{它}}， 格物君希望通过这种方法——费曼技巧， 能使你在学海中多一些方向感。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -287,6 +229,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

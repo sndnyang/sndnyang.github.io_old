@@ -200,13 +200,13 @@
 <p>不管绕了多远， 总之我们现在打算根据简单原则先弄个线性模型， 即 y=w*x+b</p>
 <div class="process"><span><p>有问题吗?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="线性函数输出有无限种，但我们只要男女两类"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_11">最终模型</h2>
-<p>那简单，<span class="math">\(y=w*x+b\)</span> 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w*x+b的正负，写作：</p>
-<div class="math">$$
-f(x) = sign(w*x+b) = \begin{cases}
-+1&amp; {w*x+b \ge 0}\\
+<p>那简单，$y=w<em>x+b$ 是个超平面，分开了男女，一边男一边女，不就是平面上平面下各是一类吗，所以对应数学表达式，就是求w</em>x+b的正负，写作：</p>
+<p>$$
+f(x) = sign(w<em>x+b) = \begin{cases}
++1&amp; {w</em>x+b \ge 0}\
 -1&amp; {w*x+b &lt; 0}
 \end{cases}
-$$</div>
+$$</p>
 <div class="process"><span><p>下一步是？</p><input class="quiz" name="quiz" type="radio" value="选策略">选策略</input><br/><input class="quiz" name="quiz" type="radio" value="写算法">写算法</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/></span><br/><input class="answers" type="hidden" value="给定义"/><input class="comments" type="hidden" value="模型样子知道了，需要给名字了，特性也要明确分析下"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h3 id="_12">抽象定义</h3>
 <p>上面得到的 f(x) = sign(w*x+b)， 可以用下图表示：</p>
@@ -233,22 +233,22 @@ $$</div>
 <p>好，那我们来推导距离的表达式——并没有，因为是中学的知识，虽然没推过或时间太久，都会造成没有深刻的印象，但还是请读者自己推导任一点$x_0到超平面S的距离。</p>
 <div class="process"><span><p>你推导出来了吗？</p><input class="quiz" name="quiz" type="radio" value="OK">OK</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="无所谓啦"/><button onclick="checkQuiz(this, 12)">submit</button><br/></div>
 <h2 id="_15">一大波结论来袭</h2>
-<p><span class="math">\(x_i\)</span> 到超平面的距离:<span class="math">\(\frac{1}{||w||}|w*x_i+b|, ||w||\)</span>是w的<span class="math">\(L_2\)</span>范数。</p>
-<p>去掉绝对值，需要乘上<span class="math">\(y_i\)</span>(这算常用技巧不？)， 因为对误分类数据而言， 乘上y_i一定会 &lt; 0，还得再取个反，乘上-1。 最后求所有误分类点的总距离为：</p>
-<div class="math">$$-\frac{1}{||w||}\sum \limits_{x_i \in M} y_i(w*x_i + b)$$</div>
+<p>$x_i$ 到超平面的距离:$\frac{1}{||w||}|w*x_i+b|, ||w||$是w的$L_2$范数。</p>
+<p>去掉绝对值，需要乘上$y_i$(这算常用技巧不？)， 因为对误分类数据而言， 乘上y_i一定会 &lt; 0，还得再取个反，乘上-1。 最后求所有误分类点的总距离为：</p>
+<p>$$-\frac{1}{||w||}\sum \limits_{x_i \in M} y_i(w*x_i + b)$$</p>
 <div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="可以了">可以了</input><br/><input class="quiz" name="quiz" type="radio" value="还有">还有</input><br/></span><br/><input class="answers" type="hidden" value="还有"/><input class="comments" type="hidden" value="分子分母都有w，不能忍"/><button onclick="checkQuiz(this, 13)">submit</button><br/></div>
 <h3 id="_16">一次就好</h3>
 <p>看<a href="http://www.zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">SVM-最大间隔</a>时会发现，几乎一样的式子，但下一步就大相径庭了。</p>
 <p>所以这一步算是最难解释清楚的， 所以我不知道编写什么引导问题。</p>
-<p>其实是利用了线性函数（方程？）乘常数不变的性质。因为我们求的实际上还是超平面，即<span class="math">\(w*x+b=0\)</span>, 我们知道 <span class="math">\(2(w*x+b)=0, (w*x+b)/w = 0\)</span>等表示的都是同一个方程，所以我们可以将 <span class="math">\(||w||\)</span> 看成常数1， 反正都能变换成常数1。</p>
-<p>所以， 我们把<span class="math">\(||w||\)</span>固定看作1， 就等于是忽略掉了分母——SVM方案就是搞分子，更难理解。</p>
-<p>习惯上会觉得b也应该受影响，如果把b看作是<span class="math">\(w_0*x_0\)</span> 就没这个问题了。</p>
+<p>其实是利用了线性函数（方程？）乘常数不变的性质。因为我们求的实际上还是超平面，即$w<em>x+b=0$, 我们知道 $2(w</em>x+b)=0, (w*x+b)/w = 0$等表示的都是同一个方程，所以我们可以将 $||w||$ 看成常数1， 反正都能变换成常数1。</p>
+<p>所以， 我们把$||w||$固定看作1， 就等于是忽略掉了分母——SVM方案就是搞分子，更难理解。</p>
+<p>习惯上会觉得b也应该受影响，如果把b看作是$w_0*x_0$ 就没这个问题了。</p>
 <p>另习惯上，我们也会认为 y=w*x+b，那||w||变换，y也会变，但这里二者并不相关。</p>
 <h2 id="_17">最终的策略</h2>
-<p>感知机<span class="math">\(sign(w*x+b)\)</span>学习的损失函数定义为 <span class="math">\(L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)\)</span></p>
+<p>感知机$sign(w<em>x+b)$学习的损失函数定义为 $L(w,b) = -\sum_{x_i \in M} y_i(w</em>x_i + b)$</p>
 <p>是否是w,b的连续可导函数， 书上也只是概念上的分析，并没有推导、证明，反正它就是。</p>
 <p>感知机学习的策略就是求:</p>
-<div class="math">$$\min_{w,b} L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)$$</div>
+<p>$$\min_{w,b} L(w,b) = -\sum_{x_i \in M} y_i(w*x_i + b)$$</p>
 <h3 id="_18">补充可分性</h3>
 <p>显然， 能否没有误分类点，即损失函数值为0，关键还看数据集， 如果数据集能完全正确地划分开，那就是有可分性，如果能用超平面S完全正确地划分到两侧，那就是线性可分性——这个定义确实很明显。</p>
 <div class="process"><span><p>你觉得数据集有线性可分性的可能性高吗？</p><input class="quiz" name="quiz" type="radio" value="高">高</input><br/><input class="quiz" name="quiz" type="radio" value="低">低</input><br/></span><br/><input class="answers" type="hidden" value="低"/><input class="comments" type="hidden" value="嘿嘿，想想就知道不可能"/><button onclick="checkQuiz(this, 14)">submit</button><br/></div>
@@ -258,7 +258,7 @@ $$</div>
 <p>绕了大圈，终于开始搞算法了——计算机专业一般都听说过 程序=数据结构+算法，但在机器学习中，模型选定很难，策略选择一开始好说，但转换就麻烦了，反倒是最后的算法部分，很多都使用梯度下降法(stochastic gradient descent)，要么像SVM直接说凸二次规划问题，算法细节上的缺失让我经常有名不副实的感觉 8-)</p>
 <p>感知机学习的算法也是用的<a href="">随机梯度下降法#todo</a>， 原始形式：</p>
 <ol>
-<li>选取初值<span class="math">\(w_0,b_0\)</span></li>
+<li>选取初值$w_0,b_0$</li>
 <li>在训练集中选取数据$(x_i,y_i)</li>
 <li>如果 $y_i(w*x_i+b) \le 0w = w + \eta y_i x_i \ b = b + \eta y_i</li>
 <li>转至（2），直到训练集中没有误分类点（或可分性未知情况下，迭代若干次，选误分类最小的）</li>
@@ -274,63 +274,6 @@ $$</div>
 <p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a> </p>
 <h1 id="_23">恭喜</h1>
 <p>本篇到此为止， 希望您能有所收获。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -407,6 +350,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

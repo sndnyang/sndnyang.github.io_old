@@ -109,12 +109,25 @@
 <li><a href="#_4">常见讲解</a></li>
 <li><a href="#_5">试着去抽象</a><ul>
 <li><a href="#_6">抽象第一步</a></li>
+<li><a href="#_7">有假设了</a></li>
+<li><a href="#_8">例子验证</a></li>
+<li><a href="#_9">完了？</a></li>
+</ul>
+</li>
+<li><a href="#_10">再归纳、更一般化</a></li>
+<li><a href="#_11">推广</a><ul>
+<li><a href="#n">推广到n个事件</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#_12">互斥与独立</a><ul>
+<li><a href="#_13">分析</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#_14">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -154,76 +167,44 @@
 <p>从直观开始，独立性是——两个事件A和B没什么关系，A、B发生的概率互不影响。</p>
 <p>什么意思呢？不影响 -&gt; 不变化 -&gt; P(A) 或 P(B) 不变</p>
 <div class="process"><span><p>P(A)相对谁不变？<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value=":P(A|B)"/><input class="comments" type="hidden" value="独立性是对条件概率的补充#A的概率在某个条件下没有发生变化#提示不出来了，就差直接给答案了"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
-
-#### 有假设了
-
-我们就得到一个结论, 两个事件独立，意味着 P(A) = P(A|B)。 当然P(B) = P(B|A) 也对。 反向不成立的情况存不存在？就算存在也超纲了。
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value=":P(A|B)"/><input class="comments" type="hidden" value="独立性是对条件概率的补充#A的概率在某个条件下没有发生变化#提示不出来了，就差直接给答案了"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h4 id="_7">有假设了</h4>
+<p>我们就得到一个结论, 两个事件独立，意味着 P(A) = P(A|B)。 当然P(B) = P(B|A) 也对。 反向不成立的情况存不存在？就算存在也超纲了。</p>
 <div class="process"><span><p>有假设下一步干嘛？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="验证"/><input class="comments" type="hidden" value="答案是验证,选择题不好，填空题验证、证明好多同义词怎么搞啊"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
-
-#### 例子验证
-
-验证 P(A) = P(A|B)，省略， 请看上面的课程， 反正就一两个例子， 也没特别的证明过程。
-
+<h4 id="_8">例子验证</h4>
+<p>验证 P(A) = P(A|B)，省略， 请看上面的课程， 反正就一两个例子， 也没特别的证明过程。</p>
 <div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
-
-#### 完了？
-
-P(A) = P(A|B) 挺好的，但会不会有什么问题？
-
+<h4 id="_9">完了？</h4>
+<p>P(A) = P(A|B) 挺好的，但会不会有什么问题？</p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="P(B|A)=P(B)一定成立?">P(B|A)=P(B)一定成立?</input><br/><input class="quiz" name="quiz" type="radio" value="不够直观">不够直观</input><br/><input class="quiz" name="quiz" type="radio" value="不够简单">不够简单</input><br/></span><br/><input class="answers" type="hidden" value="P(B|A)=P(B)一定成立?"/><input class="comments" type="hidden" value="这个只能是体会精神了"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
-
-### 再归纳、更一般化
-
-没错， P(A) = P(A|B) 总会让人怀疑它只表示了“A独立于B”，那 P(B|A)=P(B)么？ 独立性要的是AB互相独立（默认）。
-
-所以式子里的A和B要同等的地位。 然后我也编出来了。
-
-唯一可以变形的公式是 $P(A \cap B) = P(B) * P(A|B)$
-
-代入，得一个标准的独立性定义：
-
-若$P(A \cap B) = P(B) * P(A)$, 则称事件A，B独立(independent)。
-
-### 推广
-
-若A与B独立， 则A与B逆， A逆与B， A逆与B逆都独立。
-
-#### 推广到n个事件
-
-也一样。 [n事件独立](http://7xt8es.com1.z0.glb.clouddn.com/zhimind/math/probability/n%E4%BA%8B%E4%BB%B6%E7%8B%AC%E7%AB%8B.png)
-
+<h3 id="_10">再归纳、更一般化</h3>
+<p>没错， P(A) = P(A|B) 总会让人怀疑它只表示了“A独立于B”，那 P(B|A)=P(B)么？ 独立性要的是AB互相独立（默认）。</p>
+<p>所以式子里的A和B要同等的地位。 然后我也编出来了。</p>
+<p>唯一可以变形的公式是 $P(A \cap B) = P(B) * P(A|B)$</p>
+<p>代入，得一个标准的独立性定义：</p>
+<p>若$P(A \cap B) = P(B) * P(A)$, 则称事件A，B独立(independent)。</p>
+<h3 id="_11">推广</h3>
+<p>若A与B独立， 则A与B逆， A逆与B， A逆与B逆都独立。</p>
+<h4 id="n">推广到n个事件</h4>
+<p>也一样。 <a href="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/math/probability/n%E4%BA%8B%E4%BB%B6%E7%8B%AC%E7%AB%8B.png">n事件独立</a></p>
 <div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
-
-## 互斥与独立
-
-首先， 先来个问题， 两互斥事件 独立吗？
-
+<h2 id="_12">互斥与独立</h2>
+<p>首先， 先来个问题， 两互斥事件 独立吗？</p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="独立">独立</input><br/><input class="quiz" name="quiz" type="radio" value="不独立">不独立</input><br/></span><br/><input class="answers" type="hidden" value="独立"/><input class="comments" type="hidden" value="二选一啦"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
-
-### 分析
-
-目前没能实现用户完成多步推导的 指导功能。要在大文本框里写很多行， 各行去判断——哎哟喂。
-
-就根据独立性的定义， 不外乎算两个， P(AB) 和 P(A)*P(B)
-
-互斥事件P(AB) = 0, P(A)*P(B) 两个都是概率事件P&gt;0, 所以 P(A)*P(B)&gt;0。
-
-当然大家应该能理解，只是需要这么明确地说出来，不然直观认识是很可能模糊的。再来解释下。
-
-从概率上说， 俩事件互斥其实就是一种信息， 知道了A或B的成立，就知道B或A 一定不会成立。 我们又可以看到条件概率的意义， 知道新的信息后， 概率发生变化，也可以说是观点发生变化。
-
+<h3 id="_13">分析</h3>
+<p>目前没能实现用户完成多步推导的 指导功能。要在大文本框里写很多行， 各行去判断——哎哟喂。</p>
+<p>就根据独立性的定义， 不外乎算两个， P(AB) 和 P(A)*P(B)</p>
+<p>互斥事件P(AB) = 0, P(A)<em>P(B) 两个都是概率事件P&gt;0, 所以 P(A)</em>P(B)&gt;0。</p>
+<p>当然大家应该能理解，只是需要这么明确地说出来，不然直观认识是很可能模糊的。再来解释下。</p>
+<p>从概率上说， 俩事件互斥其实就是一种信息， 知道了A或B的成立，就知道B或A 一定不会成立。 我们又可以看到条件概率的意义， 知道新的信息后， 概率发生变化，也可以说是观点发生变化。</p>
 <div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="完了"/><input class="comments" type="hidden" value="其他部分另起炉灶"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
-
-# 恭喜
-
-独立性的基础部分大概就这么多。后面还有：
-
-- 条件独立
-- 多事件独立
-- 应用分析事例
+<h1 id="_14">恭喜</h1>
+<p>独立性的基础部分大概就这么多。后面还有：</p>
+<ul>
+<li>条件独立</li>
+<li>多事件独立</li>
+<li>应用分析事例</li>
+</ul>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -301,6 +282,7 @@ P(A) = P(A|B) 挺好的，但会不会有什么问题？
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

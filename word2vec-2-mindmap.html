@@ -241,15 +241,15 @@ def get_top_n_terms(vocabulary, sentence_terms, n=50):
 <p>$ v 和 v_{hardware} $ (be biased in its direction towards). ---- 我们要计算 Word2Vec 模型的 cosine 相似度， 当然只跟方向有关。</p>
 <p>从直觉上说， $ v_{hardware} 和 v^{'}_{keyboard} $ 的影响应该大于的影响应该大于 v ， 也就是距离越远， 父节点的影响会越小。</p>
 <p>为了考虑这个因素， 我再加入了一个 参数 情境递减因子 αα 。 数学表达如下：</p>
-<div class="math">$$
-v^{'}_{computer} = v 
-$$</div>
-<div class="math">$$
+<p>$$
+v^{'}<em keyboard="keyboard">{computer} = v 
+$$
+$$
 v^{'}{hardware} = (1-\alpha)v + \alpha v^{'} 
-$$</div>
-<div class="math">$$
-v^{'} = (1-\alpha)v_{keyboard} + \alpha v^{'}_{hardware}
-$$</div>
+$$
+$$
+v^{'} = (1-\alpha)v</em> + \alpha v^{'}_{hardware}
+$$</p>
 <p>最后， 可以生成实际的导图了， 以下是我使用的算法（我希望行内注释能帮你理解我的工作）</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cosine</span>
 <span class="kn">from</span> <span class="nn">networkx</span> <span class="kn">import</span> <span class="n">Graph</span>
@@ -347,63 +347,6 @@ $$</div>
 <li>此方法可用于头脑风暴， 从你选择的一点出发， 这代码框架会给出建议的可连项， 你再做出选择， 然后又可以得到新的推荐——就有点像思维导图助手。</li>
 </ul>
 <p>无论怎样， 这都是篇长博文了， 谢谢你坚持着读完全文！（翻译也一样感谢您的阅读）。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -480,6 +423,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

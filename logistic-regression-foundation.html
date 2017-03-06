@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="逻辑回归基础 "/>
 <meta property="og:url" content="http://sndnyang.github.io/logistic-regression-foundation.html" />
-<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=w*x+b， 为求方便，\(b=w_0*x_0\) 策略。 损失函数 \(J(w) = (h(x) - y)^2\) 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-07-20T00:00:00+08:00" />
 <meta property="" content="2016-07-20T00:00:00+08:00" />
 <meta name="twitter:title" content="逻辑回归基础 ">
-<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=w*x+b， 为求方便，\(b=w_0*x_0\) 策略。 损失函数 \(J(w) = (h(x) - y)^2\) 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ...">
 
 
         <title>逻辑回归基础  · 懒龙谷
@@ -133,8 +133,8 @@
 <h1 id="_2">导读</h1>
 <p><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a>介绍了线性回归基础的三大要素：</p>
 <ol>
-<li>模型， y=h(x)=w*x+b， 为求方便，<span class="math">\(b=w_0*x_0\)</span></li>
-<li>策略。 损失函数 <span class="math">\(J(w) = (h(x) - y)^2\)</span></li>
+<li>模型， y=h(x)=w<em>x+b， 为求方便，$b=w_0</em>x_0$</li>
+<li>策略。 损失函数 $J(w) = (h(x) - y)^2$</li>
 <li>算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。</li>
 </ol>
 <p>这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression.</p>
@@ -145,28 +145,28 @@
 <p><img alt="分类" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/classes.png"/></p>
 <p>首先， 我们要明确一点，虽然不再是线性回归了，但线性这个还是没跑的。也就是说我们要用一条 <strong>直线</strong> 来划分两类数据，更复杂的非线性分类方法以后会有。</p>
 <p>还是老问题，现实中的数据用线性来拟合最简单， 而且也不知道它实际上会符合什么样的数学模型， 所以线性模型大概也够了， 不要自己给自己找不痛快了。 深度学习是深度学习，不一样。</p>
-<p>建模时， 比如上图， 决定用直线<span class="math">\(y=w*x\)</span>来划分。 那接下来就是用数学来表示这条直线了。</p>
+<p>建模时， 比如上图， 决定用直线$y=w*x$来划分。 那接下来就是用数学来表示这条直线了。</p>
 <h2 id="_4">分类定义</h2>
-<p>先对分类问题进行定义。 分类， y值肯定是离散的， 这例子里就两类，那就可以写成 <span class="math">\(y \in [0, 1] 或 [-1, 1]\)</span>， 习惯上取前者[0,1]。</p>
+<p>先对分类问题进行定义。 分类， y值肯定是离散的， 这例子里就两类，那就可以写成 $y \in [0, 1] 或 [-1, 1]$， 习惯上取前者[0,1]。</p>
 <p>这例子， x的参数有几个呢？</p>
 <h2 id="_5">分类超平面</h2>
-<p>肯定是2个， x轴和y轴啊， y已经有定义？ 那就<span class="math">\(x_1轴和x_2轴\)</span>。</p>
+<p>肯定是2个， x轴和y轴啊， y已经有定义？ 那就$x_1轴和x_2轴$。</p>
 <p>2维平面上的分类， 所以用1维的直线来分类， 如果是3维空间中的分类，则用2维平面来划分。 </p>
 <p>如果是维度为n的高维空间， 就要用n-1维的超平面来分类， 这就是 <strong>分类超平面</strong>。</p>
-<p>这里的直线假设是<span class="math">\(w_1x_1 + w_2x_2 + w_0 = wx = 0\)</span>。</p>
-<p>因为，y值跟我们习惯上的 y(即<span class="math">\(x_2\)</span>)轴没什么关系。真要画图表示的话， y值要画成第三条轴，而且只有0、1两个值。</p>
+<p>这里的直线假设是$w_1x_1 + w_2x_2 + w_0 = wx = 0$。</p>
+<p>因为，y值跟我们习惯上的 y(即$x_2$)轴没什么关系。真要画图表示的话， y值要画成第三条轴，而且只有0、1两个值。</p>
 <p>那这条直线跟y值 怎么关联的？ 很明显， 直线左边和右边对应两个类别。</p>
 <p>换数学一点就是：</p>
-<div class="math">$$
-y^i = \left\{
+<p>$$
+y^i = \left{
 \begin{aligned}
-0 &amp; &amp; w^Tx^i &lt; 0 \\
+0 &amp; &amp; w^Tx^i &lt; 0 \
 1 &amp; &amp; w^Tx^i \ge 0 
 \end{aligned}
 \right.
-$$</div>
-<p>所以我们要从<span class="math">\(w^Tx^i\)</span>的实数值映射到<span class="math">\(\{0, 1\}\)</span>上， 也就是加个函数变换， 就是</p>
-<div class="math">$$g(w^Tx^i)$$</div>
+$$</p>
+<p>所以我们要从$w^Tx^i$的实数值映射到${0, 1}$上， 也就是加个函数变换， 就是</p>
+<p>$$g(w^Tx^i)$$</p>
 <p>毫无疑问， 上面那个&lt;0,&gt;=0可以作为一个g函数。如果基于这个， 那就是 感知器模型算法(Perceptron)。</p>
 <p>它和逻辑回归非常像， 策略和算法部分也一致， 虽然还没讲到。现在继续讲逻辑回归。</p>
 <h2 id="g">G函数</h2>
@@ -183,111 +183,54 @@ $$</div>
 </ol>
 <p>大概这意思， 而且趋近不能太慢，刚从0值变化时，要有个比较剧烈的变化。</p>
 <p>可选函数应该有很多， 比较常用的是 sigmoid函数：</p>
-<div class="math">$$g(z)=\frac{1}{1+e^{-z}}$$</div>
+<p>$$g(z)=\frac{1}{1+e^{-z}}$$</p>
 <p>曲线如图：</p>
 <p><img alt="sigmoid" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/sigmoid.png"/></p>
 <h2 id="_6">模型总结</h2>
 <p>综上所述， 我们得到了我们的模型：</p>
-<div class="math">$$h(x) = g(w^Tx) = \frac{1}{1+e^{w^Tx}}$$</div>
+<p>$$h(x) = g(w^Tx) = \frac{1}{1+e^{w^Tx}}$$</p>
 <h1 id="_7">策略</h1>
 <p>基于模型， 我们来考虑策略、损失函数了。</p>
-<p>用最小二乘法的<span class="math">\((h(x) - y)^2\)</span> 怎么样呢？很少有讨论--PASS。</p>
+<p>用最小二乘法的$(h(x) - y)^2$ 怎么样呢？很少有讨论--PASS。</p>
 <p>这里直接上概率式子（具体推导请用误差正态分布代入h(x)自行推导）：</p>
-<div class="math">$$
+<p>$$
 \begin{aligned}
-&amp;P(y=1|x;w) = h(x)\\
-&amp;P(y=0|x;w) = 1-h(x) \\
-&amp;所以：\\
+&amp;P(y=1|x;w) = h(x)\
+&amp;P(y=0|x;w) = 1-h(x) \
+&amp;所以：\
 &amp;P(y|x;w) = h(x)^y (1-h(x))^{(1-y)}
 \end{aligned}
-$$</div>
+$$</p>
 <p>又看到了复杂的乘法及指数，所以求个对数得：</p>
-<div class="math">$$
+<p>$$
 \begin{aligned}
-\mathcal{l}(w) &amp; = \sum y^i \log{h(x^i)} + (1-y^i)\log{(1-h(x^i))} \\
+\mathcal{l}(w) &amp; = \sum y^i \log{h(x^i)} + (1-y^i)\log{(1-h(x^i))} \
 &amp; = y^T log(h(Xw)) + (1-y^T)log(1-h(Xw))
 \end{aligned}
-$$</div>
+$$</p>
 <p>简单粗暴</p>
 <h1 id="_8">算法</h1>
 <p>继续求最优化的算法， 这里是求似然值的最大值， 不是之前的最小。</p>
 <p>梯度下降法通用，所以是：</p>
-<div class="math">$$
+<p>$$
 w = w + \alpha \nabla_w l(w)
-$$</div>
+$$</p>
 <p>因为求最大， 所以梯度方向是求最大，使用+加法，反方向是求最小，才用减法。</p>
 <p>这个求导过程也请自行尝试。结果为（希望没有写错）：</p>
-<div class="math">$$
+<p>$$
 \nabla l(w) = y^T (y - h(x))
-$$</div>
+$$</p>
 <h1 id="_9">总结</h1>
 <p>本篇从线性回归的线性模型开始，一步步介绍</p>
 <ol>
-<li>分类超平面的引入(<span class="math">\(w^Tx=0\)</span>)</li>
-<li>根据点和超平面的关系，需要对<span class="math">\(w^Tx\)</span>进行转换。</li>
+<li>分类超平面的引入($w^Tx=0$)</li>
+<li>根据点和超平面的关系，需要对$w^Tx$进行转换。</li>
 <li>引入 <strong>sigmoid函数</strong>（分类问题经常用到，非常常用）</li>
 <li>逻辑回归的策略--似然值表达式</li>
 <li>使用梯度下降处理</li>
 </ol>
 <h1 id="_10">恭喜</h1>
 <p>恭喜您读完本节内容， 完结撒花！！！</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -368,6 +311,7 @@ $$</div>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

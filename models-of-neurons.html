@@ -115,6 +115,16 @@
 </li>
 </ul>
 </li>
+<li><a href="#_9">线性神经元</a><ul>
+<li><a href="#_10"></a></li>
+</ul>
+</li>
+<li><a href="#sigmoid">sigmoid神经元</a><ul>
+<li><a href="#_11">扩展方案</a></li>
+</ul>
+</li>
+<li><a href="#_12">概率化</a></li>
+<li><a href="#_13">恭喜</a></li>
 </ul>
 </div>
                     </nav>
@@ -139,23 +149,23 @@
 <div class="process"><span><p>感知机和逻辑回归，哪个简单？</p><input class="quiz" name="quiz" type="radio" value="感知机">感知机</input><br/><input class="quiz" name="quiz" type="radio" value="逻辑回归">逻辑回归</input><br/></span><br/><input class="answers" type="hidden" value="感知机"/><input class="comments" type="hidden" value="最起码我是这么觉得的，应该是公认的"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h1 id="_3">很简单的感知机</h1>
 <p>回顾感知机的模型， 数学式如下：</p>
-<div class="math">$$
-f(x) = sign(w*x+b) = \begin{cases}
-+1&amp; {w*x+b \ge 0}\\
+<p>$$
+f(x) = sign(w<em>x+b) = \begin{cases}
++1&amp; {w</em>x+b \ge 0}\
 -1&amp; {w*x+b &lt; 0}
 \end{cases}
-$$</div>
+$$</p>
 <p>现在要把它看作是一个<strong>神经元</strong>， 所以得到下一部分内容</p>
 <h1 id="_4">二元阈值神经元</h1>
 <p>二元阈值神经元 binary threshold neurons, 于1943年由McCulloch 和 Pitts 提出，这两位是生物学家，研究神经生理学的。 而我们知道 感知机(perceptron)感知器(perceptron)1957年由Rosenblatt提出。 它俩的数学模型是一样的， 但感知机还有一套完整的模型有策略有算法， 区别应该是在这里。</p>
 <p>二元阈值神经元binary threshold neurons有两类形式， 一种如上， 另一种简单变换下就是：</p>
-<div class="math">$$
-f(x) = sign(w*x) = \begin{cases}
-+1&amp; {w*x \ge \theta}\\
+<p>$$
+f(x) = sign(w<em>x) = \begin{cases}
++1&amp; {w</em>x \ge \theta}\
 -1&amp; {w*x &lt; 0}
 \end{cases}
-$$</div>
-<p>其中<span class="math">\(\theta = -b\)</span>。</p>
+$$</p>
+<p>其中$\theta = -b$。</p>
 <div class="process"><span><p>来个命题作文，看了二元阈值神经元和感知机，你有何感想？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h4 id="_5">个人感想</h4>
 <p>题外话， 两个神经学家（好怪的感觉）1943年提出的神经元模型，直接影响到了1957年的计算机算法 感知机， 而且据 Hinton 说也影响到了冯诺依曼设计电子计算机。</p>
@@ -193,130 +203,41 @@ $$</div>
 <div class="process"><span><p>二元阈值神经元是不是最简单的神经元模型？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="不是">不是</input><br/></span><br/><input class="answers" type="hidden" value="不是"/><input class="comments" type="hidden" value="看数学式，能不能再简化？"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_8">怎么简？</h3>
 <p>要简化， 主要思路肯定是“减一点”； 替换能不能成功简化，不好说； “加一点”却简化原问题的例子太少， 我也就能想到 17个东西分给3个人的智力题。</p>
-<p>好，我们来做简化， 二元阈值神经元 <span class="math">\(f(x) = sign(w*x+b)\)</span>， </p>
+<p>好，我们来做简化， 二元阈值神经元 $f(x) = sign(w*x+b)$， </p>
 <div class="process"><span><p>简化后f(x)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
-<div id="MathPreview"></div>
-</p></span><br/><input class="answers" type="hidden" value="w*x+b"/><input class="comments" type="hidden" value="应该不需要提示？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
-
-# 线性神经元
-
-所以我们得到了$$f(x) = w*x+b$$
-
-如果读者学过机器学习，或看了 [机器学习系列](http://blog.zhimind.com/machine-learning-catalog.html) 就知道，这个又对应到 [线性回归](http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name;=%E5%9F%BA%E7%A1%80&amp;parent;=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92)
-
-接下来不能再化简了吧， 线性函数已经是最简了， 那我们接下来就转向到复杂化。
-
+</p><p>预览:</p><div class="MathPreview"> </div></span><br/><input class="answers" type="hidden" value="w*x+b"/><input class="comments" type="hidden" value="应该不需要提示？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<h1 id="_9">线性神经元</h1>
+<p>所以我们得到了$$f(x) = w*x+b$$</p>
+<p>如果读者学过机器学习，或看了 <a href="http://blog.zhimind.com/machine-learning-catalog.html">机器学习系列</a> 就知道，这个又对应到 <a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E5%9F%BA%E7%A1%80&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a></p>
+<p>接下来不能再化简了吧， 线性函数已经是最简了， 那我们接下来就转向到复杂化。</p>
 <div class="process"><span><p>可以从哪个开始扩展、复杂化？</p><input class="quiz" name="quiz" type="checkbox" value="线性神经元">线性神经元</input><br/><input class="quiz" name="quiz" type="checkbox" value="二元阈值神经元">二元阈值神经元</input><br/></span><br/><input class="answers" type="hidden" value="线性神经元@二元阈值神经元"/><input class="comments" type="hidden" value="难道不是都可以吗？"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
-
-### 
-
-很明显，都可以，但我们还是考虑从 线性神经元进行扩展吧， 毕竟是基础，变化形式要更多样点。
-
-# sigmoid神经元
-
-没有前后逻辑， [逻辑回归](http://www.zhimind.com/tutorial/logistic-regression-foundation) 是一种神经元方案， 对应模型：
-
-对应数学式： 
-
-$$
-z=w*x+b\\
+<h3 id="_10"></h3>
+<p>很明显，都可以，但我们还是考虑从 线性神经元进行扩展吧， 毕竟是基础，变化形式要更多样点。</p>
+<h1 id="sigmoid">sigmoid神经元</h1>
+<p>没有前后逻辑， <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a> 是一种神经元方案， 对应模型：</p>
+<p>对应数学式： </p>
+<p>$$
+z=w*x+b\
 y = \frac{1}{1+e^{-z}}
-$$
-
-叫做 sigmoid 神经元， 因为 y=g(x) 这个函数叫 sigmoid 函数。 好处、优势不在这里讨论。
-
+$$</p>
+<p>叫做 sigmoid 神经元， 因为 y=g(x) 这个函数叫 sigmoid 函数。 好处、优势不在这里讨论。</p>
 <div class="process"><span><p>对比线性和sigmoid,二元阈值神经元，这种扩展的思想是什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
-
-## 扩展方案
-
-对比线性神经元， 就是 $y = g(f(x)), f(x) = w*x+b$， 给线性回归加了个包装，多加了那么一点东西。可以看出， 二元阈值神经元也是一个对线性神经元的包装 y=g(x) = sign(x)。
-
-你还可以自行扩展， 比如 Hinton 视频里提的 Rectified Linear Neurons，我不打算扯了。
-
+<h2 id="_11">扩展方案</h2>
+<p>对比线性神经元， 就是 $y = g(f(x)), f(x) = w*x+b$， 给线性回归加了个包装，多加了那么一点东西。可以看出， 二元阈值神经元也是一个对线性神经元的包装 y=g(x) = sign(x)。</p>
+<p>你还可以自行扩展， 比如 Hinton 视频里提的 Rectified Linear Neurons，我不打算扯了。</p>
 <div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没完">没完</input><br/></span><br/><input class="answers" type="hidden" value="没完"/><input class="comments" type="hidden" value="以我的知识水平是完了"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
-
-# 概率化
-
-视频不太看得明白的一块，也不讲， stochastic binary neurons，是对 sigmoid的概率化扩展。
-
-$$
-z=w*x+b\\
+<h1 id="_12">概率化</h1>
+<p>视频不太看得明白的一块，也不讲， stochastic binary neurons，是对 sigmoid的概率化扩展。</p>
+<p>$$
+z=w*x+b\
 P(s=1) = \frac{1}{1+e^{-z}}
-$$
-
-把sigmoid的输出看作出 P(s=1)的概率， 所以，最后的结果应该是sigmoid求出概率后，再加一个 softmax 得到最可能输出， 也可以说是再过了一遍 threshold。
-
+$$</p>
+<p>把sigmoid的输出看作出 P(s=1)的概率， 所以，最后的结果应该是sigmoid求出概率后，再加一个 softmax 得到最可能输出， 也可以说是再过了一遍 threshold。</p>
 <div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没完">没完</input><br/></span><br/><input class="answers" type="hidden" value="完了"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
-
-# 恭喜
-
-Hinton的视频里提了5种模型， 我这里主要提到了四种神经元的模型， 想把这种东西不割裂地串到一起，确实有点困难， 写得不好， 请多多包涵。
-
-有了神经元模型， 下面就让我们来把神经元连起来组成神经网络，进而用于机器学习吧！
-
-下一篇 [前向传播](http://zhimind.com/tutorial/feed-forward-nn)
-
-
-
-
-
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
+<h1 id="_13">恭喜</h1>
+<p>Hinton的视频里提了5种模型， 我这里主要提到了四种神经元的模型， 想把这种东西不割裂地串到一起，确实有点困难， 写得不好， 请多多包涵。</p>
+<p>有了神经元模型， 下面就让我们来把神经元连起来组成神经网络，进而用于机器学习吧！</p>
+<p>下一篇 <a href="http://zhimind.com/tutorial/feed-forward-nn">前向传播</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -396,6 +317,7 @@ Hinton的视频里提了5种模型， 我这里主要提到了四种神经元的
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

@@ -242,8 +242,8 @@
 </ul>
 <h2 id="_10">不平衡数据集</h2>
 <p>使用新的评估方式:</p>
-<div class="math">$$F-measure = \frac{2 \times Precission \times Recall} {Precision + Recall}$$</div>
-<p><span class="math">\( Precision = \frac{TP}{TP+FP}, Recall= \frac{TP}{TP+FN}\)</span></p>
+<p>$$F-measure = \frac{2 \times Precission \times Recall} {Precision + Recall}$$</p>
+<p>$ Precision = \frac{TP}{TP+FP}, Recall= \frac{TP}{TP+FN}$</p>
 <h2 id="_11">其他方法</h2>
 <ol>
 <li>over-sampling</li>
@@ -253,8 +253,8 @@
 <p>使用相同的scale比例尺， 避免特征上的不平衡。</p>
 <h2 id="_13">主要方案</h2>
 <ol>
-<li>最小最大标准化（0-1标准化）： <span class="math">\(v'=\frac{v-min}{max - min}\)</span></li>
-<li>z-score标准化（针对正态分布无上下界数据）:<span class="math">\(v'=\frac{v-\mu}{\sigma}\)</span></li>
+<li>最小最大标准化（0-1标准化）： $v'=\frac{v-min}{max - min}$</li>
+<li>z-score标准化（针对正态分布无上下界数据）:$v'=\frac{v-\mu}{\sigma}$</li>
 </ol>
 <h1 id="_14">数据描述与可视化</h1>
 <h2 id="_15">描述方法</h2>
@@ -266,9 +266,9 @@
 </ol>
 <h2 id="_16">相关度</h2>
 <p>皮尔森pearson相关系数：</p>
-<div class="math">$$r_{A,B} = \frac{\sum(AB)-n\hat{A}\hat{B}}{(n-1)\sigma_A\sigma_B}$$</div>
+<p>$$r_{A,B} = \frac{\sum(AB)-n\hat{A}\hat{B}}{(n-1)\sigma_A\sigma_B}$$</p>
 <p>pearson chi-square test:</p>
-<div class="math">$$\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$</div>
+<p>$$\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$</p>
 <h2 id="_17">可视化</h2>
 <p>可以推荐课程，<a href="https://www.coursera.org/learn/datavisualization">coursera可视化</a> 虽然好像太理论？</p>
 <h1 id="_18">特征选择</h1>
@@ -292,63 +292,6 @@
 <h2 id="_20">主成分分析</h2>
 <p>基本就是线性代数的 特征值、特征向量[特征值(待编写)]((http://sndnyang.github.io/404.html)求解， 好像奇异值分解[奇异值(待编写)]((http://sndnyang.github.io/404.html)也行。</p>
 <h2 id="linear-discriminant-analysis">线性判别分析 linear Discriminant Analysis</h2>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -429,6 +372,7 @@
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

@@ -170,31 +170,30 @@
 <li>算法--求解最优模型的过程。</li>
 </ol>
 <h1 id="_6">模型</h1>
-<p>前面说过多回了， 线性回归， 线性方程 y=h(x)=<span class="math">\(\sum \lim_{i=0} w_i*x_i\)</span>, 这里把b看作是 <span class="math">\(w_0 * x_0\)</span></p>
-<p>这里采用这种标记法，另有一种常用的是<span class="math">\(Y=\theta^TX\)</span>。只是符号问题。</p>
+<p>前面说过多回了， 线性回归， 线性方程 y=h(x)=$\sum \lim_{i=0} w_i*x_i$, 这里把b看作是 $w_0 * x_0$</p>
+<p>这里采用这种标记法，另有一种常用的是$Y=\theta^TX$。只是符号问题。</p>
 <p>接下来， 我们就要考虑求最优模型（参数）。</p>
 <h1 id="_7">策略</h1>
 <p>为了求解最优模型， 需要采取一定的策略。机器学习里的策略大概就是指模型选择的准则。</p>
 <p>对线性回归来说，我们考虑让预测值和实际值之间误差最小作为标准，选取损失函数。 篇幅限制及原课程的安排， 所以， 推导具体的损失函数请看 <a href="">概率解释</a></p>
 <div class="process"><span><p>是否已看过概率解释部分？</p><input class="quiz" name="quiz" type="radio" value="看了">看了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="看了"/><input class="comments" type="hidden" value="建议先看看"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_8">损失函数</h2>
-<p>上结论， 我们选择评估误差的标准为 <span class="math">\((h(x) - y)^2\)</span>, h(x)=w*x是预测值，y是实际值。平方强调了误差越大，影响越大。</p>
+<p>上结论， 我们选择评估误差的标准为 $(h(x) - y)^2$, h(x)=w*x是预测值，y是实际值。平方强调了误差越大，影响越大。</p>
 <p>这是单个数据点的误差， 所以整个数据集的误差就是：
-</p>
-<div class="math">$$
+$$
 J(w)=\sum^m_{i=1}(h(x^i) - y^i)^2
-$$</div>
+$$</p>
 <p>于是， 任务就变成了对上式求最小化（误差最小），并求出最小是h(x)的参数w。</p>
-<div class="math">$$
+<p>$$
 \min\limits_w\sum^m_{i=1}(h(x^i) - y^i)^2
-$$</div>
+$$</p>
 <h1 id="_9">算法</h1>
 <p>如果了解、熟悉梯度下降法的同学已经可以不用看了。直接点下一段到结束吧！</p>
-<p><span class="math">\(x^2\)</span>平方函数有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。而损失函数也会存在最小值， 这个我也不会证，但应该没有疑义吧？</p>
+<p>$x^2$平方函数有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。而损失函数也会存在最小值， 这个我也不会证，但应该没有疑义吧？</p>
 <p>在训练集数据x,y都已知的情况， 损失函数的自变量是否只有一个w了？损失函数的值会随着w的变化而变化。</p>
 <p>我们假设一个一维w对应的损失函数如图：</p>
 <p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"/></p>
-<p>人眼能估计最小值在哪个位置对吧， 先说明下，我写的函数是 <span class="math">\(y=3*x^2-2*x+5\)</span>。所以最小值不是在x=0。</p>
+<p>人眼能估计最小值在哪个位置对吧， 先说明下，我写的函数是 $y=3<em>x^2-2</em>x+5$。所以最小值不是在x=0。</p>
 <div class="process"><span><p>你觉得应该怎么做?</p><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/><input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试">从非常小到非常大全部试</input><br/><input class="quiz" name="quiz" type="radio" value="从一个随机位置开始">从一个随机位置开始</input><br/><input class="quiz" name="quiz" type="radio" value="公式变换找最小位置">公式变换找最小位置</input><br/></span><br/><input class="answers" type="hidden" value="从一个随机位置开始"/><input class="comments" type="hidden" value="呃"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="_10">从随机状态开始</h2>
 <p>暴力搜索地从非常小到非常大地尝试肯定是不可取的，又慢又试不完。PASS。</p>
@@ -213,29 +212,29 @@ $$</div>
 <p>那2维、多维的w呢？拿2维来说，就相当于x轴和y轴，要同时在两个变量上求导~~~所以， 分别对两个变量求偏导。并可以类推到更高维。</p>
 <p>高数、线代没学好，这里强词夺理、囫囵吞枣。</p>
 <h2 id="_13">求偏导</h2>
-<p>终于， 绕过来了， 需要要对J（w）函数求偏导，找出当前点的“滚动”方向。写作<span class="math">\(
-\frac{\partial}{\partial w}J(w)\)</span>。</p>
-<p>其中,忽略求和符号后，<span class="math">\(J(w)=(h(x) - y)^2\)</span>。一个简单的复合函数。</p>
+<p>终于， 绕过来了， 需要要对J（w）函数求偏导，找出当前点的“滚动”方向。写作$
+\frac{\partial}{\partial w}J(w)$。</p>
+<p>其中,忽略求和符号后，$J(w)=(h(x) - y)^2$。一个简单的复合函数。</p>
 <p>本以为，终于可以有填空题了。结果发现失败了。</p>
 <div class="process"><span><p>复合函数求导h(x)=f(g(x)),则h'(x)=<input class="quiz" type="text"/>?不需要*符号</p></span><br/><input class="answers" type="hidden" value="f'(g(x))g'(x)"/><input class="comments" type="hidden" value="这个应该OK"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h2 id="_14">继续求导</h2>
 <p>复合函数的求导法则知道了， 来推导本例子。</p>
-<div class="math">$$
+<p>$$
 \begin{aligned} 
 \frac{\partial}{\partial w_i}J(w)
-&amp; = \frac{\partial}{\partial w}(h(x) - y)^2 \\
-&amp; = 2*(h(x)-y) * \frac{\partial}{\partial w_i}(h(x) - y) \\
+&amp; = \frac{\partial}{\partial w}(h(x) - y)^2 \
+&amp; = 2*(h(x)-y) * \frac{\partial}{\partial w_i}(h(x) - y) \
 \end{aligned}
-$$</div>
+$$</p>
 <p>想实现读者自行推导过程， 辅助提醒， 但公式判断怎么做？搜都不知道搜什么。强行中断一下。</p>
 <p>已知 h(x) = w*x, 等于向量w和x的内积</p>
-<p>那 <span class="math">\(\frac{\partial}{\partial w_i}(h(x) - y)\)</span>化简结果是？ </p>
+<p>那 $\frac{\partial}{\partial w_i}(h(x) - y)$化简结果是？ </p>
 <div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="w向量的i分量">w向量的i分量</input><br/><input class="quiz" name="quiz" type="radio" value="x的i分量">x的i分量</input><br/><input class="quiz" name="quiz" type="radio" value="x的和">x的和</input><br/><input class="quiz" name="quiz" type="radio" value="w的和">w的和</input><br/></span><br/><input class="answers" type="hidden" value="x的i分量"/><input class="comments" type="hidden" value="w的i分量被微分了#w的非i分量直接当常数没了"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h2 id="_15">求导结果</h2>
 <p>所以结果为：</p>
-<div class="math">$$
-\frac{\partial}{\partial w_i}J(w) = 2*(h(x)-y)*x_i 
-$$</div>
+<p>$$
+\frac{\partial}{\partial w_i}J(w) = 2<em>(h(x)-y)</em>x_i 
+$$</p>
 <p>求偏导给出了方向， 所以， 要沿着方向。那么，</p>
 <div class="process"><span><p>把w看作点的位置，怎么滚？</p><input class="quiz" name="quiz" type="radio" value="w-偏导值">w-偏导值</input><br/><input class="quiz" name="quiz" type="radio" value="偏导值替换w">偏导值替换w</input><br/><input class="quiz" name="quiz" type="radio" value="二者相乘">二者相乘</input><br/><input class="quiz" name="quiz" type="radio" value="二者相加">二者相加</input><br/></span><br/><input class="answers" type="hidden" value="w-偏导值"/><input class="comments" type="hidden" value="偏导值为正，代表什么？"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_16">滚多远？</h2>
@@ -243,8 +242,8 @@ $$</div>
 <p>我们能沿着这个方向没没完没了地滚下去吗？ 要知道哪怕只滚动一厘米、 一毫米， 新的位置的偏导值（向量）都有可能发生变化。</p>
 <div class="process"><span><p>所以要怎么样？</p><input class="quiz" name="quiz" type="radio" value="给偏导值向量乘上个小系数">给偏导值向量乘上个小系数</input><br/><input class="quiz" name="quiz" type="radio" value="无聊">无聊</input><br/><input class="quiz" name="quiz" type="radio" value="乘上个大系数">乘上个大系数</input><br/><input class="quiz" name="quiz" type="radio" value="偏导值改成倒数">偏导值改成倒数</input><br/></span><br/><input class="answers" type="hidden" value="给偏导值向量乘上个小系数"/><input class="comments" type="hidden" value="都提示不要变化太大了"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h2 id="_17">什么时候结束</h2>
-<p><span class="math">\(\alpha\)</span>的取值太大太小都有问题，这是工程实践上的问题，跳过。</p>
-<p>综上所述， 我们有 <span class="math">\(w=w-\alpha \frac{\partial}{\partial w}J(w)\)</span>， 作为每次迭代对w的更新。</p>
+<p>$\alpha$的取值太大太小都有问题，这是工程实践上的问题，跳过。</p>
+<p>综上所述， 我们有 $w=w-\alpha \frac{\partial}{\partial w}J(w)$， 作为每次迭代对w的更新。</p>
 <p>迭代总要有个停。大概可能有以下这些方案：</p>
 <ol>
 <li>迭代指定次数</li>
@@ -263,77 +262,20 @@ $$</div>
 </ol>
 <h1 id="_19">梯度下降实践</h1>
 <p>梯度下降法在更新w上可以采取不同的策略。 从之前的公式， 我们得到完整用于整个训练集的公式为（原先的2是常数，跟alpha合并即可）：</p>
-<div class="math">$$
+<p>$$
 w_i = w_i - \alpha \sum^m_{j=1}(h(x^j)-y^j)*x^j_i 
-$$</div>
+$$</p>
 <p>这个式子每次都要把整个训练集X求个和， 所以叫<strong>批量梯度下降</strong> Batch Gradient Descent</p>
 <p>在数据量比较大的时候就会很慢。</p>
 <p>那相应的就是不批量策略。比如stochastic随机梯度下降也叫增量梯度下降。</p>
 <p>简单来说， 就是不求和，不停扫描。</p>
 <p>Repeat {
 for j=1 to m {    </p>
-<p><span class="math">\(w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i\)</span>  (for all i)</p>
+<p>$w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i$  (for all i)</p>
 <p>} <br/>
 }</p>
 <h1 id="_20">恭喜</h1>
 <p>线性回归的主要部分就是这些， 谢谢您的参与。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -414,6 +356,7 @@ for j=1 to m {    </p>
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

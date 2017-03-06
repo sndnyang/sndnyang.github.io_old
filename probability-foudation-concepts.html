@@ -161,22 +161,22 @@
 <p>接下来给出概率的这几条公理：</p>
 <ol>
 <li>非负性： 事件发生概率大于等于0。 P(A)&gt;=0 (P(A)&lt;=1)</li>
-<li>标准性： 样本空间的概率为一。 <span class="math">\(P(\omega)=1\)</span></li>
-<li>加法公理： <span class="math">\(if A \cap B = \emptyset, then P(A\cup B) = P(A) + P(B)\)</span> </li>
+<li>标准性： 样本空间的概率为一。 $P(\omega)=1$</li>
+<li>加法公理： $if A \cap B = \emptyset, then P(A\cup B) = P(A) + P(B)$ </li>
 </ol>
 <p>最典型例子就是掷一个骰子，不同点数概率相加就是这条公理的体现。</p>
-<p>另外<span class="math">\(if A \cap B = \emptyset\)</span>, 我们把A、B叫做互斥事件(disjoint events), 一开始需要和A\B独立区分开来。</p>
+<p>另外$if A \cap B = \emptyset$, 我们把A、B叫做互斥事件(disjoint events), 一开始需要和A\B独立区分开来。</p>
 <h2 id="_6">一些推论及性质</h2>
 <p>由以上三条公理， 我们可以推导出以下：</p>
 <ol>
 <li>P(A) &lt;= 1</li>
 <li>P(空集) = 0</li>
 <li>P(A) + P(A的补集) = 1</li>
-<li><span class="math">\(P(A \cup B \cup C) = P(A)+P(B)+P(C)\)</span>, 对k个互斥事件都成立</li>
-<li><span class="math">\(if A \subset B, then P(A) &lt;= P(B)\)</span></li>
-<li><span class="math">\(P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span></li>
-<li><span class="math">\(P(A \cup B)\)</span> &lt;= P(A) + P(B)</li>
-<li><span class="math">\(P(A\cup B \cup C) = P(A) + P(A^c\cap B) + P(A^c \ cap B^c \cap C, A^c B^c 是指补集complement\)</span></li>
+<li>$P(A \cup B \cup C) = P(A)+P(B)+P(C)$, 对k个互斥事件都成立</li>
+<li>$if A \subset B, then P(A) &lt;= P(B)$</li>
+<li>$P(A\cup B) = P(A) + P(B) - P(A\cap B)$</li>
+<li>$P(A \cup B)$ &lt;= P(A) + P(B)</li>
+<li>$P(A\cup B \cup C) = P(A) + P(A^c\cap B) + P(A^c \ cap B^c \cap C, A^c B^c 是指补集complement$</li>
 </ol>
 <p>以上推论可以自行推导， 因为还是比较直观， 理解记清能用到就行。</p>
 <h2 id="_7">连续样本空间概率计算</h2>
@@ -186,69 +186,11 @@
 <h2 id="_8">可数相加公理</h2>
 <p>之前的加法公理是在有限集上的， 无限集要扩展成新公理——不是定理，没有逻辑推导过程。</p>
 <p>可数相加公理：</p>
-<p>如果<span class="math">\(A_1,A_2,A_3...\)</span>是 一个无限的互斥事件序列，则有：</p>
-<div class="math">$$P(A_1 \cup A_2 \cup A_3 ...) = P(A_1)+P(A_2)+P(A_3)+...$$</div>
+<p>如果$A_1,A_2,A_3...$是 一个无限的互斥事件序列，则有：$$P(A_1 \cup A_2 \cup A_3 ...) = P(A_1)+P(A_2)+P(A_3)+...$$</p>
 <p>然后扯了一堆 序列代表事件是可排序的，这个公理只能适用于事件序列， 像平面里的点或线并不存在顺序关系， 该公理不适用。所以不能把点（线）的概率相加（一堆0相加等于0）得到平面的概率， 所以 平面上的点（线）是不可数的。最后是面积是可数的，满足可数可加性。</p>
 <p>还提了下这块是测度论的内容， 在概率论范围内不需要考虑这种事。</p>
 <h1 id="_9">恭喜</h1>
 <p>我笔记做得不认真， 太过敷衍， 推导不到位。 惭愧惭愧。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -326,6 +268,7 @@
                 </div>
             </div>
         </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
                 </div>
             </div>
         </div>

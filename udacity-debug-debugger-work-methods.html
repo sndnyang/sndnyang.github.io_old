@@ -98,50 +98,23 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1">默认的开头</a></li>
-<li><a href="#_2">身临其境. 痛哭流涕</a></li>
-<li><a href="#_3">调试的基础知识</a><ul>
-<li><a href="#5">第5条解释</a></li>
-<li><a href="#_4">继续解释</a></li>
-</ul>
-</li>
-<li><a href="#_5">怎么直接会教给你！</a></li>
-<li><a href="#_6">意味着什么？</a></li>
-<li><a href="#_7">有备无患</a><ul>
-<li><a href="#_8">真正的问题</a><ul>
-<li><a href="#_9">不专业到专业</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_10">仙界调试指南总结</a><ul>
-<li><a href="#_11">好处</a></li>
-</ul>
-</li>
-<li><a href="#_12">恭喜</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1">默认的开头</h1>
+                        <p>[TOC]</p>
+<h1>默认的开头</h1>
 <p>本文来自以下内容：</p>
 <ol>
 <li><a href="https://cn.udacity.com/course/software-debugging--cs259">udacity调试课</a></li>
 </ol>
-<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h1 id="_2">身临其境. 痛哭流涕</h1>
+<p>{%radio|原则上我会从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
+<h1>故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1>历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1>定义:直接上定义和以前教科书有什么区别？%}</h1>
+<h1>身临其境. 痛哭流涕</h1>
 <p>我想， 没有哪个程序员没有过漫长而又黑暗的调试经历吧？一说到调试， 必然都是痛苦的表情。</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="出门右转，不送！"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h1 id="_3">调试的基础知识</h1>
+<p>{%radio|&amp;有&amp;没有@有#出门右转，不送！%}</p>
+<h1>调试的基础知识</h1>
 <p>回顾自己的调试经历，是否有种调试调到海枯石烂. 天荒地老，山无棱. 天地合，乃敢调出来的感觉，是不是想着和bug同归于尽了？:,'(</p>
 <p>来看一份地府调试指南说明书，看看你熟练掌握了其中几条呢。</p>
 <p>地府调试指南：</p>
@@ -152,39 +125,44 @@
 <li>程序无师自通。为什么要理解程序的目的、意图？看注释. 代码很晕的好吗？！ &gt;:( </li>
 <li>神来之笔。兵来将挡，水来土掩。大不了，哥用一堆if，也要跟你卯上了！脚痛医脚，头痛砍头，这么浅显的道理，难道你不懂吗？</li>
 </ol>
-<div class="process"><span><p>亲爱的读者，你中了几条呢？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
-<h3 id="5">第5条解释</h3>
+<p>{%text|亲爱的读者，你中了几条呢？_@#%}</p>
+<h3>第5条解释</h3>
 <p>第5条的神来之笔何意？ 我忘记英文原文了，反正不好直译。</p>
 <p>举例，你写了个求平方根的函数，输入4应返回2，结果却返回了1.2，甚至直接崩掉。调试了半天，仍未解决，一怒之下，在函数开头来了句“神来之笔”&gt;:(：</p>
 <div class="highlight"><pre><span></span>if x == 4 then return 2;
 </pre></div>
-<div class="process"><span><p>了解啥叫“神来之笔"了吗？</p><input class="quiz" name="quiz" type="radio" value="OK">OK</input><br/><input class="quiz" name="quiz" type="radio" value="不OK">不OK</input><br/></span><br/><input class="answers" type="hidden" value="OK"/><input class="comments" type="hidden" value="不OK也要继续看"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
-<h3 id="_4">继续解释</h3>
+
+
+<p>{%radio|了解啥叫“神来之笔"了吗？&amp;OK&amp;不OK@OK#不OK也要继续看%}</p>
+<h3>继续解释</h3>
 <p>上面这个例子过于极端，只是我也想不出来靠谱的例子。</p>
 <p>神来之笔的实际含义就是 面向 <strong>症状</strong> 而不是 <strong>问题</strong> 来进行修复，只要症状解决. 不再出现（出错），也就不再管bug是否还在，即所谓治标不治本。希望大家能理解。</p>
 <p>显然，上面的地府调试指南会让你调试时如坠地狱， 读者要引以为戒。 现在让我们速速到仙界一游（我喜欢仙界不喜欢天堂）， 看看仙界调试指南是什么样的。</p>
-<div class="process"><span><p>我会直接告诉你吗？</p><input class="quiz" name="quiz" type="radio" value="会">会</input><br/><input class="quiz" name="quiz" type="radio" value="不会">不会</input><br/></span><br/><input class="answers" type="hidden" value="不会"/><input class="comments" type="hidden" value="怎么可能就这么给你，唐僧取经历尽九九八十一难后，都还要人事呢"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
-<h1 id="_5">怎么直接会教给你！</h1>
+<p>{%radio|我会直接告诉你吗？&amp;会&amp;不会@不会#怎么可能就这么给你，唐僧取经历尽九九八十一难后，都还要人事呢%}</p>
+<h1>怎么直接会教给你！</h1>
 <p>神仙的书可是天书， 岂是你说看就看的？ 我们针对上面地府调试指南， 一条条地汲取教训， 总结仙界调试指南吧！</p>
 <p>因为一些原因，我们倒过来。</p>
 <ol>
 <li>神来之笔。兵来将挡，水来土掩。大不了，哥用一堆if，也要跟你卯上了！脚痛医脚，头痛砍头，这么浅显的道理，难道你不懂吗？</li>
 </ol>
 <p>说过了， 这条是指 有些人调试只修复了表面的<strong>症状</strong>，而不是实际的<strong>问题</strong> </p>
-<div class="process"><span><p>所以我们调试时，要解决<input class="quiz" type="text"/>，而不是<input class="quiz" type="text"/>。</p></span><br/><input class="answers" type="hidden" value="问题@症状"/><input class="comments" type="hidden" value="这也太明显了吧？"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
-<h1 id="_6">意味着什么？</h1>
+<p>{%text|所以我们调试时，要解决_，而不是_。@问题@症状#这也太明显了吧？%}</p>
+<h1>意味着什么？</h1>
 <p>我们要面向 <strong>问题</strong> 调试， 意味着什么？ 意味着要真正找到问题所在， 意味着你对程序代码有足够的认识。 针对第四条：</p>
 <ol>
 <li>程序无师自通。为什么要理解程序的目的、意图？看注释. 代码很晕的好吗？！</li>
 </ol>
-<div class="process"><span><p>我们就该<input class="quiz" type="text"/>。</p></span><br/><input class="comments" type="hidden" value="原句里的文字"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
-<h1 id="_7">有备无患</h1>
+<p>{%text|我们就该_。@理解&amp;程序#原句里的文字%}</p>
+<h1>有备无患</h1>
 <p>明确要修复程序里的问题， 理解了程序， 开始动手调试， 好不容易改了大半， 眼看胜利在望， 突然——发现你改错了，可你从不备份，退不回去了， 悲剧啊 :@！</p>
 <ol>
 <li>从不备份。什么？难道你没听说过破釜沉舟. 刻舟求剑. 背水一战？给自己留退路的人，怎么能勇往直前！</li>
 </ol>
-<div class="process"><span><p>所以，调试、编码过程中，要记得<input class="quiz" type="text"/>。</p></span><br/><input class="answers" type="hidden" value="备份|版本控制"/><input class="comments" type="hidden" value="为什么会错呢？#备份:IT人士、程序员应该有更好的选择#版本控制:这才是专业、职业"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
-<h2 id="_8">真正的问题</h2>
+<p>{%text|所以，调试、编码过程中，要记得_。@备份|版本控制</p>
+<h1>为什么会错呢？</h1>
+<h1>备份:IT人士、程序员应该有更好的选择</h1>
+<h1>版本控制:这才是专业、职业%}</h1>
+<h2>真正的问题</h2>
 <p>目标有了（修复问题）、 准备有了（先理解程序）、 工具有了（备份或版本控制）， 但我们需要的是 <strong>方法</strong> 啊！ <strong>方法</strong> 啊！ </p>
 <p>谁不想能真正修复问题、bug呢？找不到啊！ 谁不愿意先理解程序呢？ 看不懂代码啊！ 谁会拒绝用工具呢？ 呃，这个纯粹是懒或没有拥抱变化，跟不上变化 ,:(</p>
 <p>归根结底， 真正难点还是以下两条所显示的调试的无奈 :,'(</p>
@@ -193,11 +171,11 @@
 <li>纯靠蒙、巧合式编程。哥是无敌幸运星，bug一向随意改改就搞定，嗯，也经常改到面目全非也没搞定。</li>
 </ol>
 <p>找不到bug， 没有头绪，就只能像个无头苍蝇一样乱飞了。</p>
-<div class="process"><span><p>你说是也不是？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="不是">不是</input><br/></span><br/><input class="answers" type="hidden" value="不是"/><input class="comments" type="hidden" value="我没头脑，我不高兴了，说自己是无头苍蝇"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
-<h3 id="_9">不专业到专业</h3>
+<p>{%radio|你说是也不是？&amp;是&amp;不是@不是#我没头脑，我不高兴了，说自己是无头苍蝇%}</p>
+<h3>不专业到专业</h3>
 <p>没有头绪就瞎试吗？ NO，这就显得不专业了。专业人士一定会有自己一套流程，可以有条不紊、安步当车地处理问题。就好比做好计划和规划。</p>
 <p>所以我们要掌握一种 <strong>系统方法</strong>， 不只能用于调试， 还能应用到方方面面， 成为一个了无生趣的人，开玩笑，成为一个办事有条不紊、胸有成竹的人。</p>
-<h1 id="_10">仙界调试指南总结</h1>
+<h1>仙界调试指南总结</h1>
 <p>根据地府调试指南， 我们反向推导出仙界调试指南有：</p>
 <ol>
 <li>解决问题。解决bug，而不只是bug引起的症状。针对魔鬼法则5</li>
@@ -212,10 +190,10 @@
 <li>预测下如何解决问题，而不是症状。也就是提出个解决问题的可能方案。</li>
 </ol>
 <p>第3点将是下一篇<a href="http://blog.zhimind.com/scientific-methods.html">科学方法</a>的前提。</p>
-<h3 id="_11">好处</h3>
+<h3>好处</h3>
 <p>坚持使用仙界调试指南，好处大大地有，它是你变得职业的必经之路。不强迫自己养成良好的专业习惯，如何称得上专业人士？</p>
 <p>王晶在《中国电影人物访谈》（是叫这个吧）里，从编剧的角度说过，什么叫专业。专业就是，在你刚刚失恋之后，让你写一个爱情喜剧，男女主角幸福生活在一起的剧本，也要高质量、不受情绪影响地写出来，这就叫专业。所以他说，靠直觉. 灵感的都不叫专业。虽然他现在拍的喜剧电影也是越来越不靠谱了。</p>
-<h1 id="_12">恭喜</h1>
+<h1>恭喜</h1>
 <p>恭喜您学完本章节内容， 建议您简单了解一些 <a href="http://blog.zhimind.com/udacity-debug-basic-concepts.html">调试的基本概念</a></p>
 <p>下一篇 <a href="http://blog.zhimind.com/scientific-methods.html">科学方法</a></p>
                         

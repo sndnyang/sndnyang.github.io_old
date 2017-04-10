@@ -97,45 +97,26 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1">简单点的开篇</a><ul>
-<li><a href="#_2">不学怎么样？</a></li>
-</ul>
-</li>
-<li><a href="#_3">怎么学</a><ul>
-<li><a href="#_4">自成体系</a></li>
-</ul>
-</li>
-<li><a href="#_5">迭代</a></li>
-<li><a href="#_6">迫不及待</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1">简单点的开篇</h1>
+                        <p>[TOC]</p>
+<h1>简单点的开篇</h1>
 <p>大道理说不出来，少说话， 直接上问题。</p>
-<div class="process"><span><p>为什么要有网络，想来大家都心知肚明，那为什么要学计算机网络呢？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":想说什么说什么"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h2 id="_2">不学怎么样？</h2>
+<p>{%text|为什么要有网络，想来大家都心知肚明，那为什么要学计算机网络呢？_@#:想说什么说什么%}</p>
+<h2>不学怎么样？</h2>
 <p>不学计算机网络， 怎么样？ 又不是要制订通信、协议标准， 不学这套理论， 只学点socket网络编程密切相关的内容，对占了多数的程序员来说似乎也够了， 需要再去深入。</p>
 <p>个人认为， 多数人学网络不应该只去学习个结果、现成的知识， 而是应该开动脑筋， 分析为什么这么做，尤其是对计算机网络这种标准更像工程而不是科学的知识来说， 要能体会到现行方案的优点。</p>
 <p>我对教学内容的重新编排是希望把我认为重要的内容突出出来， 给读者一个更明确的学习指向。</p>
-<h1 id="_3">怎么学</h1>
+<h1>怎么学</h1>
 <p>我想多数读者都知道计算机网络课程里的7层或5层网络模型，又或是TCP/IP网络模型（现在不了解不要紧）。最常见的网络课是从最底层往上讲， 但同样有一本非常有名的教材《计算机网络--自顶向下方法》则是从顶层应用层往下讲。</p>
-<div class="process"><span><p>读者更倾向于哪种呢？</p><input class="quiz" name="quiz" type="radio" value="自底向上">自底向上</input><br/><input class="quiz" name="quiz" type="radio" value="自顶向下">自顶向下</input><br/></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h2 id="_4">自成体系</h2>
+<p>{%radio|读者更倾向于哪种呢？&amp;自底向上&amp;自顶向下@#%}</p>
+<h2>自成体系</h2>
 <p>估计绝大多数读者都会选择自顶向下吧， 毕竟国内基本采用自底向上， 然后~~~讲得不怎么样甚至很烂。于是大家可能会觉得换种方式会好一点，然而相同老师的话，结果必然一样。</p>
 <p>不过，对多数学习者而言，自底向上的学习也确实是太无趣，物理层浅尝辄止，对多数人来说没有研究价值等等。</p>
 <p>可即使按自顶向下的讲法，把人类几十、几百专家呕心沥血精心设计出来的东西（有删减）一股脑地倒出来，读者也很难吸收理解这么多的内容。</p>
-<div class="process"><span><p>除了一股脑地全盘接收外，读者觉得还有什么更好的方式吗？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value="有好的想法希望能讨论"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
-<h1 id="_5">迭代</h1>
+<p>{%text|除了一股脑地全盘接收外，读者觉得还有什么更好的方式吗？_@#有好的想法希望能讨论%}</p>
+<h1>迭代</h1>
 <p>笔者尝试使用一种迭代学习的方式， 不是简单的重复学习，先枝干、后叶子地迭代扩展式方式， 希望能引导读者慢慢深入计算机网络的知识体系当中。</p>
 <p>整个迭代计划为：</p>
 <ol>
@@ -143,8 +124,8 @@
 <li>对问题、方案抽象、分类、模块化，即建立层次模型。</li>
 <li>以任意方式（顶向下或底向上）对各层扩展。</li>
 </ol>
-<div class="process"><span><p>读者觉得还有什么更好的方式吗？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value="有好的想法欢迎提建议"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
-<h1 id="_6">迫不及待</h1>
+<p>{%text|读者觉得还有什么更好的方式吗？_@#有好的想法欢迎提建议%}</p>
+<h1>迫不及待</h1>
 <p>那我们就开始吧， 下一篇 <a href="http://www.zhimind.com/tutorial/analyze-network-process">网络通讯过程分析</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="线性回归概率解释 "/>
 <meta property="og:url" content="http://sndnyang.github.io/linear-regression-probability.html" />
-<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ..." />
+<meta property="og:description" content="[TOC] 说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略 …" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-07-20T00:00:00+08:00" />
 <meta property="" content="2016-07-20T00:00:00+08:00" />
 <meta name="twitter:title" content="线性回归概率解释 ">
-<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法 ...">
+<meta name="twitter:description" content="[TOC] 说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。 回归正题。 这里我们要严格地分析所采用的策略 …">
 
 
         <title>线性回归概率解释  · 懒龙谷
@@ -98,40 +98,17 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1">说明</a></li>
-<li><a href="#_2">导读</a></li>
-<li><a href="#_3">引入误差</a><ul>
-<li><a href="#_4">误差的分布</a></li>
-<li><a href="#_5">数学表达</a></li>
-</ul>
-</li>
-<li><a href="#_6">似然值</a><ul>
-<li><a href="#_7">表达式</a></li>
-<li><a href="#_8">对数化</a></li>
-</ul>
-</li>
-<li><a href="#_9">总结</a></li>
-<li><a href="#_10">恭喜</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1">说明</h1>
+                        <p>[TOC]</p>
+<h1>说明</h1>
 <p>本文参考以下内容：</p>
 <ol>
 <li>Andrew Ng在斯坦福的cs229， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
 <p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
-<h1 id="_2">导读</h1>
+<h1>导读</h1>
 <p><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a>介绍了线性回归基础的三大要素：</p>
 <ol>
 <li>模型， y=h(x)=w<em>x+b， 为求方便，$b=w_0</em>x_0$</li>
@@ -141,7 +118,7 @@
 <p>这篇文章内容会比较少， 毕竟整体风格就是碎片化阅读， 想认真看书、文章的话，有很多经典的书， 我还差远了。</p>
 <p>回归正题。 这里我们要严格地分析所采用的策略，解释为什么用最小二乘法，也就是 损失函数$J(w) = (h(x) - y)^2$ 为什么是可行有效的。</p>
 <p>本文将介绍一种概率的解释方法， 存在其他解释（比如几何的）。</p>
-<h1 id="_3">引入误差</h1>
+<h1>引入误差</h1>
 <p>首先， 假设确实是线性模型，$y=w*x$。</p>
 <p>在理想的实验环境下，这个模型也许就是完美的。但我们知道，理想和现实是有差距的， 也就是我们还要加上一个误差项error。所以得：</p>
 <p>$$
@@ -155,11 +132,11 @@ $$</p>
 <p>就像子女身高跟父母身高关系一样， 难免有误差， 这里不难理解。</p>
 <p>那我们也知道，误差也是有规律的，比如预测身高应该是1米8，实际身高可能是1米79，1米8，1米81，但低于1米6的概率和高于2米的概率就很小。</p>
 <p>那直觉上， 你觉得误差满足什么分布吗？不满足请填“不满足”， 否则请写是什么什么分布，比如均匀分布。</p>
-<div class="process"><span><p>答：<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="正态"/><input class="comments" type="hidden" value="这个慢慢猜#猜不到请补课"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h2 id="_4">误差的分布</h2>
+<p>{%text|答：_@正态#这个慢慢猜#猜不到请补课%}</p>
+<h2>误差的分布</h2>
 <p>没错， 就是正态分布，这主要涉及到一个概率统计上的概念， 你觉得是哪个？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="中心极限定理">中心极限定理</input><br/><input class="quiz" name="quiz" type="radio" value="大数定律">大数定律</input><br/><input class="quiz" name="quiz" type="radio" value="方差分析">方差分析</input><br/><input class="quiz" name="quiz" type="radio" value="期望和方差">期望和方差</input><br/></span><br/><input class="answers" type="hidden" value="中心极限定理"/><input class="comments" type="hidden" value="应该是最直接相关的#跟其他几项不能说没关系，但Ng只提了一个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h2 id="_5">数学表达</h2>
+<p>{%radio|&amp;中心极限定理&amp;大数定律&amp;方差分析&amp;期望和方差@中心极限定理#应该是最直接相关的#跟其他几项不能说没关系，但Ng只提了一个%}</p>
+<h2>数学表达</h2>
 <p>所以数学式子有：
 $$
 \varepsilon \sim \mathcal{N}(0, \sigma^2) \
@@ -168,16 +145,16 @@ $$</p>
 <p>因为 $\varepsilon = y-w*x$, 而数据集方差不变。</p>
 <p>请回答：</p>
 <p>$$y|x;w \sim \mathcal{N}(?, \sigma^2)$$</p>
-<div class="process"><span><p>N(<input class="quiz" type="text"/>,...)?</p></span><br/><input class="answers" type="hidden" value="w*x"/><input class="comments" type="hidden" value="中心、均值、期望是什么#顺序和符号要和前几行的一致，不要有空格"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
-<h1 id="_6">似然值</h1>
+<p>{%text|N(_,...)?@w*x#中心、均值、期望是什么#顺序和符号要和前几行的一致，不要有空格%}</p>
+<h1>似然值</h1>
 <p>已知$y|x;w \sim \mathcal{N}(w*x, \sigma^2)$，则单个数据$(x^i,y^i)$的概率表达式为：</p>
 <p>$$
 P(y^i|x^i;w) = \frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - x^iw)^2}{2\sigma^2})
 $$</p>
 <p>不要在意乘号、矩阵向量相乘这些细节, 有时候是 $w*x$, 有时候$Xw$, 有时候$x^iw$， 我也很乱的。</p>
 <p>那所有数据(X, y)的似然值（概率）呢？</p>
-<div class="process"><span><p>跟单个概率什么关系？</p><input class="quiz" name="quiz" type="radio" value="所有概率之和">所有概率之和</input><br/><input class="quiz" name="quiz" type="radio" value="所有概率之积">所有概率之积</input><br/></span><br/><input class="answers" type="hidden" value="所有概率之积"/><input class="comments" type="hidden" value="各个数据是不相关的"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
-<h2 id="_7">表达式</h2>
+<p>{%radio|跟单个概率什么关系？&amp;所有概率之和&amp;所有概率之积@所有概率之积#各个数据是不相关的%}</p>
+<h2>表达式</h2>
 <p>所以， 完整的w似然值(likelihood)为：</p>
 <p>$$
 \begin{aligned}
@@ -187,8 +164,8 @@ L(w) &amp; = P(\vec{y} | X; w) \
 \end{aligned}
 $$</p>
 <p>其实已经可以看到曙光了， 似然值自然是越大越好， 但看这个式子， 求积太复杂了， 肯定要化简。</p>
-<div class="process"><span><p>怎么化简?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="对数"/><input class="comments" type="hidden" value="有乘有e指数很明显了#填空匹配也不容易#对原公式求什么？#计算什么？#有指数有就可以干嘛？#不玩了"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
-<h2 id="_8">对数化</h2>
+<p>{%text|怎么化简?_@对数#有乘有e指数很明显了#填空匹配也不容易#对原公式求什么？#计算什么？#有指数有就可以干嘛？#不玩了%}</p>
+<h2>对数化</h2>
 <p>概率的值本来就很小， 再相乘就太小了。 所以， 遇到概率时， 经常使用到<strong>取对数</strong>的方法。</p>
 <p>所以就有：</p>
 <p>$$
@@ -206,9 +183,9 @@ $$</p>
 \max_w \sum^m_{i=1}-(y^i - X^iw)^2 = \min_w \space (y-Xw)^2
 $$</p>
 <p>至此，我们给出了最小二乘法的一个概率解释。</p>
-<h1 id="_9">总结</h1>
+<h1>总结</h1>
 <p>希望通过本文的介绍， 你能了解如何通过对误差的概率分析，得到似然值的表达式，再取对数化简，最终得到和最小二乘法一样的最优化目标。</p>
-<h1 id="_10">恭喜</h1>
+<h1>恭喜</h1>
 <p>恭喜你看完本文， 完结撒花！！！</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

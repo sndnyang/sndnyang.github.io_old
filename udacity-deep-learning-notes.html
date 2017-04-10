@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="udacity深度学习笔记 "/>
 <meta property="og:url" content="http://sndnyang.github.io/udacity-deep-learning-notes.html" />
-<meta property="og:description" content="总结 udacity的课程还是讲得不深入，蜻蜓点水式的讲了一点内容， 记不了多少内容。 没做他提供的练习， 感觉不是很值得。 大纲 四部分： 基础？ 逻辑回归做分类——然而好像没给出模型式子，只给了损失函数 随机优化（随机梯度下降） 数据和参数调试——并没有讲多少的样子 初试 深度网络 正则化 卷积神经网络 convolution neural network 应用 嵌入 embedings 词向量 Word2Vec Recurrent Models LSTM softmax $$ S(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}} $$ One-Hot encoding 没整明白 cross-entropy 熵 输入， 经过线性模型（逻辑回归）转成， Logits ..." />
+<meta property="og:description" content="[TOC] 总结 udacity的课程还是讲得不深入，蜻蜓点水式的讲了一点内容， 记不了多少内容。 没做他提供的练习， 感觉不是很值得。 大纲 四部分： 基础？ 逻辑回归做分类——然而好像没给出模型式子，只给了损失函数 随机优化（随机梯度下降） 数据和参数调试——并没有讲多少的样子 初试 深度网络 正则化 卷积神经网络 convolution neural network 应用 嵌入 embedings 词向量 Word2Vec Recurrent Models LSTM softmax $$ S(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}} $$ One-Hot encoding 没整明白 cross-entropy 熵 输入， 经过线性模型（逻辑回归）转成 …" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-10-25T23:15:00+08:00" />
 <meta name="twitter:title" content="udacity深度学习笔记 ">
-<meta name="twitter:description" content="总结 udacity的课程还是讲得不深入，蜻蜓点水式的讲了一点内容， 记不了多少内容。 没做他提供的练习， 感觉不是很值得。 大纲 四部分： 基础？ 逻辑回归做分类——然而好像没给出模型式子，只给了损失函数 随机优化（随机梯度下降） 数据和参数调试——并没有讲多少的样子 初试 深度网络 正则化 卷积神经网络 convolution neural network 应用 嵌入 embedings 词向量 Word2Vec Recurrent Models LSTM softmax $$ S(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}} $$ One-Hot encoding 没整明白 cross-entropy 熵 输入， 经过线性模型（逻辑回归）转成， Logits ...">
+<meta name="twitter:description" content="[TOC] 总结 udacity的课程还是讲得不深入，蜻蜓点水式的讲了一点内容， 记不了多少内容。 没做他提供的练习， 感觉不是很值得。 大纲 四部分： 基础？ 逻辑回归做分类——然而好像没给出模型式子，只给了损失函数 随机优化（随机梯度下降） 数据和参数调试——并没有讲多少的样子 初试 深度网络 正则化 卷积神经网络 convolution neural network 应用 嵌入 embedings 词向量 Word2Vec Recurrent Models LSTM softmax $$ S(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}} $$ One-Hot encoding 没整明白 cross-entropy 熵 输入， 经过线性模型（逻辑回归）转成 …">
 
 
         <title>udacity深度学习笔记  · 懒龙谷
@@ -97,31 +97,13 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1">总结</a><ul>
-<li><a href="#_2">大纲</a></li>
-<li><a href="#softmax">softmax</a></li>
-<li><a href="#one-hot-encoding">One-Hot encoding</a></li>
-<li><a href="#cross-entropy">cross-entropy</a></li>
-<li><a href="#_3"></a></li>
-<li><a href="#_4">其他</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1">总结</h1>
+                        <p>[TOC]</p>
+<h1>总结</h1>
 <p>udacity的课程还是讲得不深入，蜻蜓点水式的讲了一点内容， 记不了多少内容。 没做他提供的练习， 感觉不是很值得。</p>
-<h2 id="_2">大纲</h2>
+<h2>大纲</h2>
 <p>四部分：</p>
 <ol>
 <li>基础？   <ol>
@@ -144,18 +126,18 @@
 </ol>
 </li>
 </ol>
-<h2 id="softmax">softmax</h2>
+<h2>softmax</h2>
 <p>$$
 S(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 $$</p>
-<h2 id="one-hot-encoding">One-Hot encoding</h2>
+<h2>One-Hot encoding</h2>
 <p>没整明白</p>
-<h2 id="cross-entropy">cross-entropy</h2>
+<h2>cross-entropy</h2>
 <p>熵</p>
-<h2 id="_3"></h2>
+<h2></h2>
 <p><strong>输入</strong>， 经过线性模型（逻辑回归）转成， <strong>Logits</strong>， 再经过softmax转成， <strong>概率值</strong>， 再与<strong>one-hot encoding labels</strong> 一起计算 cross entropy。</p>
 <p>以上就是 multinomial logistic classification</p>
-<h2 id="_4">其他</h2>
+<h2>其他</h2>
 <p>提到以下内容：</p>
 <ol>
 <li>SGD 随机梯度下降</li>

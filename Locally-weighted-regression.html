@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="局部加权回归 "/>
 <meta property="og:url" content="http://sndnyang.github.io/Locally-weighted-regression.html" />
-<meta property="og:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ 分段线性函数太明显了submit 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。 接下来， 看这小节的题目 ..." />
+<meta property="og:description" content="[TOC] 说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ {%radio|&amp;分段线性函数&amp;太明显了@分段线性函数#太明显了%} 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线 …" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-07-25T16:25:59+08:00" />
 <meta property="" content="2016-07-16T00:00:00+08:00" />
 <meta name="twitter:title" content="局部加权回归 ">
-<meta name="twitter:description" content="说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ 分段线性函数太明显了submit 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。 接下来， 看这小节的题目 ...">
+<meta name="twitter:description" content="[TOC] 说明 本文参考以下文献： Andrew Ng在斯坦福的cs229视频和讲义， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。 假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。 比如这张图, 我随机弄的点， 实际是啥模型不知道： 怎么把它看成线性的呢？ {%radio|&amp;分段线性函数&amp;太明显了@分段线性函数#太明显了%} 局部线性 大概就是这样的 这是理想情况， 如果是一个高斯曲线 …">
 
 
         <title>局部加权回归  · 懒龙谷
@@ -98,56 +98,36 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1">说明</a></li>
-<li><a href="#_2">导读</a></li>
-<li><a href="#_3">局部线性</a><ul>
-<li><a href="#_4">局部的强调</a></li>
-<li><a href="#_5">加权重</a></li>
-<li><a href="#_6">钟型曲线</a></li>
-<li><a href="#_7">特点</a></li>
-<li><a href="#_8">总结</a></li>
-</ul>
-</li>
-<li><a href="#_9">恭喜</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1">说明</h1>
+                        <p>[TOC]</p>
+<h1>说明</h1>
 <p>本文参考以下文献：</p>
 <ol>
 <li>Andrew Ng在斯坦福的cs229视频和讲义， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
 <p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
-<h1 id="_2">导读</h1>
+<h1>导读</h1>
 <p>经过了： 1. 基础 2. 标准方程 3. 概率解释 三篇教程（以后补练习）， 希望能对线性回归有个还算深入的认识。</p>
 <p>假设样本空间确实是线性的， 那线性回归自然当仁不让， 大展身手。但我们也知道， 现实中，很多模型是非线性的。那要么发展出非线性模型（比如svm的核和神经网络），要么想办法把它看成是线性的。 人工神经网络整体可表达非线性的，但单个神经元用sigmoid函数一般还是线性的。</p>
 <p>比如这张图, 我随机弄的点， 实际是啥模型不知道：</p>
-<p><img alt="lwr" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg.png"/></p>
+<p><img alt="lwr" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg.png"></p>
 <p>怎么把它看成线性的呢？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="分段线性函数">分段线性函数</input><br/><input class="quiz" name="quiz" type="radio" value="太明显了">太明显了</input><br/></span><br/><input class="answers" type="hidden" value="分段线性函数"/><input class="comments" type="hidden" value="太明显了"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h1 id="_3">局部线性</h1>
+<p>{%radio|&amp;分段线性函数&amp;太明显了@分段线性函数#太明显了%}</p>
+<h1>局部线性</h1>
 <p>大概就是这样的</p>
-<p><img alt="lwr-l" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg-l.png"/></p>
+<p><img alt="lwr-l" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/lwg-l.png"></p>
 <p>这是理想情况， 如果是一个高斯曲线、 二次曲线肯定没那么漂亮的拟合效果。</p>
 <p>接下来， 看这小节的题目——局部线性， 线性肯定熟悉了， 关键是怎么局部？</p>
 <p>拿上图来说， 人眼在这图上可以看出三段直线， 计算机怎么知道是三段， 然后每段用上哪些数据点， 就是我们试图解决的问题。</p>
 <p>要有局部性， 最显然的， 你要预测某个点x的值， 就找x 附近的点， 把它们找出来， 然后做线性回归， 这肯定是一种方法。 速度上也可以用一些结构来优化效率——Ng在视频里提到的 KD树的局部线性方法 我猜应该就是这个方向。</p>
 <p>但这种方法有问题。</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="x附近这个范围难定">x附近这个范围难定</input><br/><input class="quiz" name="quiz" type="checkbox" value="不在范围内的点完全无用">不在范围内的点完全无用</input><br/><input class="quiz" name="quiz" type="checkbox" value="x附近可能没点">x附近可能没点</input><br/><input class="quiz" name="quiz" type="checkbox" value="x附近点也不线性">x附近点也不线性</input><br/></span><br/><input class="answers" type="hidden" value="x附近这个范围难定@不在范围内的点完全无用@x附近可能没点"/><input class="comments" type="hidden" value="我的感觉不一定对，选项胡编的#x附近不线性那也无所谓了"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h2 id="_4">局部的强调</h2>
+<p>{%checkbox|&amp;x附近这个范围难定&amp;不在范围内的点完全无用&amp;x附近可能没点&amp;x附近点也不线性@x附近这个范围难定@不在范围内的点完全无用@x附近可能没点#我的感觉不一定对，选项胡编的#x附近不线性那也无所谓了%}</p>
+<h2>局部的强调</h2>
 <p>那我们就说， 既要抓重点（局部）， 又不能把次要的（远点）全部忽略点。那怎么办？</p>
-<div class="process"><span><p><input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="权"/><input class="comments" type="hidden" value="怎么突出重点又保留次要项？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
-<h2 id="_5">加权重</h2>
+<p>{%text|_@权#怎么突出重点又保留次要项？%}</p>
+<h2>加权重</h2>
 <p><strong>加权</strong> 这种思想、 方法应该也是经常用的。</p>
 <p>别的不说， 线性回归方程的系数就是不同特征$x_i$的一个权重。</p>
 <p>还有老师为了让学生能及格、不挂科， 会在期末考、 期中考、 平时作业、 考勤等项目上调整权重。</p>
@@ -160,9 +140,9 @@ $$</p>
 <p>那怎么求 p 呢？ 用什么方法把 p 和 w 一起求出来？也许有， 但不是本文研究的。 本文里的p 是先行计算出来， 而不是w这种给定模型后，用数据拟合出来。</p>
 <p>想想 p 有什么特点， 我们要预测 x 的值，所以离x越近的值的权重就会越大， 越远就越小， 但这里我们认为始终大于0.</p>
 <p>也就是x点或0点值最高， 然后往两边递减， 这样的特点你能想到什么相似的东西吗？</p>
-<h2 id="_6">钟型曲线</h2>
-<p>是的， 像正态分布或钟型曲线。 <img alt="bell" src="http://www.hzbh.com/upfiles/201503/20150309134605749.jpg"/></p>
-<p>我们也知道正态分布的概率密度函数为： <img alt="pdf" src="http://h.hiphotos.baidu.com/baike/s%3D205/sign=2abf505a42166d223c77129473220945/342ac65c1038534384b650b09213b07eca808822.jpg"/></p>
+<h2>钟型曲线</h2>
+<p>是的， 像正态分布或钟型曲线。 <img alt="bell" src="http://www.hzbh.com/upfiles/201503/20150309134605749.jpg"></p>
+<p>我们也知道正态分布的概率密度函数为： <img alt="pdf" src="http://h.hiphotos.baidu.com/baike/s%3D205/sign=2abf505a42166d223c77129473220945/342ac65c1038534384b650b09213b07eca808822.jpg"></p>
 <p>平均值 $\mu$ 是什么？ 就是我们要预测的 x 。</p>
 <p>方差 $\sigma$ 是什么？ 没说， 简单点的话就是1， 也可以根据实际估计一个值。 用字母t来表示。</p>
 <p>最后还有前面的这个系数， 不需要了， 一个指数已经够了。</p>
@@ -175,13 +155,13 @@ $$</p>
 <li>这是一种权重的计算方式， 有其他的也可以用。</li>
 <li>虽然我是从正态分布转过来的， 但 Ng 特意强调这个跟正态分布没有关系， 就是长得像。</li>
 </ol>
-<h2 id="_7">特点</h2>
+<h2>特点</h2>
 <p>局部加权回归每次预测时， 因为要先知道预测的中心点，才能有附近、权重， 所以每次预测新的x值时， 都要重新计算。</p>
 <p>有其他方法解决这个问题， 但不是本文讲解内容了。</p>
-<h2 id="_8">总结</h2>
+<h2>总结</h2>
 <p>复杂的非线性模型可能可以考虑采用局部线性回归来拟合， 让相近点权重大，远点权重小。就是把每一个局部数据都看作是线性的。</p>
 <p>再用， 用钟型曲线的函数来生成所有点相对x的权重。</p>
-<h1 id="_9">恭喜</h1>
+<h1>恭喜</h1>
 <p>局部加权线性回归的主要内容就是这些， 谢谢您的阅读。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="flask开发问题汇总 "/>
 <meta property="og:url" content="http://sndnyang.github.io/flask-problem-summary.html" />
-<meta property="og:description" content="sqlalchemy 更新数据问题 要替换，特别是json类型数据，不能在原数据上添加， 没法更新。 需要新建变量，遍历原json数据。 如： stored_data = word_dict.data new_data = data for k in stored_data: if k not in new_data: new_data[k] = {} for e in stored_data[k]: if e not in new_data[k]: new_data[k][e] = stored_data[k][e] word_dict.data = new_data" />
+<meta property="og:description" content="[TOC] sqlalchemy 更新数据问题 要替换，特别是json类型数据，不能在原数据上添加， 没法更新。 需要新建变量，遍历原json数据。 如： stored_data = word_dict.data new_data = data for k in stored_data: if k not in new_data: new_data[k] = {} for e in stored_data[k]: if e not in new_data[k]: new_data[k][e] = stored_data[k][e] word_dict.data = new_data" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-11-07T10:34:35+08:00" />
 <meta name="twitter:title" content="flask开发问题汇总 ">
-<meta name="twitter:description" content="sqlalchemy 更新数据问题 要替换，特别是json类型数据，不能在原数据上添加， 没法更新。 需要新建变量，遍历原json数据。 如： stored_data = word_dict.data new_data = data for k in stored_data: if k not in new_data: new_data[k] = {} for e in stored_data[k]: if e not in new_data[k]: new_data[k][e] = stored_data[k][e] word_dict.data = new_data">
+<meta name="twitter:description" content="[TOC] sqlalchemy 更新数据问题 要替换，特别是json类型数据，不能在原数据上添加， 没法更新。 需要新建变量，遍历原json数据。 如： stored_data = word_dict.data new_data = data for k in stored_data: if k not in new_data: new_data[k] = {} for e in stored_data[k]: if e not in new_data[k]: new_data[k][e] = stored_data[k][e] word_dict.data = new_data">
 
 
         <title>flask开发问题汇总  · 懒龙谷
@@ -97,21 +97,11 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#sqlalchemy">sqlalchemy 更新数据问题</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="sqlalchemy">sqlalchemy 更新数据问题</h1>
+                        <p>[TOC]</p>
+<h1>sqlalchemy 更新数据问题</h1>
 <p>要替换，特别是json类型数据，不能在原数据上添加， 没法更新。 需要新建变量，遍历原json数据。</p>
 <p>如：</p>
 <div class="highlight"><pre><span></span>stored_data = word_dict.data

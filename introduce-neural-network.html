@@ -98,40 +98,28 @@
             </header>
 
             <div class="row-fluid">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <h4>Contents</h4>
-                        <div class="toc">
-<ul>
-<li><a href="#_1"></a></li>
-<li><a href="#_2">为什么要引入神经网络</a></li>
-<li><a href="#_3">抽谁，对谁进行抽象</a></li>
-<li><a href="#_4">抽象结果</a></li>
-<li><a href="#_5">历史部分</a></li>
-<li><a href="#_6">安排</a></li>
-<li><a href="#_7">完成！！！</a></li>
-</ul>
-</div>
-                    </nav>
-                </div>
-                <div class="span10 article-content">
+                    <div class="span10 offset2 article-content">
 
                         
-                        
-<h1 id="_1"></h1>
+                        <p>[TOC]</p>
+<h1></h1>
 <p>本文参考以下文献：</p>
 <ol>
 <li>Hinton coursera《neural network for machine learning》<a href="https://www.coursera.org/learn/neural-networks">课程主页</a></li>
 <li>学堂在线 袁博 <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+2016_T2/about">数据挖掘：理论与算法</a></li>
 </ol>
 <p>本文内容比较简单，甚至有点空洞无物， 因为从人脑抽象出最基础的神经网络还是很直观的， 本文又不涉及具体方案的实现和验证。了解神经网络是什么一回事的读者完全可以跳过。</p>
-<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
-<h1 id="_2">为什么要引入神经网络</h1>
+<p>{%radio|原则上我会从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
+<h1>故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1>历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
+<h1>定义:直接上定义和以前教科书有什么区别？%}</h1>
+<h1>为什么要引入神经网络</h1>
 <p>很明显， 人类大脑是目前已知学习能力最强的可模仿对象。 机器学习要有学习能力， 怎能不从人脑这里取点经？</p>
 <p>所以科学家们模仿大脑、神经网络，提出了人工神经网络artificial neural network, 缩写ann，一般计算机相关领域就简称<strong>神经网络</strong>（neural network），缩写 nn。</p>
 <p>人脑的介绍部分 大家在中学或科普书上应该都了解过， 可以在Hinton课程第一周第二个视频再看一下。</p>
-<div class="process"><span><p>接下来，我们要做什么?</p><input class="quiz" name="quiz" type="radio" value="归纳">归纳</input><br/><input class="quiz" name="quiz" type="radio" value="演绎">演绎</input><br/><input class="quiz" name="quiz" type="radio" value="抽象">抽象</input><br/><input class="quiz" name="quiz" type="radio" value="推导">推导</input><br/><input class="quiz" name="quiz" type="radio" value="证明">证明</input><br/><input class="quiz" name="quiz" type="radio" value="实验">实验</input><br/><input class="quiz" name="quiz" type="radio" value="关闭浏览器">关闭浏览器</input><br/></span><br/><input class="answers" type="hidden" value="抽象"/><input class="comments" type="hidden" value="关闭浏览器:开玩笑的啦！#实验:不是生物课，我们无脑实验#证明:啊？#演绎:在逼我表演？#归纳:好像是有点像，可能是我的锅#抽象:我觉得应该是它，对世界上的客观事物进行抽象"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
-<h1 id="_3">抽谁，对谁进行抽象</h1>
+<p>{%radio|接下来，我们要做什么?&amp;归纳&amp;演绎&amp;抽象&amp;推导&amp;证明&amp;实验&amp;关闭浏览器@抽象</p>
+<h1>关闭浏览器:开玩笑的啦！#实验:不是生物课，我们无脑实验#证明:啊？#演绎:在逼我表演？#归纳:好像是有点像，可能是我的锅#抽象:我觉得应该是它，对世界上的客观事物进行抽象%}</h1>
+<h1>抽谁，对谁进行抽象</h1>
 <p>生物问题就不问了。暴露一下自己的无知， 人脑神经系统主要是神经元和突触， 对吧？ 就抽它俩。 </p>
 <p>我们知道， 人脑视觉、听觉各种觉、活动都是神经元细胞间通过突触来传递信号，传着传着就传出了非常复杂的大脑功能——有说大脑进行量子处理的，这完全超出我的知识范围， 没法介绍， 现在我们就假设人脑活动就是 神经元间用突触传信号。 8-)</p>
 <div class="highlight"><pre><span></span>这里有没有必要提问，如果提问，该如何问。 
@@ -139,7 +127,9 @@
 神经元抽象成数学模型、函数，看起来顺理成章，但我们自己能否有这意识，细胞具体做了多少工作我们不知道，为什么不被抽象成一个图灵机？ 
 我们能想到借鉴人脑神经结构、抽象神经系统吗？
 </pre></div>
-<h1 id="_4">抽象结果</h1>
+
+
+<h1>抽象结果</h1>
 <p>抽象起来不难， 一个神经元可以看作是一个数学模型或函数， 接收信号，输出信号。</p>
 <p>而多个神经元通过突触连接显然是个有向图， 每个神经元都可以有多个神经元向它传信号，也有多个神经元可以接受它传出来的信号。</p>
 <p>所以，我们抽象得到一个基础的神经网络（框架）：</p>
@@ -149,20 +139,20 @@
 <li>神经元间的突触，看成是两个神经元间的边。</li>
 </ol>
 <p>一个典型的图示: </p>
-<p><img alt="nn" src="http://images.cnitblog.com/blog/407700/201306/11152815-3019e78787a14a378046678dcf8bedd1.gif"/></p>
+<p><img alt="nn" src="http://images.cnitblog.com/blog/407700/201306/11152815-3019e78787a14a378046678dcf8bedd1.gif"></p>
 <p>那之后呢， 就是在这个框架基础之上的各种不同的实现方案， 神经元的具体方案、 突触的具体方案。</p>
-<h1 id="_5">历史部分</h1>
+<h1>历史部分</h1>
 <p>最开始的是相当于神经元的感知机模型(perceptron)， 发展起来浅层的神经网络， 可人工智能之父之一明斯基1969年与人合著，证明感知机能力有限， 神经网络方法一度沉寂。</p>
 <p>06年后，Hinton开始，发展出深度学习，神经网络再度火热。</p>
 <p>其他课程里可能有讲历史的部分。</p>
-<h1 id="_6">安排</h1>
+<h1>安排</h1>
 <ol>
 <li>先介绍类似神经元的 <a href="http://www.zhimind.com/tutorial/0c089ff0-48f8-43ed-a84f-760d73a1a68d">感知机</a> 和 <a href="http://www.zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归</a></li>
 <li>再介绍神经网络的经典算法 <a href="http://zhimind.com/tutorial/feed-forward-nn">前向传播</a> 和 <a href="http://zhimind.com/tutorial/backpropagation-nn">反向传播</a></li>
 <li>介绍深度学习网络——#todo目前本人还没看过深度学习，所以没法估计后面内容。</li>
 </ol>
 <p>思维导图 <a href="http://www.zhimind.com/map/b1c760fb-aa1a-40c5-8330-a45e18f0cdd7">深度学习导图</a></p>
-<h1 id="_7">完成！！！</h1>
+<h1>完成！！！</h1>
 <p>真的没话说。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

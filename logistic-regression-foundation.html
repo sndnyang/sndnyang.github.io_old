@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="逻辑回归基础 "/>
 <meta property="og:url" content="http://sndnyang.github.io/logistic-regression-foundation.html" />
-<meta property="og:description" content="[TOC] 说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的 …" />
+<meta property="og:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-07-20T00:00:00+08:00" />
 <meta property="" content="2016-07-20T00:00:00+08:00" />
 <meta name="twitter:title" content="逻辑回归基础 ">
-<meta name="twitter:description" content="[TOC] 说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的 …">
+<meta name="twitter:description" content="说明 本文参考以下内容： Andrew Ng在斯坦福的cs229， cs229 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 导读 线性回归基础介绍了线性回归基础的三大要素： 模型， y=h(x)=wx+b， 为求方便，$b=w_0x_0$ 策略。 损失函数 $J(w) = (h(x) - y)^2$ 算法。 梯度下降法（批量和随机）， 对w向量的各个分量求偏导，迭代。 这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression. 之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。 模型 ...">
 
 
         <title>逻辑回归基础  · 懒龙谷
@@ -98,17 +98,39 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">导读</a></li>
+<li><a href="#_3">模型</a><ul>
+<li><a href="#_4">分类定义</a></li>
+<li><a href="#_5">分类超平面</a></li>
+<li><a href="#g">G函数</a></li>
+<li><a href="#_6">模型总结</a></li>
+</ul>
+</li>
+<li><a href="#_7">策略</a></li>
+<li><a href="#_8">算法</a></li>
+<li><a href="#_9">总结</a></li>
+<li><a href="#_10">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>说明</h1>
+                        
+<h1 id="_1">说明</h1>
 <p>本文参考以下内容：</p>
 <ol>
 <li>Andrew Ng在斯坦福的cs229， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
 <p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
-<h1>导读</h1>
+<h1 id="_2">导读</h1>
 <p><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a>介绍了线性回归基础的三大要素：</p>
 <ol>
 <li>模型， y=h(x)=w<em>x+b， 为求方便，$b=w_0</em>x_0$</li>
@@ -117,17 +139,17 @@
 </ol>
 <p>这篇文章会基于线性回归的基础， 介绍第一个分类方程--逻辑回归 logistic regression.</p>
 <p>之前说回归和分类是两类问题， 而现在要讲的逻辑回归却主要用于解决分类问题， 虽然它确实是回归方法，输出值是连续非离散的。</p>
-<h1>模型</h1>
+<h1 id="_3">模型</h1>
 <p>关于线性回归为什么不能用于分类--这个问题我就不讨论了。</p>
 <p>分类问题，特别是二元分类问题--只有两类--是很明显的。如图：</p>
-<p><img alt="分类" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/classes.png"></p>
+<p><img alt="分类" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/classes.png"/></p>
 <p>首先， 我们要明确一点，虽然不再是线性回归了，但线性这个还是没跑的。也就是说我们要用一条 <strong>直线</strong> 来划分两类数据，更复杂的非线性分类方法以后会有。</p>
 <p>还是老问题，现实中的数据用线性来拟合最简单， 而且也不知道它实际上会符合什么样的数学模型， 所以线性模型大概也够了， 不要自己给自己找不痛快了。 深度学习是深度学习，不一样。</p>
 <p>建模时， 比如上图， 决定用直线$y=w*x$来划分。 那接下来就是用数学来表示这条直线了。</p>
-<h2>分类定义</h2>
+<h2 id="_4">分类定义</h2>
 <p>先对分类问题进行定义。 分类， y值肯定是离散的， 这例子里就两类，那就可以写成 $y \in [0, 1] 或 [-1, 1]$， 习惯上取前者[0,1]。</p>
 <p>这例子， x的参数有几个呢？</p>
-<h2>分类超平面</h2>
+<h2 id="_5">分类超平面</h2>
 <p>肯定是2个， x轴和y轴啊， y已经有定义？ 那就$x_1轴和x_2轴$。</p>
 <p>2维平面上的分类， 所以用1维的直线来分类， 如果是3维空间中的分类，则用2维平面来划分。 </p>
 <p>如果是维度为n的高维空间， 就要用n-1维的超平面来分类， 这就是 <strong>分类超平面</strong>。</p>
@@ -147,7 +169,7 @@ $$</p>
 <p>$$g(w^Tx^i)$$</p>
 <p>毫无疑问， 上面那个&lt;0,&gt;=0可以作为一个g函数。如果基于这个， 那就是 感知器模型算法(Perceptron)。</p>
 <p>它和逻辑回归非常像， 策略和算法部分也一致， 虽然还没讲到。现在继续讲逻辑回归。</p>
-<h2>G函数</h2>
+<h2 id="g">G函数</h2>
 <p>我们要把点到分类直线的远近考虑到，可以认为是类似权重之类的。那起码有两种方案：</p>
 <ol>
 <li>与0比较大小之外，再添加距离作权重——这个算是svm的方式， 请看<a href="http://zhimind.com/tutorial/a94364d4-4f6f-41bd-8b57-6c749efc46f4">svm基础</a></li>
@@ -163,11 +185,11 @@ $$</p>
 <p>可选函数应该有很多， 比较常用的是 sigmoid函数：</p>
 <p>$$g(z)=\frac{1}{1+e^{-z}}$$</p>
 <p>曲线如图：</p>
-<p><img alt="sigmoid" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/sigmoid.png"></p>
-<h2>模型总结</h2>
+<p><img alt="sigmoid" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/sigmoid.png"/></p>
+<h2 id="_6">模型总结</h2>
 <p>综上所述， 我们得到了我们的模型：</p>
 <p>$$h(x) = g(w^Tx) = \frac{1}{1+e^{w^Tx}}$$</p>
-<h1>策略</h1>
+<h1 id="_7">策略</h1>
 <p>基于模型， 我们来考虑策略、损失函数了。</p>
 <p>用最小二乘法的$(h(x) - y)^2$ 怎么样呢？很少有讨论--PASS。</p>
 <p>这里直接上概率式子（具体推导请用误差正态分布代入h(x)自行推导）：</p>
@@ -187,7 +209,7 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>简单粗暴</p>
-<h1>算法</h1>
+<h1 id="_8">算法</h1>
 <p>继续求最优化的算法， 这里是求似然值的最大值， 不是之前的最小。</p>
 <p>梯度下降法通用，所以是：</p>
 <p>$$
@@ -198,7 +220,7 @@ $$</p>
 <p>$$
 \nabla l(w) = y^T (y - h(x))
 $$</p>
-<h1>总结</h1>
+<h1 id="_9">总结</h1>
 <p>本篇从线性回归的线性模型开始，一步步介绍</p>
 <ol>
 <li>分类超平面的引入($w^Tx=0$)</li>
@@ -207,7 +229,7 @@ $$</p>
 <li>逻辑回归的策略--似然值表达式</li>
 <li>使用梯度下降处理</li>
 </ol>
-<h1>恭喜</h1>
+<h1 id="_10">恭喜</h1>
 <p>恭喜您读完本节内容， 完结撒花！！！</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -271,7 +293,7 @@ $$</p>
                             <span>9</span>
 </a></li>
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>38</span>
+                            <span>39</span>
 </a></li>
                         <li><a href="/tags.html#machine-learning-ref">Machine Learning
                             <span>9</span>

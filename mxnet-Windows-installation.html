@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content=", 日记, " />
+<meta name="keywords" content="CS, 机器学习, 深度学习, 软件安装, 机器学习, " />
 
-<meta property="og:title" content="2016.11.27.日记 "/>
-<meta property="og:url" content="http://sndnyang.github.io/2016-11-27-diary.html" />
-<meta property="og:description" content="星期天 天气：雨转多云 标题：日记太久没写了~~~ 这段时间写 知维图教程， 明显写到疯了， 太难写、太难编了。 还在反向传播算法上卡住了， 明天一定要写完这篇，才能进入下一章节——话说每周都在最后赶 神经网络的作业~~~。 不过，这段时间也还是写了若干篇的， 只是浪费时间太多了。 最后， 今天实在是因为编写累了， 突然想到新的脑洞， 格物 学习法， 其实就是费曼技巧， 不过用计算机来实现模板化、 流水线作业而已， 以后还有扩展余地， 毕竟会越来越智能。 最后~~~我的英语啊， 不能光念两句英语就当练口语了， 要准备作文、 口语话题啊， 听力、 阅读（GRE阅读）都要练起来啊！！！！ 新安排： 英语必须搞定，写作、口语、听力好好练 zhimind学习顺序： DL-&gt;NLP-&gt;AI-&gt;MACHINE LEARNING 数学复习： 概率- ..." />
+<meta property="og:title" content="mxnet-Windows安装 "/>
+<meta property="og:url" content="http://sndnyang.github.io/mxnet-Windows-installation.html" />
+<meta property="og:description" content="Mxnet安装流程 mxnet官方安装说明 先装 cuda , 我装了 8.0，但注意它里面自带驱动程序， 可能会造成 mxnet 找不到显卡， 或者叫显卡不支持 CUDA， 下载GPU-Z可查，如果已经支持，不要安装自带的驱动程序。 我是碰到安装驱动后，刚开始能用， 重启后失败，反复重装驱动，黑屏了重启，结果文件坏了，只能重装系统。 现在版本 GeForce 940M 378.92版驱动。 安装 Cuda toolkit , 我装的 5.3 https://github.com/dmlc/mxnet/releases, mxnet windows下载地址 按照说明， 初次使用，先下载 base package 即基本包， 我下载的是 vc12 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-11-27T00:00:00+08:00" />
-<meta name="twitter:title" content="2016.11.27.日记 ">
-<meta name="twitter:description" content="星期天 天气：雨转多云 标题：日记太久没写了~~~ 这段时间写 知维图教程， 明显写到疯了， 太难写、太难编了。 还在反向传播算法上卡住了， 明天一定要写完这篇，才能进入下一章节——话说每周都在最后赶 神经网络的作业~~~。 不过，这段时间也还是写了若干篇的， 只是浪费时间太多了。 最后， 今天实在是因为编写累了， 突然想到新的脑洞， 格物 学习法， 其实就是费曼技巧， 不过用计算机来实现模板化、 流水线作业而已， 以后还有扩展余地， 毕竟会越来越智能。 最后~~~我的英语啊， 不能光念两句英语就当练口语了， 要准备作文、 口语话题啊， 听力、 阅读（GRE阅读）都要练起来啊！！！！ 新安排： 英语必须搞定，写作、口语、听力好好练 zhimind学习顺序： DL-&gt;NLP-&gt;AI-&gt;MACHINE LEARNING 数学复习： 概率- ...">
+<meta property="og:article:published_time" content="2017-04-11T10:15:00+08:00" />
+<meta name="twitter:title" content="mxnet-Windows安装 ">
+<meta name="twitter:description" content="Mxnet安装流程 mxnet官方安装说明 先装 cuda , 我装了 8.0，但注意它里面自带驱动程序， 可能会造成 mxnet 找不到显卡， 或者叫显卡不支持 CUDA， 下载GPU-Z可查，如果已经支持，不要安装自带的驱动程序。 我是碰到安装驱动后，刚开始能用， 重启后失败，反复重装驱动，黑屏了重启，结果文件坏了，只能重装系统。 现在版本 GeForce 940M 378.92版驱动。 安装 Cuda toolkit , 我装的 5.3 https://github.com/dmlc/mxnet/releases, mxnet windows下载地址 按照说明， 初次使用，先下载 base package 即基本包， 我下载的是 vc12 ...">
 
 
-        <title>2016.11.27.日记  · 懒龙谷
+        <title>mxnet-Windows安装  · 懒龙谷
 </title>
 
         <style>
@@ -90,8 +90,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/2016-11-27-diary.html">
-                        2016.11.27.日记  
+                    <a href="/mxnet-Windows-installation.html">
+                        mxnet-Windows安装  
                     </a>
                 </h1>
             </header>
@@ -101,7 +101,10 @@
                     <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
                     <h4>Contents</h4>
                         <div class="toc">
-<ul></ul>
+<ul>
+<li><a href="#mxnet">Mxnet安装流程</a></li>
+<li><a href="#_1">主要的坑</a></li>
+</ul>
 </div>
                     </nav>
                 </div>
@@ -109,20 +112,27 @@
 
                         
                         
-<p>星期天 天气：雨转多云</p>
-<p>标题：日记太久没写了~~~</p>
-<p>这段时间写 知维图教程， 明显写到疯了， 太难写、太难编了。 还在反向传播算法上卡住了， 明天一定要写完这篇，才能进入下一章节——话说每周都在最后赶 神经网络的作业~~~。</p>
-<p>不过，这段时间也还是写了若干篇的， 只是浪费时间太多了。</p>
-<p>最后， 今天实在是因为编写累了， 突然想到新的脑洞， 格物 学习法， 其实就是费曼技巧， 不过用计算机来实现模板化、 流水线作业而已， 以后还有扩展余地， 毕竟会越来越智能。</p>
-<p>最后~~~我的英语啊， 不能光念两句英语就当练口语了， 要准备作文、 口语话题啊， 听力、 阅读（GRE阅读）都要练起来啊！！！！</p>
-<p>新安排：</p>
-<ul>
-<li>英语必须搞定，写作、口语、听力好好练</li>
-<li>zhimind学习顺序： DL-&gt;NLP-&gt;AI-&gt;MACHINE LEARNING</li>
-<li>数学复习： 概率-&gt;线代-&gt;暂空</li>
-<li>计算机基础： OS-&gt;DS,ALGORITHMS-&gt;COMPILER</li>
-<li>python代码： runestone 尝试调flask</li>
-</ul>
+<h1 id="mxnet">Mxnet安装流程</h1>
+<p><a href="http://mxnet.io/get_started/windows_setup.html">mxnet官方安装说明</a></p>
+<ol>
+<li>先装 cuda , 我装了 8.0，但注意它里面自带驱动程序， 可能会造成  mxnet 找不到显卡， 或者叫显卡不支持 CUDA， 下载GPU-Z可查，如果已经支持，不要安装自带的驱动程序。 我是碰到安装驱动后，刚开始能用， 重启后失败，反复重装驱动，黑屏了重启，结果文件坏了，只能重装系统。 现在版本 GeForce 940M  378.92版驱动。</li>
+<li>安装 Cuda toolkit , 我装的 5.3 </li>
+<li>https://github.com/dmlc/mxnet/releases, <a href="https://github.com/yajiedesign/mxnet/releases">mxnet windows下载地址</a></li>
+<li>按照说明， 初次使用，先下载 base package 即基本包， 我下载的是 vc12， 对应 cudnnv5.1</li>
+<li>解压， 将 cudnnv5.1 bin下的cudnnXX_X.dll， 放到 3rdparty\cudnn\bin 下。 和base包里 README.txt描述不同， 里面写的是放到 3rdparty\cudnn 下， 但 setupenv.cmd里是 bin文件夹</li>
+<li>运行 setupenv.cmd</li>
+<li>下载最新的 mxnet</li>
+<li>检查 dll依赖关系， 使用 Dependency Walker 打开 build目录下的 libmxnet.dll， 除了一个 ie 开头的不用管，其他要搜一下，比如是 cudnnv 还是 vc没装好</li>
+<li>Python版，安装， 照包里的 README.txt 运行、测试即可</li>
+</ol>
+<h1 id="_1">主要的坑</h1>
+<ol>
+<li>WindowsError: [Error 126]， 上面第8步，检查 dll依赖关系</li>
+<li>no cuda-capable device，软件GPU-Z可查， 显卡是否支持 CUDA (最下一行的 CUDA前选项框有选中表示支持)， 需要装别的版本驱动程序</li>
+<li>driver version is insufficient for CUDA runtime version 驱动版本太低。</li>
+<li>驱动版本问题， 刚安装完， 可用， 但重启两次后， 又不能用了， 没有找到解决方案。</li>
+<li>我的 GeForce 940M ， 版本 378.92 亲测可用。</li>
+</ol>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -139,7 +149,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/2016-11-27-diary.html#disqus_thread">
+                href="http://sndnyang.github.io/mxnet-Windows-installation.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -149,8 +159,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = '2016-11-27-diary.html';
-    var disqus_url = 'http://sndnyang.github.io/2016-11-27-diary.html';
+        var disqus_identifier = 'mxnet-Windows-installation.html';
+    var disqus_url = 'http://sndnyang.github.io/mxnet-Windows-installation.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -172,9 +182,24 @@
                 </div>
                 <div class="span2" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-11-27T00:00:00+08:00">十一月 27, 2016</time>
+                    <time pubdate="pubdate" datetime="2017-04-11T10:15:00+08:00">四月 11, 2017</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ri-ji-ref">日记</a>
+                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <h4>Tags</h4>
+                    <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#cs-ref">CS
+                            <span>39</span>
+</a></li>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>16</span>
+</a></li>
+                        <li><a href="/tags.html#ruan-jian-an-zhuang-ref">软件安装
+                            <span>1</span>
+</a></li>
+                        <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
+                            <span>7</span>
+</a></li>
+                    </ul>
                     <h4>Stay in Touch</h4>
                     <a href="http://weibo.com/u/2405149384" title="My weibo Profile" class="sidebar-social-links" target="_blank">
                         <i class="fa fa-weibo sidebar-social-links"></i></a>

@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="条件概率 "/>
 <meta property="og:url" content="http://sndnyang.github.io/Conditioning-Probability.html" />
-<meta property="og:description" content="[TOC] 说明 本文参考以下文献, 比如说例子、习题，我怎么编？ MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 国防科技大学的 概率论与数理统计， 在中国大学mooc网站 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。 概率有条件 有M个人要抽N张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？ 毫无疑问是有变化的， 因为前k-1人是有可能抽中入场券的，现在都知道他们没抽中了，竞争者已经减少了，概率当然发生了变化。 上面这个例子貌似不够接地气， 换一个例子。 一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。 所以，一言不合就问问题: {%radio|我们下一步要干嘛？&amp;继续举例 …" />
+<meta property="og:description" content="说明 本文参考以下文献, 比如说例子、习题，我怎么编？ MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 国防科技大学的 概率论与数理统计， 在中国大学mooc网站 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。 概率有条件 有M个人要抽N张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？ 毫无疑问是有变化的， 因为前k-1人是有可能抽中入场券的，现在都知道他们没抽中了，竞争者已经减少了，概率当然发生了变化。 上面这个例子貌似不够接地气， 换一个例子。 一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。 所以，一言不合就问问题: 我们下一步要干嘛？继续举例归纳推导 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-10-02T09:10:10+08:00" />
 <meta property="" content="2016-10-02T00:00:00+08:00" />
 <meta name="twitter:title" content="条件概率 ">
-<meta name="twitter:description" content="[TOC] 说明 本文参考以下文献, 比如说例子、习题，我怎么编？ MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 国防科技大学的 概率论与数理统计， 在中国大学mooc网站 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。 概率有条件 有M个人要抽N张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？ 毫无疑问是有变化的， 因为前k-1人是有可能抽中入场券的，现在都知道他们没抽中了，竞争者已经减少了，概率当然发生了变化。 上面这个例子貌似不够接地气， 换一个例子。 一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。 所以，一言不合就问问题: {%radio|我们下一步要干嘛？&amp;继续举例 …">
+<meta name="twitter:description" content="说明 本文参考以下文献, 比如说例子、习题，我怎么编？ MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 链接 国防科技大学的 概率论与数理统计， 在中国大学mooc网站 链接 在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。 假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。 概率有条件 有M个人要抽N张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？ 毫无疑问是有变化的， 因为前k-1人是有可能抽中入场券的，现在都知道他们没抽中了，竞争者已经减少了，概率当然发生了变化。 上面这个例子貌似不够接地气， 换一个例子。 一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。 所以，一言不合就问问题: 我们下一步要干嘛？继续举例归纳推导 ...">
 
 
         <title>条件概率  · 懒龙谷
@@ -98,11 +98,45 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">概率有条件</a></li>
+<li><a href="#_3">条件概率</a><ul>
+<li><a href="#_4">定义符号</a></li>
+<li><a href="#_5">条件概率无处不在</a></li>
+<li><a href="#_6">概念总结</a></li>
+</ul>
+</li>
+<li><a href="#_7">条件概率公式</a><ul>
+<li><a href="#_8">开始</a><ul>
+<li><a href="#_9">题不要停</a></li>
+<li><a href="#_10">没完不要停</a></li>
+</ul>
+</li>
+<li><a href="#_11">推导分析</a><ul>
+<li><a href="#_12">从简单开始</a></li>
+<li><a href="#_13">找到答案了吗？</a></li>
+<li><a href="#_14">继续试</a></li>
+<li><a href="#_15">成功</a></li>
+</ul>
+</li>
+<li><a href="#_16">概率公理</a></li>
+</ul>
+</li>
+<li><a href="#_17">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>说明</h1>
+                        
+<h1 id="_1">说明</h1>
 <p>本文参考以下文献, 比如说例子、习题，我怎么编？</p>
 <ol>
 <li>MIT的MOOC 概率论-不确定的科学，在学堂在线开课版 <a href="http://www.xuetangx.com/community/post/2786">链接</a></li>
@@ -110,25 +144,25 @@
 </ol>
 <p>在下文笔较烂， 恐贻笑大方。 不过因为是markdown 写的， 有不足， 改进比较方便， 所以欢迎提出意见及建议，找出问题， 谢谢。</p>
 <p>假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。</p>
-<h1>概率有条件</h1>
+<h1 id="_2">概率有条件</h1>
 <p>有M个人要抽N张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？</p>
 <p>毫无疑问是有变化的， 因为前k-1人是有可能抽中入场券的，现在都知道他们没抽中了，竞争者已经减少了，概率当然发生了变化。</p>
 <p>上面这个例子貌似不够接地气， 换一个例子。</p>
 <p>一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。</p>
 <p>所以，一言不合就问问题:</p>
-<p>{%radio|我们下一步要干嘛？&amp;继续举例&amp;归纳&amp;推导&amp;演绎&amp;建模@建模#归纳也不错，但只针对这一问题#其他不可能是干扰项了吧？%}</p>
-<h1>条件概率</h1>
+<div class="process"><span><p>我们下一步要干嘛？</p><input class="quiz" name="quiz" type="radio" value="继续举例">继续举例</input><br/><input class="quiz" name="quiz" type="radio" value="归纳">归纳</input><br/><input class="quiz" name="quiz" type="radio" value="推导">推导</input><br/><input class="quiz" name="quiz" type="radio" value="演绎">演绎</input><br/><input class="quiz" name="quiz" type="radio" value="建模">建模</input><br/></span><br/><input class="answers" type="hidden" value="建模"/><input class="comments" type="hidden" value="归纳也不错，但只针对这一问题#其他不可能是干扰项了吧？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<h1 id="_3">条件概率</h1>
 <p>所以我们来建个模， 抽象化， 把事件找出来。</p>
-<p>{%checkbox|本例中有哪两个事件?&amp;搭讪成功与否&amp;搭讪者性别&amp;被搭讪者性别&amp;搭讪者是否明星&amp;被搭讪者是否喜欢搭讪者@搭讪成功与否@搭讪者是否明星#没法解释%}</p>
-<h2>定义符号</h2>
+<div class="process"><span><p>本例中有哪两个事件?</p><input class="quiz" name="quiz" type="checkbox" value="搭讪成功与否">搭讪成功与否</input><br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者性别">搭讪者性别</input><br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者性别">被搭讪者性别</input><br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者是否明星">搭讪者是否明星</input><br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者是否喜欢搭讪者">被搭讪者是否喜欢搭讪者</input><br/></span><br/><input class="answers" type="hidden" value="搭讪成功与否@搭讪者是否明星"/><input class="comments" type="hidden" value="没法解释"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<h2 id="_4">定义符号</h2>
 <p>把搭讪成功叫事件A，明星搭讪叫事件B。</p>
 <p>所以，最开始的是P(A)，搭讪成功概率， 之后加个条件， 是否明星搭讪B。</p>
 <p>这就是条件概率的最直观定义了， 要定义下符号， 要去求出的搭讪成功A概率最重要，放前面， 是明星放后面，中间用个|分隔， 记成 $$P(A|B)$$ 就是 在明星搭讪的条件下，搭讪成功的概率。</p>
-<h2>条件概率无处不在</h2>
+<h2 id="_5">条件概率无处不在</h2>
 <p>这个例子想想让人激动， 近距离接触明星（娱乐、学术、商业各领域）多激动啊。但我觉得还是不能体现出条件概率的意义与无处不在。</p>
 <p>因为现实中用到的 多数的概率都是条件概率， 比如掷骰子和扔硬币也有条件，条件是它们是均匀的，没有出老千，只是教材里不是教大家骗钱，所以这个概率明显是1。</p>
 <p>又比如天气预报， 存在什么样的条件概率呢？</p>
-<h2>概念总结</h2>
+<h2 id="_6">概念总结</h2>
 <p>对了， 比如预测的天气A和实际天气B间存在条件概率。 还有两种</p>
 <ol>
 <li>在预测某某天气A的条件下， 实际天气B的概率。P(B|A)</li>
@@ -137,8 +171,8 @@
 <p>通过这么几个例子， 希望大家体会到条件概率的意义， 它们无处不在，不过好像真没什么存在感，不刻意分析，不会意识到它们的存在。</p>
 <p>所以， 条件概率就是在原有信息、概率基础上（搭讪成功率很低）， 得到新的信息、知识（搭讪的人是大名人，或男士看到美女、女士看到帅哥），得到的新的概率。</p>
 <p>复习， 已知事件A和事件B</p>
-<p>{%text|问已知事件A的条件下，B的概率是_(P(?)写完整)@P(B|A)#P()这个不能省#就一定义，没法提示，不要有空格%}</p>
-<h1>条件概率公式</h1>
+<div class="process"><span><p>问已知事件A的条件下，B的概率是<input class="quiz" type="text"/>(P(?)写完整)</p></span><br/><input class="answers" type="hidden" value="P(B|A)"/><input class="comments" type="hidden" value="P()这个不能省#就一定义，没法提示，不要有空格"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h1 id="_7">条件概率公式</h1>
 <p>因为文本对公式表达的麻烦， 想看视频可以看：</p>
 <ol>
 <li>国防大学概率与统计 第二周第五讲的第一个视频</li>
@@ -146,38 +180,46 @@
 </ol>
 <p>以上需要注册加选课，所以没法直接给链接。找公开课的话，得定位到分钟、秒。</p>
 <p>文本这部分， 我尽力而为。</p>
-<h2>开始</h2>
+<h2 id="_8">开始</h2>
 <p>拿最开始的抽奖来做例子， 有m个人要抽n张入场券，若某人第k个抽，但在此之前已知前k-1个均未抽到入场券，问此时他抽到的概率是多少？ 与不知道前k-1人的状态时的概率相比， 是否有变化？</p>
 <p>由于一定原因，数学表达式全部使用小写字母</p>
 <p>好习惯， 先抽象化、 数学化建模。</p>
 <p>设A:“第k个人抽到入场券”，B：“前k-1个人均未抽到入场券”</p>
-<p>{%formula|不要偷懒，求P(A)=_@n/m#最简单的了，古典概率甚至直觉%}</p>
-<h3>题不要停</h3>
+<div class="process"><span><p>不要偷懒，求P(A)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview">预览:</div>
+</p></span><br/><input class="answers" type="hidden" value="n/m"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h3 id="_9">题不要停</h3>
 <p>条件概率定义之前说过了， 现在就到你尝试的时候了， 目前还是古典概率。</p>
-<p>{%formula|求P(A|B)=_@n/(m-k+1)#最简单的了，古典概率甚至直觉%}</p>
-<h3>没完不要停</h3>
+<div class="process"><span><p>求P(A|B)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview">预览:</div>
+</p></span><br/><input class="answers" type="hidden" value="n/(m-k+1)"/><input class="comments" type="hidden" value="最简单的了，古典概率甚至直觉"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<h3 id="_10">没完不要停</h3>
 <p>还没求完呢，事件B也是可求的， 对吧？</p>
 <p>因为表达式的复杂度问题， 定义写法， 组合M中取N的可能数 $$C_m^n = {m \choose n}$$ 请写成 (C(m,n)), M和N的组合函数C 大写。</p>
 <p>为了公式显示正确， 需要写成 (分子)/(分母)</p>
-<p>{%formula|求P(B)=_@C(m-k+1,n)/C(m,n)#古典概率%}</p>
-<h2>推导分析</h2>
+<div class="process"><span><p>求P(B)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview">预览:</div>
+</p></span><br/><input class="answers" type="hidden" value="C(m-k+1,n)/C(m,n)"/><input class="comments" type="hidden" value="古典概率"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<h2 id="_11">推导分析</h2>
 <p>教材没有把这一切当宝贝，毫不重视地把结论扔给我们，这肯定不好。现实中， 这一切都藏得很深， 都是宝贝， 所以我希望能锻炼这种找宝贝(探索)的习惯、 思维和能力。</p>
 <p>刚才通过古典概率算出了 $P(A)=\frac{n}{m}$和$P(A|B)=\frac{n}{m-k+1}$，还有个$$P(B)=\frac{{m-k+1 \choose n}}{{m \choose n}}$$。</p>
 <p>这三个式子看起来毫无关系，我们要如何探索、如何试呢？</p>
 <p>没有头绪， 瞎试、瞎组合， 各种情况都试一遍， 砍掉解释不通的、 复杂过头的。</p>
-<p>{%radio|3个式子选2个进行组合，有几种可能&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6@3#答案就是你敢再错一次？#我认了，3种%}</p>
-<h3>从简单开始</h3>
+<div class="process"><span><p>3个式子选2个进行组合，有几种可能</p><input class="quiz" name="quiz" type="radio" value="1">1</input><br/><input class="quiz" name="quiz" type="radio" value="2">2</input><br/><input class="quiz" name="quiz" type="radio" value="3">3</input><br/><input class="quiz" name="quiz" type="radio" value="4">4</input><br/><input class="quiz" name="quiz" type="radio" value="5">5</input><br/><input class="quiz" name="quiz" type="radio" value="6">6</input><br/></span><br/><input class="answers" type="hidden" value="3"/><input class="comments" type="hidden" value="答案就是你敢再错一次？#我认了，3种"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<h3 id="_12">从简单开始</h3>
 <p>A和B事件组合， 不外乎且和或嘛， 这里直觉觉得或or不出来， 只考虑且and。 所以我们要<strong>考虑事件$P(A \cap B)$</strong>。 同时我们有 P(A)*P(B)，不好写， 不写了，就是这么任性。</p>
 <p>$P(A \cap B)$ 可以算出来吧？因为这种表达式的化简问题，请化简成两个组合数相除，不要几个相加后再除。</p>
 <p>老样子，组合M中取N的可能数 $C_m^n$ 请写成 C(m,n), M和N的组合函数C 大写。</p>
-<p>{%formula|P(A and B)=_@C(m-k,n-1)/C(m,n)#这个的推导过程不应该在此处,所以没提示%}</p>
-<h3>找到答案了吗？</h3>
+<div class="process"><span><p>P(AandB)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview">预览:</div>
+</p></span><br/><input class="answers" type="hidden" value="C(m-k,n-1)/C(m,n)"/><input class="comments" type="hidden" value="这个的推导过程不应该在此处,所以没提示"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<h3 id="_13">找到答案了吗？</h3>
 <p>$P(A \cap B)$==P(A)*P(B)?</p>
-<p>{%radio|&amp;对&amp;错@错#P(A and B)很难算吗？%}</p>
-<h3>继续试</h3>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="对">对</input><br/><input class="quiz" name="quiz" type="radio" value="错">错</input><br/></span><br/><input class="answers" type="hidden" value="错"/><input class="comments" type="hidden" value="P(AandB)很难算吗？"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<h3 id="_14">继续试</h3>
 <p>不好意思， $P(A \cap B) \ne P(A)*P(B)$，继续试， 这回试谁和谁的组合呢？</p>
-<p>{%checkbox|&amp;A&amp;B&amp;A|B@B@A|B#AB是A和B同时成立，从描述上哪两个最可能呢？%}</p>
-<h3>成功</h3>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="A">A</input><br/><input class="quiz" name="quiz" type="checkbox" value="B">B</input><br/><input class="quiz" name="quiz" type="checkbox" value="A|B">A|B</input><br/></span><br/><input class="answers" type="hidden" value="B@A|B"/><input class="comments" type="hidden" value="AB是A和B同时成立，从描述上哪两个最可能呢？"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<h3 id="_15">成功</h3>
 <p>先分析， A和A|B， 一个是A的概率， 另一个是已知B发生的条件下A发生的概率， 都是A的概率， 明显凑不上。 PASS.</p>
 <p>只剩下 B和A|B， 先看结果</p>
 <p>$$P(A \cap B) = \frac{{m-k \choose n-1}}{{m \choose n}} = \frac{n}{m-k+1} * \frac{{m-k+1 \choose n}}{{m \choose n}} = P(A|B)* P(B) $$</p>
@@ -186,11 +228,11 @@
 <p>所以我们就得到了结论：</p>
 <p>$$P(A \cap B) = P(A|B) P(B) 或 P(A|B) = \frac{P(A \cap B)}{P(B)}, P(B) &gt; 0 $$</p>
 <p>这么简单、显而易见的公式， 我显然扯了这么一大段， 是不是太罗嗦了？</p>
-<p>{%radio|&amp;是&amp;否@否#虽然我也觉得罗嗦，但你敢说我罗嗦还想过？%}</p>
-<h2>概率公理</h2>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="虽然我也觉得罗嗦，但你敢说我罗嗦还想过？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<h2 id="_16">概率公理</h2>
 <p>这部分一般显然了， 条件概率也是概率，那些基本的概率公理照样成立， 证明过程再写我要疯了~~~找理由、编理由很难的！</p>
 <p>特别是很多事都有默认， 平时根本没想到， 没错就忽视，错了再改， 所以根本没理由。</p>
-<h1>恭喜</h1>
+<h1 id="_17">恭喜</h1>
 <p>这就是我写的条件概率内容， 已经很罗嗦了， 觉得想继续的， 请看下一篇 <a href="">乘法法则</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

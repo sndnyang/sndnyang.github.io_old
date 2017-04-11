@@ -97,29 +97,57 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1"></a></li>
+<li><a href="#_2">问题是什么？能吃吗？</a></li>
+<li><a href="#_3">很简单的感知机</a></li>
+<li><a href="#_4">二元阈值神经元</a><ul>
+<li><a href="#_5">个人感想</a></li>
+<li><a href="#_6">如何继续？</a></li>
+<li><a href="#xx">从XX说开去</a></li>
+<li><a href="#_7">扩展的方向</a><ul>
+<li><a href="#_8">怎么简？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_9">线性神经元</a><ul>
+<li><a href="#_10"></a></li>
+</ul>
+</li>
+<li><a href="#sigmoid">sigmoid神经元</a><ul>
+<li><a href="#_11">扩展方案</a></li>
+</ul>
+</li>
+<li><a href="#_12">概率化</a></li>
+<li><a href="#_13">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1></h1>
+                        
+<h1 id="_1"></h1>
 <p>本文来自以下内容：</p>
 <ol>
 <li>Hinton coursera《neural network for machine learning》<a href="https://www.coursera.org/learn/neural-networks">课程主页</a> 第一周第三个视频</li>
 </ol>
 <p>在下不才，专业水平、 写作水平都很次，若有意见或建议， 欢迎通过下方微博或邮箱联系。</p>
-<p>{%radio|原则上应该——我规定——从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
-<h1>故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>定义:直接上定义和以前教科书有什么区别？%}</h1>
-<h1>问题是什么？能吃吗？</h1>
+<div class="process"><span><p>原则上应该——我规定——从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<h1 id="_2">问题是什么？能吃吗？</h1>
 <p>我们已经学习过两类典型的神经元模型， <a href="http://www.zhimind.com/tutorial/perceptron-foundation">感知机</a> 和 <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a>。</p>
 <p>很明显，这种模型不少，按一定规则可以创造出新的模型，所以不值得为每一个模型都写上一篇教程，所以在这里我们将一口气学习若干个模型， 作为一个合集， 总结其中规律，最好是了解下各种模型的优劣、做个对比（然而我没做到）。</p>
 <p>废话说太多，开始正文。</p>
 <p>首先明确一下我们的目标—— <strong>学习若干神经元的简单的抽象模型</strong></p>
 <p>重复一遍，我们已经学习过 <a href="http://www.zhimind.com/tutorial/perceptron-foundation">感知机</a> 和 <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a> ， 接下来我们要有信心， 重新造出这些轮子。</p>
-<p>{%radio|感知机和逻辑回归，哪个简单？&amp;感知机&amp;逻辑回归@感知机</p>
-<h1>最起码我是这么觉得的，应该是公认的%}</h1>
-<h1>很简单的感知机</h1>
+<div class="process"><span><p>感知机和逻辑回归，哪个简单？</p><input class="quiz" name="quiz" type="radio" value="感知机">感知机</input><br/><input class="quiz" name="quiz" type="radio" value="逻辑回归">逻辑回归</input><br/></span><br/><input class="answers" type="hidden" value="感知机"/><input class="comments" type="hidden" value="最起码我是这么觉得的，应该是公认的"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<h1 id="_3">很简单的感知机</h1>
 <p>回顾感知机的模型， 数学式如下：</p>
 <p>$$
 f(x) = sign(w<em>x+b) = \begin{cases}
@@ -128,7 +156,7 @@ f(x) = sign(w<em>x+b) = \begin{cases}
 \end{cases}
 $$</p>
 <p>现在要把它看作是一个<strong>神经元</strong>， 所以得到下一部分内容</p>
-<h1>二元阈值神经元</h1>
+<h1 id="_4">二元阈值神经元</h1>
 <p>二元阈值神经元 binary threshold neurons, 于1943年由McCulloch 和 Pitts 提出，这两位是生物学家，研究神经生理学的。 而我们知道 感知机(perceptron)感知器(perceptron)1957年由Rosenblatt提出。 它俩的数学模型是一样的， 但感知机还有一套完整的模型有策略有算法， 区别应该是在这里。</p>
 <p>二元阈值神经元binary threshold neurons有两类形式， 一种如上， 另一种简单变换下就是：</p>
 <p>$$
@@ -138,16 +166,16 @@ f(x) = sign(w<em>x) = \begin{cases}
 \end{cases}
 $$</p>
 <p>其中$\theta = -b$。</p>
-<p>{%text|来个命题作文，看了二元阈值神经元和感知机，你有何感想？_@#%}</p>
-<h4>个人感想</h4>
+<div class="process"><span><p>来个命题作文，看了二元阈值神经元和感知机，你有何感想？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h4 id="_5">个人感想</h4>
 <p>题外话， 两个神经学家（好怪的感觉）1943年提出的神经元模型，直接影响到了1957年的计算机算法 感知机， 而且据 Hinton 说也影响到了冯诺依曼设计电子计算机。</p>
 <p>所以，一个人的命运当然要靠个人的奋斗，也要考虑到历史的进程。</p>
 <p>不对， 学习和研究要做到触类旁通、 举一反三， 所以知识面广是有好处的， 可以从其他领域借鉴思想。</p>
 <p>新瓶装新酒当然是最好的， 但能做到旧瓶装新酒甚至新瓶装旧酒也是有意义、有很大贡献的。</p>
 <p>接下来回归正题。</p>
-<h2>如何继续？</h2>
-<p>{%checkbox|知道了二元阈值神经元或感知机， 下一步可以做什么？&amp;对它进行扩展、变化&amp;另起炉灶@对它进行扩展、变化@另起炉灶#难道不能另起炉灶？%}</p>
-<h2>从XX说开去</h2>
+<h2 id="_6">如何继续？</h2>
+<div class="process"><span><p>知道了二元阈值神经元或感知机，下一步可以做什么？</p><input class="quiz" name="quiz" type="checkbox" value="对它进行扩展、变化">对它进行扩展、变化</input><br/><input class="quiz" name="quiz" type="checkbox" value="另起炉灶">另起炉灶</input><br/></span><br/><input class="answers" type="hidden" value="对它进行扩展、变化@另起炉灶"/><input class="comments" type="hidden" value="难道不能另起炉灶？"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h2 id="xx">从XX说开去</h2>
 <p>标题很套路，个人感觉中小学时期看了若干篇这名字的作文。</p>
 <p>我们确实可以另起炉灶， 从其他领域模仿（借鉴）到新的想法，但确实不在这篇文章的范围之内了。</p>
 <p>还是从 二元阈值神经元 开始，作为切入点。 找到切入点后， 做什么呢？对一个原型有些什么方案来进行扩展呢？比较尴尬，我本来以为六顶思考帽有讲如何做扩展、变化，结果不是这本书，不知道是哪本书讲的了。只能说说自己的观点， 不太靠谱。</p>
@@ -165,26 +193,28 @@ $$</p>
 <li>减一点</li>
 </ol>
 <p>以上都是指导性原则（如果是前人、大师总结的，那很好，但现在是我总结的就尴尬了）， 我们记住这些原则，有意识地、刻意地使用， 进而形成良好的习惯、本能。</p>
-<p>{%radio|我们现在是不是要对 二元阈值神经元（感知机）进行扩展啦？&amp;是&amp;不是@是#为什么不呢?%}</p>
-<h2>扩展的方向</h2>
+<div class="process"><span><p>我们现在是不是要对二元阈值神经元（感知机）进行扩展啦？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="不是">不是</input><br/></span><br/><input class="answers" type="hidden" value="是"/><input class="comments" type="hidden" value="为什么不呢?"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<h2 id="_7">扩展的方向</h2>
 <p>还记得这篇教程的名字吧？ 《一些简单的神经元模型》， 没有人知道正确、准确的数学化神经元模型是什么样。</p>
 <p>所以可以发挥自己的想像力，创造出各式各样的神经元模型，就好比DNA结构发现之前，生物学家提出过很多种模型，但DNA证明是双螺旋结构后，还跳出来说DNA是其他结构就成笑柄了。</p>
 <p>扩展先看目标， 有简化、复杂化、等价三种结果。</p>
 <p>找句名言壮壮胆， 爱因斯坦说过 "Everything Should Be Made as Simple as Possible, But Not Simpler"(这句从Udacity的机器学习导论上看到的)。 复杂化肯定是有无限可能的， 等价不好说多少种可能，一种没有都可能。</p>
 <p>那我们希望找找最简单、最原始的方案，问题就来了。</p>
-<p>{%radio|二元阈值神经元是不是最简单的神经元模型？&amp;是&amp;不是@不是#看数学式，能不能再简化？%}</p>
-<h3>怎么简？</h3>
+<div class="process"><span><p>二元阈值神经元是不是最简单的神经元模型？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="不是">不是</input><br/></span><br/><input class="answers" type="hidden" value="不是"/><input class="comments" type="hidden" value="看数学式，能不能再简化？"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<h3 id="_8">怎么简？</h3>
 <p>要简化， 主要思路肯定是“减一点”； 替换能不能成功简化，不好说； “加一点”却简化原问题的例子太少， 我也就能想到 17个东西分给3个人的智力题。</p>
 <p>好，我们来做简化， 二元阈值神经元 $f(x) = sign(w*x+b)$， </p>
-<p>{%formula|简化后f(x)=_@w*x+b#应该不需要提示？%}</p>
-<h1>线性神经元</h1>
+<div class="process"><span><p>简化后f(x)=<input class="quiz formula" onchange="Preview.Update(this)" type="text"/>
+<div id="MathPreview">预览:</div>
+</p></span><br/><input class="answers" type="hidden" value="w*x+b"/><input class="comments" type="hidden" value="应该不需要提示？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<h1 id="_9">线性神经元</h1>
 <p>所以我们得到了$$f(x) = w*x+b$$</p>
 <p>如果读者学过机器学习，或看了 <a href="http://blog.zhimind.com/machine-learning-catalog.html">机器学习系列</a> 就知道，这个又对应到 <a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2?id=f349e9b2-1412-44f4-a18e-618825613bcb&amp;name=%E5%9F%BA%E7%A1%80&amp;parent=%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a></p>
 <p>接下来不能再化简了吧， 线性函数已经是最简了， 那我们接下来就转向到复杂化。</p>
-<p>{%checkbox|可以从哪个开始扩展、复杂化？&amp;线性神经元&amp;二元阈值神经元@线性神经元@二元阈值神经元#难道不是都可以吗？%}</p>
-<h3></h3>
+<div class="process"><span><p>可以从哪个开始扩展、复杂化？</p><input class="quiz" name="quiz" type="checkbox" value="线性神经元">线性神经元</input><br/><input class="quiz" name="quiz" type="checkbox" value="二元阈值神经元">二元阈值神经元</input><br/></span><br/><input class="answers" type="hidden" value="线性神经元@二元阈值神经元"/><input class="comments" type="hidden" value="难道不是都可以吗？"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<h3 id="_10"></h3>
 <p>很明显，都可以，但我们还是考虑从 线性神经元进行扩展吧， 毕竟是基础，变化形式要更多样点。</p>
-<h1>sigmoid神经元</h1>
+<h1 id="sigmoid">sigmoid神经元</h1>
 <p>没有前后逻辑， <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a> 是一种神经元方案， 对应模型：</p>
 <p>对应数学式： </p>
 <p>$$
@@ -192,20 +222,20 @@ z=w*x+b\
 y = \frac{1}{1+e^{-z}}
 $$</p>
 <p>叫做 sigmoid 神经元， 因为 y=g(x) 这个函数叫 sigmoid 函数。 好处、优势不在这里讨论。</p>
-<p>{%text|对比线性和sigmoid,二元阈值神经元，这种扩展的思想是什么？_@#%}</p>
-<h2>扩展方案</h2>
+<div class="process"><span><p>对比线性和sigmoid,二元阈值神经元，这种扩展的思想是什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<h2 id="_11">扩展方案</h2>
 <p>对比线性神经元， 就是 $y = g(f(x)), f(x) = w*x+b$， 给线性回归加了个包装，多加了那么一点东西。可以看出， 二元阈值神经元也是一个对线性神经元的包装 y=g(x) = sign(x)。</p>
 <p>你还可以自行扩展， 比如 Hinton 视频里提的 Rectified Linear Neurons，我不打算扯了。</p>
-<p>{%radio|完了吗？&amp;完了&amp;没完@没完#以我的知识水平是完了%}</p>
-<h1>概率化</h1>
+<div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没完">没完</input><br/></span><br/><input class="answers" type="hidden" value="没完"/><input class="comments" type="hidden" value="以我的知识水平是完了"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<h1 id="_12">概率化</h1>
 <p>视频不太看得明白的一块，也不讲， stochastic binary neurons，是对 sigmoid的概率化扩展。</p>
 <p>$$
 z=w*x+b\
 P(s=1) = \frac{1}{1+e^{-z}}
 $$</p>
 <p>把sigmoid的输出看作出 P(s=1)的概率， 所以，最后的结果应该是sigmoid求出概率后，再加一个 softmax 得到最可能输出， 也可以说是再过了一遍 threshold。</p>
-<p>{%radio|完了吗？&amp;完了&amp;没完@完了#%}</p>
-<h1>恭喜</h1>
+<div class="process"><span><p>完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没完">没完</input><br/></span><br/><input class="answers" type="hidden" value="完了"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<h1 id="_13">恭喜</h1>
 <p>Hinton的视频里提了5种模型， 我这里主要提到了四种神经元的模型， 想把这种东西不割裂地串到一起，确实有点困难， 写得不好， 请多多包涵。</p>
 <p>有了神经元模型， 下面就让我们来把神经元连起来组成神经网络，进而用于机器学习吧！</p>
 <p>下一篇 <a href="http://zhimind.com/tutorial/feed-forward-nn">前向传播</a></p>
@@ -264,16 +294,16 @@ $$</p>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>38</span>
+                            <span>39</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>15</span>
+                            <span>16</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>15</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
-                            <span>6</span>
+                            <span>7</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

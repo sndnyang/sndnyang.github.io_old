@@ -98,47 +98,71 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1">免责说明</a></li>
+<li><a href="#_2">开篇引入</a><ul>
+<li><a href="#_3">回顾梯度下降</a><ul>
+<li><a href="#_4">公式回顾</a></li>
+<li><a href="#_5">分析</a></li>
+<li><a href="#_6">分析公式</a></li>
+<li><a href="#_7">系数的意义</a></li>
+</ul>
+</li>
+<li><a href="#_8">探索方法</a></li>
+<li><a href="#_9">速度分析</a></li>
+<li><a href="#_10">泛化</a></li>
+</ul>
+</li>
+<li><a href="#_11">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>免责说明</h1>
+                        
+<h1 id="_1">免责说明</h1>
 <p>本文参考以下文献：</p>
 <ol>
 <li>Andrew Ng在斯坦福的cs229， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 </ol>
 <p>希望能做到好玩、易学。</p>
-<h1>开篇引入</h1>
+<h1 id="_2">开篇引入</h1>
 <p>在前面的 <a href="http://www.zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a> 一讲中，我们引入了 <em>梯度下降法</em> 这一概念。</p>
 <p>在 <a href="http://www.zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归基础</a> 中，介绍逻辑回归的数学模型及策略， 它的算法同样也是用的梯度下降法。</p>
 <p>我之前对梯度下降法的描述可能有所不足。但这里还是要让大家回顾一下：</p>
-<p>{%radio|梯度下降法是怎么执行的?&amp;求平方&amp;随机采样&amp;求导&amp;二次求导&amp;求对数@求导#其他选项应该没有迷惑性%}</p>
-<h2>回顾梯度下降</h2>
+<div class="process"><span><p>梯度下降法是怎么执行的?</p><input class="quiz" name="quiz" type="radio" value="求平方">求平方</input><br/><input class="quiz" name="quiz" type="radio" value="随机采样">随机采样</input><br/><input class="quiz" name="quiz" type="radio" value="求导">求导</input><br/><input class="quiz" name="quiz" type="radio" value="二次求导">二次求导</input><br/><input class="quiz" name="quiz" type="radio" value="求对数">求对数</input><br/></span><br/><input class="answers" type="hidden" value="求导"/><input class="comments" type="hidden" value="其他选项应该没有迷惑性"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<h2 id="_3">回顾梯度下降</h2>
 <p>梯度就是求导（偏导），得到各个分量（变量）上的偏导，然后呢？</p>
-<p>{%radio|&amp;各分量更新&amp;各分量减偏导&amp;各分量加偏导@各分量减偏导#要实际又要准确%}</p>
-<h3>公式回顾</h3>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="各分量更新">各分量更新</input><br/><input class="quiz" name="quiz" type="radio" value="各分量减偏导">各分量减偏导</input><br/><input class="quiz" name="quiz" type="radio" value="各分量加偏导">各分量加偏导</input><br/></span><br/><input class="answers" type="hidden" value="各分量减偏导"/><input class="comments" type="hidden" value="要实际又要准确"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<h3 id="_4">公式回顾</h3>
 <p>所以，我们复习了梯度下降法 </p>
-<p>似乎挺好的， 就像这张图显示的 <img alt="梯度下降" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2659893546,3283638491&amp;fm=58"></p>
+<p>似乎挺好的， 就像这张图显示的 <img alt="梯度下降" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2659893546,3283638491&amp;fm=58"/></p>
 <p>但是，一般来说，它是否近乎完美了呢？</p>
-<p>{%text|你觉得它可能有什么问题?_@#随意%}</p>
-<h3>分析</h3>
+<div class="process"><span><p>你觉得它可能有什么问题?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value="随意"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h3 id="_5">分析</h3>
 <p>我们来一点点地分析， 看概念和公式，有什么值得商榷的内容。 </p>
 <p>首先， 梯度下降法的计算过程就是沿梯度下降的方向求解极小值（或极大值）。 </p>
-<p>{%text|在不使用其他思想（非求导方法）的情况下，你觉得这话有没有问题？有什么问题?_@没#局限在求导就是沿梯度下降，也确实是要求极值#所以并不是每个问题都一定有问题%}</p>
-<h3>分析公式</h3>
+<div class="process"><span><p>在不使用其他思想（非求导方法）的情况下，你觉得这话有没有问题？有什么问题?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="没"/><input class="comments" type="hidden" value="局限在求导就是沿梯度下降，也确实是要求极值#所以并不是每个问题都一定有问题"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h3 id="_6">分析公式</h3>
 <p>公式 </p>
-<p>{%text|你觉得有没有不足？哪块有问题?_@系数#符号肯定没问题，求导也没问题，但这个常系数是不是要人工选择？是不是可以做到更好%}</p>
+<div class="process"><span><p>你觉得有没有不足？哪块有问题?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="系数"/><input class="comments" type="hidden" value="符号肯定没问题，求导也没问题，但这个常系数是不是要人工选择？是不是可以做到更好"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <p>目标是智能提示，现在没做到，但不能等机器完全智能化了再来，那时候已经没意义了，现在是想抢占先机。</p>
-<h3>系数的意义</h3>
+<h3 id="_7">系数的意义</h3>
 <p>系数就是限定了沿梯度方向移动的距离， 假设这一点上的偏导是a，但如果我们的步子迈得太大，容易~~~你不知道整体的偏导值，所以移动距离远了，就可能跑过头了。错过了极值点。所以一般会把这个系数设得比较小。</p>
 <p>可这个系数终究是人工设定的， 离极值点近的时候要小，远的时候要大才好，不管人工怎么设置，终归是猜测。</p>
 <p>那我们是不是该想办法让它自动呢？</p>
-<p>{%radio|&amp;能自动找到合适的距离&amp;怎么可能@能自动找到合适的距离#不管怎么说，先试再说%}</p>
-<h2>探索方法</h2>
-<p>梯度下降的一个示意图: <img alt="梯度" src="http://image52.360doc.com/DownloadImg/2012/05/2922/24463752_1.png"></p>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="能自动找到合适的距离">能自动找到合适的距离</input><br/><input class="quiz" name="quiz" type="radio" value="怎么可能">怎么可能</input><br/></span><br/><input class="answers" type="hidden" value="能自动找到合适的距离"/><input class="comments" type="hidden" value="不管怎么说，先试再说"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<h2 id="_8">探索方法</h2>
+<p>梯度下降的一个示意图: <img alt="梯度" src="http://image52.360doc.com/DownloadImg/2012/05/2922/24463752_1.png"/></p>
 <p><strong>说明</strong> 前面写复杂了，觉得这块没必要讲这么多。后面简略。</p>
 <p>可以想到，我们可以延长切线到y=0，此时的x值就可以作为下一次迭代的x值，这样我们就可以自动地找合适的距离。如图：</p>
-<p><img alt="牛顿法" src="http://h.hiphotos.baidu.com/baike/s%3D220/sign=4c0545c0d158ccbf1fbcb23829d9bcd4/1ad5ad6eddc451da7e10e099b6fd5266d11632da.jpg"></p>
+<p><img alt="牛顿法" src="http://h.hiphotos.baidu.com/baike/s%3D220/sign=4c0545c0d158ccbf1fbcb23829d9bcd4/1ad5ad6eddc451da7e10e099b6fd5266d11632da.jpg"/></p>
 <p>那这个x值 怎么求， 明显要推导了。如上图$x_{n+1} 和 x_{n}$， 显然有：</p>
 <p>$$
 f'(x_n) = \frac{f(x_n)}{x_n - x_{n+1}}
@@ -151,9 +175,9 @@ $$</p>
 <li>直到 $f(\theta) 接近 0$，有多近看你要求了。</li>
 </ol>
 <p>另外，我们在回归问题中要求解的是一次导$J'(\theta) = 0$时得到的极值， 所以在回归里的式子就是$$ \theta_{n+1} = \theta_n - \frac{J'(\theta_n)}{J''(\theta_n)}$$</p>
-<h2>速度分析</h2>
+<h2 id="_9">速度分析</h2>
 <p>不是时间复杂度， 具体分析也没说， 只说是 二次收敛， 速度上比梯度快很多——但为什么以往更多用梯度下降法、 线性回归没说用牛顿法没说（可能是求导结果不好）。</p>
-<h2>泛化</h2>
+<h2 id="_10">泛化</h2>
 <p>泛化到向量、矩阵， 但没有详细推导。</p>
 <p>$$ \theta_{n+1} = \theta_n - H^{-1}\bigtriangledown_{\theta}J$$</p>
 <p>H 是 Hessian 矩阵</p>
@@ -161,7 +185,7 @@ $$</p>
 H_{ij} = \frac{\partial^2 J}{\partial\theta_i\partial\theta_j}
 $$</p>
 <p>都没听说过这个矩阵~~~这种比线性代数高阶的内容，是高等代数还是矩阵论还是啥 我也不知道</p>
-<h1>恭喜</h1>
+<h1 id="_11">恭喜</h1>
 <p>恭喜您读完本节内容， 完结撒花！！！</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -225,7 +249,7 @@ $$</p>
                             <span>9</span>
 </a></li>
                         <li><a href="/tags.html#cs-ref">CS
-                            <span>38</span>
+                            <span>39</span>
 </a></li>
                         <li><a href="/tags.html#machine-learning-ref">Machine Learning
                             <span>9</span>

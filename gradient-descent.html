@@ -101,7 +101,7 @@
                     <div class="span10 offset2 article-content">
 
                         
-                        <h1></h1>
+                        <h1 id="_1"></h1>
 <p>本文来自以下内容：</p>
 <ol>
 <li>Hinton coursera《neural network for machine learning》<a href="https://www.coursera.org/learn/neural-networks">课程主页</a></li>
@@ -116,11 +116,9 @@
 </ol>
 <p>所以本篇内容会与以上内容有一定重复。</p>
 <p>如果了解、熟悉梯度下降法的读者可以不用看， 如果有兴趣一试，欢迎继续阅读。</p>
-<p>{%radio|原则上我会从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
-<h1>故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>定义:直接上定义和以前教科书有什么区别？%}</h1>
-<h1>目前遇到的问题</h1>
+<div class="process"><span><p>原则上我会从什么开始？</p><input type="radio" class="quiz" name="quiz" value="问题">问题</input><br/><input type="radio" class="quiz" name="quiz" value="定义">定义</input><br/><input type="radio" class="quiz" name="quiz" value="故事">故事</input><br/><input type="radio" class="quiz" name="quiz" value="历史">历史</input><br/></span><br/><input type="hidden" class="answers" value="问题"/><input type="hidden" class="comments" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+
+<h1 id="_2">目前遇到的问题</h1>
 <p>我们现在遇到的是什么问题呢？ 不出意外， 是已经给定了一个没有任何限制(unconstrained)的函数， 指自变量的定义域、取值范围没有额外的限制条件， 不是说$\frac{1}{x}$里 x可以等于0。</p>
 <div class="highlight"><pre><span></span>给定了一个没有任何限制(unconstrained)的函数f(x)， 问题是如何求这个函数的最值（最大最小），如果最值存在的话。
 </pre></div>
@@ -129,52 +127,47 @@
 <p>如果函数本身不存在最值的话，可能就是有限制的最优化问题，本篇介绍的方法是 无限制最优化问题的求解方法。</p>
 <p>为了配合讲解， 我们需要一个例子， 也就是找一个函数作 小白鼠， 让我们可以实践、学习。</p>
 <p>这里，我们用线性回归里的损失函数 $J(x)=x^2$平方函数作为例子， 实际问题中则代入实际的函数。</p>
-<h1>先来点直观的</h1>
+<h1 id="_3">先来点直观的</h1>
 <p>$x^2$有什么特点呢？一个开口向上的抛物线， 对吧？所以它确实存在最小值。如图：</p>
-<p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"></p>
+<p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png" /></p>
 <p>先明确下，我写的函数是 $y=3<em>x^2-2</em>x+5$。所以最小值不是在x=0。</p>
 <p>人眼能直接估计最小值在哪个位置，准确结果是经过公式变换，可以求出来，对吧？</p>
-<p>{%radio|你觉得计算机程序怎么做的？是用公式变换求最低点吗？&amp;是&amp;否@否#这个比较明显了%}</p>
-<h3>它怎么做的？</h3>
+<div class="process"><span><p>你觉得计算机程序怎么做的？是用公式变换求最低点吗？</p><input type="radio" class="quiz" name="quiz" value="是">是</input><br/><input type="radio" class="quiz" name="quiz" value="否">否</input><br/></span><br/><input type="hidden" class="answers" value="否"/><input type="hidden" class="comments" value="这个比较明显了"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+
+<h3 id="_4">它怎么做的？</h3>
 <p>公式变换就好比你知道你的目标地点，直接空投过去， 可现实中不一定知识目标地点，空投也有一定成本问题。 总之公式变换涉及具体问题、具体函数，不是这篇的内容。</p>
 <p>函数求最值（极值）的最优化问题 一般都是搜索函数的解空间， 解空间是无限大的， 这就是最优化算法要解决的问题， 怎么找到目标解。</p>
 <p>那既然是搜索， 就一定要有开始位置， 进而继续搜索空间其他位置。</p>
-<p>{%radio|那你觉得计算机程序应该怎么做、怎么开始?&amp;不知道&amp;非常小&amp;非常大&amp;从一个随机位置开始&amp;从0开始
-@从一个随机位置开始</p>
-<h1>非常:具体是多少？会不会太偏了？</h1>
-<h1>从一个随机位置开始:随机没错，但经常直接用0。</h1>
-<h1>不知道:同学你太耿直了。</h1>
-<h1>从0开始:其实你没错，但我上面的例子不太适合从0开始。</h1>
-<p>%}</p>
-<h2>从随机状态开始</h2>
+<div class="process"><span><p>那你觉得计算机程序应该怎么做、怎么开始?</p><input type="radio" class="quiz" name="quiz" value="不知道">不知道</input><br/><input type="radio" class="quiz" name="quiz" value="非常小">非常小</input><br/><input type="radio" class="quiz" name="quiz" value="非常大">非常大</input><br/><input type="radio" class="quiz" name="quiz" value="从一个随机位置开始">从一个随机位置开始</input><br/><input type="radio" class="quiz" name="quiz" value="从0开始">从0开始</input><br/></span><br/><input type="hidden" class="answers" value="从一个随机位置开始"/><input type="hidden" class="comments" value="非常:具体是多少？会不会太偏了？#从一个随机位置开始:随机没错，但经常直接用0。#不知道:同学你太耿直了。#从0开始:其实你没错，但我上面的例子不太适合从0开始。"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+
+<h2 id="_5">从随机状态开始</h2>
 <p>现实中， 类似的搜索性问题多半是从随机初始状态开始的， <strong>随机</strong> 是一种很重要、很有用、很强大的思想。</p>
-<p>我们现在随机选择x=5这一点（实际经常用零向量、零点）， 在上图的红点X处。<img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"></p>
-<h2>搜索解空间</h2>
+<p>我们现在随机选择x=5这一点（实际经常用零向量、零点）， 在上图的红点X处。<img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png" /></p>
+<h2 id="_6">搜索解空间</h2>
 <p>接下来我们就要开始继续搜索其他解了。但我们怎么选定下一个搜索的解呢？</p>
 <p>我们知道， 解空间其实是连续的， 但我们搜索肯定是搜索离散的若干个点，上一个点到下一个点间会有一定距离， 就像我们要往某个方向径直走出一步， 而不是陷入芝诺悖论在那里讨论无限、连续与离散的关系。</p>
-<p>所以， 我们找的下一个点， 先要知道方向， 再要知道距离。回顾我们在上图的红点X处。<img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"></p>
-<p>{%radio|那么，我们应该怎么找下一个解的方向，来接近最低点？根据_@求导|偏导|偏微|微分|坡度|梯度|导数|斜率</p>
-<h1>根据图示，我们在图中任意一点，要往最低点走，这个方向可以由什么值表示？</h1>
-<h1>{%text|x变化$\delta x$，引起y变化$\delta y$，这个定义让你想到什么概念吗？_@#高中最后一个数学知识，大学第一门数学学得是什么？%}</h1>
-<p>%}</p>
-<h3>别南辕北辙</h3>
+<p>所以， 我们找的下一个点， 先要知道方向， 再要知道距离。回顾我们在上图的红点X处。<img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png" /></p>
+<div class="process"><span><p>那么，我们应该怎么找下一个解的方向，来接近最低点？根据_</p></span><br/><input type="hidden" class="answers" value="求导|偏导|偏微|微分|坡度|梯度|导数|斜率"/><input type="hidden" class="comments" value="根据图示，我们在图中任意一点，要往最低点走，这个方向可以由什么值表示？#{%text|x变化$\deltax$，引起y变化$\deltay$，这个定义让你想到什么概念吗？_@#高中最后一个数学知识，大学第一门数学学得是什么？%}"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+
+<h3 id="_7">别南辕北辙</h3>
 <p>我们能根据导数（偏导）的结果，决定方向。 如果只有一个自变量，则是求导； 多个自变量则求偏导（是这样吧？我数学没学好）， 找出下一个点所在方向。</p>
 <p>考验读者是否了解导数值和方向的关系， 假设现在位置在x=x0点处, 求得导数值为 x'。</p>
-<p>{%radio|为了找最小值（不是最大值）， 我们从x0移动x'应该移动到哪里？&amp;x0-x'&amp;x'&amp;x'*x0&amp;x'+x0&amp;x'-x0@x0-x'</p>
-<h1>x'为正，代表什么？跟方向什么关系，跟最大最小值什么关系？</h1>
-<p>%}</p>
-<h3>方向找好才有距离</h3>
+<div class="process"><span><p>为了找最小值（不是最大值），我们从x0移动x'应该移动到哪里？</p><input type="radio" class="quiz" name="quiz" value="x0-x'">x0-x'</input><br/><input type="radio" class="quiz" name="quiz" value="x'">x'</input><br/><input type="radio" class="quiz" name="quiz" value="x'*x0">x'*x0</input><br/><input type="radio" class="quiz" name="quiz" value="x'+x0">x'+x0</input><br/><input type="radio" class="quiz" name="quiz" value="x'-x0">x'-x0</input><br/></span><br/><input type="hidden" class="answers" value="x0-x'"/><input type="hidden" class="comments" value="x'为正，代表什么？跟方向什么关系，跟最大最小值什么关系？"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+
+<h3 id="_8">方向找好才有距离</h3>
 <p>x'如果为正，即x0点的切线斜率为正，x增大（x0+x')，J(x)也会增大，和我们找最小值的目的不符， 我们应该往反方向走，所以是 x0 - x'。</p>
 <p>x'如果为负呢？ x0 - x' &gt; x0， x增大（x0-x')，J(x)减小， 所以，没错， 就是 x0-x'。</p>
 <p>上面两行结论很简单，但我描述时把自己绕了半天~~~还是觉得写得不好。</p>
 <p>所以 x是当前坐标， 要减掉求导得到的结果（沿着梯度方向滚）， 才能使得J(x)变小。</p>
 <p>接下来，我们要考虑，沿这个方向走多远了。</p>
-<p>{%text|读者你的想法呢？_@#%}</p>
-<h2>距离</h2>
+<div class="process"><span><p>读者你的想法呢？<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="answers" value=""/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+
+<h2 id="_9">距离</h2>
 <p>先深入认识问题， 找的这个“距离”是什么？这个解到下一个解的距离， 意味着什么？意味着“变化”， 自变量x的变化。</p>
 <p>那它影响了什么？ x变化$\Delta x$，会引起y=J(x)变化$\Delta y$。</p>
-<p>{%text|此处你会想到一个什么？上文刚提到_@求导|偏导|偏微|微分|坡度|梯度|导数|斜率#这俩在一起，一般是什么运算？#相除啊！一除得什么？#呃，前面的问题是怎么过来的？%}</p>
-<h3>变化多少合适</h3>
+<div class="process"><span><p>此处你会想到一个什么？上文刚提到<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="answers" value="求导|偏导|偏微|微分|坡度|梯度|导数|斜率"/><input type="hidden" class="comments" value="这俩在一起，一般是什么运算？#相除啊！一除得什么？#呃，前面的问题是怎么过来的？"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+
+<h3 id="_10">变化多少合适</h3>
 <p>每个点有每个点的切线斜率， 意味着 x变化$\Delta x$，引起y=J(x)变化的剧烈程度， 即$\Delta y$的大小。</p>
 <p>所以， 不同点到下一点的距离 这个变化量 跟 这点切线的斜率相关，相关有两种方案：</p>
 <ol>
@@ -182,27 +175,31 @@
 <li>斜率越大， 变化的距离相对越小， 反比， 典型的互为倒数。</li>
 </ol>
 <p>本文介绍的梯度下降法就是使用正比 线性相关， 比如令 $\Delta x = x'$， 我们就得到一个式子来算到下一点的距离。</p>
-<p>{%radio|OK了吗？有问题吗？&amp;OK&amp;没有@没有#%}</p>
-<h3>还有问题</h3>
-<p>{%text|你能找到是哪里有问题吗？_@#%}</p>
+<div class="process"><span><p>OK了吗？有问题吗？</p><input type="radio" class="quiz" name="quiz" value="OK">OK</input><br/><input type="radio" class="quiz" name="quiz" value="没有">没有</input><br/></span><br/><input type="hidden" class="answers" value="没有"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+
+<h3 id="_11">还有问题</h3>
+<div class="process"><span><p>你能找到是哪里有问题吗？<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="answers" value=""/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+
 <p>就是找边界、或叫临界状态， 看看有没有问题。</p>
-<h3>最低点就是临界状态</h3>
-<p>如果我们步子迈得太大了， 容易什么？ 容易翻过临界状态最低点， 无法继续逼近。如图:<img alt="alpha-large" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/big_alpha.png"></p>
-<p>为了能逼近最低点到一定范围（允许误差），所以要给x'乘上个小系数， 相对的， 就会慢一点，要多走几步。 如图：<img alt="small-alpha" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/small_alpha.png"></p>
+<h3 id="_12">最低点就是临界状态</h3>
+<p>如果我们步子迈得太大了， 容易什么？ 容易翻过临界状态最低点， 无法继续逼近。如图:<img alt="alpha-large" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/big_alpha.png" /></p>
+<p>为了能逼近最低点到一定范围（允许误差），所以要给x'乘上个小系数， 相对的， 就会慢一点，要多走几步。 如图：<img alt="small-alpha" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/small_alpha.png" /></p>
 <p>这样我们就得到了到下一点的 方向（当前点的导数梯度x'的正负，视找最大或最小而定） 和 距离（$\alpha * x')</p>
-<p>{%text|接下来是一个方案对比， 要对比什么？_@(斜率&amp;距离&amp;关系)|(正比|反比)#套路而已#真不会请输不知道，直接过%}。</p>
-<h4>讨论</h4>
+<div class="process"><span><p>接下来是一个方案对比，要对比什么？<input type="text" class="quiz"/></p></span><br/><input type="hidden" class="comments" value="套路而已#真不会请输不知道，直接过#}。"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+
+<h4 id="_13">讨论</h4>
 <ol>
 <li>斜率越大， 变化的距离越大， 正比， 典型的就是线性相关。</li>
 <li>斜率越大， 变化的距离相对越小， 反比， 典型的互为倒数。</li>
 </ol>
 <p>哪个更好？如果看过 <a href="http://www.zhimind.com/tutorial/2d0cbacd-4577-48b1-a861-bffd07791600">牛顿迭代法</a> 会发现牛顿迭代法里距离跟斜率是反比关系。 而梯度下降 法采用正比。</p>
 <p>都有道理，斜率大，J(x)变化本来就很剧烈，x也来变化很大，就像悬崖、陡坡，虽然垂直高度变化大，但水平变化很小。 斜率高的区间一般就不会很大。</p>
-<p>反过来说， 如图：<img alt="small-alpha" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/small_alpha.png"></p>
+<p>反过来说， 如图：<img alt="small-alpha" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/small_alpha.png" /></p>
 <p>离得很远时，斜率大，步子走得很小，很慢， 离最低点近了，反而迈开步子，一不小心不就走过头了吗？</p>
 <p>总之就是如何判断离目标点的距离大小， 如果能判断出来，距离远就走大步一点， 距离近，就小步一点。如此而已。</p>
-<p>{%radio|我们知道如何找下一个点了，那接下来做什么呢？&amp;完成了&amp;判断什么搜索结束&amp;不知道@判断什么时候搜索结束#%}</p>
-<h2>什么时候结束</h2>
+<div class="process"><span><p>我们知道如何找下一个点了，那接下来做什么呢？</p><input type="radio" class="quiz" name="quiz" value="完成了">完成了</input><br/><input type="radio" class="quiz" name="quiz" value="判断什么搜索结束">判断什么搜索结束</input><br/><input type="radio" class="quiz" name="quiz" value="不知道">不知道</input><br/></span><br/><input type="hidden" class="answers" value="判断什么时候搜索结束"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+
+<h2 id="_14">什么时候结束</h2>
 <p>$\alpha$的取值太大太小都有问题，但这是工程实践上的问题，跳过。</p>
 <p>综上所述， 我们有 $x=x-\alpha \frac{\partial}{\partial x}J(x)$， 作为每次迭代对x的更新。</p>
 <p>迭代总要有个停。大概有以下这些方案：</p>
@@ -211,7 +208,7 @@
 <li>两次迭代的J(x)值之差足够小——这个好像比较常用。</li>
 <li>偏导值x'奇迹般地等于0</li>
 </ol>
-<h2>算法部分总结</h2>
+<h2 id="_15">算法部分总结</h2>
 <p>以上就是线性回归求解的算法，即梯度下降法</p>
 <p>大致步骤为：</p>
 <ol>
@@ -221,7 +218,7 @@
 <li>根据偏导的方向（值）来适当更新自变量</li>
 <li>迭代3、4步直到满足你设定的收敛或其他条件</li>
 </ol>
-<h1>梯度下降实践</h1>
+<h1 id="_16">梯度下降实践</h1>
 <p>梯度下降法在更新w上可以采取不同的策略。 从之前的公式， 我们得到完整用于整个训练集的公式为（原先的2是常数，跟alpha合并即可）：</p>
 <p>$$
 w_i = w_i - \alpha \sum^m_{j=1}(h(x^j)-y^j)*x^j_i 
@@ -233,9 +230,9 @@ $$</p>
 <p>Repeat {
 for j=1 to m {    </p>
 <p>$w_i = w_i - alpha * (h(x^j) - y^j) * x^j_i$  (for all i)</p>
-<p>} <br>
+<p>} <br />
 }</p>
-<h1>恭喜</h1>
+<h1 id="_17">恭喜</h1>
 <p>梯度下降法的主体内容为以上， 希望读者能理解梯度下降法的思想。</p>
 <p>严格来说， 梯度即求导或偏导并不难理解， 主要是要准确把握 用梯度下降法迭代更新向量时 <strong>系数乘梯度</strong>的含义。</p>
 <p>对比同为求导（偏导）的<a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a>有助理解。</p>
@@ -302,7 +299,7 @@ for j=1 to m {    </p>
                             <span>9</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>15</span>
+                            <span>16</span>
 </a></li>
                         <li><a href="/tags.html#ji-suan-ji-ref">计算机
                             <span>1</span>

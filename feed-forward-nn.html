@@ -97,55 +97,85 @@
             </header>
 
             <div class="row-fluid">
-                    <div class="span10 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+                    <h4>Contents</h4>
+                        <div class="toc">
+<ul>
+<li><a href="#_1"></a><ul>
+<li><a href="#_2">还记得学了什么吗？</a></li>
+<li><a href="#_3">还有呢？</a></li>
+<li><a href="#_4">触即是边，边即是触</a></li>
+<li><a href="#_5">以架构之名</a><ul>
+<li><a href="#_6">不要解释</a></li>
+</ul>
+</li>
+<li><a href="#_7">隐藏层</a></li>
+</ul>
+</li>
+<li><a href="#_8">前向传播</a></li>
+<li><a href="#_9">数学符号</a><ul>
+<li><a href="#_10">神经元符号化</a></li>
+<li><a href="#_11">权重建模</a></li>
+<li><a href="#_12">一个小练习</a><ul>
+<li><a href="#_13">输入输出建模</a></li>
+<li><a href="#ok">OK?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_14">编程实践</a></li>
+<li><a href="#_15">恭喜</a></li>
+</ul>
+</div>
+                    </nav>
+                </div>
+                <div class="span10 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1></h1>
+                        
+<h1 id="_1"></h1>
 <p>这部分非常简要地介绍下， 数学符号来自：</p>
 <ol>
 <li>Andrew Ng Coursera <a href="https://www.coursera.org/learn/machine-learning">机器学习</a></li>
 </ol>
-<p>{%radio|原则上我会从什么开始？&amp;问题&amp;定义&amp;故事&amp;历史@问题</p>
-<h1>故事:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>历史:不是不想从故事和历史开始，孤陋寡闻了</h1>
-<h1>定义:直接上定义和以前教科书有什么区别？%}</h1>
-<h3>还记得学了什么吗？</h3>
+<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<h3 id="_2">还记得学了什么吗？</h3>
 <p>我们学习了 <a href="http://www.zhimind.com/tutorial/introduce-neural-network">神经网络的引入</a>， 回顾一下</p>
-<p>{%text|基础的神经网络（框架）包含了_。@神经元&amp;突触#咋解释？%}</p>
-<h3>还有呢？</h3>
+<div class="process"><span><p>基础的神经网络（框架）包含了<input class="quiz" type="text"/>。</p></span><br/><input class="comments" type="hidden" value="咋解释？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<h3 id="_3">还有呢？</h3>
 <p>还学习了 <a href="http://www.zhimind.com/tutorial/perceptron-foundation">感知机</a>， <a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a>， 及 <a href="http://www.zhimind.com/tutorial/models-of-neurons">简单的神经元模型</a></p>
-<p>{%text|所以，我们接下来要研究的是_。@突触#怎么过上面那题的？%}</p>
-<h2>触即是边，边即是触</h2>
+<div class="process"><span><p>所以，我们接下来要研究的是<input class="quiz" type="text"/>。</p></span><br/><input class="answers" type="hidden" value="突触"/><input class="comments" type="hidden" value="怎么过上面那题的？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<h2 id="_4">触即是边，边即是触</h2>
 <p>神经元间的突触，看成是两个点（神经元）间的边。 那就是一堆点， 然后点间拉红线， 随便画， 比如：</p>
-<p><img alt="hopfield-network" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/hopfield_work.png"> </p>
+<p><img alt="hopfield-network" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/hopfield_work.png"/> </p>
 <p>很明显, 神经网络的边 也可以有不同的连接方式，即神经元的输出是如何被下一个神经元利用的。</p>
-<p>{%text|你了解、听说过几种神经网络的连接方式？请诚实作答_@#:没有标准答案%}</p>
-<h2>以架构之名</h2>
+<div class="process"><span><p>你了解、听说过几种神经网络的连接方式？请诚实作答<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":没有标准答案"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<h2 id="_5">以架构之名</h2>
 <p>不同神经网络的边连接方式 肯定是有不同的核心思想， 根据各自的核心思想、原则，建设出神经网络， 估且把神经网络的连接方式叫做神经网络的架构——要真说架构，神经元应该也考虑在内。</p>
 <p>神经网络、 深度学习主要就是学习几种架构、实现、应用及它们的优缺点（限于个人认识水平）， 这将是以后教程的内容。本篇后续内容是介绍最基本的一种架构。</p>
-<p>{%text|你觉得最简单的神经网络连接方式应该是什么样的？_@#:伤心地发现这问题没法回答%}</p>
-<h3>不要解释</h3>
+<div class="process"><span><p>你觉得最简单的神经网络连接方式应该是什么样的？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":伤心地发现这问题没法回答"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<h3 id="_6">不要解释</h3>
 <p>很明显，最简单的连接方式， 就是把n个其他神经元输出给它的值当作自己的输入， 单向， 多对多关系， 如图所示（<a href="http://www.open-open.com/lib/view/open1452752687042.html">图片引用</a>）：</p>
-<p><img alt="simple-nn" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/simple-nn.jpg"></p>
-<p>{%radio|但只能有两层吗？&amp;是&amp;否@否#没写好，抱歉%}</p>
-<h2>隐藏层</h2>
+<p><img alt="simple-nn" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/simple-nn.jpg"/></p>
+<div class="process"><span><p>但只能有两层吗？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="没写好，抱歉"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<h2 id="_7">隐藏层</h2>
 <p>输入层和输出层中间可以有多层的神经元，如图：</p>
-<p><img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"></p>
+<p><img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
 <p>把这些中间层叫做隐藏（隐含？）层， hidden layers。</p>
 <p>前向传播feed-forward，也可以叫前馈神经网络。 就是逐层计算各个神经元层的输出，传给下一层作输入。</p>
 <p>具体神经元如何算输出值，则根据神经元采用的模型而定， 比如我们之前 <a href="http://www.zhimind.com/tutorial/models-of-neurons">常见简单神经元模型</a>里学习的五个（3个？）模型。</p>
 <p>一般使用前馈神经网络解决分类问题时， 用 sigmoid神经元，即逻辑回归模型的比较多。</p>
-<p>{%radio|接下来做什么？&amp;总结&amp;实践&amp;数学化&amp;应用&amp;给定义&amp;结束@总结#写太乱了，所以要~~~%}</p>
-<h1>前向传播</h1>
+<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结">总结</input><br/><input class="quiz" name="quiz" type="radio" value="实践">实践</input><br/><input class="quiz" name="quiz" type="radio" value="数学化">数学化</input><br/><input class="quiz" name="quiz" type="radio" value="应用">应用</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/><input class="quiz" name="quiz" type="radio" value="结束">结束</input><br/></span><br/><input class="answers" type="hidden" value="总结"/><input class="comments" type="hidden" value="写太乱了，所以要~~~"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<h1 id="_8">前向传播</h1>
 <p>总结前面的内容， 前向传播feed-forward，也可以叫前馈神经网络的组成为：</p>
 <ol>
 <li>神经元——逻辑或sigmoid神经元</li>
 <li>架构——输入层和输出层，中间的有n (n&gt;=0)层神经元，叫隐藏（隐含）层。</li>
 </ol>
-<p>比如：<img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"></p>
-<p>{%radio|接下来做什么？&amp;总结&amp;实践&amp;数学化&amp;应用&amp;给定义&amp;结束@数学化#总结好了就可以数学形式化了%}</p>
-<h1>数学符号</h1>
+<p>比如：<img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
+<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结">总结</input><br/><input class="quiz" name="quiz" type="radio" value="实践">实践</input><br/><input class="quiz" name="quiz" type="radio" value="数学化">数学化</input><br/><input class="quiz" name="quiz" type="radio" value="应用">应用</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/><input class="quiz" name="quiz" type="radio" value="结束">结束</input><br/></span><br/><input class="answers" type="hidden" value="数学化"/><input class="comments" type="hidden" value="总结好了就可以数学形式化了"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<h1 id="_9">数学符号</h1>
 <p>先回顾 逻辑或sigmoid神经元的模型：$$h(x) = g(w^Tx) = \frac{1}{1+e^{-w^Tx}}$$</p>
 <p>w代表权重向量 weight vector, x 代表输入变量， y代表输入变量的标签label即实际结果， h(x)就是我们的模型对x的预测结果。</p>
 <p>接下来我们要对 神经网络进行数学符号建模。还是两部分：</p>
@@ -153,38 +183,38 @@
 <li>神经元（点）</li>
 <li>突触（边），即权重</li>
 </ol>
-<p>{%text|你觉得神经元建模还有什么元素要符号化？_@#:第几层第几个%}</p>
-<h2>神经元符号化</h2>
+<div class="process"><span><p>你觉得神经元建模还有什么元素要符号化？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><input class="comments" type="hidden" value=":第几层第几个"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<h2 id="_10">神经元符号化</h2>
 <p>随便用个字母a表示， 第i层第j个神经元的输出 就记为 $a_j^i$</p>
 <p>注意：</p>
 <ol>
 <li>$n \times 1$维的输入向量既可能直接作为有n个输入单元的输入层（第一层），也可能只是第一层各神经元的输入向量。 Ng的课程使用的是前者。</li>
 <li>还记得线性模型$ w^Tx=w*x+b$吧，偏置项bias(b)可以被记作 $w_0$即每层的第0个神经元$a_0^i$，偏置神经元。</li>
 </ol>
-<h2>权重建模</h2>
+<h2 id="_11">权重建模</h2>
 <p>单个神经元的权重是 w向量(Coursera 使用的是 $\theta$)， 我们知道神经网络里的权重是层与层之间的多对多关系。</p>
 <p>所以是上一层的m个神经元与下一层n个神经元形成的 $m \times n$维矩阵。</p>
 <p>记 $w^k$ 是第k层到第k+1层的 <strong>权重矩阵</strong>。 其中，$w_{i,j}^k$是第k层的第j个神经元 到 第k+1层第i个神经元的权重， 指第k+1层第i个神经元接收第k层第j个神经元的权重， 而不是i号传给j号的权重。</p>
-<h2>一个小练习</h2>
+<h2 id="_12">一个小练习</h2>
 <p>现在要计算第2层第1个神经元$a_1^2$的输出，第一层是输入单元$x=(x_0,x_1,x_2)$,映射函数g(x)。</p>
-<p>A. $a_1^2=g(w_{1,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)$<br>
-B. $a_1^2=g(w_{1,0}^2 x_0 + w_{1,0}^2 x_1 + w_{1,2}^2 x_2)$<br>
-C. $a_1^2=g(w_{0,1}^1 x_0 + w_{1,1}^1 x_1 + w_{2,1}^1 x_2)$<br>
-D. $a_1^2=g(w_{0,1}^2 x_0 + w_{1,1}^2 x_1 + w_{1,2}^2 x_2)$<br>
-E. $a_1^2=g(w_{0,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)$<br>
+<p>A. $a_1^2=g(w_{1,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)$<br/>
+B. $a_1^2=g(w_{1,0}^2 x_0 + w_{1,0}^2 x_1 + w_{1,2}^2 x_2)$<br/>
+C. $a_1^2=g(w_{0,1}^1 x_0 + w_{1,1}^1 x_1 + w_{2,1}^1 x_2)$<br/>
+D. $a_1^2=g(w_{0,1}^2 x_0 + w_{1,1}^2 x_1 + w_{1,2}^2 x_2)$<br/>
+E. $a_1^2=g(w_{0,0}^1 x_0 + w_{1,1}^1 x_1 + w_{1,2}^1 x_2)$<br/>
 F. $a_1^2=g(w_{0,0}^2 x_0 + w_{1,1}^2 x_1 + w_{2,2}^2 x_2)$ </p>
-<p>{%text|以上哪式正确？_@A#我也很混乱#第k+1层第i个神经元接收第k层第j个神经元的权重%}</p>
-<h3>输入输出建模</h3>
+<div class="process"><span><p>以上哪式正确？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="A"/><input class="comments" type="hidden" value="我也很混乱#第k+1层第i个神经元接收第k层第j个神经元的权重"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<h3 id="_13">输入输出建模</h3>
 <p>和逻辑回归一样</p>
 <p>输入向量即 $x = (x_0, ..., x_n)$，其中 $x_0$对应偏置项$w_0$</p>
 <p>输出单元，即最后一层神经元的输出。 </p>
-<h3>OK?</h3>
-<p>{%radio|看完上面内容， 尤其是那个小小的练习，对神经网络的数学符号化搞清楚了吗？&amp;清楚了&amp;并没有@清楚了#清楚了:虽然我觉得那么容易记清，但这里只是为了后面内容的统一，编程时别搞错序号就行#这个不重要%}</p>
-<h1>编程实践</h1>
+<h3 id="ok">OK?</h3>
+<div class="process"><span><p>看完上面内容，尤其是那个小小的练习，对神经网络的数学符号化搞清楚了吗？</p><input class="quiz" name="quiz" type="radio" value="清楚了">清楚了</input><br/><input class="quiz" name="quiz" type="radio" value="并没有">并没有</input><br/></span><br/><input class="answers" type="hidden" value="清楚了"/><input class="comments" type="hidden" value="清楚了:虽然我觉得那么容易记清，但这里只是为了后面内容的统一，编程时别搞错序号就行#这个不重要"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<h1 id="_14">编程实践</h1>
 <p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/feedforward.ipynb">前向神经网络notebook#todo</a> </p>
 <p>有ipython notebook的朋友知道如何使用。没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>
 <p>觉得配置麻烦（其实不麻烦）的，可以参考 <a href="http://blog.zhimind.com/machine-learning-env-config.html#_1">虚拟机</a></p>
-<h1>恭喜</h1>
+<h1 id="_15">恭喜</h1>
 <p>前向传播是神经网络的基础， 毕竟一个神经元将信号传给下一个神经元是再直观简单的事。 </p>
 <p>感想： 复杂的知识点很难讲清， 简单的知识点很难讲通， 到处都是显然易见， 很难把里面的逻辑线捋清楚。 目标是让读者自己发明一遍，但这篇明显差得太远。</p>
 <p>下一篇 <a href="http://www.zhimind.com/tutorial/backpropagation-nn">反向传播算法</a></p>
@@ -243,10 +273,10 @@ F. $a_1^2=g(w_{0,0}^2 x_0 + w_{1,1}^2 x_1 + w_{2,2}^2 x_2)$ </p>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>15</span>
+                            <span>16</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
-                            <span>6</span>
+                            <span>7</span>
 </a></li>
                         <li><a href="/tags.html#shen-jing-wang-luo-ref">神经网络
                             <span>2</span>

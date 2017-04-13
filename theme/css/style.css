@@ -453,6 +453,15 @@ dt:hover > a.headerlink {
     background: #f5f7f9;
 }
 
+.nav {
+    position: absolute;
+}
+
+.nav .active-current > a {
+    color: #fc6423;
+    font-weight: bold;
+}
+
 @media (min-width: 767px) {
     .table-collapse {
         height: auto;

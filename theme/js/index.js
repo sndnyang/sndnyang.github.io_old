@@ -26,6 +26,9 @@ function backToTop() {
         } else {
             $("#top").fadeOut(500);
         }
+        var pos = $('.active-current').position().top;
+        var scroll = $(window).scrollTop();
+        $("nav").css({top: scroll - pos + 200});
     });
     //点击回到顶部
     $("#top").click(function() {
@@ -111,3 +114,24 @@ function checkQuiz(obj, id) {
     }
 }
 
+
+function initScrollSpy () {
+    var tocSelector = '.table-of-content';
+    var $tocElement = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocElement
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+      })
+      .on('clear.bs.scrollspy', removeCurrentActiveClass);
+
+    $('body').scrollspy({ target: tocSelector });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+  }

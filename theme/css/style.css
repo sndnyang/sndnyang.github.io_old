@@ -174,8 +174,9 @@ article p a:hover, article ol a:hover, article div.article-content ul:not(.artic
 
 .article-content {
     text-align:justify;
-    max-width:50em;
+    max-width: 100%;
     font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+    margin-left: 0px;
 }
 
 .article-content p{
@@ -230,6 +231,10 @@ article p a:hover, article ol a:hover, article div.article-content ul:not(.artic
 
 .article-content dt {
     font-size:1.3em;
+}
+
+.article-content h1 {
+    text-align: center;
 }
 
 .page_header h1 {
@@ -396,13 +401,15 @@ img {
 }
 
 .table-of-content .toc {
-    font-size: 0.7em;
+    font-size: 0.9em;
     max-width: 200px;
 }
+
 .last_updated a {
      color: black;
      border-bottom: thin dashed darkgray;
 }
+
 .last_updated a:hover {
      text-shadow: none;
      text-decoration: none;
@@ -440,4 +447,35 @@ dt:hover > a.headerlink {
 
 .hint ul {
     padding: 10px;
+}
+
+.table-collapse {
+    background: #f5f7f9;
+}
+
+@media (min-width: 767px) {
+    .table-collapse {
+        height: auto;
+    }
+    .btn-table {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-table {
+        display: block;
+        max-width: 30px;
+    }
+}
+
+@media (max-width: 979px) {
+    .navbar-fixed-top, .navbar-fixed-bottom {
+        position: fixed;
+        margin-right: 0px; 
+        margin-left: 0px; 
+    }
+    body {
+        padding-top: 50px;
+    }
 }

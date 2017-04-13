@@ -28,7 +28,7 @@ function backToTop() {
         }
         var pos = $('.active-current').position().top;
         var scroll = $(window).scrollTop();
-        $("nav").css({top: scroll - pos + 200});
+        $(".nav").css({top: scroll - pos + 200});
     });
     //点击回到顶部
     $("#top").click(function() {
@@ -37,6 +37,8 @@ function backToTop() {
         }, 500);
     });
     
+    var scroll = $(window).scrollTop();
+    $(".nav").css({top: scroll});
 }
 
 var error_times = 0;

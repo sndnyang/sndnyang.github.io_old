@@ -78,8 +78,8 @@
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
-		    backToTop();
             initScrollSpy();
+		    backToTop();
 		});
       
     	</script>
@@ -98,16 +98,12 @@
                 </h1>
             </header>
 
-            <div class="row-fluid">
+            <div class="row-fluid article-inner">
                 <div class="span2 table-of-content">
                     <nav class="bs-docs-sidebar hidden-print hidden-xs
                         hidden-sm nav">
-                        <a class="btn btn-success btn-table" data-toggle="collapse"
-                            data-target=".table-collapse">
-                            目录
-                        </a>
                         <div class="table-collapse panel-collapse collapse">
-                            <h4>Contents</h4>
+                            <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
 <li><a href="#_1">今日常规</a></li>
@@ -116,6 +112,10 @@
                         </div>
                     </nav>
                 </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
                 <div class="span8 article-content">
 
                         
@@ -180,7 +180,7 @@
 
                     <hr/>
                 </div>
-                <div class="span2" style="float:right;font-size:0.9em;">
+                <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
                     <time pubdate="pubdate" datetime="2016-10-10T00:00:00+08:00">十月 10, 2016</time>
                     <h4>Category</h4>
@@ -273,5 +273,6 @@ $('#disqus_thread').on('shown', function () {
 
         </script>
         <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261726608'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261726608%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
     </body>
 </html>

@@ -161,6 +161,11 @@ ul.articles-in-tag li {
 
 /* Article */
 
+article-inner {
+    width: 96%;
+    margin: auto;
+}
+    
 article p a, article ol a, article div.article-content ul:not(.articles_timeline) a {
     color:black;
     border-bottom:thin dashed darkgray;
@@ -176,7 +181,6 @@ article p a:hover, article ol a:hover, article div.article-content ul:not(.artic
     text-align:justify;
     max-width: 100%;
     font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
-    margin-left: 0px;
 }
 
 .article-content p{
@@ -400,9 +404,19 @@ img {
     border: 1px solid #EEEEEE;
 }
 
+.table-of-content {
+    max-width: 15%;
+}
+
 .table-of-content .toc {
     font-size: 0.9em;
     max-width: 200px;
+    padding-right: 5px;
+}
+
+.toc ul {
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 .last_updated a {
@@ -475,6 +489,10 @@ dt:hover > a.headerlink {
     .btn-table {
         display: block;
         max-width: 30px;
+        position: fixed;
+    }
+    .right-side {
+        display: none !important;
     }
 }
 

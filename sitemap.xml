@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-04-15T14:26:09-00:00</lastmod>
+<lastmod>2017-04-16T21:13:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-04-15T14:26:09-00:00</lastmod>
+<lastmod>2017-04-16T21:13:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-04-15T14:26:09-00:00</lastmod>
+<lastmod>2017-04-16T21:13:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-04-15T14:26:09-00:00</lastmod>
+<lastmod>2017-04-16T21:13:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -46,8 +46,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://sndnyang.github.io/pelican-generator.html</loc>
-<lastmod>2017-04-15T14:26:08+08:00</lastmod>
+<loc>http://sndnyang.github.io/ideas-on-writing-and-speaking.html</loc>
+<lastmod>2017-04-16T21:12:17+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -139,6 +139,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/2017-03-13_to_19-diary.html</loc>
 <lastmod>2017-03-13T23:12:21+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/several-resources-for-ielts.html</loc>
+<lastmod>2017-04-16T21:12:19+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

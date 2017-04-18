@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-04-17T19:12:11-00:00</lastmod>
+<lastmod>2017-04-18T23:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-04-17T19:12:11-00:00</lastmod>
+<lastmod>2017-04-18T23:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-04-17T19:12:11-00:00</lastmod>
+<lastmod>2017-04-18T23:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-04-17T19:12:11-00:00</lastmod>
+<lastmod>2017-04-18T23:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,48 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/zhimind-entire-solution-english.html</loc>
 <lastmod>2099-02-07T22:13:45+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/CNN-physiology-source.html</loc>
+<lastmod>2017-04-18T23:06:28+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/neural-network-outline.html</loc>
+<lastmod>2017-04-18T22:11:50+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/convolutional-neural-network-outline.html</loc>
+<lastmod>2017-04-18T23:02:52+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/get-heroes-images.html</loc>
+<lastmod>2017-04-18T21:22:28+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/pelican-ArticlesGenerator.html</loc>
+<lastmod>2017-04-18T14:09:50+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2017-04-17_to_23-diary.html</loc>
+<lastmod>2017-04-18T23:08:10+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -74,8 +116,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://sndnyang.github.io/pelican-generator.html</loc>
+<lastmod>2017-04-15T14:26:08+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://sndnyang.github.io/python-interactive-debugger-part1.html</loc>
-<lastmod>2017-04-15T13:11:21+08:00</lastmod>
+<lastmod>2017-04-18T19:29:01+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -89,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/learn-python-by-opensource-project-pelican.html</loc>
-<lastmod>2017-04-15T14:24:31+08:00</lastmod>
+<lastmod>2017-04-18T13:30:13+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -257,28 +306,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/udacity-debug-basic-concepts.html</loc>
-<lastmod>2016-11-22T23:45:30+08:00</lastmod>
+<lastmod>2017-04-18T19:29:32+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/Explicit-Debugging.html</loc>
-<lastmod>2016-11-22T22:45:30+08:00</lastmod>
+<lastmod>2017-04-18T19:29:10+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/scientific-methods.html</loc>
-<lastmod>2016-11-22T22:45:30+08:00</lastmod>
+<lastmod>2017-04-18T19:29:46+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/three-elememts-in-machine-learning.html</loc>
-<lastmod>2016-11-25T16:35:30+08:00</lastmod>
+<lastmod>2017-04-18T20:06:39+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -649,7 +698,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/data-preprocessing-in-dm-xuetangx.html</loc>
-<lastmod>2016-09-28T17:13:00+08:00</lastmod>
+<lastmod>2017-04-17T19:23:30+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -846,6 +895,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/svm-2-dual.html</loc>
 <lastmod>2016-05-03T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/debug-assert-meaning.html</loc>
+<lastmod>2017-04-18T19:29:20+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

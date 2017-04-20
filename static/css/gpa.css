@@ -48,3 +48,7 @@ td {
 	font-weight: bolder;
     text-decoration: underline;
 }
+
+#grade {
+    width: 100%;
+}

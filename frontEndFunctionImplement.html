@@ -113,6 +113,7 @@
 <li><a href="#jquery">jquery的点击事件</a></li>
 <li><a href="#div">多个div并排且居中</a></li>
 <li><a href="#jquery-focus">Jquery focus无效不工作</a></li>
+<li><a href="#_4">验证码图片</a></li>
 </ul>
 </div>
                         </div>
@@ -217,6 +218,19 @@ $("ul li a").each(function(){
     $("#cc_number").focus();
 }, 0);
 </pre></div>
+<h1 id="_4">验证码图片</h1>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"verification_code"</span><span class="o">&gt;</span><span class="err">验证码</span>
+    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"javascript:void(0)"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">"refresh(this)"</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"/verifycode"</span> <span class="nx">title</span><span class="o">=</span><span class="s2">"点击重新获取"</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/a&gt;</span>
+<span class="o">&lt;</span><span class="err">/label&gt;</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"verification_code"</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"verification_code"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">value</span><span class="o">=</span><span class="s2">""</span><span class="o">&gt;</span>
+
+<span class="kd">function</span> <span class="nx">refresh</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span><span class="s1">'/verifycode?random='</span><span class="o">+</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+<p>主要是 img 标签里的 setAttribute('src', '/api?random=')</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -285,7 +299,7 @@ $("ul li a").each(function(){
                             <span>1</span>
 </a></li>
                         <li><a href="/tags.html#web-ref">web
-                            <span>2</span>
+                            <span>3</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

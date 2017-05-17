@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-05-14T23:58:45-00:00</lastmod>
+<lastmod>2017-05-17T23:22:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-05-14T23:58:45-00:00</lastmod>
+<lastmod>2017-05-17T23:22:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-05-14T23:58:45-00:00</lastmod>
+<lastmod>2017-05-17T23:22:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-05-14T23:58:45-00:00</lastmod>
+<lastmod>2017-05-17T23:22:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -46,8 +46,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://sndnyang.github.io/unsupervised-learning-of-visual-representations.html</loc>
+<lastmod>2017-05-16T12:46:38+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2017-05-15_to_21-diary.html</loc>
+<lastmod>2017-05-16T11:36:06+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://sndnyang.github.io/learning-features-by-watch-objects-move.html</loc>
-<lastmod>2017-05-14T23:56:06+08:00</lastmod>
+<lastmod>2017-05-15T15:29:53+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

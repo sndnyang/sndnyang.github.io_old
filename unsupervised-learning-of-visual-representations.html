@@ -4,26 +4,26 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+        <meta name="author" content="sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="sndnyang sndnyang.github.io" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 机器学习, 人工智能, zhimind系列, 机器学习, " />
+<meta name="keywords" content="论文, 计算机视觉, 人工智能, 计算机视觉, " />
 
-<meta property="og:title" content="知维图系列-机器学习目录 "/>
-<meta property="og:url" content="http://sndnyang.github.io/machine-learning-catalog.html" />
-<meta property="og:description" content="机器学习目录 自引用：知维图系列-机器学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法 指数分布簇 广义线性模型" />
+<meta property="og:title" content="无监督视觉表示学习 "/>
+<meta property="og:url" content="http://sndnyang.github.io/unsupervised-learning-of-visual-representations.html" />
+<meta property="og:description" content="" />
 <meta property="og:site_name" content="懒龙谷" />
-<meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-10-08T19:18:30+08:00" />
-<meta property="" content="2016-10-28T20:18:30+08:00" />
-<meta name="twitter:title" content="知维图系列-机器学习目录 ">
-<meta name="twitter:description" content="机器学习目录 自引用：知维图系列-机器学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法 指数分布簇 广义线性模型">
+<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
+<meta property="og:article:published_time" content="2017-05-16T09:48:09+08:00" />
+<meta property="" content="2017-05-16T12:46:38+08:00" />
+<meta name="twitter:title" content="无监督视觉表示学习 ">
+<meta name="twitter:description" content="">
 
 
-        <title>知维图系列-机器学习目录  · 懒龙谷
+        <title>无监督视觉表示学习  · 懒龙谷
 </title>
 
         <style>
@@ -93,8 +93,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/machine-learning-catalog.html">
-                        知维图系列-机器学习目录  
+                    <a href="/unsupervised-learning-of-visual-representations.html">
+                        无监督视觉表示学习  
                     </a>
                 </h1>
             </header>
@@ -107,7 +107,27 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">机器学习目录</a></li>
+<li><a href="#_1">摘要</a></li>
+<li><a href="#_2">导论</a></li>
+<li><a href="#overview">overview</a></li>
+<li><a href="#_3">视频帧挖掘</a></li>
+<li><a href="#_4">视频学习</a><ul>
+<li><a href="#siamese-triplet-network">Siamese Triplet Network</a></li>
+<li><a href="#ranking-loss-function">ranking loss function</a></li>
+<li><a href="#hard-negative-mining-for-triplet-sampling">Hard Negative Mining for Triplet Sampling</a><ul>
+<li><a href="#random-selection">random selection</a></li>
+<li><a href="#hard-negative-mining">Hard Negative Mining</a></li>
+</ul>
+</li>
+<li><a href="#adapting-for-supervised-tasks">Adapting for Supervised Tasks</a><ul>
+<li><a href="#_5"></a></li>
+</ul>
+</li>
+<li><a href="#model-ensemble">Model Ensemble</a></li>
+<li><a href="#_6">实现细节</a></li>
+</ul>
+</li>
+<li><a href="#_7">实验</a></li>
 </ul>
 </div>
                         </div>
@@ -121,35 +141,132 @@
 
                         
                         
-<h1 id="_1">机器学习目录</h1>
-<p>自引用：<a href="http://blog.zhimind.com/machine-learning-catalog.html">知维图系列-机器学习目录链接</a></p>
-<p><a href="http://zhimind.com/map/f349e9b2-1412-44f4-a18e-618825613bcb">思维导图</a></p>
-<p>鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。</p>
-<ul>
-<li>基础概念<ul>
-<li><a href="http://www.zhimind.com/tutorial/acd9371a-1565-429c-9cdc-c275937e4523">机器学习定义</a></li>
-<li><a href="http://www.zhimind.com/tutorial/3b230a16-7472-42dc-b9c6-ced54c9fe9f7">机器学习主要类型</a></li>
-<li><a href="http://www.zhimind.com/tutorial/three-elememts-in-machine-learning">机器学习三要素</a></li>
-</ul>
+<h1 id="_1">摘要</h1>
+<p>论文<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
+<p>关键点： 视觉追踪能提供超视觉信息 visual tracking provides the supervision</p>
+<p>视觉追踪中的两帧在深度特征空间中，应该有着相似的视觉表示(visual representation)，因为它们很可能对应同一物体或物体部分</p>
+<p>two patches connected by a track should have
+similar visual representation in deep feature space since
+they probably belong to the same object or object part</p>
+<p>所以，本文的初始目标是从视觉追踪的视频流中抽取两帧，计算相似度， 又为了对比效果（过拟合？），需要不相似的另一帧，组成 孪生(Siamese)三元组的数据，加上一个有序损失函数，用以训练CNN模型</p>
+<p>design a Siamese-triplet network with a ranking loss function
+to train this CNN representation</p>
+<h1 id="_2">导论</h1>
+<p>propose to exploit visual tracking for learning CNNs in an unsupervised manner</p>
+<p>two patches connected by a track should have similar visual representation in deep feature space since they probably belong to the same object</p>
+<p>和摘要重复了~~~</p>
+<h1 id="overview">overview</h1>
+<p>使用 AlexNet架构 follow the AlexNet architecture to design our base
+network.</p>
+<p>从对物体或物体部分追踪的视频实例中选取开头、结尾两帧 first and last tracked frames correspond to the same instance of the moving object or object part</p>
+<p>所以在特征空间里，这两帧（数据点）的视觉表示 应该是相近的 any visual representation that we learn should keep these two data points close in the feature space</p>
+<p>仅仅如此并不充分， 容易过拟合， 比如所有点都映射到一个点上就一了百了了 just using this constraint is not sufficient: all points can be mapped to a single point in feature space</p>
+<p>overfit</p>
+<p>One way is to increase the
+number of training triplets</p>
+<p>analogous to hard-negative mining, we select the
+third patch from multiple patches that violates the constraint</p>
+<h1 id="_3">视频帧挖掘</h1>
+<ol>
+<li>obtain SURF<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> interest points and use Improved Dense
+Trajectories (IDT)<sup id="fnref:50"><a class="footnote-ref" href="#fn:50" rel="footnote">6</a></sup> to obtain motion of each SURF
+point. </li>
+<li>classify these points as moving if the flow
+magnitude is more than 0.5 pixels</li>
+<li>reject frames
+    (a) very few (&lt; 25%) SURF interest points are classified
+as moving because it might be just noise
+    (b) majority of
+SURF interest points (&gt; 75%) are classified as moving asit corresponds to moving camera</li>
+<li>find the
+best bounding box such that it contains most of the moving
+SURF points. The size of the bounding box is set as h × w,
+and we perform sliding window with it in the frame</li>
+</ol>
+<p>Tracking:</p>
+<p>Given the initial bounding box, we perform
+tracking using the KCF tracker<sup id="fnref:19"><a class="footnote-ref" href="#fn:19" rel="footnote">4</a></sup>. After tracking along 30
+frames in the video, we obtain the second patch. This patch
+acts as the similar patch to the query patch in the triplet.
+Note that the KCF tracker does not use any supervised information
+except for the initial bounding box</p>
+<h1 id="_4">视频学习</h1>
+<h2 id="siamese-triplet-network">Siamese Triplet Network</h2>
+<p>AlexNet architecture<sup id="fnref:24"><a class="footnote-ref" href="#fn:24" rel="footnote">5</a></sup></p>
+<p>stack two fully connected layers on the pool5
+outputs, whose neuron numbers are 4096 and 1024 respectively.
+Thus the final output of each single network is 1024
+dimensional feature space f(·).</p>
+<h2 id="ranking-loss-function">ranking loss function</h2>
+<p>to learn an image similarity model in the form
+of CNN</p>
+<p>define the distance of two image patches X1, X2
+based on the cosine distance in the feature space as</p>
+<p>$D(X_1,X_2) = 1 - \frac{f(X_1) * f(X_2)}{||f(X_1)||||f(X_2)||}$</p>
+<p>$X_i$ $X_i^{+}$ $X_i^{-}$</p>
+<p>the loss
+of our ranking model is defined by hinge loss as</p>
+<p>$$L(i, +, -) = max{0, D(i,+)-D(i,-) + M}$$</p>
+<p>Me M represents the gap parameters between two distances.
+We set M = 0.5 in the experiment. Then our objective
+function for training can be represented as</p>
+<p>$$\min_{W} \frac{\lambda}{2} ||W||<em i="1">2^2 + \sum</em>^Nmax{0,D(i,+) - D(i,-)+M}$$</p>
+<p>W is the parameter weights of the network, i.e., parameters
+for function f(·). N is the number of the triplets of
+samples. $\lambda$ is a constant representing weight decay, which
+is set to $\lambda$λ = 0.0005</p>
+<h2 id="hard-negative-mining-for-triplet-sampling">Hard Negative Mining for Triplet Sampling</h2>
+<h3 id="random-selection">random selection</h3>
+<p>randomly sample K negative matches in the
+same batch,  e have K sets of triplet of samples</p>
+<h3 id="hard-negative-mining">Hard Negative Mining</h3>
+<h2 id="adapting-for-supervised-tasks">Adapting for Supervised Tasks</h2>
+<p>apply our model
+to two different tasks including object detection and surface
+normal estimation</p>
+<h3 id="_5"></h3>
+<p>directly applying our
+ranking model as a pre-trained network for the target task</p>
+<p>very similar to the approach applied in RCNN<sup id="fnref:14"><a class="footnote-ref" href="#fn:14" rel="footnote">3</a></sup></p>
+<p>we use an iterative finetuning
+scheme. Given the initial unsupervised network, we
+first fine-tune using the PASCAL VOC data. Given the new
+fine-tuned network, we use this network to re-adapt to ranking
+triplet task. Here we again transfer convolutional parameters
+for re-adapting. Finally, this re-adapted network is
+fine-tuned on the VOC data yielding a better trained model.
+We show in the experiment that this circular approach gives
+improvement in performance. We also notice that after two
+iterations of this approach the network converges</p>
+<h2 id="model-ensemble">Model Ensemble</h2>
+<h2 id="_6">实现细节</h2>
+<h1 id="_7">实验</h1>
+<p>目前还看不懂实验部分</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Unsupervised Learning of Visual Representations using Videos, Xiaolong Wang, Abhinav Gupta <a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
-<li>线性模型  <ul>
-<li>线性回归  <ul>
-<li><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a></li>
-<li><a href="http://zhimind.com/tutorial/89fbbdc0-0f8b-44e5-b141-990844232119">标准方程</a></li>
-<li><a href="http://zhimind.com/tutorial/9ccd6d11-4403-44ed-8484-8f872a9e52ac">概率解释</a></li>
-<li><a href="http://zhimind.com/tutorial/7eef4776-2c9a-48e7-adfa-02aabd4cea7d">局部加权回归</a></li>
-</ul>
+<li id="fn:2">
+<p>H. Bay, T. Tuytelaars, and L. V. Gool. Surf: Speeded up robust features. In ECCV, 2006
+features <a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
-<li>逻辑回归  <ul>
-<li><a href="http://zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归基础</a></li>
-<li><a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a></li>
-</ul>
+<li id="fn:14">
+<p>R. Girshick, J. Donahue, T. Darrell, and J. Malik. Rich feature hierarchies for accurate object detection and semantic segmentation. In CVPR <a class="footnote-backref" href="#fnref:14" rev="footnote" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
-<li>指数分布簇</li>
-<li>广义线性模型</li>
-</ul>
+<li id="fn:19">
+<p>J. F. Henriques, R. Caseiro, P. Martins, and J. Batista. High-speed tracking with kernelized correlation filters. TPAMI, 2015 <a class="footnote-backref" href="#fnref:19" rev="footnote" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
-</ul>
+<li id="fn:24">
+<p>A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classification with deep convolutional neural networks. In NIPS, 2012 <a class="footnote-backref" href="#fnref:24" rev="footnote" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:50">
+<p>H. Wang and C. Schmid. Action recognition with improved trajectories.
+In ICCV, 2013 <a class="footnote-backref" href="#fnref:50" rev="footnote" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+</ol>
+</div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -170,7 +287,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/machine-learning-catalog.html#disqus_thread">
+                href="http://sndnyang.github.io/unsupervised-learning-of-visual-representations.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -180,8 +297,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'machine-learning-catalog.html';
-    var disqus_url = 'http://sndnyang.github.io/machine-learning-catalog.html';
+        var disqus_identifier = 'unsupervised-learning-of-visual-representations.html';
+    var disqus_url = 'http://sndnyang.github.io/unsupervised-learning-of-visual-representations.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -203,26 +320,23 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-10-08T19:18:30+08:00">十月 8, 2016</time>
+                    <time pubdate="pubdate" datetime="2017-05-16T09:48:09+08:00">五月 16, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2016-10-28T20:18:30+08:00">十月 28, 2016</time>
+<time datetime="2017-05-16T12:46:38+08:00">五月 16, 2017</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <a class="category-link" href="/categories.html#ji-suan-ji-shi-jue-ref">计算机视觉</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>36</span>
+                        <li><a href="/tags.html#ji-suan-ji-shi-jue-ref">计算机视觉
+                            <span>2</span>
 </a></li>
-                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>20</span>
+                        <li><a href="/tags.html#lun-wen-ref">论文
+                            <span>16</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>21</span>
-</a></li>
-                        <li><a href="/tags.html#zhimindxi-lie-ref">zhimind系列
-                            <span>2</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

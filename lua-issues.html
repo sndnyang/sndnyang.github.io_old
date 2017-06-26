@@ -4,26 +4,26 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+        <meta name="author" content="sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="sndnyang sndnyang.github.io" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="创业, 读书笔记, 创业, " />
+<meta name="keywords" content="软件开发, 编译, 软件开发, " />
 
-<meta property="og:title" content="设计冲刺读书笔记 "/>
-<meta property="og:url" content="http://sndnyang.github.io/notes-on-design-sprint.html" />
-<meta property="og:description" content="简述 因为还是有那么点想法的，所以想找这类书籍来学习一二， 其实说到底， 技术不过关， 产品没研究， 营销没了解， 设计同样搞不定， 又是一个人单干， 真是什么都干不成。 简单做点笔记而已。 搭建舞台 即开始之前的准备 识别挑战 从大问题入手 从原文中感觉不出是大问题， 应该是重要、关键、困难的问题。 对以下挑战、困难，很适合用设计冲刺： 风险高：能降低失败成本 时间紧：5天时间可以说足够短 起步难：带来新方法和视角，从而找出解决方案 对于创业团队来说， 核心业务当然是重要、重大、困难的问题，所以都没错。并不仅仅是指时间长、人力多的任务。 但很多项目的首要就是外观、 界面，这个会给用户留下第一印象。 这块就算设计挑战有帮助，我也没办法。 组建团队 确定决策者、 引导者及多样化成员 组建7人以内团队： 决策者、财务、营销、客服、技术 ..." />
+<meta property="og:title" content="lua问题 "/>
+<meta property="og:url" content="http://sndnyang.github.io/lua-issues.html" />
+<meta property="og:description" content="windows编译缺头文件 问题描述： 在win7系统， 使用 luarocks install luasocket 时报错： src/mime.c(5): fatal error C1083: Cannot open include file: &#39;string.h&#39;: No such file or directory 注：已经安装过 VS20XX(VS2013开始有社区版，之前的express是免费的，2017年已经是VS2017，真丫的大)，所以不会存在真没有头文件的问题。 解决方案 stackoverflow 前两步是安装 LuaRocks（更之前是安装Lua），明显的。关键是报这个错，就意味着头文件、库文件的路径没找到，所以要把路径加进来。 给出的方案是使用 Visual Studio Command Prompt， 也就是 ..." />
 <meta property="og:site_name" content="懒龙谷" />
-<meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-10-27T11:35:20+08:00" />
-<meta property="" content="2016-10-27T11:35:20+08:00" />
-<meta name="twitter:title" content="设计冲刺读书笔记 ">
-<meta name="twitter:description" content="简述 因为还是有那么点想法的，所以想找这类书籍来学习一二， 其实说到底， 技术不过关， 产品没研究， 营销没了解， 设计同样搞不定， 又是一个人单干， 真是什么都干不成。 简单做点笔记而已。 搭建舞台 即开始之前的准备 识别挑战 从大问题入手 从原文中感觉不出是大问题， 应该是重要、关键、困难的问题。 对以下挑战、困难，很适合用设计冲刺： 风险高：能降低失败成本 时间紧：5天时间可以说足够短 起步难：带来新方法和视角，从而找出解决方案 对于创业团队来说， 核心业务当然是重要、重大、困难的问题，所以都没错。并不仅仅是指时间长、人力多的任务。 但很多项目的首要就是外观、 界面，这个会给用户留下第一印象。 这块就算设计挑战有帮助，我也没办法。 组建团队 确定决策者、 引导者及多样化成员 组建7人以内团队： 决策者、财务、营销、客服、技术 ...">
+<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
+<meta property="og:article:published_time" content="2017-05-22T08:58:11+08:00" />
+<meta property="" content="2017-05-22T09:01:38+08:00" />
+<meta name="twitter:title" content="lua问题 ">
+<meta name="twitter:description" content="windows编译缺头文件 问题描述： 在win7系统， 使用 luarocks install luasocket 时报错： src/mime.c(5): fatal error C1083: Cannot open include file: &#39;string.h&#39;: No such file or directory 注：已经安装过 VS20XX(VS2013开始有社区版，之前的express是免费的，2017年已经是VS2017，真丫的大)，所以不会存在真没有头文件的问题。 解决方案 stackoverflow 前两步是安装 LuaRocks（更之前是安装Lua），明显的。关键是报这个错，就意味着头文件、库文件的路径没找到，所以要把路径加进来。 给出的方案是使用 Visual Studio Command Prompt， 也就是 ...">
 
 
-        <title>设计冲刺读书笔记  · 懒龙谷
+        <title>lua问题  · 懒龙谷
 </title>
 
         <style>
@@ -95,133 +95,64 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/notes-on-design-sprint.html">
-                        设计冲刺读书笔记  
+                    <a href="/lua-issues.html">
+                        lua问题  
                     </a>
                 </h1>
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#windows">windows编译缺头文件</a><ul>
+<li><a href="#_1">问题描述：</a></li>
+<li><a href="#_2">解决方案</a></li>
+<li><a href="#_3">延伸</a></li>
+</ul>
+</li>
+<li><a href="#socketlua">socket.lua</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <h1 id="_1">简述</h1>
-<p>因为还是有那么点想法的，所以想找这类书籍来学习一二， 其实说到底， 技术不过关， 产品没研究， 营销没了解， 设计同样搞不定， 又是一个人单干， 真是什么都干不成。</p>
-<p>简单做点笔记而已。</p>
-<h1 id="_2">搭建舞台</h1>
-<p>即开始之前的准备</p>
-<h2 id="_3">识别挑战</h2>
-<h3 id="_4">从大问题入手</h3>
-<p>从原文中感觉不出是大问题， 应该是重要、关键、困难的问题。</p>
-<p>对以下挑战、困难，很适合用设计冲刺：</p>
-<ol>
-<li>风险高：能降低失败成本 </li>
-<li>时间紧：5天时间可以说足够短</li>
-<li>起步难：带来新方法和视角，从而找出解决方案</li>
-</ol>
-<p>对于创业团队来说， 核心业务当然是重要、重大、困难的问题，所以都没错。并不仅仅是指时间长、人力多的任务。</p>
-<p>但很多项目的首要就是外观、 界面，这个会给用户留下第一印象。 这块就算设计挑战有帮助，我也没办法。</p>
-<h2 id="_5">组建团队</h2>
-<ol>
-<li>确定决策者、 引导者及多样化成员</li>
-<li>组建7人以内团队：  <br />
-    决策者、财务、营销、客服、技术、设计或产品</li>
-<li>兼听则明，所以可能的话，要有反对人士</li>
-</ol>
-<h2 id="_6">确定时间、地点</h2>
-<p>原则：排除干扰</p>
-<p>定出5天连续的工作日， 合适的会议室， 拒绝使用电子设备， 多使用白板。</p>
-<h1 id="_7">星期一 确定方向</h1>
-<h2 id="_8">从结果出发</h2>
-<h3 id="_9">设定一个长期目标</h3>
-<div class="highlight"><pre><span></span>“我们为什么要做这个项目，从现在起，6个月后、1年后、5年后，希望公司变成什么样？”
+                        
+<h1 id="windows">windows编译缺头文件</h1>
+<h2 id="_1">问题描述：</h2>
+<p>在win7系统， 使用 luarocks install luasocket 时报错：</p>
+<div class="highlight"><pre><span></span>src/mime.c(5): fatal error C1083: Cannot open include file: 'string.h': No such file or directory
 </pre></div>
-
-
-<p>目标不是业绩指标， 是团队的原则，是野心、愿景、梦想。</p>
-<h3 id="_10">目标背后的假设</h3>
-<p>目标背后的假设很危险，比如 zhimind的几大假设：</p>
-<ol>
-<li>启发式教学模式好 <strong>*</strong></li>
-<li>启发式教学以目前的技术可以模仿出一定智能水平——其实做的很傻 <strong>*</strong></li>
-<li>思维导图式的学习进度也有一定作用 **</li>
-<li>人的思考过程可以去显式获取，逐渐逼近 ****</li>
-<li>可以根据人的思考过程的数据，进行个性化区分、甚至天赋的判断 ****</li>
-</ol>
-<p>需要将假设转成问题，进行验证</p>
-<h3 id="_11">必须要解决的难题</h3>
-<p>列出冲刺要解决的难题：</p>
-<ol>
-<li>想解决什么问题？</li>
-<li>为了实现目标，必要条件有哪些？</li>
-<li>想象下穿越到未来，发现项目失败了， 可能是什么原因造成的？</li>
-</ol>
-<p>把假设、 阻碍、 必要条件转成问题</p>
-<p>zhimind的核心问题：</p>
-<ol>
-<li>如何实现智能化引导式教学？问题太大，因为没头绪。 <strong>*</strong>*</li>
-<li>人工智能是否能使用到？ ****</li>
-<li>如何更好地匹配填空题的回答？ ****</li>
-<li>如何实现比较大、多步的问题的答案匹配及思路指导？ <strong>*</strong></li>
-<li>如何记录思考过程，并利用？ 这个比较遥远了。</li>
-</ol>
-<h2 id="_12">绘制地图</h2>
-<p>地图就是用户使用服务或产品的轨迹。</p>
-<p>对zhimind而言：</p>
-<ol>
-<li>读者、学习者：   <ol>
-<li>选择感兴趣的领域，即选择相应思维导图，相当于选课，生成自己的导图（才能记录进度）</li>
-<li>学习导图里各个知识点的教程或练习——没有标准程序，一般从根到子，从上到下（从左到右）。 不过这教程和练习接口不好， 应该像个下拉菜单，更不应该和操作部分冲突。</li>
-<li>学习时，看教程、做练习，进行交互学习。</li>
-<li>学完会有进度显示，知识点颜色会变化。</li>
-</ol>
-</li>
-<li>制作者：<ol>
-<li>按交互式的思路、原则编写教程和练习。</li>
-<li>上传到某个地方。</li>
-<li>在个人主页或思维导图主页 添加新教程、练习， 这个交互接口也很难用。</li>
-</ol>
-</li>
-</ol>
-<p>绘图还真不好弄，左侧列出参与者， 右侧写出结局。 中间简单地绘出情节过程。</p>
-<h2 id="_13">请教专家</h2>
-<p>通过请教专家， 集中所有的知识储备。</p>
-<p>需要请专家谈及下面论题：</p>
-<ol>
-<li>策略：怎样才能让项目成功，独特优势或机遇是什么， 风险是什么</li>
-<li>用户的想法： 从用户角度看问题</li>
-<li>运行机理。 设计师、工程师、 营销人员。</li>
-<li>前期投入。</li>
-</ol>
-<p>通过“我们应该如何”的笔记，来整理、排序，并投票——也是提出问题、目标</p>
-<h2 id="_14">选择目标、方面</h2>
-<p>上一步得到了很多的目标（或小方面）， 就该选择、决策了。</p>
-<p>由决策者 选择一个目标用户和一个目标事件</p>
-<p>引导者笔记：</p>
-<ol>
-<li>坦诚地征求团队许可</li>
-<li>随时记录， 把团队讨论都综合记录在白板上</li>
-<li>刻意发问， 确保成员之间没有误解，可能引出一些重要细节。</li>
-<li>照顾成员：  <ol>
-<li>多中场休息， 每60、90分钟休息一次。</li>
-<li>晚点吃饭</li>
-<li>少食多餐</li>
-</ol>
-</li>
-<li>迅速做出决定， 继续前行</li>
-</ol>
-<h1 id="_15">星期二 想出解决方案</h1>
-<p>最好的方案作为原型计划</p>
-<h2 id="_16">重组与改进</h2>
-<p>回顾已有的点子和灵感， 闪电之旅， 团队成员轮流用<strong>三分钟</strong>介绍自己最喜欢的方案， 找到原始素材，而不是抄袭竞争者。</p>
-<p>方案可以来自：其他产品、其他领域、 公司内部。</p>
-<h2 id="_17">草拟方案</h2>
-<p>在纸上画出详细方案</p>
-<h1 id="_18">跳过部分内容</h1>
-<h1 id="_19">星期四 实现原型</h1>
-<h2 id="_20">假装</h2>
-<p>用样品替代真正产品</p>
-<h1 id="_21">写不下去了~~~</h1>
+<p>注：已经安装过 VS20XX(VS2013开始有社区版，之前的express是免费的，2017年已经是VS2017，真丫的大)，所以不会存在真没有头文件的问题。</p>
+<h2 id="_2">解决方案</h2>
+<p><a href="http://stackoverflow.com/questions/33006269/compiling-luasocket-cannot-open-file-string-h">stackoverflow</a></p>
+<p>前两步是安装 LuaRocks（更之前是安装Lua），明显的。关键是报这个错，就意味着头文件、库文件的路径没找到，所以要把路径加进来。</p>
+<p>给出的方案是使用 Visual Studio Command Prompt， 也就是 一个CMD 或 windows版的shell， 它里面会设置好库文件路径。</p>
+<p>所以找到你安装的 Microsoft Visual C++ Build Tools 路径——如果是安装了整个 VS20XX，不知道 Microsoft Visual C++ Build Tools 文件夹会怎么安排，但肯定也有。本人实际路径是 C:\Program Files (x86)\Microsoft Visual C++ Build Tools。</p>
+<p>实际上就是找到 Visual C++ 20XX x86 Native Build Tools Command Prompt 这个文件（好像真没后缀名），x86是32位，看你的程序要32位还是64位的， 2017年5月份下载的Lua好像还是32位的（我猜的，因为它安装时，路径自动选择了Program Files(x86)）。</p>
+<p>右键-以管理员身份运行，即可打开命令行窗口， 再重新执行 install 命令，看你的luarocks.bat有没有加入到PATH环境变量中， 有则直接运行 luarocks.bat install luasocket, 没有则需要写完整路径，例：</p>
+<div class="highlight"><pre><span></span>"C:\Program Files (x86)\LuaRocks\luarocks.bat" install luasocket
+</pre></div>
+<p>双引号是因为路径里有空格。</p>
+<h2 id="_3">延伸</h2>
+<p>其实 Lua语言在安装时已经自带 luasocket了， 后来我安装成功时发现它里面已经带有了， 在Lua的安装目录的 clibs 文件夹里有socket文件夹。</p>
+<p>windows下类似缺头文件的编译错误估计都跟这个有关系， 就是头文件、库文件路径没有正确地添加到各种路径中， 添加也确实麻烦的话， 都可以试试这个方式， 使用 Microsoft Visual C++ Build Tools。</p>
+<h1 id="socketlua">socket.lua</h1>
+<p>使用 fceux加载一个文件，要调用到 socket库 </p>
+<div class="highlight"><pre><span></span>local socket = require("socket")
+</pre></div>
+<p>我下载编译好的dll，不起作用（程序崩溃），最后从 lua目录下拷了一个 socket.lua 过去(拷到 fceux.exe目录）， 成了~~~ </p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -242,7 +173,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/notes-on-design-sprint.html#disqus_thread">
+                href="http://sndnyang.github.io/lua-issues.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -252,8 +183,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'notes-on-design-sprint.html';
-    var disqus_url = 'http://sndnyang.github.io/notes-on-design-sprint.html';
+        var disqus_identifier = 'lua-issues.html';
+    var disqus_url = 'http://sndnyang.github.io/lua-issues.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -275,20 +206,20 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-10-27T11:35:20+08:00">十月 27, 2016</time>
+                    <time pubdate="pubdate" datetime="2017-05-22T08:58:11+08:00">五月 22, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2016-10-27T11:35:20+08:00">十月 27, 2016</time>
+<time datetime="2017-05-22T09:01:38+08:00">五月 22, 2017</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#chuang-ye-ref">创业</a>
+                    <a class="category-link" href="/categories.html#ruan-jian-kai-fa-ref">软件开发</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#chuang-ye-ref">创业
-                            <span>10</span>
+                        <li><a href="/tags.html#bian-yi-ref">编译
+                            <span>1</span>
 </a></li>
-                        <li><a href="/tags.html#du-shu-bi-ji-ref">读书笔记
-                            <span>2</span>
+                        <li><a href="/tags.html#ruan-jian-kai-fa-ref">软件开发
+                            <span>6</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

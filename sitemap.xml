@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-06-30T11:45:58-00:00</lastmod>
+<lastmod>2017-08-18T13:55:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-06-30T11:45:58-00:00</lastmod>
+<lastmod>2017-08-18T13:55:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-06-30T11:45:58-00:00</lastmod>
+<lastmod>2017-08-18T13:55:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-06-30T11:45:58-00:00</lastmod>
+<lastmod>2017-08-18T13:55:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -125,6 +125,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/2017-04-24_to_30-diary.html</loc>
 <lastmod>2017-04-24T23:19:42+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/python-function-implement.html</loc>
+<lastmod>2017-04-24T22:26:28+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

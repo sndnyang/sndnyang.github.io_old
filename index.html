@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" xmlns:wb="http://open.weibo.com/wb">
     <head>
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,7 @@
         <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
         <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
         <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
@@ -90,13 +91,22 @@
             <div class="article-content">
                 I'm sndnyang, <a href="https://sndnyang.github.io">
         sndnyang</a> at github <br>  <a href="http://blog.csdn.net/sndnyangd">
-        sndnyangd</a> at csdn<br> <a href="https://www.zhihu.com/people/yang-xiu-long">
+        sndnyangd</a> at csdn<br> <a href="https://www.zhihu.com/people/jiandanminzhi">
         杨成</a> at 知乎<br> <a href="http://weibo.com/u/2405149384">sndnyang</a>
         at 微博。<br>
         有理想有但很难动作的懒龙。先战教育(启发、交互式教育 zhimind.com），再搞医疗（不会），学习自然语言处理和人工智能、机器学习<br>
         ambitious but lazy,  first goal is the education(heuristic, interactive education technology www.zhimind.com), then health care(have no idea now)<br>
         doing these by learning and applying natural language processing and artificial intelligence and machine learning.
         
+            </div>
+            <div class="hidden-phone">
+                <h3>微博最新动态</h3>
+                <div>
+                    <wb:follow-button uid="2405149384" type="red_3" width="100%" height="24" ></wb:follow-button>
+                </div>
+                <div>
+                    <iframe id="weibo" style="width:100%; height:400px;"   frameborder="0" scrolling="no" src="http://v.t.sina.com.cn/widget/widget_blog.php?uid=2405149384"></iframe>
+                </div>
             </div>
         </div>
 
@@ -123,7 +133,7 @@
             </ul>
             <ul class="list-all-articles">
                 <li>
-                <a href="http://www.zhimind.com/reciteWord.html" title="脑洞单词(实验)">脑洞单词(实验)</a> <span class="proj-desc">自己编写联想记忆法，找词根词缀等方式来记忆单词，联想记忆法效率会高一些</span>
+                <a href="tools_for_foreign_language_learning.html" title="个人开发的外语学习工具合集">个人开发的外语学习工具合集</a> <span class="proj-desc">自己编写的多个外语学习工具</span>
                 </li>
             </ul>
             <ul class="list-all-articles">

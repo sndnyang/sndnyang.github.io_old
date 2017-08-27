@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:wb="http://open.weibo.com/wb">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="sndnyang sndnyang.github.io" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="shell, shell, " />
+
+<meta property="og:title" content="bash技巧 "/>
+<meta property="og:url" content="http://sndnyang.github.io/shell-bash-tricks.html" />
+<meta property="og:description" content="防止变量未赋值 set -o nounset / set -u 使用这个选项可以使脚本在使用未初始化的变量时直接退出 字符串变量中的空格 示例： x=&#34; dokjd &#34; 1.保留全部空格 echo &#34;$x&#34; 2. 去除头尾空格: echo $x shell string总结 空串判断 if [ -z &#34;$line&#34; ] 在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug for循环遍历文件时，使用 for line in cat $filename 缺点: 当行内有空格时，一行会被划分成两行 上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令 ..." />
+<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
+<meta property="og:article:published_time" content="2017-04-17T18:55:05+08:00" />
+<meta property="" content="2017-04-24T09:18:56+08:00" />
+<meta name="twitter:title" content="bash技巧 ">
+<meta name="twitter:description" content="防止变量未赋值 set -o nounset / set -u 使用这个选项可以使脚本在使用未初始化的变量时直接退出 字符串变量中的空格 示例： x=&#34; dokjd &#34; 1.保留全部空格 echo &#34;$x&#34; 2. 去除头尾空格: echo $x shell string总结 空串判断 if [ -z &#34;$line&#34; ] 在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug for循环遍历文件时，使用 for line in cat $filename 缺点: 当行内有空格时，一行会被划分成两行 上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令 ...">
+
+
+        <title>bash技巧  · 懒龙谷
+</title>
+
+        <style>
+            body { padding-top: 50px; padding-bottom: 10px; }
+        </style>
+
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+
+		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
+        
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="/">Home</a></li>
+                            <li ><a href="https://www.zhimind.com">zhimind home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">留学<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li ><a href="https://www.zhimind.com/oversea/college.html">学校库</a></li>
+                                    <li ><a href="https://www.zhimind.com/oversea/major.html">专业库</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">工具</li>
+                                    <li><a href="/gpa_calculator.html">GPA计算器</a></li>
+                                    <li><a href="http://www.zhimind.com/reciteword/reciteWord.html">脑洞背单词</a></li>
+                                    <li><a href="https://www.zhimind.com/talkerchu/index.html">脱口而出</a></li>
+                                </ul>
+                            </li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+
+        <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
+        <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
+        <script type="text/javascript">
+		$(document).ready(function() {
+            initScrollSpy();
+		    backToTop();
+		});
+      
+    	</script>
+        
+        <div class="hint">
+            <ul class="flashes">
+            </ul>
+        </div>
+        
+        <article>
+            <header class="page-header span12 text-center">
+                <h1>
+                    <a href="/shell-bash-tricks.html">
+                        bash技巧  
+                    </a>
+                </h1>
+            </header>
+
+            <div class="row-fluid article-inner">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">防止变量未赋值</a></li>
+<li><a href="#_2">字符串变量中的空格</a><ul>
+<li><a href="#1">1.保留全部空格</a></li>
+<li><a href="#2">2. 去除头尾空格:</a></li>
+</ul>
+</li>
+<li><a href="#shell-string">shell string总结</a></li>
+<li><a href="#_3">字符串格式化输出</a></li>
+<li><a href="#_4">二次赋值</a><ul>
+<li><a href="#_5">数组中二次赋值</a></li>
+<li><a href="#eval">eval 变量二次赋值</a></li>
+</ul>
+</li>
+<li><a href="#_6">参数太长</a></li>
+<li><a href="#_7">判断操作系统</a></li>
+<li><a href="#_8">历史命令记录</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
+
+                        
+                        
+<h1 id="_1">防止变量未赋值</h1>
+<div class="highlight"><pre><span></span>set -o nounset / set -u
+</pre></div>
+<p>使用这个选项可以使脚本在使用未初始化的变量时直接退出</p>
+<h1 id="_2">字符串变量中的空格</h1>
+<p>示例：</p>
+<div class="highlight"><pre><span></span>x=" dokjd    "
+</pre></div>
+<h2 id="1">1.保留全部空格</h2>
+<div class="highlight"><pre><span></span>    echo "$x"
+</pre></div>
+<h2 id="2">2. 去除头尾空格:</h2>
+<div class="highlight"><pre><span></span>    echo $x
+</pre></div>
+<h1 id="shell-string">shell string总结</h1>
+<ol>
+<li>空串判断 if [ -z "$line" ]</li>
+<li>在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug</li>
+<li>for循环遍历文件时，使用 for line in <code>cat $filename</code> 缺点: 当行内有空格时，一行会被划分成两行</li>
+<li>上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令。</li>
+</ol>
+<h1 id="_3">字符串格式化输出</h1>
+<p>和C相似</p>
+<div class="highlight"><pre><span></span>printf "%-12s" "$x"
+</pre></div>
+<p>awk 和 c 的几乎一样</p>
+<div class="highlight"><pre><span></span>awk ' { printf "%s-%s", $1, $2 } '
+</pre></div>
+<h1 id="_4">二次赋值</h1>
+<h2 id="_5">数组中二次赋值</h2>
+<div class="highlight"><pre><span></span>i=1;
+x[1]=2;
+echo <span class="cp">${</span><span class="n">x</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span><span class="cp">}</span>
+</pre></div>
+<h2 id="eval">eval 变量二次赋值</h2>
+<p>见证奇迹的时刻:</p>
+<div class="highlight"><pre><span></span>first_item="PROJECT_NAME"
+eval $first_item="LB03"
+echo $PROJECT_NAME
+</pre></div>
+<p>结果是</p>
+<div class="highlight"><pre><span></span>LB03
+</pre></div>
+<p>引申到数组的利用上</p>
+<div class="highlight"><pre><span></span>set -A array_name "PROJECT_NAME" "BRANCH"
+set -A array_value "LB03" "DEV"
+eval <span class="cp">${</span><span class="n">array_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cp">}</span>=<span class="cp">${</span><span class="n">array_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="cp">}</span>
+echo "BRANCH =" <span class="nv">$BRANCH</span>
+</pre></div>
+<p>结果应该是</p>
+<div class="highlight"><pre><span></span>BRANCH = DEV
+</pre></div>
+<h1 id="_6">参数太长</h1>
+<p>如 rm -f * 删除当前路径下所有文件时，可能文件太多，报错Argument list too long</p>
+<p>解决方法:</p>
+<div class="highlight"><pre><span></span>ls | xargs rm -f
+</pre></div>
+<p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
+<h1 id="_7">判断操作系统</h1>
+<div class="highlight"><pre><span></span>uname
+</pre></div>
+<h1 id="_8">历史命令记录</h1>
+<p>!的使用</p>
+<ul>
+<li>!!重复前一个命令</li>
+<li>!字符 重复前一个以“字符”开头的命令</li>
+<li>!num 按照history命令输出中的序号来重复对应命令</li>
+<li>!?abc 重复前一个包含abc的命令 <em>这个最好用</em></li>
+<li>!-n 重复n个命令之前的那个命令</li>
+<li>!$ 上一个命令的最后一个参数</li>
+</ul>
+<p>按键组合:</p>
+<p>⑴使用up和down键来上下浏览之前执行的命令
+⑵键入ctr+r来在命令历史中搜索命令</p>
+                        
+                        <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
+                    <a href="#" class="bds_more" data-cmd="more"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+                    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                    <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+                </div>
+
+                    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2130941"></script>
+<!-- UY END -->
+<section>
+<p id="comment-message">this man is lazy, nothing left </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://sndnyang.github.io/shell-bash-tricks.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sndnyang';
+        var disqus_identifier = 'shell-bash-tricks.html';
+    var disqus_url = 'http://sndnyang.github.io/shell-bash-tricks.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+                    <hr/>
+                </div>
+                <div class="span2 right-side" style="float:right;font-size:0.9em;">
+                    <h4>Published</h4>
+                    <time pubdate="pubdate" datetime="2017-04-17T18:55:05+08:00">四月 17, 2017</time>
+
+<h4>Last Updated</h4>
+<time datetime="2017-04-24T09:18:56+08:00">四月 24, 2017</time>
+
+                    <h4>Category</h4>
+                    <a class="category-link" href="/categories.html#shell-ref">shell</a>
+                    <h4>Tags</h4>
+                    <ul class="list-of-tags tags-in-article">
+                        <li><a href="/tags.html#shell-ref">shell
+                            <span>2</span>
+</a></li>
+                    </ul>
+                    <h4>Stay in Touch</h4>
+                    <a href="http://weibo.com/u/2405149384" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+                        <i class="fa fa-weibo sidebar-social-links"></i></a>
+                    <a href="http://github.com/sndnyang" title="My Github Profile" class="sidebar-social-links" target="_blank">
+                        <i class="fa fa-github sidebar-social-links"></i></a>
+                    <a href="http://blog.csdn.net/sndnyangd" title="My csdn blog" class="sidebar-social-links" target="_blank">
+                        <i class="fa fa-github sidebar-social-links"></i></a>    
+                    <a href="mailto:sndnyangd@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+                        <i class="fa fa-envelope sidebar-social-links"></i></a>
+                </div>
+            </div>
+        </article>
+        <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+                </div>
+            </div>
+        </div>
+        <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+        <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'sndnyang';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+        <script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-74494551-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261726608'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261726608%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+    </body>
+</html>

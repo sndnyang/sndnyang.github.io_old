@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-08-28T13:36:34-00:00</lastmod>
+<lastmod>2017-08-28T15:45:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-08-28T13:36:34-00:00</lastmod>
+<lastmod>2017-08-28T15:45:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-08-28T13:36:34-00:00</lastmod>
+<lastmod>2017-08-28T15:45:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-08-28T13:36:34-00:00</lastmod>
+<lastmod>2017-08-28T15:45:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -54,7 +54,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/Vultr-config-flask-production-environment.html</loc>
-<lastmod>2017-08-28T13:31:35+08:00</lastmod>
+<lastmod>2017-08-28T15:31:35+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -75,6 +75,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/config-centOS-install-postgresql.html</loc>
+<lastmod>2017-08-28T10:41:29+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/gunicorn-supervisor-deploy.html</loc>
 <lastmod>2017-08-28T10:41:29+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

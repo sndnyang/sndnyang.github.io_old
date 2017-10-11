@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2017-09-07T23:20:55-00:00</lastmod>
+<lastmod>2017-10-11T13:29:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2017-09-07T23:20:55-00:00</lastmod>
+<lastmod>2017-10-11T13:29:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2017-09-07T23:20:55-00:00</lastmod>
+<lastmod>2017-10-11T13:29:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2017-09-07T23:20:55-00:00</lastmod>
+<lastmod>2017-10-11T13:29:03-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -53,6 +53,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://sndnyang.github.io/BLACKOUT-SPEEDING-UP-RECURRENT-NEURAL-NETWORK-LANGUAGE-MODELS-WITH-LARGE-VOCABULARIES.html</loc>
+<lastmod>2017-09-28T12:46:38+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/python-validate-code-generatation.html</loc>
+<lastmod>2017-09-09T18:00:55+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/python-flask-logging-logger.html</loc>
+<lastmod>2017-09-09T15:32:25+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://sndnyang.github.io/ajax-template.html</loc>
 <lastmod>2017-09-06T17:38:32+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -69,6 +90,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/2017-09-04_to_10-diary.html</loc>
 <lastmod>2017-09-04T23:12:21+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2017-09-29_to_30-diary.html</loc>
+<lastmod>2017-09-01T23:12:21+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -132,6 +160,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/2017-08-21_to_27-diary.html</loc>
 <lastmod>2017-08-21T22:56:49+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/web-simple-loader.html</loc>
+<lastmod>2017-05-30T13:27:22+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -426,6 +461,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/2017-01-14-diary.html</loc>
 <lastmod>2017-01-14T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/2017-10-01_to_07-diary.html</loc>
+<lastmod>2017-01-01T23:12:21+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

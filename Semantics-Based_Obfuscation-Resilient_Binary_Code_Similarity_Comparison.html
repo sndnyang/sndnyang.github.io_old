@@ -122,6 +122,16 @@
 <ul>
 <li><a href="#_1">摘要</a></li>
 <li><a href="#_2">导论</a></li>
+<li><a href="#_3">总览</a><ul>
+<li><a href="#_4">方法论</a></li>
+</ul>
+</li>
+<li><a href="#_5">块相似</a><ul>
+<li><a href="#_6">严格语义等价</a></li>
+<li><a href="#_7">相似度</a></li>
+<li><a href="#_8">形式化</a></li>
+</ul>
+</li>
 </ul>
 </div>
                         </div>
@@ -153,8 +163,9 @@
 <li>语义等价 semantical equivalence？这个能做到？就用一组符号公式？</li>
 <li>代码块 怎么算个代码块</li>
 <li>定理证明器又是什么</li>
+<li>路径的定义是什么， 二进制代码的一次执行？</li>
 </ol>
-<p>都需要看一下。</p>
+<p>对我来说，最没概念的就是反向工程reverse engineering这块了</p>
 <h1 id="_2">导论</h1>
 <p>三个层次的语义：</p>
 <ol>
@@ -163,6 +174,33 @@
 <li>整个程序</li>
 </ol>
 <p>symbolic execution technique 获得 一组符号公式， 以表示代码块的输入输出关系。</p>
+<p>导论和摘要永远差不多的~~~</p>
+<h1 id="_3">总览</h1>
+<h2 id="_4">方法论</h2>
+<p>给两段程序（原告和被告）， 要判断抄袭、重复的话， 不只是整段相似， 可能是其中一段、核心部分抄袭。</p>
+<p>现有的方法中，基于程序语法 syntax, 和 基于系统调用依赖图 system call dependency graphs的方法都不是很靠谱</p>
+<p>所以提出基于 formal program semantics 的方法， 但问题是 formal
+logic 有相等而少相似</p>
+<p>本文结合了2种技术，在基本块、路径、函数、程序四个不同层次（怎么又多了一层） 定义代码定义。</p>
+<p>一种技术是在二进制代码的基本块层次 进行形式语义定义， 不仅有语义等价，还要有语义相似度。</p>
+<p>第二种技术在执行路径层面上定义语义， 在两段路径间， 计算语义等价基本块的最长公共子序列。</p>
+<p>用子序列长度与原长度的比， 作为路径的语义相似度。
+验证 一些输出公式是否在嫌疑代码中也等价存在。</p>
+<p>定义两个基本代码块的语义相似程度， 大于阈值， 则为等价</p>
+<p>进而在LCS计算过程中使用。</p>
+<h1 id="_5">块相似</h1>
+<h2 id="_6">严格语义等价</h2>
+<p>At the binary code level, these variables are represented as
+registers and memory cells</p>
+<p>所以 binary code 其实是汇编语言？</p>
+<p>Via symbolic execution, we get two symbolic formulas</p>
+<p>但没有解释  theorem prover 是什么</p>
+<h2 id="_7">相似度</h2>
+<p>严格等价很容易被糊弄过去，比如随便加个新变量</p>
+<p>所以， 作者提出对原告代码的每个输出变量进行独立检验， 验证嫌疑代码中是否存在一个对应。</p>
+<h2 id="_8">形式化</h2>
+<p>定义两组变量X和Y， 定义X和Y 变量对等价公式Pair-wise Equivalence Formulas of Input Variables</p>
+<p>$$ p(X, \pi(Y)) = \Lambda_{i=0}^{n} (X_i = \pi_i(Y))$$</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

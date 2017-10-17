@@ -184,7 +184,7 @@
 <h2 id="_3"></h2>
 <p>很明显，两种都好也都不好，有多种方案、多个方法时， 两种顺序都有好处，也都有缺点。除非是仅有一个方案，那不需要总结多种东西的特点。</p>
 <p>反正， 具体的模型、策略、算法后面都会讲到， 没有条件全部讲完再来总结，或先讲一两个再来总结？ 那反映到目录上就会比较乱。所以采取先定义总结，再来指导具体内容。</p>
-<div class="process"><span><p>牢记什么？<input class="quiz" type="text"/></p></span><br/><input class="comments" type="hidden" value="忘这么快？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<div class="process"><span><p>牢记什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="学习&amp;模型&amp;策略&amp;算法"/><input class="comments" type="hidden" value="忘这么快？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h1 id="_4">模型是什么</h1>
 <p>模型就是所要学习的条件概率分布或决策函数， 即 y = f(x) 或 P = P(Y|X)</p>
 <p>我们知道函数有 系数（参数） 和 未知数（变量）， 变量对应的是作为输入的数据， 所以机器学习主要是要求出函数（条件概率分布）的所有参数， 一般写成一个参数向量。</p>
@@ -236,7 +236,7 @@
 <div class="process"><span><p>那`L(Y,f(X))=(Y-f(X))^2`有问题吗?</p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="我也不知道我有没有套路，心情不同则套路不同？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h3 id="_13">为什么？有什么问题</h3>
 <p>考虑到它是概率值，</p>
-<div class="process"><span><p>概率值可能有什么问题?<input class="quiz" type="text"/></p></span><br/><input class="comments" type="hidden" value=":{%text|考虑某种极端情况_@(数|值)&amp;小#:{%radio|哪种极端情况会有问题？&amp;数值非常小（接近0）&amp;数值非常大（接近1）@数值非常小（接近0）#数值大还好吧？%}%}"/><button onclick="checkQuiz(this, 11)">submit</button><br/></div>
+<div class="process"><span><p>概率值可能有什么问题?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="(数|值)&amp;小"/><input class="comments" type="hidden" value=":{%text|考虑某种极端情况_@(数|值)&amp;小#:{%radio|哪种极端情况会有问题？&amp;数值非常小（接近0）&amp;数值非常大（接近1）@数值非常小（接近0）#数值大还好吧？%}%}"/><button onclick="checkQuiz(this, 11)">submit</button><br/></div>
 <h3 id="_14">怎么办？</h3>
 <p>概率经常就很可能遇到这种情况， 联合概率多个事件概率一乘， what， 接近0了，对吧？</p>
 <div class="process"><span><p>那这种情况怎么办？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="对数"/><input class="comments" type="hidden" value="怎么计算？#总共有几种运算啊？#加减乘除三角指对阶乘组合"/><button onclick="checkQuiz(this, 12)">submit</button><br/></div>
@@ -271,7 +271,7 @@ $$R_{emp}(f) = \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i))$$</p>
 <p>其中，F是假设空间。</p>
 <p>但是当样本容量很小时， 经验风险最小化学习很容易产生 <a href="http://www.zhimind.com/tutorial/over-under-fitting">过拟合#todo</a>现象。</p>
 <p>简单说就是用<strong>过于复杂的模型</strong>在训练集上达到非常好的拟合效果，但测试集就跪了。</p>
-<div class="process"><span><p>为了尽量防止使用过于复杂的模型，我们可以做什么？<input class="quiz" type="text"/></p></span><br/><input class="comments" type="hidden" value=":{%radio|知道很难答上来，防止模型过于复杂，是不是要把模型的复杂度也算进去？&amp;是&amp;否@是#否:这我怎么聊下去？#是:{%text|所以是模型复杂度和_进行_运算?@经验风险@加#都到这步了，我真没话说了~~~%}%}"/><button onclick="checkQuiz(this, 14)">submit</button><br/></div>
+<div class="process"><span><p>为了尽量防止使用过于复杂的模型，我们可以做什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="加&amp;模型&amp;复杂"/><input class="comments" type="hidden" value=":{%radio|知道很难答上来，防止模型过于复杂，是不是要把模型的复杂度也算进去？&amp;是&amp;否@是#否:这我怎么聊下去？#是:{%text|所以是模型复杂度和_进行_运算?@经验风险@加#都到这步了，我真没话说了~~~%}%}"/><button onclick="checkQuiz(this, 14)">submit</button><br/></div>
 <h2 id="_20">结构风险</h2>
 <p>那就是要考虑模型复杂度，要把它也算到损失里。 估计因为模型复杂情况就叫模型的结构， 所以我们有 <strong>结构风险 structural risk</strong>， 求这个的最小化， 即：
 $$\min_{f \in F} \frac{1}{N}\sum_{i=1}^N L(y_i, f(x_i)) + \lambda J(f)$$</p>

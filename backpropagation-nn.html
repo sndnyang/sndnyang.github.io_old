@@ -258,7 +258,7 @@ $$</p>
 <div class="process"><span><p>神经网络中，这个学习速率能用常数吗？</p><input class="quiz" name="quiz" type="radio" value="也许可以">也许可以</input><br/><input class="quiz" name="quiz" type="radio" value="不可以">不可以</input><br/></span><br/><input class="answers" type="hidden" value="也许可以"/><input class="comments" type="hidden" value="毕竟没说一定可以，难说绝对不可以"/><button onclick="checkQuiz(this, 15)">submit</button><br/></div>
 <h3 id="_17">系数有什么问题</h3>
 <p>我不知道是否可以使用常系数（有兴趣的读者可以一试），但一定不好。</p>
-<div class="process"><span><p>似乎显而易见，但为什么不好？<input class="quiz" type="text"/></p></span><br/><input class="comments" type="hidden" value="权重只跟它对应的什么有关？只受什么影响？#所以不同的权重很可能连的什么的什么是什么样的，绕吧？"/><button onclick="checkQuiz(this, 16)">submit</button><br/></div>
+<div class="process"><span><p>似乎显而易见，但为什么不好？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="神经元&amp;不同"/><input class="comments" type="hidden" value="权重只跟它对应的什么有关？只受什么影响？#所以不同的权重很可能连的什么的什么是什么样的，绕吧？"/><button onclick="checkQuiz(this, 16)">submit</button><br/></div>
 <h3 id="_18">以常为镜，可以非常</h3>
 <p>虽然不能直接使用常系数，但系数、学习速率背后的思想还是得借鉴一下，不能直接扔了吧？</p>
 <p>如<a href="http://www.zhimind.com/tutorial/gradient-descent">梯度下降法</a>里所说</p>
@@ -302,7 +302,10 @@ $$</p>
 w = w + \alpha \nabla_w l(w)
 $进行改进， 进而得到 <strong>反向传播算法</strong>。</p>
 <p>实验品， 
-<div class="process"><input class="comments" type="hidden" value="反向传播之前先进行什么传播？
+<div class="process"><input class="answers" type="hidden" value="(前向|前馈)&amp;传播@输出&amp;(误差|偏差):(前向|前馈)&amp;传播:$\delta^L=a^L-y$@(前|上)&amp;一层&amp;(误差|偏差):输出&amp;(误差|偏差)@sigmoid&amp;(梯度|导|微):(前|上)&amp;一层&amp;(误差|偏差):$g'(x)=?$@(梯度|导|微)&amp;乘&amp;(前|上)&amp;一层&amp;(误差|偏差)&amp;权重:sigmoid&amp;(梯度|导|微):$\delta^l=w^l* \delta^{l+1} * g'(z^l)$
+@更新&amp;权重&amp;l层输出&amp;l+1层误差:(梯度|导|微)&amp;乘&amp;(前|上)&amp;一层&amp;(误差|偏差)&amp;权重:$\Delta_{ij}^l += a_j^l \delta_i^{l+1}$
+@证毕:更新&amp;权重&amp;l层输出&amp;l+1层误差
+"/><input class="comments" type="hidden" value="反向传播之前先进行什么传播？
 #(前向|前馈)&amp;传播:反向传播第一步肯定是要先跟标签label比较，所以是计算什么？
 #输出&amp;(误差|偏差):{%radio|从大目标上看，输出层求出来了，是不是反向了，反向到哪里？_@(前|上)&amp;一层#一层:往上或前的那层了，所以大目标是不是求那层的错误呢？具体步骤再说#反向到哪层？%}
 #sigmoid&amp;(梯度|导|微):接下来的相乘一步到位，不要分两步走，就算计算出来上一层的误差了

@@ -206,7 +206,9 @@
 <li>填空和公式题 题干必填 ， 用 下划线<code>_</code> 代表一个空</li>
 <li>填空使用关键字查找方式， 多关键字逻辑关系使用 &amp; 表示且, | 表示或， 支持一层括号，默认 或 优先级高于 且（与顺序无关），所以有时候需要括号调整顺序。 示例：   </li>
 </ol>
-<p><div class="process"><span><p>请填空:<input class="quiz" type="text"/>是有意义的,<input class="quiz" type="text"/>也是有意义的</p></span><br/><input class="comments" type="hidden" value="随便写点什么#不想写也可以#} "/><button onclick="checkQuiz(this, 9)">submit</button><br/></div></p>
+<p><div class="process"><span><p>请填空:<input class="quiz" type="text"/>是有意义的,<input class="quiz" type="text"/>也是有意义的</p></span><br/><input class="answers" type="hidden" value="教育&amp;科学说明：填空内容必须同时包含教育科学字样@数学|物理&amp;化学说明：填空内容包含数学  或  同时包含物理、化学字样
+   @(数学|物理)&amp;化学                说明：填空内容包含 化学  且  有数学或物理 字样
+   "/><input class="comments" type="hidden" value="随便写点什么#不想写也可以#} "/><button onclick="checkQuiz(this, 9)">submit</button><br/></div></p>
 <h1 id="_10">思维导图使用步骤</h1>
 <ol>
 <li>注册登录</li>

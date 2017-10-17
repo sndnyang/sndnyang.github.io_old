@@ -68,6 +68,7 @@
                                 <ul class="dropdown-menu">
                                     <li ><a href="https://www.zhimind.com/oversea/college.html">学校库</a></li>
                                     <li ><a href="https://www.zhimind.com/oversea/major.html">专业库</a></li>
+                                    <li ><a href="https://www.zhimind.com/oversea/research.html">研究方向与招生</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header">工具</li>
                                     <li><a href="/gpa_calculator.html">GPA计算器</a></li>
@@ -132,6 +133,7 @@
 </ul>
 </li>
 <li><a href="#_8">实验</a></li>
+<li><a href="#_9">图文引用</a></li>
 </ul>
 </div>
                         </div>
@@ -175,7 +177,7 @@
 <p>比如观察了20天，有一个总访问量，第一天、第10天、第19天到达总访问量的50%或80%分别代表了这视频的火红一时、 细水长流、 慢慢发酵三种情况。</p>
 <p>所以就可以用到达总量50%或80%的时间跨度（$\alpha$-lifespan, $\alpha$ = 0.5 或 0.8 )来定义新的 生命期。</p>
 <p>$\alpha$取不同值对区别实际模型也有影响， 如图：</p>
-<p><img alt="#Figure-2#" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/figure2-patterns-examples.png"/></p>
+<p><img alt="Figure-2" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/figure2-patterns-examples.png"/></p>
 <p>D1与D3在50%时难以区别， 而80%则显然不同</p>
 <h2 id="_5">找规律</h2>
 <p>接下来就是用机器学习（之类的）方法来把特征与新生命期进行映射了。</p>
@@ -187,18 +189,19 @@
 <p>定义视频的生命期为$L_v$， 访问量$N_v(t_i)$ 和 上个时间段增长量 $x_v(t_i)$</p>
 <p>目标就是用生命期$L_v$和至今$t_r$各段时间增长量$X_v(t_r) = (x_v (t_1),x_v (t_2 ),...,x_v (t_r ))$来预测 未来时间 $t_t$的访问量$N_v(t_t)$ —— 也是欢迎度</p>
 <p>因为这是时间序列总量， 所以公式为：</p>
-<p><img alt="#formula1-predict#" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula1-predict.png"/></p>
+<p><img alt="formula1-predict" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula1-predict.png"/></p>
 <p>其中</p>
-<p><img alt="#formula-theta#" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula-theta.png"/></p>
+<p><img alt="formula-theta" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula-theta.png"/></p>
 <p>而K代表了 不同增长模式的模型， 比如火红一时、 细水长流、 口碑发酵等等， 如果把所有数据都认为只遵从一种模式的话， 误差显然会较大， 同时跟 生命期$L_v$ 也就没什么关系了。</p>
 <p>根据机器学习求损失函数， 定义为以下优化问题：</p>
-<p><img alt="#formula3-optimal#" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula3-optimal.png"/></p>
+<p><img alt="formula3-optimal" src="http://7xt8es.com1.z0.glb.clouddn.com/%E8%A7%86%E9%A2%91%E6%AC%A2%E8%BF%8E%E5%BA%A6/formula3-optimal.png" title="formula 3"/></p>
 <h2 id="k">K的选定</h2>
 <p>如何用生命期$L_v$选定K及划分数据集呢？</p>
 <p>首先， 用生命期$L_v$划分出K个子集， 每个子集有 生命期的下界（和上界）， 就是在总时间长度$t_t = N$的横坐标上划分K个区间， 或者说 在N个人中间放上K-1块木板（每个区间好歹有一个值吧）， 组合数的计算量很大</p>
-<p>因此， 需要更简单的聚类方法（数据没有标签，就是聚类）， 最简单的就是 KMeans。 聚类的特征就是训练数据的时间序列， 类似 #Figure-2# 每个数据集就分成了6种。</p>
+<p>因此， 需要更简单的聚类方法（数据没有标签，就是聚类）， 最简单的就是 KMeans。 聚类的特征就是训练数据的时间序列， 类似 Figure-2 每个数据集就分成了6种。</p>
 <p>作者实验后认为 分成 4类比较好。</p>
 <h1 id="_8">实验</h1>
+<h1 id="_9">图文引用</h1>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -286,6 +289,11 @@
                 inlineMath: [['$','$'], ['\\(','\\)']],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
               },
+            });
+        </script>
+        <script>
+            $(function (){
+                renderQuoteTip();
             });
         </script>
                 </div>

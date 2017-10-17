@@ -1,6 +1,20 @@
-/**
- * 回到顶部
- */
+String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/\{(\d+)\}/g,
+        function(m,i){
+            return args[i];
+        }
+    );
+}
+
+String.prototype.trim = function() {
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+String.prototype.endsWith = function(suffix) {
+    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
+
 var Preview = {
     preview: null,     // filled in by Init below
     Update: function (obj) {
@@ -18,6 +32,9 @@ var Preview = {
     }
 };
 
+/**
+ * 回到顶部
+ */
 function backToTop() {
     //滚页面才显示返回顶部
     $(window).scroll(function() {
@@ -140,4 +157,36 @@ function initScrollSpy () {
       $(tocSelector + ' ' + activeCurrentSelector)
         .removeClass(activeCurrentSelector.substring(1));
     }
-  }
+}
+
+function renderQuoteTip() {
+    var container = $(".article-content"), 
+        ps = container.children("p"),
+        alist = ps.children("a"),
+        imglist = ps.children("img"),
+        html = container.html();
+
+    if (alist.length) {
+
+    }
+    if (imglist.length) {
+        var a = $('<a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="hover">$1</a>');
+        a.attr("class", "bind_hover_card");
+        a.attr('data-content', '<img src="{0}"/>');
+        for (var i in imglist) {
+            var alt = imglist[i].alt;
+            var href = imglist[i].src;
+            var reg = new RegExp("\\b({0})([^'\".])".format(alt), "g");
+            html = html.replace(reg, a[0].outerHTML.format(href) + "$2");
+        }
+    }
+    container.html(html);
+
+    $("[data-toggle='popover']").popover({
+        html: true,
+        title: "",
+        delay: {show:100, hide:100}
+    });  
+    
+    // .popover();
+}

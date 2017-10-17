@@ -9652,6 +9652,7 @@ function updateResult() {
         var root = '', html = mdHtml.render(source)+"<h1>";
         $('#result-html').html('');
         generate_lesson($('#result-html'), html, root);
+        renderQuoteTip();
     }
 
     // reset lines mapping cache on content update

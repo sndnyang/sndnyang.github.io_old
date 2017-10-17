@@ -90,3 +90,36 @@ function to_backend_create(type, json) {
         error: backendError
     });
 }
+
+function renderQuoteTip() {
+    var container = $("#result-html"), 
+        lessons = container.children("div"),
+        ps = lessons.children("p"),
+        alist = ps.children("a"),
+        imglist = ps.children("img"),
+        html = container.html();
+
+    if (alist.length) {
+
+    }
+    if (imglist.length) {
+        var a = $('<a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="hover">$1</a>');
+        a.attr("class", "bind_hover_card");
+        a.attr('data-content', '<img src="{0}"/>');
+        for (var i in imglist) {
+            var alt = imglist[i].alt;
+            var href = imglist[i].src;
+            var reg = new RegExp("\\b({0})([^'\".])".format(alt), "g");
+            html = html.replace(reg, a[0].outerHTML.format(href) + "$2");
+        }
+    }
+    container.html(html);
+
+    $("[data-toggle='popover']").popover({
+        html: true,
+        title: "",
+        delay: {show:100, hide:100}
+    });  
+    
+    // .popover();
+}

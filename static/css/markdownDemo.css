@@ -43,7 +43,7 @@ body {
   border-radius: 4px;
 }
 .result-html img {
-  max-width: 35%;
+  max-width: 100%;
 }
 .result-src,
 .result-debug {

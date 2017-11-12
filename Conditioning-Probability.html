@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -173,10 +176,10 @@
 <p>上面这个例子貌似不够接地气， 换一个例子。</p>
 <p>一个节目安排一人在街上随机搭讪行人， 这时搭讪成功的概率无疑是比较低的。但若已知搭讪者是大明星（特别是你喜欢的）， 此时成功概率肯定有飞跃。</p>
 <p>所以，一言不合就问问题:</p>
-<div class="process"><span><p>我们下一步要干嘛？</p><input class="quiz" name="quiz" type="radio" value="继续举例">继续举例</input><br/><input class="quiz" name="quiz" type="radio" value="归纳">归纳</input><br/><input class="quiz" name="quiz" type="radio" value="推导">推导</input><br/><input class="quiz" name="quiz" type="radio" value="演绎">演绎</input><br/><input class="quiz" name="quiz" type="radio" value="建模">建模</input><br/></span><br/><input class="answers" type="hidden" value="建模"/><input class="comments" type="hidden" value="归纳也不错，但只针对这一问题#其他不可能是干扰项了吧？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>我们下一步要干嘛？</p><input class="quiz" name="quiz" type="radio" value="继续举例"/>继续举例<br/><input class="quiz" name="quiz" type="radio" value="归纳"/>归纳<br/><input class="quiz" name="quiz" type="radio" value="推导"/>推导<br/><input class="quiz" name="quiz" type="radio" value="演绎"/>演绎<br/><input class="quiz" name="quiz" type="radio" value="建模"/>建模<br/></span><br/><input class="answers" type="hidden" value="建模"/><input class="comments" type="hidden" value="归纳也不错，但只针对这一问题#其他不可能是干扰项了吧？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h1 id="_3">条件概率</h1>
 <p>所以我们来建个模， 抽象化， 把事件找出来。</p>
-<div class="process"><span><p>本例中有哪两个事件?</p><input class="quiz" name="quiz" type="checkbox" value="搭讪成功与否">搭讪成功与否</input><br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者性别">搭讪者性别</input><br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者性别">被搭讪者性别</input><br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者是否明星">搭讪者是否明星</input><br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者是否喜欢搭讪者">被搭讪者是否喜欢搭讪者</input><br/></span><br/><input class="answers" type="hidden" value="搭讪成功与否@搭讪者是否明星"/><input class="comments" type="hidden" value="没法解释"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>本例中有哪两个事件?</p><input class="quiz" name="quiz" type="checkbox" value="搭讪成功与否"/>搭讪成功与否<br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者性别"/>搭讪者性别<br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者性别"/>被搭讪者性别<br/><input class="quiz" name="quiz" type="checkbox" value="搭讪者是否明星"/>搭讪者是否明星<br/><input class="quiz" name="quiz" type="checkbox" value="被搭讪者是否喜欢搭讪者"/>被搭讪者是否喜欢搭讪者<br/></span><br/><input class="answers" type="hidden" value="搭讪成功与否@搭讪者是否明星"/><input class="comments" type="hidden" value="没法解释"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_4">定义符号</h2>
 <p>把搭讪成功叫事件A，明星搭讪叫事件B。</p>
 <p>所以，最开始的是P(A)，搭讪成功概率， 之后加个条件， 是否明星搭讪B。</p>
@@ -228,7 +231,7 @@
 <p>刚才通过古典概率算出了 $P(A)=\frac{n}{m}$和$P(A|B)=\frac{n}{m-k+1}$，还有个$$P(B)=\frac{{m-k+1 \choose n}}{{m \choose n}}$$。</p>
 <p>这三个式子看起来毫无关系，我们要如何探索、如何试呢？</p>
 <p>没有头绪， 瞎试、瞎组合， 各种情况都试一遍， 砍掉解释不通的、 复杂过头的。</p>
-<div class="process"><span><p>3个式子选2个进行组合，有几种可能</p><input class="quiz" name="quiz" type="radio" value="1">1</input><br/><input class="quiz" name="quiz" type="radio" value="2">2</input><br/><input class="quiz" name="quiz" type="radio" value="3">3</input><br/><input class="quiz" name="quiz" type="radio" value="4">4</input><br/><input class="quiz" name="quiz" type="radio" value="5">5</input><br/><input class="quiz" name="quiz" type="radio" value="6">6</input><br/></span><br/><input class="answers" type="hidden" value="3"/><input class="comments" type="hidden" value="答案就是你敢再错一次？#我认了，3种"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<div class="process"><span><p>3个式子选2个进行组合，有几种可能</p><input class="quiz" name="quiz" type="radio" value="1"/>1<br/><input class="quiz" name="quiz" type="radio" value="2"/>2<br/><input class="quiz" name="quiz" type="radio" value="3"/>3<br/><input class="quiz" name="quiz" type="radio" value="4"/>4<br/><input class="quiz" name="quiz" type="radio" value="5"/>5<br/><input class="quiz" name="quiz" type="radio" value="6"/>6<br/></span><br/><input class="answers" type="hidden" value="3"/><input class="comments" type="hidden" value="答案就是你敢再错一次？#我认了，3种"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h3 id="_12">从简单开始</h3>
 <p>A和B事件组合， 不外乎且和或嘛， 这里直觉觉得或or不出来， 只考虑且and。 所以我们要<strong>考虑事件$P(A \cap B)$</strong>。 同时我们有 P(A)*P(B)，不好写， 不写了，就是这么任性。</p>
 <p>$P(A \cap B)$ 可以算出来吧？因为这种表达式的化简问题，请化简成两个组合数相除，不要几个相加后再除。</p>
@@ -238,10 +241,10 @@
 </p></span><br/><input class="answers" type="hidden" value="C(m-k,n-1)/C(m,n)"/><input class="comments" type="hidden" value="这个的推导过程不应该在此处,所以没提示"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h3 id="_13">找到答案了吗？</h3>
 <p>$P(A \cap B)$==P(A)*P(B)?</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="对">对</input><br/><input class="quiz" name="quiz" type="radio" value="错">错</input><br/></span><br/><input class="answers" type="hidden" value="错"/><input class="comments" type="hidden" value="P(AandB)很难算吗？"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="对"/>对<br/><input class="quiz" name="quiz" type="radio" value="错"/>错<br/></span><br/><input class="answers" type="hidden" value="错"/><input class="comments" type="hidden" value="P(AandB)很难算吗？"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h3 id="_14">继续试</h3>
 <p>不好意思， $P(A \cap B) \ne P(A)*P(B)$，继续试， 这回试谁和谁的组合呢？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="A">A</input><br/><input class="quiz" name="quiz" type="checkbox" value="B">B</input><br/><input class="quiz" name="quiz" type="checkbox" value="A|B">A|B</input><br/></span><br/><input class="answers" type="hidden" value="B@A|B"/><input class="comments" type="hidden" value="AB是A和B同时成立，从描述上哪两个最可能呢？"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="A"/>A<br/><input class="quiz" name="quiz" type="checkbox" value="B"/>B<br/><input class="quiz" name="quiz" type="checkbox" value="A|B"/>A|B<br/></span><br/><input class="answers" type="hidden" value="B@A|B"/><input class="comments" type="hidden" value="AB是A和B同时成立，从描述上哪两个最可能呢？"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
 <h3 id="_15">成功</h3>
 <p>先分析， A和A|B， 一个是A的概率， 另一个是已知B发生的条件下A发生的概率， 都是A的概率， 明显凑不上。 PASS.</p>
 <p>只剩下 B和A|B， 先看结果</p>
@@ -251,7 +254,7 @@
 <p>所以我们就得到了结论：</p>
 <p>$$P(A \cap B) = P(A|B) P(B) 或 P(A|B) = \frac{P(A \cap B)}{P(B)}, P(B) &gt; 0 $$</p>
 <p>这么简单、显而易见的公式， 我显然扯了这么一大段， 是不是太罗嗦了？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="虽然我也觉得罗嗦，但你敢说我罗嗦还想过？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="是"/>是<br/><input class="quiz" name="quiz" type="radio" value="否"/>否<br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="虽然我也觉得罗嗦，但你敢说我罗嗦还想过？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h2 id="_16">概率公理</h2>
 <p>这部分一般显然了， 条件概率也是概率，那些基本的概率公理照样成立， 证明过程再写我要疯了~~~找理由、编理由很难的！</p>
 <p>特别是很多事都有默认， 平时根本没想到， 没错就忽视，错了再改， 所以根本没理由。</p>
@@ -323,7 +326,7 @@
                             <span>4</span>
 </a></li>
                         <li><a href="/tags.html#shu-xue-ref">数学
-                            <span>9</span>
+                            <span>10</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

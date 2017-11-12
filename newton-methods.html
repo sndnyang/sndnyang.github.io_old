@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -159,10 +162,10 @@
 <p>在前面的 <a href="http://www.zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a> 一讲中，我们引入了 <em>梯度下降法</em> 这一概念。</p>
 <p>在 <a href="http://www.zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归基础</a> 中，介绍逻辑回归的数学模型及策略， 它的算法同样也是用的梯度下降法。</p>
 <p>我之前对梯度下降法的描述可能有所不足。但这里还是要让大家回顾一下：</p>
-<div class="process"><span><p>梯度下降法是怎么执行的?</p><input class="quiz" name="quiz" type="radio" value="求平方">求平方</input><br/><input class="quiz" name="quiz" type="radio" value="随机采样">随机采样</input><br/><input class="quiz" name="quiz" type="radio" value="求导">求导</input><br/><input class="quiz" name="quiz" type="radio" value="二次求导">二次求导</input><br/><input class="quiz" name="quiz" type="radio" value="求对数">求对数</input><br/></span><br/><input class="answers" type="hidden" value="求导"/><input class="comments" type="hidden" value="其他选项应该没有迷惑性"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>梯度下降法是怎么执行的?</p><input class="quiz" name="quiz" type="radio" value="求平方"/>求平方<br/><input class="quiz" name="quiz" type="radio" value="随机采样"/>随机采样<br/><input class="quiz" name="quiz" type="radio" value="求导"/>求导<br/><input class="quiz" name="quiz" type="radio" value="二次求导"/>二次求导<br/><input class="quiz" name="quiz" type="radio" value="求对数"/>求对数<br/></span><br/><input class="answers" type="hidden" value="求导"/><input class="comments" type="hidden" value="其他选项应该没有迷惑性"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h2 id="_3">回顾梯度下降</h2>
 <p>梯度就是求导（偏导），得到各个分量（变量）上的偏导，然后呢？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="各分量更新">各分量更新</input><br/><input class="quiz" name="quiz" type="radio" value="各分量减偏导">各分量减偏导</input><br/><input class="quiz" name="quiz" type="radio" value="各分量加偏导">各分量加偏导</input><br/></span><br/><input class="answers" type="hidden" value="各分量减偏导"/><input class="comments" type="hidden" value="要实际又要准确"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="各分量更新"/>各分量更新<br/><input class="quiz" name="quiz" type="radio" value="各分量减偏导"/>各分量减偏导<br/><input class="quiz" name="quiz" type="radio" value="各分量加偏导"/>各分量加偏导<br/></span><br/><input class="answers" type="hidden" value="各分量减偏导"/><input class="comments" type="hidden" value="要实际又要准确"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_4">公式回顾</h3>
 <p>所以，我们复习了梯度下降法 </p>
 <p>似乎挺好的， 就像这张图显示的 <img alt="梯度下降" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2659893546,3283638491&amp;fm=58"/></p>
@@ -180,7 +183,7 @@
 <p>系数就是限定了沿梯度方向移动的距离， 假设这一点上的偏导是a，但如果我们的步子迈得太大，容易~~~你不知道整体的偏导值，所以移动距离远了，就可能跑过头了。错过了极值点。所以一般会把这个系数设得比较小。</p>
 <p>可这个系数终究是人工设定的， 离极值点近的时候要小，远的时候要大才好，不管人工怎么设置，终归是猜测。</p>
 <p>那我们是不是该想办法让它自动呢？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="能自动找到合适的距离">能自动找到合适的距离</input><br/><input class="quiz" name="quiz" type="radio" value="怎么可能">怎么可能</input><br/></span><br/><input class="answers" type="hidden" value="能自动找到合适的距离"/><input class="comments" type="hidden" value="不管怎么说，先试再说"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="能自动找到合适的距离"/>能自动找到合适的距离<br/><input class="quiz" name="quiz" type="radio" value="怎么可能"/>怎么可能<br/></span><br/><input class="answers" type="hidden" value="能自动找到合适的距离"/><input class="comments" type="hidden" value="不管怎么说，先试再说"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h2 id="_8">探索方法</h2>
 <p>梯度下降的一个示意图: <img alt="梯度" src="http://image52.360doc.com/DownloadImg/2012/05/2922/24463752_1.png"/></p>
 <p><strong>说明</strong> 前面写复杂了，觉得这块没必要讲这么多。后面简略。</p>

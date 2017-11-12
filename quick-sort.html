@@ -43,7 +43,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -88,12 +93,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -184,10 +187,10 @@
 <h2 id="_3">划分的方式</h2>
 <p>从中间位置划分，分后治之的是归并排序。</p>
 <p>如果不指定位置划分， 有其他方法划分否？ 另外能否边分边治？</p>
-<div class="process"><span><p>还有哪些可能的划分方式?</p><input class="quiz" name="quiz" type="checkbox" value="随机">随机</input><br/><input class="quiz" name="quiz" type="checkbox" value="值大小">值大小</input><br/><input class="quiz" name="quiz" type="checkbox" value="位置">位置</input><br/><input class="quiz" name="quiz" type="checkbox" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="值大小"/><input class="comments" type="hidden" value="位置不算入#你居然选随机和不知道？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>还有哪些可能的划分方式?</p><input class="quiz" name="quiz" type="checkbox" value="随机"/>随机<br/><input class="quiz" name="quiz" type="checkbox" value="值大小"/>值大小<br/><input class="quiz" name="quiz" type="checkbox" value="位置"/>位置<br/><input class="quiz" name="quiz" type="checkbox" value="不知道"/>不知道<br/></span><br/><input class="answers" type="hidden" value="值大小"/><input class="comments" type="hidden" value="位置不算入#你居然选随机和不知道？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_4">怎么选值呢?</h2>
 <p>不按位置，那我们只能按实际值的大小来划分。</p>
-<div class="process"><span><p>那怎么选划分值呢？</p><input class="quiz" name="quiz" type="checkbox" value="随机一个">随机一个</input><br/><input class="quiz" name="quiz" type="checkbox" value="第一个">第一个</input><br/><input class="quiz" name="quiz" type="checkbox" value="最后一个">最后一个</input><br/><input class="quiz" name="quiz" type="checkbox" value="中间那一个">中间那一个</input><br/><input class="quiz" name="quiz" type="checkbox" value="平均值">平均值</input><br/><input class="quiz" name="quiz" type="checkbox" value="中位数">中位数</input><br/><input class="quiz" name="quiz" type="checkbox" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="随机一个@第一个@最后一个@中间那一个"/><input class="comments" type="hidden" value="标准教材最终会讲到任意一个#也就是平均值、中位数不知道#你居然选了不知道？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<div class="process"><span><p>那怎么选划分值呢？</p><input class="quiz" name="quiz" type="checkbox" value="随机一个"/>随机一个<br/><input class="quiz" name="quiz" type="checkbox" value="第一个"/>第一个<br/><input class="quiz" name="quiz" type="checkbox" value="最后一个"/>最后一个<br/><input class="quiz" name="quiz" type="checkbox" value="中间那一个"/>中间那一个<br/><input class="quiz" name="quiz" type="checkbox" value="平均值"/>平均值<br/><input class="quiz" name="quiz" type="checkbox" value="中位数"/>中位数<br/><input class="quiz" name="quiz" type="checkbox" value="不知道"/>不知道<br/></span><br/><input class="answers" type="hidden" value="随机一个@第一个@最后一个@中间那一个"/><input class="comments" type="hidden" value="标准教材最终会讲到任意一个#也就是平均值、中位数不知道#你居然选了不知道？"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="_5">准备划分</h2>
 <p>既然已经知道了划分的k值， 那么现在就来划分数组了。</p>
 <p>目标就是让小于k的数放到左边， 大于等于k的数在右边，k在中间 </p>
@@ -223,31 +226,31 @@
 <h2 id="_10">如何求解</h2>
 <p>所以现在问题就是 如何求 i(index), 就是k的目标位置</p>
 <p>从初始状态开始， k 在第一个位置，而js数组下标从0开始， 所以 i = 0</p>
-<div class="process"><span><p>目标位置可以由什么直接决定?</p><input class="quiz" name="quiz" type="radio" value="不比k小的个数">不比k小的个数</input><br/><input class="quiz" name="quiz" type="radio" value="比k大的个数">比k大的个数</input><br/><input class="quiz" name="quiz" type="radio" value="比k小的个数">比k小的个数</input><br/><input class="quiz" name="quiz" type="radio" value="和k相等的个数">和k相等的个数</input><br/></span><br/><input class="answers" type="hidden" value="比k小的个数"/><input class="comments" type="hidden" value="直接相关"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<div class="process"><span><p>目标位置可以由什么直接决定?</p><input class="quiz" name="quiz" type="radio" value="不比k小的个数"/>不比k小的个数<br/><input class="quiz" name="quiz" type="radio" value="比k大的个数"/>比k大的个数<br/><input class="quiz" name="quiz" type="radio" value="比k小的个数"/>比k小的个数<br/><input class="quiz" name="quiz" type="radio" value="和k相等的个数"/>和k相等的个数<br/></span><br/><input class="answers" type="hidden" value="比k小的个数"/><input class="comments" type="hidden" value="直接相关"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h2 id="k">那请找出比 k 小的值的个数</h2>
 <p>so easy! </p>
 <p>请在得到该值后（直接数个数也行），建议用循环比较（文本框问题全部写成一行)，并保存到变量里， 输入<code>变量或值</code></p>
 <h2 id="_11">哪里不对？</h2>
 <p>看起来位置是知道了， 但感觉哪里不对？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="哪里都不对">哪里都不对</input><br/><input class="quiz" name="quiz" type="radio" value="知道k位置，还不知道左右集合大小">知道k位置，还不知道左右集合大小</input><br/><input class="quiz" name="quiz" type="radio" value="只知道k位置，其他值没说">只知道k位置，其他值没说</input><br/><input class="quiz" name="quiz" type="radio" value="有哪里不对">有哪里不对</input><br/></span><br/><input class="answers" type="hidden" value="只知道k位置，其他值没说%"/><input class="comments" type="hidden" value="{%radio|&amp;哪里都不对&amp;知道k位置，还不知道左右集合大小&amp;只知道k位置，其他值没说&amp;有哪里不对@只知道k位置，其他值没说"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="哪里都不对"/>哪里都不对<br/><input class="quiz" name="quiz" type="radio" value="知道k位置，还不知道左右集合大小"/>知道k位置，还不知道左右集合大小<br/><input class="quiz" name="quiz" type="radio" value="只知道k位置，其他值没说"/>只知道k位置，其他值没说<br/><input class="quiz" name="quiz" type="radio" value="有哪里不对"/>有哪里不对<br/></span><br/><input class="answers" type="hidden" value="只知道k位置，其他值没说%"/><input class="comments" type="hidden" value="{%radio|&amp;哪里都不对&amp;知道k位置，还不知道左右集合大小&amp;只知道k位置，其他值没说&amp;有哪里不对@只知道k位置，其他值没说"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="k_1">能否在计算 k 位置的同时， 把集合划分好？</h2>
 <p>之前你是怎么统计 &lt;k 的值的个数的？ 还记得吧？</p>
 <p>从左往右扫描时（或从右往左），假设不扫描k所在的第一位</p>
 <p>是不是 看到一个小的数，就加1呢？ 如果求的是 &gt;= k 的个数， 也是类似的， 不是吗？</p>
 <p>做成动画的话， 是不是 k 的位置往右移动了一格呢？</p>
 <p>那有什么问题吗？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="原位置留的坑怎么办？">原位置留的坑怎么办？</input><br/><input class="quiz" name="quiz" type="checkbox" value="不知道看到哪里了？">不知道看到哪里了？</input><br/><input class="quiz" name="quiz" type="checkbox" value="新位置的值怎么办？">新位置的值怎么办？</input><br/><input class="quiz" name="quiz" type="checkbox" value="这些都不是问题">这些都不是问题</input><br/></span><br/><input class="answers" type="hidden" value="原位置留的坑怎么办？@新位置的值怎么办？"/><input class="comments" type="hidden" value="选择题不太好提示啊~~~"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="原位置留的坑怎么办？"/>原位置留的坑怎么办？<br/><input class="quiz" name="quiz" type="checkbox" value="不知道看到哪里了？"/>不知道看到哪里了？<br/><input class="quiz" name="quiz" type="checkbox" value="新位置的值怎么办？"/>新位置的值怎么办？<br/><input class="quiz" name="quiz" type="checkbox" value="这些都不是问题"/>这些都不是问题<br/></span><br/><input class="answers" type="hidden" value="原位置留的坑怎么办？@新位置的值怎么办？"/><input class="comments" type="hidden" value="选择题不太好提示啊~~~"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h2 id="_12">向右移动到新位置</h2>
 <p>新位置上的值怎么办？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="只用下标记位置">只用下标记位置</input><br/><input class="quiz" name="quiz" type="radio" value="用临时变量保存起来">用临时变量保存起来</input><br/></span><br/><input class="answers" type="hidden" value="只用下标记位置%"/><input class="comments" type="hidden" value="{%radio|&amp;只用下标记位置&amp;用临时变量保存起来@只用下标记位置"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="只用下标记位置"/>只用下标记位置<br/><input class="quiz" name="quiz" type="radio" value="用临时变量保存起来"/>用临时变量保存起来<br/></span><br/><input class="answers" type="hidden" value="只用下标记位置%"/><input class="comments" type="hidden" value="{%radio|&amp;只用下标记位置&amp;用临时变量保存起来@只用下标记位置"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h2 id="_13">原位置怎么办？</h2>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="留空">留空</input><br/><input class="quiz" name="quiz" type="radio" value="k">k</input><br/><input class="quiz" name="quiz" type="radio" value="我也不知道">我也不知道</input><br/><input class="quiz" name="quiz" type="radio" value="随便找个小于k的数填上">随便找个小于k的数填上</input><br/><input class="quiz" name="quiz" type="radio" value="正看到的那个小于k的数来填上">正看到的那个小于k的数来填上</input><br/></span><br/><input class="answers" type="hidden" value="正看到的那个小于k的数来填上%"/><input class="comments" type="hidden" value="{%radio|&amp;留空&amp;k&amp;我也不知道&amp;随便找个小于k的数填上&amp;正看到的那个小于k的数来填上@正看到的那个小于k的数来填上"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="留空"/>留空<br/><input class="quiz" name="quiz" type="radio" value="k"/>k<br/><input class="quiz" name="quiz" type="radio" value="我也不知道"/>我也不知道<br/><input class="quiz" name="quiz" type="radio" value="随便找个小于k的数填上"/>随便找个小于k的数填上<br/><input class="quiz" name="quiz" type="radio" value="正看到的那个小于k的数来填上"/>正看到的那个小于k的数来填上<br/></span><br/><input class="answers" type="hidden" value="正看到的那个小于k的数来填上%"/><input class="comments" type="hidden" value="{%radio|&amp;留空&amp;k&amp;我也不知道&amp;随便找个小于k的数填上&amp;正看到的那个小于k的数来填上@正看到的那个小于k的数来填上"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_14">顺利？</h2>
 <p>上一步有什么问题？ 想想上上一步 新位置上的值是怎么处理的？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="有问题？我不知道">有问题？我不知道</input><br/><input class="quiz" name="quiz" type="radio" value="位置只是下标,原位置的实际值会被覆盖">位置只是下标,原位置的实际值会被覆盖</input><br/><input class="quiz" name="quiz" type="radio" value="k的位置可能会乱掉">k的位置可能会乱掉</input><br/></span><br/><input class="answers" type="hidden" value="位置只是下标,原位置的实际值会被覆盖%"/><input class="comments" type="hidden" value="{%radio|&amp;有问题？我不知道&amp;位置只是下标,原位置的实际值会被覆盖&amp;k的位置可能会乱掉@位置只是下标,原位置的实际值会被覆盖"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="有问题？我不知道"/>有问题？我不知道<br/><input class="quiz" name="quiz" type="radio" value="位置只是下标,原位置的实际值会被覆盖"/>位置只是下标,原位置的实际值会被覆盖<br/><input class="quiz" name="quiz" type="radio" value="k的位置可能会乱掉"/>k的位置可能会乱掉<br/></span><br/><input class="answers" type="hidden" value="位置只是下标,原位置的实际值会被覆盖%"/><input class="comments" type="hidden" value="{%radio|&amp;有问题？我不知道&amp;位置只是下标,原位置的实际值会被覆盖&amp;k的位置可能会乱掉@位置只是下标,原位置的实际值会被覆盖"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h2 id="_15">如何避免覆盖？</h2>
 <p>当然是</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="两个位置的值进行交换">两个位置的值进行交换</input><br/><input class="quiz" name="quiz" type="radio" value="用临时变量保存">用临时变量保存</input><br/></span><br/><input class="answers" type="hidden" value="两个位置的值进行交换"/><input class="comments" type="hidden" value="临时变量保存能不能搞定，其实没试过"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="两个位置的值进行交换"/>两个位置的值进行交换<br/><input class="quiz" name="quiz" type="radio" value="用临时变量保存"/>用临时变量保存<br/></span><br/><input class="answers" type="hidden" value="两个位置的值进行交换"/><input class="comments" type="hidden" value="临时变量保存能不能搞定，其实没试过"/><button onclick="checkQuiz(this, 9)">submit</button><br/></div>
 <h2 id="_16">回顾一下？</h2>
 <p>那我们脑海里的动画似乎可以顺利进行了</p>
 <ol>
@@ -299,7 +302,7 @@
 <p>正如之前提到的， 在学习分治算法时， 老师通常会讲 归并排序和快速排序。</p>
 <p>如果有学过<a href="/index">归并排序</a>,  应该有印象， 最常规的归并排序是先不断地递归划分成子问题，直到不可再划分， 等到返回时， 再将子问题进行合并。 所以是先分后治， 分完再治。</p>
 <p>那快速排序可以这样吗？我们每层都可以求出划分的位置，是否可以 先递归求子问题， 再返回求解主问题？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="可以">可以</input><br/><input class="quiz" name="quiz" type="radio" value="不可以">不可以</input><br/></span><br/><input class="answers" type="hidden" value="不可以"/><input class="comments" type="hidden" value="那就成不同划分方式的归并排序而已}"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="可以"/>可以<br/><input class="quiz" name="quiz" type="radio" value="不可以"/>不可以<br/></span><br/><input class="answers" type="hidden" value="不可以"/><input class="comments" type="hidden" value="那就成不同划分方式的归并排序而已}"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h2 id="_20">撒花庆祝！</h2>
 <p>Congratulations, {{ firstName }}, 你完成了快速排序的学习（中间
 少了很多步还没写呢）。 如果觉得有意义, 但没完全掌握或希望复习的话， 用

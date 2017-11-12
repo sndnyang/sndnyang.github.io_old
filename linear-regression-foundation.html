@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -170,7 +173,7 @@
 <p>关于机器学习的概念、定义，我写不明白。 监督学习、无监督学习的区别， 分类问题和回归问题的区别也写不好，所以这里假设读者对这些概念都有一定了解。</p>
 <p>本节要讲的内容就是线性回归及其求解。</p>
 <p>一言不合就问问题。</p>
-<div class="process"><span><p>同学你知道什么是线性回归吗？</p><input class="quiz" name="quiz" type="radio" value="知道">知道</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="不知道"/><input class="comments" type="hidden" value="我个人水平问题，请选不知道"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>同学你知道什么是线性回归吗？</p><input class="quiz" name="quiz" type="radio" value="知道"/>知道<br/><input class="quiz" name="quiz" type="radio" value="不知道"/>不知道<br/></span><br/><input class="answers" type="hidden" value="不知道"/><input class="comments" type="hidden" value="我个人水平问题，请选不知道"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h2 id="_3">是什么？</h2>
 <p>线性回归是什么？</p>
 <p>线性简单，代表模型、理论函数是 y=w*x+b, 这里的x可以是一个变量，也可以是向量。</p>
@@ -199,7 +202,7 @@
 <h1 id="_7">策略</h1>
 <p>为了求解最优模型， 需要采取一定的策略。机器学习里的策略大概就是指模型选择的准则。</p>
 <p>对线性回归来说，我们考虑让预测值和实际值之间误差最小作为标准，选取损失函数。 篇幅限制及原课程的安排， 所以， 推导具体的损失函数请看 <a href="">概率解释</a></p>
-<div class="process"><span><p>是否已看过概率解释部分？</p><input class="quiz" name="quiz" type="radio" value="看了">看了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="看了"/><input class="comments" type="hidden" value="建议先看看"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>是否已看过概率解释部分？</p><input class="quiz" name="quiz" type="radio" value="看了"/>看了<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="看了"/><input class="comments" type="hidden" value="建议先看看"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_8">损失函数</h2>
 <p>上结论， 我们选择评估误差的标准为 $(h(x) - y)^2$, h(x)=w*x是预测值，y是实际值。平方强调了误差越大，影响越大。</p>
 <p>这是单个数据点的误差， 所以整个数据集的误差就是：
@@ -217,7 +220,7 @@ $$</p>
 <p>我们假设一个一维w对应的损失函数如图：</p>
 <p><img alt="找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum.png"/></p>
 <p>人眼能估计最小值在哪个位置对吧， 先说明下，我写的函数是 $y=3<em>x^2-2</em>x+5$。所以最小值不是在x=0。</p>
-<div class="process"><span><p>你觉得应该怎么做?</p><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/><input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试">从非常小到非常大全部试</input><br/><input class="quiz" name="quiz" type="radio" value="从一个随机位置开始">从一个随机位置开始</input><br/><input class="quiz" name="quiz" type="radio" value="公式变换找最小位置">公式变换找最小位置</input><br/></span><br/><input class="answers" type="hidden" value="从一个随机位置开始"/><input class="comments" type="hidden" value="呃"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<div class="process"><span><p>你觉得应该怎么做?</p><input class="quiz" name="quiz" type="radio" value="不知道"/>不知道<br/><input class="quiz" name="quiz" type="radio" value="从非常小到非常大全部试"/>从非常小到非常大全部试<br/><input class="quiz" name="quiz" type="radio" value="从一个随机位置开始"/>从一个随机位置开始<br/><input class="quiz" name="quiz" type="radio" value="公式变换找最小位置"/>公式变换找最小位置<br/></span><br/><input class="answers" type="hidden" value="从一个随机位置开始"/><input class="comments" type="hidden" value="呃"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="_10">从随机状态开始</h2>
 <p>暴力搜索地从非常小到非常大地尝试肯定是不可取的，又慢又试不完。PASS。</p>
 <p>公式变换是可行的， 但它是标准方程或闭型部分的内容， 请看<a href="http://zhimind.com/tutorial/89fbbdc0-0f8b-44e5-b141-990844232119">下一篇</a>。PASS。</p>
@@ -226,10 +229,10 @@ $$</p>
 <p>我们现在随机选择了x=5这一点（实际可能喜欢用0向量）， 在上图的红点有个X。这里是个坡，我们放个小球，会自然地顺着坡滚下去。那计算机程序怎么办呢？一维的w在图上还只有左右两个方向，二维的w加上y值形成3D图，每个点都是360度连续空间</p>
 <p><img alt="3d找最小" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/findMinimum-3d.png"/></p>
 <p>怎么选？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="随机选">随机选</input><br/><input class="quiz" name="quiz" type="radio" value="采样求平均">采样求平均</input><br/><input class="quiz" name="quiz" type="radio" value="求坡度">求坡度</input><br/><input class="quiz" name="quiz" type="radio" value="求最小">求最小</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/><input class="quiz" name="quiz" type="radio" value="求反函数">求反函数</input><br/></span><br/><input class="answers" type="hidden" value="求坡度"/><input class="comments" type="hidden" value="顺着坡滚"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="随机选"/>随机选<br/><input class="quiz" name="quiz" type="radio" value="采样求平均"/>采样求平均<br/><input class="quiz" name="quiz" type="radio" value="求坡度"/>求坡度<br/><input class="quiz" name="quiz" type="radio" value="求最小"/>求最小<br/><input class="quiz" name="quiz" type="radio" value="不知道"/>不知道<br/><input class="quiz" name="quiz" type="radio" value="求反函数"/>求反函数<br/></span><br/><input class="answers" type="hidden" value="求坡度"/><input class="comments" type="hidden" value="顺着坡滚"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h2 id="_11">坡度和梯度</h2>
 <p>坡度是什么呢？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="极值">极值</input><br/><input class="quiz" name="quiz" type="radio" value="导数">导数</input><br/><input class="quiz" name="quiz" type="radio" value="反函数">反函数</input><br/><input class="quiz" name="quiz" type="radio" value="指数">指数</input><br/><input class="quiz" name="quiz" type="radio" value="对数">对数</input><br/><input class="quiz" name="quiz" type="radio" value="二阶导数">二阶导数</input><br/></span><br/><input class="answers" type="hidden" value="导数"/><input class="comments" type="hidden" value="这个，那个"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="极值"/>极值<br/><input class="quiz" name="quiz" type="radio" value="导数"/>导数<br/><input class="quiz" name="quiz" type="radio" value="反函数"/>反函数<br/><input class="quiz" name="quiz" type="radio" value="指数"/>指数<br/><input class="quiz" name="quiz" type="radio" value="对数"/>对数<br/><input class="quiz" name="quiz" type="radio" value="二阶导数"/>二阶导数<br/></span><br/><input class="answers" type="hidden" value="导数"/><input class="comments" type="hidden" value="这个，那个"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="_12">导数</h2>
 <p>很明显了， 我们要求导！！！  一维的w，也就是只有一个变量， 求导肯定对的，非左即右。 </p>
 <p>那2维、多维的w呢？拿2维来说，就相当于x轴和y轴，要同时在两个变量上求导~~~所以， 分别对两个变量求偏导。并可以类推到更高维。</p>
@@ -252,18 +255,18 @@ $$</p>
 <p>想实现读者自行推导过程， 辅助提醒， 但公式判断怎么做？搜都不知道搜什么。强行中断一下。</p>
 <p>已知 h(x) = w*x, 等于向量w和x的内积</p>
 <p>那 $\frac{\partial}{\partial w_i}(h(x) - y)$化简结果是？ </p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="w向量的i分量">w向量的i分量</input><br/><input class="quiz" name="quiz" type="radio" value="x的i分量">x的i分量</input><br/><input class="quiz" name="quiz" type="radio" value="x的和">x的和</input><br/><input class="quiz" name="quiz" type="radio" value="w的和">w的和</input><br/></span><br/><input class="answers" type="hidden" value="x的i分量"/><input class="comments" type="hidden" value="w的i分量被微分了#w的非i分量直接当常数没了"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="w向量的i分量"/>w向量的i分量<br/><input class="quiz" name="quiz" type="radio" value="x的i分量"/>x的i分量<br/><input class="quiz" name="quiz" type="radio" value="x的和"/>x的和<br/><input class="quiz" name="quiz" type="radio" value="w的和"/>w的和<br/></span><br/><input class="answers" type="hidden" value="x的i分量"/><input class="comments" type="hidden" value="w的i分量被微分了#w的非i分量直接当常数没了"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h2 id="_15">求导结果</h2>
 <p>所以结果为：</p>
 <p>$$
 \frac{\partial}{\partial w_i}J(w) = 2<em>(h(x)-y)</em>x_i 
 $$</p>
 <p>求偏导给出了方向， 所以， 要沿着方向。那么，</p>
-<div class="process"><span><p>把w看作点的位置，怎么滚？</p><input class="quiz" name="quiz" type="radio" value="w-偏导值">w-偏导值</input><br/><input class="quiz" name="quiz" type="radio" value="偏导值替换w">偏导值替换w</input><br/><input class="quiz" name="quiz" type="radio" value="二者相乘">二者相乘</input><br/><input class="quiz" name="quiz" type="radio" value="二者相加">二者相加</input><br/></span><br/><input class="answers" type="hidden" value="w-偏导值"/><input class="comments" type="hidden" value="偏导值为正，代表什么？"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p>把w看作点的位置，怎么滚？</p><input class="quiz" name="quiz" type="radio" value="w-偏导值"/>w-偏导值<br/><input class="quiz" name="quiz" type="radio" value="偏导值替换w"/>偏导值替换w<br/><input class="quiz" name="quiz" type="radio" value="二者相乘"/>二者相乘<br/><input class="quiz" name="quiz" type="radio" value="二者相加"/>二者相加<br/></span><br/><input class="answers" type="hidden" value="w-偏导值"/><input class="comments" type="hidden" value="偏导值为正，代表什么？"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_16">滚多远？</h2>
 <p>所以 w是当前坐标， 要减掉偏导得到的结果（沿着梯度方向滚）， 才能使得J(w)变小。</p>
 <p>我们能沿着这个方向没没完没了地滚下去吗？ 要知道哪怕只滚动一厘米、 一毫米， 新的位置的偏导值（向量）都有可能发生变化。</p>
-<div class="process"><span><p>所以要怎么样？</p><input class="quiz" name="quiz" type="radio" value="给偏导值向量乘上个小系数">给偏导值向量乘上个小系数</input><br/><input class="quiz" name="quiz" type="radio" value="无聊">无聊</input><br/><input class="quiz" name="quiz" type="radio" value="乘上个大系数">乘上个大系数</input><br/><input class="quiz" name="quiz" type="radio" value="偏导值改成倒数">偏导值改成倒数</input><br/></span><br/><input class="answers" type="hidden" value="给偏导值向量乘上个小系数"/><input class="comments" type="hidden" value="都提示不要变化太大了"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<div class="process"><span><p>所以要怎么样？</p><input class="quiz" name="quiz" type="radio" value="给偏导值向量乘上个小系数"/>给偏导值向量乘上个小系数<br/><input class="quiz" name="quiz" type="radio" value="无聊"/>无聊<br/><input class="quiz" name="quiz" type="radio" value="乘上个大系数"/>乘上个大系数<br/><input class="quiz" name="quiz" type="radio" value="偏导值改成倒数"/>偏导值改成倒数<br/></span><br/><input class="answers" type="hidden" value="给偏导值向量乘上个小系数"/><input class="comments" type="hidden" value="都提示不要变化太大了"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h2 id="_17">什么时候结束</h2>
 <p>$\alpha$的取值太大太小都有问题，这是工程实践上的问题，跳过。</p>
 <p>综上所述， 我们有 $w=w-\alpha \frac{\partial}{\partial w}J(w)$， 作为每次迭代对w的更新。</p>

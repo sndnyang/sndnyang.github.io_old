@@ -43,7 +43,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -88,12 +93,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -162,7 +165,7 @@
 <ol>
 <li>Andrew Ng Coursera <a href="https://www.coursera.org/learn/machine-learning">机器学习</a></li>
 </ol>
-<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>原则上我会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题"/>问题<br/><input class="quiz" name="quiz" type="radio" value="定义"/>定义<br/><input class="quiz" name="quiz" type="radio" value="故事"/>故事<br/><input class="quiz" name="quiz" type="radio" value="历史"/>历史<br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h3 id="_2">还记得学了什么吗？</h3>
 <p>我们学习了 <a href="http://www.zhimind.com/tutorial/introduce-neural-network">神经网络的引入</a>， 回顾一下</p>
 <div class="process"><span><p>基础的神经网络（框架）包含了<input class="quiz" type="text"/>。</p></span><br/><input class="answers" type="hidden" value="神经元&amp;突触"/><input class="comments" type="hidden" value="咋解释？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
@@ -181,7 +184,7 @@
 <h3 id="_6">不要解释</h3>
 <p>很明显，最简单的连接方式， 就是把n个其他神经元输出给它的值当作自己的输入， 单向， 多对多关系， 如图所示（<a href="http://www.open-open.com/lib/view/open1452752687042.html">图片引用</a>）：</p>
 <p><img alt="simple-nn" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/simple-nn.jpg"/></p>
-<div class="process"><span><p>但只能有两层吗？</p><input class="quiz" name="quiz" type="radio" value="是">是</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="没写好，抱歉"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p>但只能有两层吗？</p><input class="quiz" name="quiz" type="radio" value="是"/>是<br/><input class="quiz" name="quiz" type="radio" value="否"/>否<br/></span><br/><input class="answers" type="hidden" value="否"/><input class="comments" type="hidden" value="没写好，抱歉"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h2 id="_7">隐藏层</h2>
 <p>输入层和输出层中间可以有多层的神经元，如图：</p>
 <p><img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
@@ -189,7 +192,7 @@
 <p>前向传播feed-forward，也可以叫前馈神经网络。 就是逐层计算各个神经元层的输出，传给下一层作输入。</p>
 <p>具体神经元如何算输出值，则根据神经元采用的模型而定， 比如我们之前 <a href="http://www.zhimind.com/tutorial/models-of-neurons">常见简单神经元模型</a>里学习的五个（3个？）模型。</p>
 <p>一般使用前馈神经网络解决分类问题时， 用 sigmoid神经元，即逻辑回归模型的比较多。</p>
-<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结">总结</input><br/><input class="quiz" name="quiz" type="radio" value="实践">实践</input><br/><input class="quiz" name="quiz" type="radio" value="数学化">数学化</input><br/><input class="quiz" name="quiz" type="radio" value="应用">应用</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/><input class="quiz" name="quiz" type="radio" value="结束">结束</input><br/></span><br/><input class="answers" type="hidden" value="总结"/><input class="comments" type="hidden" value="写太乱了，所以要~~~"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结"/>总结<br/><input class="quiz" name="quiz" type="radio" value="实践"/>实践<br/><input class="quiz" name="quiz" type="radio" value="数学化"/>数学化<br/><input class="quiz" name="quiz" type="radio" value="应用"/>应用<br/><input class="quiz" name="quiz" type="radio" value="给定义"/>给定义<br/><input class="quiz" name="quiz" type="radio" value="结束"/>结束<br/></span><br/><input class="answers" type="hidden" value="总结"/><input class="comments" type="hidden" value="写太乱了，所以要~~~"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h1 id="_8">前向传播</h1>
 <p>总结前面的内容， 前向传播feed-forward，也可以叫前馈神经网络的组成为：</p>
 <ol>
@@ -197,7 +200,7 @@
 <li>架构——输入层和输出层，中间的有n (n&gt;=0)层神经元，叫隐藏（隐含）层。</li>
 </ol>
 <p>比如：<img alt="多层网络" src="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/ml/multi-layer-nn.png"/></p>
-<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结">总结</input><br/><input class="quiz" name="quiz" type="radio" value="实践">实践</input><br/><input class="quiz" name="quiz" type="radio" value="数学化">数学化</input><br/><input class="quiz" name="quiz" type="radio" value="应用">应用</input><br/><input class="quiz" name="quiz" type="radio" value="给定义">给定义</input><br/><input class="quiz" name="quiz" type="radio" value="结束">结束</input><br/></span><br/><input class="answers" type="hidden" value="数学化"/><input class="comments" type="hidden" value="总结好了就可以数学形式化了"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p>接下来做什么？</p><input class="quiz" name="quiz" type="radio" value="总结"/>总结<br/><input class="quiz" name="quiz" type="radio" value="实践"/>实践<br/><input class="quiz" name="quiz" type="radio" value="数学化"/>数学化<br/><input class="quiz" name="quiz" type="radio" value="应用"/>应用<br/><input class="quiz" name="quiz" type="radio" value="给定义"/>给定义<br/><input class="quiz" name="quiz" type="radio" value="结束"/>结束<br/></span><br/><input class="answers" type="hidden" value="数学化"/><input class="comments" type="hidden" value="总结好了就可以数学形式化了"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h1 id="_9">数学符号</h1>
 <p>先回顾 逻辑或sigmoid神经元的模型：$$h(x) = g(w^Tx) = \frac{1}{1+e^{-w^Tx}}$$</p>
 <p>w代表权重向量 weight vector, x 代表输入变量， y代表输入变量的标签label即实际结果， h(x)就是我们的模型对x的预测结果。</p>
@@ -232,7 +235,7 @@ F. $a_1^2=g(w_{0,0}^2 x_0 + w_{1,1}^2 x_1 + w_{2,2}^2 x_2)$ </p>
 <p>输入向量即 $x = (x_0, ..., x_n)$，其中 $x_0$对应偏置项$w_0$</p>
 <p>输出单元，即最后一层神经元的输出。 </p>
 <h3 id="ok">OK?</h3>
-<div class="process"><span><p>看完上面内容，尤其是那个小小的练习，对神经网络的数学符号化搞清楚了吗？</p><input class="quiz" name="quiz" type="radio" value="清楚了">清楚了</input><br/><input class="quiz" name="quiz" type="radio" value="并没有">并没有</input><br/></span><br/><input class="answers" type="hidden" value="清楚了"/><input class="comments" type="hidden" value="清楚了:虽然我觉得那么容易记清，但这里只是为了后面内容的统一，编程时别搞错序号就行#这个不重要"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<div class="process"><span><p>看完上面内容，尤其是那个小小的练习，对神经网络的数学符号化搞清楚了吗？</p><input class="quiz" name="quiz" type="radio" value="清楚了"/>清楚了<br/><input class="quiz" name="quiz" type="radio" value="并没有"/>并没有<br/></span><br/><input class="answers" type="hidden" value="清楚了"/><input class="comments" type="hidden" value="清楚了:虽然我觉得那么容易记清，但这里只是为了后面内容的统一，编程时别搞错序号就行#这个不重要"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h1 id="_14">编程实践</h1>
 <p>纸上得来终觉浅，绝知此事要躬行。 所以我制作了一个ipython notebook的练习， <a href="https://github.com/sndnyang/studylib/blob/master/ai/ml/feedforward.ipynb">前向神经网络notebook#todo</a> </p>
 <p>有ipython notebook的朋友知道如何使用。没有ipython notebook的朋友， 如果想了解python，可以自己下载python，安装ipython\jupyter包。</p>

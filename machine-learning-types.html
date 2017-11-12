@@ -43,7 +43,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -88,12 +93,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -155,7 +158,7 @@
 <p>不才在下专业水平、 写作水平都很次，若有意见或建议， 欢迎通过下方微博或邮箱联系。</p>
 <p>原则上，上一篇讲的是 <a href="http://www.zhimind.com/tutorial/acd9371a-1565-429c-9cdc-c275937e4523">机器学习定义</a></p>
 <p>这一篇将向各位介绍机器学习的主要类型。</p>
-<div class="process"><span><p>原则上从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="定义"/><input class="comments" type="hidden" value="未知事物是从问题开始，但问题也应该是自然遇到、见过的，而不是刻意举例，那样因果关系颠倒"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>原则上从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题"/>问题<br/><input class="quiz" name="quiz" type="radio" value="定义"/>定义<br/><input class="quiz" name="quiz" type="radio" value="故事"/>故事<br/><input class="quiz" name="quiz" type="radio" value="历史"/>历史<br/></span><br/><input class="answers" type="hidden" value="定义"/><input class="comments" type="hidden" value="未知事物是从问题开始，但问题也应该是自然遇到、见过的，而不是刻意举例，那样因果关系颠倒"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h3 id="_2">不是每个东西都能启发的</h3>
 <p>个人认为，对一个领域进行分门别类 需要较高、较深的专业知识水平，有了足够的问题、知识，进行归纳、分类，这是我个人理解的做法。</p>
 <p>但一般教材都没这么做，直接把各种分类一股脑地列出来，因为也确实做不到，不可能列出足够的例子，慢慢地归纳出各类的特点。 并且，分类的方式可能多种多样， 往往不存在唯一的权威分类方式。</p>
@@ -163,7 +166,7 @@
 <p>所以，我要尝试做到更自然地从定义来预测大概有些什么问题，可以划分哪些类别。也算是锻炼了直觉、 猜测的能力。</p>
 <p>还记得， 机器学习的起因、经过、结果吧？</p>
 <p>起因：某些方面不够好，经过：从数据中使用某些方法学习到经验，结果：提高了性能、准确率、知识等等。</p>
-<div class="process"><span><p>哪总分的特点可作为分类依据？</p><input class="quiz" name="quiz" type="radio" value="起因">起因</input><br/><input class="quiz" name="quiz" type="radio" value="经过">经过</input><br/><input class="quiz" name="quiz" type="radio" value="结果">结果</input><br/></span><br/><input class="answers" type="hidden" value="经过"/><input class="comments" type="hidden" value="这个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>哪总分的特点可作为分类依据？</p><input class="quiz" name="quiz" type="radio" value="起因"/>起因<br/><input class="quiz" name="quiz" type="radio" value="经过"/>经过<br/><input class="quiz" name="quiz" type="radio" value="结果"/>结果<br/></span><br/><input class="answers" type="hidden" value="经过"/><input class="comments" type="hidden" value="这个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_3">那又如何？</h3>
 <p>从数据中使用某些方法学习到经验， 这句话能有什么特点？</p>
 <p>学完机器学习，也许 我们可以在方法上进行分类（我也没学完，所以瞎分一下）——线性、非线性、核方法；最优、非最优；树状、网状、线状；单挑、群殴。 但是，我们还什么都没学呢， 怎么分？ 也许以后值得一试，但现在没法。</p>
@@ -182,7 +185,7 @@
 <li>有明确、及时的标签。</li>
 <li>有不一定及时、完全不明确的反馈。</li>
 </ol>
-<div class="process"><span><p>还有没有其他可能？</p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="一般这种问题没意义的感觉"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p>还有没有其他可能？</p><input class="quiz" name="quiz" type="radio" value="有"/>有<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="一般这种问题没意义的感觉"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h3 id="_6"></h3>
 <div class="process"><span><p>还有什么？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value=""/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_7">还有</h3>
@@ -198,7 +201,7 @@
 <p>比如说机器学习里需要的聚类， 人手工也能聚， 但你说能从中学到些啥说不清楚， 假设班级中，人以类聚，但说不清楚。</p>
 <p>至于数据降维就更是没几个人自己弄过——求特征值、特征量，但没拿来用过。</p>
 <p>所以这种学习形式不难理解， 就是亲自尝试、有体会的不多。</p>
-<div class="process"><span><p>还有其他类型吗？</p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p>还有其他类型吗？</p><input class="quiz" name="quiz" type="radio" value="有"/>有<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="没有"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h1 id="_9">总结</h1>
 <p>我们总结出了三种</p>
 <ol>

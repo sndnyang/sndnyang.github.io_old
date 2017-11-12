@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -174,13 +177,13 @@
 <p>接上一篇<a href="http://www.zhimind.com/tutorial/machine-learning-types">机器学习的主要类型</a></p>
 <p>我是拒绝的，因为这三个要素写起来，跟照抄有什么区别， 怎么编写才合理，真是头痛。</p>
 <p>简单来说，下面这问题怎么回答~~~</p>
-<div class="process"><span><p>原则上应该——我规定——从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>原则上应该——我规定——从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题"/>问题<br/><input class="quiz" name="quiz" type="radio" value="定义"/>定义<br/><input class="quiz" name="quiz" type="radio" value="故事"/>故事<br/><input class="quiz" name="quiz" type="radio" value="历史"/>历史<br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h1 id="_2">哪有问题？</h1>
 <p>你说这对应什么问题？说不出来啊，更多是对多种机器学习方法进行归纳总结后，提出它们都有模型、策略、算法。</p>
 <p>所以，应该是直接上定义，让大家牢记于心。即：</p>
 <p>$$机器学习方法=模型+策略+算法$$</p>
 <p>简单的定义也比较好记~~~太复杂、大段文本就难记了，不过话多倒是可以学着自己总结， 这种定义，要学过很多种方法后才能总结出来。</p>
-<div class="process"><span><p>那么，是先学定义，指导后面具体内容学习好呢，还是先学具体方法，再总结定义、特点好？</p><input class="quiz" name="quiz" type="checkbox" value="先定义总结后内容">先定义总结后内容</input><br/><input class="quiz" name="quiz" type="checkbox" value="先内容后定义总结">先内容后定义总结</input><br/></span><br/><input class="answers" type="hidden" value="先定义总结后内容@先内容后定义总结"/><input class="comments" type="hidden" value="一个全方位碾压另一个？#你能说得清楚到底好在哪儿吗？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>那么，是先学定义，指导后面具体内容学习好呢，还是先学具体方法，再总结定义、特点好？</p><input class="quiz" name="quiz" type="checkbox" value="先定义总结后内容"/>先定义总结后内容<br/><input class="quiz" name="quiz" type="checkbox" value="先内容后定义总结"/>先内容后定义总结<br/></span><br/><input class="answers" type="hidden" value="先定义总结后内容@先内容后定义总结"/><input class="comments" type="hidden" value="一个全方位碾压另一个？#你能说得清楚到底好在哪儿吗？"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_3"></h2>
 <p>很明显，两种都好也都不好，有多种方案、多个方法时， 两种顺序都有好处，也都有缺点。除非是仅有一个方案，那不需要总结多种东西的特点。</p>
 <p>反正， 具体的模型、策略、算法后面都会讲到， 没有条件全部讲完再来总结，或先讲一两个再来总结？ 那反映到目录上就会比较乱。所以采取先定义总结，再来指导具体内容。</p>
@@ -193,7 +196,7 @@
 <p>都是一些纯粹的概念， 会不会被人玩出花， 不知道。</p>
 <h2 id="_5">下一步要做什么？</h2>
 <p>有了假设空间， 我们要找目标（最好的）模型， 需要什么？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="评估模型好坏的准则">评估模型好坏的准则</input><br/><input class="quiz" name="quiz" type="checkbox" value="选择模型的方法">选择模型的方法</input><br/><input class="quiz" name="quiz" type="checkbox" value="假设空间降维的方法">假设空间降维的方法</input><br/><input class="quiz" name="quiz" type="checkbox" value="数据">数据</input><br/></span><br/><input class="answers" type="hidden" value="评估模型好坏的准则@选择模型的方法"/><input class="comments" type="hidden" value="数据:原则上当然要数据，但~~~跑题了"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="checkbox" value="评估模型好坏的准则"/>评估模型好坏的准则<br/><input class="quiz" name="quiz" type="checkbox" value="选择模型的方法"/>选择模型的方法<br/><input class="quiz" name="quiz" type="checkbox" value="假设空间降维的方法"/>假设空间降维的方法<br/><input class="quiz" name="quiz" type="checkbox" value="数据"/>数据<br/></span><br/><input class="answers" type="hidden" value="评估模型好坏的准则@选择模型的方法"/><input class="comments" type="hidden" value="数据:原则上当然要数据，但~~~跑题了"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h1 id="_6">评估模型好坏</h1>
 <p>我们当然要度量模型在数据集上 预测的准确度或错误程度， 称作 <strong>损失函数</strong>(loss function) 或 <strong>代价</strong>(cost function).</p>
 <p>模型f对给定输入X，输出预测值f(X)， 监督学习里会有真实值或label Y, 所以把损失函数记作 L(Y,f(X))。</p>
@@ -212,7 +215,7 @@
 <p>这个是最常用的一个损失函数， 平方损失函数 quadratic loss function。</p>
 <p>$$L(Y,f(X))=(Y-f(X))^2$$</p>
 <p>线性回归等基于距离的方法使用的一般都是这个 平方损失函数。</p>
-<div class="process"><span><p>那么平方损失函数能几乎没有问题地使用到其他问题上吗？</p><input class="quiz" name="quiz" type="radio" value="能">能</input><br/><input class="quiz" name="quiz" type="radio" value="否">否</input><br/><input class="quiz" name="quiz" type="radio" value="不知道">不知道</input><br/></span><br/><input class="answers" type="hidden" value="不知道"/><input class="comments" type="hidden" value="不试怎么知道呢"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p>那么平方损失函数能几乎没有问题地使用到其他问题上吗？</p><input class="quiz" name="quiz" type="radio" value="能"/>能<br/><input class="quiz" name="quiz" type="radio" value="否"/>否<br/><input class="quiz" name="quiz" type="radio" value="不知道"/>不知道<br/></span><br/><input class="answers" type="hidden" value="不知道"/><input class="comments" type="hidden" value="不试怎么知道呢"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_8">试试</h3>
 <p>我们知道，线性回归是解决回归问题方法， </p>
 <div class="process"><span><p>机器学习还有一类可能更常见的问题是<input class="quiz" type="text"/>问题</p></span><br/><input class="answers" type="hidden" value="分类|classify"/><input class="comments" type="hidden" value="读者没学过机器学习的话，怎么看到这儿的~~~百度一下也行"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
@@ -233,7 +236,7 @@
 <p>尤其是条件概率引出的贝叶斯推导， 一定程度上和人脑的习惯是不同的。这是概率课内容，不深究。</p>
 <p>所以 f(X)一般来说是个概率值， 当然是不是根据人脑“可能、大概”决定f(X)要用概率值的， 多半不是， 应该还是顺理成章的多。</p>
 <p>Y是标签， 为了概率，取0或1， f(X)是概率值。</p>
-<div class="process"><span><p>那`L(Y,f(X))=(Y-f(X))^2`有问题吗?</p><input class="quiz" name="quiz" type="radio" value="有">有</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="我也不知道我有没有套路，心情不同则套路不同？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
+<div class="process"><span><p>那`L(Y,f(X))=(Y-f(X))^2`有问题吗?</p><input class="quiz" name="quiz" type="radio" value="有"/>有<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="有"/><input class="comments" type="hidden" value="我也不知道我有没有套路，心情不同则套路不同？"/><button onclick="checkQuiz(this, 10)">submit</button><br/></div>
 <h3 id="_13">为什么？有什么问题</h3>
 <p>考虑到它是概率值，</p>
 <div class="process"><span><p>概率值可能有什么问题?<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="(数|值)&amp;小"/><input class="comments" type="hidden" value=":{%text|考虑某种极端情况_@(数|值)&amp;小#:{%radio|哪种极端情况会有问题？&amp;数值非常小（接近0）&amp;数值非常大（接近1）@数值非常小（接近0）#数值大还好吧？%}%}"/><button onclick="checkQuiz(this, 11)">submit</button><br/></div>

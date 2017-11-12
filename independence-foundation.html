@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -169,7 +172,7 @@
 <p>假设读者已经熟悉基本的概率概念、 概率几大公理， 掌握古典概率计算方法。</p>
 <h1 id="_2">独立性</h1>
 <p>在以前章节 已经学了<a href="http://zhimind.com/tutorial/e62df06e-781d-430a-ace2-b2d8e8e028f3">条件概率</a>和<a href="http://zhimind.com/tutorial/1288fa93-20fd-42a6-ac20-0dc01baf10f1">乘法法则</a> </p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="学了">学了</input><br/><input class="quiz" name="quiz" type="radio" value="没学">没学</input><br/></span><br/><input class="answers" type="hidden" value="学了"/><input class="comments" type="hidden" value="没学还不赶紧地，我教程写不好，那就自己拿书看呗"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="学了"/>学了<br/><input class="quiz" name="quiz" type="radio" value="没学"/>没学<br/></span><br/><input class="answers" type="hidden" value="学了"/><input class="comments" type="hidden" value="没学还不赶紧地，我教程写不好，那就自己拿书看呗"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h2 id="_3">概念引入</h2>
 <p>学了条件概率、 乘法法则， 有什么感觉吗？ 估计也没什么感觉， 很直观嘛， 现在穿越回去， 我也能当数学家——不对， 还得加强下英文、法文或德文。</p>
 <p>而且条件概率包打天下， 无所不能吗？ 中国乒乓球队夺不夺冠跟国足出不出线 存在条件概率关系吗？是个中国人都知道，没什么关系。</p>
@@ -179,7 +182,7 @@
 <p>MIT沿着一棵概率生成树把条件概率、乘法法则、全概率公式、贝叶斯法则复习一遍，最后得出结论。 好处是复习了， 但说这种就融会贯通了？这例子也不是十分复杂， 靠这就融会贯通，简直超神了。</p>
 <p>其他教材估计也差不多， 类似。甚至连例子都没有，直接给结论的</p>
 <p><a href="http://pan.baidu.com/s/1i3pjMPR">MIT 6.041x Introduction to Probability</a> 这个是别人分享的视频，请看unit 2 的 lec3 的0、1、2三个视频。 或者中国大学MOOC上看那个，或随便找一本书。</p>
-<div class="process"><span><p>你觉得他们的讲法很好吗(就这个概念引入而言)?</p><input class="quiz" name="quiz" type="radio" value="MIT当然是完美的">MIT当然是完美的</input><br/><input class="quiz" name="quiz" type="radio" value="久经考验的讲法当然很好">久经考验的讲法当然很好</input><br/><input class="quiz" name="quiz" type="radio" value="不好">不好</input><br/><input class="quiz" name="quiz" type="radio" value="垃圾，渣渣">垃圾，渣渣</input><br/></span><br/><input class="answers" type="hidden" value="不好"/><input class="comments" type="hidden" value="问问题是有目的的，但不能骂人"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>你觉得他们的讲法很好吗(就这个概念引入而言)?</p><input class="quiz" name="quiz" type="radio" value="MIT当然是完美的"/>MIT当然是完美的<br/><input class="quiz" name="quiz" type="radio" value="久经考验的讲法当然很好"/>久经考验的讲法当然很好<br/><input class="quiz" name="quiz" type="radio" value="不好"/>不好<br/><input class="quiz" name="quiz" type="radio" value="垃圾，渣渣"/>垃圾，渣渣<br/></span><br/><input class="answers" type="hidden" value="不好"/><input class="comments" type="hidden" value="问问题是有目的的，但不能骂人"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_5">试着去抽象</h3>
 <p>我觉得以上两家（水平甩我甩出一光年）的问题在于，他们用的是证明的方法来给出概念，但证明是知道起点和终点的，他们等于是知道了独立性的结论、定义，才能有意识地沿着某条路走到终点。</p>
 <p>现在我们不知道结论，不知道定义，没有一丝头绪，不能用证明的方法来搞这个。</p>
@@ -197,10 +200,10 @@
 <div class="process"><span><p>有假设下一步干嘛？<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="验证"/><input class="comments" type="hidden" value="答案是验证,选择题不好，填空题验证、证明好多同义词怎么搞啊"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h4 id="_8">例子验证</h4>
 <p>验证 P(A) = P(A|B)，省略， 请看上面的课程， 反正就一两个例子， 也没特别的证明过程。</p>
-<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了"/>完了<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h4 id="_9">完了？</h4>
 <p>P(A) = P(A|B) 挺好的，但会不会有什么问题？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="P(B|A)=P(B)一定成立?">P(B|A)=P(B)一定成立?</input><br/><input class="quiz" name="quiz" type="radio" value="不够直观">不够直观</input><br/><input class="quiz" name="quiz" type="radio" value="不够简单">不够简单</input><br/></span><br/><input class="answers" type="hidden" value="P(B|A)=P(B)一定成立?"/><input class="comments" type="hidden" value="这个只能是体会精神了"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="P(B|A)=P(B)一定成立?"/>P(B|A)=P(B)一定成立?<br/><input class="quiz" name="quiz" type="radio" value="不够直观"/>不够直观<br/><input class="quiz" name="quiz" type="radio" value="不够简单"/>不够简单<br/></span><br/><input class="answers" type="hidden" value="P(B|A)=P(B)一定成立?"/><input class="comments" type="hidden" value="这个只能是体会精神了"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h3 id="_10">再归纳、更一般化</h3>
 <p>没错， P(A) = P(A|B) 总会让人怀疑它只表示了“A独立于B”，那 P(B|A)=P(B)么？ 独立性要的是AB互相独立（默认）。</p>
 <p>所以式子里的A和B要同等的地位。 然后我也编出来了。</p>
@@ -211,17 +214,17 @@
 <p>若A与B独立， 则A与B逆， A逆与B， A逆与B逆都独立。</p>
 <h4 id="n">推广到n个事件</h4>
 <p>也一样。 <a href="http://7xt8es.com1.z0.glb.clouddn.com/zhimind/math/probability/n%E4%BA%8B%E4%BB%B6%E7%8B%AC%E7%AB%8B.png">n事件独立</a></p>
-<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了"/>完了<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="没有"/><input class="comments" type="hidden" value="以后会有完了的时候"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h2 id="_12">互斥与独立</h2>
 <p>首先， 先来个问题， 两互斥事件 独立吗？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="独立">独立</input><br/><input class="quiz" name="quiz" type="radio" value="不独立">不独立</input><br/></span><br/><input class="answers" type="hidden" value="独立"/><input class="comments" type="hidden" value="二选一啦"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="独立"/>独立<br/><input class="quiz" name="quiz" type="radio" value="不独立"/>不独立<br/></span><br/><input class="answers" type="hidden" value="独立"/><input class="comments" type="hidden" value="二选一啦"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h3 id="_13">分析</h3>
 <p>目前没能实现用户完成多步推导的 指导功能。要在大文本框里写很多行， 各行去判断——哎哟喂。</p>
 <p>就根据独立性的定义， 不外乎算两个， P(AB) 和 P(A)*P(B)</p>
 <p>互斥事件P(AB) = 0, P(A)<em>P(B) 两个都是概率事件P&gt;0, 所以 P(A)</em>P(B)&gt;0。</p>
 <p>当然大家应该能理解，只是需要这么明确地说出来，不然直观认识是很可能模糊的。再来解释下。</p>
 <p>从概率上说， 俩事件互斥其实就是一种信息， 知道了A或B的成立，就知道B或A 一定不会成立。 我们又可以看到条件概率的意义， 知道新的信息后， 概率发生变化，也可以说是观点发生变化。</p>
-<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了">完了</input><br/><input class="quiz" name="quiz" type="radio" value="没有">没有</input><br/></span><br/><input class="answers" type="hidden" value="完了"/><input class="comments" type="hidden" value="其他部分另起炉灶"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
+<div class="process"><span><p>猜猜完了吗？</p><input class="quiz" name="quiz" type="radio" value="完了"/>完了<br/><input class="quiz" name="quiz" type="radio" value="没有"/>没有<br/></span><br/><input class="answers" type="hidden" value="完了"/><input class="comments" type="hidden" value="其他部分另起炉灶"/><button onclick="checkQuiz(this, 8)">submit</button><br/></div>
 <h1 id="_14">恭喜</h1>
 <p>独立性的基础部分大概就这么多。后面还有：</p>
 <ul>
@@ -295,7 +298,7 @@
                             <span>4</span>
 </a></li>
                         <li><a href="/tags.html#shu-xue-ref">数学
-                            <span>9</span>
+                            <span>10</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

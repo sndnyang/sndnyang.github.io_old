@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -162,15 +165,15 @@
 <li>Andrew Ng在斯坦福的cs229， <a href="http://cs229.stanford.edu/materials.html">cs229</a></li>
 <li>李航《统计学习方法》</li>
 </ol>
-<div class="process"><span><p>我原则上会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题">问题</input><br/><input class="quiz" name="quiz" type="radio" value="定义">定义</input><br/><input class="quiz" name="quiz" type="radio" value="故事">故事</input><br/><input class="quiz" name="quiz" type="radio" value="历史">历史</input><br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
+<div class="process"><span><p>我原则上会从什么开始？</p><input class="quiz" name="quiz" type="radio" value="问题"/>问题<br/><input class="quiz" name="quiz" type="radio" value="定义"/>定义<br/><input class="quiz" name="quiz" type="radio" value="故事"/>故事<br/><input class="quiz" name="quiz" type="radio" value="历史"/>历史<br/></span><br/><input class="answers" type="hidden" value="问题"/><input class="comments" type="hidden" value="故事:不是不想从故事和历史开始，孤陋寡闻了#历史:不是不想从故事和历史开始，孤陋寡闻了#定义:直接上定义和以前教科书有什么区别？"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h1 id="_2">从问题出发</h1>
 <p>现在问题是，我们到底遇到了什么问题？没钱，房价太高，生活压力大，都是问题。 好尴尬，没头没脑的问这么个问题，谁能回答得上来，是吧！</p>
 <p>所以说，发现新问题，或者说创造性思维都是要基于足够的领域积累，比如正在讨论的这个机器学习概念，就需要在计算机领域及智能领域有一定的研究才会有这经验， 比如说， </p>
-<div class="process"><span><p>对目前计算机领域，以下哪个任务最难？</p><input class="quiz" name="quiz" type="radio" value="存储10*1000G的视频数据">存储10*1000G的视频数据</input><br/><input class="quiz" name="quiz" type="radio" value="看几十张图说话">看几十张图说话</input><br/><input class="quiz" name="quiz" type="radio" value="处理100万人同时访问">处理100万人同时访问</input><br/></span><br/><input class="answers" type="hidden" value="看几十张图说话"/><input class="comments" type="hidden" value="了解编程、IT行业的人都知道"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p>对目前计算机领域，以下哪个任务最难？</p><input class="quiz" name="quiz" type="radio" value="存储10*1000G的视频数据"/>存储10*1000G的视频数据<br/><input class="quiz" name="quiz" type="radio" value="看几十张图说话"/>看几十张图说话<br/><input class="quiz" name="quiz" type="radio" value="处理100万人同时访问"/>处理100万人同时访问<br/></span><br/><input class="answers" type="hidden" value="看几十张图说话"/><input class="comments" type="hidden" value="了解编程、IT行业的人都知道"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h3 id="_3">人和机器不一样</h3>
 <p>看图说话简直太容易了，根本不是问题，但对计算机行业来说， 看图说话这种人工智能就是天大的难题。</p>
 <p>如果不了解这个领域，那想发现、提出问题就很困难。 这里必须假设读者明白看图、对话等人工智能问题的难点。 如果哪位觉得这些问题都小菜一碟、不理解为什么会难住计算机，那我该如何聊下去呢？</p>
-<div class="process"><span><p>对计算机来说，这些问题最难的地方是哪里？</p><input class="quiz" name="quiz" type="radio" value="规则\模式未知">规则\模式未知</input><br/><input class="quiz" name="quiz" type="radio" value="规则\模式很复杂">规则\模式很复杂</input><br/><input class="quiz" name="quiz" type="radio" value="运算速度不够快">运算速度不够快</input><br/><input class="quiz" name="quiz" type="radio" value="容量不够大">容量不够大</input><br/><input class="quiz" name="quiz" type="radio" value="现实没法用二进制模拟">现实没法用二进制模拟</input><br/></span><br/><input class="answers" type="hidden" value="规则\模式未知"/><input class="comments" type="hidden" value="最难应该没问题，复杂也是很难，但不如未知难，复杂主要是麻烦、啰嗦"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
+<div class="process"><span><p>对计算机来说，这些问题最难的地方是哪里？</p><input class="quiz" name="quiz" type="radio" value="规则\模式未知"/>规则\模式未知<br/><input class="quiz" name="quiz" type="radio" value="规则\模式很复杂"/>规则\模式很复杂<br/><input class="quiz" name="quiz" type="radio" value="运算速度不够快"/>运算速度不够快<br/><input class="quiz" name="quiz" type="radio" value="容量不够大"/>容量不够大<br/><input class="quiz" name="quiz" type="radio" value="现实没法用二进制模拟"/>现实没法用二进制模拟<br/></span><br/><input class="answers" type="hidden" value="规则\模式未知"/><input class="comments" type="hidden" value="最难应该没问题，复杂也是很难，但不如未知难，复杂主要是麻烦、啰嗦"/><button onclick="checkQuiz(this, 2)">submit</button><br/></div>
 <h2 id="_4">知道问题的难点</h2>
 <p>毫无疑问，人脑如何识别图片、如何掌握语言， 这些我们都不知道！难就难在这里，根本没法用数学来表达。</p>
 <p>规则、模式很复杂算不算难点呢？ 一般算，但相对未知规则、模式而言，个人认为还能接受，反正现在复杂的程序、数学定理多了去了， 1亿的复杂度和10亿的复杂度对普通人来说，没区别。</p>
@@ -178,18 +181,18 @@
 <h3 id="_5">知难而退？</h3>
 <p>不可道， 我们就永远学不会了吗？ 人的世界里“道可道 非常道”，那人也还要学“道”，虽然不是每个人都学或能学会，勤奋或天赋不一样，但机器又没天赋这事，你250核CPU，250万核 GPU， 250T内存了不起哦？也就比我快一些，“智商”本质上还是一样的。</p>
 <p>扯远了，总之， 我们知道， “道” 和这些图像识别、语法规则一样，都是讲不清楚的。</p>
-<div class="process"><span><p>那人是如何近（接近、学习）道的？</p><input class="quiz" name="quiz" type="radio" value="看四书五经">看四书五经</input><br/><input class="quiz" name="quiz" type="radio" value="看道家书籍">看道家书籍</input><br/><input class="quiz" name="quiz" type="radio" value="打坐冥想">打坐冥想</input><br/><input class="quiz" name="quiz" type="radio" value="模仿体验">模仿体验</input><br/><input class="quiz" name="quiz" type="radio" value="抄袭">抄袭</input><br/></span><br/><input class="answers" type="hidden" value="模仿体验"/><input class="comments" type="hidden" value="不是要求从哲学角度回答，所以，哪个合适选哪个"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
+<div class="process"><span><p>那人是如何近（接近、学习）道的？</p><input class="quiz" name="quiz" type="radio" value="看四书五经"/>看四书五经<br/><input class="quiz" name="quiz" type="radio" value="看道家书籍"/>看道家书籍<br/><input class="quiz" name="quiz" type="radio" value="打坐冥想"/>打坐冥想<br/><input class="quiz" name="quiz" type="radio" value="模仿体验"/>模仿体验<br/><input class="quiz" name="quiz" type="radio" value="抄袭"/>抄袭<br/></span><br/><input class="answers" type="hidden" value="模仿体验"/><input class="comments" type="hidden" value="不是要求从哲学角度回答，所以，哪个合适选哪个"/><button onclick="checkQuiz(this, 4)">submit</button><br/></div>
 <h1 id="_6">学与习</h1>
 <p>模仿体验就是一种学习，没有限定学习范围，也许还能看出一点归纳（模仿）、演绎（体验）的意思。</p>
 <p>所以结论就来了， 因为图像识别、语法规则“不可道”， 所以希望机器自己去“模仿体验”，去归纳、演绎，自己去学习到“不可道”的规则， 也就是机器学习。 </p>
 <p>前面也是废话， 说白了， 就是希望机器（计算机）和人一样聪明、一样有学习能力，能像科幻电影里的机器人一样。我们也都知道现在的计算机程序， 蠢，很蠢，非常蠢。 就希望“机器学习”技术能让机器学习起来。</p>
 <p>终于，引出了我们教程的主角——机器学习</p>
-<div class="process"><span><p>下一步干什么？</p><input class="quiz" name="quiz" type="radio" value="举个栗子">举个栗子</input><br/><input class="quiz" name="quiz" type="radio" value="看个应用">看个应用</input><br/><input class="quiz" name="quiz" type="radio" value="给个定义">给个定义</input><br/><input class="quiz" name="quiz" type="radio" value="讲个故事">讲个故事</input><br/></span><br/><input class="answers" type="hidden" value="给个定义"/><input class="comments" type="hidden" value="栗子:说过了#故事:并不知道什么故事#应用:科幻电影里的机器人啊，虽然还没能做到"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
+<div class="process"><span><p>下一步干什么？</p><input class="quiz" name="quiz" type="radio" value="举个栗子"/>举个栗子<br/><input class="quiz" name="quiz" type="radio" value="看个应用"/>看个应用<br/><input class="quiz" name="quiz" type="radio" value="给个定义"/>给个定义<br/><input class="quiz" name="quiz" type="radio" value="讲个故事"/>讲个故事<br/></span><br/><input class="answers" type="hidden" value="给个定义"/><input class="comments" type="hidden" value="栗子:说过了#故事:并不知道什么故事#应用:科幻电影里的机器人啊，虽然还没能做到"/><button onclick="checkQuiz(this, 5)">submit</button><br/></div>
 <h1 id="_7">什么是机器学习</h1>
 <p>名字易懂， 但我们要学会自己进行抽象，用准确的语言来描述一个概念，而不是看着别人写好的概念、定义 说"WTF"。死记别人写的定义非常枯燥、困难，我们学着自己去抽象、总结，一来容易记忆，二来是对抽象能力的锻炼。</p>
 <p>我们来看名字，机器没什么说的，机器、里面的计算机程序、系统都行；学习呢？ 广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式<a href="http://baike.baidu.com/link?url=BafnjZgNR49wPt6Z71Fz5TrtcrHAbVsFGRuUhWtEep9kqOvUg1UVDoi8oDgz03TBmEF_949Xym_pGcvk5rV4ocsCxTN8u8QVCEkxXlcbINq">百度百科</a>——怎么感觉有点病句？ 8-)</p>
 <p>看不明白，套点熟悉的东西，语文里写作文、故事不是讲究 时间&amp;地点&amp;人物&amp;起因&amp;经过&amp;结果 吗？ </p>
-<div class="process"><span><p>如果把机器学习就是一个过程或一件事，你觉得“机器学习”*还*需要哪几大要素？</p><input class="quiz" name="quiz" type="checkbox" value="时间">时间</input><br/><input class="quiz" name="quiz" type="checkbox" value="地点">地点</input><br/><input class="quiz" name="quiz" type="checkbox" value="人物">人物</input><br/><input class="quiz" name="quiz" type="checkbox" value="起因">起因</input><br/><input class="quiz" name="quiz" type="checkbox" value="经过">经过</input><br/><input class="quiz" name="quiz" type="checkbox" value="结果">结果</input><br/></span><br/><input class="answers" type="hidden" value="起因@经过@结果"/><input class="comments" type="hidden" value="时间地点不限吧？#可以说机器就是人物了嘛"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
+<div class="process"><span><p>如果把机器学习就是一个过程或一件事，你觉得“机器学习”*还*需要哪几大要素？</p><input class="quiz" name="quiz" type="checkbox" value="时间"/>时间<br/><input class="quiz" name="quiz" type="checkbox" value="地点"/>地点<br/><input class="quiz" name="quiz" type="checkbox" value="人物"/>人物<br/><input class="quiz" name="quiz" type="checkbox" value="起因"/>起因<br/><input class="quiz" name="quiz" type="checkbox" value="经过"/>经过<br/><input class="quiz" name="quiz" type="checkbox" value="结果"/>结果<br/></span><br/><input class="answers" type="hidden" value="起因@经过@结果"/><input class="comments" type="hidden" value="时间地点不限吧？#可以说机器就是人物了嘛"/><button onclick="checkQuiz(this, 6)">submit</button><br/></div>
 <h3 id="_8">套路模板</h3>
 <p>既然是起因、经过、结果， 来分析下</p>
 <ol>
@@ -198,7 +201,7 @@
 <li>经过。 这就是从哪里学，怎么学的问题。</li>
 </ol>
 <p>从哪里学？从人这里学————没错。 这里得强调下是指程序已经完成的机器。有学习能力的机器能“自学”， 就是指接受外部的信息进行学习。</p>
-<div class="process"><span><p>外部信息对机器来说是什么？</p><input class="quiz" name="quiz" type="checkbox" value="输入">输入</input><br/><input class="quiz" name="quiz" type="checkbox" value="输出">输出</input><br/><input class="quiz" name="quiz" type="checkbox" value="存储">存储</input><br/><input class="quiz" name="quiz" type="checkbox" value="数据">数据</input><br/><input class="quiz" name="quiz" type="checkbox" value="网络">网络</input><br/><input class="quiz" name="quiz" type="checkbox" value="通信">通信</input><br/></span><br/><input class="answers" type="hidden" value="输入@数据"/><input class="comments" type="hidden" value="应该不难？排除不可能，剩下的就是可能"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
+<div class="process"><span><p>外部信息对机器来说是什么？</p><input class="quiz" name="quiz" type="checkbox" value="输入"/>输入<br/><input class="quiz" name="quiz" type="checkbox" value="输出"/>输出<br/><input class="quiz" name="quiz" type="checkbox" value="存储"/>存储<br/><input class="quiz" name="quiz" type="checkbox" value="数据"/>数据<br/><input class="quiz" name="quiz" type="checkbox" value="网络"/>网络<br/><input class="quiz" name="quiz" type="checkbox" value="通信"/>通信<br/></span><br/><input class="answers" type="hidden" value="输入@数据"/><input class="comments" type="hidden" value="应该不难？排除不可能，剩下的就是可能"/><button onclick="checkQuiz(this, 7)">submit</button><br/></div>
 <h2 id="_9">自己的定义</h2>
 <p>外部信息是输入，也叫数据。 我们就说是从数据中学习到经验。</p>
 <p>怎么学？这对人来说都不是件简单事，各种教辅书、学习方法大行其道，大赚特赚，就是因为大家不知道人到底怎么学的，天赋能否培养等等。</p>

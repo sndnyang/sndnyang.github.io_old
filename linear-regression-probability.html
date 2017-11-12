@@ -44,7 +44,12 @@
 
 		<link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
         <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
-        
+        <script src="/theme/js/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                backToTop();
+            });
+        </script>
     </head>
     <body>
         <div id="content-sans-footer">
@@ -89,12 +94,10 @@
 
         <link rel="stylesheet" type="text/css" href="static/css/tutorial.css">
         <script type="text/javascript" src="/theme/js/scrollspy.js"> </script>
-        <script src="/theme/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/theme/js/jQuery.md5.js"> </script>
         <script type="text/javascript">
 		$(document).ready(function() {
             initScrollSpy();
-		    backToTop();
 		});
       
     	</script>
@@ -181,7 +184,7 @@ $$</p>
 <div class="process"><span><p>答：<input class="quiz" type="text"/></p></span><br/><input class="answers" type="hidden" value="正态"/><input class="comments" type="hidden" value="这个慢慢猜#猜不到请补课"/><button onclick="checkQuiz(this, 0)">submit</button><br/></div>
 <h2 id="_4">误差的分布</h2>
 <p>没错， 就是正态分布，这主要涉及到一个概率统计上的概念， 你觉得是哪个？</p>
-<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="中心极限定理">中心极限定理</input><br/><input class="quiz" name="quiz" type="radio" value="大数定律">大数定律</input><br/><input class="quiz" name="quiz" type="radio" value="方差分析">方差分析</input><br/><input class="quiz" name="quiz" type="radio" value="期望和方差">期望和方差</input><br/></span><br/><input class="answers" type="hidden" value="中心极限定理"/><input class="comments" type="hidden" value="应该是最直接相关的#跟其他几项不能说没关系，但Ng只提了一个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
+<div class="process"><span><p></p><input class="quiz" name="quiz" type="radio" value="中心极限定理"/>中心极限定理<br/><input class="quiz" name="quiz" type="radio" value="大数定律"/>大数定律<br/><input class="quiz" name="quiz" type="radio" value="方差分析"/>方差分析<br/><input class="quiz" name="quiz" type="radio" value="期望和方差"/>期望和方差<br/></span><br/><input class="answers" type="hidden" value="中心极限定理"/><input class="comments" type="hidden" value="应该是最直接相关的#跟其他几项不能说没关系，但Ng只提了一个"/><button onclick="checkQuiz(this, 1)">submit</button><br/></div>
 <h2 id="_5">数学表达</h2>
 <p>所以数学式子有：
 $$
@@ -199,7 +202,7 @@ P(y^i|x^i;w) = \frac{1}{\sqrt{2}\pi\sigma}exp(-\frac{(y^i - x^iw)^2}{2\sigma^2})
 $$</p>
 <p>不要在意乘号、矩阵向量相乘这些细节, 有时候是 $w*x$, 有时候$Xw$, 有时候$x^iw$， 我也很乱的。</p>
 <p>那所有数据(X, y)的似然值（概率）呢？</p>
-<div class="process"><span><p>跟单个概率什么关系？</p><input class="quiz" name="quiz" type="radio" value="所有概率之和">所有概率之和</input><br/><input class="quiz" name="quiz" type="radio" value="所有概率之积">所有概率之积</input><br/></span><br/><input class="answers" type="hidden" value="所有概率之积"/><input class="comments" type="hidden" value="各个数据是不相关的"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
+<div class="process"><span><p>跟单个概率什么关系？</p><input class="quiz" name="quiz" type="radio" value="所有概率之和"/>所有概率之和<br/><input class="quiz" name="quiz" type="radio" value="所有概率之积"/>所有概率之积<br/></span><br/><input class="answers" type="hidden" value="所有概率之积"/><input class="comments" type="hidden" value="各个数据是不相关的"/><button onclick="checkQuiz(this, 3)">submit</button><br/></div>
 <h2 id="_7">表达式</h2>
 <p>所以， 完整的w似然值(likelihood)为：</p>
 <p>$$

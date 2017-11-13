@@ -31,10 +31,12 @@ function getTieba() {
                     tie.push(parseInt(data[i].tie));
                 }
                 var tie_offset = Math.min.apply(null, tie) * 2 - Math.max.apply(null, tie);
-                var member_offset = Math.floor(Math.min.apply(null, member) / 2);
+                var member_offset = Math.min.apply(null, member) * 2 - Math.max.apply(null, member);
+                var thread_offset = Math.min.apply(null, thread) * 2 - Math.max.apply(null, thread);
 
-                var myChart = echarts.init(document.getElementById('canvas'));
-                var myChart2 = echarts.init(document.getElementById('canvas-small'));
+                var myChart = echarts.init(document.getElementById('canvas-tie'));
+                var myChart2 = echarts.init(document.getElementById('canvas-member'));
+                var myChart3 = echarts.init(document.getElementById('canvas-thread'));
                 // 指定图表的配置项和数据
                 var option = {
                     title: {
@@ -42,9 +44,6 @@ function getTieba() {
                     },
                     tooltip: {
                         trigger: 'axis'
-                    },
-                    legend: {
-                        data:['回复贴总数']
                     },
                     grid: {
                         left: '3%',
@@ -65,68 +64,46 @@ function getTieba() {
                     yAxis: {
                         type: 'value',
                         min: tie_offset
-                    },
-                    series: [
-                        {
+                    }
+                };
+                option.legend = { data:['回复贴总数'] };
+                option.series = [ {
                             name:'回复贴总数',
                             type:'line',
                             stack: '总量',
                             data: tie
                         }
-                    ]
-                };
+                    ];
+                option.yAxis.min = tie_offset;
 
                 // 使用刚指定的配置项和数据显示图表。
                 myChart.setOption(option);
 
-                option = {
-                    title: {
-                        text: '贴吧数据增长'
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data:['会员数', '主题贴数']
-                    },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        containLabel: true
-                    },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {}
-                        }
-                    },
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: x
-                    },
-                    yAxis: {
-                        type: 'value',
-                        min: member_offset
-                    },
-                    series: [
-                        {
+                option.legend = { data:['会员数'] };
+                option.series = [ {
                             name:'会员数',
                             type:'line',
                             stack: '总量',
                             data: member
-                        },
-                        {
+                        }
+                    ];
+                option.yAxis.min = member_offset;
+                myChart2.setOption(option);
+
+                option.legend = { data:['主题贴数'] };
+                option.series = [ {
                             name:'主题贴数',
                             type:'line',
                             stack: '总量',
                             data: thread
                         }
-                    ]
-                };
-                myChart2.setOption(option);
-                $("#canvas").show();
-                $("#canvas-small").show();
+                    ];
+                option.yAxis.min = thread_offset;
+                myChart3.setOption(option);
+                $("#canvas-tie").show();
+                $("#canvas-member").show();
+                $("#canvas-thread").show();
+                
             },  
             //请求出错的处理  
             error: function(){  

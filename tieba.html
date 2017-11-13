@@ -73,15 +73,17 @@ body { padding-top: 50px; padding-bottom: 10px; }
             <div id="main">
 
                 <div>
-                    <input type="text" id="name" value="生个中泰"> 
-                    输入贴吧名，查看贴吧人数和主题贴数 
+                    <input readonly type="text" id="name" value=""> 
+                    输入贴吧名，查看贴吧人数和主题贴数(并没有其他贴吧的数据) 
                 </div>
                 <br>
                 <a class="btn btn-info" onclick="getTieba();"> 
                     查看
                 </a>
                 <hr />
-                <div id="canvas" style="width: 900px;height:400px;">
+                <div id="canvas-small" style="display: none; width: 900px;height:400px;">
+                </div>
+                <div id="canvas" style="display: none; width: 900px;height:400px;">
                 </div>
                 <hr />
                     <div id="content">

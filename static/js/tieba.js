@@ -7,8 +7,8 @@ function getTieba() {
         var name = "生个中泰"; //$("#name").val();
         var url = "http://tieba.baidu.com/suggestion?query="+name+"&ie=utf-8&_=1510564963999";
         if (name == "生个中泰") {
-            url = "http://proxy.zhimind.com/static/data/tieba.json";
-            //url = "http://localhost:8080/static/data/tieba.json";
+            url = "http://proxy.zhimind.com/static/data/tieba.json?v="+Math.random();
+            // url = "http://localhost:8080/static/data/tieba.json";
         }
         $.ajax({  
             type: "get", //请求方式  

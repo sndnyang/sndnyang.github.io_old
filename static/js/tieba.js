@@ -25,7 +25,7 @@ function getTieba() {
                 }
                 var x = [], member = [], thread = [], tie = [];
                 for (var i in data) {
-                    x.push(data[i].hour);
+                    x.push(data[i].hour + ":00");
                     member.push(data[i].member);
                     thread.push(data[i].thread);
                     tie.push(parseInt(data[i].tie));
@@ -45,17 +45,23 @@ function getTieba() {
                     tooltip: {
                         trigger: 'axis'
                     },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        containLabel: true
-                    },
                     toolbox: {
                         feature: {
                             saveAsImage: {}
                         }
                     },
+                    dataZoom: [
+                    {
+                        type: 'slider',
+                        show: true,
+                        realtime: true,
+                        xAxisIndex: [0]
+                    },
+                    {
+                        type: 'inside',
+                        realtime: true,
+                        xAxisIndex: [0]
+                    }],
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
@@ -71,6 +77,7 @@ function getTieba() {
                             name:'回复贴总数',
                             type:'line',
                             stack: '总量',
+                            hoverAnimation: false,
                             data: tie
                         }
                     ];
@@ -84,6 +91,7 @@ function getTieba() {
                             name:'会员数',
                             type:'line',
                             stack: '总量',
+                            hoverAnimation: false,
                             data: member
                         }
                     ];
@@ -95,6 +103,7 @@ function getTieba() {
                             name:'主题贴数',
                             type:'line',
                             stack: '总量',
+                            hoverAnimation: false,
                             data: thread
                         }
                     ];

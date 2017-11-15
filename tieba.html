@@ -10,8 +10,7 @@
 <meta property="og:type" content="article" />
 <meta name="twitter:card" content="summary">
 
-<link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -28,49 +27,45 @@ body { padding-top: 50px; padding-bottom: 10px; }
 <link rel="stylesheet" href="//bdimg.share.baidu.com/static/api/css/share_style1_24.css">
 <link rel="stylesheet" type="text/css" href="/theme/css/style.css" media="screen">
 <title>贴吧数据</title>
-<link rel="stylesheet" type="text/css" href="static/css/gpa.css">
-
 </head>
 <body>
-<div id="content-sans-footer">
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav pull-right top-menu">
+    <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapseH">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">懒龙谷</a>
+                </div>
+                <div class="navbar-collapseH navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                         <li ><a href="/">Home</a></li>
                         <li ><a href="http://www.zhimind.com">zhimind home</a></li>
                         <li ><a href="/categories.html">Categories</a></li>
                         <li ><a href="/tags.html">Tags</a></li>
                         <li ><a href="/archives.html">Archives</a></li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">留学<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li ><a href="https://www.zhimind.com/oversea/college.html">学校库</a></li>
-                            <li ><a href="https://www.zhimind.com/oversea/major.html">专业库</a></li>
-                            <li ><a href="https://www.zhimind.com/oversea/research.html">招生库</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">工具</li>
-                            <li><a href="/gpa_calculator.html">GPA计算器</a></li>
-                            <li><a href="http://www.zhimind.com/reciteword/reciteWord.html">脑洞背单词</a></li>
-                            <li><a href="https://www.zhimind.com/talkerchu/index.html">脱口而出</a></li>
-                        </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">留学<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/oversea/college.html">大学库</a></li>
+                                <li><a href="/oversea/major.html">专业库</a></li>
+                                <li><a href="/oversea/research.html">研究方向招生库</a></li>                                
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">工具</li>
+                                <li><a href="http://sndnyang.github.io/gpa_calculator.html">GPA计算器</a></li>
+                                <li><a href="http://www.zhimind.com/reciteword/reciteWord.html">脑洞背单词</a></li>
+                                <li><a href="/talkerchu/index.html">脱口而出</a></li>
+                            </ul>
                         </li>
-                        <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-
+<div>
     <div class="container-fluid">
-        <div id="wrap" class="span9">
+        <div id="wrap" class="col-md-10 col-lg-8">
             <h1>贴吧数据</h1>
             <div id="main">
 
@@ -86,15 +81,15 @@ body { padding-top: 50px; padding-bottom: 10px; }
                     直接查看
                 </a>
                 <hr />
-                <div id="canvas-member" style="display: none; width: 900px;height:400px;">
+                <div id="wrapper">
+                <div id="canvas-member" style="display: none; width: 100%; height: 400px;">
                 </div>
-                <div id="canvas-thread" style="display: none; width: 900px;height:400px;">
+                <div id="canvas-thread" style="display: none; width: 100%; height: 400px;">
                 </div>
-                <div id="canvas-tie" style="display: none; width: 900px;height:400px;">
+                <div id="canvas-tie" style="display: none; width: 100%; height: 400px;">
+                </div>
                 </div>
                 <hr />
-                    <div id="content">
-                    </div>
             </div>
         </div>
 
@@ -102,9 +97,9 @@ body { padding-top: 50px; padding-bottom: 10px; }
     </div>
 </div>
 <script src="https://cdn.bootcss.com/xlsx/0.10.6/xlsx.full.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/echarts/3.7.2/echarts.common.min.js"></script>
-<script src="static/js/tieba.js?v=3"></script>
+<script src="static/js/tieba.js?v=4"></script>
 
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261726608'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261726608%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>

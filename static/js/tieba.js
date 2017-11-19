@@ -30,9 +30,9 @@ function getTieba() {
                 thread.push(data[i].thread);
                 tie.push(parseInt(data[i].tie));
             }
-            var tie_offset = Math.min.apply(null, tie) * 2 - Math.max.apply(null, tie);
-            var member_offset = Math.min.apply(null, member) * 2 - Math.max.apply(null, member);
-            var thread_offset = Math.min.apply(null, thread) * 2 - Math.max.apply(null, thread);
+            var tie_offset = parseInt(Math.min.apply(null, tie) / 1000) * 1000;
+            var member_offset = parseInt(Math.min.apply(null, member) / 100) * 100;
+            var thread_offset = parseInt(Math.min.apply(null, thread) / 100) * 100;
             var width = $("#wrapper").width()
             $("#canvas-tie").width(width)
             $("#canvas-member").width(width)

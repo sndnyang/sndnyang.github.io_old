@@ -10,20 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, 计算机视觉, 人工智能, 计算机视觉, " />
+<meta name="keywords" content="操作系统, Linux, CentOS, 操作系统, " />
 
-<meta property="og:title" content="从物体移动学习特征 "/>
-<meta property="og:url" content="http://sndnyang.github.io/learning-features-by-watch-objects-move.html" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="CentOS问题处理 "/>
+<meta property="og:url" content="http://sndnyang.github.io/some-issues-on-Centos.html" />
+<meta property="og:description" content="Gnome 应用菜单栏添加 使用 alacarte 即可 先安装 等价于： 用文本编辑器打开 /etc/xdg/menus/applications.menu文件 添加如下内容: esITo esito.directory esITo 用文本编辑器打开/usr/share/desktop-directories/下任意一个扩展名为.directory的文件,另存为esito.directory. 4.修改esito.directory文件: [Desktop Entry] Name=esITo Name[zh_CN]=esITo自定义菜单 Comment=esITo菜单 Comment[zh_CN]=esITo自定义菜单 Icon=emacs.png Type=Directory 注:Name=esITo 英文名字 ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang sndnyang.github.io" />
-<meta property="og:article:published_time" content="2017-05-14T22:06:23+08:00" />
-<meta property="" content="2017-05-15T15:29:53+08:00" />
-<meta name="twitter:title" content="从物体移动学习特征 ">
-<meta name="twitter:description" content="">
+<meta property="og:article:published_time" content="2018-04-01T10:39:58+08:00" />
+<meta property="" content="2018-04-01T10:42:00+08:00" />
+<meta name="twitter:title" content="CentOS问题处理 ">
+<meta name="twitter:description" content="Gnome 应用菜单栏添加 使用 alacarte 即可 先安装 等价于： 用文本编辑器打开 /etc/xdg/menus/applications.menu文件 添加如下内容: esITo esito.directory esITo 用文本编辑器打开/usr/share/desktop-directories/下任意一个扩展名为.directory的文件,另存为esito.directory. 4.修改esito.directory文件: [Desktop Entry] Name=esITo Name[zh_CN]=esITo自定义菜单 Comment=esITo菜单 Comment[zh_CN]=esITo自定义菜单 Icon=emacs.png Type=Directory 注:Name=esITo 英文名字 ...">
 
 
-        <title>从物体移动学习特征  · 懒龙谷
+        <title>CentOS问题处理  · 懒龙谷
 </title>
 
         <style>
@@ -110,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/learning-features-by-watch-objects-move.html">
-                        从物体移动学习特征  
+                    <a href="/some-issues-on-Centos.html">
+                        CentOS问题处理  
                     </a>
                 </h1>
             </header>
@@ -124,20 +124,7 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">摘要</a></li>
-<li><a href="#_2">导言</a></li>
-<li><a href="#_3">相关工作</a></li>
-<li><a href="#_4">评估特征表示</a></li>
-<li><a href="#_5">用聚合学习来学习特征</a><ul>
-<li><a href="#cnn">用CNN去分割图像</a></li>
-<li><a href="#_6">实验</a></li>
-</ul>
-</li>
-<li><a href="#_7">观察物体移动来学习</a><ul>
-<li><a href="#_8">无监督移动分割</a></li>
-</ul>
-</li>
-<li><a href="#_9">结</a></li>
+<li><a href="#gnome">Gnome 应用菜单栏添加</a></li>
 </ul>
 </div>
                         </div>
@@ -151,61 +138,44 @@
 
                         
                         
-<h1 id="_1">摘要</h1>
-<p><a href="https://people.eecs.berkeley.edu/~pathak/unsupervised_video/">论文官网</a>
-用低级别(low-level)的移动聚合线索(motion-based grouping cues)学习视觉表示. </p>
-<p>特针对: 视频的无监督移动图像分割, 使用CNN方法。</p>
-<h1 id="_2">导言</h1>
-<p>静态物体过度分割oversegment static objects：</p>
-<p>有一种Gestalt原则：一起移动的像素很可能有相同的归属。静态场景处理能力会慢慢提升，意味着，动态聚合的能力出现较早，而静态聚合较晚，静态聚合很可能是由动态线索引导出来的。</p>
-<p>Gestalt principle of common fate [34, 47]: pixels that move together tend to belong together. The ability to parse static scenes improves [32] over time, suggesting that while motion-based grouping appears early, static grouping is acquired later, possibly bootstrapped by motion cues.</p>
-<p>所以，要弄一种 无监督的动态分割方法 unsupervised motion segmentation</p>
-<p>动态分割就需要基于视觉流 optical flow</p>
-<h1 id="_3">相关工作</h1>
-<p>个人对 Learning from motion and action 感兴趣</p>
-<p>Wang and Gupta<sup id="fnref:46"><a class="footnote-ref" href="#fn:46" rel="footnote">2</a></sup> train a ConvNet to distinguish between pairs of tracked patches in a single video, and pairs of patches from different videos</p>
-<p>Li et al<sup id="fnref:26"><a class="footnote-ref" href="#fn:26" rel="footnote">1</a></sup> use motion boundary detection to bootstrap a ConvNet-based contour detector, but find that this does not lead to good feature representations</p>
-<h1 id="_4">评估特征表示</h1>
-<p>feature representations</p>
-<p>略</p>
-<h1 id="_5">用聚合学习来学习特征</h1>
-<p>通过学习聚合(group)来学习特征.</p>
-<p>core intuition behind this paper is that training a ConvNet to <em>group pixels in static images into objects without any class labels</em> will cause it to learn a strong , high-level feature representation</p>
-<h2 id="cnn">用CNN去分割图像</h2>
-<p>CNN to 分割物体， 是物体的像素点置1， 不是的置0.</p>
-<p>从完整图中剪一个物体</p>
-<p>prevent cheating ConvNet by given a precise bounding box: jitter the box in position and scale</p>
-<p>take input $w \times w$ image to output $s \times s$ mask.</p>
-<h2 id="_6">实验</h2>
-<p>AlexNet， $s=56, w=227$</p>
-<h1 id="_7">观察物体移动来学习</h1>
-<h2 id="_8">无监督移动分割</h2>
-<p>The key idea behind motion segmentation is that if there is a single object moving with respect to the background through the entire video, then pixels on the object will move differently from pixels on the background.</p>
-<p>复杂物体单帧可能只移动部分， 所以需要多帧进行聚合</p>
-<p>e NLC approach from Faktor and Irani [12]， utilizes an edge detector that was trained on labeled edge images 。 replace the trained edge detector in NLC with unsupervised superpixels</p>
+<h1 id="gnome">Gnome 应用菜单栏添加</h1>
+<p>使用 alacarte 即可</p>
+<p>先安装</p>
+<p>等价于：</p>
 <ol>
-<li>uNLC computes a per-frame saliency map based on motion, by looking for   <ol>
-<li>either pixels that move in a mostly static frame</li>
-<li>or, if the frame contains significant motion, pixels that move in a direction different from the dominant one</li>
+<li>用文本编辑器打开 /etc/xdg/menus/applications.menu文件</li>
+<li>添加如下内容:
+        esITo
+        esito.directory
+        esITo</li>
+<li>用文本编辑器打开/usr/share/desktop-directories/下任意一个扩展名为.directory的文件,另存为esito.directory. 
+4.修改esito.directory文件: 
+        [Desktop Entry] Name=esITo Name[zh_CN]=esITo自定义菜单 
+        Comment=esITo菜单 
+        Comment[zh_CN]=esITo自定义菜单 
+        Icon=emacs.png Type=Directory 注:Name=esITo 英文名字 必需 esITo Name[zh_CN]=esITo 中文名字 除非你用英文 
+        Comment=esITo menu 英文注释 
+        Comment[zh_CN]=esITo自定义菜单 中文注释 
+        Icon=emacs.png 菜单的图标 自己到/usr/share/pixmaps目录里选 
+        Type=Directory 表示是文件夹 必需 
+5.用文本编辑器打开一个/usr/share/applications目录中的快捷方式(随意),修改Categories项为Categories=esITo 
+6.重新起动X系统(RedHat\Fedora Core基本上需要重启Linux了) 
+7.其中esITo是我自己起的名字,可以为任意英文标识. 
+8.当你没有设置任何快捷方式到你的菜单项里时,你的菜单项是不会显示的! </li>
 </ol>
-</li>
-<li>per-pixel saliency is averaged over superpixels.</li>
-<li>nearest neighbor graph is computed over the superpixels in the video using location and appearance as features.</li>
-<li>use a nearest neighbor voting scheme to propagate the saliency across frames</li>
-</ol>
-<h1 id="_9">结</h1>
-<p>真看不明白~~~没有基础知识，想看算法没有，有代码，但代码多复杂啊~~~</p>
-<div class="footnote">
-<hr/>
-<ol>
-<li id="fn:26">
-<p>Y. Li, M. Paluri, J. M. Rehg, and P. Dollar. Unsupervised learning of edges. CVPR, 2016 <a class="footnote-backref" href="#fnref:26" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
-</li>
-<li id="fn:46">
-<p>X. Wang and A. Gupta. Unsupervised learning of visual representations using videos <a class="footnote-backref" href="#fnref:46" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
-</li>
-</ol>
-</div>
+<p>＃ 添加右键打开方式</p>
+<p>新建文件 XXX.desktop， 内容格式如下</p>
+<p>[Desktop Entry]
+Name=Java
+Comment=Java
+GenericName=Java
+Keywords=java
+Exec=java -jar %f
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=application/x-java-archive
+StartupNotify=true</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -226,7 +196,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/learning-features-by-watch-objects-move.html#disqus_thread">
+                href="http://sndnyang.github.io/some-issues-on-Centos.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -236,8 +206,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'learning-features-by-watch-objects-move.html';
-    var disqus_url = 'http://sndnyang.github.io/learning-features-by-watch-objects-move.html';
+        var disqus_identifier = 'some-issues-on-Centos.html';
+    var disqus_url = 'http://sndnyang.github.io/some-issues-on-Centos.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -259,23 +229,23 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2017-05-14T22:06:23+08:00">May 14, 2017</time>
+                    <time pubdate="pubdate" datetime="2018-04-01T10:39:58+08:00">Apr 1, 2018</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-05-15T15:29:53+08:00">May 15, 2017</time>
+<time datetime="2018-04-01T10:42:00+08:00">Apr 1, 2018</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-suan-ji-shi-jue-ref">计算机视觉</a>
+                    <a class="category-link" href="/categories.html#cao-zuo-xi-tong-ref">操作系统</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#ji-suan-ji-shi-jue-ref">计算机视觉
+                        <li><a href="/tags.html#cao-zuo-xi-tong-ref">操作系统
                             <span>3</span>
 </a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>21</span>
+                        <li><a href="/tags.html#centos-ref">CentOS
+                            <span>3</span>
 </a></li>
-                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>12</span>
+                        <li><a href="/tags.html#linux-ref">Linux
+                            <span>8</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

@@ -10,20 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 机器学习, 人工智能, zhimind系列, 机器学习, " />
+<meta name="keywords" content="深度学习 机器学习, 人工智能, 深度学习, " />
 
-<meta property="og:title" content="知维图系列-机器学习目录 "/>
-<meta property="og:url" content="http://sndnyang.github.io/machine-learning-catalog.html" />
-<meta property="og:description" content="机器学习目录 自引用：知维图系列-机器学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法 指数分布簇 广义线性模型" />
+<meta property="og:title" content="Keras技巧 "/>
+<meta property="og:url" content="http://sndnyang.github.io/keras-tricks.html" />
+<meta property="og:description" content="显卡使用问题 python设置系统变量的方法 os.environ[&#34;CUDA_VISIBLE_DEVICES&#34;] = &#34;8,9,10,11,12,13,14,15&#34; 注意，在代码中指定设备时，重新从0开始计，而不是从8开始。 显存使用问题 显卡内存默认占用几乎全部, 可以通过重设backend的GPU占用情况来进行调节 import tensorflow as tf from keras.backend.tensorflow_backend import set_session config = tf.ConfigProto() config.gpu_options.per_process_gpu_memory_fraction = 0.3 set_session(tf.Session(config=config)) 引用CSDN" />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-10-08T19:18:30+08:00" />
-<meta property="" content="2016-10-28T20:18:30+08:00" />
-<meta name="twitter:title" content="知维图系列-机器学习目录 ">
-<meta name="twitter:description" content="机器学习目录 自引用：知维图系列-机器学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 线性模型 线性回归 线性回归基础 标准方程 概率解释 局部加权回归 逻辑回归 逻辑回归基础 牛顿迭代法 指数分布簇 广义线性模型">
+<meta property="og:article:published_time" content="2018-04-25T22:18:30+08:00" />
+<meta property="" content="2018-04-25T22:18:30+08:00" />
+<meta name="twitter:title" content="Keras技巧 ">
+<meta name="twitter:description" content="显卡使用问题 python设置系统变量的方法 os.environ[&#34;CUDA_VISIBLE_DEVICES&#34;] = &#34;8,9,10,11,12,13,14,15&#34; 注意，在代码中指定设备时，重新从0开始计，而不是从8开始。 显存使用问题 显卡内存默认占用几乎全部, 可以通过重设backend的GPU占用情况来进行调节 import tensorflow as tf from keras.backend.tensorflow_backend import set_session config = tf.ConfigProto() config.gpu_options.per_process_gpu_memory_fraction = 0.3 set_session(tf.Session(config=config)) 引用CSDN">
 
 
-        <title>知维图系列-机器学习目录  · 懒龙谷
+        <title>Keras技巧  · 懒龙谷
 </title>
 
         <style>
@@ -110,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/machine-learning-catalog.html">
-                        知维图系列-机器学习目录  
+                    <a href="/keras-tricks.html">
+                        Keras技巧  
                     </a>
                 </h1>
             </header>
@@ -124,7 +124,8 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">机器学习目录</a></li>
+<li><a href="#_1">显卡使用问题</a></li>
+<li><a href="#_2">显存使用问题</a></li>
 </ul>
 </div>
                         </div>
@@ -138,35 +139,19 @@
 
                         
                         
-<h1 id="_1">机器学习目录</h1>
-<p>自引用：<a href="http://blog.zhimind.com/machine-learning-catalog.html">知维图系列-机器学习目录链接</a></p>
-<p><a href="http://zhimind.com/map/f349e9b2-1412-44f4-a18e-618825613bcb">思维导图</a></p>
-<p>鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。</p>
-<ul>
-<li>基础概念<ul>
-<li><a href="http://www.zhimind.com/tutorial/acd9371a-1565-429c-9cdc-c275937e4523">机器学习定义</a></li>
-<li><a href="http://www.zhimind.com/tutorial/3b230a16-7472-42dc-b9c6-ced54c9fe9f7">机器学习主要类型</a></li>
-<li><a href="http://www.zhimind.com/tutorial/three-elememts-in-machine-learning">机器学习三要素</a></li>
-</ul>
-</li>
-<li>线性模型  <ul>
-<li>线性回归  <ul>
-<li><a href="http://zhimind.com/tutorial/c4a7287c-650a-4509-8e4d-6b166a6173b2">线性回归基础</a></li>
-<li><a href="http://zhimind.com/tutorial/89fbbdc0-0f8b-44e5-b141-990844232119">标准方程</a></li>
-<li><a href="http://zhimind.com/tutorial/9ccd6d11-4403-44ed-8484-8f872a9e52ac">概率解释</a></li>
-<li><a href="http://zhimind.com/tutorial/7eef4776-2c9a-48e7-adfa-02aabd4cea7d">局部加权回归</a></li>
-</ul>
-</li>
-<li>逻辑回归  <ul>
-<li><a href="http://zhimind.com/tutorial/154bee75-7cb6-4c3c-807f-403659480217">逻辑回归基础</a></li>
-<li><a href="http://www.zhimind.com/tutorial/newton-methods">牛顿迭代法</a></li>
-</ul>
-</li>
-<li>指数分布簇</li>
-<li>广义线性模型</li>
-</ul>
-</li>
-</ul>
+<h1 id="_1">显卡使用问题</h1>
+<p>python设置系统变量的方法</p>
+<div class="highlight"><pre><span></span>os.environ["CUDA_VISIBLE_DEVICES"] = "8,9,10,11,12,13,14,15"
+</pre></div>
+<p>注意，在代码中指定设备时，重新从0开始计，而不是从8开始。</p>
+<h1 id="_2">显存使用问题</h1>
+<p>显卡内存默认占用几乎全部, 可以通过重设backend的GPU占用情况来进行调节</p>
+<p>import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.3
+set_session(tf.Session(config=config))</p>
+<p><a href="https://blog.csdn.net/sinat_26917383/article/details/75633754">引用CSDN</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -187,7 +172,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/machine-learning-catalog.html#disqus_thread">
+                href="http://sndnyang.github.io/keras-tricks.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -197,8 +182,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'machine-learning-catalog.html';
-    var disqus_url = 'http://sndnyang.github.io/machine-learning-catalog.html';
+        var disqus_identifier = 'keras-tricks.html';
+    var disqus_url = 'http://sndnyang.github.io/keras-tricks.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -220,25 +205,19 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-10-08T19:18:30+08:00">Oct 8, 2016</time>
+                    <time pubdate="pubdate" datetime="2018-04-25T22:18:30+08:00">Apr 25, 2018</time>
 
 <h4>Last Updated</h4>
-<time datetime="2016-10-28T20:18:30+08:00">Oct 28, 2016</time>
+<time datetime="2018-04-25T22:18:30+08:00">Apr 25, 2018</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <a class="category-link" href="/categories.html#shen-du-xue-xi-ref">深度学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>21</span>
-</a></li>
-                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>7</span>
-</a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>14</span>
 </a></li>
-                        <li><a href="/tags.html#zhimindxi-lie-ref">zhimind系列
+                        <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
                             <span>2</span>
 </a></li>
                     </ul>

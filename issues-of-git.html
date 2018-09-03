@@ -144,6 +144,22 @@
 <p>示例：</p>
 <div class="highlight"><pre><span></span>$ git config --global core.quotepath <span class="nb">false</span>
 </pre></div>
+<p>＃ Git本地多用户配置</p>
+<p>编辑 ~/.ssh/config</p>
+<div class="highlight"><pre><span></span>Host git.iboxpay.com
+    HostName git.iboxpay.com  //这里填你们公司的git网址即可
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_gitlab
+    User zhangjun
+
+# github
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_github
+    User ZJsnowman
+</pre></div>
+<p><a href="https://blog.csdn.net/jack_0817/article/details/55668892">参考来源</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

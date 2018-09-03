@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="bash技巧 "/>
 <meta property="og:url" content="http://sndnyang.github.io/shell-bash-tricks.html" />
-<meta property="og:description" content="防止变量未赋值 set -o nounset / set -u 使用这个选项可以使脚本在使用未初始化的变量时直接退出 字符串变量中的空格 示例： x=&#34; dokjd &#34; 1.保留全部空格 echo &#34;$x&#34; 2. 去除头尾空格: echo $x shell string总结 空串判断 if [ -z &#34;$line&#34; ] 在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug for循环遍历文件时，使用 for line in cat $filename 缺点: 当行内有空格时，一行会被划分成两行 上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令 ..." />
+<meta property="og:description" content="Emacs 模式快捷键 注： 对VIM比较熟悉，就不写了 参考网页1 和 参考2 光标移动 Ctrl-a：移动到行首 Ctrl-e：移动到行尾 Ctrl-b：向左移动一个字符 Ctrl-f：向右移动一个字符 Esc-b：向左移动一个单词 Esc-f：向右移动一个单词 删除 Ctrl-h：删除光标左方的字符 Ctrl-d：删除光标所在的字符 Esc-d：删除从光标开始到单词结束 Ctrl-w：删除从光标开始到单词首部 Ctrl-k：删除光标右边的所有字符 Ctrl-u：删除光标左方的所有字符 复原操作 Ctrl-_：恢复之前的状态 粘贴 Ctrl-y：把之前删除的字符或字符串，贴到光标所在位置 重复操作 Esc-操作次数 操作动作：指定操作次数，重复执行指定的操作 历史指令相关 Ctrl-r：向前搜索历史指令 Ctrl-p ..." />
 <meta property="og:site_name" content="懒龙谷" />
 <meta property="og:article:author" content="sndnyang sndnyang.github.io" />
 <meta property="og:article:published_time" content="2017-04-17T18:55:05+08:00" />
 <meta property="" content="2017-04-24T09:18:56+08:00" />
 <meta name="twitter:title" content="bash技巧 ">
-<meta name="twitter:description" content="防止变量未赋值 set -o nounset / set -u 使用这个选项可以使脚本在使用未初始化的变量时直接退出 字符串变量中的空格 示例： x=&#34; dokjd &#34; 1.保留全部空格 echo &#34;$x&#34; 2. 去除头尾空格: echo $x shell string总结 空串判断 if [ -z &#34;$line&#34; ] 在awk使用时，全部是数字的外部string变量需要前后加双引号，不然会当作数值，打印时会出bug for循环遍历文件时，使用 for line in cat $filename 缺点: 当行内有空格时，一行会被划分成两行 上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令 ...">
+<meta name="twitter:description" content="Emacs 模式快捷键 注： 对VIM比较熟悉，就不写了 参考网页1 和 参考2 光标移动 Ctrl-a：移动到行首 Ctrl-e：移动到行尾 Ctrl-b：向左移动一个字符 Ctrl-f：向右移动一个字符 Esc-b：向左移动一个单词 Esc-f：向右移动一个单词 删除 Ctrl-h：删除光标左方的字符 Ctrl-d：删除光标所在的字符 Esc-d：删除从光标开始到单词结束 Ctrl-w：删除从光标开始到单词首部 Ctrl-k：删除光标右边的所有字符 Ctrl-u：删除光标左方的所有字符 复原操作 Ctrl-_：恢复之前的状态 粘贴 Ctrl-y：把之前删除的字符或字符串，贴到光标所在位置 重复操作 Esc-操作次数 操作动作：指定操作次数，重复执行指定的操作 历史指令相关 Ctrl-r：向前搜索历史指令 Ctrl-p ...">
 
 
         <title>bash技巧  · 懒龙谷
@@ -124,22 +124,33 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">防止变量未赋值</a></li>
-<li><a href="#_2">字符串变量中的空格</a><ul>
+<li><a href="#emacs">Emacs 模式快捷键</a><ul>
+<li><a href="#_1">光标移动</a></li>
+<li><a href="#_2">删除</a></li>
+<li><a href="#_3">复原操作</a></li>
+<li><a href="#_4">粘贴</a></li>
+<li><a href="#_5">重复操作</a></li>
+<li><a href="#_6">历史指令相关</a></li>
+<li><a href="#_7">补齐</a></li>
+<li><a href="#_8">大小写转换</a></li>
+</ul>
+</li>
+<li><a href="#_9">防止变量未赋值</a></li>
+<li><a href="#_10">字符串变量中的空格</a><ul>
 <li><a href="#1">1.保留全部空格</a></li>
 <li><a href="#2">2. 去除头尾空格:</a></li>
 </ul>
 </li>
 <li><a href="#shell-string">shell string总结</a></li>
-<li><a href="#_3">字符串格式化输出</a></li>
-<li><a href="#_4">二次赋值</a><ul>
-<li><a href="#_5">数组中二次赋值</a></li>
+<li><a href="#_11">字符串格式化输出</a></li>
+<li><a href="#_12">二次赋值</a><ul>
+<li><a href="#_13">数组中二次赋值</a></li>
 <li><a href="#eval">eval 变量二次赋值</a></li>
 </ul>
 </li>
-<li><a href="#_6">参数太长</a></li>
-<li><a href="#_7">判断操作系统</a></li>
-<li><a href="#_8">历史命令记录</a></li>
+<li><a href="#_14">参数太长</a></li>
+<li><a href="#_15">判断操作系统</a></li>
+<li><a href="#_16">历史命令记录</a></li>
 </ul>
 </div>
                         </div>
@@ -153,11 +164,56 @@
 
                         
                         
-<h1 id="_1">防止变量未赋值</h1>
+<h1 id="emacs">Emacs 模式快捷键</h1>
+<p>注： 对VIM比较熟悉，就不写了</p>
+<p><a href="http://www.xuexixinde.com/xitong/62.html">参考网页1</a> 和 <a href="http://www.linuxde.net/2011/11/1877.html">参考2</a></p>
+<h2 id="_1">光标移动</h2>
+<div class="highlight"><pre><span></span>    Ctrl-a：移动到行首
+    Ctrl-e：移动到行尾
+    Ctrl-b：向左移动一个字符
+    Ctrl-f：向右移动一个字符
+    Esc-b：向左移动一个单词
+    Esc-f：向右移动一个单词
+</pre></div>
+<h2 id="_2">删除</h2>
+<div class="highlight"><pre><span></span>    Ctrl-h：删除光标左方的字符
+    Ctrl-d：删除光标所在的字符
+    Esc-d：删除从光标开始到单词结束
+    Ctrl-w：删除从光标开始到单词首部
+    Ctrl-k：删除光标右边的所有字符
+    Ctrl-u：删除光标左方的所有字符
+</pre></div>
+<h2 id="_3">复原操作</h2>
+<div class="highlight"><pre><span></span>    Ctrl-_：恢复之前的状态
+</pre></div>
+<h2 id="_4">粘贴</h2>
+<div class="highlight"><pre><span></span>    Ctrl-y：把之前删除的字符或字符串，贴到光标所在位置
+</pre></div>
+<h2 id="_5">重复操作</h2>
+<div class="highlight"><pre><span></span>    Esc-操作次数 操作动作：指定操作次数，重复执行指定的操作
+</pre></div>
+<h2 id="_6">历史指令相关</h2>
+<div class="highlight"><pre><span></span>    Ctrl-r：向前搜索历史指令
+    Ctrl-p：调出上一个指令
+    Ctrl-n：调出下一个指令
+    Esc-&lt;：调出编号最小的历史指令
+    Esc-&gt;：移动到编号最大的历史指令的后面，就是现命令行
+</pre></div>
+<h2 id="_7">补齐</h2>
+<div class="highlight"><pre><span></span>    Esc-~：补齐用户名
+    Esc-$：补齐变量名
+    Esc-@：补齐主机名
+</pre></div>
+<h2 id="_8">大小写转换</h2>
+<div class="highlight"><pre><span></span>    Esc-u：光标到单词尾部转换为大写
+    Esc-l：光标到单词尾部转换为小写
+    Esc-c：光标所在位置到单词尾部这段首字母大写
+</pre></div>
+<h1 id="_9">防止变量未赋值</h1>
 <div class="highlight"><pre><span></span>set -o nounset / set -u
 </pre></div>
 <p>使用这个选项可以使脚本在使用未初始化的变量时直接退出</p>
-<h1 id="_2">字符串变量中的空格</h1>
+<h1 id="_10">字符串变量中的空格</h1>
 <p>示例：</p>
 <div class="highlight"><pre><span></span>x=" dokjd    "
 </pre></div>
@@ -174,15 +230,15 @@
 <li>for循环遍历文件时，使用 for line in <code>cat $filename</code> 缺点: 当行内有空格时，一行会被划分成两行</li>
 <li>上一条的替代方法 while read line do done &lt; filename 缺点：过程中需要 命令行交互时， 无法输入命令。</li>
 </ol>
-<h1 id="_3">字符串格式化输出</h1>
+<h1 id="_11">字符串格式化输出</h1>
 <p>和C相似</p>
 <div class="highlight"><pre><span></span>printf "%-12s" "$x"
 </pre></div>
 <p>awk 和 c 的几乎一样</p>
 <div class="highlight"><pre><span></span>awk ' { printf "%s-%s", $1, $2 } '
 </pre></div>
-<h1 id="_4">二次赋值</h1>
-<h2 id="_5">数组中二次赋值</h2>
+<h1 id="_12">二次赋值</h1>
+<h2 id="_13">数组中二次赋值</h2>
 <div class="highlight"><pre><span></span>i=1;
 x[1]=2;
 echo <span class="cp">${</span><span class="n">x</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span><span class="cp">}</span>
@@ -205,16 +261,16 @@ echo "BRANCH =" <span class="nv">$BRANCH</span>
 <p>结果应该是</p>
 <div class="highlight"><pre><span></span>BRANCH = DEV
 </pre></div>
-<h1 id="_6">参数太长</h1>
+<h1 id="_14">参数太长</h1>
 <p>如 rm -f * 删除当前路径下所有文件时，可能文件太多，报错Argument list too long</p>
 <p>解决方法:</p>
 <div class="highlight"><pre><span></span>ls | xargs rm -f
 </pre></div>
 <p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
-<h1 id="_7">判断操作系统</h1>
+<h1 id="_15">判断操作系统</h1>
 <div class="highlight"><pre><span></span>uname
 </pre></div>
-<h1 id="_8">历史命令记录</h1>
+<h1 id="_16">历史命令记录</h1>
 <p>!的使用</p>
 <ul>
 <li>!!重复前一个命令</li>

@@ -15,7 +15,7 @@
 <meta property="og:title" content="Udacity调试课笔记之断言的意义 "/>
 <meta property="og:url" content="http://sndnyang.github.io/debug-assert-meaning.html" />
 <meta property="og:description" content="为什么要用断言异常 C/C++和Python里虽然断言默认是打开、支持的，但我很少用过。而Java里更是默认不使用断言异常。就像上面说的，可以用if或try...catch 来代替断言。断言可有两个缺点，一是影响性能，二是对用户不友好，你看，一旦触发断言，程序90%跟你说不玩了，这太不友好了。 先列Zeller教授举的断言三优点： 程序及时退出，哪怕只是小错误而退出，也比坏数据好，因为坏数据不知道会造成什么样的后果。很多人说的史上最昂贵的bug，阿丽亚纳五号运载火箭，就因为惯性制导系统无法将一个64位的数据转换到16位格式而烧掉了5亿美元。 Zeller教授说，本来开发时是有对格式转换进行检查的断言的，结果产品中因为考虑性能问题，能关掉了这些断言。另外即使断言被触发，这火箭的软件系统也有足够优秀的异常处理机制来继续工作。所以可能就因为节省了这么一些断言，而创造了世上最奢侈的烟花。 断言可以让调试更简单。理由之前说过，更早地发现错误，更少的bug位置。 方便回溯缺陷。从出错断言开始，往回找，和2差不多的。 不过，Zeller教授也承认可以关闭一些影响性能的断言。 拿红黑树来说，没必要在一次时间复杂度O(log n) 的插入操作的前面 ..." />
-<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang sndnyang.github.io" />
 <meta property="og:article:published_time" content="2016-04-18T19:21:38+08:00" />
 <meta property="" content="2017-04-18T19:29:20+08:00" />
@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="为什么要用断言异常 C/C++和Python里虽然断言默认是打开、支持的，但我很少用过。而Java里更是默认不使用断言异常。就像上面说的，可以用if或try...catch 来代替断言。断言可有两个缺点，一是影响性能，二是对用户不友好，你看，一旦触发断言，程序90%跟你说不玩了，这太不友好了。 先列Zeller教授举的断言三优点： 程序及时退出，哪怕只是小错误而退出，也比坏数据好，因为坏数据不知道会造成什么样的后果。很多人说的史上最昂贵的bug，阿丽亚纳五号运载火箭，就因为惯性制导系统无法将一个64位的数据转换到16位格式而烧掉了5亿美元。 Zeller教授说，本来开发时是有对格式转换进行检查的断言的，结果产品中因为考虑性能问题，能关掉了这些断言。另外即使断言被触发，这火箭的软件系统也有足够优秀的异常处理机制来继续工作。所以可能就因为节省了这么一些断言，而创造了世上最奢侈的烟花。 断言可以让调试更简单。理由之前说过，更早地发现错误，更少的bug位置。 方便回溯缺陷。从出错断言开始，往回找，和2差不多的。 不过，Zeller教授也承认可以关闭一些影响性能的断言。 拿红黑树来说，没必要在一次时间复杂度O(log n) 的插入操作的前面 ...">
 
 
-        <title>Udacity调试课笔记之断言的意义  · 懒龙谷
+        <title>Udacity调试课笔记之断言的意义  · 科探空谷
 </title>
 
         <style>
@@ -61,7 +61,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <a class="brand" href="/"><span class=site-name>科探空谷</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="/">Home</a></li>

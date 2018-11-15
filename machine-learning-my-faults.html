@@ -15,7 +15,7 @@
 <meta property="og:title" content="机器学习开发教训 "/>
 <meta property="og:url" content="http://sndnyang.github.io/machine-learning-my-faults.html" />
 <meta property="og:description" content="一些教训 version control 版本控制 特别是需要将版本与实验结果关联起来， 并分离参数， 意思是，不要通过修改文件来修改实验参数 这样，能把实验结果与对应的代码版本关联起来， 并进行追踪 参数控制 用 argparse 这种， 把实验参数从代码中分离 训练集要打乱顺序 如 Pytorch dataloader 里的 shuffle=True 特别是在均匀分布时， 如果不随机打乱， 每个批次都极度不平衡 另外， 不同 loader 如果是随机顺序， 会影响全局的 seed 比如， test_loader 有没有拿来求每一个 epoch或批次的损失函数、 准确度， 会改变 seed， 造成训练结果变化 控制随机种子 set_frame_work(seed) 方便复现 一定要单步调试过一遍 特别是分支循环条件语句， 一定要确定符合预期 教训 self.no_stein ..." />
-<meta property="og:site_name" content="懒龙谷" />
+<meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2018-08-30T12:53:50+08:00" />
 <meta property="" content="2018-08-30T17:53:50+08:00" />
@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="一些教训 version control 版本控制 特别是需要将版本与实验结果关联起来， 并分离参数， 意思是，不要通过修改文件来修改实验参数 这样，能把实验结果与对应的代码版本关联起来， 并进行追踪 参数控制 用 argparse 这种， 把实验参数从代码中分离 训练集要打乱顺序 如 Pytorch dataloader 里的 shuffle=True 特别是在均匀分布时， 如果不随机打乱， 每个批次都极度不平衡 另外， 不同 loader 如果是随机顺序， 会影响全局的 seed 比如， test_loader 有没有拿来求每一个 epoch或批次的损失函数、 准确度， 会改变 seed， 造成训练结果变化 控制随机种子 set_frame_work(seed) 方便复现 一定要单步调试过一遍 特别是分支循环条件语句， 一定要确定符合预期 教训 self.no_stein ...">
 
 
-        <title>机器学习开发教训  · 懒龙谷
+        <title>机器学习开发教训  · 科探空谷
 </title>
 
         <style>
@@ -61,7 +61,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="/"><span class=site-name>懒龙谷</span></a>
+                    <a class="brand" href="/"><span class=site-name>科探空谷</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="/">Home</a></li>
@@ -230,10 +230,10 @@
                             <span>22</span>
 </a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>8</span>
+                            <span>10</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>17</span>
+                            <span>19</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

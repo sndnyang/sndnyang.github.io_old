@@ -10,19 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 机器学习, 人工智能, 机器学习, " />
+<meta name="keywords" content="深度学习, 机器学习, 人工智能, 机器学习, " />
 
-<meta property="og:title" content="可扩展机器学习第三周-线性回归 "/>
-<meta property="og:url" content="http://sndnyang.github.io/sml-linear-regression.html" />
-<meta property="og:description" content="什么是机器学习 定义： 从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率) 为什么使用机器学习 规则难定义或未知 程序编写复杂 从数据中学习中相对容易 使用情形示例： 无法人工编写出全部规则 (规则未可尽知) 无法准确定义 (规则难以言表) 快速决策 面向大量用户 所以 机器学习是编写复杂规则系统的一种替代方法" />
+<meta property="og:title" content="损失函数、分布间距离汇总 "/>
+<meta property="og:url" content="http://sndnyang.github.io/loss-function-distance-ditribution.html" />
+<meta property="og:description" content="损失函数 LOSS function 0-1 损失 绝对损失 平方损失 对概率分布求损失 对数损失 交叉熵损失 KL散度 KL-divergence $$ D_{KL}(P||Q) = \sum_{x\in X} P(x) \log \frac{P(X)}{Q(X)} $$ JS散度 JS-divergence $$ JS(P||Q) = \frac{1}{2} KL(P|| \frac{P+Q}{2}) + \frac{1}{2} KL(Q|| \frac{P+Q ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-04-28T00:00:00+08:00" />
-<meta name="twitter:title" content="可扩展机器学习第三周-线性回归 ">
-<meta name="twitter:description" content="什么是机器学习 定义： 从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率) 为什么使用机器学习 规则难定义或未知 程序编写复杂 从数据中学习中相对容易 使用情形示例： 无法人工编写出全部规则 (规则未可尽知) 无法准确定义 (规则难以言表) 快速决策 面向大量用户 所以 机器学习是编写复杂规则系统的一种替代方法">
+<meta property="og:article:published_time" content="2018-11-16T12:18:30+08:00" />
+<meta property="" content="2018-11-16T22:18:30+08:00" />
+<meta name="twitter:title" content="损失函数、分布间距离汇总 ">
+<meta name="twitter:description" content="损失函数 LOSS function 0-1 损失 绝对损失 平方损失 对概率分布求损失 对数损失 交叉熵损失 KL散度 KL-divergence $$ D_{KL}(P||Q) = \sum_{x\in X} P(x) \log \frac{P(X)}{Q(X)} $$ JS散度 JS-divergence $$ JS(P||Q) = \frac{1}{2} KL(P|| \frac{P+Q}{2}) + \frac{1}{2} KL(Q|| \frac{P+Q ...">
 
 
-        <title>可扩展机器学习第三周-线性回归  · 科探空谷
+        <title>损失函数、分布间距离汇总  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/sml-linear-regression.html">
-                        可扩展机器学习第三周-线性回归  
+                    <a href="/loss-function-distance-ditribution.html">
+                        损失函数、分布间距离汇总  
                     </a>
                 </h1>
             </header>
@@ -123,7 +124,7 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">什么是机器学习</a></li>
+<li><a href="#loss-function">损失函数 LOSS function</a></li>
 </ul>
 </div>
                         </div>
@@ -137,26 +138,21 @@
 
                         
                         
-<h1 id="_1">什么是机器学习</h1>
-<p>定义：</p>
-<div class="highlight"><pre><span></span>从数据中获取到的经验，使某方面的表现更好(如更高的准确率、识别速率)
-</pre></div>
-<p>为什么使用机器学习</p>
+<h1 id="loss-function">损失函数 LOSS function</h1>
 <ol>
-<li>规则难定义或未知</li>
-<li>程序编写复杂</li>
-<li>从数据中学习中相对容易</li>
+<li>0-1 损失</li>
+<li>绝对损失</li>
+<li>平方损失</li>
 </ol>
-<p>使用情形示例：</p>
+<p>对概率分布求损失</p>
 <ol>
-<li>无法人工编写出全部规则 (规则未可尽知)</li>
-<li>无法准确定义 (规则难以言表)</li>
-<li>快速决策</li>
-<li>面向大量用户</li>
+<li>对数损失</li>
+<li>交叉熵损失 </li>
+<li>KL散度 KL-divergence $$ D_{KL}(P||Q) = \sum_{x\in X} P(x) \log \frac{P(X)}{Q(X)} $$</li>
+<li>JS散度 JS-divergence $$ JS(P||Q) = \frac{1}{2} KL(P|| \frac{P+Q}{2}) + \frac{1}{2} KL(Q|| \frac{P+Q}{2})$$</li>
+<li>f散度 $$ D_{f}(P||Q) = \sum_{x\in X} P(x) f \frac{P(X)}{Q(X)} $$</li>
+<li>Wasserstein 距离, 又名推土机距离 Earch Mover's distance， 如图所示： <img alt="w-distance" src="./wasserstein.png" title="wasserstein distance"/></li>
 </ol>
-<p>所以</p>
-<div class="highlight"><pre><span></span>机器学习是编写复杂规则系统的一种替代方法
-</pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -177,7 +173,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/sml-linear-regression.html#disqus_thread">
+                href="http://sndnyang.github.io/loss-function-distance-ditribution.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -187,8 +183,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'sml-linear-regression.html';
-    var disqus_url = 'http://sndnyang.github.io/sml-linear-regression.html';
+        var disqus_identifier = 'loss-function-distance-ditribution.html';
+    var disqus_url = 'http://sndnyang.github.io/loss-function-distance-ditribution.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -210,19 +206,23 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-04-28T00:00:00+08:00">Apr 28, 2016</time>
+                    <time pubdate="pubdate" datetime="2018-11-16T12:18:30+08:00">Nov 16, 2018</time>
+
+<h4>Last Updated</h4>
+<time datetime="2018-11-16T22:18:30+08:00">Nov 16, 2018</time>
+
                     <h4>Category</h4>
                     <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>22</span>
-</a></li>
                         <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
                             <span>12</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>21</span>
+</a></li>
+                        <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
+                            <span>8</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

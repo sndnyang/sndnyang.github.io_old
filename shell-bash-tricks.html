@@ -149,8 +149,9 @@
 </ul>
 </li>
 <li><a href="#_14">参数太长</a></li>
-<li><a href="#_15">判断操作系统</a></li>
-<li><a href="#_16">历史命令记录</a></li>
+<li><a href="#_15">带空格文件删除</a></li>
+<li><a href="#_16">判断操作系统</a></li>
+<li><a href="#_17">历史命令记录</a></li>
 </ul>
 </div>
                         </div>
@@ -267,10 +268,12 @@ echo "BRANCH =" <span class="nv">$BRANCH</span>
 <div class="highlight"><pre><span></span>ls | xargs rm -f
 </pre></div>
 <p>写个循环也行，但是肯定没有上面一句就搞定简单。</p>
-<h1 id="_15">判断操作系统</h1>
+<h1 id="_15">带空格文件删除</h1>
+<p>find ./ -name '*.bak' -print0 | xargs -0 rm -rf</p>
+<h1 id="_16">判断操作系统</h1>
 <div class="highlight"><pre><span></span>uname
 </pre></div>
-<h1 id="_16">历史命令记录</h1>
+<h1 id="_17">历史命令记录</h1>
 <p>!的使用</p>
 <ul>
 <li>!!重复前一个命令</li>

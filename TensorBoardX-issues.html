@@ -4,26 +4,26 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang sndnyang.github.io" />
-        <meta name="copyright" content="sndnyang sndnyang.github.io" />
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Python, Python, " />
+<meta name="keywords" content="可视化, 工具, 数据分析, 工具, " />
 
-<meta property="og:title" content="python乱七八糟 "/>
-<meta property="og:url" content="http://sndnyang.github.io/something-strange-on-python.html" />
-<meta property="og:description" content="说明 一堆乱七八糟的东西 scipy 安装不了 windows下 scipy 安装有问题，报错~~~什么 MKL的，忘了，没记录 numpy 安装 pip 安装虽然也行，但好像不全 安装这里的 numpy http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy 不知道这个是什么 AttributeError: MSVCCompiler instance has no attribute &#39;compiler_so&#39; error: Unable to find vcvarsall.bat 似乎需要在 windows下指定 mingw的环境，所以 python setup.py build -c ..." />
+<meta property="og:title" content="TensorBoardX "/>
+<meta property="og:url" content="http://sndnyang.github.io/TensorBoardX-issues.html" />
+<meta property="og:description" content="导出数据 from tensorflow.python.summary import event_accumulator" />
 <meta property="og:site_name" content="科探空谷" />
-<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
-<meta property="og:article:published_time" content="2017-04-24T22:25:32+08:00" />
-<meta property="" content="2017-04-24T22:26:28+08:00" />
-<meta name="twitter:title" content="python乱七八糟 ">
-<meta name="twitter:description" content="说明 一堆乱七八糟的东西 scipy 安装不了 windows下 scipy 安装有问题，报错~~~什么 MKL的，忘了，没记录 numpy 安装 pip 安装虽然也行，但好像不全 安装这里的 numpy http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy 不知道这个是什么 AttributeError: MSVCCompiler instance has no attribute &#39;compiler_so&#39; error: Unable to find vcvarsall.bat 似乎需要在 windows下指定 mingw的环境，所以 python setup.py build -c ...">
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2019-02-03T22:18:30+08:00" />
+<meta property="" content="2019-02-03T22:18:30+08:00" />
+<meta name="twitter:title" content="TensorBoardX ">
+<meta name="twitter:description" content="导出数据 from tensorflow.python.summary import event_accumulator">
 
 
-        <title>python乱七八糟  · 科探空谷
+        <title>TensorBoardX  · 科探空谷
 </title>
 
         <style>
@@ -110,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/something-strange-on-python.html">
-                        python乱七八糟  
+                    <a href="/TensorBoardX-issues.html">
+                        TensorBoardX  
                     </a>
                 </h1>
             </header>
@@ -124,20 +124,7 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">说明</a></li>
-<li><a href="#scipy">scipy 安装不了</a></li>
-<li><a href="#numpy">numpy 安装</a></li>
-<li><a href="#_2">不知道这个是什么</a></li>
-<li><a href="#_3">文件格式不识别</a></li>
-<li><a href="#0kb">生成0KB文件</a><ul>
-<li><a href="#gendef">gendef</a></li>
-<li><a href="#dlltool">dlltool</a></li>
-</ul>
-</li>
-<li><a href="#_imp-__py_initmodule4">_imp __Py_InitModule4</a></li>
-<li><a href="#__pyx_t_5numpy_int32_t">__pyx_t_5numpy_int32_t</a></li>
-<li><a href="#_4"></a></li>
-<li><a href="#python-2-3-cpickle-and-pickle">python 2 3, cPickle and pickle</a></li>
+<li><a href="#_1">导出数据</a></li>
 </ul>
 </div>
                         </div>
@@ -151,49 +138,8 @@
 
                         
                         
-<h1 id="_1">说明</h1>
-<p>一堆乱七八糟的东西</p>
-<h1 id="scipy">scipy 安装不了</h1>
-<p>windows下 scipy 安装有问题，报错~~~什么 MKL的，忘了，没记录</p>
-<h1 id="numpy">numpy 安装</h1>
-<p>pip 安装虽然也行，但好像不全</p>
-<p>安装这里的 numpy</p>
-<div class="highlight"><pre><span></span>http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
-</pre></div>
-<h1 id="_2">不知道这个是什么</h1>
-<p>AttributeError: MSVCCompiler instance has no attribute 'compiler_so'</p>
-<p>error: Unable to find vcvarsall.bat</p>
-<p>似乎需要在 windows下指定 mingw的环境，所以 </p>
-<p>python setup.py build -c mingw32</p>
-<p>还需要安装mingw， 不然什么 gcc，及头文件都没有。</p>
-<h1 id="_3">文件格式不识别</h1>
-<p>Cython error: C:\Python27\libs/libpython27.a: error adding symbols: File format not recognized</p>
-<p>gendef c:/Windows/System32/python27.dll
-dlltool -U -d python27.def -l libpython27.dll.a
-cp libpython27.dll.a c:/Python27/libs</p>
-<h1 id="0kb">生成0KB文件</h1>
-<h2 id="gendef">gendef</h2>
-<p>放到 /mingw??/bin 下， 即可</p>
-<h2 id="dlltool">dlltool</h2>
-<p>我是这样解决的：
-通过cmd命令进入.dll和.def文件所在目录，再运行dlltool.exe，即可。注意，在命令行输入dlltool的完整路径名。如下图所示。</p>
-<p><a href="http://tieba.baidu.com/p/3804600448">百度贴吧</a></p>
-<h1 id="_imp-__py_initmodule4">_imp __Py_InitModule4</h1>
-<p>Python: undefined reference to `_imp __Py_InitModule4'</p>
-<p><a href="http://stackoverflow.com/questions/2842469/python-undefined-reference-to-imp-py-initmodule4">stackoverflow</a></p>
-<p>Look in:</p>
-<p>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin</p>
-<h1 id="__pyx_t_5numpy_int32_t">__pyx_t_5numpy_int32_t</h1>
-<p>http://blog.csdn.net/jiajunlee/article/details/50373815#q9-invalid-conversion-from-const-int-to-int</p>
-<h1 id="_4"></h1>
-<p>compiler = os.path.basename(sysconfig.get_config_var("CC"))
-compiler = "C:\MinGW\bin\gcc.exe"</p>
-<p>https://github.com/pyne/pyne/issues/27</p>
-<h1 id="python-2-3-cpickle-and-pickle">python 2 3, cPickle and pickle</h1>
-<div class="highlight"><pre><span></span>python 3 pickle 'ascii' codec can't decode byte 0x8a in position 3: ordinal
-</pre></div>
-<p>解决方案： <a href="https://blog.csdn.net/qq_41185868/article/details/79039604">website</a></p>
-<div class="highlight"><pre><span></span><span class="na">.load</span><span class="p">(</span><span class="no">f</span><span class="p">,</span><span class="no">encoding</span><span class="err">='</span><span class="no">bytes</span><span class="err">'</span><span class="p">)</span>
+<h1 id="_1">导出数据</h1>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.summary</span> <span class="kn">import</span> <span class="n">event_accumulator</span>
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -215,7 +161,7 @@ compiler = "C:\MinGW\bin\gcc.exe"</p>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/something-strange-on-python.html#disqus_thread">
+                href="http://sndnyang.github.io/TensorBoardX-issues.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -225,8 +171,8 @@ compiler = "C:\MinGW\bin\gcc.exe"</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'something-strange-on-python.html';
-    var disqus_url = 'http://sndnyang.github.io/something-strange-on-python.html';
+        var disqus_identifier = 'TensorBoardX-issues.html';
+    var disqus_url = 'http://sndnyang.github.io/TensorBoardX-issues.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -248,17 +194,23 @@ compiler = "C:\MinGW\bin\gcc.exe"</p>
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2017-04-24T22:25:32+08:00">Apr 24, 2017</time>
+                    <time pubdate="pubdate" datetime="2019-02-03T22:18:30+08:00">Feb 3, 2019</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-04-24T22:26:28+08:00">Apr 24, 2017</time>
+<time datetime="2019-02-03T22:18:30+08:00">Feb 3, 2019</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#python-ref">Python</a>
+                    <a class="category-link" href="/categories.html#gong-ju-ref">工具</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#python-ref">Python
-                            <span>14</span>
+                        <li><a href="/tags.html#gong-ju-ref">工具
+                            <span>3</span>
+</a></li>
+                        <li><a href="/tags.html#ke-shi-hua-ref">可视化
+                            <span>4</span>
+</a></li>
+                        <li><a href="/tags.html#shu-ju-fen-xi-ref">数据分析
+                            <span>2</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

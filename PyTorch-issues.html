@@ -125,6 +125,7 @@
                             <div class="toc">
 <ul>
 <li><a href="#_1">函数里的内存占用不释放</a></li>
+<li><a href="#torch-10041">torch 1.0/0.4.1</a></li>
 </ul>
 </div>
                         </div>
@@ -161,6 +162,11 @@
     return dist
 </pre></div>
 <p>如果不在倒数第二行使用 .cpu()， 经常出现，函数返回后，占用的GPU内存不被释放, 有时是覆盖掉，有时干脆累加， 分分钟撑爆GPU内存</p>
+<h1 id="torch-10041">torch 1.0/0.4.1</h1>
+<div class="highlight"><pre><span></span>libtorch_python.so: undefined symbol: _Z11libshm_initPKc
+</pre></div>
+<p>When I installed the torch 1.0,  there's a libshm.so in the $LD_LIBRARY_PATH.</p>
+<p>Just remove the path from $LD_LIBRARY_PATH, and reinstall. </p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

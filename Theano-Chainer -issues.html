@@ -10,20 +10,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CS, 机器学习, 人工智能, zhimind系列, 机器学习, " />
+<meta name="keywords" content="深度学习 机器学习, 人工智能, 深度学习, " />
 
-<meta property="og:title" content="知维图系列-深度学习目录 "/>
-<meta property="og:url" content="http://sndnyang.github.io/deep-learning-catalog.html" />
-<meta property="og:description" content="深度学习目录 自引用：知维图系列-深度学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 神经网络 神经元 感知机 逻辑回归 其他模型 学习方式 前向传播 反向传播 深度网络#todo 自编码器auto encoder#todo 卷积神经网络cnn#todo 递归神经网络rnn#todo 等等 待更新 在看 Hinton在Coursera 开的 neural network for machine learning" />
+<meta property="og:title" content="Theano-Chainer "/>
+<meta property="og:url" content="http://sndnyang.github.io/Theano-Chainer -issues.html" />
+<meta property="og:description" content="Chainer Use cupy....The installation is a bit complex. Need to be careful about the environment variables. initialize/update the weight by numpy Reference to normal initializer Its implementation is different from PyTorch. Theano 要使用 GPU 的话， 需要 pygpu 库， 好像只能用 conda 安装， pip 是找不到这个库的. We need pygpu library to ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-10-28T22:18:30+08:00" />
-<meta property="" content="2016-10-22T20:18:30+08:00" />
-<meta name="twitter:title" content="知维图系列-深度学习目录 ">
-<meta name="twitter:description" content="深度学习目录 自引用：知维图系列-深度学习目录链接 思维导图 鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。 基础概念 机器学习定义 机器学习主要类型 机器学习三要素 神经网络 神经元 感知机 逻辑回归 其他模型 学习方式 前向传播 反向传播 深度网络#todo 自编码器auto encoder#todo 卷积神经网络cnn#todo 递归神经网络rnn#todo 等等 待更新 在看 Hinton在Coursera 开的 neural network for machine learning">
+<meta property="og:article:published_time" content="2019-02-19T22:18:30+08:00" />
+<meta property="" content="2019-12-19T22:18:30+08:00" />
+<meta name="twitter:title" content="Theano-Chainer ">
+<meta name="twitter:description" content="Chainer Use cupy....The installation is a bit complex. Need to be careful about the environment variables. initialize/update the weight by numpy Reference to normal initializer Its implementation is different from PyTorch. Theano 要使用 GPU 的话， 需要 pygpu 库， 好像只能用 conda 安装， pip 是找不到这个库的. We need pygpu library to ...">
 
 
-        <title>知维图系列-深度学习目录  · 科探空谷
+        <title>Theano-Chainer  · 科探空谷
 </title>
 
         <style>
@@ -110,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/deep-learning-catalog.html">
-                        知维图系列-深度学习目录  
+                    <a href="/Theano-Chainer -issues.html">
+                        Theano-Chainer  
                     </a>
                 </h1>
             </header>
@@ -124,7 +124,11 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">深度学习目录</a></li>
+<li><a href="#chainer">Chainer</a><ul>
+<li><a href="#initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</a></li>
+</ul>
+</li>
+<li><a href="#theano">Theano</a></li>
 </ul>
 </div>
                         </div>
@@ -138,41 +142,15 @@
 
                         
                         
-<h1 id="_1">深度学习目录</h1>
-<p>自引用：<a href="http://blog.zhimind.com/deep-learning-catalog.html">知维图系列-深度学习目录链接</a></p>
-<p><a href="http://zhimind.com/map/f349e9b2-1412-44f4-a18e-618825613bcb">思维导图</a></p>
-<p>鼠标停在结点上时，如果有链接则会显示出来， 不然就看这个目录吧， 目录和导图转换还没有实现。</p>
-<ul>
-<li>基础概念<ul>
-<li><a href="http://www.zhimind.com/tutorial/acd9371a-1565-429c-9cdc-c275937e4523">机器学习定义</a></li>
-<li><a href="http://www.zhimind.com/tutorial/3b230a16-7472-42dc-b9c6-ced54c9fe9f7">机器学习主要类型</a></li>
-<li><a href="http://www.zhimind.com/tutorial/three-elememts-in-machine-learning">机器学习三要素</a></li>
-</ul>
-</li>
-<li><a href="http://www.zhimind.com/tutorial/introduce-neural-network">神经网络</a> <ul>
-<li>神经元<ul>
-<li><a href="http://www.zhimind.com/tutorial/perceptron-foundation">感知机</a></li>
-<li><a href="http://www.zhimind.com/tutorial/logistic-regression-foundation">逻辑回归</a></li>
-<li><a href="http://www.zhimind.com/tutorial/models-of-neurons">其他模型</a></li>
-</ul>
-</li>
-<li>学习方式  <ul>
-<li><a href="http://www.zhimind.com/tutorial/feed-forward-nn">前向传播</a></li>
-<li><a href="http://www.zhimind.com/tutorial/backpropagation-nn">反向传播</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>深度网络#todo<ul>
-<li>自编码器auto encoder#todo</li>
-<li>卷积神经网络cnn#todo</li>
-<li>递归神经网络rnn#todo</li>
-<li>等等</li>
-</ul>
-</li>
-</ul>
-<p>待更新</p>
-<p>在看 Hinton在Coursera 开的 <a href="https://www.coursera.org/learn/neural-networks">neural network for machine learning</a></p>
+<h1 id="chainer">Chainer</h1>
+<p>Use cupy....The installation is a bit complex. Need to be careful about the environment variables.</p>
+<h2 id="initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</h2>
+<p>Reference to <a href="https://github.com/chainer/chainer/blob/v5.2.0/chainer/initializers/normal.py#L10">normal initializer</a></p>
+<p>Its implementation is different from PyTorch.</p>
+<h1 id="theano">Theano</h1>
+<p>要使用 GPU 的话， 需要 pygpu 库， 好像只能用 conda 安装， pip 是找不到这个库的.</p>
+<p>We need pygpu library to utilize GPU, so it seems that only conda support pygpu, I can't find the library by pip.</p>
+<p>tensorboardX need to use pip to install.</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -193,7 +171,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/deep-learning-catalog.html#disqus_thread">
+                href="http://sndnyang.github.io/Theano-Chainer -issues.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -203,8 +181,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'deep-learning-catalog.html';
-    var disqus_url = 'http://sndnyang.github.io/deep-learning-catalog.html';
+        var disqus_identifier = 'Theano-Chainer -issues.html';
+    var disqus_url = 'http://sndnyang.github.io/Theano-Chainer -issues.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -226,26 +204,20 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-10-28T22:18:30+08:00">Oct 28, 2016</time>
+                    <time pubdate="pubdate" datetime="2019-02-19T22:18:30+08:00">Feb 19, 2019</time>
 
 <h4>Last Updated</h4>
-<time datetime="2016-10-22T20:18:30+08:00">Oct 22, 2016</time>
+<time datetime="2019-12-19T22:18:30+08:00">Dec 19, 2019</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#ji-qi-xue-xi-ref">机器学习</a>
+                    <a class="category-link" href="/categories.html#shen-du-xue-xi-ref">深度学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>22</span>
-</a></li>
-                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
-                            <span>12</span>
-</a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>23</span>
 </a></li>
-                        <li><a href="/tags.html#zhimindxi-lie-ref">zhimind系列
-                            <span>2</span>
+                        <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
+                            <span>4</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

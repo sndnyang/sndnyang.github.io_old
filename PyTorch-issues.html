@@ -126,6 +126,7 @@
 <ul>
 <li><a href="#_1">函数里的内存占用不释放</a></li>
 <li><a href="#torch-10041">torch 1.0/0.4.1</a></li>
+<li><a href="#_2">初始化权重</a></li>
 </ul>
 </div>
                         </div>
@@ -167,6 +168,16 @@
 </pre></div>
 <p>When I installed the torch 1.0,  there's a libshm.so in the $LD_LIBRARY_PATH.</p>
 <p>Just remove the path from $LD_LIBRARY_PATH, and reinstall. </p>
+<p>安装torch时， 之前因某原因（不记得）给LD_LIBRARY_PATH多加了一个带libshm.so文件的路径， 导致torch加载版本不对， 删掉路径， 刷新LD_LIBRARY_PATH， 重装 torch即可。</p>
+<h1 id="_2">初始化权重</h1>
+<p>因为PyTorch初始化不是使用 numpy， 与其他框架跨框架比较时， 需要使用 numpy 来初始化， 才能一致。</p>
+<div class="highlight"><pre><span></span>def normal_(tensor, mean=0, std=1):
+    with torch.no_grad():
+        return tensor.normal_(mean, std)
+</pre></div>
+<p>使用方法：</p>
+<div class="highlight"><pre><span></span>model.apply(weight_init)
+</pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -230,10 +241,10 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>22</span>
+                            <span>23</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
-                            <span>3</span>
+                            <span>4</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

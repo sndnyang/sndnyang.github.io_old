@@ -127,6 +127,8 @@
 <li><a href="#_1">函数里的内存占用不释放</a></li>
 <li><a href="#torch-10041">torch 1.0/0.4.1</a></li>
 <li><a href="#_2">初始化权重</a></li>
+<li><a href="#scalar">对非scalar求导</a></li>
+<li><a href="#batchnorm-affine">BatchNorm affine</a></li>
 </ul>
 </div>
                         </div>
@@ -178,6 +180,13 @@
 <p>使用方法：</p>
 <div class="highlight"><pre><span></span>model.apply(weight_init)
 </pre></div>
+<h1 id="scalar">对非scalar求导</h1>
+<p>grad on non-scalar/tensor</p>
+<div class="highlight"><pre><span></span>torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0]))
+</pre></div>
+<h1 id="batchnorm-affine">BatchNorm affine</h1>
+<p>It seems TF/chainer most frameworks works with affine=False(affine = True will introduce some randomness)</p>
+<p>不知道为什么， TF/CHAINER等框架的batchnorm 都是固定的， 就PyTorch 默认有随机。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -241,7 +250,7 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>23</span>
+                            <span>24</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
                             <span>4</span>

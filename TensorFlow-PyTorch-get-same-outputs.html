@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="TensorFlow和PyTorch如何结果一致 "/>
 <meta property="og:url" content="http://sndnyang.github.io/TensorFlow-PyTorch-get-same-outputs.html" />
-<meta property="og:description" content="求导 torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器 torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm Converting a batch normalization layer from TF to Pytorch ..." />
+<meta property="og:description" content="github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2019-03-18T22:18:30+08:00" />
 <meta property="" content="2019-03-18T22:18:30+08:00" />
 <meta name="twitter:title" content="TensorFlow和PyTorch如何结果一致 ">
-<meta name="twitter:description" content="求导 torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器 torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm Converting a batch normalization layer from TF to Pytorch ...">
+<meta name="twitter:description" content="github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm ...">
 
 
         <title>TensorFlow和PyTorch如何结果一致  · 科探空谷
@@ -124,10 +124,11 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">求导</a></li>
-<li><a href="#_2">优化器</a></li>
+<li><a href="#github">github</a></li>
+<li><a href="#gradient">求导, gradient</a></li>
+<li><a href="#optimizer">优化器, optimizer</a></li>
 <li><a href="#batchnorm">BatchNorm</a><ul>
-<li><a href="#_3">代码示例</a></li>
+<li><a href="#_1">代码示例</a></li>
 </ul>
 </li>
 <li><a href="#dropout">Dropout</a></li>
@@ -145,12 +146,16 @@
 
                         
                         
-<h1 id="_1">求导</h1>
+<h1 id="github">github</h1>
+<p><a href="https://github.com/sndnyang/DeepLearningCMP">repo</a></p>
+<p><a href="https://nbviewer.jupyter.org/github/sndnyang/DeepLearningCMP/blob/master/tf_eager.ipynb">nbviewer tf eager</a></p>
+<p><a href="https://nbviewer.jupyter.org/github/sndnyang/DeepLearningCMP/blob/master/pytorch.ipynb">nbviewer pytorch</a></p>
+<h1 id="gradient">求导, gradient</h1>
 <div class="highlight"><pre><span></span>torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0]))
 
 tp.gradient(f_x[:, 0], logits)
 </pre></div>
-<h1 id="_2">优化器</h1>
+<h1 id="optimizer">优化器, optimizer</h1>
 <div class="highlight"><pre><span></span>torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True)
 
 optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True)
@@ -168,7 +173,7 @@ p = tf.layers.batch_normalization(m, training=True, momentum=MOMENTUM, epsilon=E
 print("output\n", p.numpy())
 print("sum of output**2\n", (p.numpy()**2).sum())
 </pre></div>
-<h2 id="_3">代码示例</h2>
+<h2 id="_1">代码示例</h2>
 <div class="highlight"><pre><span></span>tf.set_random_seed(1)
 m = tf.random_uniform((2, 3, 3, 1), 0, 1)
 print("random input\n", m.numpy())

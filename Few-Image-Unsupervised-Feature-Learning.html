@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, 多目标进化算法, 社区发现, CS, 数据挖掘, " />
+<meta name="keywords" content="论文, 无监督学习, 自监督学习, 表示学习, 论文, " />
 
-<meta property="og:title" content="进化多目标方法在动态网络聚落检测中的应用-总结 "/>
-<meta property="og:url" content="http://sndnyang.github.io/ema_comminities_dynamic_networks.html" />
-<meta property="og:description" content="摘要： 目标： 最大化当前数据的聚类准确性 最小化阶段过渡时的聚类漂移 clustering drift 新概念： temporal smoothness 短时平滑性 snapshot quality , temporal quality 快照质量和短时质量 优点： provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive. 为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案 ** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 导言 进化聚类方法(evolutionary clustering) 利用 temporal smoothness ..." />
+<meta property="og:title" content="极少量图片的无监督特征学习 "/>
+<meta property="og:url" content="http://sndnyang.github.io/Few-Image-Unsupervised-Feature-Learning.html" />
+<meta property="og:description" content="Summary概述 有趣的新发现，没有引入新方法 神经网络的较浅层（前几层）可以仅用极少量数据、图片进行无监督学习， 仅用一张也行（进行大量数据扩充）， 学习到的特征、权重不亚于用大量数据的监督学习。 问题： 如作者所述，少量图片就能把较浅层训练得足够好， 这里的“足够好”是怎么比较的？ 比如类似迁移学习transfer learning？但替换较浅几层的权重？ 回答： linear probes， 线性探测， 基于学习好的神经网络（比如前1-k层， k&lt;&lt;n)，训练一个线性分类器， 比较线性分类器的分类正确率。 推论(证实)：神经网络浅较层的泛化本质、内在(the very generic nature)， 不需要使用大数据集进行训练。 目标 自监督学习下的极端低（少）数据情形(regime）， 即数据扩充（data augmentation）方法 研究哪些自监督、无监督学习方法能应用于少数据情形 ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-03-08T00:00:00+08:00" />
-<meta name="twitter:title" content="进化多目标方法在动态网络聚落检测中的应用-总结 ">
-<meta name="twitter:description" content="摘要： 目标： 最大化当前数据的聚类准确性 最小化阶段过渡时的聚类漂移 clustering drift 新概念： temporal smoothness 短时平滑性 snapshot quality , temporal quality 快照质量和短时质量 优点： provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive. 为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案 ** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 导言 进化聚类方法(evolutionary clustering) 利用 temporal smoothness ...">
+<meta property="og:article:published_time" content="2019-05-02T15:20:20+08:00" />
+<meta name="twitter:title" content="极少量图片的无监督特征学习 ">
+<meta name="twitter:description" content="Summary概述 有趣的新发现，没有引入新方法 神经网络的较浅层（前几层）可以仅用极少量数据、图片进行无监督学习， 仅用一张也行（进行大量数据扩充）， 学习到的特征、权重不亚于用大量数据的监督学习。 问题： 如作者所述，少量图片就能把较浅层训练得足够好， 这里的“足够好”是怎么比较的？ 比如类似迁移学习transfer learning？但替换较浅几层的权重？ 回答： linear probes， 线性探测， 基于学习好的神经网络（比如前1-k层， k&lt;&lt;n)，训练一个线性分类器， 比较线性分类器的分类正确率。 推论(证实)：神经网络浅较层的泛化本质、内在(the very generic nature)， 不需要使用大数据集进行训练。 目标 自监督学习下的极端低（少）数据情形(regime）， 即数据扩充（data augmentation）方法 研究哪些自监督、无监督学习方法能应用于少数据情形 ...">
 
 
-        <title>进化多目标方法在动态网络聚落检测中的应用-总结  · 科探空谷
+        <title>极少量图片的无监督特征学习  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +109,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/ema_comminities_dynamic_networks.html">
-                        进化多目标方法在动态网络聚落检测中的应用-总结  
+                    <a href="/Few-Image-Unsupervised-Feature-Learning.html">
+                        极少量图片的无监督特征学习  
                     </a>
                 </h1>
             </header>
@@ -123,47 +123,29 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">摘要：</a><ul>
-<li><a href="#_2">目标：</a></li>
-<li><a href="#_3">新概念：</a></li>
-<li><a href="#_4">优点：</a></li>
+<li><a href="#summary">Summary概述</a><ul>
+<li><a href="#_1">目标</a></li>
 </ul>
 </li>
-<li><a href="#_5">导言</a><ul>
-<li><a href="#_6">平滑性的实现</a></li>
-<li><a href="#_7">本文方法</a><ul>
-<li><a href="#_8">目标</a></li>
+<li><a href="#_2">方法</a><ul>
+<li><a href="#_3">数据扩充</a><ul>
+<li><a href="#_4">实例</a></li>
 </ul>
 </li>
-<li><a href="#_9">优势</a></li>
-<li><a href="#_10">本文主要贡献</a></li>
-</ul>
-</li>
-<li><a href="#_11">相关工作</a><ul>
-<li><a href="#_12">主要工作</a><ul>
-<li><a href="#evolutionary-clustering-by-chakrabarti-et-al-in-13">Evolutionary Clustering by Chakrabarti et al. in [13]</a></li>
-<li><a href="#facetnet-by-lin-et-al5">FacetNet  by Lin et al[5]</a></li>
-<li><a href="#particle-and-density-based-clustering-method-by-kim-and-han-3">particle-and-density based clustering method  by Kim and Han [3]</a></li>
-<li><a href="#_13">这些方法的主要问题</a></li>
+<li><a href="#_5">表示学习方法</a><ul>
+<li><a href="#_6">生成模型</a></li>
+<li><a href="#_7">旋转</a></li>
+<li><a href="#_8">聚类</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#dynmoga">DYNMOGA算法</a><ul>
-<li><a href="#_14">目标函数</a><ul>
-<li><a href="#_15">定义</a></li>
-<li><a href="#_16">多种分值定义</a></li>
-<li><a href="#_17">基因表达</a><ul>
-<li><a href="#decoding-step">decoding step 解码</a></li>
+<li><a href="#_9">实验</a><ul>
+<li><a href="#_10">线性探测</a></li>
 </ul>
 </li>
-<li><a href="#_18">初始化</a></li>
-<li><a href="#uniform-crossover">uniform crossover 均匀交叉</a></li>
-<li><a href="#_19">突变</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#_11">未来方向</a></li>
+<li><a href="#_12">对照</a></li>
 </ul>
 </div>
                         </div>
@@ -177,117 +159,70 @@
 
                         
                         
-<h1 id="_1">摘要：</h1>
-<h2 id="_2">目标：</h2>
+<h1 id="summary">Summary概述</h1>
+<p><strong>有趣的新发现，没有引入新方法</strong></p>
+<p>神经网络的较浅层（前几层）可以仅用极少量数据、图片进行无监督学习， 仅用一张也行（进行大量数据扩充）， 学习到的特征、权重不亚于用大量数据的监督学习。</p>
+<p><strong>问题：</strong> 如作者所述，少量图片就能把较浅层训练得足够好， 这里的“足够好”是怎么比较的？ 比如类似迁移学习transfer learning？但替换较浅几层的权重？</p>
+<p><strong>回答：</strong> linear probes， 线性探测， 基于学习好的神经网络（比如前1-k层， k&lt;&lt;n)，训练一个线性分类器， 比较线性分类器的分类正确率。</p>
+<p>推论(证实)：神经网络浅较层的泛化本质、内在(the very generic nature)， 不需要使用大数据集进行训练。</p>
+<h2 id="_1">目标</h2>
 <ol>
-<li>最大化当前数据的聚类准确性</li>
-<li>最小化阶段过渡时的聚类漂移 clustering drift</li>
+<li>自监督学习下的极端低（少）数据情形(regime）， 即数据扩充（data augmentation）方法</li>
+<li>研究哪些自监督、无监督学习方法能应用于少数据情形</li>
 </ol>
-<h2 id="_3">新概念：</h2>
+<h1 id="_2">方法</h1>
+<h2 id="_3">数据扩充</h2>
+<p>原使用 $d$ 张图片训练， 现在定义 $N \ll d$  张图片， 其他的 $d-N$ 张都是扩充图片。目标是 $N=1$ </p>
 <ol>
-<li>temporal smoothness 短时平滑性</li>
-<li>snapshot quality , temporal quality 快照质量和短时质量</li>
+<li>
+<p>小块扩充， 从原图( $H \times W$ ) 随机选若干小图片( $h \times w$ )，约束条件：
+   $$
+   \beta \leq \frac{w h}{W H}, \quad \gamma \leq \frac{h}{w} \leq \gamma^{-1}
+   $$</p>
+</li>
+<li>
+<p>旋转扩充，  $ \alpha \in (-35, 35) $ 度</p>
+</li>
+<li>
+<p>色彩扩充， RGB线性颜色变换</p>
+</li>
+<li>
+<p>色彩噪音</p>
+</li>
 </ol>
-<h2 id="_4">优点：</h2>
-<p>provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive.
-为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案</p>
-<p>** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 </p>
-<h1 id="_5">导言</h1>
-<p>进化聚类方法(evolutionary clustering) 利用 temporal smoothness 框架。</p>
-<p>核心假设： abrupt changes of clustering in a short time period are not desirable  （译： 短时间内聚类突变是不值得要的？不合适的？）</p>
-<p>it smooths each community over time</p>
-<h2 id="_6">平滑性的实现</h2>
-<p>折衷：</p>
+<h3 id="_4">实例</h3>
+<p>并不是限定使用原数据集里的一张或几张图片， 比如 CIFAR10 的图片非常小， 就没法进行小块扩充。 作者测试了两张图， 还有一组10张图：</p>
+<p><img alt="single-image-unsupervised-a" src="images/single-image-unsupervised-a.png"/></p>
+<p><img alt="single-image-unsupervised-b" src="images/single-image-unsupervised-b.png"/></p>
+<p><img alt="10-image-unsupervised" src="images/10-image-unsupervised.png"/></p>
+<h2 id="_5">表示学习方法</h2>
+<h3 id="_6">生成模型</h3>
+<p>Bidirectional Generative Adversarial Networks (BiGAN) </p>
+<h3 id="_7">旋转</h3>
+<p>RotNet</p>
+<h3 id="_8">聚类</h3>
+<p>DeepCluster</p>
+<h1 id="_9">实验</h1>
+<h2 id="_10">线性探测</h2>
+<p>基于固定的训练好的特征表示，训练线性分类器。 显然， 学习到的特征表示决定了分类质量。</p>
+<p><img alt="1556825057402" src="images/unsupervised-linear-probe-cifar10.png"/></p>
+<p><img alt="1556824867963" src="images/unsupervised-linear-probe.png"/></p>
+<p>结果显示， 无监督学习得到的 Conv1 第一个卷积层甚至比监督学习还好， 前两三层有提高， 然后下滑， 说明无监督学习对高抽象的特征学习不佳。</p>
+<h1 id="_11">未来方向</h1>
 <ol>
-<li>snapshot quality: 在当前阶段所拥有数据下， 聚类要尽可能精确。</li>
-<li>temporal cost: 每个聚类在阶段过渡时， 不能发生剧烈变化。</li>
+<li>0图学习， 使用生成的不规则零碎图片学习</li>
+<li>找出或优化出更完美的单图，可以称之为原型图</li>
 </ol>
-<h2 id="_7">本文方法</h2>
-<p>名字： DYNMOGA (DYNamic MultiObjective Genetic Algorithms)</p>
-<h3 id="_8">目标</h3>
+<p>补充：</p>
+<p>显然， 浅层卷积效果好了， 就自然有两个问题：</p>
 <ol>
-<li>最大化 snapshot quality, 表明当前聚类效果（准确性）， 为此调整了 modularity 的概念</li>
-<li>最小化 temporal cost， 表明两阶段间聚类差别， 为此去计算 归一化互信息(normalized mutual information)</li>
+<li>能否不用这么多扩充的图片， 卷积层本身就应该自动匹配到各局部特征， 而且应该色彩变化不敏感， 旋转角度能否就-30、-15、0、15、30 这么5张， 为什么要这么多。</li>
+<li>与监督学习的高层特征区别在哪里</li>
 </ol>
-<h2 id="_9">优势</h2>
-<ol>
-<li>利用这两个方法的优势</li>
-<li>选择性搜索解空间， 不需要提前知道 聚类个数。</li>
-</ol>
-<h2 id="_10">本文主要贡献</h2>
-<ol>
-<li>将动态网络中群落结构的检测问题 建模成 多目标优化问题--以前肯定有人弄过了，也算贡献？</li>
-<li>本方法可以考虑成 通用框架，应用于进化聚类。 仅仅需要修改目标函数，测试不同的质量函数--别人的算法也可以，这篇就是利用别人的框架。</li>
-<li>本方法不需要参数， 不需要为快照和短时成本设置权重， 也不用设定聚类个数--不知道他人工作情况。</li>
-</ol>
-<h1 id="_11">相关工作</h1>
-<h2 id="_12">主要工作</h2>
-<h3 id="evolutionary-clustering-by-chakrabarti-et-al-in-13">Evolutionary Clustering by Chakrabarti et al. in [13]</h3>
-<ol>
-<li>认为changes of connections in short time periods could be caused by noise.</li>
-<li>提出了 temporal smoothness 和 snapshot cost  temporal cost</li>
-</ol>
-<p>问题是： not allow that the number of communities varies over time</p>
-<h3 id="facetnet-by-lin-et-al5">FacetNet  by Lin et al[5]</h3>
-<h3 id="particle-and-density-based-clustering-method-by-kim-and-han-3">particle-and-density based clustering method  by Kim and Han [3]</h3>
-<h3 id="_13">这些方法的主要问题</h3>
-<ol>
-<li>聚类个数 不知道。</li>
-<li>相对于要选择 参数 alpha 去应用于 temporal smoothness。</li>
-</ol>
-<h1 id="dynmoga">DYNMOGA算法</h1>
-<p>DYNMOGA has been adapted with a customized
-population type that suitably represents a partitioning of
-a network and endowed with two complementary objectives</p>
-<p>他们使用了 matlab 实现的 NSGA-II 算法框架, DYNMOGA支持 定制的、可表示网络分割情况的群体类型, 并具有两种互补的目标（然而并没有说是哪两种）。</p>
-<h2 id="_14">目标函数</h2>
-<h3 id="_15">定义</h3>
-<p>$$$</p>
-<p>CR^t = { C^t_1, ... C^t_k } 是图在 t 阶段的聚类结果</p>
-<p>一个聚类中有 n_S 个结点 m_S 条边。</p>
-<p>m_S(u) = {v | v \in C_t } 是结点u 在聚类C^t 的邻点个数 
-c_S = { (u, v) | u \in C^t, v \notin C^t} 是聚类C^t边界的边数。
-l_S 是 只连接 模块 C^t_S 内部结点 的边总数。
-d_S 是 C^t_S 中点的度数之和</p>
-<p>$$$</p>
-<h3 id="_16">多种分值定义</h3>
-<p>Q: the first term of each summand is
-the fraction of edges inside a community, while the second
-one is the expected value of the fraction of edges that would
-be in the network if edges fall at random without regard
-to the community structure. Values approaching 1 indicate
-strong community structure</p>
-<ol>
-<li>modularity 颗粒度 ：<br/>
-$$ Q = \sum^k_{s=1}[\frac{l_s}{m} - (\frac{d_s}{2m})^2] $$</li>
-<li>conductance 导率, the fraction of edges pointing outside the clustering：<br/>
-$$ CO = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} $$</li>
-<li>Normalized Cut 归一化分割 the fraction of total edge connections to all the nodes in the graph: <br/>
-$$ NC = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} + \frac{c_S}{2(m-m_S)+c_S} $$</li>
-<li>Community Score 群落分值, measure the fraction of internal edges of each cluster per nodes：<br/>
-$$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} $$</li>
-</ol>
-<h3 id="_17">基因表达</h3>
-<p>locus-based adjacency representation  [34]</p>
-<ol>
-<li>每个个体包含 n 个基因， n 指代 结点的个数</li>
-<li>每个基因 取值范围 1-n， 即第i个基因与第j个基因之间有连接，该划分到同一群落</li>
-</ol>
-<p>** 注： 这种表达肯定不能用于 群落重叠问题——然而 现实是， 主流用法 就是这样，大同小异</p>
-<p>好处： 由个体组成部分的个数，在解码步骤中自动得到</p>
-<h4 id="decoding-step">decoding step 解码</h4>
-<p>使用并查集</p>
-<ol>
-<li>建立并查集 makeset</li>
-<li>对每条边去查找, findset</li>
-<li>查到后的进行合并</li>
-</ol>
-<h3 id="_18">初始化</h3>
-<p>一个有若干个体的群体， 对每个点i, 在邻接点中随机选择一个作为值， 表示 存在边 (i,j)</p>
-<h3 id="uniform-crossover">uniform crossover 均匀交叉</h3>
-<p>给定两个父辈个体， 创建一个随机二元mask, 进行选择， 当 mask 为0时， 取第一个父辈个体的基因（值）， 为1时， 取第二个父辈个体。 如此组成子代的基因</p>
-<h3 id="_19">突变</h3>
-<p>与初始化类似， 对结点i 随机变更值成其他邻点。</p>
+<h1 id="_12">对照</h1>
+<p>data augmentation： 数据扩充、数据增强、数据增广</p>
+<p>low-data regime: 对不上号， 瞎猜一个 低（少）数据情形</p>
+<p>linear probes: 线性探测</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -308,7 +243,7 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/ema_comminities_dynamic_networks.html#disqus_thread">
+                href="http://sndnyang.github.io/Few-Image-Unsupervised-Feature-Learning.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -318,8 +253,8 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'ema_comminities_dynamic_networks.html';
-    var disqus_url = 'http://sndnyang.github.io/ema_comminities_dynamic_networks.html';
+        var disqus_identifier = 'Few-Image-Unsupervised-Feature-Learning.html';
+    var disqus_url = 'http://sndnyang.github.io/Few-Image-Unsupervised-Feature-Learning.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -341,22 +276,22 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-03-08T00:00:00+08:00">Mar 8, 2016</time>
+                    <time pubdate="pubdate" datetime="2019-05-02T15:20:20+08:00">May 2, 2019</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#shu-ju-wa-jue-ref">数据挖掘</a>
+                    <a class="category-link" href="/categories.html#lun-wen-ref">论文</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>22</span>
-</a></li>
-                        <li><a href="/tags.html#duo-mu-biao-jin-hua-suan-fa-ref">多目标进化算法
-                            <span>3</span>
+                        <li><a href="/tags.html#biao-shi-xue-xi-ref">表示学习
+                            <span>1</span>
 </a></li>
                         <li><a href="/tags.html#lun-wen-ref">论文
                             <span>24</span>
 </a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>11</span>
+                        <li><a href="/tags.html#wu-jian-du-xue-xi-ref">无监督学习
+                            <span>1</span>
+</a></li>
+                        <li><a href="/tags.html#zi-jian-du-xue-xi-ref">自监督学习
+                            <span>1</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

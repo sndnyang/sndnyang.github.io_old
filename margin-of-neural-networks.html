@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, 多目标进化算法, 社区发现, CS, 数据挖掘, " />
+<meta name="keywords" content="对抗学习, 论文, " />
 
-<meta property="og:title" content="进化多目标方法在动态网络聚落检测中的应用-总结 "/>
-<meta property="og:url" content="http://sndnyang.github.io/ema_comminities_dynamic_networks.html" />
-<meta property="og:description" content="摘要： 目标： 最大化当前数据的聚类准确性 最小化阶段过渡时的聚类漂移 clustering drift 新概念： temporal smoothness 短时平滑性 snapshot quality , temporal quality 快照质量和短时质量 优点： provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive. 为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案 ** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 导言 进化聚类方法(evolutionary clustering) 利用 temporal smoothness ..." />
+<meta property="og:title" content="神经网络的分类边界 "/>
+<meta property="og:url" content="http://sndnyang.github.io/margin-of-neural-networks.html" />
+<meta property="og:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ \mathcal{D}{(i, j)} \triangleq\left{\boldsymbol{x} | f ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-03-08T00:00:00+08:00" />
-<meta name="twitter:title" content="进化多目标方法在动态网络聚落检测中的应用-总结 ">
-<meta name="twitter:description" content="摘要： 目标： 最大化当前数据的聚类准确性 最小化阶段过渡时的聚类漂移 clustering drift 新概念： temporal smoothness 短时平滑性 snapshot quality , temporal quality 快照质量和短时质量 优点： provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive. 为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案 ** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 导言 进化聚类方法(evolutionary clustering) 利用 temporal smoothness ...">
+<meta property="og:article:published_time" content="2019-05-02T16:20:20+08:00" />
+<meta name="twitter:title" content="神经网络的分类边界 ">
+<meta name="twitter:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ \mathcal{D}{(i, j)} \triangleq\left{\boldsymbol{x} | f ...">
 
 
-        <title>进化多目标方法在动态网络聚落检测中的应用-总结  · 科探空谷
+        <title>神经网络的分类边界  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +109,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/ema_comminities_dynamic_networks.html">
-                        进化多目标方法在动态网络聚落检测中的应用-总结  
+                    <a href="/margin-of-neural-networks.html">
+                        神经网络的分类边界  
                     </a>
                 </h1>
             </header>
@@ -123,47 +123,9 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#_1">摘要：</a><ul>
-<li><a href="#_2">目标：</a></li>
-<li><a href="#_3">新概念：</a></li>
-<li><a href="#_4">优点：</a></li>
-</ul>
-</li>
-<li><a href="#_5">导言</a><ul>
-<li><a href="#_6">平滑性的实现</a></li>
-<li><a href="#_7">本文方法</a><ul>
-<li><a href="#_8">目标</a></li>
-</ul>
-</li>
-<li><a href="#_9">优势</a></li>
-<li><a href="#_10">本文主要贡献</a></li>
-</ul>
-</li>
-<li><a href="#_11">相关工作</a><ul>
-<li><a href="#_12">主要工作</a><ul>
-<li><a href="#evolutionary-clustering-by-chakrabarti-et-al-in-13">Evolutionary Clustering by Chakrabarti et al. in [13]</a></li>
-<li><a href="#facetnet-by-lin-et-al5">FacetNet  by Lin et al[5]</a></li>
-<li><a href="#particle-and-density-based-clustering-method-by-kim-and-han-3">particle-and-density based clustering method  by Kim and Han [3]</a></li>
-<li><a href="#_13">这些方法的主要问题</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#dynmoga">DYNMOGA算法</a><ul>
-<li><a href="#_14">目标函数</a><ul>
-<li><a href="#_15">定义</a></li>
-<li><a href="#_16">多种分值定义</a></li>
-<li><a href="#_17">基因表达</a><ul>
-<li><a href="#decoding-step">decoding step 解码</a></li>
-</ul>
-</li>
-<li><a href="#_18">初始化</a></li>
-<li><a href="#uniform-crossover">uniform crossover 均匀交叉</a></li>
-<li><a href="#_19">突变</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#_1">概述</a></li>
+<li><a href="#todo">TODO</a></li>
+<li><a href="#_2">参考文献</a></li>
 </ul>
 </div>
                         </div>
@@ -177,117 +139,35 @@
 
                         
                         
-<h1 id="_1">摘要：</h1>
-<h2 id="_2">目标：</h2>
+<h1 id="_1">概述</h1>
+<p><strong>有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去</strong></p>
+<p>涉及以下几篇论文：</p>
 <ol>
-<li>最大化当前数据的聚类准确性</li>
-<li>最小化阶段过渡时的聚类漂移 clustering drift</li>
+<li>[Large Margin Deep Networks for Classification][1]</li>
+<li>[Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2]</li>
+<li>[DeepFool: a simple and accurate method to fool deep neural networks][3]</li>
 </ol>
-<h2 id="_3">新概念：</h2>
-<ol>
-<li>temporal smoothness 短时平滑性</li>
-<li>snapshot quality , temporal quality 快照质量和短时质量</li>
-</ol>
-<h2 id="_4">优点：</h2>
-<p>provides a solution representing the best trade-off between the accuracy of the clustering obtained, and the deviation from one time step to the successive.
-为聚类的准确性及阶段过渡时的变动提出了一个最优折衷的方案</p>
-<p>** 问题是这几个东西都不是这篇文章提的概念， 只是函数可能有变化 </p>
-<h1 id="_5">导言</h1>
-<p>进化聚类方法(evolutionary clustering) 利用 temporal smoothness 框架。</p>
-<p>核心假设： abrupt changes of clustering in a short time period are not desirable  （译： 短时间内聚类突变是不值得要的？不合适的？）</p>
-<p>it smooths each community over time</p>
-<h2 id="_6">平滑性的实现</h2>
-<p>折衷：</p>
-<ol>
-<li>snapshot quality: 在当前阶段所拥有数据下， 聚类要尽可能精确。</li>
-<li>temporal cost: 每个聚类在阶段过渡时， 不能发生剧烈变化。</li>
-</ol>
-<h2 id="_7">本文方法</h2>
-<p>名字： DYNMOGA (DYNamic MultiObjective Genetic Algorithms)</p>
-<h3 id="_8">目标</h3>
-<ol>
-<li>最大化 snapshot quality, 表明当前聚类效果（准确性）， 为此调整了 modularity 的概念</li>
-<li>最小化 temporal cost， 表明两阶段间聚类差别， 为此去计算 归一化互信息(normalized mutual information)</li>
-</ol>
-<h2 id="_9">优势</h2>
-<ol>
-<li>利用这两个方法的优势</li>
-<li>选择性搜索解空间， 不需要提前知道 聚类个数。</li>
-</ol>
-<h2 id="_10">本文主要贡献</h2>
-<ol>
-<li>将动态网络中群落结构的检测问题 建模成 多目标优化问题--以前肯定有人弄过了，也算贡献？</li>
-<li>本方法可以考虑成 通用框架，应用于进化聚类。 仅仅需要修改目标函数，测试不同的质量函数--别人的算法也可以，这篇就是利用别人的框架。</li>
-<li>本方法不需要参数， 不需要为快照和短时成本设置权重， 也不用设定聚类个数--不知道他人工作情况。</li>
-</ol>
-<h1 id="_11">相关工作</h1>
-<h2 id="_12">主要工作</h2>
-<h3 id="evolutionary-clustering-by-chakrabarti-et-al-in-13">Evolutionary Clustering by Chakrabarti et al. in [13]</h3>
-<ol>
-<li>认为changes of connections in short time periods could be caused by noise.</li>
-<li>提出了 temporal smoothness 和 snapshot cost  temporal cost</li>
-</ol>
-<p>问题是： not allow that the number of communities varies over time</p>
-<h3 id="facetnet-by-lin-et-al5">FacetNet  by Lin et al[5]</h3>
-<h3 id="particle-and-density-based-clustering-method-by-kim-and-han-3">particle-and-density based clustering method  by Kim and Han [3]</h3>
-<h3 id="_13">这些方法的主要问题</h3>
-<ol>
-<li>聚类个数 不知道。</li>
-<li>相对于要选择 参数 alpha 去应用于 temporal smoothness。</li>
-</ol>
-<h1 id="dynmoga">DYNMOGA算法</h1>
-<p>DYNMOGA has been adapted with a customized
-population type that suitably represents a partitioning of
-a network and endowed with two complementary objectives</p>
-<p>他们使用了 matlab 实现的 NSGA-II 算法框架, DYNMOGA支持 定制的、可表示网络分割情况的群体类型, 并具有两种互补的目标（然而并没有说是哪两种）。</p>
-<h2 id="_14">目标函数</h2>
-<h3 id="_15">定义</h3>
-<p>$$$</p>
-<p>CR^t = { C^t_1, ... C^t_k } 是图在 t 阶段的聚类结果</p>
-<p>一个聚类中有 n_S 个结点 m_S 条边。</p>
-<p>m_S(u) = {v | v \in C_t } 是结点u 在聚类C^t 的邻点个数 
-c_S = { (u, v) | u \in C^t, v \notin C^t} 是聚类C^t边界的边数。
-l_S 是 只连接 模块 C^t_S 内部结点 的边总数。
-d_S 是 C^t_S 中点的度数之和</p>
-<p>$$$</p>
-<h3 id="_16">多种分值定义</h3>
-<p>Q: the first term of each summand is
-the fraction of edges inside a community, while the second
-one is the expected value of the fraction of edges that would
-be in the network if edges fall at random without regard
-to the community structure. Values approaching 1 indicate
-strong community structure</p>
-<ol>
-<li>modularity 颗粒度 ：<br/>
-$$ Q = \sum^k_{s=1}[\frac{l_s}{m} - (\frac{d_s}{2m})^2] $$</li>
-<li>conductance 导率, the fraction of edges pointing outside the clustering：<br/>
-$$ CO = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} $$</li>
-<li>Normalized Cut 归一化分割 the fraction of total edge connections to all the nodes in the graph: <br/>
-$$ NC = \sum^k_{S=1}\frac{c_S}{2m_S+c_S} + \frac{c_S}{2(m-m_S)+c_S} $$</li>
-<li>Community Score 群落分值, measure the fraction of internal edges of each cluster per nodes：<br/>
-$$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} $$</li>
-</ol>
-<h3 id="_17">基因表达</h3>
-<p>locus-based adjacency representation  [34]</p>
-<ol>
-<li>每个个体包含 n 个基因， n 指代 结点的个数</li>
-<li>每个基因 取值范围 1-n， 即第i个基因与第j个基因之间有连接，该划分到同一群落</li>
-</ol>
-<p>** 注： 这种表达肯定不能用于 群落重叠问题——然而 现实是， 主流用法 就是这样，大同小异</p>
-<p>好处： 由个体组成部分的个数，在解码步骤中自动得到</p>
-<h4 id="decoding-step">decoding step 解码</h4>
-<p>使用并查集</p>
-<ol>
-<li>建立并查集 makeset</li>
-<li>对每条边去查找, findset</li>
-<li>查到后的进行合并</li>
-</ol>
-<h3 id="_18">初始化</h3>
-<p>一个有若干个体的群体， 对每个点i, 在邻接点中随机选择一个作为值， 表示 存在边 (i,j)</p>
-<h3 id="uniform-crossover">uniform crossover 均匀交叉</h3>
-<p>给定两个父辈个体， 创建一个随机二元mask, 进行选择， 当 mask 为0时， 取第一个父辈个体的基因（值）， 为1时， 取第二个父辈个体。 如此组成子代的基因</p>
-<h3 id="_19">突变</h3>
-<p>与初始化类似， 对结点i 随机变更值成其他邻点。</p>
+<p>基本概念：</p>
+<p>应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为：
+$$
+\mathcal{D}<em i="i">{(i, j)} \triangleq\left{\boldsymbol{x} | f</em>(\boldsymbol{x})=f_{j}(\boldsymbol{x})\right}
+$$
+这里的 $f_i(x), f_j(x)$ 显然是值最大的两个分类，比如分类器判断是猫是狗的概率各为50%， 而象、马狗等其他类别概率都为0跟分类边界没关系。</p>
+<p>虽然神经网络应该是非线性分类， 但我们再假设是线性分类的， 或用泰勒展开来用线性函数来拟合， 设某点 $x$ ，移动一个$\delta$ 到达分类边界， 可推导得 
+$$
+\begin{aligned} f_{i}(x+\delta) &amp;=f_{j}(x+\delta) \ f_{i}(x)+\delta \nabla f_{i}(x) &amp;=f_{j}(x)+\delta \nabla f_{j}(x) \end{aligned}
+$$</p>
+<p>$$
+\begin{array}{c}
+{\delta=\frac{f_{i}(x)-f_{j}(x)}{\nabla f_{j}(x)-\nabla f_{i}(x)}} \ 
+{|\delta|=\frac{\left|f_{i}(x)-f_{j}(x)\right|}{\left|\nabla f_{j}(x)-\nabla f_{i}(x)\right|^2}(\nabla f_{j}(x)-\nabla f_{i}(x))}
+\end{array}
+$$</p>
+<h1 id="todo">TODO</h1>
+<h1 id="_2">参考文献</h1>
+<p>1: /    "Large Margin Deep Networks for Classification"</p>
+<p>2: /     "Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training"</p>
+<p>3: /     "DeepFool: a simple and accurate method to fool deep neural networks"</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -308,7 +188,7 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/ema_comminities_dynamic_networks.html#disqus_thread">
+                href="http://sndnyang.github.io/margin-of-neural-networks.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -318,8 +198,8 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'ema_comminities_dynamic_networks.html';
-    var disqus_url = 'http://sndnyang.github.io/ema_comminities_dynamic_networks.html';
+        var disqus_identifier = 'margin-of-neural-networks.html';
+    var disqus_url = 'http://sndnyang.github.io/margin-of-neural-networks.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -341,22 +221,13 @@ $$ CS = \sum^k_{s=1}(\sum_{u \in C^t}(\frac{m_S(v)}{n_S})^2) * \frac{2m_S}{n_S} 
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-03-08T00:00:00+08:00">Mar 8, 2016</time>
+                    <time pubdate="pubdate" datetime="2019-05-02T16:20:20+08:00">May 2, 2019</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#shu-ju-wa-jue-ref">数据挖掘</a>
+                    <a class="category-link" href="/categories.html#lun-wen-ref">论文</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>22</span>
-</a></li>
-                        <li><a href="/tags.html#duo-mu-biao-jin-hua-suan-fa-ref">多目标进化算法
-                            <span>3</span>
-</a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>24</span>
-</a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>11</span>
+                        <li><a href="/tags.html#dui-kang-xue-xi-ref">对抗学习
+                            <span>1</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

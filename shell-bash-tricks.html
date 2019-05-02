@@ -152,6 +152,7 @@
 <li><a href="#_15">带空格文件删除</a></li>
 <li><a href="#_16">判断操作系统</a></li>
 <li><a href="#_17">历史命令记录</a></li>
+<li><a href="#shell">shell脚本中判断上一个命令是否执行成功</a></li>
 </ul>
 </div>
                         </div>
@@ -286,6 +287,11 @@ echo "BRANCH =" <span class="nv">$BRANCH</span>
 <p>按键组合:</p>
 <p>⑴使用up和down键来上下浏览之前执行的命令
 ⑵键入ctr+r来在命令历史中搜索命令</p>
+<h1 id="shell">shell脚本中判断上一个命令是否执行成功</h1>
+<div class="highlight"><pre><span></span>if [[ $? -ne 0 ]]; then
+    echo "failed"
+fi
+</pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

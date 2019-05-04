@@ -12,17 +12,17 @@
 
 <meta name="keywords" content="对抗学习, 论文, " />
 
-<meta property="og:title" content="神经网络的分类边界 "/>
-<meta property="og:url" content="http://sndnyang.github.io/margin-of-neural-networks.html" />
-<meta property="og:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x)=f_ ..." />
+<meta property="og:title" content="神经网络的单点对抗攻击 "/>
+<meta property="og:url" content="http://sndnyang.github.io/one-pixel-attack-fooling-neural-networks.html" />
+<meta property="og:description" content="概述 基于微分进化differential evolution的单像素点对抗样本生成 有趣的新发现、目标，方法不新颖 $$ x+\epsilon \operatorname{sign} (\nabla_{x} J(\theta, x, y)) $$ 且知 $\epsilon$取值一般极小， 就能骗过神经网络。 如果只修改少量甚至就一个像素的值，能否成功呢？ 数学定义如下： $$ \begin{array}{ll}{\underset{e(\mathbf{x})^{*}}{\operatorname{maximize}}} &amp; {f_{a d v}(\mathbf{x}+e(\mathbf{x}))} \ {\text { subject to }} &amp; {|e(\mathbf{x})|_{0} \leq ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2019-05-02T16:20:20+08:00" />
-<meta name="twitter:title" content="神经网络的分类边界 ">
-<meta name="twitter:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x)=f_ ...">
+<meta name="twitter:title" content="神经网络的单点对抗攻击 ">
+<meta name="twitter:description" content="概述 基于微分进化differential evolution的单像素点对抗样本生成 有趣的新发现、目标，方法不新颖 $$ x+\epsilon \operatorname{sign} (\nabla_{x} J(\theta, x, y)) $$ 且知 $\epsilon$取值一般极小， 就能骗过神经网络。 如果只修改少量甚至就一个像素的值，能否成功呢？ 数学定义如下： $$ \begin{array}{ll}{\underset{e(\mathbf{x})^{*}}{\operatorname{maximize}}} &amp; {f_{a d v}(\mathbf{x}+e(\mathbf{x}))} \ {\text { subject to }} &amp; {|e(\mathbf{x})|_{0} \leq ...">
 
 
-        <title>神经网络的分类边界  · 科探空谷
+        <title>神经网络的单点对抗攻击  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +109,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/margin-of-neural-networks.html">
-                        神经网络的分类边界  
+                    <a href="/one-pixel-attack-fooling-neural-networks.html">
+                        神经网络的单点对抗攻击  
                     </a>
                 </h1>
             </header>
@@ -124,8 +124,7 @@
                             <div class="toc">
 <ul>
 <li><a href="#_1">概述</a></li>
-<li><a href="#todo">TODO</a></li>
-<li><a href="#_2">参考文献</a></li>
+<li><a href="#_2">方法</a></li>
 </ul>
 </div>
                         </div>
@@ -140,37 +139,20 @@
                         
                         
 <h1 id="_1">概述</h1>
-<p><strong>有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去</strong></p>
-<p>涉及以下几篇论文：</p>
-<ol>
-<li>[Large Margin Deep Networks for Classification][1]</li>
-<li>[Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2]</li>
-<li>[DeepFool: a simple and accurate method to fool deep neural networks][3]</li>
-</ol>
-<p>基本概念：</p>
-<p>应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为：    </p>
+<p>基于微分进化differential evolution的单像素点对抗样本生成</p>
+<p><strong>有趣的新发现、目标，方法不新颖</strong></p>
 <p>$$
-D_{(i, j)} \triangleq \{ x | f_{i}(x)=f_{j}(x) \}
+x+\epsilon \operatorname{sign} (\nabla_{x} J(\theta, x, y))
 $$</p>
-<p>这里的 $f_i(x), f_j(x)$ 显然是值最大的两个分类，比如分类器判断是猫是狗的概率各为50%， 而象、马狗等其他类别概率都为0跟分类边界没关系。</p>
-<p>虽然神经网络应该是非线性分类， 但我们再假设是线性分类的， 或用泰勒展开来用线性函数来拟合， 设某 $x$ ，移动一个$\delta$ 到达分类边界， 可推导得 
-$$
-\begin{aligned} 
-f_{i}(x+\delta) &amp; =f_{j}(x+\delta) \\
-f_{i}(x)+\delta \nabla f_{i}(x) &amp; = f_{j}(x)+\delta \nabla f_{j}(x)
-\end{aligned}
+<p><img alt="adversarial_example" src="images/adversarial_example.png"/></p>
+<p>且知 $\epsilon$取值一般极小， 就能骗过神经网络。</p>
+<p>如果只修改少量甚至就一个像素的值，能否成功呢？</p>
+<p>数学定义如下：</p>
+<p>$$ 
+\begin{array}{ll}{\underset{e(\mathbf{x})^{*}}{\operatorname{maximize}}} &amp; {f_{a d v}(\mathbf{x}+e(\mathbf{x}))} \ {\text { subject to }} &amp; {|e(\mathbf{x})|_{0} \leq d}\end{array}
 $$</p>
-<p>$$
-\begin{aligned}
-\delta&amp;=\frac{f_{i}(x)-f_{j}(x)}{\nabla f_{j}(x)-\nabla f_{i}(x)} \\ 
-|\delta|&amp;=\frac{\left|f_{i}(x)-f_{j}(x)\right|}{\left|\nabla f_{j}(x)-\nabla f_{i}(x)\right|^2}(\nabla f_{j}(x)-\nabla f_{i}(x))
-\end{aligned}
-$$</p>
-<h1 id="todo">TODO</h1>
-<h1 id="_2">参考文献</h1>
-<p>1: /    "Large Margin Deep Networks for Classification"</p>
-<p>2: /     "Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training"</p>
-<p>3: /     "DeepFool: a simple and accurate method to fool deep neural networks"</p>
+<h1 id="_2">方法</h1>
+<p>作者使用微分进化differential evolution， 一种进化算法来寻找图片中的像素点。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -191,7 +173,7 @@ $$</p>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/margin-of-neural-networks.html#disqus_thread">
+                href="http://sndnyang.github.io/one-pixel-attack-fooling-neural-networks.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -201,8 +183,8 @@ $$</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'margin-of-neural-networks.html';
-    var disqus_url = 'http://sndnyang.github.io/margin-of-neural-networks.html';
+        var disqus_identifier = 'one-pixel-attack-fooling-neural-networks.html';
+    var disqus_url = 'http://sndnyang.github.io/one-pixel-attack-fooling-neural-networks.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

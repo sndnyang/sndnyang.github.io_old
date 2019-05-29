@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2019-05-09T16:53:07-00:00</lastmod>
+<lastmod>2019-05-29T11:06:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2019-05-09T16:53:07-00:00</lastmod>
+<lastmod>2019-05-29T11:06:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2019-05-09T16:53:07-00:00</lastmod>
+<lastmod>2019-05-29T11:06:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2019-05-09T16:53:07-00:00</lastmod>
+<lastmod>2019-05-29T11:06:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -55,6 +55,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/tools_for_foreign_language_learning.html</loc>
 <lastmod>2099-01-10T21:23:30+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/notes-on-jupyter-notebook.html</loc>
+<lastmod>2019-05-08T18:10:01+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -95,7 +102,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://sndnyang.github.io/Theano-Chainer -issues.html</loc>
+<loc>http://sndnyang.github.io/Theano-Chainer-issues.html</loc>
 <lastmod>2019-12-19T22:18:30+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

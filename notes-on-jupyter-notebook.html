@@ -4,26 +4,26 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang" />
-        <meta name="copyright" content="sndnyang" />
+        <meta name="author" content="sndnyang sndnyang.github.io" />
+        <meta name="copyright" content="sndnyang sndnyang.github.io" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="深度学习 机器学习, 人工智能, 深度学习, " />
+<meta name="keywords" content=", 开发工具, " />
 
-<meta property="og:title" content="Theano-Chainer "/>
-<meta property="og:url" content="http://sndnyang.github.io/Theano-Chainer -issues.html" />
-<meta property="og:description" content="Chainer Installation to use GPU 安装 The backend is cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L/path/to/cudnn ..." />
+<meta property="og:title" content="jupyter notebook笔记 "/>
+<meta property="og:url" content="http://sndnyang.github.io/notes-on-jupyter-notebook.html" />
+<meta property="og:description" content="使用ssh访问远端notebook 远端服务器启动notebook, jupyter notebook， 记下端口号和口令（或标志token) 设置ssh隧道连接远程服务器， 为了避免分不清端口代表远程还是本地， 直接设置成一样就好了： ssh -N -L port:localhost:port @ 本地浏览器打开 http://localhost:port/?token=abcdefghijklmnopqrstuvwxyl01234567890 Start jupyter notebook at remote server: jupyter notebook， Note: the port, passward or the token Set ssh tunnel to connect to remote server. To avoid confusing about the remote ..." />
 <meta property="og:site_name" content="科探空谷" />
-<meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2019-02-19T22:18:30+08:00" />
-<meta property="" content="2019-12-19T22:18:30+08:00" />
-<meta name="twitter:title" content="Theano-Chainer ">
-<meta name="twitter:description" content="Chainer Installation to use GPU 安装 The backend is cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L/path/to/cudnn ...">
+<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
+<meta property="og:article:published_time" content="2019-05-06T23:43:29+08:00" />
+<meta property="" content="2019-05-08T18:10:01+08:00" />
+<meta name="twitter:title" content="jupyter notebook笔记 ">
+<meta name="twitter:description" content="使用ssh访问远端notebook 远端服务器启动notebook, jupyter notebook， 记下端口号和口令（或标志token) 设置ssh隧道连接远程服务器， 为了避免分不清端口代表远程还是本地， 直接设置成一样就好了： ssh -N -L port:localhost:port @ 本地浏览器打开 http://localhost:port/?token=abcdefghijklmnopqrstuvwxyl01234567890 Start jupyter notebook at remote server: jupyter notebook， Note: the port, passward or the token Set ssh tunnel to connect to remote server. To avoid confusing about the remote ...">
 
 
-        <title>Theano-Chainer  · 科探空谷
+        <title>jupyter notebook笔记  · 科探空谷
 </title>
 
         <style>
@@ -110,8 +110,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/Theano-Chainer -issues.html">
-                        Theano-Chainer  
+                    <a href="/notes-on-jupyter-notebook.html">
+                        jupyter notebook笔记  
                     </a>
                 </h1>
             </header>
@@ -124,16 +124,11 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#chainer">Chainer</a><ul>
-<li><a href="#installation-to-use-gpu">Installation to use GPU 安装</a></li>
-<li><a href="#initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</a></li>
-</ul>
-</li>
-<li><a href="#theano">Theano</a><ul>
-<li><a href="#suggestion">安装建议 suggestion</a><ul>
-<li><a href="#error-information">Error information</a></li>
-</ul>
-</li>
+<li><a href="#sshnotebook">使用ssh访问远端notebook</a></li>
+<li><a href="#jupyter-magic-command">Jupyter 魔术命令 magic command</a><ul>
+<li><a href="#python">自动重新读入python模块</a></li>
+<li><a href="#_1">文件相关</a></li>
+<li><a href="#_2">其他</a></li>
 </ul>
 </li>
 </ul>
@@ -149,37 +144,36 @@
 
                         
                         
-<h1 id="chainer">Chainer</h1>
-<h2 id="installation-to-use-gpu">Installation to use GPU 安装</h2>
-<p>The backend is cupy. Choose the right version of cuda.</p>
-<p>Chainer 后端用的是cupy，需要根据cuda版本选择。</p>
-<p>If your cudnn path is not in the $CUDA_PATH directory, you must set:</p>
-<p>如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量：</p>
-<div class="highlight"><pre><span></span>export CFLAGS=-I/path/to/cudnn/include
-export LDFLAGS=-L/path/to/cudnn/lib
-export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
+<h1 id="sshnotebook">使用ssh访问远端notebook</h1>
+<ol>
+<li>远端服务器启动notebook, jupyter notebook， 记下端口号和口令（或标志token)</li>
+<li>设置ssh隧道连接远程服务器， 为了避免分不清端口代表远程还是本地， 直接设置成一样就好了：<br/>
+   ssh -N -L port:localhost:port <remote_user>@<remote_host></remote_host></remote_user></li>
+<li>
+<p>本地浏览器打开 http://localhost:port/?token=abcdefghijklmnopqrstuvwxyl01234567890</p>
+</li>
+<li>
+<p>Start jupyter notebook at remote server: jupyter notebook， Note: the port, passward or the token</p>
+</li>
+<li>Set ssh tunnel to connect to remote server. To avoid confusing about the remote and local ports, just set the same port for both of them:<br/>
+   ssh -N -L port:localhost:port <remote_user>@<remote_host></remote_host></remote_user></li>
+<li>Open local browser with token: http://localhost:port/?token=abcdefghijklmnopqrstuvwxyl01234567890</li>
+</ol>
+<h1 id="jupyter-magic-command">Jupyter 魔术命令 magic command</h1>
+<p><a href="https://segmentfault.com/a/1190000010758722">link</a></p>
+<h2 id="python">自动重新读入python模块</h2>
+<div class="highlight"><pre><span></span><span class="nf">%load_ext</span> <span class="n">autoreload</span>
+<span class="nf">%autoreload</span> <span class="mi">2</span>
 </pre></div>
-<p>Refer to these two links: <a href="https://docs-cupy.chainer.org/en/latest/install.html#install-cupy">install cupy</a>, and <a href="https://docs-cupy.chainer.org/en/latest/install.html#installing-cudnn-and-nccl">install cudnn</a></p>
-<h2 id="initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</h2>
-<p>Reference to <a href="https://github.com/chainer/chainer/blob/v5.2.0/chainer/initializers/normal.py#L10">normal initializer</a></p>
-<p>Its implementation is different from PyTorch. </p>
-<h1 id="theano">Theano</h1>
-<p>要使用 GPU 的话， 需要 pygpu 库， 好像只能用 conda 安装， pip 是找不到这个库的.</p>
-<p>We need pygpu library to utilize GPU, so it seems that only conda support pygpu, I can't find the library by pip.</p>
-<p>tensorboardX need to use pip to install.</p>
-<h2 id="suggestion">安装建议 suggestion</h2>
-<p>python 2.7 直接使用 conda install theano pygpu </p>
-<p>python 3 可能更有效方式， 分两步</p>
-<ol>
-<li>conda install pygpu  or  conda install theano pygpu</li>
-<li>update theano using pip. pip install theano==1.0.4</li>
-</ol>
-<h3 id="error-information">Error information</h3>
-<ol>
-<li>Mixed dnn version. The header is version xxx  while the library is version  yyyy</li>
-<li>theano seems not work &gt; 3.5</li>
-<li>conda only has theano==1.0.2, but I encounter the 1. mixed dnn version problem.</li>
-</ol>
+<h2 id="_1">文件相关</h2>
+<div class="highlight"><pre><span></span><span class="nf">%load</span>   <span class="err">导入</span><span class="n">python</span><span class="err">文件</span>
+<span class="o">%</span><span class="nf">%writefile</span>
+</pre></div>
+<h2 id="_2">其他</h2>
+<div class="highlight"><pre><span></span><span class="nf">%env</span>    <span class="err">设置环境变量</span><span class="p">(</span><span class="err">无需重启</span><span class="p">)</span>
+<span class="nf">%debug</span>
+<span class="nf">%pdb</span>    <span class="err">控制</span><span class="n">pdb</span><span class="err">交互式调试器的自动调用</span>
+</pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -200,7 +194,7 @@ export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/Theano-Chainer -issues.html#disqus_thread">
+                href="http://sndnyang.github.io/notes-on-jupyter-notebook.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -210,8 +204,8 @@ export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'Theano-Chainer -issues.html';
-    var disqus_url = 'http://sndnyang.github.io/Theano-Chainer -issues.html';
+        var disqus_identifier = 'notes-on-jupyter-notebook.html';
+    var disqus_url = 'http://sndnyang.github.io/notes-on-jupyter-notebook.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -233,22 +227,13 @@ export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2019-02-19T22:18:30+08:00">Feb 19, 2019</time>
+                    <time pubdate="pubdate" datetime="2019-05-06T23:43:29+08:00">May 6, 2019</time>
 
 <h4>Last Updated</h4>
-<time datetime="2019-12-19T22:18:30+08:00">Dec 19, 2019</time>
+<time datetime="2019-05-08T18:10:01+08:00">May 8, 2019</time>
 
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#shen-du-xue-xi-ref">深度学习</a>
-                    <h4>Tags</h4>
-                    <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>24</span>
-</a></li>
-                        <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
-                            <span>4</span>
-</a></li>
-                    </ul>
+                    <a class="category-link" href="/categories.html#kai-fa-gong-ju-ref">开发工具</a>
                     <h4>Stay in Touch</h4>
                     <a href="http://weibo.com/u/2405149384" title="My weibo Profile" class="sidebar-social-links" target="_blank">
                         <i class="fa fa-weibo sidebar-social-links"></i></a>

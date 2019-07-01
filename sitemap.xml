@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2019-05-29T11:06:46-00:00</lastmod>
+<lastmod>2019-06-11T09:52:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2019-05-29T11:06:46-00:00</lastmod>
+<lastmod>2019-06-11T09:52:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2019-05-29T11:06:46-00:00</lastmod>
+<lastmod>2019-06-11T09:52:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2019-05-29T11:06:46-00:00</lastmod>
+<lastmod>2019-06-11T09:52:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -474,6 +474,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/learning-features-by-watch-objects-move.html</loc>
+<lastmod>2017-05-15T15:29:53+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/semi-supervised-chinese.html</loc>
 <lastmod>2017-05-15T15:29:53+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

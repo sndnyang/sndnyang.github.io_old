@@ -10,7 +10,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="深度学习 机器学习, 人工智能, 深度学习, " />
+<meta name="keywords" content="深度学习, 机器学习, 人工智能, 深度学习, " />
 
 <meta property="og:title" content="PyTorch问题 "/>
 <meta property="og:url" content="http://sndnyang.github.io/PyTorch-issues.html" />
@@ -18,7 +18,6 @@
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2018-12-19T22:18:30+08:00" />
-<meta property="" content="2018-12-19T22:18:30+08:00" />
 <meta name="twitter:title" content="PyTorch问题 ">
 <meta name="twitter:description" content="复现 CuDNN When running on the CuDNN backend, two further options must be set: torch.backends.cudnn.deterministic = True torch.backends.cudnn.benchmark = False 如： def set_framework_seed(seed, debug=False): if debug: torch.backends.cudnn.deterministic = True torch.backends.cudnn.benchmark = False random.seed(seed) np.random.seed(seed) _ ...">
 
@@ -131,6 +130,7 @@
 <li><a href="#scalar">对非scalar求导</a></li>
 <li><a href="#batchnorm-affine">BatchNorm affine</a></li>
 <li><a href="#different-momentum">different momentum</a></li>
+<li><a href="#memory-usage">Memory usage</a></li>
 </ul>
 </div>
                         </div>
@@ -161,6 +161,7 @@ torch.backends.cudnn.benchmark = False
     if torch.cuda.is_available():
         _ = torch.cuda.manual_seed(seed)
 </pre></div>
+<p>​            </p>
 <h1 id="_2">函数里的内存占用不释放</h1>
 <p>比如, 使用的函数</p>
 <div class="highlight"><pre><span></span>def pairwise_distances(x, y=None):
@@ -215,7 +216,20 @@ p = p − lr * v
 <p>Other frameworks may use:</p>
 <div class="highlight"><pre><span></span>v = ρ * v + lr * g
 p = p − v
+
+or
+v = ρ * v + lr * (1 - ρ) g
+p = p − v
 </pre></div>
+<h1 id="memory-usage">Memory usage</h1>
+<p>初始状态， 仅向GPU传入一个tensor， 占用内存如下</p>
+<p><img alt="tensor size" src="images/tensor_size.png"/></p>
+<p><img alt="init memory" src="images/init.png"/></p>
+<p>传入第二个tensor后：</p>
+<p><img alt="two tensor" src="images/step_2.png"/></p>
+<p>实际占用内存数约为： </p>
+<p>$(973 - 793) * 1024 * 1024 = 188743680 \approx 187846400$</p>
+<p>所以， 有大约  $(793-180) =613$MB 内存被初始化占用。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -270,19 +284,18 @@ p = p − v
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
                     <time pubdate="pubdate" datetime="2018-12-19T22:18:30+08:00">Dec 19, 2018</time>
-
-<h4>Last Updated</h4>
-<time datetime="2018-12-19T22:18:30+08:00">Dec 19, 2018</time>
-
                     <h4>Category</h4>
                     <a class="category-link" href="/categories.html#shen-du-xue-xi-ref">深度学习</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>24</span>
+                        <li><a href="/tags.html#ji-qi-xue-xi-ref">机器学习
+                            <span>14</span>
 </a></li>
-                        <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
-                            <span>4</span>
+                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
+                            <span>25</span>
+</a></li>
+                        <li><a href="/tags.html#shen-du-xue-xi-ref">深度学习
+                            <span>10</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

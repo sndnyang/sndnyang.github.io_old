@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="TensorFlow技巧 "/>
 <meta property="og:url" content="http://sndnyang.github.io/TensorFlow-tricks.html" />
-<meta property="og:description" content="显卡使用问题 python设置系统变量的方法 os.environ[&#34;CUDA_VISIBLE_DEVICES&#34;] = &#34;8,9,10,11,12,13,14,15&#34; 注意，在代码中指定设备时，重新从0开始计，而不是从8开始。 显存使用问题 显卡内存默认占用几乎全部, 可以通过重设backend的GPU占用情况来进行调节 import tensorflow as tf config = tf.ConfigProto() config.gpu_options.allow_growth = True config.gpu_options.per_process_gpu_memory_fraction = 0.3 tf.Session(config=config) 引用CSDN tensorflow cudnn 版本问题 Loaded runtime CuDNN library: 7.0 ..." />
+<meta property="og:description" content="python2 3 兼容 The error information: TypeError: Can not convert a dict_values into a Tensor or Operation. TypeError: Can not convert a dict_values into a Tensor or Operation. File &#34;/home/xyang2/project/research/miscella/vat_tf/train_semisup.py&#34;, line 211, in main act_values = sess.run(values) It&#39;s caused by the ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2018-04-25T22:18:30+08:00" />
 <meta property="" content="2018-04-25T22:18:30+08:00" />
 <meta name="twitter:title" content="TensorFlow技巧 ">
-<meta name="twitter:description" content="显卡使用问题 python设置系统变量的方法 os.environ[&#34;CUDA_VISIBLE_DEVICES&#34;] = &#34;8,9,10,11,12,13,14,15&#34; 注意，在代码中指定设备时，重新从0开始计，而不是从8开始。 显存使用问题 显卡内存默认占用几乎全部, 可以通过重设backend的GPU占用情况来进行调节 import tensorflow as tf config = tf.ConfigProto() config.gpu_options.allow_growth = True config.gpu_options.per_process_gpu_memory_fraction = 0.3 tf.Session(config=config) 引用CSDN tensorflow cudnn 版本问题 Loaded runtime CuDNN library: 7.0 ...">
+<meta name="twitter:description" content="python2 3 兼容 The error information: TypeError: Can not convert a dict_values into a Tensor or Operation. TypeError: Can not convert a dict_values into a Tensor or Operation. File &#34;/home/xyang2/project/research/miscella/vat_tf/train_semisup.py&#34;, line 211, in main act_values = sess.run(values) It&#39;s caused by the ...">
 
 
         <title>TensorFlow技巧  · 科探空谷
@@ -124,6 +124,7 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
+<li><a href="#python2-3">python2 3 兼容</a></li>
 <li><a href="#_1">显卡使用问题</a></li>
 <li><a href="#_2">显存使用问题</a></li>
 <li><a href="#tensorflow-cudnn">tensorflow cudnn 版本问题</a></li>
@@ -141,6 +142,16 @@
 
                         
                         
+<h1 id="python2-3">python2 3 兼容</h1>
+<p>The error information:</p>
+<p><code>TypeError: Can not convert a dict_values into a Tensor or Operation.</code></p>
+<p><code>TypeError: Can not convert a dict_values into a Tensor or Operation.</code></p>
+<div class="highlight"><pre><span></span>File "/home/xyang2/project/research/miscella/vat_tf/train_semisup.py", line 211, in main
+    act_values = sess.run(values)
+</pre></div>
+<p>It's caused by the compatibility of python2 and python3. <a href="https://github.com/balancap/SSD-Tensorflow/issues/154">solution</a></p>
+<p>Simpler solution for this code:</p>
+<p><code>values = list(losses_eval_train.values())</code></p>
 <h1 id="_1">显卡使用问题</h1>
 <p>python设置系统变量的方法</p>
 <div class="highlight"><pre><span></span>os.environ["CUDA_VISIBLE_DEVICES"] = "8,9,10,11,12,13,14,15"
@@ -161,6 +172,7 @@
 <p>Loaded runtime CuDNN library: 7.0.5 but source was compiled with: 7.2.1</p>
 <p>cudnn 7.0.4 对应 tensorflow-gpu==1.10.1 , 1.11, 1.12 默认的 cudnn 版本更新。。。</p>
 <p><a href="https://blog.csdn.net/jy1023408440/article/details/82887479">cudnn报错解决</a></p>
+<p>使用 conda 安装</p>
 <h1 id="tensorflow-cpu">解决Tensorflow 使用时cpu编译不支持警告</h1>
 <p>tensorflow 大量信息</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="err">  </span>
@@ -231,10 +243,10 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>25</span>
+                            <span>26</span>
 </a></li>
                         <li><a href="/tags.html#shen-du-xue-xi-ji-qi-xue-xi-ref">深度学习 机器学习
-                            <span>3</span>
+                            <span>4</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

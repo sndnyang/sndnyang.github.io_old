@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2019-06-11T09:52:25-00:00</lastmod>
+<lastmod>2019-07-25T11:43:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2019-06-11T09:52:25-00:00</lastmod>
+<lastmod>2019-07-25T11:43:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2019-06-11T09:52:25-00:00</lastmod>
+<lastmod>2019-07-25T11:43:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2019-06-11T09:52:25-00:00</lastmod>
+<lastmod>2019-07-25T11:43:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -55,6 +55,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/tools_for_foreign_language_learning.html</loc>
 <lastmod>2099-01-10T21:23:30+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/TensorBoard-tricks.html</loc>
+<lastmod>2019-07-25T22:18:30+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

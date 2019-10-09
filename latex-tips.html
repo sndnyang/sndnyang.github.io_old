@@ -128,6 +128,10 @@
 <li><a href="#no-positions-in-optional-float-specifier">No positions in optional float specifier.</a></li>
 <li><a href="#_1">表格太宽</a></li>
 <li><a href="#input-output">代码算法显示 input output</a></li>
+<li><a href="#aaai">疯狂吐槽AAAI模板</a></li>
+<li><a href="#_2">三段式表格</a></li>
+<li><a href="#newif">newif</a></li>
+<li><a href="#_3">边缘空白过多</a></li>
 </ul>
 </div>
                         </div>
@@ -166,13 +170,59 @@
 <span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
 <span class="k">\resizebox</span><span class="nb">{</span><span class="k">\textwidth</span><span class="nb">}{</span>!<span class="nb">}</span>&lt;div class="process"&gt;&lt;input type="hidden" class="answers" value="<span class="nb">{</span><span class="c">%\begin{tabular}{cc}Knuth&amp;amp;Lamport\end{tabular}"/&gt;&lt;input type="hidden" class="comments" value="{%\begin{tabular}{cc}Knuth&amp;amp;Lamport\end{tabular}}"/&gt;&lt;button onclick="checkQuiz(this, 0)"&gt;submit&lt;/button&gt;&lt;br/&gt;&lt;/div&gt;</span>
 <span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
-
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
 <h1 id="input-output">代码算法显示 input output</h1>
 <div class="highlight"><pre><span></span>\renewcommand{\algorithmicrequire}{\textbf{Input:}} % Use Input in the format of Algorithm
 \renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
 </pre></div>
+<h1 id="aaai">疯狂吐槽AAAI模板</h1>
+<div class="highlight"><pre><span></span>\usepackage{amsmath,amsfonts}
+</pre></div>
+<p>这两个ams包没有默认加入， 坑死我了。</p>
+<h1 id="_2">三段式表格</h1>
+<div class="highlight"><pre><span></span>\usepackage[flushleft]{threeparttable}
+
+
+\begin{center}
+
+\begin{threeparttable}
+
+\begin{tabular}{lc}
+
+\toprule
+
+\midrule
+
+\midrule
+
+\bottomrule
+
+\end{tabular}
+
+\end{threeparttable}
+
+\end{center}
+</pre></div>
+<h1 id="newif">newif</h1>
+<p>使用newif定义一个逻辑（二值）变量<code>logvar</code> </p>
+<p>define a logical variable <code>logvar</code> as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">\newif\iflogvar</span>
+<span class="k">\newif\iflogvar\logvarfalse</span>
+<span class="k">\newif\iflogvar\logvartrue</span>
+<span class="k">\newif\if</span>@logvar<span class="k">\@</span>logvarfalse
+</pre></div>
+<p>第一种</p>
+<p>By default, it is set to <code>false</code>. We can set it to <code>true</code> by:</p>
+<div class="highlight"><pre><span></span><span class="k">\logvartrue</span>
+</pre></div>
+<h1 id="_3">边缘空白过多</h1>
+<p><a href="https://mylatexnotes.wordpress.com/2017/09/13/table-remove-white-space-after-table/">remove white space after table</a></p>
+<div class="highlight"><pre><span></span><span class="k">\vspace</span><span class="nb">{</span>-4mm<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</pre></div>
+<p>But the instruction in AAAI said that don't use vspace. 但AAAI的模板里明确说了不要用vspace。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -232,10 +282,10 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#gong-ju-ref">工具
-                            <span>3</span>
+                            <span>4</span>
 </a></li>
                         <li><a href="/tags.html#ke-yan-ref">科研
-                            <span>2</span>
+                            <span>3</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

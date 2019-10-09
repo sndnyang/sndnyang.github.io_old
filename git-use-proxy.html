@@ -116,69 +116,65 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#httphttps">http/https</a></li>
-<li><a href="#ssh">ssh</a><ul>
-<li><a href="#_1">吐槽</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="httphttps">http/https</h1>
+                        <p>[TOC]</p>
+<h1>http/https</h1>
 <p>最简单</p>
-<div class="highlight"><pre><span></span>git config --global http.proxy 'socks5://127.0.0.1:1081'
-git config --global https.proxy 'socks5://127.0.0.1:1081'
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--global http.proxy &#39;socks5://127.0.0.1:1081&#39;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="c1">--global https.proxy &#39;socks5://127.0.0.1:1081&#39;</span>
 </pre></div>
+
+
 <p>类似的</p>
-<div class="highlight"><pre><span></span>git config --global http.proxy 'http://127.0.0.1:1081'
-git config --global https.proxy 'http://127.0.0.1:1081'
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--global http.proxy &#39;http://127.0.0.1:1081&#39;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="c1">--global https.proxy &#39;http://127.0.0.1:1081&#39;</span>
 </pre></div>
+
+
 <p>取消</p>
-<div class="highlight"><pre><span></span>git config --global --unset http.proxy
-git config --global --unset https.proxy
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="c1">--global --unset http.proxy</span>
+<span class="n">git</span> <span class="n">config</span> <span class="c1">--global --unset https.proxy</span>
 </pre></div>
-<h1 id="ssh">ssh</h1>
+
+
+<h1>ssh</h1>
 <p>首先， git push时可以用 GIT_SSH 来提供SSH隧道， 所以我们要写一个脚本。</p>
-<div class="highlight"><pre><span></span>export GIT_SSH="/g/project/map/socks5_proxy_ssh"
+<div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">GIT_SSH</span><span class="o">=</span><span class="ss">&quot;/g/project/map/socks5_proxy_ssh&quot;</span>
 </pre></div>
+
+
 <p>脚本内容， 第一行显然是（我在 windows下用 git bash, cmd版本没看）</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 </pre></div>
 </td></tr></table>
+
 <p>执行的命令当然是 ssh xxx， 建立 ssh连接， 不过我们需要提供参数(选项 option)，让它的连接经过代理。使用</p>
-<div class="highlight"><pre><span></span>ssh -h
+<div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
+
+
 <p>看到 [-o option]， 详细的可配置项——我没找到官方文档， 总之，代理的选项叫 ProxyCommand。所以， 格式为：</p>
-<div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">o</span> <span class="n">ProxyCommand</span><span class="o">=</span><span class="s">"connect-to-proxy-命令"</span> <span class="s">"$@"</span>
+<div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">o</span> <span class="n">ProxyCommand</span><span class="o">=</span><span class="s">&quot;connect-to-proxy-命令&quot;</span> <span class="s">&quot;$@&quot;</span>
 </pre></div>
+
+
 <p>"$@" 是 shell脚本命令行全部参数的意思。</p>
 <p>接下来就是用命令连接到你的代理了。</p>
 <p>windows下，使用的是 connect 命令</p>
-<div class="highlight"><pre><span></span>connect -S 127.0.0.1:1081 %h %p
+<div class="highlight"><pre><span></span><span class="k">connect</span> <span class="o">-</span><span class="nv">S</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">1081</span> <span class="o">%</span><span class="nv">h</span> <span class="o">%</span><span class="nv">p</span>
 </pre></div>
+
+
 <p>linux下则是 nc 命令</p>
-<div class="highlight"><pre><span></span>nc -x 127.0.0.1:3000 %h %p
+<div class="highlight"><pre><span></span><span class="n">nc</span> <span class="o">-</span><span class="n">x</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">3000</span> <span class="o">%</span><span class="n">h</span> <span class="o">%</span><span class="n">p</span>
 </pre></div>
+
+
 <p>%h表示目标地址，%p是目标端口</p>
 <p>完成</p>
-<h2 id="_1">吐槽</h2>
+<h2>吐槽</h2>
 <p>一开始看着http.proxy 没当回事， ssh上传一直不成功， 后来突然想通了， 这是 http/https， 不是 ssh协议， 难怪git一直push不上去， 初看 ssh 配置代理好像很麻烦（特别是一眼没看到 windows版本的，万一没有呢）， 于是研究了下 <a href="config-centOS-install-git-nginx-server.html">用Nginx配置git的HTTP服务器</a>， 一研究5个小时没结果。 回头再用 ssh配代理， 5分钟搞定， 这样浪费时间会死人的！！！</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

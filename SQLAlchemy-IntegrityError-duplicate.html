@@ -116,46 +116,27 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">模板</a></li>
-<li><a href="#_2">介绍</a><ul>
-<li><a href="#_3">参考</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">模板</h1>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="o">:</span>
-    <span class="n">tag_obj</span> <span class="o">=</span> <span class="n">query_add_interests</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="n">major</span><span class="o">)</span>
-    <span class="k">if</span> <span class="n">professor</span> <span class="n">and</span> <span class="n">tag_obj</span><span class="o">:</span>
-        <span class="n">professor</span><span class="o">.</span><span class="na">interests</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">tag_obj</span><span class="o">)</span>
-        <span class="n">db</span><span class="o">.</span><span class="na">session</span><span class="o">.</span><span class="na">flush</span><span class="o">()</span>
-<span class="n">except</span> <span class="n">IntegrityError</span><span class="o">:</span>
-    <span class="n">db</span><span class="o">.</span><span class="na">session</span><span class="o">.</span><span class="na">rollback</span><span class="o">()</span>
+                        <p>[TOC]</p>
+<h1>模板</h1>
+<div class="highlight"><pre><span></span><span class="nv">try</span>:
+    <span class="nv">tag_obj</span> <span class="o">=</span> <span class="nv">query_add_interests</span><span class="ss">(</span><span class="nv">tag</span>, <span class="nv">major</span><span class="ss">)</span>
+    <span class="k">if</span> <span class="nv">professor</span> <span class="nv">and</span> <span class="nv">tag_obj</span>:
+        <span class="nv">professor</span>.<span class="nv">interests</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">tag_obj</span><span class="ss">)</span>
+        <span class="nv">db</span>.<span class="nv">session</span>.<span class="nv">flush</span><span class="ss">()</span>
+<span class="nv">except</span> <span class="nv">IntegrityError</span>:
+    <span class="nv">db</span>.<span class="nv">session</span>.<span class="nv">rollback</span><span class="ss">()</span>
 </pre></div>
-<h1 id="_2">介绍</h1>
+
+
+<h1>介绍</h1>
 <ol>
 <li>db.session.flush()</li>
 <li>db.session.rollback()</li>
 </ol>
-<h2 id="_3">参考</h2>
+<h2>参考</h2>
 <p><a href="https://stackoverflow.com/questions/24522290/cannot-catch-sqlalchemy-integrityerror">flush</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

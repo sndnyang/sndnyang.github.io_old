@@ -120,14 +120,14 @@
 
                         
                         <p>［TOC］</p>
-<h1 id="_1">摘要</h1>
+<h1>摘要</h1>
 <p>深度学习神经网络甚至于多数的机器学习方法都有几个问题：</p>
 <ol>
 <li>易于过拟合，泛化能力不强</li>
 <li>不稳定，极小的扰动噪音就会改变模型的预测结果</li>
 </ol>
 <p>本文介绍若干基于预测一致性原则的正则化方法。所谓一致性，是指输出、预测的一致性， 如前所述， 给输入添加极小的扰动后， 神经网络的预测就会发生很大的变化， 所以提高一致性后就能提高模型的泛化能力， 同时， 因为这些方法往往基于模型输出的预测向量，不需要具体的标签，所以基于一致性的正则化方法基本能应用于半监督学习。</p>
-<h1 id="_2">核心思想</h1>
+<h1>核心思想</h1>
 <p>简单来说， 预测的一致性就是希望两个预测结果尽可能的接近， 数学化描述如下：</p>
 <p>$$D [p(y | \text{Augment}(x), \mathbf{\theta}) - p(y | \text{Augment}(x), \mathbf{\theta})]$$</p>
 <p>$D[p, q]$ 是距离的度量函数， 比如$|p-q|^2_2 $ 或 KL散度（KL-divergence）$\sum p_i \log \frac{p_i}{q_i}$</p>
@@ -142,23 +142,23 @@
 <li>高级数据增强（基于强化学习或自监督学习）</li>
 <li>数据线性混合</li>
 </ol>
-<h1 id="_3">基于常规的数据增强</h1>
+<h1>基于常规的数据增强</h1>
 <p><a href="https://arxiv.org/pdf/1610.02242.pdf">$\Pi$-model</a> </p>
 <p><a href="https://arxiv.org/abs/1606.04586">Regularization with stochastic transformations and perturbations</a></p>
-<h1 id="_4">基于时序移动平均</h1>
+<h1>基于时序移动平均</h1>
 <p><a href="https://arxiv.org/pdf/1610.02242.pdf">Temporal Ensembling</a></p>
 <p><a href="https://arxiv.org/abs/1703.01780">Mean Teacher</a></p>
 <p><a href="https://arxiv.org/abs/1806.05594">Stochastic Weight Averaging</a></p>
-<h1 id="_5">基于对抗扰动</h1>
+<h1>基于对抗扰动</h1>
 <p><a href="https://arxiv.org/abs/1412.6572">Adversarial Training</a></p>
 <p><a href="https://arxiv.org/abs/1511.06385">Unified Adversarial Examples</a></p>
 <p><a href="https://arxiv.org/abs/1704.03976">Virtual Adversarial Training</a></p>
 <p><a href="https://arxiv.org/abs/1707.03631">Adversarial Dropout</a></p>
 <p><a href="https://arxiv.org/abs/1711.01575">Adversarial Dropout GAN</a></p>
-<h1 id="_6">基于高级数据增强</h1>
+<h1>基于高级数据增强</h1>
 <p><a href="https://arxiv.org/abs/1904.12848">unsupervised data augmentation</a></p>
 <p><a href="https://arxiv.org/abs/1905.03670">Self-supervised SSL</a></p>
-<h1 id="_7">基于数据线性混合</h1>
+<h1>基于数据线性混合</h1>
 <p><a href="https://arxiv.org/abs/1710.09412">Mixup</a></p>
 <p><a href="https://arxiv.org/abs/1905.02249">MixMatch</a></p>
                         

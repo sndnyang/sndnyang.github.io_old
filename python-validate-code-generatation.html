@@ -116,63 +116,40 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#python">python后端</a><ul>
-<li><a href="#call">call</a></li>
-<li><a href="#implement">implement</a></li>
-<li><a href="#_1">渲染</a></li>
-</ul>
-</li>
-<li><a href="#_2">前端</a><ul>
-<li><a href="#js">js</a></li>
-<li><a href="#html">html</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="python">python后端</h1>
-<h2 id="call">call</h2>
-<div class="highlight"><pre><span></span>code_img, strs = create_validate_code()
-session['code_text'] = strs
-buf = StringIO.StringIO()
-code_img.save(buf, 'JPEG', quality=70)
+                        <p>[TOC]</p>
+<h1>python后端</h1>
+<h2>call</h2>
+<div class="highlight"><pre><span></span><span class="nv">code_img</span>, <span class="nv">strs</span> <span class="o">=</span> <span class="nv">create_validate_code</span><span class="ss">()</span>
+<span class="nv">session</span>[<span class="s1">&#39;</span><span class="s">code_text</span><span class="s1">&#39;</span>] <span class="o">=</span> <span class="nv">strs</span>
+<span class="nv">buf</span> <span class="o">=</span> <span class="nv">StringIO</span>.<span class="nv">StringIO</span><span class="ss">()</span>
+<span class="nv">code_img</span>.<span class="nv">save</span><span class="ss">(</span><span class="nv">buf</span>, <span class="s1">&#39;</span><span class="s">JPEG</span><span class="s1">&#39;</span>, <span class="nv">quality</span><span class="o">=</span><span class="mi">70</span><span class="ss">)</span>
 
-buf_str = buf.getvalue()
-response = app.make_response(buf_str)
-response.headers['Content-Type'] = 'image/jpeg'
-return response
+<span class="nv">buf_str</span> <span class="o">=</span> <span class="nv">buf</span>.<span class="nv">getvalue</span><span class="ss">()</span>
+<span class="nv">response</span> <span class="o">=</span> <span class="nv">app</span>.<span class="nv">make_response</span><span class="ss">(</span><span class="nv">buf_str</span><span class="ss">)</span>
+<span class="nv">response</span>.<span class="nv">headers</span>[<span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span>] <span class="o">=</span> <span class="s1">&#39;</span><span class="s">image/jpeg</span><span class="s1">&#39;</span>
+<span class="k">return</span> <span class="nv">response</span>
 </pre></div>
-<h2 id="implement">implement</h2>
+
+
+<h2>implement</h2>
 <p>函数create_validate_code代码见<a href="https://github.com/sndnyang/zhimind/blob/master/wsgi/mindmap/validation.py">validation.py</a>，不太看得懂</p>
-<h2 id="_1">渲染</h2>
-<h1 id="_2">前端</h1>
-<h2 id="js">js</h2>
-<div class="highlight"><pre><span></span>document.getElementById("vericode")
-        .setAttribute('src','/verifycode?random='+Math.random());
+<h2>渲染</h2>
+<h1>前端</h1>
+<h2>js</h2>
+<div class="highlight"><pre><span></span><span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">vericode</span><span class="s2">&quot;</span><span class="ss">)</span>
+        .<span class="nv">setAttribute</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">src</span><span class="s1">&#39;</span>,<span class="s1">&#39;</span><span class="s">/verifycode?random=</span><span class="s1">&#39;</span><span class="o">+</span><span class="nv">Math</span>.<span class="k">random</span><span class="ss">())</span><span class="c1">;</span>
 </pre></div>
-<h2 id="html">html</h2>
-<div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"form-code"</span><span class="nt">&gt;</span>验证码
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;img</span> <span class="na">onclick=</span><span class="s">"this.setAttribute('src','/verifycode?random='+Math.random())"</span> <span class="na">src=</span><span class="s">"/verifycode"</span> <span class="na">title=</span><span class="s">"点击重新获取"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"code"</span> <span class="na">name=</span><span class="s">"code"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+
+
+<h2>html</h2>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">div</span> <span class="nv">class</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">form-group</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">form-code</span><span class="s2">&quot;</span><span class="o">&gt;</span>验证码
+    <span class="o">&lt;</span><span class="nv">a</span> <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">#</span><span class="s2">&quot;</span><span class="o">&gt;&lt;</span><span class="nv">img</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">this.setAttribute(&#39;src&#39;,&#39;/verifycode?random=&#39;+Math.random())</span><span class="s2">&quot;</span> <span class="nv">src</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">/verifycode</span><span class="s2">&quot;</span> <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">点击重新获取</span><span class="s2">&quot;</span> <span class="o">/&gt;&lt;/</span><span class="nv">a</span><span class="o">&gt;&lt;/</span><span class="nv">label</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">code</span><span class="s2">&quot;</span> <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">code</span><span class="s2">&quot;</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">text</span><span class="s2">&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

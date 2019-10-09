@@ -117,35 +117,11 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">摘要</a></li>
-<li><a href="#_2">导论</a></li>
-<li><a href="#_3">方法</a><ul>
-<li><a href="#_4">物体外形嵌入</a></li>
-<li><a href="#_5">循环规范</a></li>
-<li><a href="#_6">训练过程</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">摘要</h1>
+                        <p>[TOC]</p>
+<h1>摘要</h1>
 <ol>
 <li>目标追踪需要的背景知识： 物体外形、移动、变形</li>
 <li>追踪器必须能调整模型以适应新的观察</li>
@@ -154,9 +130,11 @@
 <li>轻量级模型，速度是150 FPS， 150帧每秒</li>
 </ol>
 <p>本读者注：</p>
-<div class="highlight"><pre><span></span>好像讲了啥，又好像没讲啥
+<div class="highlight"><pre><span></span><span class="err">好像讲了啥，又好像没讲啥</span>
 </pre></div>
-<h1 id="_2">导论</h1>
+
+
+<h1>导论</h1>
 <p>问题如上所述， 追踪器需要处理：</p>
 <ol>
 <li>对低级物体特性（颜色） 和 高级（如各类）进行建模</li>
@@ -180,7 +158,7 @@ Memory)</p>
 during the forward pass, requiring no extra computational
 burden, allowing our tracker to operate at 150
 frames per second</p>
-<h1 id="_3">方法</h1>
+<h1>方法</h1>
 <p>架构：</p>
 <ol>
 <li>CNN 物体外形</li>
@@ -188,10 +166,10 @@ frames per second</p>
 <li>回归层 输出物体坐标</li>
 </ol>
 <p>如图：
-<img alt="re3" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/cv/re3.png"/></p>
-<h2 id="_4">物体外形嵌入</h2>
-<h2 id="_5">循环规范</h2>
-<h2 id="_6">训练过程</h2>
+<img alt="re3" src="http://7xt8es.com1.z0.glb.clouddn.com/paper/cv/re3.png"></p>
+<h2>物体外形嵌入</h2>
+<h2>循环规范</h2>
+<h2>训练过程</h2>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>

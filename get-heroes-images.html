@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="爬取Dota2英雄图片 "/>
 <meta property="og:url" content="http://sndnyang.github.io/get-heroes-images.html" />
-<meta property="og:description" content="Dota2数据集 为了与数据集相对应， 做出比较好看的效果， 到 Dota2的网站上爬取所有英雄的头像——也许在可视化里就能好看点 注 如果想重复利用，当做练习、练手加强熟练度的话， 请点 File - Make a copy， 每次在副本里回答 如果已经足够熟悉，觉得本篇内容太过简单， 就不需要了 前期准备 要从网络上爬取图片， 从程序来说，有几步？ ，自然需要打开页面进行下载， from quiz import * your_answer = 步数 steps = [&#39;&#39;, &#39;&#39; ... ] print(check_steps(your_answer, steps)) Python标准库里使用哪个模块可以打开网页？ 应该使用哪个模块查找链接？ 保存就不用说了。 module_openpages = &#39;&#39; module_findlinks = &#39;&#39; assert check_openpages(module_openpages), &#39;看来，标准库不够熟悉啊&#39; print(check_findlinks(module_findlinks)) 但我们不用标准库里的， 因为有更好的第三方库， 分别是 ..." />
+<meta property="og:description" content="[TOC] Dota2数据集 为了与数据集相对应， 做出比较好看的效果， 到 Dota2的网站上爬取所有英雄的头像——也许在可视化里就能好看点 注 如果想重复利用，当做练习、练手加强熟练度的话， 请点 File - Make a copy， 每次在副本里回答 如果已经足够熟悉，觉得本篇内容太过简单， 就不需要了 前期准备 要从网络上爬取图片， 从程序来说，有几步？ ，自然需要打开页面进行下载， from quiz import * your_answer = 步数 steps = [&#39;&#39;, &#39;&#39; ... ] print(check_steps(your_answer, steps)) Python标准库里使用哪个模块可以打开网页？ 应该使用哪个模块查找链接？ 保存就不用说了。 module_openpages = &#39;&#39; module_findlinks = &#39;&#39; assert check_openpages(module_openpages), &#39;看来，标准库不够熟悉啊&#39; print(check_findlinks(module_findlinks)) 但我们不用标准库里的， 因为有更好的第三方库 …" />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang sndnyang.github.io" />
 <meta property="og:article:published_time" content="2017-04-18T21:21:09+08:00" />
 <meta property="" content="2017-04-18T21:22:28+08:00" />
 <meta name="twitter:title" content="爬取Dota2英雄图片 ">
-<meta name="twitter:description" content="Dota2数据集 为了与数据集相对应， 做出比较好看的效果， 到 Dota2的网站上爬取所有英雄的头像——也许在可视化里就能好看点 注 如果想重复利用，当做练习、练手加强熟练度的话， 请点 File - Make a copy， 每次在副本里回答 如果已经足够熟悉，觉得本篇内容太过简单， 就不需要了 前期准备 要从网络上爬取图片， 从程序来说，有几步？ ，自然需要打开页面进行下载， from quiz import * your_answer = 步数 steps = [&#39;&#39;, &#39;&#39; ... ] print(check_steps(your_answer, steps)) Python标准库里使用哪个模块可以打开网页？ 应该使用哪个模块查找链接？ 保存就不用说了。 module_openpages = &#39;&#39; module_findlinks = &#39;&#39; assert check_openpages(module_openpages), &#39;看来，标准库不够熟悉啊&#39; print(check_findlinks(module_findlinks)) 但我们不用标准库里的， 因为有更好的第三方库， 分别是 ...">
+<meta name="twitter:description" content="[TOC] Dota2数据集 为了与数据集相对应， 做出比较好看的效果， 到 Dota2的网站上爬取所有英雄的头像——也许在可视化里就能好看点 注 如果想重复利用，当做练习、练手加强熟练度的话， 请点 File - Make a copy， 每次在副本里回答 如果已经足够熟悉，觉得本篇内容太过简单， 就不需要了 前期准备 要从网络上爬取图片， 从程序来说，有几步？ ，自然需要打开页面进行下载， from quiz import * your_answer = 步数 steps = [&#39;&#39;, &#39;&#39; ... ] print(check_steps(your_answer, steps)) Python标准库里使用哪个模块可以打开网页？ 应该使用哪个模块查找链接？ 保存就不用说了。 module_openpages = &#39;&#39; module_findlinks = &#39;&#39; assert check_openpages(module_openpages), &#39;看来，标准库不够熟悉啊&#39; print(check_findlinks(module_findlinks)) 但我们不用标准库里的， 因为有更好的第三方库 …">
 
 
         <title>爬取Dota2英雄图片  · 科探空谷
@@ -117,85 +117,64 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#dota2">Dota2数据集</a><ul>
-<li><a href="#_1">前期准备</a></li>
-<li><a href="#_2">下载网页内容</a><ul>
-<li><a href="#_3">培养好习惯， 建立代码规范</a></li>
-<li><a href="#_4">网页内容</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_5">信息提取</a><ul>
-<li><a href="#_6">查找所有元素</a></li>
-<li><a href="#_7">提取属性</a></li>
-<li><a href="#_8">保存</a></li>
-<li><a href="#_9">遍历全部元素</a></li>
-</ul>
-</li>
-<li><a href="#_10">恭喜</a></li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="dota2">Dota2数据集</h1>
+                        <p>[TOC]</p>
+<h1>Dota2数据集</h1>
 <p>为了与数据集相对应， 做出比较好看的效果， 到 Dota2的网站上爬取所有英雄的头像——也许在可视化里就能好看点</p>
 <p><strong>注</strong></p>
 <p>如果想重复利用，当做练习、练手加强熟练度的话， 请点 File - Make a copy， 每次在副本里回答</p>
 <p>如果已经足够熟悉，觉得本篇内容太过简单， 就不需要了</p>
-<h2 id="_1">前期准备</h2>
+<h2>前期准备</h2>
 <p>要从网络上爬取图片， 从程序来说，有几步？</p>
 <p>，自然需要打开页面进行下载，</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quiz</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="n">your_answer</span> <span class="o">=</span> <span class="err">步数</span>
-<span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span> <span class="o">...</span> <span class="p">]</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="o">...</span> <span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">check_steps</span><span class="p">(</span><span class="n">your_answer</span><span class="p">,</span> <span class="n">steps</span><span class="p">))</span>
 </pre></div>
+
+
 <p>Python标准库里使用哪个模块可以打开网页？ 应该使用哪个模块查找链接？ 保存就不用说了。</p>
-<div class="highlight"><pre><span></span><span class="n">module_openpages</span> <span class="o">=</span> <span class="s1">''</span>
+<div class="highlight"><pre><span></span><span class="n">module_openpages</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
-<span class="n">module_findlinks</span> <span class="o">=</span> <span class="s1">''</span>
+<span class="n">module_findlinks</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
-<span class="k">assert</span> <span class="n">check_openpages</span><span class="p">(</span><span class="n">module_openpages</span><span class="p">),</span> <span class="s1">'看来，标准库不够熟悉啊'</span>
+<span class="k">assert</span> <span class="n">check_openpages</span><span class="p">(</span><span class="n">module_openpages</span><span class="p">),</span> <span class="s1">&#39;看来，标准库不够熟悉啊&#39;</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">check_findlinks</span><span class="p">(</span><span class="n">module_findlinks</span><span class="p">))</span>
 </pre></div>
+
+
 <p>但我们不用标准库里的， 因为有更好的第三方库， 分别是</p>
 <ol>
 <li>requests</li>
 <li>beautifulsoup4</li>
 </ol>
 <p>安装：</p>
-<div class="highlight"><pre><span></span>pip(2 or 3) install requests, bs4
+<div class="highlight"><pre><span></span><span class="n">pip</span><span class="p">(</span><span class="mi">2</span> <span class="k">or</span> <span class="mi">3</span><span class="p">)</span> <span class="n">install</span> <span class="n">requests</span><span class="p">,</span> <span class="n">bs4</span>
 </pre></div>
+
+
 <p>然后导入</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
-<h2 id="_2">下载网页内容</h2>
+
+
+<h2>下载网页内容</h2>
 <p>开始介绍使用 requests 读取网页内容</p>
 <p><a href="http://www.dota2.com.cn/heroes/index.htm">Dota2英雄列表网址</a></p>
 <p>MOOC资源： <a href="http://www.icourse163.org/course/BIT-1001870001">Python网络爬虫与信息提取</a></p>
-<div class="highlight"><pre><span></span><span class="n">dota2_main_page</span> <span class="o">=</span> <span class="s1">'http://www.dota2.com.cn'</span>
-<span class="n">dota2_heroes_index</span> <span class="o">=</span> <span class="n">dota2_main_page</span> <span class="o">+</span> <span class="s1">'/heroes/index.htm'</span>
+<div class="highlight"><pre><span></span><span class="n">dota2_main_page</span> <span class="o">=</span> <span class="s1">&#39;http://www.dota2.com.cn&#39;</span>
+<span class="n">dota2_heroes_index</span> <span class="o">=</span> <span class="n">dota2_main_page</span> <span class="o">+</span> <span class="s1">&#39;/heroes/index.htm&#39;</span>
 </pre></div>
+
+
 <p>Requests 是一个非常优雅的 HTTP 库， HTTP是什么? &gt;<a href="http://baike.baidu.com/link?url=01N5pk_h_vChNIkEpbMuXuFrAc1tr6Vnb0xeGJUMoXV4aOXMMAbaEKqxuVsycT1h9zbVZY0h6s_hpdegz24JDa">HTTP百度百科</a></p>
 <p>我们不管这个，只管HTTP是如何向网站发送请求，并拿到网页数据的。 协议规定了 &gt;<a href="http://www.runoob.com/http/http-methods.html">HTTP请求方法</a></p>
 <p>requests的方法和HTTP协议一致， 也有这么几种（或少一种？没注意），但最常用的是</p>
@@ -208,7 +187,9 @@
 <span class="n">parameter</span> <span class="o">=</span> <span class="err">???</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="err">???</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
 </pre></div>
-<h3 id="_3">培养好习惯， 建立代码规范</h3>
+
+
+<h3>培养好习惯， 建立代码规范</h3>
 <p>打开网页后， 最好检查下是否成功， 不成功则按现在的开发来说， 应该抛个异常， 所以我们需要：</p>
 <ol>
 <li>判断网页打开状态,  r.raise_for_status()</li>
@@ -220,78 +201,88 @@
     <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="c1"># MOOC里有介绍的编码部分略过，因为没遇到</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"OH MY GOD!"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;OH MY GOD!&quot;</span><span class="p">)</span>
 
 <span class="c1"># 从 Python 变量的作用域来说，这段当然有问题， 只是给个示例， 借此由头复习 Python异常处理机制</span>
 <span class="c1"># 可以直接跳过</span>
 </pre></div>
-<h3 id="_4">网页内容</h3>
+
+
+<h3>网页内容</h3>
 <p>此时打开的网页已经保存在 变量 r 中， 来看看 r 是个什么东西</p>
 <div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span>requests.models.Response
+
+
+<div class="highlight"><pre><span></span><span class="n">requests</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">Response</span>
 </pre></div>
+
+
 <p>看看 这个东西 有什么属性</p>
 <div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span>['__attrs__',
- '__bool__',
- '__class__',
- '__delattr__',
- '__dict__',
- '__dir__',
- '__doc__',
- '__eq__',
- '__format__',
- '__ge__',
- '__getattribute__',
- '__getstate__',
- '__gt__',
- '__hash__',
- '__init__',
- '__init_subclass__',
- '__iter__',
- '__le__',
- '__lt__',
- '__module__',
- '__ne__',
- '__new__',
- '__nonzero__',
- '__reduce__',
- '__reduce_ex__',
- '__repr__',
- '__setattr__',
- '__setstate__',
- '__sizeof__',
- '__str__',
- '__subclasshook__',
- '__weakref__',
- '_content',
- '_content_consumed',
- 'apparent_encoding',
- 'close',
- 'connection',
- 'content',
- 'cookies',
- 'elapsed',
- 'encoding',
- 'headers',
- 'history',
- 'is_permanent_redirect',
- 'is_redirect',
- 'iter_content',
- 'iter_lines',
- 'json',
- 'links',
- 'ok',
- 'raise_for_status',
- 'raw',
- 'reason',
- 'request',
- 'status_code',
- 'text',
- 'url']
+
+
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;__attrs__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__bool__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__class__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__format__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__getstate__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__init__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__iter__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__le__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__module__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__new__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__nonzero__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__setstate__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__str__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;_content&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;_content_consumed&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;apparent_encoding&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;close&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;connection&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;content&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;cookies&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;elapsed&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;encoding&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;headers&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;is_permanent_redirect&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;is_redirect&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;iter_content&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;iter_lines&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;links&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ok&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;raise_for_status&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;raw&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;reason&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;request&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;status_code&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;url&#39;</span><span class="p">]</span>
 </pre></div>
+
+
 <p>网页内容是哪个？</p>
 <p>r.text?  r.raw? r.content?</p>
 <p>嗯， 废</p>
@@ -299,28 +290,40 @@
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">raw</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
 </pre></div>
-<div class="highlight"><pre><span></span>&lt;class 'bytes'&gt;
-&lt;class 'requests.packages.urllib3.response.HTTPResponse'&gt;
-&lt;class 'str'&gt;
+
+
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span> <span class="s1">&#39;bytes&#39;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="s1">&#39;requests.packages.urllib3.response.HTTPResponse&#39;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="s1">&#39;str&#39;</span><span class="o">&gt;</span>
 </pre></div>
+
+
 <p>所以，我们用 字符串类型的 text</p>
 <div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span>
 </pre></div>
-<h1 id="_5">信息提取</h1>
+
+
+<h1>信息提取</h1>
 <p>beautifulsoup4 的使用</p>
 <div class="highlight"><pre><span></span><span class="c1"># 固定格式</span>
 <span class="c1"># 第二个参数是 格式， 因为是 html格式的网页， 所以是 html.parser</span>
 <span class="c1"># 至于为什么不是 html 就行了， 别人开发设计成这样， 就这样</span>
 
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># 这个好像是格式化、美观化输出</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
 </pre></div>
-<h3 id="_6">查找所有元素</h3>
+
+
+<h3>查找所有元素</h3>
 <p>先搞清楚， 要找什么元素？</p>
 <p>要么是在原网页上右键查看源代码， 要么是 F12(chrome 和 Firefox)打开控制台，查看。</p>
 <p>如果不懂 HTML， 不认识它的标签， 那我也没招， 这内容太多， 哪顾得过来。</p>
@@ -328,21 +331,29 @@
 <p>查找所有元素接口是： <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#find-all">find_all</a></p>
 <div class="highlight"><pre><span></span><span class="c1"># find_all 等效 如下形式</span>
 
-<span class="n">hero_list</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s1">'img'</span><span class="p">,</span> <span class="s1">'heroHoverLarge'</span><span class="p">)</span>
+<span class="n">hero_list</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;heroHoverLarge&#39;</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">hero_list</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span>113
+
+
+<div class="highlight"><pre><span></span><span class="mi">113</span>
 </pre></div>
-<h3 id="_7">提取属性</h3>
+
+
+<h3>提取属性</h3>
 <p>img标签里，把链接记录在 src 里， src是元素的一个属性attribute，不是值value或文本text</p>
 <p>元素的属性attributes是一个 字典dict(键key，值value对), 所以是</p>
 <div class="highlight"><pre><span></span><span class="c1"># </span>
-<span class="n">key</span> <span class="o">=</span> <span class="s1">'???'</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;???&#39;</span>
 <span class="n">img_url</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="err">???</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
 <span class="c1"># 英语缩写的习惯，有时候是可以猜出来的~~~</span>
 </pre></div>
+
+
 <p>一个栗子：  src="/images/heroes/earthshaker_hphover.png"</p>
 <p>所以我们需要做两步：</p>
 <ol>
@@ -355,276 +366,286 @@
 <span class="k">def</span> <span class="nf">deal_src</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">dota2_main_page</span> <span class="o">+</span> <span class="n">src</span>
     <span class="n">name</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">deal_src</span><span class="p">(</span><span class="s1">'/images/heroes/brewmaster_hphover.png'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'brewmaster'</span><span class="p">,</span> <span class="s1">'失败'</span>
-<span class="k">assert</span> <span class="n">deal_src</span><span class="p">(</span><span class="s1">'/images/heroes/dragon_knight_hphover.png'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'dragon_knight'</span><span class="p">,</span> <span class="s1">'失败'</span>
+
+
+<div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">deal_src</span><span class="p">(</span><span class="s1">&#39;/images/heroes/brewmaster_hphover.png&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;brewmaster&#39;</span><span class="p">,</span> <span class="s1">&#39;失败&#39;</span>
+<span class="k">assert</span> <span class="n">deal_src</span><span class="p">(</span><span class="s1">&#39;/images/heroes/dragon_knight_hphover.png&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dragon_knight&#39;</span><span class="p">,</span> <span class="s1">&#39;失败&#39;</span>
 </pre></div>
-<h2 id="_8">保存</h2>
+
+
+<h2>保存</h2>
 <p>这块倒简单， 继续使用 requests读取图片的url， 然后保存到某个文件夹下的某文件名的文件。</p>
 <p>所以只有点说明， 没有做quiz</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">saveImage</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">,</span> <span class="n">imgName</span> <span class="o">=</span> <span class="s2">"default.jpg"</span><span class="p">):</span>
-    <span class="sd">"""</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">saveImage</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">,</span> <span class="n">imgName</span> <span class="o">=</span> <span class="s2">&quot;default.jpg&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Description    : 将网页图片保存本地</span>
 <span class="sd">    @param imgUrl  : 待保存图片URL</span>
 <span class="sd">    @param imgName : 待保存图片名称</span>
 <span class="sd">    @return 无</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 这里给 requests.get 添加 流 stream 参数——不加会什么样？</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="c1"># 这里不能用 text了， 因为图片是二进制 byte了</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-    <span class="n">dstDir</span> <span class="o">=</span> <span class="s1">'heroes'</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"保存文件"</span> <span class="o">+</span> <span class="n">imgName</span><span class="p">)</span>
+    <span class="n">dstDir</span> <span class="o">=</span> <span class="s1">&#39;heroes&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;保存文件&quot;</span> <span class="o">+</span> <span class="n">imgName</span><span class="p">)</span>
     <span class="c1"># try except要习惯</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># with是种方案，但本篇不介绍了</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dstDir</span> <span class="o">+</span> <span class="n">imgName</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">jpg</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dstDir</span> <span class="o">+</span> <span class="n">imgName</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jpg</span><span class="p">:</span>
             <span class="n">jpg</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>     
             <span class="k">return</span>
     <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"IO Error</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;IO Error</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">jpg</span><span class="o">.</span><span class="n">close</span>
 </pre></div>
-<h2 id="_9">遍历全部元素</h2>
+
+
+<h2>遍历全部元素</h2>
 <p>遍历 hero_list 的 所有元素</p>
 <div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">hero_list</span><span class="p">:</span>
-    <span class="n">src</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="err">???</span><span class="p">[</span><span class="s1">'???'</span><span class="p">]</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="err">???</span><span class="p">[</span><span class="s1">&#39;???&#39;</span><span class="p">]</span>
     <span class="n">name</span><span class="err">，</span> <span class="n">url</span> <span class="o">=</span> <span class="n">deal_src</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
-    <span class="n">saveImage</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">+</span><span class="s1">'.jpg'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
+    <span class="n">saveImage</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">+</span><span class="s1">&#39;.jpg&#39;</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span>earthshaker  http://www.dota2.com.cn/images/heroes/earthshaker_hphover.png
-保存文件earthshaker.jpg
-sven  http://www.dota2.com.cn/images/heroes/sven_hphover.png
-保存文件sven.jpg
-tiny  http://www.dota2.com.cn/images/heroes/tiny_hphover.png
-保存文件tiny.jpg
-kunkka  http://www.dota2.com.cn/images/heroes/kunkka_hphover.png
-保存文件kunkka.jpg
-beastmaster  http://www.dota2.com.cn/images/heroes/beastmaster_hphover.png
-保存文件beastmaster.jpg
-dragon_knight  http://www.dota2.com.cn/images/heroes/dragon_knight_hphover.png
-保存文件dragon_knight.jpg
-rattletrap  http://www.dota2.com.cn/images/heroes/rattletrap_hphover.png
-保存文件rattletrap.jpg
-omniknight  http://www.dota2.com.cn/images/heroes/omniknight_hphover.png
-保存文件omniknight.jpg
-huskar  http://www.dota2.com.cn/images/heroes/huskar_hphover.png
-保存文件huskar.jpg
-alchemist  http://www.dota2.com.cn/images/heroes/alchemist_hphover.png
-保存文件alchemist.jpg
-brewmaster  http://www.dota2.com.cn/images/heroes/brewmaster_hphover.png
-保存文件brewmaster.jpg
-treant  http://www.dota2.com.cn/images/heroes/treant_hphover.png
-保存文件treant.jpg
-wisp  http://www.dota2.com.cn/images/heroes/wisp_hphover.png
-保存文件wisp.jpg
-centaur  http://www.dota2.com.cn/images/heroes/centaur_hphover.png
-保存文件centaur.jpg
-shredder  http://www.dota2.com.cn/images/heroes/shredder_hphover.png
-保存文件shredder.jpg
-bristleback  http://www.dota2.com.cn/images/heroes/bristleback_hphover.png
-保存文件bristleback.jpg
-tusk  http://www.dota2.com.cn/images/heroes/tusk_hphover.png
-保存文件tusk.jpg
-elder_titan  http://www.dota2.com.cn/images/heroes/elder_titan_hphover.png
-保存文件elder_titan.jpg
-legion_commander  http://www.dota2.com.cn/images/heroes/legion_commander_hphover.png
-保存文件legion_commander.jpg
-earth_spirit  http://www.dota2.com.cn/images/heroes/earth_spirit_hphover.png
-保存文件earth_spirit.jpg
-phoenix  http://www.dota2.com.cn/images/heroes/phoenix_hphover.png
-保存文件phoenix.jpg
-antimage  http://www.dota2.com.cn/images/heroes/antimage_hphover.png
-保存文件antimage.jpg
-drow_ranger  http://www.dota2.com.cn/images/heroes/drow_ranger_hphover.png
-保存文件drow_ranger.jpg
-juggernaut  http://www.dota2.com.cn/images/heroes/juggernaut_hphover.png
-保存文件juggernaut.jpg
-mirana  http://www.dota2.com.cn/images/heroes/mirana_hphover.png
-保存文件mirana.jpg
-morphling  http://www.dota2.com.cn/images/heroes/morphling_hphover.png
-保存文件morphling.jpg
-phantom_lancer  http://www.dota2.com.cn/images/heroes/phantom_lancer_hphover.png
-保存文件phantom_lancer.jpg
-vengefulspirit  http://www.dota2.com.cn/images/heroes/vengefulspirit_hphover.png
-保存文件vengefulspirit.jpg
-riki  http://www.dota2.com.cn/images/heroes/riki_hphover.png
-保存文件riki.jpg
-sniper  http://www.dota2.com.cn/images/heroes/sniper_hphover.png
-保存文件sniper.jpg
-templar_assassin  http://www.dota2.com.cn/images/heroes/templar_assassin_hphover.png
-保存文件templar_assassin.jpg
-luna  http://www.dota2.com.cn/images/heroes/luna_hphover.png
-保存文件luna.jpg
-bounty_hunter  http://www.dota2.com.cn/images/heroes/bounty_hunter_hphover.png
-保存文件bounty_hunter.jpg
-ursa  http://www.dota2.com.cn/images/heroes/ursa_hphover.png
-保存文件ursa.jpg
-gyrocopter  http://www.dota2.com.cn/images/heroes/gyrocopter_hphover.png
-保存文件gyrocopter.jpg
-lone_druid  http://www.dota2.com.cn/images/heroes/lone_druid_hphover.png
-保存文件lone_druid.jpg
-naga_siren  http://www.dota2.com.cn/images/heroes/naga_siren_hphover.png
-保存文件naga_siren.jpg
-troll_warlord  http://www.dota2.com.cn/images/heroes/troll_warlord_hphover.png
-保存文件troll_warlord.jpg
-ember_spirit  http://www.dota2.com.cn/images/heroes/ember_spirit_hphover.png
-保存文件ember_spirit.jpg
-monkey_king  http://www.dota2.com.cn/images/heroes/monkey_king_hphover.png
-保存文件monkey_king.jpg
-crystal_maiden  http://www.dota2.com.cn/images/heroes/crystal_maiden_hphover.png
-保存文件crystal_maiden.jpg
-puck  http://www.dota2.com.cn/images/heroes/puck_hphover.png
-保存文件puck.jpg
-storm_spirit  http://www.dota2.com.cn/images/heroes/storm_spirit_hphover.png
-保存文件storm_spirit.jpg
-windrunner  http://www.dota2.com.cn/images/heroes/windrunner_hphover.png
-保存文件windrunner.jpg
-zuus  http://www.dota2.com.cn/images/heroes/zuus_hphover.png
-保存文件zuus.jpg
-lina  http://www.dota2.com.cn/images/heroes/lina_hphover.png
-保存文件lina.jpg
-shadow_shaman  http://www.dota2.com.cn/images/heroes/shadow_shaman_hphover.png
-保存文件shadow_shaman.jpg
-tinker  http://www.dota2.com.cn/images/heroes/tinker_hphover.png
-保存文件tinker.jpg
-furion  http://www.dota2.com.cn/images/heroes/furion_hphover.png
-保存文件furion.jpg
-enchantress  http://www.dota2.com.cn/images/heroes/enchantress_hphover.png
-保存文件enchantress.jpg
-jakiro  http://www.dota2.com.cn/images/heroes/jakiro_hphover.png
-保存文件jakiro.jpg
-chen  http://www.dota2.com.cn/images/heroes/chen_hphover.png
-保存文件chen.jpg
-silencer  http://www.dota2.com.cn/images/heroes/silencer_hphover.png
-保存文件silencer.jpg
-ogre_magi  http://www.dota2.com.cn/images/heroes/ogre_magi_hphover.png
-保存文件ogre_magi.jpg
-rubick  http://www.dota2.com.cn/images/heroes/rubick_hphover.png
-保存文件rubick.jpg
-disruptor  http://www.dota2.com.cn/images/heroes/disruptor_hphover.png
-保存文件disruptor.jpg
-keeper_of_the_light  http://www.dota2.com.cn/images/heroes/keeper_of_the_light_hphover.png
-保存文件keeper_of_the_light.jpg
-skywrath_mage  http://www.dota2.com.cn/images/heroes/skywrath_mage_hphover.png
-保存文件skywrath_mage.jpg
-oracle  http://www.dota2.com.cn/images/heroes/oracle_hphover.png
-保存文件oracle.jpg
-techies  http://www.dota2.com.cn/images/heroes/techies_hphover.png
-保存文件techies.jpg
-axe  http://www.dota2.com.cn/images/heroes/axe_hphover.png
-保存文件axe.jpg
-pudge  http://www.dota2.com.cn/images/heroes/pudge_hphover.png
-保存文件pudge.jpg
-sand_king  http://www.dota2.com.cn/images/heroes/sand_king_hphover.png
-保存文件sand_king.jpg
-slardar  http://www.dota2.com.cn/images/heroes/slardar_hphover.png
-保存文件slardar.jpg
-tidehunter  http://www.dota2.com.cn/images/heroes/tidehunter_hphover.png
-保存文件tidehunter.jpg
-wraith_king  http://www.dota2.com.cn/images/heroes/wraith_king_hphover.png
-保存文件wraith_king.jpg
-life_stealer  http://www.dota2.com.cn/images/heroes/life_stealer_hphover.png
-保存文件life_stealer.jpg
-night_stalker  http://www.dota2.com.cn/images/heroes/night_stalker_hphover.png
-保存文件night_stalker.jpg
-doom_bringer  http://www.dota2.com.cn/images/heroes/doom_bringer_hphover.png
-保存文件doom_bringer.jpg
-spirit_breaker  http://www.dota2.com.cn/images/heroes/spirit_breaker_hphover.png
-保存文件spirit_breaker.jpg
-lycan  http://www.dota2.com.cn/images/heroes/lycan_hphover.png
-保存文件lycan.jpg
-chaos_knight  http://www.dota2.com.cn/images/heroes/chaos_knight_hphover.png
-保存文件chaos_knight.jpg
-undying  http://www.dota2.com.cn/images/heroes/undying_hphover.png
-保存文件undying.jpg
-magnataur  http://www.dota2.com.cn/images/heroes/magnataur_hphover.png
-保存文件magnataur.jpg
-abaddon  http://www.dota2.com.cn/images/heroes/abaddon_hphover.png
-保存文件abaddon.jpg
-abyssal_underlord  http://www.dota2.com.cn/images/heroes/abyssal_underlord_hphover.png
-保存文件abyssal_underlord.jpg
-bloodseeker  http://www.dota2.com.cn/images/heroes/bloodseeker_hphover.png
-保存文件bloodseeker.jpg
-nevermore  http://www.dota2.com.cn/images/heroes/nevermore_hphover.png
-保存文件nevermore.jpg
-razor  http://www.dota2.com.cn/images/heroes/razor_hphover.png
-保存文件razor.jpg
-venomancer  http://www.dota2.com.cn/images/heroes/venomancer_hphover.png
-保存文件venomancer.jpg
-faceless_void  http://www.dota2.com.cn/images/heroes/faceless_void_hphover.png
-保存文件faceless_void.jpg
-phantom_assassin  http://www.dota2.com.cn/images/heroes/phantom_assassin_hphover.png
-保存文件phantom_assassin.jpg
-viper  http://www.dota2.com.cn/images/heroes/viper_hphover.png
-保存文件viper.jpg
-clinkz  http://www.dota2.com.cn/images/heroes/clinkz_hphover.png
-保存文件clinkz.jpg
-broodmother  http://www.dota2.com.cn/images/heroes/broodmother_hphover.png
-保存文件broodmother.jpg
-weaver  http://www.dota2.com.cn/images/heroes/weaver_hphover.png
-保存文件weaver.jpg
-spectre  http://www.dota2.com.cn/images/heroes/spectre_hphover.png
-保存文件spectre.jpg
-meepo  http://www.dota2.com.cn/images/heroes/meepo_hphover.png
-保存文件meepo.jpg
-nyx_assassin  http://www.dota2.com.cn/images/heroes/nyx_assassin_hphover.png
-保存文件nyx_assassin.jpg
-slark  http://www.dota2.com.cn/images/heroes/slark_hphover.png
-保存文件slark.jpg
-medusa  http://www.dota2.com.cn/images/heroes/medusa_hphover.png
-保存文件medusa.jpg
-terrorblade  http://www.dota2.com.cn/images/heroes/terrorblade_hphover.png
-保存文件terrorblade.jpg
-arc_warden  http://www.dota2.com.cn/images/heroes/arc_warden_hphover.png
-保存文件arc_warden.jpg
-bane  http://www.dota2.com.cn/images/heroes/bane_hphover.png
-保存文件bane.jpg
-lich  http://www.dota2.com.cn/images/heroes/lich_hphover.png
-保存文件lich.jpg
-lion  http://www.dota2.com.cn/images/heroes/lion_hphover.png
-保存文件lion.jpg
-witch_doctor  http://www.dota2.com.cn/images/heroes/witch_doctor_hphover.png
-保存文件witch_doctor.jpg
-enigma  http://www.dota2.com.cn/images/heroes/enigma_hphover.png
-保存文件enigma.jpg
-necrolyte  http://www.dota2.com.cn/images/heroes/necrolyte_hphover.png
-保存文件necrolyte.jpg
-warlock  http://www.dota2.com.cn/images/heroes/warlock_hphover.png
-保存文件warlock.jpg
-queenofpain  http://www.dota2.com.cn/images/heroes/queenofpain_hphover.png
-保存文件queenofpain.jpg
-death_prophet  http://www.dota2.com.cn/images/heroes/death_prophet_hphover.png
-保存文件death_prophet.jpg
-pugna  http://www.dota2.com.cn/images/heroes/pugna_hphover.png
-保存文件pugna.jpg
-dazzle  http://www.dota2.com.cn/images/heroes/dazzle_hphover.png
-保存文件dazzle.jpg
-leshrac  http://www.dota2.com.cn/images/heroes/leshrac_hphover.png
-保存文件leshrac.jpg
-dark_seer  http://www.dota2.com.cn/images/heroes/dark_seer_hphover.png
-保存文件dark_seer.jpg
-batrider  http://www.dota2.com.cn/images/heroes/batrider_hphover.png
-保存文件batrider.jpg
-ancient_apparition  http://www.dota2.com.cn/images/heroes/ancient_apparition_hphover.png
-保存文件ancient_apparition.jpg
-invoker  http://www.dota2.com.cn/images/heroes/invoker_hphover.png
-保存文件invoker.jpg
-obsidian_destroyer  http://www.dota2.com.cn/images/heroes/obsidian_destroyer_hphover.png
-保存文件obsidian_destroyer.jpg
-shadow_demon  http://www.dota2.com.cn/images/heroes/shadow_demon_hphover.png
-保存文件shadow_demon.jpg
-visage  http://www.dota2.com.cn/images/heroes/visage_hphover.png
-保存文件visage.jpg
-winter_wyvern  http://www.dota2.com.cn/images/heroes/winter_wyvern_hphover.png
-保存文件winter_wyvern.jpg
+
+
+<div class="highlight"><pre><span></span><span class="n">earthshaker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">earthshaker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">earthshaker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">sven</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">sven_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">sven</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">tiny</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">tiny_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">tiny</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">kunkka</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">kunkka_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">kunkka</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">beastmaster</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">beastmaster_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">beastmaster</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">dragon_knight</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">dragon_knight_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">dragon_knight</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">rattletrap</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">rattletrap_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">rattletrap</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">omniknight</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">omniknight_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">omniknight</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">huskar</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">huskar_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">huskar</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">alchemist</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">alchemist_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">alchemist</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">brewmaster</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">brewmaster_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">brewmaster</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">treant</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">treant_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">treant</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">wisp</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">wisp_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">wisp</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">centaur</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">centaur_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">centaur</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">shredder</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">shredder_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">shredder</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">bristleback</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">bristleback_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">bristleback</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">tusk</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">tusk_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">tusk</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">elder_titan</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">elder_titan_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">elder_titan</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">legion_commander</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">legion_commander_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">legion_commander</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">earth_spirit</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">earth_spirit_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">earth_spirit</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">phoenix</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">phoenix_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">phoenix</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">antimage</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">antimage_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">antimage</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">drow_ranger</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">drow_ranger_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">drow_ranger</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">juggernaut</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">juggernaut_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">juggernaut</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">mirana</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">mirana_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">mirana</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">morphling</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">morphling_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">morphling</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">phantom_lancer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">phantom_lancer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">phantom_lancer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">vengefulspirit</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">vengefulspirit_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">vengefulspirit</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">riki</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">riki_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">riki</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">sniper</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">sniper_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">sniper</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">templar_assassin</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">templar_assassin_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">templar_assassin</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">luna</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">luna_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">luna</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">bounty_hunter</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">bounty_hunter_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">bounty_hunter</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">ursa</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">ursa_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">ursa</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">gyrocopter</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">gyrocopter_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">gyrocopter</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">lone_druid</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">lone_druid_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">lone_druid</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">naga_siren</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">naga_siren_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">naga_siren</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">troll_warlord</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">troll_warlord_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">troll_warlord</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">ember_spirit</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">ember_spirit_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">ember_spirit</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">monkey_king</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">monkey_king_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">monkey_king</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">crystal_maiden</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">crystal_maiden_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">crystal_maiden</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">puck</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">puck_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">puck</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">storm_spirit</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">storm_spirit_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">storm_spirit</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">windrunner</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">windrunner_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">windrunner</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">zuus</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">zuus_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">zuus</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">lina</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">lina_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">lina</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">shadow_shaman</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">shadow_shaman_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">shadow_shaman</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">tinker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">tinker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">tinker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">furion</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">furion_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">furion</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">enchantress</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">enchantress_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">enchantress</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">jakiro</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">jakiro_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">jakiro</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">chen</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">chen_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">chen</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">silencer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">silencer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">silencer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">ogre_magi</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">ogre_magi_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">ogre_magi</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">rubick</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">rubick_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">rubick</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">disruptor</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">disruptor_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">disruptor</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">keeper_of_the_light</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">keeper_of_the_light_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">keeper_of_the_light</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">skywrath_mage</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">skywrath_mage_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">skywrath_mage</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">oracle</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">oracle_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">oracle</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">techies</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">techies_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">techies</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">axe</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">axe_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">axe</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">pudge</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">pudge_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">pudge</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">sand_king</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">sand_king_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">sand_king</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">slardar</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">slardar_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">slardar</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">tidehunter</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">tidehunter_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">tidehunter</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">wraith_king</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">wraith_king_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">wraith_king</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">life_stealer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">life_stealer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">life_stealer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">night_stalker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">night_stalker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">night_stalker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">doom_bringer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">doom_bringer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">doom_bringer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">spirit_breaker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">spirit_breaker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">spirit_breaker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">lycan</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">lycan_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">lycan</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">chaos_knight</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">chaos_knight_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">chaos_knight</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">undying</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">undying_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">undying</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">magnataur</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">magnataur_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">magnataur</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">abaddon</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">abaddon_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">abaddon</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">abyssal_underlord</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">abyssal_underlord_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">abyssal_underlord</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">bloodseeker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">bloodseeker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">bloodseeker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">nevermore</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">nevermore_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">nevermore</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">razor</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">razor_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">razor</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">venomancer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">venomancer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">venomancer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">faceless_void</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">faceless_void_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">faceless_void</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">phantom_assassin</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">phantom_assassin_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">phantom_assassin</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">viper</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">viper_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">viper</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">clinkz</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">clinkz_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">clinkz</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">broodmother</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">broodmother_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">broodmother</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">weaver</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">weaver_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">weaver</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">spectre</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">spectre_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">spectre</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">meepo</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">meepo_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">meepo</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">nyx_assassin</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">nyx_assassin_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">nyx_assassin</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">slark</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">slark_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">slark</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">medusa</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">medusa_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">medusa</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">terrorblade</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">terrorblade_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">terrorblade</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">arc_warden</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">arc_warden_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">arc_warden</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">bane</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">bane_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">bane</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">lich</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">lich_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">lich</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">lion</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">lion_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">lion</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">witch_doctor</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">witch_doctor_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">witch_doctor</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">enigma</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">enigma_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">enigma</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">necrolyte</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">necrolyte_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">necrolyte</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">warlock</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">warlock_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">warlock</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">queenofpain</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">queenofpain_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">queenofpain</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">death_prophet</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">death_prophet_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">death_prophet</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">pugna</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">pugna_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">pugna</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">dazzle</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">dazzle_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">dazzle</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">leshrac</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">leshrac_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">leshrac</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">dark_seer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">dark_seer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">dark_seer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">batrider</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">batrider_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">batrider</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">ancient_apparition</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">ancient_apparition_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">ancient_apparition</span><span class="p">.</span><span class="n">jpg</span>
+<span class="k">invoker</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">invoker_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="k">invoker</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">obsidian_destroyer</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">obsidian_destroyer_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">obsidian_destroyer</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">shadow_demon</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">shadow_demon_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">shadow_demon</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">visage</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">visage_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">visage</span><span class="p">.</span><span class="n">jpg</span>
+<span class="n">winter_wyvern</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">dota2</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">heroes</span><span class="o">/</span><span class="n">winter_wyvern_hphover</span><span class="p">.</span><span class="n">png</span>
+<span class="err">保存文件</span><span class="n">winter_wyvern</span><span class="p">.</span><span class="n">jpg</span>
 </pre></div>
-<h1 id="_10">恭喜</h1>
+
+
+<h1>恭喜</h1>
 <p>完成！</p>
 <div class="highlight"><pre><span></span>
 </pre></div>

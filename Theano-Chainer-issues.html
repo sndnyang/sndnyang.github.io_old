@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="Theano-Chainer "/>
 <meta property="og:url" content="http://sndnyang.github.io/Theano-Chainer-issues.html" />
-<meta property="og:description" content="Chainer Installation to use GPU 安装 The backend is based on cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L/path ..." />
+<meta property="og:description" content="[TOC] Chainer Installation to use GPU 安装 The backend is based on cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L …" />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2019-02-19T22:18:30+08:00" />
 <meta property="" content="2019-12-19T22:18:30+08:00" />
 <meta name="twitter:title" content="Theano-Chainer ">
-<meta name="twitter:description" content="Chainer Installation to use GPU 安装 The backend is based on cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L/path ...">
+<meta name="twitter:description" content="[TOC] Chainer Installation to use GPU 安装 The backend is based on cupy. Choose the right version of cuda. Chainer 后端用的是cupy，需要根据cuda版本选择。 If your cudnn path is not in the $CUDA_PATH directory, you must set: 如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量： export CFLAGS=-I/path/to/cudnn/include export LDFLAGS=-L …">
 
 
         <title>Theano-Chainer  · 科探空谷
@@ -117,58 +117,32 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#chainer">Chainer</a><ul>
-<li><a href="#installation-to-use-gpu">Installation to use GPU 安装</a></li>
-<li><a href="#initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</a></li>
-</ul>
-</li>
-<li><a href="#theano">Theano</a><ul>
-<li><a href="#suggestion">安装建议 suggestion</a><ul>
-<li><a href="#error-information">Error information</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="chainer">Chainer</h1>
-<h2 id="installation-to-use-gpu">Installation to use GPU 安装</h2>
+                        <p>[TOC]</p>
+<h1>Chainer</h1>
+<h2>Installation to use GPU 安装</h2>
 <p>The backend is based on cupy. Choose the right version of cuda.</p>
 <p>Chainer 后端用的是cupy，需要根据cuda版本选择。</p>
 <p>If your cudnn path is not in the $CUDA_PATH directory, you must set:</p>
 <p>如果你的 cudnn 安装位置和 cuda不是同一个文件夹， 安装前必须设置以下环境变量：</p>
-<div class="highlight"><pre><span></span>export CFLAGS=-I/path/to/cudnn/include
-export LDFLAGS=-L/path/to/cudnn/lib
-export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
+<div class="highlight"><pre><span></span><span class="nv">export</span> <span class="nv">CFLAGS</span><span class="o">=-</span><span class="nv">I</span><span class="o">/</span><span class="nv">path</span><span class="o">/</span><span class="nv">to</span><span class="o">/</span><span class="nv">cudnn</span><span class="o">/</span><span class="k">include</span>
+<span class="nv">export</span> <span class="nv">LDFLAGS</span><span class="o">=-</span><span class="nv">L</span><span class="o">/</span><span class="nv">path</span><span class="o">/</span><span class="nv">to</span><span class="o">/</span><span class="nv">cudnn</span><span class="o">/</span><span class="nv">lib</span>
+<span class="nv">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=/</span><span class="nv">path</span><span class="o">/</span><span class="nv">to</span><span class="o">/</span><span class="nv">cudnn</span><span class="o">/</span><span class="nv">lib</span>:$<span class="nv">LD_LIBRARY_PATH</span>
 </pre></div>
+
+
 <p>Refer to these two links: <a href="https://docs-cupy.chainer.org/en/latest/install.html#install-cupy">install cupy</a>, and <a href="https://docs-cupy.chainer.org/en/latest/install.html#installing-cudnn-and-nccl">install cudnn</a></p>
-<h2 id="initializeupdate-the-weight-by-numpy">initialize/update the weight by numpy</h2>
+<h2>initialize/update the weight by numpy</h2>
 <p>Reference to <a href="https://github.com/chainer/chainer/blob/v5.2.0/chainer/initializers/normal.py#L10">normal initializer</a></p>
 <p>Its implementation is different from PyTorch. </p>
-<h1 id="theano">Theano</h1>
+<h1>Theano</h1>
 <p>要使用 GPU 的话， 需要 pygpu 库， 好像只能用 conda 安装， pip 是找不到这个库的.</p>
 <p>We need pygpu library to utilize GPU, so it seems that only conda support pygpu, I can't find the library by pip.</p>
 <p>但是 tensorboardx 是不能用conda装的</p>
 <p>tensorboardX need to use pip to install.</p>
-<h2 id="suggestion">安装建议 suggestion</h2>
+<h2>安装建议 suggestion</h2>
 <p>python 2.7 直接使用 conda install theano pygpu </p>
 <p>python 3 可能更有效方式， </p>
 <p>conda install pygpu  libgpuarray numpy==1.15.4 theano   -c mila-udem</p>
@@ -177,7 +151,7 @@ export LD_LIBRARY_PATH=/path/to/cudnn/lib:$LD_LIBRARY_PATH
 <li>conda install pygpu  or  conda install theano pygpu</li>
 <li>update theano using pip. pip install theano==1.0.4</li>
 </ol>
-<h3 id="error-information">Error information</h3>
+<h3>Error information</h3>
 <ol>
 <li>Mixed dnn version. The header is version xxx  while the library is version  yyyy</li>
 <li>theano seems not work &gt; 3.5</li>

@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="TensorFlow和PyTorch如何结果一致 "/>
 <meta property="og:url" content="http://sndnyang.github.io/TensorFlow-PyTorch-get-same-outputs.html" />
-<meta property="og:description" content="[TOC] github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True …" />
+<meta property="og:description" content="github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2019-03-18T22:18:30+08:00" />
 <meta property="" content="2019-03-18T22:18:30+08:00" />
 <meta name="twitter:title" content="TensorFlow和PyTorch如何结果一致 ">
-<meta name="twitter:description" content="[TOC] github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True …">
+<meta name="twitter:description" content="github repo nbviewer tf eager nbviewer pytorch 求导, gradient torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0])) tp.gradient(f_x[:, 0], logits) 优化器, optimizer torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True) optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True) BatchNorm ...">
 
 
         <title>TensorFlow和PyTorch如何结果一致  · 科探空谷
@@ -117,80 +117,97 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#github">github</a></li>
+<li><a href="#gradient">求导, gradient</a></li>
+<li><a href="#optimizer">优化器, optimizer</a></li>
+<li><a href="#batchnorm">BatchNorm</a><ul>
+<li><a href="#_1">代码示例</a></li>
+</ul>
+</li>
+<li><a href="#dropout">Dropout</a></li>
+<li><a href="#deterministic">deterministic</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>github</h1>
+                        
+<h1 id="github">github</h1>
 <p><a href="https://github.com/sndnyang/DeepLearningCMP">repo</a></p>
 <p><a href="https://nbviewer.jupyter.org/github/sndnyang/DeepLearningCMP/blob/master/tf_eager.ipynb">nbviewer tf eager</a></p>
 <p><a href="https://nbviewer.jupyter.org/github/sndnyang/DeepLearningCMP/blob/master/pytorch.ipynb">nbviewer pytorch</a></p>
-<h1>求导, gradient</h1>
-<div class="highlight"><pre><span></span><span class="n">torch</span><span class="p">.</span><span class="n">autograd</span><span class="p">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">logits</span><span class="p">,</span> <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="p">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">f_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+<h1 id="gradient">求导, gradient</h1>
+<div class="highlight"><pre><span></span>torch.autograd.grad(f_x[:, 0], logits, grad_outputs=torch.ones_like(f_x[:, 0]))
 
-<span class="n">tp</span><span class="p">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">f_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">logits</span><span class="p">)</span>
+tp.gradient(f_x[:, 0], logits)
 </pre></div>
+<h1 id="optimizer">优化器, optimizer</h1>
+<div class="highlight"><pre><span></span>torch_optimizer = optim.SGD(list(model.parameters()), lr, momentum=0.9, nesterov=True)
 
-
-<h1>优化器, optimizer</h1>
-<div class="highlight"><pre><span></span><span class="n">torch_optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="k">parameters</span><span class="p">()),</span> <span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">train</span><span class="p">.</span><span class="n">MomentumOptimizer</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span> <span class="n">use_nesterov</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+optimizer = tf.train.MomentumOptimizer(lr, momentum=0.9, use_nesterov=True)
 </pre></div>
-
-
-<h1>BatchNorm</h1>
+<h1 id="batchnorm">BatchNorm</h1>
 <p>Converting a batch normalization layer from TF to Pytorch</p>
-<div class="highlight"><pre><span></span><span class="n">bn_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">num_filters</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">EPS</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">affine</span><span class="o">=</span><span class="k">False</span><span class="p">).</span><span class="k">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">bn_layer</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>bn_layer = nn.BatchNorm2d(num_filters, eps=EPS, momentum=MOMENTUM, affine=False).to(device)
+p = bn_layer(images)
 
-<span class="n">bn_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">EPS</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">bn_layer</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="ss">&quot;output\n&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">numpy</span><span class="p">())</span>
-<span class="n">print</span><span class="p">(</span><span class="ss">&quot;sum of output**2\n&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">).</span><span class="k">sum</span><span class="p">())</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">batch_normalization</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">EPS</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="ss">&quot;output\n&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">numpy</span><span class="p">())</span>
-<span class="n">print</span><span class="p">(</span><span class="ss">&quot;sum of output**2\n&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">).</span><span class="k">sum</span><span class="p">())</span>
+bn_layer = tf.layers.BatchNormalization(axis=-1, momentum=MOMENTUM, epsilon=EPS)
+p = bn_layer(m, training=True)
+print("output\n", p.numpy())
+print("sum of output**2\n", (p.numpy()**2).sum())
+p = tf.layers.batch_normalization(m, training=True, momentum=MOMENTUM, epsilon=EPS)
+print("output\n", p.numpy())
+print("sum of output**2\n", (p.numpy()**2).sum())
 </pre></div>
+<h2 id="_1">代码示例</h2>
+<div class="highlight"><pre><span></span>tf.set_random_seed(1)
+m = tf.random_uniform((2, 3, 3, 1), 0, 1)
+print("random input\n", m.numpy())
+print("sum of random input\n", m.numpy().sum())
+images = torch.FloatTensor(m.numpy()).to(device)
+images = images.permute(0, 3, 1, 2)
+bn_layer = nn.BatchNorm2d(1, eps=EPS, momentum=MOMENTUM, affine=False).to(device)
+p = bn_layer(images)
+
+print("output\n", p.cpu().numpy())
+print("sum of output**2\n", (p.cpu().numpy() ** 2).sum())
 
 
-<h2>代码示例</h2>
-<div class="highlight"><pre><span></span><span class="nv">tf</span>.<span class="nv">set_random_seed</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>
-<span class="nv">m</span> <span class="o">=</span> <span class="nv">tf</span>.<span class="nv">random_uniform</span><span class="ss">((</span><span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">3</span>, <span class="mi">1</span><span class="ss">)</span>, <span class="mi">0</span>, <span class="mi">1</span><span class="ss">)</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">random input</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="nv">m</span>.<span class="nv">numpy</span><span class="ss">())</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sum of random input</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="nv">m</span>.<span class="nv">numpy</span><span class="ss">()</span>.<span class="nv">sum</span><span class="ss">())</span>
-<span class="nv">images</span> <span class="o">=</span> <span class="nv">torch</span>.<span class="nv">FloatTensor</span><span class="ss">(</span><span class="nv">m</span>.<span class="nv">numpy</span><span class="ss">())</span>.<span class="nv">to</span><span class="ss">(</span><span class="nv">device</span><span class="ss">)</span>
-<span class="nv">images</span> <span class="o">=</span> <span class="nv">images</span>.<span class="nv">permute</span><span class="ss">(</span><span class="mi">0</span>, <span class="mi">3</span>, <span class="mi">1</span>, <span class="mi">2</span><span class="ss">)</span>
-<span class="nv">bn_layer</span> <span class="o">=</span> <span class="nv">nn</span>.<span class="nv">BatchNorm2d</span><span class="ss">(</span><span class="mi">1</span>, <span class="nv">eps</span><span class="o">=</span><span class="nv">EPS</span>, <span class="nv">momentum</span><span class="o">=</span><span class="nv">MOMENTUM</span>, <span class="nv">affine</span><span class="o">=</span><span class="nv">False</span><span class="ss">)</span>.<span class="nv">to</span><span class="ss">(</span><span class="nv">device</span><span class="ss">)</span>
-<span class="nv">p</span> <span class="o">=</span> <span class="nv">bn_layer</span><span class="ss">(</span><span class="nv">images</span><span class="ss">)</span>
+tf.set_random_seed(1)
+m = tf.random_uniform((2, 3, 3, 1), 0, 1)
+print(m)
+print(m.numpy().sum())
+bn_layer = tf.layers.BatchNormalization(axis=-1, momentum=MOMENTUM, epsilon=EPS)
+p = bn_layer(m, training=True)
+print("output\n", p.numpy())
+print("sum of output**2\n", (p.numpy()**2).sum())
 
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">output</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="nv">p</span>.<span class="nv">cpu</span><span class="ss">()</span>.<span class="nv">numpy</span><span class="ss">())</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sum of output**2</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="ss">(</span><span class="nv">p</span>.<span class="nv">cpu</span><span class="ss">()</span>.<span class="nv">numpy</span><span class="ss">()</span> <span class="o">**</span> <span class="mi">2</span><span class="ss">)</span>.<span class="nv">sum</span><span class="ss">())</span>
-
-
-<span class="nv">tf</span>.<span class="nv">set_random_seed</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>
-<span class="nv">m</span> <span class="o">=</span> <span class="nv">tf</span>.<span class="nv">random_uniform</span><span class="ss">((</span><span class="mi">2</span>, <span class="mi">3</span>, <span class="mi">3</span>, <span class="mi">1</span><span class="ss">)</span>, <span class="mi">0</span>, <span class="mi">1</span><span class="ss">)</span>
-<span class="nv">print</span><span class="ss">(</span><span class="nv">m</span><span class="ss">)</span>
-<span class="nv">print</span><span class="ss">(</span><span class="nv">m</span>.<span class="nv">numpy</span><span class="ss">()</span>.<span class="nv">sum</span><span class="ss">())</span>
-<span class="nv">bn_layer</span> <span class="o">=</span> <span class="nv">tf</span>.<span class="nv">layers</span>.<span class="nv">BatchNormalization</span><span class="ss">(</span><span class="nv">axis</span><span class="o">=-</span><span class="mi">1</span>, <span class="nv">momentum</span><span class="o">=</span><span class="nv">MOMENTUM</span>, <span class="nv">epsilon</span><span class="o">=</span><span class="nv">EPS</span><span class="ss">)</span>
-<span class="nv">p</span> <span class="o">=</span> <span class="nv">bn_layer</span><span class="ss">(</span><span class="nv">m</span>, <span class="nv">training</span><span class="o">=</span><span class="nv">True</span><span class="ss">)</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">output</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="nv">p</span>.<span class="nv">numpy</span><span class="ss">())</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sum of output**2</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="ss">(</span><span class="nv">p</span>.<span class="nv">numpy</span><span class="ss">()</span><span class="o">**</span><span class="mi">2</span><span class="ss">)</span>.<span class="nv">sum</span><span class="ss">())</span>
-
-<span class="nv">p</span> <span class="o">=</span> <span class="nv">tf</span>.<span class="nv">layers</span>.<span class="nv">batch_normalization</span><span class="ss">(</span><span class="nv">m</span>, <span class="nv">training</span><span class="o">=</span><span class="nv">True</span>, <span class="nv">momentum</span><span class="o">=</span><span class="nv">MOMENTUM</span>, <span class="nv">epsilon</span><span class="o">=</span><span class="nv">EPS</span><span class="ss">)</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">output</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="nv">p</span>.<span class="nv">numpy</span><span class="ss">())</span>
-<span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">sum of output**2</span><span class="se">\n</span><span class="s2">&quot;</span>, <span class="ss">(</span><span class="nv">p</span>.<span class="nv">numpy</span><span class="ss">()</span><span class="o">**</span><span class="mi">2</span><span class="ss">)</span>.<span class="nv">sum</span><span class="ss">())</span>
+p = tf.layers.batch_normalization(m, training=True, momentum=MOMENTUM, epsilon=EPS)
+print("output\n", p.numpy())
+print("sum of output**2\n", (p.numpy()**2).sum())
 </pre></div>
+<h1 id="dropout">Dropout</h1>
+<h1 id="deterministic">deterministic</h1>
+<div class="highlight"><pre><span></span>PyTorch
+torch.backends.cudnn.deterministic = True
 
 
-<h1>Dropout</h1>
-<h1>deterministic</h1>
-<div class="highlight"><pre><span></span><span class="n">PyTorch</span>
-<span class="n">torch</span><span class="p">.</span><span class="n">backends</span><span class="p">.</span><span class="n">cudnn</span><span class="p">.</span><span class="k">deterministic</span> <span class="o">=</span> <span class="k">True</span>
-
-
-<span class="n">TensorFlow</span>
-<span class="err">没找到</span><span class="p">,</span> <span class="n">didn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">find</span>
+TensorFlow
+没找到, didn't find
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

@@ -116,42 +116,62 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">下载安装</a><ul>
+<li><a href="#_2">配置源</a></li>
+</ul>
+</li>
+<li><a href="#_3">配置</a><ul>
+<li><a href="#nginxconf">默认文件nginx.conf</a></li>
+<li><a href="#_4">简单配置</a></li>
+</ul>
+</li>
+<li><a href="#_5">运行</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>下载安装</h1>
-<h2>配置源</h2>
-<div class="highlight"><pre><span></span><span class="n">vi</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="p">.</span><span class="n">repos</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">repo</span><span class="w"></span>
-<span class="o">[</span><span class="n">nginx</span><span class="o">]</span><span class="w"></span>
-<span class="n">name</span><span class="o">=</span><span class="n">nginx</span><span class="w"> </span><span class="n">repo</span><span class="w"></span>
-<span class="n">baseurl</span><span class="o">=</span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">OS</span><span class="o">/</span><span class="n">OSRELEASE</span><span class="o">/</span><span class="err">$</span><span class="n">basearch</span><span class="o">/</span><span class="w"></span>
-<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
-<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+                        
+<h1 id="_1">下载安装</h1>
+<h2 id="_2">配置源</h2>
+<div class="highlight"><pre><span></span>vi /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/
+gpgcheck=0
+enabled=1
 </pre></div>
-
-
 <p>OS变更为相应的操作系统如 centos, OSRELEASE为6或7， 可以直接打开 http://nginx.org/packages 查看</p>
-<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">nginx</span>
+<div class="highlight"><pre><span></span>yum -y install nginx
 </pre></div>
-
-
-<h1>配置</h1>
-<h2>默认文件nginx.conf</h2>
-<div class="highlight"><pre><span></span><span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">conf</span>
+<h1 id="_3">配置</h1>
+<h2 id="nginxconf">默认文件nginx.conf</h2>
+<div class="highlight"><pre><span></span>/etc/nginx/nginx.conf
 和
-<span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">conf</span>.<span class="nv">d</span><span class="o">/</span><span class="nv">default</span>.<span class="nv">conf</span>      <span class="o">//</span> <span class="nv">nginx</span>.<span class="nv">conf</span>里有 <span class="k">include</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">conf</span>.<span class="nv">d</span><span class="cm">/*.conf 来导入</span>
+/etc/nginx/conf.d/default.conf      // nginx.conf里有 include /etc/nginx/conf.d/*.conf 来导入
 </pre></div>
-
-
 <p>同理可以添加其他文件夹和文件，再在 nginx.conf 里 include, 其他一些发行版的 site-available, site-enabled 就是这个意思， 只要在新文件里写 server {} 部分即可</p>
-<h2>简单配置</h2>
+<h2 id="_4">简单配置</h2>
 <p><a href="http://github.com/sndnyang/config/nginx/nginx.conf">http80\https443简单配置</a></p>
-<h1>运行</h1>
-<div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">nginx</span> <span class="k">start</span>
-<span class="n">reload</span>              <span class="o">//</span> <span class="err">重新加载配置文件</span>
-<span class="n">quit</span>                <span class="o">//</span> <span class="err">正常关闭</span>
-<span class="n">stop</span>                <span class="o">//</span> <span class="err">强制关闭</span>
+<h1 id="_5">运行</h1>
+<div class="highlight"><pre><span></span>service nginx start
+reload              // 重新加载配置文件
+quit                // 正常关闭
+stop                // 强制关闭
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

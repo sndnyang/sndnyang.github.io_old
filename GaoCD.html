@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="GaoCD-总结 "/>
 <meta property="og:url" content="http://sndnyang.github.io/GaoCD.html" />
-<meta property="og:description" content="导论 算法思路 通过 划分密度(partition density) 这个目标函数的最优化来寻找 连接群落link communities 通过 novel genotype representation method, 将 连接群落映射回 点群落。 群落数自动发现 算法描述 框架 目标函数 partition density D only considers the link density within the community, different from the common community definition that a community should be densely intra-connected and sparsely connected with the …" />
+<meta property="og:description" content="导论 算法思路 通过 划分密度(partition density) 这个目标函数的最优化来寻找 连接群落link communities 通过 novel genotype representation method, 将 连接群落映射回 点群落。 群落数自动发现 算法描述 框架 目标函数 partition density D only considers the link density within the community, different from the common community definition that a community should be densely intra-connected and sparsely connected with the ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2016-03-10T00:00:00+08:00" />
 <meta name="twitter:title" content="GaoCD-总结 ">
-<meta name="twitter:description" content="导论 算法思路 通过 划分密度(partition density) 这个目标函数的最优化来寻找 连接群落link communities 通过 novel genotype representation method, 将 连接群落映射回 点群落。 群落数自动发现 算法描述 框架 目标函数 partition density D only considers the link density within the community, different from the common community definition that a community should be densely intra-connected and sparsely connected with the …">
+<meta name="twitter:description" content="导论 算法思路 通过 划分密度(partition density) 这个目标函数的最优化来寻找 连接群落link communities 通过 novel genotype representation method, 将 连接群落映射回 点群落。 群落数自动发现 算法描述 框架 目标函数 partition density D only considers the link density within the community, different from the common community definition that a community should be densely intra-connected and sparsely connected with the ...">
 
 
         <title>GaoCD-总结  · 科探空谷
@@ -119,16 +119,16 @@
                     <div class="span8 offset2 article-content">
 
                         
-                        <h1>导论</h1>
-<h2>算法思路</h2>
+                        <h1 id="_1">导论</h1>
+<h2 id="_2">算法思路</h2>
 <ol>
 <li>通过 划分密度(partition density) 这个目标函数的最优化来寻找 连接群落link communities</li>
 <li>通过 novel genotype representation method, 将 连接群落映射回 点群落。</li>
 </ol>
 <p>群落数自动发现</p>
-<h1>算法描述</h1>
-<h2>框架</h2>
-<h2>目标函数</h2>
+<h1 id="_3">算法描述</h1>
+<h2 id="_4">框架</h2>
+<h2 id="_5">目标函数</h2>
 <p>partition density D only considers the link density within
 the community, different from the common community definition that a community should be densely intra-connected and sparsely connected with the rest
 communities.#</p>
@@ -140,12 +140,12 @@ communities.#</p>
 <p>$$</p>
 <p>D = \frac{2}{M}\sum_c m_c\frac{m_c - (n_c - 1)}{(n_c-2)(n_c-1)}</p>
 <p>$$</p>
-<h2>3.3 基因表达</h2>
-<h3>编码</h3>
+<h2 id="33">3.3 基因表达</h2>
+<h3 id="_6">编码</h3>
 <p>基于连接的表示方法， 群体中的个体g 有 m 个基因， 下标i 代表边的序号
 m 是边数——吓死人了。 gj 从连接的点中选一个。</p>
 <p>当无向图中两边共点时， 两边相连</p>
-<h3>解码</h3>
+<h3 id="_7">解码</h3>
 <p>把基因型转化成 分割（由连接群落组成），  gi 作为基因型， 值 j 可看作是边 i 和 边 j 有一个共同点， 并应该归入同一群落中。</p>
 <p>桥接边： 连接两个 聚落的边。</p>
 <p>Fine tuning: 调整 单一映射方法得到的点群落 的点附属关系</p>

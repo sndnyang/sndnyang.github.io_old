@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="100个numpy小练习 "/>
 <meta property="og:url" content="http://sndnyang.github.io/100-numpy-excercises.html" />
-<meta property="og:description" content="100 个numpy小练习 The goal is both to offer a quick reference for new and old users and to provide also a set of exercices for those who teach. If you remember having asked or answered a (short) problem, you can send a pull request. The format is: 本教程的目标是为新手老手提供快速参考及一系列练习题。 . Find indices …" />
+<meta property="og:description" content="100 个numpy小练习 The goal is both to offer a quick reference for new and old users and to provide also a set of exercices for those who teach. If you remember having asked or answered a (short) problem, you can send a pull request. The format is: 本教程的目标是为新手老手提供快速参考及一系列练习题。 . Find indices ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2017-04-11T21:15:00+08:00" />
 <meta name="twitter:title" content="100个numpy小练习 ">
-<meta name="twitter:description" content="100 个numpy小练习 The goal is both to offer a quick reference for new and old users and to provide also a set of exercices for those who teach. If you remember having asked or answered a (short) problem, you can send a pull request. The format is: 本教程的目标是为新手老手提供快速参考及一系列练习题。 . Find indices …">
+<meta name="twitter:description" content="100 个numpy小练习 The goal is both to offer a quick reference for new and old users and to provide also a set of exercices for those who teach. If you remember having asked or answered a (short) problem, you can send a pull request. The format is: 本教程的目标是为新手老手提供快速参考及一系列练习题。 . Find indices ...">
 
 
         <title>100个numpy小练习  · 科探空谷
@@ -119,25 +119,25 @@
                     <div class="span8 offset2 article-content">
 
                         
-                        <h1>100 个numpy小练习</h1>
+                        <h1 id="100-numpy">100 个numpy小练习</h1>
 <p>The goal is both to offer a quick reference for new and old users and to
 provide also a set of exercices for those who teach. If you remember
 having asked or answered a (short) problem, you can send a pull request.
 The format is:</p>
 <p>本教程的目标是为新手老手提供快速参考及一系列练习题。</p>
-<h1>. Find indices of non-zero elements from [1,2,0,0,4,0]</h1>
+<h1 id="find-indices-of-non-zero-elements-from-120040">. Find indices of non-zero elements from [1,2,0,0,4,0]</h1>
 <p>.. code:: python</p>
-<div class="highlight"><pre><span></span>  <span class="o">#</span> <span class="n">Author</span><span class="p">:</span> <span class="n">Somebody</span>
+<div class="highlight"><pre><span></span>  # Author: Somebody
 
-  <span class="n">print</span> <span class="n">np</span><span class="p">.</span><span class="n">nonzero</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+  print np.nonzero([1,2,0,0,4,0])
 </pre></div>
 
 
 <p>Here is what the page looks like so far:
 <a href="http://www.loria.fr/~rougier/teaching/numpy.100/index.html">http://www.loria.fr/~rougier/teaching/numpy.100/index.html</a></p>
-<h2>译者注</h2>
+<h2 id="_1">译者注</h2>
 <p>前面是基础应用， 所以可以练一练， 但后面部分感觉偏 科学计算， 我没怎么遇到这样的问题， 所以也没翻译下来， 另外， 我有一些地方没看懂。</p>
-<h1>Note</h1>
+<h1 id="note">Note</h1>
 <p>这段Note 我就不管了</p>
 <p>The level names came from an old-game (Dungeon Master)</p>
 <p>Repository is at: <a href="https://github.com/rougier/numpy-100">https://github.com/rougier/numpy-100</a></p>
@@ -148,7 +148,7 @@ is available from the github repo, thanks to the
 <a href="http://haenel.co">Valentin Haenel</a></p>
 <p>Thanks to Michiaki Ariga, there is now a <a href="https://github.com/chezou/julia-100-exercises">Julia
 version</a>.</p>
-<h2>Neophyte 新手</h2>
+<h2 id="neophyte">Neophyte 新手</h2>
 <p>Import the numpy package under the name <code>np</code></p>
 <p>导入numpy包， 命名为np</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -233,20 +233,20 @@ version</a>.</p>
 </pre></div>
 
 
-<h2>Novice 新手2</h2>
+<h2 id="novice-2">Novice 新手2</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">novice</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
 
 <p>2.1 Create a 8x8 matrix and fill it with a checkerboard pattern</p>
 <p>创建8x8矩阵， 赋值模式：</p>
-<p>[[0 1 0 1 0 1 0 1]<br>
- [1 0 1 0 1 0 1 0]<br>
- [0 1 0 1 0 1 0 1]<br>
- [1 0 1 0 1 0 1 0]<br>
- [0 1 0 1 0 1 0 1]<br>
- [1 0 1 0 1 0 1 0]<br>
- [0 1 0 1 0 1 0 1]<br>
+<p>[[0 1 0 1 0 1 0 1]<br />
+ [1 0 1 0 1 0 1 0]<br />
+ [0 1 0 1 0 1 0 1]<br />
+ [1 0 1 0 1 0 1 0]<br />
+ [0 1 0 1 0 1 0 1]<br />
+ [1 0 1 0 1 0 1 0]<br />
+ [0 1 0 1 0 1 0 1]<br />
  [1 0 1 0 1 0 1 0]]</p>
 <p>重点， array 下标 步调， 批量赋值</p>
 <div class="highlight"><pre><span></span><span class="n">your_matrix</span> <span class="o">=</span> <span class="bp">None</span>
@@ -332,15 +332,15 @@ excluded</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="nv">NameErrorTraceback</span> <span class="ss">(</span><span class="nv">most</span> <span class="nv">recent</span> <span class="k">call</span> <span class="nl">last</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span>NameErrorTraceback (most recent call last)
 
-<span class="o">&lt;</span><span class="nv">ipython</span><span class="o">-</span><span class="nv">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="nv">a48e828cbe69</span><span class="o">&gt;</span> <span class="nv">in</span> <span class="o">&lt;</span><span class="nv">module</span><span class="o">&gt;</span><span class="ss">()</span>
-      <span class="mi">2</span> <span class="nv">B</span> <span class="o">=</span> <span class="nv">np</span>.<span class="k">random</span>.<span class="nv">randint</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">2</span>,<span class="mi">5</span><span class="ss">)</span>
-      <span class="mi">3</span> <span class="nv">equal</span> <span class="o">=</span> <span class="nv">None</span>
-<span class="o">----&gt;</span> <span class="mi">4</span> <span class="nv">assert</span> <span class="nv">check9</span><span class="ss">(</span><span class="nv">equal</span>, <span class="nv">A</span>, <span class="nv">B</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">错误</span><span class="s2">&quot;</span>
+&lt;ipython-input-4-a48e828cbe69&gt; in &lt;module&gt;()
+      2 B = np.random.randint(0,2,5)
+      3 equal = None
+----&gt; 4 assert check9(equal, A, B), &quot;错误&quot;
 
 
-<span class="nv">NameError</span>: <span class="nv">name</span> <span class="s1">&#39;</span><span class="s">check9</span><span class="s1">&#39;</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">defined</span>
+NameError: name &#39;check9&#39; is not defined
 </pre></div>
 
 
@@ -356,7 +356,7 @@ excluded</p>
 </pre></div>
 
 
-<h2>Apprentice 新手3</h2>
+<h2 id="apprentice-3">Apprentice 新手3</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apprentice</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
@@ -396,56 +396,56 @@ convert them to polar coordinates</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="p">[[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span>        <span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">)]</span>
- <span class="p">[(</span> <span class="mi">0</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">11111111</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22222222</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">33333333</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">44444444</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">55555556</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">66666667</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">77777778</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span>
-  <span class="p">(</span> <span class="mi">0</span><span class="p">.</span><span class="mi">88888889</span><span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)</span> <span class="p">(</span> <span class="mi">1</span><span class="p">.</span>        <span class="p">,</span>  <span class="mi">1</span><span class="p">.</span>        <span class="p">)]]</span>
+<div class="highlight"><pre><span></span>[[( 0.        ,  0.        ) ( 0.11111111,  0.        )
+  ( 0.22222222,  0.        ) ( 0.33333333,  0.        )
+  ( 0.44444444,  0.        ) ( 0.55555556,  0.        )
+  ( 0.66666667,  0.        ) ( 0.77777778,  0.        )
+  ( 0.88888889,  0.        ) ( 1.        ,  0.        )]
+ [( 0.        ,  0.11111111) ( 0.11111111,  0.11111111)
+  ( 0.22222222,  0.11111111) ( 0.33333333,  0.11111111)
+  ( 0.44444444,  0.11111111) ( 0.55555556,  0.11111111)
+  ( 0.66666667,  0.11111111) ( 0.77777778,  0.11111111)
+  ( 0.88888889,  0.11111111) ( 1.        ,  0.11111111)]
+ [( 0.        ,  0.22222222) ( 0.11111111,  0.22222222)
+  ( 0.22222222,  0.22222222) ( 0.33333333,  0.22222222)
+  ( 0.44444444,  0.22222222) ( 0.55555556,  0.22222222)
+  ( 0.66666667,  0.22222222) ( 0.77777778,  0.22222222)
+  ( 0.88888889,  0.22222222) ( 1.        ,  0.22222222)]
+ [( 0.        ,  0.33333333) ( 0.11111111,  0.33333333)
+  ( 0.22222222,  0.33333333) ( 0.33333333,  0.33333333)
+  ( 0.44444444,  0.33333333) ( 0.55555556,  0.33333333)
+  ( 0.66666667,  0.33333333) ( 0.77777778,  0.33333333)
+  ( 0.88888889,  0.33333333) ( 1.        ,  0.33333333)]
+ [( 0.        ,  0.44444444) ( 0.11111111,  0.44444444)
+  ( 0.22222222,  0.44444444) ( 0.33333333,  0.44444444)
+  ( 0.44444444,  0.44444444) ( 0.55555556,  0.44444444)
+  ( 0.66666667,  0.44444444) ( 0.77777778,  0.44444444)
+  ( 0.88888889,  0.44444444) ( 1.        ,  0.44444444)]
+ [( 0.        ,  0.55555556) ( 0.11111111,  0.55555556)
+  ( 0.22222222,  0.55555556) ( 0.33333333,  0.55555556)
+  ( 0.44444444,  0.55555556) ( 0.55555556,  0.55555556)
+  ( 0.66666667,  0.55555556) ( 0.77777778,  0.55555556)
+  ( 0.88888889,  0.55555556) ( 1.        ,  0.55555556)]
+ [( 0.        ,  0.66666667) ( 0.11111111,  0.66666667)
+  ( 0.22222222,  0.66666667) ( 0.33333333,  0.66666667)
+  ( 0.44444444,  0.66666667) ( 0.55555556,  0.66666667)
+  ( 0.66666667,  0.66666667) ( 0.77777778,  0.66666667)
+  ( 0.88888889,  0.66666667) ( 1.        ,  0.66666667)]
+ [( 0.        ,  0.77777778) ( 0.11111111,  0.77777778)
+  ( 0.22222222,  0.77777778) ( 0.33333333,  0.77777778)
+  ( 0.44444444,  0.77777778) ( 0.55555556,  0.77777778)
+  ( 0.66666667,  0.77777778) ( 0.77777778,  0.77777778)
+  ( 0.88888889,  0.77777778) ( 1.        ,  0.77777778)]
+ [( 0.        ,  0.88888889) ( 0.11111111,  0.88888889)
+  ( 0.22222222,  0.88888889) ( 0.33333333,  0.88888889)
+  ( 0.44444444,  0.88888889) ( 0.55555556,  0.88888889)
+  ( 0.66666667,  0.88888889) ( 0.77777778,  0.88888889)
+  ( 0.88888889,  0.88888889) ( 1.        ,  0.88888889)]
+ [( 0.        ,  1.        ) ( 0.11111111,  1.        )
+  ( 0.22222222,  1.        ) ( 0.33333333,  1.        )
+  ( 0.44444444,  1.        ) ( 0.55555556,  1.        )
+  ( 0.66666667,  1.        ) ( 0.77777778,  1.        )
+  ( 0.88888889,  1.        ) ( 1.        ,  1.        )]]
 </pre></div>
 
 
@@ -516,7 +516,7 @@ find point by point distances</p>
 </pre></div>
 
 
-<h2>Journeyman</h2>
+<h2 id="journeyman">Journeyman</h2>
 <p>Consider the following file:</p>
 <p>1,2,3,4,5
 6,,,7,8
@@ -562,7 +562,7 @@ index list (I) ?</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">0</span><span class="p">.</span>  <span class="mi">7</span><span class="p">.</span>  <span class="mi">0</span><span class="p">.</span>  <span class="mi">6</span><span class="p">.</span>  <span class="mi">5</span><span class="p">.</span>  <span class="mi">0</span><span class="p">.</span>  <span class="mi">0</span><span class="p">.</span>  <span class="mi">0</span><span class="p">.</span>  <span class="mi">0</span><span class="p">.</span>  <span class="mi">3</span><span class="p">.]</span>
+<div class="highlight"><pre><span></span>[ 0.  7.  0.  6.  5.  0.  0.  0.  0.  3.]
 </pre></div>
 
 
@@ -632,7 +632,7 @@ with dimensions (5,5) ?</p>
 </pre></div>
 
 
-<h2>Craftsman</h2>
+<h2 id="craftsman">Craftsman</h2>
 <p>Consider a one-dimensional array Z, build a two-dimensional array whose
 first row is (Z[0],Z[1],Z[2]) and each subsequent row is shifted by 1
 (last row should be (Z[-3],Z[-2],Z[-1])</p>
@@ -686,7 +686,7 @@ np.bincount(A) == C ?</p>
 </pre></div>
 
 
-<h2>Artisan</h2>
+<h2 id="artisan">Artisan</h2>
 <p>Considering a 10x3 matrix, extract rows with unequal values (e.g.
 [2,2,3])</p>
 <div class="highlight"><pre><span></span><span class="c1"># Author: Robert Kern</span>
@@ -713,11 +713,11 @@ np.bincount(A) == C ?</p>
 </pre></div>
 
 
-<h2>Adept</h2>
+<h2 id="adept">Adept</h2>
 <p>Consider an arbitrary array, write a function that extract a subpart
 with a fixed shape and centered on a given element (pad with a <code>fill</code>
 value when necessary)</p>
-<h1>Author: Nicolas Rougier</h1>
+<h1 id="author-nicolas-rougier">Author: Nicolas Rougier</h1>
 <p>Z = np.random.randint(0,10,(10,10))
 shape = (5,5)
 fill  = 0
@@ -750,7 +750,7 @@ generate an array R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], ...,
 </pre></div>
 
 
-<h2>Expert</h2>
+<h2 id="expert">Expert</h2>
 <p>Consider two arrays A and B of shape (8,3) and (2,2). How to find rows
 of A that contain elements of each row of B regardless of the order of
 the elements in B ?</p>
@@ -814,9 +814,9 @@ once ? (result has shape (n,1))</p>
 </pre></div>
 
 
-<h2>Master</h2>
+<h2 id="master">Master</h2>
 <p>Given a two dimensional array, how to extract unique rows ?</p>
-<h2>Note</h2>
+<h2 id="note_1">Note</h2>
 <p>See
 <a href="http://stackoverflow.com/questions/16970982/find-unique-rows-in-numpy-array/">stackoverflow</a>
 for explanations.</p>
@@ -830,7 +830,7 @@ for explanations.</p>
 </pre></div>
 
 
-<h2>Archmaster</h2>
+<h2 id="archmaster">Archmaster</h2>
 <p>（原文仅到Archmaster, 后续自己添加的) 恭喜完成本练习， 对 numpy 应该掌握得比较好了。</p>
 <div class="highlight"><pre><span></span><span class="c1"># %load checker.py</span>
 

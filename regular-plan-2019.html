@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, CS, 社区发现, CS, " />
+<meta name="keywords" content=", 日记, " />
 
-<meta property="og:title" content="Unsupervised Feature Selection on Networks: A Generative View "/>
-<meta property="og:url" content="http://sndnyang.github.io/Generative-Feature-Selection.html" />
-<meta property="og:description" content="[TOC] 摘要 现在的网络数据（社交网络或信息网络），不仅有链接信息， 还会有一些或噪声或重要的高维内容，比如点的属性。 也就是说，不单纯是个图数据，每个点还有若干个特性、属性。 那些对网络数据进行机器学习的任务，比如社区发现和链接预测，如果能够利用上这些附加的、额外的信息，想必会有一定的效果。 但这些点的属性或特征往往是高维度数据，对效率上影响比较大。 所以， 本文的目标就两个zhi： 降维 就是对点的特征进行选取 (feature selection) 再根据前人工作中的两个问题， 选取特征时没考虑数据的网络、图特性（存在边、连接）。 网络数据没有标准的标签（label)，一般不适合监督学习的方法。但却用聚类等方法强行给标签，强行使用监督学习，准确性很差。 所以本文提出的特征选取方法： 非监督的 用生成模型（generative model)来整合连接和内容信息（即边和属性） 导论 和摘要差不多， 重复不提。 主要思想： 从点的所有特征中，选取重要的、关键的特征 …" />
+<meta property="og:title" content="2019年常规打卡 "/>
+<meta property="og:url" content="http://sndnyang.github.io/regular-plan-2019.html" />
+<meta property="og:description" content="[TOC] 2019年 突然又想打卡了， 懒惰了太久太久 😄 :smile: 😃 :smiley: ⭐️ :star: 😟 :worried: 😓 :sweat: 项目 论 睡 眼腰 日记 计 数 艺设 史 政 2019.10.09（三） 😟 😟 😟 😟 😟 😟 😟 😟 😟 2019.10.10（四） 2019.10.11（五） 2019.10.12（六） 2019.10.13（日）" />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
-<meta property="og:article:published_time" content="2016-07-04T15:47:19+08:00" />
-<meta name="twitter:title" content="Unsupervised Feature Selection on Networks: A Generative View ">
-<meta name="twitter:description" content="[TOC] 摘要 现在的网络数据（社交网络或信息网络），不仅有链接信息， 还会有一些或噪声或重要的高维内容，比如点的属性。 也就是说，不单纯是个图数据，每个点还有若干个特性、属性。 那些对网络数据进行机器学习的任务，比如社区发现和链接预测，如果能够利用上这些附加的、额外的信息，想必会有一定的效果。 但这些点的属性或特征往往是高维度数据，对效率上影响比较大。 所以， 本文的目标就两个zhi： 降维 就是对点的特征进行选取 (feature selection) 再根据前人工作中的两个问题， 选取特征时没考虑数据的网络、图特性（存在边、连接）。 网络数据没有标准的标签（label)，一般不适合监督学习的方法。但却用聚类等方法强行给标签，强行使用监督学习，准确性很差。 所以本文提出的特征选取方法： 非监督的 用生成模型（generative model)来整合连接和内容信息（即边和属性） 导论 和摘要差不多， 重复不提。 主要思想： 从点的所有特征中，选取重要的、关键的特征 …">
+<meta property="og:article:published_time" content="2019-10-08T23:12:21+08:00" />
+<meta name="twitter:title" content="2019年常规打卡 ">
+<meta name="twitter:description" content="[TOC] 2019年 突然又想打卡了， 懒惰了太久太久 😄 :smile: 😃 :smiley: ⭐️ :star: 😟 :worried: 😓 :sweat: 项目 论 睡 眼腰 日记 计 数 艺设 史 政 2019.10.09（三） 😟 😟 😟 😟 😟 😟 😟 😟 😟 2019.10.10（四） 2019.10.11（五） 2019.10.12（六） 2019.10.13（日）">
 
 
-        <title>Unsupervised Feature Selection on Networks: A Generative View  · 科探空谷
+        <title>2019年常规打卡  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +109,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/Generative-Feature-Selection.html">
-                        Unsupervised Feature Selection on Networks: A Generative View  
+                    <a href="/regular-plan-2019.html">
+                        2019年常规打卡  
                     </a>
                 </h1>
             </header>
@@ -120,116 +120,91 @@
 
                         
                         <p>[TOC]</p>
-<h1>摘要</h1>
-<p>现在的网络数据（社交网络或信息网络），不仅有链接信息， 还会有一些或噪声或重要的高维内容，比如点的属性。</p>
-<p>也就是说，不单纯是个图数据，每个点还有若干个特性、属性。</p>
-<p>那些对网络数据进行机器学习的任务，比如社区发现和链接预测，如果能够利用上这些附加的、额外的信息，想必会有一定的效果。</p>
-<p>但这些点的属性或特征往往是高维度数据，对效率上影响比较大。</p>
-<p>所以， 本文的目标就两个zhi：</p>
-<p><strong>降维</strong></p>
-<p>就是对点的特征进行选取 (feature selection)</p>
-<p>再根据前人工作中的两个问题，</p>
-<ol>
-<li>选取特征时没考虑数据的网络、图特性（存在边、连接）。</li>
-<li>网络数据没有标准的标签（label)，一般不适合监督学习的方法。但却用聚类等方法强行给标签，强行使用监督学习，准确性很差。</li>
-</ol>
-<p>所以本文提出的<em>特征选取方法</em>：</p>
-<ol>
-<li>非监督的</li>
-<li>用生成模型（generative model)来整合连接和内容信息（即边和属性）</li>
-</ol>
-<h1>导论</h1>
-<p>和摘要差不多， 重复不提。</p>
-<p>主要思想：</p>
-<p>从点的所有特征中，选取重要的、关键的特征，记为 <em>预特征</em>（oracle features，叫圣特征、神谕特征都不好吧）</p>
-<h2>对于边来说</h2>
-<p>边不是边~~~而是两个点在预特征上的亲密度（就相似度）来决定两个点是不是该相连。</p>
-<p>首先，非预特征对边没有影响。就像自然语言处理里肯定要把停用词过滤掉， 这种数据没有作用。</p>
-<p>其次， 想说什么来着？忘了</p>
-<h2>对于点的属性特征来说</h2>
-<p>首先， 很多属性也是没用、没影响的，只占空间不干活。</p>
-<p>其次， 还有很多的属性或特征 本质上是重复的。就像线性方程组消元，发现一些方程可能是另外方程的线性组合。</p>
-<p>所以，原本比较大的点属性集合就可以用比较小的 预特征 集合来代替（还可以存在映射关系）</p>
-<h2>结论</h2>
-<p>就可以用点的预特征集合 来同时表示连接和内容信息。</p>
-<p>这样，就得到了一个模型， 类似于线性回归的那个线性方程的模型， 后面会写模型具体的形式</p>
-<p>然后，再去定义这个模型对应的：</p>
-<ol>
-<li>策略。 即损失函数，要优化的目标。</li>
-<li>算法。 如何进行优化。</li>
-</ol>
-<p>*模型、策略、算法，机器学习三要素，《统计学习方法》的描述方法</p>
-<h2>题外话</h2>
-<p>生成图模型，generative graph model， 比如AGM 都是先定义模型、模型表达式，再定义策略、损失函数，最后才用算法来求出模型解空间里 最优的每个参数</p>
-<h1>正文</h1>
-<h2>定义</h2>
-<p>Attributed Network 属性网络：</p>
-<p>G = (V; E; X)， X是n个点的D维属性、特征向量</p>
-<p>s 是D维01向量， 1代表该位置是预特征， 0则否</p>
-<p>diag(s) 则是把s 拉成对角矩阵， 后面计算用得到--光点积不够用</p>
-<p>目标是求出 预特征 集合</p>
-<h2>对连接信息建模</h2>
-<p>如之前所说：</p>
-<p>probability of a link is determined by the oracle affinity between two nodes </p>
-<p>所以要定义 Oracle Affinity</p>
-<h3>Oracle Affinity</h3>
-<p>dot product of oracle features of two nodes</p>
-<p>$$
-a_{ij}=x^T_i diag(s) x_j
-$$</p>
-<h3>边生成概率定义</h3>
-<p>用某个转换函数（比如sigmoid）将上面的 $a_ij$转成个概率值</p>
-<p>概率值再用伯努利分布来决定边是生成还是不生成， 如下：</p>
-<p>$$
-p_{ij}=F_g(a_{ij}) \
-E_{ij} \sim Bernoulli(p_{ij})
-$$</p>
-<h3>整个图的概率</h3>
-<p>从定义上， 在给定 预特征 oracle features时， 整个网络的概率为：</p>
-<p>$$
-P(G|s) = \prod_{(i,j)\in E}p_{ij}\cdot \prod_{(i,j)\notin E}(1-p_{ij})
-$$</p>
-<h3>最终式</h3>
-<p>把$a_{ij},F_g$代入上式， 求个-log, 化简得：</p>
-<p>$\cal{L_G}=xxxx$</p>
-<p>省略~~~</p>
-<h2>对内容建模</h2>
-<p>关键就是得到一个 预特征向量 和 原特征向量的映射关系。</p>
-<p>所以可以是：（也可以使用和边相似的建模）</p>
-<p>$$
-\mu_i = F_c(diag(s)x_i) \
-x_i \sim \cal{N}(\mu_i, \sigma^2\bf{I}_D)
-$$</p>
-<p>为简便， Fc就等于左乘个 D行D列的投影矩阵 $\bf{W}$</p>
-<p>使用以上模型的话， 那对内容的最大似然值优化 其实也就等效于 最小化误差平方和， 再加个控制项得：</p>
-<p>$$
-\cal{L}_C=||X^Tdiag(s)W - X^T||^2_F + \beta||W||^2_F
-$$</p>
-<h2>二者结合</h2>
-<p>就是</p>
-<p>$$
-\min \limits_{s,b,W} \cal{L}_G + \cal{L}_C
-$$</p>
-<p>限制条件有， s向量里取值0或1，长度D，向量和=d</p>
-<p>对齐还没掌握~~~</p>
-<h1>优化</h1>
-<p>出于优化难度，改写优化式：</p>
-<p>$$
-\begin{eqnarray}
-&amp; \min \limits_{s,b,W} &amp; \cal{L}_G + \cal{L}_C + \lambda||s||_1 \
-&amp; s.t. &amp; 0 \leq s_p \leq 1, \forall p=1,...,D
-\end{eqnarray}
-$$</p>
-<p>优化过程并不特殊， 貌似和SVM的优化过程SMO是一样的。</p>
-<p>先固定W， 优化方程的s和b</p>
-<p>再固定s和b， 优化方程的W</p>
-<p>偏导方程就不写了。</p>
-<h1>总结</h1>
-<ol>
-<li>本文定义、 概念描述准确，逻辑清晰，没有太复杂的东西。</li>
-</ol>
-<p>总结不太会写， 还不敢评价论文质量。</p>
-<p>不过本文的实验部分写得比较简略~~~别的很多论文都3、5页的。本文将将一页出头。</p>
+<h1>2019年</h1>
+<p>突然又想打卡了， 懒惰了太久太久</p>
+<p>😄 <code>:smile:</code></p>
+<p>😃 <code>:smiley:</code></p>
+<p>⭐️ <code>:star:</code></p>
+<p>😟 <code>:worried:</code></p>
+<p>😓 <code>:sweat:</code></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>论</th>
+<th>睡</th>
+<th>眼腰</th>
+<th>日记</th>
+<th>计</th>
+<th>数</th>
+<th>艺设</th>
+<th>史</th>
+<th>政</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019.10.09（三）</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+<td>😟</td>
+</tr>
+<tr>
+<td>2019.10.10（四）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2019.10.11（五）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2019.10.12（六）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2019.10.13（日）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -250,7 +225,7 @@ $$</p>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/Generative-Feature-Selection.html#disqus_thread">
+                href="http://sndnyang.github.io/regular-plan-2019.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -260,8 +235,8 @@ $$</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'Generative-Feature-Selection.html';
-    var disqus_url = 'http://sndnyang.github.io/Generative-Feature-Selection.html';
+        var disqus_identifier = 'regular-plan-2019.html';
+    var disqus_url = 'http://sndnyang.github.io/regular-plan-2019.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -283,21 +258,9 @@ $$</p>
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2016-07-04T15:47:19+08:00">Jul 4, 2016</time>
+                    <time pubdate="pubdate" datetime="2019-10-08T23:12:21+08:00">Oct 8, 2019</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#cs-ref">CS</a>
-                    <h4>Tags</h4>
-                    <ul class="list-of-tags tags-in-article">
-                        <li><a href="/tags.html#cs-ref">CS
-                            <span>22</span>
-</a></li>
-                        <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>26</span>
-</a></li>
-                        <li><a href="/tags.html#she-qu-fa-xian-ref">社区发现
-                            <span>11</span>
-</a></li>
-                    </ul>
+                    <a class="category-link" href="/categories.html#ri-ji-ref">日记</a>
                     <h4>Stay in Touch</h4>
                     <a href="http://weibo.com/u/2405149384" title="My weibo Profile" class="sidebar-social-links" target="_blank">
                         <i class="fa fa-weibo sidebar-social-links"></i></a>

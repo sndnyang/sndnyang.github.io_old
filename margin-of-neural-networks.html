@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="神经网络的分类边界 "/>
 <meta property="og:url" content="http://sndnyang.github.io/margin-of-neural-networks.html" />
-<meta property="og:description" content="[TOC] 概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x …" />
+<meta property="og:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x)=f_ ..." />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang" />
 <meta property="og:article:published_time" content="2019-05-02T16:20:20+08:00" />
 <meta name="twitter:title" content="神经网络的分类边界 ">
-<meta name="twitter:description" content="[TOC] 概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x …">
+<meta name="twitter:description" content="概述 有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去 涉及以下几篇论文： [Large Margin Deep Networks for Classification][1] [Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training][2] [DeepFool: a simple and accurate method to fool deep neural networks][3] 基本概念： 应用支持向量机的最远化分类边界思想于神经网络， 对多分类softmax问题, 我们定义分类边界为： $$ D_{(i, j)} \triangleq \{ x | f_{i}(x)=f_ ...">
 
 
         <title>神经网络的分类边界  · 科探空谷
@@ -116,11 +116,30 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">概述</a></li>
+<li><a href="#todo">TODO</a></li>
+<li><a href="#_2">参考文献</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>概述</h1>
+                        
+<h1 id="_1">概述</h1>
 <p><strong>有意义、新意的方法，但实际效果似乎也没比CrossEntropy高到哪去</strong></p>
 <p>涉及以下几篇论文：</p>
 <ol>
@@ -147,8 +166,8 @@ $$</p>
 |\delta|&amp;=\frac{\left|f_{i}(x)-f_{j}(x)\right|}{\left|\nabla f_{j}(x)-\nabla f_{i}(x)\right|^2}(\nabla f_{j}(x)-\nabla f_{i}(x))
 \end{aligned}
 $$</p>
-<h1>TODO</h1>
-<h1>参考文献</h1>
+<h1 id="todo">TODO</h1>
+<h1 id="_2">参考文献</h1>
 <p>1: /    "Large Margin Deep Networks for Classification"</p>
 <p>2: /     "Max-Margin Adversarial (MMA) Training: Direct Input Space Margin Maximization through Adversarial Training"</p>
 <p>3: /     "DeepFool: a simple and accurate method to fool deep neural networks"</p>

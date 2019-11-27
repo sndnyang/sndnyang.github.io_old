@@ -116,18 +116,75 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">网络相关背景知识</a><ul>
+<li><a href="#_2">定义</a></li>
+<li><a href="#_3">分类</a></li>
+</ul>
+</li>
+<li><a href="#_4">进化算法与多目标优化</a><ul>
+<li><a href="#_5">进化算法</a><ul>
+<li><a href="#_6">相同性质：</a></li>
+<li><a href="#_7">框架：</a></li>
+</ul>
+</li>
+<li><a href="#_8">多目标优化</a><ul>
+<li><a href="#_9">定义：</a></li>
+<li><a href="#pareto-optimal-solution">Pareto optimal solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_10">适应函数</a><ul>
+<li><a href="#_11">单目标优化</a><ul>
+<li><a href="#411">4.1.1 基于颗粒度的模型</a></li>
+<li><a href="#412-multi-resolution-model">4.1.2 multi-resolution model 多分辨率？模型</a></li>
+</ul>
+</li>
+<li><a href="#42">4.2 多目标优化</a><ul>
+<li><a href="#model">其他model 略</a></li>
+<li><a href="#_12">重叠模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_13">操作子 设计</a><ul>
+<li><a href="#_14">个体表示</a></li>
+<li><a href="#_15">个体重现</a></li>
+<li><a href="#_16">个体局部搜索</a></li>
+</ul>
+</li>
+<li><a href="#_17">结论</a><ul>
+<li><a href="#_18">主要思想：</a></li>
+<li><a href="#_19">问题一：</a></li>
+<li><a href="#_20">问题二：</a></li>
+</ul>
+</li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>网络相关背景知识</h1>
-<h2>定义</h2>
+                        
+<h1 id="_1">网络相关背景知识</h1>
+<h2 id="_2">定义</h2>
 <p>群落检测没有标准定义， 目前一般视为：</p>
-<div class="highlight"><pre><span></span><span class="err">一组顶点，之间可能有着共同的属性或在图中起到相似的作用</span>
+<div class="highlight"><pre><span></span>一组顶点，之间可能有着共同的属性或在图中起到相似的作用
 </pre></div>
-
-
-<h2>分类</h2>
+<h2 id="_3">分类</h2>
 <ol>
 <li>common model 共同？普通？模型</li>
 <li>directed model 有向图模型</li>
@@ -135,61 +192,59 @@
 <li>overlapping model 重叠模型</li>
 <li>dynamic model 动态模型</li>
 </ol>
-<h1>进化算法与多目标优化</h1>
-<h2>进化算法</h2>
-<h3>相同性质：</h3>
+<h1 id="_4">进化算法与多目标优化</h1>
+<h2 id="_5">进化算法</h2>
+<h3 id="_6">相同性质：</h3>
 <ol>
 <li>省</li>
 </ol>
-<h3>框架：</h3>
-<div class="highlight"><pre><span></span><span class="nv">Algorithm</span> <span class="mi">1</span> <span class="nv">General</span> <span class="nv">framework</span> <span class="nv">of</span> <span class="nv">EAs</span>
+<h3 id="_7">框架：</h3>
+<div class="highlight"><pre><span></span>Algorithm 1 General framework of EAs
 输入： 参数与问题实例
 输出： 最优方案
 
-<span class="nv">Begin</span>:
-    <span class="nv">population</span> <span class="nv">initialisation</span>
-    <span class="nv">store</span> <span class="nv">optimal</span> <span class="nv">solutions</span>
-    <span class="k">for</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="nv">to</span> <span class="nv">max_iteration</span> <span class="k">do</span>
-        <span class="k">for</span> <span class="nv">each</span> <span class="nv">individual</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">population</span> <span class="k">do</span>
-            <span class="nv">generate</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">individual</span> <span class="nv">through</span> <span class="nv">stochastic</span> <span class="nv">components</span>
-            <span class="nv">evaluate</span> <span class="nv">the</span> <span class="nv">fitness</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">new</span> <span class="nv">individual</span>
-        <span class="nv">endfor</span>
-        <span class="nv">update</span> <span class="nv">optimal</span> <span class="nv">solutions</span>
-    <span class="nv">endfor</span>
-<span class="k">End</span>
+Begin:
+    population initialisation
+    store optimal solutions
+    for i = 1 to max_iteration do
+        for each individual in the population do
+            generate a new individual through stochastic components
+            evaluate the fitness of the new individual
+        endfor
+        update optimal solutions
+    endfor
+End
 </pre></div>
-
-
-<h2>多目标优化</h2>
-<h3>定义：</h3>
+<h2 id="_8">多目标优化</h2>
+<h3 id="_9">定义：</h3>
 <p>略</p>
-<h3>Pareto optimal solution:</h3>
+<h3 id="pareto-optimal-solution">Pareto optimal solution:</h3>
 <p>待看书， 此处略</p>
-<h1>适应函数</h1>
-<h2>单目标优化</h2>
-<h3>4.1.1 基于颗粒度的模型</h3>
+<h1 id="_10">适应函数</h1>
+<h2 id="_11">单目标优化</h2>
+<h3 id="411">4.1.1 基于颗粒度的模型</h3>
 <p>因为目标是多目标优化，先略， 如果有用再回来看</p>
-<h3>4.1.2 multi-resolution model 多分辨率？模型</h3>
+<h3 id="412-multi-resolution-model">4.1.2 multi-resolution model 多分辨率？模型</h3>
 <p>同上</p>
-<h2>4.2 多目标优化</h2>
-<h3>其他model 略</h3>
-<h3>重叠模型</h3>
-<h1>操作子 设计</h1>
-<h2>个体表示</h2>
-<h2>个体重现</h2>
-<h2>个体局部搜索</h2>
-<h1>结论</h1>
-<h2>主要思想：</h2>
+<h2 id="42">4.2 多目标优化</h2>
+<h3 id="model">其他model 略</h3>
+<h3 id="_12">重叠模型</h3>
+<h1 id="_13">操作子 设计</h1>
+<h2 id="_14">个体表示</h2>
+<h2 id="_15">个体重现</h2>
+<h2 id="_16">个体局部搜索</h2>
+<h1 id="_17">结论</h1>
+<h2 id="_18">主要思想：</h2>
 <ol>
 <li>将群落检测建模成 单目标或多目标优化问题</li>
 <li>设计元启发方法来解决</li>
 </ol>
-<h2>问题一：</h2>
+<h2 id="_19">问题一：</h2>
 <ol>
 <li>根据 no free lunch 理论， 没有通用方法能解决全部类型的网络 </li>
 <li>不同网络的时-空特性不同</li>
 </ol>
-<h2>问题二：</h2>
+<h2 id="_20">问题二：</h2>
 <ol>
 <li>由于数据集过大， 基于元启发方法的群落检测是LSGO问题（大规模全局优化）， </li>
 <li>包含大量的决策变量，对现存优化技术是个挑战。</li>

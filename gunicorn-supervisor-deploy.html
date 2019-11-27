@@ -116,36 +116,63 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">原文</a></li>
+<li><a href="#_2">个人汇总</a></li>
+<li><a href="#gunicorn">gunicorn</a><ul>
+<li><a href="#_3">安装</a></li>
+<li><a href="#_4">配置文件</a></li>
+<li><a href="#_5">运行</a></li>
+</ul>
+</li>
+<li><a href="#supervisor">supervisor</a><ul>
+<li><a href="#_6">安装</a></li>
+<li><a href="#_7">配置</a></li>
+<li><a href="#_8">运行</a></li>
+<li><a href="#_9">部署</a></li>
+</ul>
+</li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>原文</h1>
+                        
+<h1 id="_1">原文</h1>
 <p><a href="http://www.jianshu.com/p/be9dd421fb8d">简书文章</a></p>
-<h1>个人汇总</h1>
+<h1 id="_2">个人汇总</h1>
 <p><a href="http://blog.zhimind.com/Vultr-config-flask-production-environment.html">Vultr配置flask运行环境</a></p>
-<h1>gunicorn</h1>
-<h2>安装</h2>
+<h1 id="gunicorn">gunicorn</h1>
+<h2 id="_3">安装</h2>
 <p><a href="http://blog.zhimind.com/Vultr-config-flask-production-environment.html#virtualenvflasksqlalchemy">安装</a></p>
-<h2>配置文件</h2>
+<h2 id="_4">配置文件</h2>
 <p><a href="https://github.com/sndnyang/zhimind/blob/master/wsgi/gun.py">gun.py</a></p>
-<h2>运行</h2>
-<div class="highlight"><pre><span></span><span class="n">gunicorn</span> <span class="o">-</span><span class="k">c</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">gun</span><span class="p">.</span><span class="n">py</span> <span class="n">module_name</span><span class="p">:</span><span class="n">app</span>
+<h2 id="_5">运行</h2>
+<div class="highlight"><pre><span></span>gunicorn -c /path/to/gun.py module_name:app
 </pre></div>
-
-
 <ol>
 <li>app 是 app = Flask(<strong>name</strong>)的这个 app</li>
 <li>module_name 可以是文件名(不带.py)， 里面有app，也可以是文件夹名，但里面的__init__.py文件里需要有 app(不管是Flask创建的还是import的)</li>
 </ol>
-<h1>supervisor</h1>
-<h2>安装</h2>
-<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">supervisor</span>                    <span class="o">#</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="err">就行</span>
-<span class="n">echo_supervisord_conf</span> <span class="o">&gt;</span> <span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span>   <span class="o">#</span> <span class="err">生成</span> <span class="n">supervisor</span> <span class="err">默认配置文件，</span> <span class="err">不要奇怪，</span> <span class="err">这个命令名字就叫这个，</span> <span class="err">我还以为是写错了</span><span class="o">~~~</span>
+<h1 id="supervisor">supervisor</h1>
+<h2 id="_6">安装</h2>
+<div class="highlight"><pre><span></span>pip install supervisor                    # pip install -r requirements就行
+echo_supervisord_conf &gt; supervisor.conf   # 生成 supervisor 默认配置文件， 不要奇怪， 这个命令名字就叫这个， 我还以为是写错了~~~
 </pre></div>
-
-
-<h2>配置</h2>
+<h2 id="_7">配置</h2>
 <p>在supervisor.conf 配置文件底部添加</p>
 <div class="highlight"><pre><span></span><span class="k">[program:应用名字，不知道中文怎么样]</span>
 <span class="na">command</span><span class="o">=</span><span class="s">/path/to/virtualenv/gunicorn -c /path/to/gun.py module:app    ; supervisor启动命令, 整成一个 shell 脚本也成</span>
@@ -157,23 +184,17 @@
 <span class="na">stdout_logfile</span><span class="o">=</span><span class="s">/python/to/yourlog/gunicorn.log       ; 自定义log 日志</span>
 <span class="na">stderr_logfile</span><span class="o">=</span><span class="s">/python/to/yourlog/gunicorn.err       ; 自定义错误日志</span>
 </pre></div>
-
-
-<h2>运行</h2>
-<div class="highlight"><pre><span></span><span class="n">supervisord</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span><span class="w">                             </span><span class="n">通过配置文件启动supervisor</span><span class="w"></span>
-<span class="n">supervisorctl</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span><span class="n">status</span><span class="w">                    </span><span class="n">察看supervisor的状态</span><span class="w"></span>
-<span class="n">supervisorctl</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span><span class="n">reload</span><span class="w">                    </span><span class="n">重新载入</span><span class="w"> </span><span class="n">配置文件</span><span class="w"></span>
-<span class="n">supervisorctl</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="o">[</span><span class="n">all</span><span class="o">]|[</span><span class="n">appname</span><span class="o">]</span><span class="w">     </span><span class="n">启动指定</span><span class="o">/</span><span class="n">所有</span><span class="w"> </span><span class="n">supervisor管理的程序进程</span><span class="w"></span>
-<span class="n">supervisorctl</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">[</span><span class="n">all</span><span class="o">]|[</span><span class="n">appname</span><span class="o">]</span><span class="w">      </span><span class="n">关闭指定</span><span class="o">/</span><span class="n">所有</span><span class="w"> </span><span class="n">supervisor管理的程序进程</span><span class="w"></span>
+<h2 id="_8">运行</h2>
+<div class="highlight"><pre><span></span>supervisord -c supervisor.conf                             通过配置文件启动supervisor
+supervisorctl -c supervisor.conf status                    察看supervisor的状态
+supervisorctl -c supervisor.conf reload                    重新载入 配置文件
+supervisorctl -c supervisor.conf start [all]|[appname]     启动指定/所有 supervisor管理的程序进程
+supervisorctl -c supervisor.conf stop [all]|[appname]      关闭指定/所有 supervisor管理的程序进程
 </pre></div>
-
-
-<h2>部署</h2>
+<h2 id="_9">部署</h2>
 <p>配置成功后，使用 git 部署程序时， 只要在 post-update 添加</p>
-<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">proj</span><span class="o">/</span><span class="n">virtualenv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">supervisorctl</span> <span class="o">-</span><span class="k">c</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">supervisor</span><span class="p">.</span><span class="n">conf</span> <span class="k">restart</span> <span class="n">project_name</span>
+<div class="highlight"><pre><span></span>/path/to/proj/virtualenv/bin/supervisorctl -c /path/to/project/supervisor.conf restart project_name
 </pre></div>
-
-
 <p>supervisor的配置没有变动， 不需要reload等</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

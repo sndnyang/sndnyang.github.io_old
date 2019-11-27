@@ -14,13 +14,13 @@
 
 <meta property="og:title" content="windows问题处理 "/>
 <meta property="og:url" content="http://sndnyang.github.io/some-issues-on-windows.html" />
-<meta property="og:description" content="[TOC] 没有新建或新建文件夹无反应 原文 使用了方法一： 把下面一段代码存在一个记事本上，再选择另存为1.cmd，最后运行！ regsvr32 /u /s igfxpph.dll reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719}" />
+<meta property="og:description" content="没有新建或新建文件夹无反应 原文 使用了方法一： 把下面一段代码存在一个记事本上，再选择另存为1.cmd，最后运行！ regsvr32 /u /s igfxpph.dll reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719}" />
 <meta property="og:site_name" content="科探空谷" />
 <meta property="og:article:author" content="sndnyang sndnyang.github.io" />
 <meta property="og:article:published_time" content="2017-05-20T10:39:58+08:00" />
 <meta property="" content="2017-05-20T10:42:00+08:00" />
 <meta name="twitter:title" content="windows问题处理 ">
-<meta name="twitter:description" content="[TOC] 没有新建或新建文件夹无反应 原文 使用了方法一： 把下面一段代码存在一个记事本上，再选择另存为1.cmd，最后运行！ regsvr32 /u /s igfxpph.dll reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719}">
+<meta name="twitter:description" content="没有新建或新建文件夹无反应 原文 使用了方法一： 把下面一段代码存在一个记事本上，再选择另存为1.cmd，最后运行！ regsvr32 /u /s igfxpph.dll reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719}">
 
 
         <title>windows问题处理  · 科探空谷
@@ -117,17 +117,34 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">没有新建或新建文件夹无反应</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>没有新建或新建文件夹无反应</h1>
+                        
+<h1 id="_1">没有新建或新建文件夹无反应</h1>
 <p><a href="http://blog.163.com/winter_0578/blog/static/487948022011162496354/">原文</a></p>
 <p>使用了方法一：</p>
 <p>把下面一段代码存在一个记事本上，再选择另存为1.cmd，最后运行！</p>
-<div class="highlight"><pre><span></span><span class="n">regsvr32</span> <span class="o">/</span><span class="n">u</span> <span class="o">/</span><span class="n">s</span> <span class="n">igfxpph</span><span class="p">.</span><span class="n">dll</span> 
-<span class="n">reg</span> <span class="k">delete</span> <span class="n">HKEY_CLASSES_ROOT</span><span class="err">\</span><span class="n">Directory</span><span class="err">\</span><span class="n">Background</span><span class="err">\</span><span class="n">shellex</span><span class="err">\</span><span class="n">ContextMenuHandlers</span> <span class="o">/</span><span class="n">f</span> 
-<span class="n">reg</span> <span class="k">add</span> <span class="n">HKEY_CLASSES_ROOT</span><span class="err">\</span><span class="n">Directory</span><span class="err">\</span><span class="n">Background</span><span class="err">\</span><span class="n">shellex</span><span class="err">\</span><span class="n">ContextMenuHandlers</span><span class="err">\</span><span class="k">new</span> <span class="o">/</span><span class="n">ve</span> <span class="o">/</span><span class="n">d</span> <span class="err">{</span><span class="n">D969A300</span><span class="o">-</span><span class="n">E7FF</span><span class="o">-</span><span class="mi">11</span><span class="n">d0</span><span class="o">-</span><span class="n">A93B</span><span class="o">-</span><span class="mi">00</span><span class="n">A0C90F2719</span><span class="err">}</span>
+<div class="highlight"><pre><span></span>regsvr32 /u /s igfxpph.dll 
+reg delete HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers /f 
+reg add HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\new /ve /d {D969A300-E7FF-11d0-A93B-00A0C90F2719}
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

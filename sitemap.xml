@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2019-11-27T18:04:54-00:00</lastmod>
+<lastmod>2019-11-27T23:33:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2019-11-27T18:04:54-00:00</lastmod>
+<lastmod>2019-11-27T23:33:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2019-11-27T18:04:54-00:00</lastmod>
+<lastmod>2019-11-27T23:33:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2019-11-27T18:04:54-00:00</lastmod>
+<lastmod>2019-11-27T23:33:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -466,7 +466,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://sndnyang.github.io/web-simple-loader.html</loc>
+<loc>http://sndnyang.github.io/a-simple-web-loader.html</loc>
 <lastmod>2017-05-30T13:27:22+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

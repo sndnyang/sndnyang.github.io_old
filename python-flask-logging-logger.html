@@ -116,53 +116,37 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#flask-applogger">flask app.logger</a></li>
-<li><a href="#logger">其他logger</a></li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="flask-applogger">flask app.logger</h1>
-<div class="highlight"><pre><span></span>log_file_name = os.path.join(
-    os.environ.get('OPENSHIFT_PYTHON_LOG_DIR', '.'),
-    'app.log')
+                        <p>[TOC]</p>
+<h1>flask app.logger</h1>
+<div class="highlight"><pre><span></span><span class="n">log_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;OPENSHIFT_PYTHON_LOG_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;app.log&#39;</span><span class="p">)</span>
 
-handler = logging.FileHandler(log_file_name, mode='a')
-handler.setLevel(logging.INFO)
-fmt = "%(asctime)s\t%(message)s"
-# 实例化formatter
-formatter = logging.Formatter(fmt)
-# 为handler添加formatter
-handler.setFormatter(formatter)
-app.logger.addHandler(handler)
-app.logger.setLevel(logging.INFO)
+<span class="k">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_file_name</span><span class="p">,</span> <span class="k">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="k">handler</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="ss">&quot;%(asctime)s\t%(message)s&quot;</span>
+<span class="o">#</span> <span class="err">实例化</span><span class="n">formatter</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+<span class="o">#</span> <span class="err">为</span><span class="k">handler</span><span class="err">添加</span><span class="n">formatter</span>
+<span class="k">handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="k">handler</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
 </pre></div>
-<h1 id="logger">其他logger</h1>
-<div class="highlight"><pre><span></span>logger = logging.getLogger('selfname')
-fmter = logging.Formatter('%(asctime)s %(levelname)s %(message)s', datefmt='%a, %d %b %Y %H:%M:%S')
-log_file_name = os.path.join(os.environ.get('OPENSHIFT_PYTHON_LOG_DIR', '.'),
-                             'filename.log')
-hdlr = logging.FileHandler(log_file_name, mode='a')
-hdlr.setLevel(logging.INFO)
-hdlr.setFormatter(fmter)
-logger.addHandler(hdlr)
-logger.setLevel(logging.INFO)
+
+
+<h1>其他logger</h1>
+<div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;selfname&#39;</span><span class="p">)</span>
+<span class="n">fmter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;%(asctime)s %(levelname)s %(message)s&#39;</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%a, %d %b %Y %H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">log_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;OPENSHIFT_PYTHON_LOG_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">),</span>
+                             <span class="s1">&#39;filename.log&#39;</span><span class="p">)</span>
+<span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_file_name</span><span class="p">,</span> <span class="k">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">hdlr</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">hdlr</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">fmter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -226,7 +210,7 @@ logger.setLevel(logging.INFO)
                             <span>3</span>
 </a></li>
                         <li><a href="/tags.html#python-ref">python
-                            <span>14</span>
+                            <span>15</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

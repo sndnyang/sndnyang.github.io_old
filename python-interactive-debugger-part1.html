@@ -117,40 +117,15 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">调试器</a><ul>
-<li><a href="#_2">主要功能</a></li>
-</ul>
-</li>
-<li><a href="#_3">如何实现</a></li>
-<li><a href="#syssetrace">sys.setrace()</a><ul>
-<li><a href="#traceit">traceit</a></li>
-</ul>
-</li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">调试器</h1>
+                        <p>[TOC]</p>
+<h1>调试器</h1>
 <p>调试课第一单元的编程练习，就是建一个蟒蛇版的蜘蛛网，Sorry，是Python版的捉虫调试器。</p>
 <p>建一个简单的、交互式的调试器，来帮助我们捉虫，既然要诚心诚意地建这么个工具，我们就在发慈悲地给它起个名字——spyder，simple python debugger，一语N关，此名得之。</p>
 <p>spyder调试器是个命令行调试器，想到gdb了是吧？当然没法跟人家比了，哪怕是自家孩子，咱们也要有自知之明嘛。如果你愿意给它打扮一下，武装到牙齿，上装备(gui)的话，就可以变成图形界面调试器了。无聊的话，每次调试还可以配个蜘蛛爬的动画……</p>
-<h2 id="_2">主要功能</h2>
+<h2>主要功能</h2>
 <ol>
 <li>交互式调试</li>
 <li>增加断点(break)</li>
@@ -158,9 +133,9 @@
 <li>输出(print)等等</li>
 </ol>
 <p>后面还会再补充其他的。</p>
-<h1 id="_3">如何实现</h1>
+<h1>如何实现</h1>
 <p>这样一个调试器的实现，最重要的当然还是如何使得程序的执行听从指挥，而不是默认的嗯一撸到底。就像Linux下的c语言有ptrace函数一样（我没用过），python同样有自己的骄傲，sys模块里的settrace函数可以助我们一臂之力。</p>
-<h1 id="syssetrace">sys.setrace()</h1>
+<h1>sys.setrace()</h1>
 <p>sys.settrace(trace_function) 函数可以设置全局调试跟踪函数，在参数trace_function每次调用时，它也会被调用到，而与之搭档的function (此处起名traceit)也有一定的模式</p>
 <p>traceit就相当于一个回调callback函数， Python代码在每执行一行后，就会调用这个函
 数， 所以会给这个函数传相应的程序信息， 归类如下：</p>
@@ -183,21 +158,23 @@
 <li>外界参数</li>
 </ol>
 <p>所以，我们设计的 traceit函数将接收如上三个参数， 并做出一番处理</p>
-<h2 id="traceit">traceit</h2>
-<div class="highlight"><pre><span></span>def traceit(frame, event, trace_arg):
+<h2>traceit</h2>
+<div class="highlight"><pre><span></span><span class="nv">def</span> <span class="nv">traceit</span><span class="ss">(</span><span class="nv">frame</span>, <span class="nv">event</span>, <span class="nv">trace_arg</span><span class="ss">)</span>:
     # 全局变量定义，对应命令行的控制参数
-    global stepping
+    <span class="nv">global</span> <span class="nv">stepping</span>
 
-    # 事件处理event == ，常用事件类型有'call', 'line', 'return', 'exception', 'c_call', 'c_return',  'c_exception'
-    if event == 'line':
-        if stepping or breakpoints.has_key(frame.f_lineno):
-            resume = False
-            while not resume:
-                print event, frame.f_lineno, frame.f_code.co_name, frame.f_locals
-                command = input_command()
-                resume = debug(command, frame.f_locals)
-    return traceit
+    # 事件处理<span class="nv">event</span> <span class="o">==</span> ，常用事件类型有<span class="s1">&#39;</span><span class="s">call</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">line</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">return</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">exception</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">c_call</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">c_return</span><span class="s1">&#39;</span>,  <span class="s1">&#39;</span><span class="s">c_exception</span><span class="s1">&#39;</span>
+    <span class="k">if</span> <span class="nv">event</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">line</span><span class="s1">&#39;</span>:
+        <span class="k">if</span> <span class="nv">stepping</span> <span class="nv">or</span> <span class="nv">breakpoints</span>.<span class="nv">has_key</span><span class="ss">(</span><span class="nv">frame</span>.<span class="nv">f_lineno</span><span class="ss">)</span>:
+            <span class="nv">resume</span> <span class="o">=</span> <span class="nv">False</span>
+            <span class="k">while</span> <span class="nv">not</span> <span class="nv">resume</span>:
+                <span class="nv">print</span> <span class="nv">event</span>, <span class="nv">frame</span>.<span class="nv">f_lineno</span>, <span class="nv">frame</span>.<span class="nv">f_code</span>.<span class="nv">co_name</span>, <span class="nv">frame</span>.<span class="nv">f_locals</span>
+                <span class="nv">command</span> <span class="o">=</span> <span class="nv">input_command</span><span class="ss">()</span>
+                <span class="nv">resume</span> <span class="o">=</span> <span class="nv">debug</span><span class="ss">(</span><span class="nv">command</span>, <span class="nv">frame</span>.<span class="nv">f_locals</span><span class="ss">)</span>
+    <span class="k">return</span> <span class="nv">traceit</span>
 </pre></div>
+
+
 <p>因为太久了， 已经忘记内容了~~~还算清楚，但也解释下</p>
 <ol>
 <li>stepping是 单步调试标志</li>
@@ -271,7 +248,7 @@
                             <span>5</span>
 </a></li>
                         <li><a href="/tags.html#python-ref">Python
-                            <span>14</span>
+                            <span>15</span>
 </a></li>
                         <li><a href="/tags.html#ruan-jian-kai-fa-ref">软件开发
                             <span>6</span>

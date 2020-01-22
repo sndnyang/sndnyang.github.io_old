@@ -117,49 +117,39 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">基本导入方式</a></li>
-<li><a href="#_2">绝对路径导入</a></li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">基本导入方式</h1>
+                        <p>[TOC]</p>
+<h1>基本导入方式</h1>
 <p>Python初学者 都知道在主代码文件中导入子模块的方式，子模块在下层文件夹，则</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sub.subsub.module</span>
 </pre></div>
+
+
 <p>当然，还有一种形式</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">a.b</span> <span class="kn">import</span> <span class="n">c</span>
 </pre></div>
+
+
 <p>还可以改名</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">x.y.z</span> <span class="kn">as</span> <span class="nn">fool</span>
 <span class="kn">from</span> <span class="nn">a.b</span> <span class="kn">import</span> <span class="n">c</span> <span class="k">as</span> <span class="n">fool</span>
 </pre></div>
+
+
 <p>另外， 还能通过环境变量 PATH 路径查找模块并导入——python查看方式</p>
-<div class="highlight"><pre><span></span>os.environ['PATH']
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PATH&#39;</span><span class="p">]</span>
 </pre></div>
-<h1 id="_2">绝对路径导入</h1>
+
+
+<h1>绝对路径导入</h1>
 <p>对于非子目录下、又非PATH路径下的模块，有时也要导入，比如读取 Python代码写的配置</p>
 <ol>
-<li>添加到查找路径中<br/>
+<li>添加到查找路径中<br>
         import sys 
         sys.path.append('C:/full/path')</li>
-<li>使用模块导入模块 <a href="/Python-module-for-load-module.html">Python load类模块</a><br/>
+<li>使用模块导入模块 <a href="/Python-module-for-load-module.html">Python load类模块</a><br>
         imp.load_source
         3.3以上  from importlib.machinery import SourceFileLoader</li>
 </ol>
@@ -226,7 +216,7 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#python-ref">Python
-                            <span>14</span>
+                            <span>15</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

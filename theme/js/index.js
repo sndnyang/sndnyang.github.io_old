@@ -44,13 +44,6 @@ function backToTop() {
         } else {
             $("#top").fadeOut(500);
         }
-
-        if (scroll > 150) {
-            var pos = $('.active-current').position().top;
-            $(".table-nav").css({top: scroll - pos + 200});
-        } else {
-            $(".table-nav").css({top: 150+scroll});
-        }
     });
     //点击回到顶部
     $("#top").click(function() {

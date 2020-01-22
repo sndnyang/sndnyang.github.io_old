@@ -117,67 +117,38 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">摘要</a></li>
-<li><a href="#_2">导论</a><ul>
-<li><a href="#_3">历史介绍</a><ul>
-<li><a href="#bengio">Bengio的神经网络语言模型</a></li>
-<li><a href="#_4">递归神经网络</a></li>
-</ul>
-</li>
-<li><a href="#_5"></a></li>
-<li><a href="#_6">实现细节</a></li>
-</ul>
-</li>
-<li><a href="#_7">实验</a></li>
-<li><a href="#_8">啰嗦点其他的</a></li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">摘要</h1>
-<p>论文<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
+                        <p>[TOC]</p>
+<h1>摘要</h1>
+<p>论文<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>方法特点： 近似算法，通过 discriminative loss（是什么得看后面介绍） 和 weighted sampling strategy（具体得看后面）来训练RNN语言模式</p>
 <p>像 DropOut(深度学习里的那个)的外层扩展， 因为都是采样吧~~~</p>
-<h1 id="_2">导论</h1>
-<h2 id="_3">历史介绍</h2>
-<h3 id="bengio">Bengio的神经网络语言模型</h3>
+<h1>导论</h1>
+<h2>历史介绍</h2>
+<h3>Bengio的神经网络语言模型</h3>
 <p>处理n元模型里的数据稀疏问题。</p>
 <p>方案：用连续（非离散）向量空间来表达历史上下文。 连续值非离散值， 就能计算错误率。 </p>
 <p>初学者还没看过这篇</p>
-<h3 id="_4">递归神经网络</h3>
+<h3>递归神经网络</h3>
 <p>处理固定词数问题， 用递归隐藏层可以表示任意长度的上下文（句子）。</p>
 <p>很经典——初学者没看过具体内容（那个隐藏层里的函数用什么没看过）， 更没实现过， 接下来看看。</p>
 <p>没学过也不能装学过~~~</p>
 <p>主要问题是， 矩阵运算遇到超大词汇向量怎么办。</p>
 <p>所以要想办法降维、 近似， 降低计算量。</p>
-<h2 id="_5"></h2>
-<h2 id="_6">实现细节</h2>
-<h1 id="_7">实验</h1>
+<h2></h2>
+<h2>实现细节</h2>
+<h1>实验</h1>
 <p>目前还看不懂实验部分</p>
-<h1 id="_8">啰嗦点其他的</h1>
+<h1>啰嗦点其他的</h1>
 <p>很久没看了（本来看得就少）， 申请不顺利（说不挑，我对排名是不挑，但别的方面上总之自作孽了）， 难过。</p>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1">
 <p>BLACKOUT: SPEEDING UP RECURRENT NEURAL NETWORK
-LANGUAGE MODELS WITH VERY LARGE VOCABULARIES, Shihao Ji, S. V. N. Vishwanathan, Nadathur Satish, Michael J. Anderson, Pradeep Dubey <a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+LANGUAGE MODELS WITH VERY LARGE VOCABULARIES, Shihao Ji, S. V. N. Vishwanathan, Nadathur Satish, Michael J. Anderson, Pradeep Dubey&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -119,39 +119,39 @@
                     <div class="span8 offset2 article-content">
 
                         
-                        <h1 id="_1">卸载旧版本</h1>
-<div class="highlight"><pre><span></span>git –version // 最新版本2.X.X， 而服务器上只有1.8
+                        <h1>卸载旧版本</h1>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="err">–</span><span class="k">version</span> <span class="o">//</span> <span class="err">最新版本</span><span class="mi">2</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="err">，</span> <span class="err">而服务器上只有</span><span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
 
-yum remove git
+<span class="n">yum</span> <span class="n">remove</span> <span class="n">git</span>
 </pre></div>
 
 
-<h1 id="_2">下载获取解压源码</h1>
-<div class="highlight"><pre><span></span>wget https://github.com/git/git/archive/v2.12.2.tar.gz
-tar -zxvf v2.12.2.tar.gz
+<h1>下载获取解压源码</h1>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">v2</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">v2</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
 </pre></div>
 
 
-<h1 id="_3">安装依赖的包</h1>
-<div class="highlight"><pre><span></span>yum update
-yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker package // 缺什么补什么
+<h1>安装依赖的包</h1>
+<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="k">update</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">curl</span><span class="o">-</span><span class="n">devel</span> <span class="n">expat</span><span class="o">-</span><span class="n">devel</span> <span class="n">gettext</span><span class="o">-</span><span class="n">devel</span> <span class="n">openssl</span><span class="o">-</span><span class="n">devel</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">perl</span><span class="o">-</span><span class="n">ExtUtils</span><span class="o">-</span><span class="n">MakeMaker</span> <span class="n">package</span> <span class="o">//</span> <span class="err">缺什么补什么</span>
 </pre></div>
 
 
-<h1 id="_4">编译安装</h1>
-<div class="highlight"><pre><span></span>make configure
-./configure --prefix=/usr // prefix=/usr 或  prefix=/usr/local
-make  // 没有上两行，直接  make prefix=/usr 好像不行
-make install
+<h1>编译安装</h1>
+<div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">configure</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="c1">--prefix=/usr // prefix=/usr 或  prefix=/usr/local</span>
+<span class="n">make</span>  <span class="o">//</span> <span class="err">没有上两行，直接</span>  <span class="n">make</span> <span class="k">prefix</span><span class="o">=/</span><span class="n">usr</span> <span class="err">好像不行</span>
+<span class="n">make</span> <span class="n">install</span>
 </pre></div>
 
 
-<h1 id="_5">完成</h1>
-<div class="highlight"><pre><span></span>git --version
+<h1>完成</h1>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="c1">--version</span>
 </pre></div>
 
 
-<h1 id="_6">后续使用</h1>
+<h1>后续使用</h1>
 <p><a href="use-git-upload-deploy-project">使用git在服务器上传部署代码</a></p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

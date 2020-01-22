@@ -117,35 +117,11 @@
             </header>
 
             <div class="row-fluid article-inner">
-                <div class="span2 table-of-content">
-                    <nav class="bs-docs-sidebar hidden-print hidden-xs
-                        hidden-sm nav table-nav">
-                        <div class="table-collapse panel-collapse collapse">
-                            <h4 style="text-align: center;">目录</h4>
-                            <div class="toc">
-<ul>
-<li><a href="#_1">引入</a></li>
-<li><a href="#generator">Generator</a><ul>
-<li><a href="#init">init</a></li>
-<li><a href="#writer">选择writer</a></li>
-<li><a href="#_2">输出</a></li>
-</ul>
-</li>
-<li><a href="#_3">结束</a></li>
-</ul>
-</div>
-                        </div>
-                    </nav>
-                </div>
-                <a class="btn btn-success btn-table" data-toggle="collapse"
-                    data-target=".table-collapse">
-                    目录
-                </a>
-                <div class="span8 article-content">
+                    <div class="span8 offset2 article-content">
 
                         
-                        
-<h1 id="_1">引入</h1>
+                        <p>[TOC]</p>
+<h1>引入</h1>
 <p>接上回 &gt;<a href="learn-python-by-opensource-project-pelican.html#_8">Pelican主程序调用</a></p>
 <ol>
 <li>调用内容生成器，生成 <a href="pelican-generator.html">pelican内容生成器</a>
@@ -157,16 +133,20 @@
 </ol>
 <p>得到一个 generator 列表， 再去生成内容</p>
 <p>所以我们来看 Genertator 类</p>
-<h1 id="generator">Generator</h1>
+<h1>Generator</h1>
 <p>基础类</p>
-<h2 id="init"><strong>init</strong></h2>
+<h2><strong>init</strong></h2>
 <p>关键，调用 &lt;<a href="pelican-reader.html">pelican-Readers类</a>，读取内容</p>
-<div class="highlight"><pre><span></span>    self.readers = Readers(self.settings, readers_cache_name)
+<div class="highlight"><pre><span></span>    <span class="k">self</span><span class="p">.</span><span class="n">readers</span> <span class="o">=</span> <span class="n">Readers</span><span class="p">(</span><span class="k">self</span><span class="p">.</span><span class="n">settings</span><span class="p">,</span> <span class="n">readers_cache_name</span><span class="p">)</span>
 </pre></div>
+
+
 <p>读取文件系统</p>
-<div class="highlight"><pre><span></span>    simple_loader = FileSystemLoader(os.path.join(theme_path,
-                                     "themes", "simple", "templates"))
+<div class="highlight"><pre><span></span>    <span class="n">simple_loader</span> <span class="o">=</span> <span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">theme_path</span><span class="p">,</span>
+                                     <span class="ss">&quot;themes&quot;</span><span class="p">,</span> <span class="ss">&quot;simple&quot;</span><span class="p">,</span> <span class="ss">&quot;templates&quot;</span><span class="p">))</span>
 </pre></div>
+
+
 <p>其他函数暂略，</p>
 <p>完成了 Generator的初始化， 我们来看 generate_context(), Generator类中没有该函
 数，直接出现成几个子类中， 所以我们要看看几个子类。</p>
@@ -175,17 +155,17 @@
 <li>&lt;<a href="pelican-ArticlesGenerator.html#generate_context">博客文章生成类</a></li>
 <li>&lt;<a href="pelican-PagesGenerator.html#generate_context">其他页面生成</a></li>
 </ol>
-<h2 id="writer">选择writer</h2>
+<h2>选择writer</h2>
 <blockquote>
 <p><a href="pelican-writer.html">pelican-writer</a></p>
 </blockquote>
-<h2 id="_2">输出</h2>
+<h2>输出</h2>
 <p>generate_output函数也是只在子类中存在</p>
 <ol>
 <li>&lt;<a href="pelican-ArticlesGenerator.html#generate_output">博客文章生成类</a></li>
 <li>&lt;<a href="pelican-PagesGenerator.html#generate_output">其他页面生成</a></li>
 </ol>
-<h1 id="_3">结束</h1>
+<h1>结束</h1>
 <p>重要细节后续补充</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
@@ -253,7 +233,7 @@
                             <span>3</span>
 </a></li>
                         <li><a href="/tags.html#python-ref">Python
-                            <span>14</span>
+                            <span>15</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

@@ -119,55 +119,55 @@
                     <div class="span8 offset2 article-content">
 
                         
-                        <h1>js</h1>
-<h2>call</h2>
-<div class="highlight"><pre><span></span><span class="err">$</span><span class="p">(</span><span class="ss">&quot;#loadingDiv&quot;</span><span class="p">).</span><span class="n">remove</span><span class="p">();</span>
-<span class="n">var</span> <span class="n">loadingDiv</span> <span class="o">=</span> <span class="n">createLoadingDiv</span><span class="p">(</span><span class="s1">&#39;想写什么写什么&#39;</span><span class="p">)</span>                    
-<span class="o">//</span><span class="err">呈现</span><span class="n">loading</span><span class="err">效果</span>
-<span class="err">$</span><span class="p">(</span><span class="ss">&quot;#learning&gt;.container-fluid&quot;</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">loadingDiv</span><span class="p">);</span>
+                        <h1 id="js">js</h1>
+<h2 id="call">call</h2>
+<div class="highlight"><pre><span></span>$(&quot;#loadingDiv&quot;).remove();
+var loadingDiv = createLoadingDiv(&#39;想写什么写什么&#39;)                    
+//呈现loading效果
+$(&quot;#learning&gt;.container-fluid&quot;).append(loadingDiv);
 </pre></div>
 
 
-<h2>implement</h2>
-<div class="highlight"><pre><span></span><span class="nv">function</span> <span class="nv">createLoadingDiv</span><span class="ss">(</span><span class="nv">prompt</span><span class="ss">)</span> {
-    <span class="nv">var</span> <span class="nv">_PageWidth</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">documentElement</span>.<span class="nv">clientWidth</span>,
-            <span class="nv">_PageHeight</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">documentElement</span>.<span class="nv">clientHeight</span>,
-            <span class="nv">_LoadingTop</span> <span class="o">=</span> <span class="nv">_PageHeight</span> <span class="o">/</span> <span class="mi">2</span>,
-            <span class="nv">_LoadingLeft</span> <span class="o">=</span> <span class="nv">_PageWidth</span> <span class="o">&gt;</span> <span class="mi">215</span> ? <span class="ss">(</span><span class="nv">_PageWidth</span> <span class="o">-</span> <span class="mi">215</span><span class="ss">)</span> <span class="o">/</span> <span class="mi">2</span> : <span class="mi">0</span>,
-            <span class="nv">_LoadingHtml</span> <span class="o">=</span> $<span class="ss">(</span><span class="s1">&#39;</span><span class="s">&lt;div&gt;&lt;/div&gt;</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
-        <span class="nv">_LoadingHtml</span>.<span class="nv">attr</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">id</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">loadingDiv</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-        <span class="nv">_LoadingHtml</span>.<span class="nv">html</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">&lt;p&gt;</span><span class="s2">&quot;</span><span class="o">+</span><span class="nv">prompt</span><span class="o">+</span><span class="s2">&quot;</span><span class="s">&lt;/p&gt;</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-        <span class="k">return</span> <span class="nv">_LoadingHtml</span>
-}
+<h2 id="implement">implement</h2>
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">createLoadingDiv</span><span class="p">(</span><span class="nx">prompt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_PageWidth</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">,</span>
+            <span class="nx">_PageHeight</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientHeight</span><span class="p">,</span>
+            <span class="nx">_LoadingTop</span> <span class="o">=</span> <span class="nx">_PageHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nx">_LoadingLeft</span> <span class="o">=</span> <span class="nx">_PageWidth</span> <span class="o">&gt;</span> <span class="mi">215</span> <span class="o">?</span> <span class="p">(</span><span class="nx">_PageWidth</span> <span class="o">-</span> <span class="mi">215</span><span class="p">)</span> <span class="o">/</span> <span class="nx">2</span> : <span class="kt">0</span><span class="p">,</span>
+            <span class="nx">_LoadingHtml</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div&gt;&lt;/div&gt;&#39;</span><span class="p">);</span>
+        <span class="nx">_LoadingHtml</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;loadingDiv&quot;</span><span class="p">);</span>
+        <span class="nx">_LoadingHtml</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;&lt;p&gt;&quot;</span><span class="o">+</span><span class="nx">prompt</span><span class="o">+</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">_LoadingHtml</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<h1>html</h1>
+<h1 id="html">html</h1>
 <div class="highlight"><pre><span></span><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;//www.zhimind.com/static/js/global.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;//www.zhimind.com/static/css/loader.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 
 
-<h1>css</h1>
-<div class="highlight"><pre><span></span>#<span class="nv">loadingDiv</span> {
-    <span class="nv">position</span>: <span class="nv">fixed</span><span class="c1">;</span>
-    <span class="nv">cursor1</span>: <span class="k">wait</span><span class="c1">;</span>
-    <span class="nv">left</span>: <span class="mi">0</span><span class="nv">px</span><span class="c1">;</span>
-    <span class="nv">top</span>: <span class="mi">0</span><span class="nv">px</span><span class="c1">;</span>
-    <span class="nv">width</span>: <span class="mi">100</span><span class="o">%</span><span class="c1">;</span>
-    <span class="nv">height</span>: <span class="mi">100</span><span class="o">%</span><span class="c1">; </span>
-    <span class="nv">left</span>: <span class="mi">0</span><span class="nv">px</span><span class="c1">;</span>
-    <span class="nv">top</span>: <span class="mi">0</span><span class="nv">px</span><span class="c1">;</span>
-    <span class="nv">background</span><span class="o">-</span><span class="nv">color</span>: <span class="nv">transparent</span><span class="c1">;</span>
-    <span class="nv">background</span>: <span class="nv">url</span><span class="ss">(</span><span class="o">/</span><span class="nv">static</span><span class="o">/</span><span class="nv">img</span><span class="o">/</span><span class="nv">loading</span>.<span class="nv">gif</span><span class="ss">)</span> <span class="mi">50</span><span class="o">%</span> <span class="mi">50</span><span class="o">%</span> <span class="nv">no</span><span class="o">-</span><span class="nv">repeat</span><span class="c1">; </span>
-    <span class="nv">z</span><span class="o">-</span><span class="nv">index</span>: <span class="mi">2</span><span class="c1">;</span>
-}
+<h1 id="css">css</h1>
+<div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">loadingDiv</span> <span class="p">{</span>
+    <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+    <span class="n">cursor1</span><span class="p">:</span> <span class="kc">wait</span><span class="p">;</span>
+    <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> 
+    <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+    <span class="k">background</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">/static/img/loading.gif</span><span class="p">)</span> <span class="mi">50</span><span class="kt">%</span> <span class="mi">50</span><span class="kt">%</span> <span class="kc">no-repeat</span><span class="p">;</span> 
+    <span class="k">z-index</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
 
-#<span class="nv">loadingDiv</span> <span class="nv">p</span> {
-    <span class="nv">position</span>: <span class="nv">fixed</span><span class="c1">;</span>
-    <span class="nv">left</span>: <span class="mi">52</span><span class="o">%</span><span class="c1">;</span>
-    <span class="nv">top</span>: <span class="mi">49</span><span class="o">%</span><span class="c1">;</span>
-}
+<span class="p">#</span><span class="nn">loadingDiv</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+    <span class="k">left</span><span class="p">:</span> <span class="mi">52</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">top</span><span class="p">:</span> <span class="mi">49</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

@@ -116,18 +116,34 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">说明</a></li>
+<li><a href="#_2">包引用</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>说明</h1>
+                        
+<h1 id="_1">说明</h1>
 <p><a href="http://www.aaai.org/Publications/Author/formatting-instructions-latex.pdf">formatting-instructions-latex.pdf</a></p>
 <p>在已有.tex 和 .sty 文件的情况下， 9页的格式指引说明实在是有点长， 不强迫一下， 根本不想看， 看完也容易忘， 不如写写。</p>
-<h1>包引用</h1>
-<div class="highlight"><pre><span></span>              <span class="err">\</span><span class="n">usepackage</span><span class="err">{</span><span class="n">amsmath</span><span class="p">,</span><span class="n">amsfonts</span><span class="err">}</span>
+<h1 id="_2">包引用</h1>
+<div class="highlight"><pre><span></span>              \usepackage{amsmath,amsfonts}
 </pre></div>
-
-
 <p>好几种字体需要使用到这两个包， 居然没有默认引入。。。</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

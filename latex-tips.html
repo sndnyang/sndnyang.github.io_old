@@ -116,83 +116,97 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#bad-math-environment-delimiter">bad math environment delimiter</a></li>
+<li><a href="#label">label 标签、公式交叉引用</a></li>
+<li><a href="#no-positions-in-optional-float-specifier">No positions in optional float specifier.</a></li>
+<li><a href="#_1">表格太宽</a></li>
+<li><a href="#input-output">代码算法显示 input output</a></li>
+<li><a href="#aaai">疯狂吐槽AAAI模板</a></li>
+<li><a href="#_2">三段式表格</a></li>
+<li><a href="#newif">newif</a></li>
+<li><a href="#_3">边缘空白过多</a></li>
+<li><a href="#sty">sty</a></li>
+<li><a href="#synctex">synctex</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>bad math environment delimiter</h1>
+                        
+<h1 id="bad-math-environment-delimiter">bad math environment delimiter</h1>
 <p>\begin{equation} 替换 $$, 不能嵌套</p>
-<h1>label 标签、公式交叉引用</h1>
-<div class="highlight"><pre><span></span>\<span class="nv">begin</span>{<span class="nv">equation</span>}
-    \<span class="nv">begin</span>{<span class="nv">aligned</span>}
-    <span class="nv">p</span><span class="ss">(</span><span class="nv">y</span><span class="o">=</span><span class="nv">c</span><span class="o">|</span><span class="nv">x</span>, <span class="nv">D_</span>{<span class="nv">train</span>}<span class="ss">)</span> <span class="o">=</span> <span class="o">&amp;</span> \<span class="nv">int</span> <span class="nv">p</span><span class="ss">(</span><span class="nv">y</span><span class="o">=</span><span class="nv">c</span><span class="o">|</span><span class="nv">x</span>,<span class="nv">w</span><span class="ss">)</span><span class="nv">p</span><span class="ss">(</span><span class="nv">w</span><span class="o">|</span><span class="nv">D_</span>{<span class="nv">train</span>}<span class="ss">)</span><span class="nv">dw</span> \\
-    \<span class="nv">approx</span> <span class="o">&amp;</span> \<span class="nv">int</span> <span class="nv">p</span><span class="ss">(</span><span class="nv">y</span><span class="o">=</span><span class="nv">c</span><span class="o">|</span><span class="nv">x</span>,<span class="nv">w</span><span class="ss">)</span><span class="nv">q</span><span class="o">^*</span><span class="nv">_</span>{\<span class="nv">theta</span>}<span class="ss">(</span><span class="nv">w</span><span class="ss">)</span><span class="nv">dw</span> \\
-    \<span class="nv">approx</span> <span class="o">&amp;</span> \<span class="nv">frac</span>{<span class="mi">1</span>}{<span class="nv">T</span>} \<span class="nv">sum_</span>{<span class="nv">t</span><span class="o">=</span><span class="mi">1</span>}<span class="o">^</span>{<span class="nv">T</span>} <span class="nv">p</span><span class="ss">(</span><span class="nv">y</span><span class="o">=</span><span class="nv">c</span><span class="o">|</span><span class="nv">x</span>,\<span class="nv">hat</span>{<span class="nv">w</span>}<span class="nv">_t</span><span class="ss">)</span>  
-    \<span class="k">end</span>{<span class="nv">aligned</span>}
-\<span class="nv">label</span>{<span class="nv">bayesian_posterior</span>}
-\<span class="k">end</span>{<span class="nv">equation</span>}
+<h1 id="label">label 标签、公式交叉引用</h1>
+<div class="highlight"><pre><span></span>\begin{equation}
+    \begin{aligned}
+    p(y=c|x, D_{train}) = &amp; \int p(y=c|x,w)p(w|D_{train})dw \\
+    \approx &amp; \int p(y=c|x,w)q^*_{\theta}(w)dw \\
+    \approx &amp; \frac{1}{T} \sum_{t=1}^{T} p(y=c|x,\hat{w}_t)  
+    \end{aligned}
+\label{bayesian_posterior}
+\end{equation}
 
 
-\<span class="nv">ref</span>{<span class="nv">bayesian_posterior</span>}
+\ref{bayesian_posterior}
 </pre></div>
-
-
-<h1>No positions in optional float specifier.</h1>
+<h1 id="no-positions-in-optional-float-specifier">No positions in optional float specifier.</h1>
 <p>\begin{figure}[] or \begin{table}[]</p>
-<h1>表格太宽</h1>
+<h1 id="_1">表格太宽</h1>
 <div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
-<span class="k">\resizebox</span><span class="nb">{</span><span class="k">\textwidth</span><span class="nb">}{</span>!<span class="nb">}{</span><span class="c">%</span>
-  <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>cc<span class="nb">}</span>
-    Knuth <span class="nb">&amp;</span> Lamport
-  <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}}</span>
+<span class="k">\resizebox</span><span class="nb">{</span><span class="k">\textwidth</span><span class="nb">}{</span>!<span class="nb">}</span>&lt;div class="process"&gt;&lt;input type="hidden" class="answers" value="<span class="nb">{</span><span class="c">%\begin{tabular}{cc}Knuth&amp;amp;Lamport\end{tabular}"/&gt;&lt;input type="hidden" class="comments" value="{%\begin{tabular}{cc}Knuth&amp;amp;Lamport\end{tabular}}"/&gt;&lt;button onclick="checkQuiz(this, 0)"&gt;submit&lt;/button&gt;&lt;br/&gt;&lt;/div&gt;</span>
 <span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
-
-
-<h1>代码算法显示 input output</h1>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">renewcommand</span><span class="err">{\</span><span class="n">algorithmicrequire</span><span class="err">}{\</span><span class="n">textbf</span><span class="err">{</span><span class="k">Input</span><span class="p">:</span><span class="err">}}</span> <span class="o">%</span> <span class="n">Use</span> <span class="k">Input</span> <span class="k">in</span> <span class="n">the</span> <span class="n">format</span> <span class="k">of</span> <span class="n">Algorithm</span>
-<span class="err">\</span><span class="n">renewcommand</span><span class="err">{\</span><span class="n">algorithmicensure</span><span class="err">}{\</span><span class="n">textbf</span><span class="err">{</span><span class="k">Output</span><span class="p">:</span><span class="err">}}</span> <span class="o">%</span> <span class="n">Use</span> <span class="k">Output</span> <span class="k">in</span> <span class="n">the</span> <span class="n">format</span> <span class="k">of</span> <span class="n">Algorithm</span>
+<h1 id="input-output">代码算法显示 input output</h1>
+<div class="highlight"><pre><span></span>\renewcommand{\algorithmicrequire}{\textbf{Input:}} % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
 </pre></div>
-
-
-<h1>疯狂吐槽AAAI模板</h1>
-<div class="highlight"><pre><span></span><span class="err">\</span><span class="n">usepackage</span><span class="err">{</span><span class="n">amsmath</span><span class="p">,</span><span class="n">amsfonts</span><span class="err">}</span>
+<h1 id="aaai">疯狂吐槽AAAI模板</h1>
+<div class="highlight"><pre><span></span>\usepackage{amsmath,amsfonts}
 </pre></div>
-
-
 <p>这两个ams包没有默认加入， 坑死我了。</p>
-<h1>三段式表格</h1>
-<div class="highlight"><pre><span></span>\<span class="nv">usepackage</span>[<span class="nv">flushleft</span>]{<span class="nv">threeparttable</span>}
+<h1 id="_2">三段式表格</h1>
+<div class="highlight"><pre><span></span>\usepackage[flushleft]{threeparttable}
 
 
-\<span class="nv">begin</span>{<span class="nv">center</span>}
+\begin{center}
 
-\<span class="nv">begin</span>{<span class="nv">threeparttable</span>}
+\begin{threeparttable}
 
-\<span class="nv">begin</span>{<span class="nv">tabular</span>}{<span class="nv">lc</span>}
+\begin{tabular}{lc}
 
-\<span class="nv">toprule</span>
+\toprule
 
-\<span class="nv">midrule</span>
+\midrule
 
-\<span class="nv">midrule</span>
+\midrule
 
-\<span class="nv">bottomrule</span>
+\bottomrule
 
-\<span class="k">end</span>{<span class="nv">tabular</span>}
+\end{tabular}
 
-\<span class="k">end</span>{<span class="nv">threeparttable</span>}
+\end{threeparttable}
 
-\<span class="k">end</span>{<span class="nv">center</span>}
+\end{center}
 </pre></div>
-
-
-<h1>newif</h1>
+<h1 id="newif">newif</h1>
 <p>使用newif定义一个逻辑（二值）变量<code>logvar</code> </p>
 <p>define a logical variable <code>logvar</code> as follows:</p>
 <div class="highlight"><pre><span></span><span class="k">\newif\iflogvar</span>
@@ -200,29 +214,21 @@
 <span class="k">\newif\iflogvar\logvartrue</span>
 <span class="k">\newif\if</span>@logvar<span class="k">\@</span>logvarfalse
 </pre></div>
-
-
 <p>第一种</p>
 <p>By default, it is set to <code>false</code>. We can set it to <code>true</code> by:</p>
 <div class="highlight"><pre><span></span><span class="k">\logvartrue</span>
 </pre></div>
-
-
-<h1>边缘空白过多</h1>
+<h1 id="_3">边缘空白过多</h1>
 <p><a href="https://mylatexnotes.wordpress.com/2017/09/13/table-remove-white-space-after-table/">remove white space after table</a></p>
 <div class="highlight"><pre><span></span><span class="k">\vspace</span><span class="nb">{</span>-4mm<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
 </pre></div>
-
-
 <p>But the instruction in AAAI said that don't use vspace. 但AAAI的模板里明确说了不要用vspace。</p>
-<h1>sty</h1>
-<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="s1">&#39;tex(multirow.sty)&#39;</span>
+<h1 id="sty">sty</h1>
+<div class="highlight"><pre><span></span>sudo yum -y install 'tex(multirow.sty)'
 </pre></div>
-
-
-<h1>synctex</h1>
+<h1 id="synctex">synctex</h1>
 <p>vscode latex-workshop</p>
 <p>tex -&gt; PDF: CTRL+ALT+J</p>
 <p>PDF -&gt; tex: Ctrl+click</p>

@@ -116,32 +116,49 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#js">JS</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>JS</h1>
-<div class="highlight"><pre><span></span>$.<span class="nv">ajax</span><span class="ss">(</span>{  
-    <span class="nv">type</span>: <span class="s2">&quot;</span><span class="s">post</span><span class="s2">&quot;</span>, <span class="o">//</span>请求方式  
-    <span class="nv">url</span>: <span class="s2">&quot;</span><span class="s">getResearchProgress</span><span class="s2">&quot;</span>, <span class="o">//</span>发送请求地址  
-    <span class="nb">timeout</span>: <span class="mi">30000</span>,<span class="o">//</span>超时时间：<span class="mi">30</span>秒
-    <span class="nv">contentType</span>: <span class="s1">&#39;</span><span class="s">application/json</span><span class="s1">&#39;</span>,
-    <span class="nv">dataType</span>: <span class="s2">&quot;</span><span class="s">json</span><span class="s2">&quot;</span>,
-    <span class="nv">data</span>: <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span>{<span class="s2">&quot;</span><span class="s">url</span><span class="s2">&quot;</span>: <span class="nv">url</span>}<span class="ss">)</span>,
-    <span class="o">//</span>请求成功后的回调函数 <span class="nv">data</span>为<span class="nv">json</span>格式  
-    <span class="nv">success</span>:<span class="nv">function</span><span class="ss">(</span><span class="nv">data</span><span class="ss">)</span>{
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">data</span>.<span class="nv">error</span><span class="ss">)</span> {
-            <span class="nv">window</span>.<span class="nv">clearInterval</span><span class="ss">(</span><span class="nv">timerId</span><span class="ss">)</span><span class="c1">;</span>
-            <span class="nv">alert</span><span class="ss">(</span><span class="nv">data</span>.<span class="nv">error</span><span class="ss">)</span><span class="c1">;</span>
-            <span class="k">return</span><span class="c1">;</span>
+                        
+<h1 id="js">JS</h1>
+<div class="highlight"><pre><span></span>$.ajax({  
+    type: "post", //请求方式  
+    url: "getResearchProgress", //发送请求地址  
+    timeout: 30000,//超时时间：30秒
+    contentType: 'application/json',
+    dataType: "json",
+    data: JSON.stringify({"url": url}),
+    //请求成功后的回调函数 data为json格式  
+    success:function(data){
+        if (data.error) {
+            window.clearInterval(timerId);
+            alert(data.error);
+            return;
         }
 
     },  
-    <span class="o">//</span>请求出错的处理  
-    <span class="nv">error</span>: <span class="nv">function</span><span class="ss">()</span>{  
-        <span class="nv">alert</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">请求出错</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+    //请求出错的处理  
+    error: function(){  
+        alert("请求出错");  
     }
-}<span class="ss">)</span><span class="c1">;</span>
+});
 </pre></div>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

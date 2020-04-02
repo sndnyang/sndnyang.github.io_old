@@ -116,39 +116,70 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">本地创建</a><ul>
+<li><a href="#git">安装GIT</a></li>
+<li><a href="#_2">本地创建</a></li>
+</ul>
+</li>
+<li><a href="#_3">服务器安装</a></li>
+<li><a href="#sshkey">SSHKEY密钥配置</a></li>
+<li><a href="#_4">创建共享裸仓库</a></li>
+<li><a href="#_5">创建运行库</a></li>
+<li><a href="#hooks">配置挂钩hooks</a><ul>
+<li><a href="#_6">介绍</a></li>
+<li><a href="#_7">配置</a></li>
+</ul>
+</li>
+<li><a href="#post">post文件</a><ul>
+<li><a href="#_8">操作说明</a></li>
+<li><a href="#_9">示例</a></li>
+<li><a href="#_10">执行</a></li>
+</ul>
+</li>
+<li><a href="#_11">本地上传</a></li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>本地创建</h1>
-<h2>安装GIT</h2>
+                        
+<h1 id="_1">本地创建</h1>
+<h2 id="git">安装GIT</h2>
 <p><a href="config-centOS-install-git">CentOS配置-git安装</a></p>
-<h2>本地创建</h2>
-<div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">略</span><span class="w"></span>
-<span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">你给远程服务器起的名字</span><span class="w"> </span><span class="n">远程服务器链接</span><span class="err">（</span><span class="nl">例ssh</span><span class="p">:</span><span class="o">//</span><span class="n">username</span><span class="nv">@hostname_or_ip</span><span class="o">/</span><span class="k">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">project</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">不要乱加</span><span class="w"> </span><span class="p">.</span><span class="n">git后缀</span><span class="err">）</span><span class="w"></span>
+<h2 id="_2">本地创建</h2>
+<div class="highlight"><pre><span></span>git init // 略
+git remote add 你给远程服务器起的名字 远程服务器链接（例ssh://username@hostname_or_ip/path/to/you/project , 不要乱加 .git后缀）
 </pre></div>
-
-
 <p>或</p>
-<div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="nl">ssh</span><span class="p">:</span><span class="o">//</span><span class="n">username</span><span class="nv">@hostname_or_ip</span><span class="o">/</span><span class="k">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">project</span><span class="w"> </span><span class="o">[</span><span class="n">指定文件夹名，默认用远程文件夹名</span><span class="o">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span>git clone ssh://username@hostname_or_ip/path/to/you/project [指定文件夹名，默认用远程文件夹名]
 </pre></div>
-
-
-<h1>服务器安装</h1>
+<h1 id="_3">服务器安装</h1>
 <p>见<a href="http://sndnyang.github.io/config-centOS-install-git.html">CentOS配置-git安装</a></p>
-<h1>SSHKEY密钥配置</h1>
+<h1 id="sshkey">SSHKEY密钥配置</h1>
 <p>见<a href="http://sndnyang.github.io/config-centOS-config-sshkey.html">CentOS配置-SSHKEY密钥配置</a></p>
-<h1>创建共享裸仓库</h1>
-<div class="highlight"><pre><span></span><span class="o">//</span> <span class="err">先创建文件夹</span>
-<span class="n">git</span> <span class="n">init</span> <span class="c1">--bare</span>
+<h1 id="_4">创建共享裸仓库</h1>
+<div class="highlight"><pre><span></span>// 先创建文件夹
+git init --bare
 </pre></div>
-
-
-<h1>创建运行库</h1>
+<h1 id="_5">创建运行库</h1>
 <p>同本地创建， 本地库、共享裸库、运行库执行顺序不限</p>
 <p>创建完毕后， 运行库一定要从共享库中获取一次（比如clone来创建，或pull一次）</p>
-<h1>配置挂钩hooks</h1>
-<h2>介绍</h2>
+<h1 id="hooks">配置挂钩hooks</h1>
+<h2 id="_6">介绍</h2>
 <p>在共享库文件夹的 hooks 文件夹下有几个.sample 文件， 含义为(随便一个词典搜一下就知道)：</p>
 <ul>
 <li>pre-, 在...之前</li>
@@ -157,22 +188,20 @@
 <li>commit, 对应 git commit</li>
 <li>update 或 receive 或 push, 对应 git push，不是所有版本都有 post-receive, 那么post-update也能用</li>
 </ul>
-<h2>配置</h2>
+<h2 id="_7">配置</h2>
 <p>选择代表在 git push之后执行的.sample文件， 如 post-update.sample 或 post-receive.sample</p>
-<div class="highlight"><pre><span></span><span class="k">copy</span> <span class="n">it</span> <span class="n">post</span><span class="o">-</span><span class="k">update</span><span class="p">(</span><span class="err">或</span><span class="n">post</span><span class="o">-</span><span class="n">receive</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>copy it post-update(或post-receive)
 </pre></div>
-
-
 <p>并修改文件内容</p>
-<h1>post文件</h1>
-<h2>操作说明</h2>
+<h1 id="post">post文件</h1>
+<h2 id="_8">操作说明</h2>
 <p>我们要在从本地git push到服务器共享库后， 自动把代码更新给运行库， 并重启程序</p>
 <ol>
-<li>自动导出到运行库  <br>
+<li>自动导出到运行库  <br/>
         git --work-tree=/path/to/you/运行库 --git-dir=/path/to/you/共享库 checkout -f</li>
 <li>执行更新、重启命令</li>
 </ol>
-<h2>示例</h2>
+<h2 id="_9">示例</h2>
 <p>以python flask建的站为例</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -185,25 +214,18 @@ git --work-tree<span class="o">=</span>/var/www-site/sndnyang --git-dir<span cla
 /var/www-site/sndnyang/bin/supervisorctl -c /var/www-site/sndnyang/supervisor.conf restart sndnyang // 用supervisor重启sndnyang程序
 </pre></div>
 </td></tr></table>
-
-<h2>执行</h2>
+<h2 id="_10">执行</h2>
 <p>必须手工运行一次</p>
-<div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">hooks</span><span class="o">/</span><span class="n">post</span><span class="o">-</span><span class="k">update</span><span class="p">(</span><span class="n">receive</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>./hooks/post-update(receive)
 </pre></div>
-
-
 <p>git push后才会自动执行</p>
-<h1>本地上传</h1>
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="err">你给远程服务器起的名字</span> <span class="n">master</span><span class="p">(</span><span class="err">或其他分支？</span><span class="p">)</span>
+<h1 id="_11">本地上传</h1>
+<div class="highlight"><pre><span></span>git push 你给远程服务器起的名字 master(或其他分支？)
 </pre></div>
-
-
 <p>示例的观察结果：</p>
-<div class="highlight"><pre><span></span><span class="err">会有</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span> <span class="err">一大堆的提示</span>  
-<span class="err">会有</span> <span class="n">supervisorctl</span> <span class="err">运行结果提示</span>
+<div class="highlight"><pre><span></span>会有 pip install -r requirements.txt 一大堆的提示  
+会有 supervisorctl 运行结果提示
 </pre></div>
-
-
 <p>成功</p>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">

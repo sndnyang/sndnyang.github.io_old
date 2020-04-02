@@ -117,11 +117,34 @@
             </header>
 
             <div class="row-fluid article-inner">
-                    <div class="span8 offset2 article-content">
+                <div class="span2 table-of-content">
+                    <nav class="bs-docs-sidebar hidden-print hidden-xs
+                        hidden-sm nav table-nav">
+                        <div class="table-collapse panel-collapse collapse">
+                            <h4 style="text-align: center;">目录</h4>
+                            <div class="toc">
+<ul>
+<li><a href="#_1">摘要</a></li>
+<li><a href="#active-learning">主动学习 Active Learning</a></li>
+<li><a href="#uncertainty-measures">不确定性评估Uncertainty Measures</a><ul>
+<li><a href="#1">1. 最大熵</a></li>
+<li><a href="#2">2. 密熵</a></li>
+</ul>
+</li>
+</ul>
+</div>
+                        </div>
+                    </nav>
+                </div>
+                <a class="btn btn-success btn-table" data-toggle="collapse"
+                    data-target=".table-collapse">
+                    目录
+                </a>
+                <div class="span8 article-content">
 
                         
-                        <p>[TOC]</p>
-<h1>摘要</h1>
+                        
+<h1 id="_1">摘要</h1>
 <p>两个问题</p>
 <ol>
 <li>不确定性采样时， 容易选择离群点</li>
@@ -132,28 +155,26 @@
 <li>SUD: Sampling by Uncertainty and Density</li>
 <li>SBC: Sampling By Clustering</li>
 </ol>
-<h1>主动学习 Active Learning</h1>
+<h1 id="active-learning">主动学习 Active Learning</h1>
 <p>从少量数据中学习， 不仅能做预测（分类、回归）， 同时能预测自己预测的结果的准确性（不确定性）， 不确定性高的数据则需要专家来进行标注——不确定性高的数据标注后，又有一批数据的预测结果更可信了， 所以能提高数据有效性， 减少人工标注的工作量。 这就是 active learning 的目标、定义。</p>
 <p>代码实现中， 从少量训练数据开始，没问题， 比如 MNIST 取20、100、 1000个作为初始数据， 专家标注过程则需要用训练数据的另一部分来代替， 因为不可能在实验中真的弹窗出来请人标注。</p>
 <p>代码框架：</p>
-<div class="highlight"><pre><span></span><span class="err">主动学习框架过程</span>
-<span class="err">输入：</span> <span class="err">初始选定的小训练数据集</span><span class="n">T</span><span class="err">，</span> <span class="err">和</span> <span class="err">未标注数据集</span><span class="n">P</span><span class="err">（</span><span class="n">pool</span> <span class="k">data</span> <span class="k">set</span><span class="err">）</span> <span class="err">——</span> <span class="err">即，将原始训练集划分成小训练数据集、</span> <span class="err">未标注集，</span> <span class="err">有需要的话，</span> <span class="err">还可以有验证集</span> <span class="n">validation</span> <span class="k">data</span> <span class="k">set</span><span class="err">）</span>
+<div class="highlight"><pre><span></span>主动学习框架过程
+输入： 初始选定的小训练数据集T， 和 未标注数据集P（pool data set） —— 即，将原始训练集划分成小训练数据集、 未标注集， 有需要的话， 还可以有验证集 validation data set）
 
-<span class="err">使用</span> <span class="n">T</span> <span class="err">训练初始模型</span><span class="k">C</span><span class="err">（分类或回归都行）</span>
-<span class="n">repeat</span><span class="p">:</span>
-    <span class="mi">1</span><span class="p">.</span> <span class="err">用</span> <span class="k">C</span> <span class="err">对</span> <span class="n">U</span> <span class="err">进行标注（预测）</span>
-    <span class="mi">2</span><span class="p">.</span> <span class="err">计算未标注数据集</span> <span class="n">U</span> <span class="err">中数据标注结果的不确定性，不确定性高，比如可以用</span> <span class="err">熵</span> <span class="n">Entropy</span> <span class="err">表现，</span> <span class="err">选择若干</span> <span class="err">最大熵的数据，</span> <span class="err">要求人工标注</span>
-    <span class="mi">3</span><span class="p">.</span> <span class="err">把这些数据移到训练集</span><span class="n">L</span><span class="err">中，</span> <span class="err">即用原始训练集里已有的标注</span> <span class="n">label</span><span class="p">,</span> <span class="err">代表</span> <span class="err">专家人工标注的过程</span>
-    <span class="mi">4</span><span class="p">.</span> <span class="err">使用</span> <span class="n">L</span> <span class="err">训练模型</span><span class="k">C</span> <span class="err">，</span> <span class="err">好像一般是训练一个新的，</span> <span class="err">但也不一定需要重新</span> <span class="err">训练初始模型</span><span class="k">C</span><span class="err">（分类或回归都行）</span>
+使用 T 训练初始模型C（分类或回归都行）
+repeat:
+    1. 用 C 对 U 进行标注（预测）
+    2. 计算未标注数据集 U 中数据标注结果的不确定性，不确定性高，比如可以用 熵 Entropy 表现， 选择若干 最大熵的数据， 要求人工标注
+    3. 把这些数据移到训练集L中， 即用原始训练集里已有的标注 label, 代表 专家人工标注的过程
+    4. 使用 L 训练模型C ， 好像一般是训练一个新的， 但也不一定需要重新 训练初始模型C（分类或回归都行）
 </pre></div>
-
-
-<h1>不确定性评估Uncertainty Measures</h1>
+<h1 id="uncertainty-measures">不确定性评估Uncertainty Measures</h1>
 <p>又名获取函数 Acquisition Function</p>
-<h2>1. 最大熵</h2>
+<h2 id="1">1. 最大熵</h2>
 <p>Max Entropy:  </p>
 <p>$$H[y|x, D_{train}] = - \sum_c p(y=c|x, D_{train}) log(y=c|x,D_{train})$$</p>
-<h2>2. 密熵</h2>
+<h2 id="2">2. 密熵</h2>
 <p>即密度加熵， 作者使用 二者相乘而不是 $ \lambda * DS(x) + (1-\lambda)*Entropy(x)$</p>
 <p>KNN-density K-Nearest-Neighbor-Based density</p>
                         
@@ -219,7 +240,7 @@
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#lun-wen-ref">论文
-                            <span>26</span>
+                            <span>27</span>
 </a></li>
                         <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
                             <span>27</span>

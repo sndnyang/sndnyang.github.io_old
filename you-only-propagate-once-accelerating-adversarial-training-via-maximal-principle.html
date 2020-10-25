@@ -4,25 +4,25 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="sndnyang sndnyang.github.io" />
-        <meta name="copyright" content="sndnyang sndnyang.github.io" />
+        <meta name="author" content="sndnyang" />
+        <meta name="copyright" content="sndnyang" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="论文, 人工智能, 神经网络, " />
+<meta name="keywords" content="论文, 论文, " />
 
-<meta property="og:title" content="蜻蜓点论文-列表 "/>
-<meta property="og:url" content="http://sndnyang.github.io/read_papers_list.html" />
+<meta property="og:title" content="You Only Propagate Once: Accelerating Adversarial Training via Maximal Principle "/>
+<meta property="og:url" content="http://sndnyang.github.io/you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html" />
 <meta property="og:description" content="天天论文， 搞个频道" />
 <meta property="og:site_name" content="科探空谷" />
-<meta property="og:article:author" content="sndnyang sndnyang.github.io" />
-<meta property="og:article:published_time" content="2099-05-20T13:14:20+08:00" />
-<meta name="twitter:title" content="蜻蜓点论文-列表 ">
+<meta property="og:article:author" content="sndnyang" />
+<meta property="og:article:published_time" content="2000-10-23T13:14:20+08:00" />
+<meta name="twitter:title" content="You Only Propagate Once: Accelerating Adversarial Training via Maximal Principle ">
 <meta name="twitter:description" content="天天论文， 搞个频道">
 
 
-        <title>蜻蜓点论文-列表  · 科探空谷
+        <title>You Only Propagate Once: Accelerating Adversarial Training via Maximal Principle  · 科探空谷
 </title>
 
         <style>
@@ -109,8 +109,8 @@
         <article>
             <header class="page-header span12 text-center">
                 <h1>
-                    <a href="/read_papers_list.html">
-                        蜻蜓点论文-列表  
+                    <a href="/you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html">
+                        You Only Propagate Once: Accelerating Adversarial Training via Maximal Principle  
                     </a>
                 </h1>
             </header>
@@ -123,7 +123,18 @@
                             <h4 style="text-align: center;">目录</h4>
                             <div class="toc">
 <ul>
-<li><a href="#papers-read">论文点水 papers read</a></li>
+<li><a href="#_1">问题</a><ul>
+<li><a href="#_2">示意图</a></li>
+</ul>
+</li>
+<li><a href="#_3">算法角度思考</a></li>
+<li><a href="#_4">方法</a><ul>
+<li><a href="#yopo">基于梯度的YOPO</a></li>
+</ul>
+</li>
+<li><a href="#_5">实验结果</a></li>
+<li><a href="#_6">源码解释（下次一定）</a></li>
+<li><a href="#_7">数学原理（估计下次下篇论文？）</a></li>
 </ul>
 </div>
                         </div>
@@ -137,338 +148,90 @@
 
                         
                         
-<h1 id="papers-read">论文点水 papers read</h1>
-<p>口齿不清、 基础不扎实、 语速偏快、 有时越来越小声、 理解不到位</p>
-<p><a href="read_papers_domain_list.html">论文涉及的领域列表</a></p>
-<p><a href="https://space.bilibili.com/17529417/video">B站主页</a> 完整</p>
-<p><a href="https://www.youtube.com/channel/UCwyMgDylnGQ-Wf4N00RmWJw">Youtube频道</a> 不全，没人看~~~</p>
-<p><a href="https://1drv.ms/u/s!AgCFFlwzHuH8jFTeW-hXFpY9jEs3?e=cpSPKZ">幻灯片 OneDrive</a></p>
+<p><img alt="image-20201023192829765" src="images/image-20201023192829765.png"/></p>
+<p>发表于 NIPS 2019, <a href="https://arxiv.org/abs/1905.00877">Arxiv</a>,<a href="https://github.com/a1600012888/YOPO-You-Only-Propagate-Once">Github</a></p>
+<div style="page-break-after: always;"></div>
+<h1 id="_1">问题</h1>
+<ol>
+<li>神经网络易受攻击， 对抗样本Adversarial Examples、对抗扰动Adversarial Perturbations，非常微小的、人类无法感知的变化，就能骗过神经网络、深度学习</li>
+<li>对抗训练Adversarial Training（AT），稳健优化方法，能有效提高网络的稳健程度。</li>
+<li>但AT非常费时， FGSM花费时间 是常规训练的两倍， 迭代式的AT方法比如PGD，则是几十倍的时间开销。</li>
+</ol>
+<p>所以， 怎么节省AT的训练时间，并且保证不降低稳健性， 就是很值得研究的课题。</p>
+<h2 id="_2">示意图</h2>
+<p>假设已知 FGSM(<a href="http://arxiv.org/abs/1412.6572">Arxiv</a>, <a href="https://www.bilibili.com/video/BV12a4y1J74U">我的视频</a>) : 
+$$
+x + \epsilon sign(\nabla_x L(\theta, x, y))
+$$
+还有 PGD-K(<a href="http://arxiv.org/abs/1706.06083">Arxiv</a>): 
+$$
+x^{t+1} = \prod_{x+\mathcal{S}} (x^t + \alpha sign(\nabla_x L(\theta, x, y)))
+$$</p>
+<p>毫无疑问， 计算量成倍增加。<a href="https://mpeker.com/index.php/2019/11/02/visualize-features-of-a-convolutional-neural-network-for-resnet-architecture/">图片出处</a></p>
+<p><img alt="image-20201023194716990" src="images/image-20201023194716990.png"/></p>
+<p>怎么优化？节省时间？ 从算法角度，不考虑硬件、技巧， 我们也能猜到这篇论文大概是做什么</p>
+<h1 id="_3">算法角度思考</h1>
+<p><img alt="image-20201023194716990" src="images/image-20201023194716990.png"/></p>
+<p>贪心， 局部优化， 或者从管理学来说</p>
+<p>根据链式法则
+$$
+\begin{align}
+\nabla_x L(\theta, x, y) &amp; = \frac{\part L(\theta, x, y)}{\part f(\theta_{1}, x)} \cdot \frac{\part f(\theta_{1}, x)}{\part x} \
+&amp; = \nabla_x (\nabla_f (L(\theta, x, y)) \cdot f(\theta_1, x))
+\end{align}
+$$</p>
+<p>第二行的两项相乘，就是神经网络显然可以固定住第一项，</p>
+<h1 id="_4">方法</h1>
+<p>本文是用最优控制optimal control里的最大原则(maximal principle)</p>
+<p><img alt="image-20201023204408112" src="images/image-20201023204408112.png" style="zoom:67%;"/></p>
+<p>对抗训练是个最小最大目标问题 min-max
+$$
+\min_{\theta} \mathbb{E}<em _124_eta_124_="|\eta|" _epsilon="\epsilon" _le="\le">{(x, y)\sim D} \max</em> \mathcal{L(\theta; x+\eta, y)}  \tag{1}
+$$
+本文作者将之转为可导博弈问题 differential game. 接着就可以推导出它的Pontryagin’s Max- imum Principle (PMP) （庞特里亚金最大化原理，变分法中欧拉-拉格朗日方程的特例）</p>
+<p>YOPO (You Only Propagate Once)</p>
+<h2 id="yopo">基于梯度的YOPO</h2>
+<p>重写(1)式， 强调第一层：
+$$
+\min <em _left_124_eta__i="\left|\eta_{i">{\theta} \max </em>\right| \leq \epsilon} \mathcal{L}(\theta; x+\eta, y) =  \sum_{i=1}^{B} \ell (g_{\tilde{\theta}}\left(f_{0}\left(x_{i}+\eta_{i}, \theta_{0}\right)\right), y_{i})  \tag{2}
+$$
+$f_0$ 代表网络的第一层单元， $g_{\tilde{\theta}} = f_{T-1} \circ \cdots f_1$ 代表了其他层， $B$是批次大小， $\tilde{\theta}$ 就是各层权重 ${\theta_1,\cdots, \theta_{T-1}}$</p>
+<p><img alt="image-20201023221019338" src="images/image-20201023221019338.png" style="zoom: 50%;"/></p>
+<p>对(2)求导
+$$
+\nabla_{\eta}\mathcal{L}(\theta; x+\eta, y) = \nabla_{f_0}\mathcal{L}(\theta; x+\eta, y) \cdot \nabla_{\eta} f_0(x + \eta, \theta) \tag{3}
+$$</p>
+<p>$$</p>
+<p>\nabla_{f_0}\mathcal{L}(\theta; x+\eta, y) = \nabla_{g_{\tilde{\theta}}} \ell (g_{\tilde{\theta}}(f_{0}(x_{i}+\eta_{i}, \theta_{0})), y_{i}) \cdot \nabla_{f_0} g_{\tilde{\theta}} (f_{0}(x_{i}+\eta_{i}, \theta_{0}))  = p \tag{4}
+$$</p>
+<p>叫做松驰变量slack variable. 所以YOPO-m-n 就在内部循环时，固定外部的 $p$。</p>
 <table>
 <thead>
 <tr>
-<th>论文名</th>
-<th>Bilibili</th>
-<th>Youtube</th>
-<th>Arxiv</th>
-<th>博客</th>
-<th>日期</th>
+<th>PGD-K</th>
+<th>YOPO-m-n</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://www.bilibili.com/video/BV1FA411E7Qt">Cyclical Stochastic Gradient MCMC and snapshot ensemble</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201011</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1Nk4y1y7jp">Unsupervised Feature Learning via Non-Parametric Instance Discrimination</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201010</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1A541177m9">An Image is Worth 16x16 Words Transformers for Image Recognition at Scale</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201009</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1EV41127RN">Training independent subnetworks for robust prediction</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201008</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1x54y1k77u">Active Learning for CNNs: A Core-Set Approach</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201006</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1Az4y1f75m">SimCLR A Simple Framework for Contrastive Learning of Visual Representation</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201005</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1sp4y1Y73J">UNITER: UNiversal Image-TExt Representation Learning</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201004</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1XD4y1R7uY">Image Synthesis with a Single (Robust) Classifier</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20201002</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1Lh411X7Ev">Set Transformer A Framework for Attention-based Permutation-Invariant NN</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200921</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1bv411C7HC/">Consistency Regularization in Semi-Supervised Learning</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200920</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1tD4y1o7VY">Did the model understand the question</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200919（0906）</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1Gi4y1E7Go">Rethinking Feature Distribution for Loss Functions in Image Classification</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200919</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1fk4y1y7Sg">Bootstrap your own latent: A new way to self supervised learning</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200918</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1ez4y1Z789">Hybrid Discriminative-Generative Training via Contrastive Learning(EBMs)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200918（0904）</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1YZ4y1N7UW">A Multimodal Translation-Based Approach for Knowledge Graph Representation (ACL 2018)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200917</td>
-</tr>
-<tr>
-<td>Deep Bayesian Active Learning with Image Data (ICML 2017)  <br/>The power of ensembles for active learning in image classification (CVPR 2018)</td>
-<td><a href="https://www.bilibili.com/video/BV1bV411m72M">Bilibili</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200916</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1mt4y1i7fo">SCAN Learnrnning to Classify Images without Labels (ECCV 2020)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200915</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1xZ4y1N7EJ">Unsupervised Question Answering by Cloze Translation (ACL 2019)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200914</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1St4y1i7AZ">Phrase-Based &amp; Neural Unsupervised Machine Translation (EMNLP 2018)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200913</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1G54y1y7c9">MixUp as Locally Linear Out-Of-Manifold Regularization (AAAI 2019)</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200913（0902）</td>
-</tr>
-<tr>
-<td><a href="https://www.bilibili.com/video/BV1zp4y1e74u">Manifold Mixup: Better Representations by Interpolating Hidden States ICML2019</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200912</td>
-</tr>
-<tr>
-<td>Bag of Tricks for Image Classification with CNN</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200909</td>
-</tr>
-<tr>
-<td>On Mixup Training Improved Calibration</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200907</td>
-</tr>
-<tr>
-<td>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200905</td>
-</tr>
-<tr>
-<td>Rationalizing Neural Predictions(EMNLP2016)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200903</td>
-</tr>
-<tr>
-<td>Attention is All you need (NIPS 2017)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200901</td>
-</tr>
-<tr>
-<td>Learn to Pay Attention(ICLR 2018)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>20200831</td>
-</tr>
-<tr>
-<td>A Self-Training Method for MRC with Soft Evidence Extraction(ACL 2019)</td>
-<td><a href="https://www.bilibili.com/video/bv1u5411b7yY">Bilibili</a></td>
-<td><a href="https://youtu.be/Hw6h_Fi-yEo">Youtube</a></td>
-<td></td>
-<td></td>
-<td>20200831（0829）</td>
-</tr>
-<tr>
-<td>Deep Fool(CVPR2016) 和 Deep Defense(NIPS 2018)</td>
-<td><a href="https://www.bilibili.com/video/bv19f4y1Q7Ln">Bilibili</a></td>
-<td><a href="https://www.youtube.com/watch?v=PPHsRICeAIU">youtube</a></td>
-<td></td>
-<td></td>
-<td>20200830</td>
-</tr>
-<tr>
-<td>R-Trans RNN Transformer Network for 中文机器阅理解(IEEE-Access)</td>
-<td><a href="https://www.bilibili.com/video/BV1n5411b7QB/">Bilibili</a></td>
-<td><a href="https://youtu.be/tKk13dHxqXY">youtube</a></td>
-<td></td>
-<td></td>
-<td>20200828</td>
-</tr>
-<tr>
-<td>一系列Energy-based models 能量模型论文摘要简介</td>
-<td><a href="https://www.bilibili.com/video/bv1it4y1S7Qx">Bilibili</a></td>
-<td><a href="https://youtu.be/VRnANDc_0nQ">Youtube</a></td>
-<td></td>
-<td></td>
-<td>20200827</td>
-</tr>
-<tr>
-<td>Implicit Generation and Modeling with EBM(NIPS 2019)</td>
-<td><a href="https://www.bilibili.com/video/BV1MK411K7eF/">Bilibili</a></td>
-<td><a href="https://youtu.be/VEry7JDZ6F4">Youtube</a></td>
-<td></td>
-<td></td>
-<td>20200826</td>
-</tr>
-<tr>
-<td>MixMatch A Holistic Approach to Semi-supervised Learning(NIPS 2019)</td>
-<td><a href="https://www.bilibili.com/video/BV1T5411b79r/">Bilibili</a></td>
-<td><a href="https://youtu.be/WqxcYMJg-8k">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1905.02249">Arxiv</a></td>
-<td></td>
-<td>20200825</td>
-</tr>
-<tr>
-<td>Obfuscated Gradients Give a False Sense of Security(ICML2017 best reward)</td>
-<td><a href="https://www.bilibili.com/video/BV1Nk4y127H6/">Bilibili</a></td>
-<td><a href="https://youtu.be/Z2dcy_YYArM">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1802.00420">Arxiv</a></td>
-<td></td>
-<td>20200824</td>
-</tr>
-<tr>
-<td>Explaining and Harnessing Adversarial Examples(ICLR 2015)</td>
-<td><a href="https://www.bilibili.com/video/BV12a4y1J74U/">Bilibili</a></td>
-<td><a href="https://youtu.be/tLc0LTO_6lw">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1412.6572">Arxiv</a></td>
-<td></td>
-<td>20200823</td>
-</tr>
-<tr>
-<td>Imagenet-Trained CNNS are Biased Towards Texture(ICLR2018)</td>
-<td><a href="https://www.bilibili.com/video/BV1yv411y7oY">Bilibili</a></td>
-<td><a href="https://www.youtube.com/watch?v=2yMSN2YQWRc">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1811.12231">Arxiv</a></td>
-<td></td>
-<td>20200823（0822）</td>
-</tr>
-<tr>
-<td>Momentum Contrast for Unsupervised Visual Representation Learning(CVPR2020)</td>
-<td><a href="https://www.bilibili.com/video/BV14K4y1Y7S7">Bilibili</a></td>
-<td><a href="https://www.youtube.com/watch?v=bEyc49jpKEE">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1911.05722">Arxiv</a></td>
-<td></td>
-<td>20200821</td>
-</tr>
-<tr>
-<td>Mixup: Beyond Empirical Risk Minimization(ICLR2018)</td>
-<td><a href="https://www.bilibili.com/video/BV14K4y1Y7S7">Bilibili</a></td>
-<td><a href="https://www.youtube.com/watch?v=w7E5QRqs9SI">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1710.09412">Arxiv</a></td>
-<td></td>
-<td>20200820</td>
-</tr>
-<tr>
-<td>Your Classifier is secretely an Energy Based Model(ICLR 2019)</td>
-<td><a href="https://www.bilibili.com/video/BV19v411y7xd">Bilibili</a></td>
-<td><a href="https://www.youtube.com/watch?v=C60f6mVhKGY">Youtube</a></td>
-<td><a href="https://arxiv.org/abs/1912.03263">Arxiv</a></td>
-<td></td>
-<td>20200819</td>
+<td><img alt="image-20201023220222206" src="images/image-20201023220222206.png"/></td>
+<td><img alt="image-20201023220244471" src="images/image-20201023220244471.png"/></td>
 </tr>
 </tbody>
 </table>
+<p>用代码解释下 怎么实现 $\eta^{s+1} = \eta^{s} + \alpha p \cdot \nabla_\eta f_0(x + \eta^s, \theta)$</p>
+<p><img alt="image-20201023224206231" src="images/image-20201023224206231.png"/></p>
+<h1 id="_5">实验结果</h1>
+<p>我还是不爱讲实验结果</p>
+<p><img alt="image-20201023202723648" src="images/image-20201023202723648.png"/></p>
+<p><img alt="image-20201023203029768" src="images/image-20201023203029768.png"/></p>
+<p><img alt="image-20201023203116703" src="images/image-20201023203116703.png"/></p>
+<p><img alt="image-20201023203216773" src="images/image-20201023203216773.png" style="zoom:67%;"/></p>
+<h1 id="_6">源码解释（下次一定）</h1>
+<p>https://github.com/a1600012888/YOPO-You-Only-Propagate-Once/blob/master/lib/base_model/wide_resnet.py</p>
+<p>https://github.com/a1600012888/YOPO-You-Only-Propagate-Once/blob/master/experiments/CIFAR10/wide34.yopo-5-3/training_function.py</p>
+<p><img alt="image-20201023220906426" src="images/image-20201023220906426.png"/></p>
+<h1 id="_7">数学原理（估计下次下篇论文？）</h1>
                         
                         <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1444449175032">
                     <a href="#" class="bds_more" data-cmd="more"></a>
@@ -489,7 +252,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://sndnyang.github.io/read_papers_list.html#disqus_thread">
+                href="http://sndnyang.github.io/you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -499,8 +262,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'sndnyang';
-        var disqus_identifier = 'read_papers_list.html';
-    var disqus_url = 'http://sndnyang.github.io/read_papers_list.html';
+        var disqus_identifier = 'you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html';
+    var disqus_url = 'http://sndnyang.github.io/you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -522,16 +285,13 @@
                 </div>
                 <div class="span2 right-side" style="float:right;font-size:0.9em;">
                     <h4>Published</h4>
-                    <time pubdate="pubdate" datetime="2099-05-20T13:14:20+08:00">5月 20, 2099</time>
+                    <time pubdate="pubdate" datetime="2000-10-23T13:14:20+08:00">10月 23, 2000</time>
                     <h4>Category</h4>
-                    <a class="category-link" href="/categories.html#shen-jing-wang-luo-ref">神经网络</a>
+                    <a class="category-link" href="/categories.html#lun-wen-ref">论文</a>
                     <h4>Tags</h4>
                     <ul class="list-of-tags tags-in-article">
                         <li><a href="/tags.html#lun-wen-ref">论文
                             <span>40</span>
-</a></li>
-                        <li><a href="/tags.html#ren-gong-zhi-neng-ref">人工智能
-                            <span>30</span>
 </a></li>
                     </ul>
                     <h4>Stay in Touch</h4>

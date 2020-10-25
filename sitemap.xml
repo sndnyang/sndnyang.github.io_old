@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://sndnyang.github.io/</loc>
-<lastmod>2020-10-23T17:20:07-00:00</lastmod>
+<lastmod>2020-10-24T22:49:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/archives.html</loc>
-<lastmod>2020-10-23T17:20:07-00:00</lastmod>
+<lastmod>2020-10-24T22:49:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/tags.html</loc>
-<lastmod>2020-10-23T17:20:07-00:00</lastmod>
+<lastmod>2020-10-24T22:49:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://sndnyang.github.io/categories.html</loc>
-<lastmod>2020-10-23T17:20:07-00:00</lastmod>
+<lastmod>2020-10-24T22:49:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1133,6 +1133,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://sndnyang.github.io/vi-vim-tips.html</loc>
 <lastmod>2014-05-06T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/adversarial-examples-are-not-bugs-they-are-features.html</loc>
+<lastmod>2000-10-24T13:14:20+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://sndnyang.github.io/you-only-propagate-once-accelerating-adversarial-training-via-maximal-principle.html</loc>
+<lastmod>2000-10-23T13:14:20+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>GraphNavigator</title>
+    <script type="text/javascript" src="./kg/interactive-graph.js"></script>
+    <link type="text/css" rel="stylesheet" href="./kg/interactive-graph.css">
+    <script src="//cdn.bootcss.com//jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
+<!--    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="//cdn.bootcss.com/lodash.js/4.16.4/lodash.min.js"></script>
+    <!-- <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+    <link href="//cdn.bootcss.com/github-markdown-css/2.4.1/github-markdown.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/markdown-it/6.0.0/markdown-it.min.js"></script>
+    <script type="text/javascript" src="http://blog.zhimind.com/static/js/markdown-it-emoji.js"></script>
+    <script type="text/javascript" src="http://blog.zhimind.com/static/js/markdown-it-mathjax.js"></script>
+    <script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            font-size: 14px;
+        }
+
+        #graphArea {
+            height: 100%;
+            border: 1px solid lightgray;
+        }
+        #top {
+            position: fixed;
+            right: 25px;
+            bottom: 10px;
+            width: 60px;
+            height: 60px;
+            background-color: #bbb;
+            border-radius: 7px;
+            opacity: 0.8;
+            display: none;
+            z-index: 888;
+        }
+        #top .arrow {
+            margin: 0 auto;
+            padding-top: 11px;
+            width: 0;
+            height: 0;
+            border-right: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-bottom: 15px solid #7f7f7f;
+        }
+        #top .stick {
+            margin: 0 auto;
+            padding-bottom: 21px;
+            width: 13px;
+            border-bottom: 13px solid #bbb;
+            background-color: #7f7f7f;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="margin: 10px;">
+        Upload a json or csv file or use the default kg.json in the same directory.
+        <input type="file" id="file" onchange="uploadFiles(this.files)">
+        <div name="image" id="dropbox" style="min-width:300px;min-height:80px;border:3px dashed silver;">Drag file here</div>  
+        <br>
+        <div class="keywordpanel searchPanel ui-draggable ui-draggable-handle" style="position: absolute; top: 165px; left: 300px; display: none;">
+            <div class="searchPanel1">
+                <select class="label-select">
+                </select>
+                <input class="igraph-searchbox ui-autocomplete-input" type="text" size="16" placeholder="keyword" autocomplete="off" id="keywordsearch">
+            </div>
+            <div class="searchPanel2 igraph-searchbox-image">
+                <span align="center" class="fa fa-search fa-lg" id="keywordsearchbutton"></span>
+            </div>
+        </div>
+    </div> 
+    <div id="graphDiv" style="height:80%">
+        <div id="graphArea"></div>
+    </div>
+
+    <div style="display: none"><textarea id="grade"></textarea></div>
+    <div id="top" data-toggle="tooltip" data-placement="left" title="回到顶部">
+        <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+    </a>
+    <script type="text/javascript" src="./kg/kg_index.js"></script>
+    <script type="text/javascript" src="./kg/kg_markdownDemo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            backToTop();
+        });
+    </script>
+</body>
+
+</html>

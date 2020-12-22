@@ -15589,11 +15589,8 @@ var MainFrame = function () {
                 }
                 browser.clickFlag = setTimeout(function () {
                     // click 事件的处理
-                    if (cntrlIsPressed) {
-                        browser.fire(types_1.FrameEventName.NETWORK_CTRLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
-                    } else {
-                        browser.fire(types_1.FrameEventName.NETWORK_CLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
-                    }
+
+                    browser.fire(types_1.FrameEventName.NETWORK_CLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
                 }, 300); //延时300毫秒执行
             });
             this._network.on('doubleClick', function (args) {
@@ -15601,7 +15598,8 @@ var MainFrame = function () {
                     //取消上次延时未执行的方法
                     browser.clickFlag = clearTimeout(browser.clickFlag);
                 }
-                browser.fire(types_1.FrameEventName.NETWORK_DBLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+				// browser.fire(types_1.FrameEventName.NETWORK_DBLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
+				browser.fire(types_1.FrameEventName.NETWORK_CTRLCLICK, args instanceof CanvasRenderingContext2D ? { context2d: args } : args);
             });
         }
     }, {

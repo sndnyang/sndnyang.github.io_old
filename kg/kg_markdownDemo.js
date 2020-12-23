@@ -4535,7 +4535,7 @@ function init() {
           }
           nodes.push(node);
           for (var j in node.cite) {
-              edges.push({"from": parseInt(i) + 1, "to": node.cite[j]})
+              edges.push({"from": entry_d.citationKey, "to": node.cite[j]})
           }
       }
       var json = {'data': {'nodes': nodes, 'edges': edges}};
@@ -4667,12 +4667,15 @@ function init() {
 
   igraph.i18n.setLanguage("chs");
   var app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
-  if ($("#graphArea").css("display") !== "none") {
-    app.loadGson("kg.json", {
-        "onGetNodeDescription": function (node) { return showNode(node);}
-    }, function () { });
-  }
+  $.get("ml.bib?t=" + Math.random(), { t: new Date().getTime() }, function (data) {
+    var text = bib_2_json(data);
 
+    $("#grade").val(text);
+    app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
+    app.loadGsonString(text, {
+      "onGetNodeDescription": function (node) { return showNode(node);}
+    }, function () {});;
+  }, "text");
 });
 
 },{"highlight.js/lib/highlight.js":1,"markdown-it-abbr":54,"markdown-it-container":55,"markdown-it-deflist":56,"markdown-it-emoji":57,"markdown-it-footnote":63,"markdown-it-ins":64,"markdown-it-mark":65,"markdown-it-sub":66,"markdown-it-sup":67,"mdurl":71}]},{},[73]);

@@ -16,7 +16,8 @@
           "2"
         ],
         "link": " 1.md",
-        "video_link": " https://www.bilibili.com/video/BV1Qh411Z7iJ"
+        "video_link": " https://www.bilibili.com/video/BV1Qh411Z7iJ",
+        "group": 1
       },
       {
         "id": 2,
@@ -34,7 +35,8 @@
           ""
         ],
         "link": " 2.md",
-        "video_link": "https://www.bilibili.com/video/BV1Qh411Z7iJ"
+        "video_link": "https://www.bilibili.com/video/BV1Qh411Z7iJ",
+        "group": 2
       },
       {
         "id": 3,

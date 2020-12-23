@@ -4477,14 +4477,69 @@ function init() {
 
   // $("#keywordsearch").on('click', searchKeyword());
 
+  $("#examples").on('change', function () { 
+      var t = $("#examples").val();
+      
+      if (t === 'json') {
+        app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
+        if ($("#graphArea").css("display") !== "none") {
+          app.loadGson("kg.json", {
+              "onGetNodeDescription": function (node) { return showNode(node);}
+            }, function () { });
+          }
+          $.get("kg.json", { t: new Date().getTime() }, function (data) {
+            $("#grade").val(data);
+          }, "text");
+
+      } else if (t === 'bib') {
+          $.get("ml.bib?t=" + Math.random(), { t: new Date().getTime() }, function (data) {
+            var text = bib_2_json(data);
+
+            $("#grade").val(text);
+            app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
+            app.loadGsonString(text, {
+              "onGetNodeDescription": function (node) { return showNode(node);}
+            }, function () {});;
+          }, "text");
+      }
+
+  });
   $("#keywordsearchbutton").on('click', function () { searchKeyword(); });
 
   function split_comma_field(l) {
+      if (typeof l === 'undefined') 
+          return [];
       var list = [], es = l.split(',');
       for (var i in es) {
           list.push(es[i].trim());
       }
       return list;
+  }
+
+  function bib_2_json(text) {
+      var entries = bibtexParse.toJSON(text);   
+      var nodes = [], edges = [];
+      for (var i in entries) {
+          var entry_d = entries[i];
+          var entry = entry_d.entryTags
+          var node = {'id': entry_d.citationKey};
+          node.label = entry.title;
+          node.keywords = split_comma_field(entry.keywords);
+          node.cite = split_comma_field(entry.cite);
+          node.cited = split_comma_field(entry.cited);
+          node.link = entry.link;
+          node.video_link = entry.link;
+          node.links = split_comma_field(entry.links);
+          if ('group' in entry) {
+            node.group = entry.group;
+          }
+          nodes.push(node);
+          for (var j in node.cite) {
+              edges.push({"from": parseInt(i) + 1, "to": node.cite[j]})
+          }
+      }
+      var json = {'data': {'nodes': nodes, 'edges': edges}};
+      return JSON.stringify(json);
   }
 
   function uploadFile(file) {
@@ -4514,13 +4569,13 @@ function init() {
           app.loadGsonString(text, {
               "onGetNodeDescription": function (node) { return showNode(node);}
           }, function () {});;
-        } else if (ext == 'csv'){
+        } else if (ext == 'csv') {
             console.log(text.split('\n').length);
-            var lines = text.split('\n');
+            var entries = text.split('\n');
             
             var nodes = [], edges = [];
-            for (var i in lines) {
-                var line = lines[i];
+            for (var i in entries) {
+                var line = entries[i];
                 if (line.trim() === "") {
                   continue;
                 }
@@ -4552,7 +4607,15 @@ function init() {
           app.loadGsonString(text, {
             "onGetNodeDescription": function (node) { return showNode(node);}
           }, function () {});;
-        } else {
+        } else if (ext == 'bib'){
+          text = bib_2_json(text);
+
+          $("#grade").val(text);
+          app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
+          app.loadGsonString(text, {
+            "onGetNodeDescription": function (node) { return showNode(node);}
+          }, function () {});;
+        }else {
             alert("Only support JSON and CSV file. CSV should separated by '@'")
         }
     }
@@ -4579,11 +4642,11 @@ function init() {
         if (node.keywords[0] !== "") {
           description += "<p align=left>" + node.keywords + "</p>";
         }
-        if (node.video_link !== "") {
+        if (node.video_link !== "" && typeof node.video_link !== "undefined") {
           description += "<p align=left><a href='" + node.video_link + "'>论文解读视频</a></p>";
         }
   
-        if (node.link !== "") {
+        if (node.link !== "" && typeof node.link !== "undefined") {
           description += "<p align=left><a href='" + node.link + "'>论文要点</a></p>";
         }
   
@@ -4601,9 +4664,7 @@ function init() {
   
         return description;
   }
-  function graph_load() {
-    
-  }
+
   igraph.i18n.setLanguage("chs");
   var app = new igraph.GraphNavigator(document.getElementById('graphArea'), 'LIGHT');
   if ($("#graphArea").css("display") !== "none") {

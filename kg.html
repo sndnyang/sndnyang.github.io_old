@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>GraphNavigator</title>
-    <script type="text/javascript" src="./kg/interactive-graph.js"></script>
+    <script type="text/javascript" src="./kg/interactive-graph.js?t=0.2342"></script>
     <link type="text/css" rel="stylesheet" href="./kg/interactive-graph.css">
     <script src="//cdn.bootcss.com//jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -93,7 +93,15 @@
 <body>
     <div style="margin: 10px;">
         Upload a json or csv file or use the default kg.json in the same directory.
+        
         <input type="file" id="file" onchange="uploadFiles(this.files)">
+        
+        or select one json/bib examples
+        <select id="examples" style="display: line;">
+            <option value="json">Small kg.json</option>
+            <option value="bib">Big ml.bib</option>
+        </select>
+
         <div name="image" id="dropbox" style="min-width:300px;min-height:80px;border:3px dashed silver;">Drag file here</div>  
         <br>
         <div class="keywordpanel searchPanel ui-draggable ui-draggable-handle" style="position: absolute; top: 165px; left: 300px;">
@@ -121,6 +129,7 @@
     <div class="gh-ribbon"><a href="https://github.com/sndnyang/InteractiveGraph/tree/master/dist/kg" target="_blank">Fork me on GitHub</a></div>
     <script type="text/javascript" src="./kg/kg_index.js"></script>
     <script type="text/javascript" src="./kg/kg_markdownDemo.js"></script>
+    <script type="text/javascript" src="./kg/bibtexParse.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             backToTop();

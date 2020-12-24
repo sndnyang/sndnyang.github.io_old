@@ -4528,7 +4528,7 @@ function init() {
           node.cite = split_comma_field(entry.cite);
           node.cited = split_comma_field(entry.cited);
           node.link = entry.link;
-          node.video_link = entry.link;
+          node.video_link = entry.video_link;
           node.links = split_comma_field(entry.links);
           if ('group' in entry) {
             node.group = entry.group;
@@ -4643,11 +4643,11 @@ function init() {
           description += "<p align=left>" + node.keywords + "</p>";
         }
         if (node.video_link !== "" && typeof node.video_link !== "undefined") {
-          description += "<p align=left><a href='" + node.video_link + "'>论文解读视频</a></p>";
+          description += "<p align=left><a href='" + node.video_link + "'>论文解读视频链接</a></p>";
         }
   
         if (node.link !== "" && typeof node.link !== "undefined") {
-          description += "<p align=left><a href='" + node.link + "'>论文要点</a></p>";
+          description += "<p align=left><a href='" + node.link + "'>论文要点解读链接</a></p>";
         }
   
         description += "<hr>";

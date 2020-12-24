@@ -13112,8 +13112,8 @@ var Themes = function () {
                     enabled: true,
                     barnesHut: {
                         gravitationalConstant: -80000,
-                        springConstant: 0.001,
-                        springLength: 200
+                        springConstant: 0.0001,
+                        springLength: 20
                     },
                     solver: 'barnesHut'
                 },
@@ -15813,8 +15813,8 @@ var MainFrame = function () {
                     forceAtlas2Based: {
                         gravitationalConstant: -50,
                         centralGravity: 0.003,
-                        springLength: 230,
-                        springConstant: 0.18
+                        springLength: 80,
+                        springConstant: 0.05
                     }
                 },
                 interaction: {

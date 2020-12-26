@@ -79,19 +79,18 @@ body { padding-top: 50px; padding-bottom: 10px; }
             <div id="main">
                 <a href="gpa_calculator_en.html">English version</a>
                 <div id="GPAForm">
-                    <p>通过本程序，可以方便的计算出您所修读的课程的GPA。具体方法是在下面的方框中输入您</p>
-                    <p>修读获得的课程学分和课程分数（如果是等级制的，在下拉框选择对应等级），页面下方会累计加权结果。</p>
+                    <p>通过本程序，可以方便的计算出您所修读的课程的GPA。具体方法是在下面的方框中输入您修读获得的课程学分和课程分数（如果是等级制的，在下框选择对应等级），页面下方会累计加权结果。</p>
                     <hr>
-                定制文件格式， 学分必选， 三种记分方式中选一种
+                定制文件格式， 学分必选， 三种记分方式中必选一种， 课程名和学时可不写
                 <br>
                 <input type="checkbox" name="select" value="0" checked="checked" >课程名
                 <input type="checkbox" name="select" value="1" checked="checked" >百分制
                 <input type="checkbox" name="select" value="3"                   >等级制
                 <input type="checkbox" name="select" value="2"                   >4分制
                 <input type="checkbox" name="select" value="4" checked="checked" >学分
-                <input type="checkbox" name="select" value="5" checked="checked" >学时
+                <input type="checkbox" name="select" value="5" >学时
                 <br>
-                文件或下框内容的格式必须与选中字段保持相同顺序（可多不可少）
+                上传文件或更下方手动输入框内容的格式必须与选中字段保持相同顺序
                 <hr/>
                     <div>
                         可上传文件(纯文本txt,csv, 或xls,xlsx)
@@ -100,7 +99,7 @@ body { padding-top: 50px; padding-bottom: 10px; }
 
                         <br>
                         
-                        请按照格式描述选择字段， 课程名 ? 百分制? 等级制 ? 4分制 ? 学分 ? 学时    ?指代分隔符类型，默认使用空格作为分隔符
+                        请按照内容格式 选择字段， 课程名 ? 百分制? 等级制 ? 4分制 ? 学分 ? 学时    ?指代分隔符类型，在下方选择，默认使用空格作为分隔符
                     </div>
                 </div>
                 <br>
@@ -109,7 +108,7 @@ body { padding-top: 50px; padding-bottom: 10px; }
                 </div>
 
                 <hr />
-                也可手输， 上传文件则直接显示。
+                也可手输，上传文件成功则自动在此显示。
                 <div> <textarea id="grade" style="border:solid 1px" rows="15" cols="120"></textarea>
                 </div>
 
@@ -610,7 +609,7 @@ body { padding-top: 50px; padding-bottom: 10px; }
     </div>
     <div id="footer" class="span12">
         <p>
-        这是 gpa calculator。 made in China, 杨秀隆 xiulong.yancey.yang@gmail.com  
+        这是 gpa calculator。  
         <a href="mailto:sndnyangd@gmail.com">sndnyangd.gmail.com</a>
         </p>
     </div>

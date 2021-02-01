@@ -231,33 +231,33 @@ function standard_4_2() {
 }
 
 function peking_4() {
-    var threshold = new Array(90,85,82,78,75,72,68,64,60);
-    var letter_val = new Array('A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D');
-    var gpa_val = new Array(4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.0);
+    var threshold = new Array(90,85,82,78,75,72,68,64,60,0);
+    var letter_val = new Array('A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', 'F"');
+    var gpa_val = new Array(4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.0, 0);
     var map = {'threshold': threshold, 'letter': letter_val, 'gpa': gpa_val};
     return map;
 }
 
 function canada_4_3() {
-    var threshold = new Array(90,85,80,75,70,65,60);
-    var letter_val = new Array('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+');
-    var gpa_val = new Array(4.3, 4.0,3.7,3.3,3.0,2.7,2.3);
+    var threshold = new Array(90,85,80,75,70,65,60,0);
+    var letter_val = new Array('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'F');
+    var gpa_val = new Array(4.3, 4.0,3.7,3.3,3.0,2.7,2.3,0);
     var map = {'threshold': threshold, 'letter': letter_val, 'gpa': gpa_val};
     return map;
 }
 
 function CSU_4_3() {
-    var threshold = new Array(95,90,85,82,78,75,72,68,65,64,61,60);
-    var letter_val = new Array('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-');
-    var gpa_val = new Array(4.3,4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.5,1.3,1.0);
+    var threshold = new Array(95,90,85,82,78,75,72,68,65,64,61,60,0);
+    var letter_val = new Array('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F');
+    var gpa_val = new Array(4.3,4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.5,1.3,1.0,0);
     var map = {'threshold': threshold, 'letter': letter_val, 'gpa': gpa_val};
     return map;
 }
 
 function SJTU_4_3() {
-    var threshold = new Array(95,90,85,80,75,70,67,65,62,60);
-    var letter_val = new Array('A+','A','B+','B','C+','C','C-','D+','D','D-');
-    var gpa_val = new Array(4.3,4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.0);
+    var threshold = new Array(95,90,85,80,75,70,67,65,62,60,0);
+    var letter_val = new Array('A+','A','B+','B','C+','C','C-','D+','D','D-','F');
+    var gpa_val = new Array(4.3,4.0,3.7,3.3,3.0,2.7,2.3,2.0,1.7,1.0,0);
     var map = {'threshold': threshold, 'letter': letter_val, 'gpa': gpa_val};
     return map;
 }

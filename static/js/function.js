@@ -223,9 +223,9 @@ function standard_4_1() {
 }
 
 function standard_4_2() {
-    var threshold = new Array(85,75,60);
-    var letter_val = new Array('A', 'B', 'C');
-    var gpa_val = new Array(4.0,3.0,2.0);
+    var threshold = new Array(85,75,60, 0);
+    var letter_val = new Array('A', 'B', 'C', 'F');
+    var gpa_val = new Array(4.0,3.0,2.0, 0);
     var map = {'threshold': threshold, 'letter': letter_val, 'gpa': gpa_val};
     return map;
 }
